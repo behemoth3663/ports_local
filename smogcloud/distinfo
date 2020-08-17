@@ -1,0 +1,11 @@
+TIMESTAMP = 1597524452
+SHA256 (BishopFox-smogcloud-v0.0.1-30ce52e_GH0.tar.gz) = c25e54d03e8dacf5bdcca014b462b3c5f070ada77a94d62a30208f29485ba283
+SIZE (BishopFox-smogcloud-v0.0.1-30ce52e_GH0.tar.gz) = 10551
+SHA256 (BishopFox-smogcloud-30ce52e05889_GH0.tar.gz) = 44dd2b878ef502f4e178fa5615633d3bfd1941d444c2b8fc80a672749badd9f9
+SIZE (BishopFox-smogcloud-30ce52e05889_GH0.tar.gz) = 10552
+SHA256 (aws-aws-sdk-go-v1.34.5_GH0.tar.gz) = 8be7e224fdc5ee75995f9f7aa8305ad691fceeb6abcdcbc01ffb58ff523984e1
+SIZE (aws-aws-sdk-go-v1.34.5_GH0.tar.gz) = 15708326
+SHA256 (jmespath-go-jmespath-v0.3.0_GH0.tar.gz) = 3ecaa95ad8c9b2805f3de299133f112f198b5829de6ca0e27fa28b9f4801e18a
+SIZE (jmespath-go-jmespath-v0.3.0_GH0.tar.gz) = 49962
+SHA256 (remeh-sizedwaitgroup-v1.0.0_GH0.tar.gz) = 65b7051fb90964a24f51c27dad1d63b517b7599aa407643bd0a736de77ec4f7e
+SIZE (remeh-sizedwaitgroup-v1.0.0_GH0.tar.gz) = 2676

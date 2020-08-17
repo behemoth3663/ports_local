@@ -1,0 +1,5 @@
+GH_TUPLE=	\
+		BishopFox:smogcloud:30ce52e05889:bishopfox_smogcloud/vendor/github.com/BishopFox/smogcloud \
+		aws:aws-sdk-go:v1.34.5:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		jmespath:go-jmespath:v0.3.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
+		remeh:sizedwaitgroup:v1.0.0:remeh_sizedwaitgroup/vendor/github.com/remeh/sizedwaitgroup

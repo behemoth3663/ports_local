@@ -1,0 +1,12 @@
+GH_TUPLE=	\
+		TylerBrock:colorjson:95ec53f28296:tylerbrock_colorjson/vendor/github.com/TylerBrock/colorjson \
+		aws:aws-sdk-go:v1.13.56:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		fatih:color:v1.7.0:fatih_color/vendor/github.com/fatih/color \
+		go-ini:ini:v1.37.0:go_ini_ini/vendor/github.com/go-ini/ini \
+		golang:sys:c11f84a56e43:golang_sys/vendor/golang.org/x/sys \
+		inconshreveable:mousetrap:v1.0.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
+		jmespath:go-jmespath:0b12d6b521d8:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
+		mattn:go-colorable:v0.0.9:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
+		mattn:go-isatty:v0.0.3:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
+		spf13:cobra:v0.0.3:spf13_cobra/vendor/github.com/spf13/cobra \
+		spf13:pflag:v1.0.1:spf13_pflag/vendor/github.com/spf13/pflag

@@ -1,0 +1,5 @@
+TIMESTAMP = 1595441022
+SHA256 (mvdan-gogrep-v0.0.2-624f953_GH0.tar.gz) = fbeda7e0c374a926a50c56deebc034a004915118a667b896646d97d2f8f7944f
+SIZE (mvdan-gogrep-v0.0.2-624f953_GH0.tar.gz) = 27004
+SHA256 (golang-tools-3721262b3e7c_GH0.tar.gz) = e9704fba225f7cec65dac293e3a76eb3a77b974ea788b29de977b1c2653cb9b6
+SIZE (golang-tools-3721262b3e7c_GH0.tar.gz) = 2316834

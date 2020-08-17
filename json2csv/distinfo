@@ -1,0 +1,11 @@
+TIMESTAMP = 1591968788
+SHA256 (jehiah-json2csv-v1.2.1_GH0.tar.gz) = f807c70ebb26f18223a00689990fe19127c136692c3437e96a5f3579c9c9dbab
+SIZE (jehiah-json2csv-v1.2.1_GH0.tar.gz) = 4619
+SHA256 (davecgh-go-spew-v1.1.0_GH0.tar.gz) = 1f7e0bd2db0341925b5f2ee5834e99380f4c2b1bd36cf0fa62d7717899d39d62
+SIZE (davecgh-go-spew-v1.1.0_GH0.tar.gz) = 42337
+SHA256 (go-yaml-yaml-v2.2.2_GH0.tar.gz) = 42c3e4ef9eca2860d22b3c6c5582c6c13fb4b417e5ebc1acc56ee5e2c4ddcaff
+SIZE (go-yaml-yaml-v2.2.2_GH0.tar.gz) = 70656
+SHA256 (pmezard-go-difflib-v1.0.0_GH0.tar.gz) = 28f3dc1b5c0efd61203ab07233f774740d3bf08da4d8153fb5310db6cea0ebda
+SIZE (pmezard-go-difflib-v1.0.0_GH0.tar.gz) = 11398
+SHA256 (stretchr-testify-v1.4.0_GH0.tar.gz) = 3ae072321569a8cd6d77de8f3be774165e136198ce808df0a31589237ba59698
+SIZE (stretchr-testify-v1.4.0_GH0.tar.gz) = 110085

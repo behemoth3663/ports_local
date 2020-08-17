@@ -1,0 +1,22 @@
+GH_TUPLE=	\
+		Knetic:govaluate:9aa49832a739:knetic_govaluate/vendor/github.com/Knetic/govaluate \
+		aws:aws-sdk-go:v1.31.3:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		dustin:go-humanize:v1.0.0:dustin_go_humanize/vendor/github.com/dustin/go-humanize \
+		go-yaml:yaml:v2.3.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
+		golang:sys:d4481acd189f:golang_sys/vendor/golang.org/x/sys \
+		gorilla:handlers:v1.4.2:gorilla_handlers/vendor/github.com/gorilla/handlers \
+		gorilla:mux:v1.7.4:gorilla_mux/vendor/github.com/gorilla/mux \
+		gorilla:websocket:v1.4.0:gorilla_websocket/vendor/github.com/gorilla/websocket \
+		inconshreveable:mousetrap:v1.0.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
+		jmespath:go-jmespath:v0.3.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
+		konsorten:go-windows-terminal-sequences:v1.0.3:konsorten_go_windows_terminal_sequences/vendor/github.com/konsorten/go-windows-terminal-sequences \
+		mailru:easyjson:v0.7.1:mailru_easyjson/vendor/github.com/mailru/easyjson \
+		mitchellh:hashstructure:v1.0.0:mitchellh_hashstructure/vendor/github.com/mitchellh/hashstructure \
+		mitchellh:mapstructure:v1.1.2:mitchellh_mapstructure/vendor/github.com/mitchellh/mapstructure \
+		nlopes:slack:v0.6.0:nlopes_slack/vendor/github.com/nlopes/slack \
+		olivere:elastic:v7.0.15:olivere_elastic_v7/vendor/github.com/olivere/elastic/v7 \
+		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
+		similarweb:client-notifier:v0.1.4:similarweb_client_notifier/vendor/github.com/similarweb/client-notifier \
+		sirupsen:logrus:v1.6.0:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
+		spf13:cobra:v1.0.0:spf13_cobra/vendor/github.com/spf13/cobra \
+		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag
