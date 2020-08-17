@@ -1,0 +1,28 @@
+# $FreeBSD$
+
+PORTNAME=	gosec
+PORTVERSION=	2.4.0
+DISTVERSIONPREFIX=	v
+CATEGORIES=	devel security local
+
+MAINTAINER=	none@freebsd.org
+COMMENT=	Golang Security Checker
+
+LICENSE=	APACHE20
+LICENSE_FILE=	${WRKSRC}/LICENSE.txt
+
+USES=		go:modules
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	securego
+
+GO_TARGET=	./cmd/${PORTNAME}
+
+PLIST_FILES=	bin/${PORTNAME}
+
+fetch-version: .PHONY get-version
+
+.sinclude "${.CURDIR}/Makefile.deps"
+.include "${.CURDIR}/../go113mod-vendor.mk"
+
+.include <bsd.port.mk>

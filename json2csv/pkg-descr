@@ -1,0 +1,3 @@
+Converts a stream of newline separated json data to csv format.
+
+WWW: https://github.com/jehiah/json2csv

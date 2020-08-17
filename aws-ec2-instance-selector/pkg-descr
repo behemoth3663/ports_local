@@ -1,0 +1,4 @@
+CLI tool which recommends AWS instance types based on resource criteria
+like vcpus and memory
+
+WWW: https://github.com/aws/amazon-ec2-instance-selector

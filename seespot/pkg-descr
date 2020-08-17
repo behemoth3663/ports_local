@@ -1,0 +1,5 @@
+SeeSpot watches for a termination notification every 5 seconds and
+upon notification closes off the health check on the application and
+initiates the cleanup tasks.
+
+WWW: https://github.com/opszero/seespot
