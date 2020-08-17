@@ -1,0 +1,33 @@
+GH_TUPLE=	\
+		BurntSushi:toml:v0.3.1:burntsushi_toml/vendor/github.com/BurntSushi/toml \
+		aws:aws-lambda-go:v1.17.0:aws_aws_lambda_go/vendor/github.com/aws/aws-lambda-go \
+		aws:aws-sdk-go:v1.31.7:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		census-instrumentation:opencensus-go:v0.22.3:census_instrumentation_opencensus_go/vendor/go.opencensus.io \
+		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
+		dominikh:go-tools:v0.0.1-2020.1.4:dominikh_go_tools/vendor/honnef.co/go/tools \
+		go-yaml:yaml:v2.2.2:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
+		golang:appengine:v1.6.6:golang_appengine/vendor/google.golang.org/appengine \
+		golang:groupcache:8c9f03a8e57e:golang_groupcache/vendor/github.com/golang/groupcache \
+		golang:mock:v1.4.3:golang_mock/vendor/github.com/golang/mock \
+		golang:mod:v0.3.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:1ed23360d12c:golang_net/vendor/golang.org/x/net \
+		golang:oauth2:bf48bf16ab8d:golang_oauth2/vendor/golang.org/x/oauth2 \
+		golang:protobuf:v1.4.1:golang_protobuf/vendor/github.com/golang/protobuf \
+		golang:sys:bc7a7d42d5c3:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.3.2:golang_text/vendor/golang.org/x/text \
+		golang:tools:57a9e4404bf7:golang_tools/vendor/golang.org/x/tools \
+		google:go-genproto:b979b6f78d84:google_go_genproto/vendor/google.golang.org/genproto \
+		googleapis:gax-go:v2.0.5:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
+		googleapis:google-api-go-client:v0.24.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+		googleapis:google-cloud-go:v0.56.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
+		grpc:grpc-go:v1.29.1:grpc_grpc_go/vendor/google.golang.org/grpc \
+		inconshreveable:mousetrap:v1.0.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
+		jmespath:go-jmespath:v0.3.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
+		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
+		protocolbuffers:protobuf-go:v1.22.0:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
+		spf13:cobra:v1.0.0:spf13_cobra/vendor/github.com/spf13/cobra \
+		spf13:pflag:v1.0.3:spf13_pflag/vendor/github.com/spf13/pflag \
+		stretchr:testify:v1.5.1:stretchr_testify/vendor/github.com/stretchr/testify \
+		uber-go:atomic:v1.6.0:uber_go_atomic/vendor/go.uber.org/atomic \
+		uber-go:multierr:v1.5.0:uber_go_multierr/vendor/go.uber.org/multierr \
+		uber-go:zap:v1.15.0:uber_go_zap/vendor/go.uber.org/zap
