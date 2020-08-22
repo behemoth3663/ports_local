@@ -17,6 +17,7 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	lucagrulla
 
 #GO_TARGET=	./cmd/${PORTNAME}
+BROKEN=		PORTNAME conflicts with /usr/ports/sysutils/cw
 
 PLIST_FILES=	bin/${PORTNAME}
 
