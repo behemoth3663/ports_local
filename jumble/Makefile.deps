@@ -1,0 +1,19 @@
+GH_TUPLE=	\
+		agext:levenshtein:v1.2.1:agext_levenshtein/vendor/github.com/agext/levenshtein \
+		apparentlymart:go-textseg:v1.0.0:apparentlymart_go_textseg/vendor/github.com/apparentlymart/go-textseg \
+		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
+		disintegration:imaging:v1.6.2:disintegration_imaging/vendor/github.com/disintegration/imaging \
+		fogleman:gg:v1.3.0:fogleman_gg/vendor/github.com/fogleman/gg \
+		go-yaml:yaml:9f266ea9e77c:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
+		golang:freetype:e2365dfdc4a0:golang_freetype/vendor/github.com/golang/freetype \
+		golang:image:972c09e46d76:golang_image/vendor/golang.org/x/image \
+		golang:text:v0.3.2:golang_text/vendor/golang.org/x/text \
+		google:go-cmp:v0.3.1:google_go_cmp/vendor/github.com/google/go-cmp \
+		hashicorp:hcl2:fb75b3253c80:hashicorp_hcl2/vendor/github.com/hashicorp/hcl2 \
+		mitchellh:go-wordwrap:ad45545899c7:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
+		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
+		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
+		rakyll:statik:v0.1.7:rakyll_statik/vendor/github.com/rakyll/statik \
+		stretchr:testify:v1.6.1:stretchr_testify/vendor/github.com/stretchr/testify \
+		teris-io:shortid:771a37caa5cf:teris_io_shortid/vendor/github.com/teris-io/shortid \
+		zclconf:go-cty:v1.2.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
