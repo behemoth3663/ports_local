@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	yc
-PORTVERSION=	0.62.0
+PORTVERSION=	0.63.0
 CATEGORIES=	sysutils linux
 MASTER_SITES=   https://storage.yandexcloud.net/yandexcloud-yc/release/${DISTVERSION}/linux/${ARCH:S/i//}/
 PKGNAMEPREFIX=	linux-

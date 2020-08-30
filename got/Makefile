@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	got
-PORTVERSION=	0.2.0
+PORTVERSION=	0.2.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	ftp
 
@@ -21,7 +21,11 @@ PLIST_FILES=	bin/${PORTNAME}
 
 fetch-version: .PHONY get-version
 
-.sinclude "${.CURDIR}/Makefile.deps"
-.include "${.CURDIR}/../go113mod-vendor.mk"
+#workaround for can't find vendor/gitlab.com/poldi1405/go-ansi
+pre-build: .PHONY
+	cd ${WRKSRC} && ${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod vendor
+
+#.sinclude "${.CURDIR}/Makefile.deps"
+#.include "${.CURDIR}/../go113mod-vendor.mk"
 
 .include <bsd.port.mk>
