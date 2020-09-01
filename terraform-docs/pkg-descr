@@ -1,0 +1,4 @@
+Utility to generate documentation from Terraform modules in various output
+formats.
+
+WWW: https://github.com/terraform-docs/terraform-docs
