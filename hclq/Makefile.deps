@@ -1,0 +1,27 @@
+GH_TUPLE=	\
+		Songmu:retry:v0.1.0:songmu_retry/vendor/github.com/Songmu/retry \
+		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
+		golang:appengine:v1.4.0:golang_appengine/vendor/google.golang.org/appengine \
+		golang:net:1e06a53dbb7e:golang_net/vendor/golang.org/x/net \
+		golang:oauth2:9f3314589c9a:golang_oauth2/vendor/golang.org/x/oauth2 \
+		golang:protobuf:v1.2.0:golang_protobuf/vendor/github.com/golang/protobuf \
+		golang:sync:112230192c58:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:a9d3bda3a223:golang_sys/vendor/golang.org/x/sys \
+		google:go-github:v17.0.0:google_go_github/vendor/github.com/google/go-github \
+		google:go-querystring:v1.0.0:google_go_querystring/vendor/github.com/google/go-querystring \
+		hashicorp:go-version:v1.2.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
+		hashicorp:hcl:65a6292f0157:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
+		inconshreveable:mousetrap:v1.0.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
+		jstemmer:go-junit-report:af01ea7f8024:jstemmer_go_junit_report/vendor/github.com/jstemmer/go-junit-report \
+		mattn:go-colorable:v0.1.1:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
+		mattn:go-isatty:v0.0.5:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
+		mitchellh:colorstring:d06e56a500db:mitchellh_colorstring/vendor/github.com/mitchellh/colorstring \
+		pkg:errors:v0.8.1:pkg_errors/vendor/github.com/pkg/errors \
+		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
+		spf13:cobra:7547e83b2d85:spf13_cobra/vendor/github.com/spf13/cobra \
+		spf13:pflag:v1.0.3:spf13_pflag/vendor/github.com/spf13/pflag \
+		stretchr:testify:v1.3.0:stretchr_testify/vendor/github.com/stretchr/testify \
+		tcnksm:ghr:v0.12.1:tcnksm_ghr/vendor/github.com/tcnksm/ghr \
+		tcnksm:go-gitconfig:v0.1.2:tcnksm_go_gitconfig/vendor/github.com/tcnksm/go-gitconfig \
+		tcnksm:go-latest:e3007ae9052e:tcnksm_go_latest/vendor/github.com/tcnksm/go-latest \
+		valyala:fastjson:v1.4.1:valyala_fastjson/vendor/github.com/valyala/fastjson

@@ -1,0 +1,26 @@
+CARGO_CRATES=	autocfg-1.0.1 \
+		cfg-if-0.1.10 \
+		chrono-0.4.15 \
+		cymrust-0.3.4 \
+		fuchsia-cprng-0.1.1 \
+		idna-0.1.5 \
+		libc-0.2.76 \
+		log-0.3.9 \
+		log-0.4.11 \
+		matches-0.1.8 \
+		num-integer-0.1.43 \
+		num-traits-0.2.12 \
+		rand-0.3.23 \
+		rand-0.4.6 \
+		rand_core-0.3.1 \
+		rand_core-0.4.2 \
+		rdrand-0.4.0 \
+		resolve-0.1.2 \
+		time-0.1.44 \
+		tinyvec-0.3.4 \
+		unicode-bidi-0.3.4 \
+		unicode-normalization-0.1.13 \
+		wasi-0.10.0+wasi-snapshot-preview1 \
+		winapi-0.3.9 \
+		winapi-i686-pc-windows-gnu-0.4.0 \
+		winapi-x86_64-pc-windows-gnu-0.4.0

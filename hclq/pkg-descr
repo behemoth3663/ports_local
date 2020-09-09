@@ -1,0 +1,5 @@
+Command line tool for querying and manipulating HashiCorp HCL files, such as
+those used by Terraform, Consul, Nomad, and Vault. It's similar to jq, but for
+HCL. It can also modify HCL, with the option of modifying files in-place.
+
+WWW: https://github.com/mattolenik/hclq
