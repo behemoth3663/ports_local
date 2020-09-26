@@ -1,6 +1,6 @@
-TIMESTAMP = 1598773811
-SHA256 (cyberark-kubeletctl-v1.5_GH0.tar.gz) = d7351dff2c7f2df9ca8b434d677ff08c187355eff2d1c31967612cb89dd07896
-SIZE (cyberark-kubeletctl-v1.5_GH0.tar.gz) = 46800
+TIMESTAMP = 1601149527
+SHA256 (cyberark-kubeletctl-v1.6_GH0.tar.gz) = 0ce08179afbcadede093b39ca11e493b7f1e7a43837a104fd86f3222bc8301fe
+SIZE (cyberark-kubeletctl-v1.6_GH0.tar.gz) = 47987
 SHA256 (asaskevich-govalidator-f61b66f89f4a_GH0.tar.gz) = 7e241314ac30b59d9dc6ead8e902de94e07135486694e4e7ef0dc97eaf42c40e
 SIZE (asaskevich-govalidator-f61b66f89f4a_GH0.tar.gz) = 51800
 SHA256 (davecgh-go-spew-v1.1.1_GH0.tar.gz) = 7d82b9bb7291adbe7498fe946920ab3e7fc9e6cbfc3b2294693fad00bf0dd17e
