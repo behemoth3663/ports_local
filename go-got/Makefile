@@ -1,9 +1,11 @@
 # $FreeBSD$
 
 PORTNAME=	got
-PORTVERSION=	0.3.0
+PORTVERSION=	0.4.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	ftp
+PKGNAMEPREFIX=	go-
+DISTNAME=	got
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Simple and fast concurrent downloader
