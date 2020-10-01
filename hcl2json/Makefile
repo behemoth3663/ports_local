@@ -1,26 +1,26 @@
 # $FreeBSD$
 
-PORTNAME=	gogrep
-PORTVERSION=	0.0.2
+PORTNAME=	hcl2json
+PORTVERSION=	0.3.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	textproc
 
 MAINTAINER=	none@freebsd.org
-COMMENT=	Search for Go code using syntax trees
+COMMENT=	Convert hcl2 to json
 
-LICENSE=	BSD3CLAUSE
+LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 
 USE_GITHUB=	yes
-GH_ACCOUNT=	mvdan
-GH_TAGNAME=	624f953
+GH_ACCOUNT=	tmccombs
 
 PLIST_FILES=	bin/${PORTNAME}
 
 fetch-version: .PHONY get-version
 
+#rm -f -- distinfo Makefile.deps && make makesum && make go113mod-vendor && make makesum && mkcal
 .sinclude "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>

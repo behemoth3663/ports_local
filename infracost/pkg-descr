@@ -1,0 +1,5 @@
+Infracost shows hourly and monthly cost estimates for a Terraform project. This
+helps developers, DevOps et al. quickly see the cost breakdown and compare
+different deployment options upfront.
+
+WWW: https://github.com/infracost/infracost

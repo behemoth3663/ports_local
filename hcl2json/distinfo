@@ -1,0 +1,15 @@
+TIMESTAMP = 1601398981
+SHA256 (tmccombs-hcl2json-v0.3.1_GH0.tar.gz) = dd158c246c69e76bbbff77156def29cd035c18cf76c84161bb839cb45d915c59
+SIZE (tmccombs-hcl2json-v0.3.1_GH0.tar.gz) = 13362
+SHA256 (agext-levenshtein-v1.2.1_GH0.tar.gz) = c6e4bc2db1f0d9bc57fd3f1887567d527f6df1bcfbb079d1d1c4eab17f320b50
+SIZE (agext-levenshtein-v1.2.1_GH0.tar.gz) = 12728
+SHA256 (apparentlymart-go-textseg-v12.0.0_GH0.tar.gz) = f1d930b0902eccbb8264b368ffc77d73fc1f759aa1d4b7d97e1aed9635334f63
+SIZE (apparentlymart-go-textseg-v12.0.0_GH0.tar.gz) = 125616
+SHA256 (golang-text-v0.3.2_GH0.tar.gz) = 0b9309698f5708531c5377ab1e29b423a6d9e20c55a8d386c3b8283428212f22
+SIZE (golang-text-v0.3.2_GH0.tar.gz) = 7168069
+SHA256 (hashicorp-hcl-v2.6.0_GH0.tar.gz) = 172ae4f4a6fd1f47c27e40f033dcb9e2bf51baca9824e0b37fe3cfbfff3c8ff4
+SIZE (hashicorp-hcl-v2.6.0_GH0.tar.gz) = 392313
+SHA256 (mitchellh-go-wordwrap-ad45545899c7_GH0.tar.gz) = 917005b52e496fda7f702a88fb65a90cc5f2c8d5a569cf39aeaf1b536dd582d9
+SIZE (mitchellh-go-wordwrap-ad45545899c7_GH0.tar.gz) = 2740
+SHA256 (zclconf-go-cty-v1.6.1_GH0.tar.gz) = 02ba73f1a317f0cbe1886c9dbec851b64a654da1abf5726d2bc8b0a654c02409
+SIZE (zclconf-go-cty-v1.6.1_GH0.tar.gz) = 180813

@@ -1,0 +1,7 @@
+GH_TUPLE=	\
+		agext:levenshtein:v1.2.1:agext_levenshtein/vendor/github.com/agext/levenshtein \
+		apparentlymart:go-textseg:v12.0.0:apparentlymart_go_textseg_v12/vendor/github.com/apparentlymart/go-textseg/v12 \
+		golang:text:v0.3.2:golang_text/vendor/golang.org/x/text \
+		hashicorp:hcl:v2.6.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
+		mitchellh:go-wordwrap:ad45545899c7:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
+		zclconf:go-cty:v1.6.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
