@@ -1,10 +1,10 @@
---- communicator/ssh/communicator.go.orig	2020-08-10 17:45:41 UTC
+--- communicator/ssh/communicator.go.orig	2019-12-02 20:18:41.000000000 +0200
 +++ communicator/ssh/communicator.go
 @@ -184,6 +184,16 @@ func (c *Communicator) Connect(o terraform.UIOutput) (
  		return err
  	}
  
-+	// take from vendor/golang.org/x/crypto/ssh/common.go supportedCiphers
++	// imported from vendor/golang.org/x/crypto/ssh/common.go
 +	c.config.config.Ciphers = []string{
 +		"aes128-ctr", "aes192-ctr", "aes256-ctr",
 +		"aes128-gcm@openssh.com",

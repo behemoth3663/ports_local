@@ -3,10 +3,10 @@
 PORTNAME=	terraform
 PORTVERSION=	0.11.14
 DISTVERSIONPREFIX=	v
-CATEGORIES=	sysutils local
+CATEGORIES=	local
 PKGNAMESUFFIX?=	-${PORTVERSION:R}
 
-MAINTAINER=	lifanov@FreeBSD.org
+MAINTAINER=	none@freebsd.org
 COMMENT=	Provides a common configuration to launch infrastructure
 
 LICENSE=	MPL20
@@ -20,6 +20,8 @@ GH_ACCOUNT=	hashicorp
 PLIST_FILES=	bin/${PORTNAME}-${PORTVERSION}
 PLIST_FILES+=	bin/${PORTNAME}${PKGNAMESUFFIX}
 
+JQ_GETVER_EXPR=	[.[].name | gsub("^[a-z]+";"") | select(test("^${PORTVERSION:C/[^.]+$/[0-9]+/:S/./\\\\./g}$$"; "n"))][0]
+
 post-patch:
 	${REINPLACE_CMD} 's|Prerelease = "dev"|Prerelease = ""|' \
 		${WRKSRC}/version/version.go
@@ -27,8 +29,6 @@ post-patch:
 post-install:
 	${MV} ${STAGEDIR}${PREFIX}/bin/${PORTNAME} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION}
 	${INSTALL} -l rs ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}${PKGNAMESUFFIX}
-
-JQ_GETVER_EXPR=	[.[].name | gsub("^[a-z]+";"") | select(test("^${PORTVERSION:C/[^.]+$/[0-9]+/:S/./\\\\./g}$$"; "n"))][0]
 
 .include <bsd.port.mk>
 
