@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	tfsec
-PORTVERSION=	0.27.0
+PORTVERSION=	0.30.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	security
 
@@ -24,6 +24,5 @@ fetch-version: .PHONY get-version
 
 #rm -f -- distinfo Makefile.deps && make makesum && make gomod-vendor >Makefile.deps && make makesum && mkcal
 .sinclude "${.CURDIR}/Makefile.deps"
-#.include "${.CURDIR}/../go113mod-vendor.mk"
 
 .include <bsd.port.mk>
