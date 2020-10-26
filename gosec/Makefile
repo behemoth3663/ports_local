@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	gosec
-PORTVERSION=	2.4.0
+PORTVERSION=	2.5.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	devel security local
 
@@ -23,6 +23,5 @@ PLIST_FILES=	bin/${PORTNAME}
 fetch-version: .PHONY get-version
 
 .sinclude "${.CURDIR}/Makefile.deps"
-.include "${.CURDIR}/../go113mod-vendor.mk"
 
 .include <bsd.port.mk>

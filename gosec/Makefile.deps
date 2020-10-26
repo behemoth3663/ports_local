@@ -1,16 +1,20 @@
 GH_TUPLE=	\
+		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		fsnotify:fsnotify:v1.4.9:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
+		go-check:check:41f04d3bba15:go_check_check/vendor/gopkg.in/check.v1 \
 		go-tomb:tomb:dd632973f1e7:go_tomb_tomb/vendor/gopkg.in/tomb.v1 \
 		go-yaml:yaml:v2.3.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
-		golang:mod:v0.2.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:59133d7f0dd7:golang_net/vendor/golang.org/x/net \
+		golang:mod:v0.3.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:c89045814202:golang_net/vendor/golang.org/x/net \
 		golang:sys:fe76b779f299:golang_sys/vendor/golang.org/x/sys \
 		golang:text:v0.3.2:golang_text/vendor/golang.org/x/text \
-		golang:tools:1837592efa10:golang_tools/vendor/golang.org/x/tools \
-		golang:xerrors:9bdfabe68543:golang_xerrors/vendor/golang.org/x/xerrors \
-		gookit:color:v1.2.5:gookit_color/vendor/github.com/gookit/color \
+		golang:tools:0806396f153e:golang_tools/vendor/golang.org/x/tools \
+		golang:xerrors:5ec99f83aff1:golang_xerrors/vendor/golang.org/x/xerrors \
+		gookit:color:v1.3.1:gookit_color/vendor/github.com/gookit/color \
+		kr:pretty:v0.1.0:kr_pretty/vendor/github.com/kr/pretty \
 		mozilla:tls-observatory:4fa42e1c2dee:mozilla_tls_observatory/vendor/github.com/mozilla/tls-observatory \
 		nbutton23:zxcvbn-go:ae427f1e4c1d:nbutton23_zxcvbn_go/vendor/github.com/nbutton23/zxcvbn-go \
 		nxadm:tail:v1.4.4:nxadm_tail/vendor/github.com/nxadm/tail \
-		onsi:ginkgo:v1.13.0:onsi_ginkgo/vendor/github.com/onsi/ginkgo \
-		onsi:gomega:v1.10.1:onsi_gomega/vendor/github.com/onsi/gomega
+		onsi:ginkgo:v1.14.1:onsi_ginkgo/vendor/github.com/onsi/ginkgo \
+		onsi:gomega:v1.10.2:onsi_gomega/vendor/github.com/onsi/gomega \
+		stretchr:testify:v1.4.0:stretchr_testify/vendor/github.com/stretchr/testify
