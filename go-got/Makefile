@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	got
-PORTVERSION=	0.4.0
+PORTVERSION=	0.5.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	ftp
 PKGNAMEPREFIX=	go-
@@ -27,7 +27,7 @@ fetch-version: .PHONY get-version
 pre-build: .PHONY
 	cd ${WRKSRC} && ${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod vendor
 
-#.sinclude "${.CURDIR}/Makefile.deps"
+.sinclude "${.CURDIR}/Makefile.deps"
 #.include "${.CURDIR}/../go113mod-vendor.mk"
 
 .include <bsd.port.mk>
