@@ -19,6 +19,5 @@ GH_TAGNAME=	30ce52e
 PLIST_FILES=	bin/${PORTNAME}
 
 .sinclude "${.CURDIR}/Makefile.deps"
-.include "${.CURDIR}/../go113mod-vendor.mk"
 
 .include <bsd.port.mk>
