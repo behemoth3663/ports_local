@@ -3,10 +3,12 @@ GH_TUPLE=	\
 		chzyer:readline:2972be24d48e:chzyer_readline/vendor/github.com/chzyer/readline \
 		cpuguy83:go-md2man:f79a8a8ca69d:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
-		fatih:color:v1.9.0:fatih_color/vendor/github.com/fatih/color \
-		go-yaml:yaml:v2.2.2:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
+		dustin:go-humanize:v1.0.0:dustin_go_humanize/vendor/github.com/dustin/go-humanize \
+		fatih:color:v1.10.0:fatih_color/vendor/github.com/fatih/color \
+		go-yaml:yaml:9f266ea9e77c:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
+		go-yaml:yaml:v2.3.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
 		golang:mod:v0.3.0:golang_mod/vendor/golang.org/x/mod \
-		golang:sys:33540a1f6037:golang_sys/vendor/golang.org/x/sys \
+		golang:sys:d5e6a3e2c0ae:golang_sys/vendor/golang.org/x/sys \
 		google:uuid:v1.1.2:google_uuid/vendor/github.com/google/uuid \
 		joho:godotenv:v1.3.0:joho_godotenv/vendor/github.com/joho/godotenv \
 		juju:ansiterm:720a0952cc2a:juju_ansiterm/vendor/github.com/juju/ansiterm \
@@ -14,8 +16,8 @@ GH_TUPLE=	\
 		kelseyhightower:envconfig:v1.4.0:kelseyhightower_envconfig/vendor/github.com/kelseyhightower/envconfig \
 		lunixbochs:vtclean:2d01aacdc34a:lunixbochs_vtclean/vendor/github.com/lunixbochs/vtclean \
 		manifoldco:promptui:v0.8.0:manifoldco_promptui/vendor/github.com/manifoldco/promptui \
-		mattn:go-colorable:v0.1.4:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
-		mattn:go-isatty:v0.0.11:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
+		mattn:go-colorable:v0.1.8:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
+		mattn:go-isatty:v0.0.12:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
 		mattn:go-runewidth:v0.0.7:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
 		mitchellh:go-homedir:v1.1.0:mitchellh_go_homedir/vendor/github.com/mitchellh/go-homedir \
 		olekukonko:tablewriter:v0.0.4:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
@@ -25,7 +27,7 @@ GH_TUPLE=	\
 		shopspring:decimal:v1.2.0:shopspring_decimal/vendor/github.com/shopspring/decimal \
 		shurcooL:sanitized_anchor_name:v1.0.0:shurcool_sanitized_anchor_name/vendor/github.com/shurcooL/sanitized_anchor_name \
 		sirupsen:logrus:v1.7.0:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
-		stretchr:testify:v1.2.2:stretchr_testify/vendor/github.com/stretchr/testify \
+		stretchr:testify:v1.6.1:stretchr_testify/vendor/github.com/stretchr/testify \
 		tidwall:gjson:v1.6.1:tidwall_gjson/vendor/github.com/tidwall/gjson \
 		tidwall:match:v1.0.1:tidwall_match/vendor/github.com/tidwall/match \
 		tidwall:pretty:v1.0.2:tidwall_pretty/vendor/github.com/tidwall/pretty \
