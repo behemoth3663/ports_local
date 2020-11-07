@@ -2,7 +2,7 @@
 # $FreeBSD: head/lang/go/Makefile 544284 2020-08-06 17:37:47Z dmgk $
 
 PORTNAME=	go
-PORTVERSION=	1.14.10
+PORTVERSION=	1.14.11
 CATEGORIES=	lang
 MASTER_SITES?=	https://golang.org/dl/
 PKGNAMESUFFIX?=	-${PORTVERSION:R}
