@@ -1,0 +1,25 @@
+GH_TUPLE=	\
+		aws:aws-sdk-go:v1.22.3:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		bgentry:speakeasy:v0.1.0:bgentry_speakeasy/vendor/github.com/bgentry/speakeasy \
+		boombuler:barcode:6c824513bacc:boombuler_barcode/vendor/github.com/boombuler/barcode \
+		davecgh:go-spew:v1.1.0:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
+		fatih:color:v1.5.0:fatih_color/vendor/github.com/fatih/color \
+		go-errors:errors:d98b870cc4e0:go_errors_errors/vendor/github.com/go-errors/errors \
+		go-sql-driver:mysql:v1.4.1:go_sql_driver_mysql/vendor/github.com/go-sql-driver/mysql \
+		go-yaml:yaml:v2.2.4:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
+		golang:appengine:v1.6.1:golang_appengine/vendor/google.golang.org/appengine \
+		golang:crypto:f99c8df09eb5:golang_crypto/vendor/golang.org/x/crypto \
+		golang:mock:v1.4.0:golang_mock/vendor/github.com/golang/mock \
+		golang:net:ca1201d0de80:golang_net/vendor/golang.org/x/net \
+		golang:sys:5da285871e9c:golang_sys/vendor/golang.org/x/sys \
+		google:uuid:064e2069ce9c:google_uuid/vendor/github.com/google/uuid \
+		gruntwork-io:gruntwork-cli:v0.1.2:gruntwork_io_gruntwork_cli/vendor/github.com/gruntwork-io/gruntwork-cli \
+		gruntwork-io:terratest:v0.13.19:gruntwork_io_terratest/vendor/github.com/gruntwork-io/terratest \
+		jmespath:go-jmespath:c2b33e8439af:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
+		mattn:go-colorable:v0.0.9:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
+		mattn:go-isatty:v0.0.3:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
+		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
+		pquerna:otp:v1.2.0:pquerna_otp/vendor/github.com/pquerna/otp \
+		sirupsen:logrus:v1.0.4:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
+		stretchr:testify:v1.4.0:stretchr_testify/vendor/github.com/stretchr/testify \
+		urfave:cli:v1.20.0:urfave_cli/vendor/github.com/urfave/cli
