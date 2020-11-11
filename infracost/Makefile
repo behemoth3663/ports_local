@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	infracost
-PORTVERSION=	0.7.0
+PORTVERSION=	0.7.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	sysutils
 
@@ -21,7 +21,7 @@ PLIST_FILES=	bin/${PORTNAME}
 
 fetch-version: .PHONY get-version
 
-#rm -f -- distinfo Makefile.deps && make makesum && make gomod-vendor && make gomod-vendor >Makefile.deps && make makesum && mcal && instpc
+#rm -f -- distinfo Makefile.deps && make makesum && make gomod-vendor && make gomod-vendor >Makefile.deps && make makesum && mkcal && instpc
 .sinclude "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>
