@@ -1,0 +1,30 @@
+GH_TUPLE=	\
+		aws:aws-sdk-go:v1.35.13:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		boltdb:bolt:v1.3.1:boltdb_bolt/vendor/github.com/boltdb/bolt \
+		cpuguy83:go-md2man:f79a8a8ca69d:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
+		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
+		go-mgo:mgo:9856a29383ce:go_mgo_mgo/vendor/gopkg.in/mgo.v2 \
+		go-yaml:yaml:v2.2.8:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
+		golang:sys:953cdadca894:golang_sys/vendor/golang.org/x/sys \
+		golang:tools:a101b041ded4:golang_tools/vendor/golang.org/x/tools \
+		golang:xerrors:9bdfabe68543:golang_xerrors/vendor/golang.org/x/xerrors \
+		google:go-cmp:v0.4.0:google_go_cmp/vendor/github.com/google/go-cmp \
+		gotestyourself:gotest.tools:v3.0.2:gotestyourself_gotest_tools/vendor/gotest.tools/v3 \
+		hashicorp:errwrap:v1.0.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
+		hashicorp:go-multierror:v1.0.0:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
+		iancoleman:strcase:16388991a334:iancoleman_strcase/vendor/github.com/iancoleman/strcase \
+		igungor:gofakes3:v0.0.5:igungor_gofakes3/vendor/github.com/johannesboyne/gofakes3 \
+		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
+		karrick:godirwalk:v1.15.3:karrick_godirwalk/vendor/github.com/karrick/godirwalk \
+		kballard:go-shellquote:95032a82bc51:kballard_go_shellquote/vendor/github.com/kballard/go-shellquote \
+		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
+		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
+		posener:complete:v1.2.3:posener_complete/vendor/github.com/posener/complete \
+		russross:blackfriday:v2.0.1:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
+		ryszard:goskiplist:2dfbae5fcf46:ryszard_goskiplist/vendor/github.com/ryszard/goskiplist \
+		shabbyrobe:gocovmerge:f6ea450bfb63:shabbyrobe_gocovmerge/vendor/github.com/shabbyrobe/gocovmerge \
+		shurcooL:sanitized_anchor_name:v1.0.0:shurcool_sanitized_anchor_name/vendor/github.com/shurcooL/sanitized_anchor_name \
+		stretchr:objx:v0.1.0:stretchr_objx/vendor/github.com/stretchr/objx \
+		stretchr:testify:v1.4.0:stretchr_testify/vendor/github.com/stretchr/testify \
+		termie:go-shutil:bcacb06fecae:termie_go_shutil/vendor/github.com/termie/go-shutil \
+		urfave:cli:v2.2.0:urfave_cli_v2/vendor/github.com/urfave/cli/v2
