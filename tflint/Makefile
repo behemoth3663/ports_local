@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	tflint
-PORTVERSION=	0.20.3
+PORTVERSION=	0.21.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	sysutils
 
@@ -20,8 +20,7 @@ PLIST_FILES=	bin/${PORTNAME}
 
 fetch-version: .PHONY get-version
 
-#rm -f -- distinfo Makefile.deps && make makesum && make go113mod-vendor && make makesum && mkcal
-.sinclude "${.CURDIR}/Makefile.deps"
-#.include "${.CURDIR}/../go113mod-vendor.mk"
+#rm -f -- distinfo Makefile.deps && make makesum && make gomod-vendor &&  make gomod-vendor >Makefile.deps && make makesum && mkcal
+.-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>

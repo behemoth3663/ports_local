@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	awsls
-PORTVERSION=	0.5.1
+PORTVERSION=	0.6.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	textproc
 
@@ -21,7 +21,7 @@ PLIST_FILES=	bin/${PORTNAME}
 
 fetch-version: .PHONY get-version
 
-.sinclude "${.CURDIR}/Makefile.deps"
-.include "${.CURDIR}/../go113mod-vendor.mk"
+.-include "${.CURDIR}/Makefile.deps"
+#.include "${.CURDIR}/../go113mod-vendor.mk"
 
 .include <bsd.port.mk>
