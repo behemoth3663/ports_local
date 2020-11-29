@@ -1,6 +1,6 @@
-TIMESTAMP = 1606379917
-SHA256 (infracost-infracost-v0.7.4_GH0.tar.gz) = 8616fe03e8357c75a7f1384596644a10d3aba64e83730e9606ad1ea7b95b8dd9
-SIZE (infracost-infracost-v0.7.4_GH0.tar.gz) = 213404
+TIMESTAMP = 1606679291
+SHA256 (infracost-infracost-v0.7.5_GH0.tar.gz) = ff31913fb22a24708b95b2265185715479424dc8623fc4b37bd46ed7b2dc89ac
+SIZE (infracost-infracost-v0.7.5_GH0.tar.gz) = 216579
 SHA256 (briandowns-spinner-v1.11.1_GH0.tar.gz) = 258a7aa19a98d3d507a5eb6d16da0458e8aae7df2f0d94231b96c1187df30c7a
 SIZE (briandowns-spinner-v1.11.1_GH0.tar.gz) = 1308985
 SHA256 (chzyer-readline-2972be24d48e_GH0.tar.gz) = 8f425cfb33fce61a137866c0a88117c68f49de79a61a341353fc97339c6b74da
