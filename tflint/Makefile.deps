@@ -3,8 +3,8 @@ GH_TUPLE=	\
 		agl:ed25519:5312a6153412:agl_ed25519/vendor/github.com/agl/ed25519 \
 		apparentlymart:go-cidr:v1.1.0:apparentlymart_go_cidr/vendor/github.com/apparentlymart/go-cidr \
 		apparentlymart:go-textseg:v12.0.0:apparentlymart_go_textseg_v12/vendor/github.com/apparentlymart/go-textseg/v12 \
-		apparentlymart:go-versions:v1.0.0:apparentlymart_go_versions/vendor/github.com/apparentlymart/go-versions \
-		aws:aws-sdk-go:v1.35.33:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		apparentlymart:go-versions:v1.0.1:apparentlymart_go_versions/vendor/github.com/apparentlymart/go-versions \
+		aws:aws-sdk-go:v1.36.2:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
 		beevik:etree:v1.1.0:beevik_etree/vendor/github.com/beevik/etree \
 		bgentry:go-netrc:9fd32a8b3d3d:bgentry_go_netrc/vendor/github.com/bgentry/go-netrc \
 		bmatcuk:doublestar:v1.1.5:bmatcuk_doublestar/vendor/github.com/bmatcuk/doublestar \
@@ -24,26 +24,26 @@ GH_TUPLE=	\
 		golang:mock:v1.4.4:golang_mock/vendor/github.com/golang/mock \
 		golang:mod:v0.3.0:golang_mod/vendor/golang.org/x/mod \
 		golang:net:69a78807bb2b:golang_net/vendor/golang.org/x/net \
-		golang:oauth2:bf48bf16ab8d:golang_oauth2/vendor/golang.org/x/oauth2 \
+		golang:oauth2:5d25da1a8d43:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.4.2:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:sys:fdedc70b468f:golang_sys/vendor/golang.org/x/sys \
 		golang:text:v0.3.3:golang_text/vendor/golang.org/x/text \
-		golang:tools:fd294ab11aed:golang_tools/vendor/golang.org/x/tools \
-		golang:xerrors:9bdfabe68543:golang_xerrors/vendor/golang.org/x/xerrors \
-		google:go-cmp:v0.5.3:google_go_cmp/vendor/github.com/google/go-cmp \
-		google:go-genproto:869866162049:google_go_genproto/vendor/google.golang.org/genproto \
+		golang:tools:eafbe7b904eb:golang_tools/vendor/golang.org/x/tools \
+		golang:xerrors:5ec99f83aff1:golang_xerrors/vendor/golang.org/x/xerrors \
+		google:go-cmp:v0.5.4:google_go_cmp/vendor/github.com/google/go-cmp \
+		google:go-genproto:0bd0a958aa1d:google_go_genproto/vendor/google.golang.org/genproto \
 		google:uuid:v1.1.1:google_uuid/vendor/github.com/google/uuid \
 		googleapis:gax-go:v2.0.5:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
-		googleapis:google-api-go-client:v0.29.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+		googleapis:google-api-go-client:v0.34.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
 		googleapis:google-cloud-go:storage/v1.10.0:googleapis_google_cloud_go_storage \
-		googleapis:google-cloud-go:v0.61.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
+		googleapis:google-cloud-go:v0.65.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
 		grpc:grpc-go:v1.32.0:grpc_grpc_go/vendor/google.golang.org/grpc \
 		hashicorp:aws-sdk-go-base:v0.7.0:hashicorp_aws_sdk_go_base/vendor/github.com/hashicorp/aws-sdk-go-base \
 		hashicorp:errwrap:v1.0.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
 		hashicorp:go-checkpoint:v0.5.0:hashicorp_go_checkpoint/vendor/github.com/hashicorp/go-checkpoint \
 		hashicorp:go-cleanhttp:v0.5.1:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
 		hashicorp:go-cty:d3edf31b6320:hashicorp_go_cty/vendor/github.com/hashicorp/go-cty \
-		hashicorp:go-getter:v1.5.0:hashicorp_go_getter/vendor/github.com/hashicorp/go-getter \
+		hashicorp:go-getter:v1.5.1:hashicorp_go_getter/vendor/github.com/hashicorp/go-getter \
 		hashicorp:go-hclog:v0.15.0:hashicorp_go_hclog/vendor/github.com/hashicorp/go-hclog \
 		hashicorp:go-multierror:v1.1.0:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
 		hashicorp:go-plugin:v1.4.0:hashicorp_go_plugin/vendor/github.com/hashicorp/go-plugin \
@@ -51,15 +51,14 @@ GH_TUPLE=	\
 		hashicorp:go-safetemp:v1.0.0:hashicorp_go_safetemp/vendor/github.com/hashicorp/go-safetemp \
 		hashicorp:go-uuid:v1.0.1:hashicorp_go_uuid/vendor/github.com/hashicorp/go-uuid \
 		hashicorp:go-version:v1.2.1:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
-		hashicorp:hcl:v2.7.1:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
-		hashicorp:hil:ab17b08d6590:hashicorp_hil/vendor/github.com/hashicorp/hil \
+		hashicorp:hcl:v2.8.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
 		hashicorp:logutils:v1.0.0:hashicorp_logutils/vendor/github.com/hashicorp/logutils \
 		hashicorp:terraform-exec:v0.10.0:hashicorp_terraform_exec/vendor/github.com/hashicorp/terraform-exec \
 		hashicorp:terraform-json:v0.5.0:hashicorp_terraform_json/vendor/github.com/hashicorp/terraform-json \
 		hashicorp:terraform-plugin-go:v0.1.0:hashicorp_terraform_plugin_go/vendor/github.com/hashicorp/terraform-plugin-go \
 		hashicorp:terraform-plugin-sdk:v2.3.0:hashicorp_terraform_plugin_sdk_v2/vendor/github.com/hashicorp/terraform-plugin-sdk/v2 \
 		hashicorp:terraform-svchost:f050f53b9734:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
-		hashicorp:terraform:v0.13.5:hashicorp_terraform/vendor/github.com/hashicorp/terraform \
+		hashicorp:terraform:v0.14.2:hashicorp_terraform/vendor/github.com/hashicorp/terraform \
 		hashicorp:yamux:2f1d1f20f75d:hashicorp_yamux/vendor/github.com/hashicorp/yamux \
 		imdario:mergo:v0.3.9:imdario_mergo/vendor/github.com/imdario/mergo \
 		jbenet:go-context:d14ea06fba99:jbenet_go_context/vendor/github.com/jbenet/go-context \
