@@ -2,6 +2,8 @@ GH_TUPLE=	\
 		Masterminds:goutils:v1.1.0:masterminds_goutils/vendor/github.com/Masterminds/goutils \
 		Masterminds:semver:v1.5.0:masterminds_semver/vendor/github.com/Masterminds/semver \
 		Masterminds:sprig:v2.22.0:masterminds_sprig/vendor/github.com/Masterminds/sprig \
+		agext:levenshtein:v1.2.1:agext_levenshtein/vendor/github.com/agext/levenshtein \
+		apparentlymart:go-textseg:v1.0.0:apparentlymart_go_textseg/vendor/github.com/apparentlymart/go-textseg \
 		briandowns:spinner:v1.12.0:briandowns_spinner/vendor/github.com/briandowns/spinner \
 		chzyer:readline:2972be24d48e:chzyer_readline/vendor/github.com/chzyer/readline \
 		cpuguy83:go-md2man:f79a8a8ca69d:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
@@ -13,7 +15,10 @@ GH_TUPLE=	\
 		golang:crypto:87dc89f01550:golang_crypto/vendor/golang.org/x/crypto \
 		golang:mod:v0.3.0:golang_mod/vendor/golang.org/x/mod \
 		golang:sys:d5e6a3e2c0ae:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.3.2:golang_text/vendor/golang.org/x/text \
+		google:go-cmp:v0.2.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:uuid:v1.1.2:google_uuid/vendor/github.com/google/uuid \
+		hashicorp:hcl2:fb75b3253c80:hashicorp_hcl2/vendor/github.com/hashicorp/hcl2 \
 		huandu:xstrings:v1.3.2:huandu_xstrings/vendor/github.com/huandu/xstrings \
 		imdario:mergo:v0.3.11:imdario_mergo/vendor/github.com/imdario/mergo \
 		joho:godotenv:v1.3.0:joho_godotenv/vendor/github.com/joho/godotenv \
@@ -27,6 +32,7 @@ GH_TUPLE=	\
 		mattn:go-runewidth:v0.0.7:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
 		mitchellh:copystructure:v1.0.0:mitchellh_copystructure/vendor/github.com/mitchellh/copystructure \
 		mitchellh:go-homedir:v1.1.0:mitchellh_go_homedir/vendor/github.com/mitchellh/go-homedir \
+		mitchellh:go-wordwrap:ad45545899c7:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
 		mitchellh:reflectwalk:v1.0.0:mitchellh_reflectwalk/vendor/github.com/mitchellh/reflectwalk \
 		olekukonko:tablewriter:v0.0.4:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
@@ -39,4 +45,5 @@ GH_TUPLE=	\
 		tidwall:gjson:v1.6.3:tidwall_gjson/vendor/github.com/tidwall/gjson \
 		tidwall:match:v1.0.1:tidwall_match/vendor/github.com/tidwall/match \
 		tidwall:pretty:v1.0.2:tidwall_pretty/vendor/github.com/tidwall/pretty \
-		urfave:cli:v2.3.0:urfave_cli_v2/vendor/github.com/urfave/cli/v2
+		urfave:cli:v2.3.0:urfave_cli_v2/vendor/github.com/urfave/cli/v2 \
+		zclconf:go-cty:v1.0.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
