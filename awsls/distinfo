@@ -1,6 +1,6 @@
-TIMESTAMP = 1606125533
-SHA256 (jckuester-awsls-v0.6.0_GH0.tar.gz) = 1cafd756c32a47842d3c776c9ee3b4c6ba16670277bebb7f42ddc7c9744ac33e
-SIZE (jckuester-awsls-v0.6.0_GH0.tar.gz) = 16599738
+TIMESTAMP = 1608549320
+SHA256 (jckuester-awsls-v0.7.0_GH0.tar.gz) = ab88db5694210d557c00737f28c3ecb043fb5dae473580ec7e95cc6083ff4b3b
+SIZE (jckuester-awsls-v0.7.0_GH0.tar.gz) = 16604979
 SHA256 (agext-levenshtein-v1.2.2_GH0.tar.gz) = b238bfd1dce6da173913c27cf2e172d58a55e7e6b7fc11736c7e45bd1af4818f
 SIZE (agext-levenshtein-v1.2.2_GH0.tar.gz) = 13098
 SHA256 (apex-log-v1.1.2_GH0.tar.gz) = b2d5a3f96c7f71e6194a0e8b074a6aed57a634c3285a3fffb7e1aa92568bf524
