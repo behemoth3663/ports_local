@@ -1,4 +1,4 @@
---- internal/update/update.go.orig	2020-11-03 19:04:10 UTC
+--- internal/update/update.go.orig	2020-12-29 14:28:32 UTC
 +++ internal/update/update.go
 @@ -13,11 +13,8 @@ import (
  	"time"
@@ -12,7 +12,7 @@
  )
  
  type Info struct {
-@@ -26,74 +23,7 @@ type Info struct {
+@@ -26,70 +23,7 @@ type Info struct {
  }
  
  func CheckForUpdate() (*Info, error) {
@@ -80,11 +80,7 @@
 -		LatestVersion: latestVersion,
 -		Cmd:           cmd,
 -	}, nil
--}
--
--func skipUpdateCheck() bool {
--	return config.IsTruthy(os.Getenv("INFRACOST_SKIP_UPDATE_CHECK")) || config.IsTest() || config.IsDev()
 +	return nil, nil
  }
  
- func isBrewInstall() (bool, error) {
+ func skipUpdateCheck() bool {
