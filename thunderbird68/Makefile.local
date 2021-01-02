@@ -1,0 +1,34 @@
+OPT_LEVEL=z
+
+# avoid double -O3 if OPTIMIZED_CFLAGS enabled
+#CFLAGS:=${CFLAGS:C/^(-O).*/\1${OPT_LEVEL}/}
+
+.if ! ${CFLAGS:M-fomit-frame-pointer}
+  CFLAGS+=-fomit-frame-pointer
+.endif
+
+.if !exists(${MASTERDIR}/Makefile${BAK_SUFFIX})
+post-chroot:
+	${REINPLACE_CMD} -r \
+		's/(MOZ_MK_OPTIONS|MOZ_EXPORT)[=[:space:]]+(.*)/\1+=\2/' \
+	${MASTERDIR}/Makefile
+.endif
+
+.-include "${COMPAT_PREFIX}/etc/make.d/mozilla.inc.mk"
+
+#MOZ_OPTIONS+=	--disable-maintenance-service
+MOZ_OPTIONS+=	--disable-crashreporter
+MOZ_OPTIONS+=	--disable-parental-controls
+MOZ_OPTIONS+=	--disable-necko-wifi
+MOZ_OPTIONS+=	--disable-av1
+#MOZ_OPTIONS+=	--disable-webp
+
+#MOZ_MK_OPTIONS+=MOZ_TELEMETRY_REPORTING=0
+MOZ_MK_OPTIONS+=MOZ_TELEMETRY_ON_BY_DEFAULT=0
+MOZ_MK_OPTIONS+=MOZ_DATA_REPORTING=0
+MOZ_MK_OPTIONS+=MOZ_SCTP=0
+
+#MOZ_EXPORT+=	MOZ_TELEMETRY_REPORTING=0
+MOZ_EXPORT+=	MOZ_TELEMETRY_ON_BY_DEFAULT=0
+MOZ_EXPORT+=	MOZ_DATA_REPORTING=0
+MOZ_EXPORT+=	MOZ_SCTP=0
