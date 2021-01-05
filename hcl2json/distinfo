@@ -1,6 +1,6 @@
-TIMESTAMP = 1601398981
-SHA256 (tmccombs-hcl2json-v0.3.1_GH0.tar.gz) = dd158c246c69e76bbbff77156def29cd035c18cf76c84161bb839cb45d915c59
-SIZE (tmccombs-hcl2json-v0.3.1_GH0.tar.gz) = 13362
+TIMESTAMP = 1609869962
+SHA256 (tmccombs-hcl2json-v0.3.2_GH0.tar.gz) = 494765a7103c102c46ecf4dcd7f582194717c4d92b7e06b23ba46b05af032921
+SIZE (tmccombs-hcl2json-v0.3.2_GH0.tar.gz) = 13518
 SHA256 (agext-levenshtein-v1.2.1_GH0.tar.gz) = c6e4bc2db1f0d9bc57fd3f1887567d527f6df1bcfbb079d1d1c4eab17f320b50
 SIZE (agext-levenshtein-v1.2.1_GH0.tar.gz) = 12728
 SHA256 (apparentlymart-go-textseg-v12.0.0_GH0.tar.gz) = f1d930b0902eccbb8264b368ffc77d73fc1f759aa1d4b7d97e1aed9635334f63
