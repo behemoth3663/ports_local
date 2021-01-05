@@ -1,0 +1,6 @@
+# Mk/Uses/python.mk includes this file, don't remove it!
+# $FreeBSD: head/lang/python27/Makefile.version 534040 2020-05-05 08:23:11Z wen $
+
+# Do not forget to update python documentation (lang/python-doc-*)
+# Run "make -C lang/python-doc-html makesum"
+PYTHON_PORTVERSION=	2.7.18
