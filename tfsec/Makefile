@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	tfsec
-PORTVERSION=	0.36.11
+PORTVERSION=	0.36.12
 DISTVERSIONPREFIX=	v
 CATEGORIES=	security
 
@@ -23,6 +23,6 @@ PLIST_FILES=	bin/${PORTNAME}
 fetch-version: .PHONY get-version
 
 #rm -f -- distinfo Makefile.deps && make makesum && make gomod-vendor && make gomod-vendor >Makefile.deps && make makesum && mkcal && instpc
-.sinclude "${.CURDIR}/Makefile.deps"
+.-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>
