@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	ytt
-PORTVERSION=	0.30.0
+PORTVERSION=	0.31.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	textproc
 
@@ -20,9 +20,10 @@ GO_TARGET=	./cmd/${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME}
 
+WRKSRC=		${WRKDIR}/carvel-${PORTNAME}-${PORTVERSION}
+
 fetch-version: .PHONY get-version
 
-.sinclude "${.CURDIR}/Makefile.deps"
-.include "${.CURDIR}/../go113mod-vendor.mk"
+.-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>
