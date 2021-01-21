@@ -122,7 +122,7 @@ GH_TUPLE=	\
 		kubernetes:client-go:78d2af792bab:kubernetes_client_go/vendor/k8s.io/client-go \
 		kubernetes:klog:v0.4.0:kubernetes_klog/vendor/k8s.io/klog \
 		kubernetes:utils:3d5a2fe318e4:kubernetes_utils/vendor/k8s.io/utils \
-		lib:pq:v1.0.0:lib_pq/vendor/github.com/lib/pq \
+		lib:pq:v1.8.0:lib_pq/vendor/github.com/lib/pq \
 		likexian:gokit:v0.20.15:likexian_gokit/vendor/github.com/likexian/gokit \
 		lusis:go-artifactory:7e4ce345df82:lusis_go_artifactory/vendor/github.com/lusis/go-artifactory \
 		masterzen:simplexml:31eea3082786:masterzen_simplexml/vendor/github.com/masterzen/simplexml \
