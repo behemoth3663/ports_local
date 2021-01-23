@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	gosec
-PORTVERSION=	2.5.0
+PORTVERSION=	2.6.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	devel security local
 
