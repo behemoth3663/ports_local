@@ -15,6 +15,8 @@ GH_TUPLE=	\
 		google:uuid:064e2069ce9c:google_uuid/vendor/github.com/google/uuid \
 		gruntwork-io:gruntwork-cli:v0.1.2:gruntwork_io_gruntwork_cli/vendor/github.com/gruntwork-io/gruntwork-cli \
 		gruntwork-io:terratest:v0.13.19:gruntwork_io_terratest/vendor/github.com/gruntwork-io/terratest \
+		hashicorp:errwrap:v1.0.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
+		hashicorp:go-multierror:v1.1.0:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
 		jmespath:go-jmespath:c2b33e8439af:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
 		mattn:go-colorable:v0.0.9:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
 		mattn:go-isatty:v0.0.3:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
