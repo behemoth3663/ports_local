@@ -26,13 +26,13 @@ post-patch: .PHONY
 	${REINPLACE_CMD} -r \
 		-e 's/^[[:space:]]*(var[[:space:]]+Version[[:space:]]*=).*/\1 "${DISTVERSIONPREFIX}${PORTVERSION}"/' \
 		-e 's/^[[:space:]]*(var[[:space:]]+Commit[[:space:]]*=).*/\1 "f52c5338fd9d6711e5375e53a5356890680b31c7"/' \
-	${WRKSRC}/config/version.go 
+	${WRKSRC}/config/version.go
 
 pre-build: .PHONY
 	${MKDIR} ${WRKSRC}/client/dist
 	cd ${WRKSRC}/api && \
 	${GO_CMD} run github.com/jessevdk/go-assets-builder ../client/dist -o ./assets.go -p api && \
-	${GO_CMD} run github.com/swaggo/swag/cmd/swag init -g ./server.go --parseDependency
+	${GO_CMD} run ${WRKSRC}/vendor/github.com/swaggo/swag/cmd/swag/main.go init -g ./server.go --parseDependency
 
 fetch-version: .PHONY get-version
 
