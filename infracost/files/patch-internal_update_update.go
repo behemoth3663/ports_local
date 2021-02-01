@@ -1,6 +1,6 @@
---- internal/update/update.go.orig	2020-12-29 14:28:32 UTC
+--- internal/update/update.go.orig	2021-01-31 21:32:44 UTC
 +++ internal/update/update.go
-@@ -13,11 +13,8 @@ import (
+@@ -14,11 +14,8 @@ import (
  	"time"
  
  	"github.com/pkg/errors"
@@ -12,7 +12,7 @@
  )
  
  type Info struct {
-@@ -26,70 +23,7 @@ type Info struct {
+@@ -27,73 +24,7 @@ type Info struct {
  }
  
  func CheckForUpdate() (*Info, error) {
@@ -20,19 +20,21 @@
 -		return nil, nil
 -	}
 -
--	var cmd string
--
+-	// Check cache for the latest version
 -	state, err := config.ReadStateFileIfNotExists()
 -	if err != nil {
 -		log.Debugf("error reading state file: %v", err)
 -	}
 -
--	cachedRelease, err := checkCachedLatestVersion(state)
+-	cachedLatestVersion, err := checkCachedLatestVersion(state)
 -	if err != nil {
 -		log.Debugf("error getting cached latest version: %v", err)
 -	}
 -
--	latestVersion := cachedRelease
+-	// Nothing to do if the current version is the latest cached version
+-	if cachedLatestVersion != "" && semver.Compare(version.Version, cachedLatestVersion) >= 0 {
+-		return nil, nil
+-	}
 -
 -	isBrew, err := isBrewInstall()
 -	if err != nil {
@@ -40,23 +42,10 @@
 -		log.Debugf("error checking if executable was installed via brew: %v", err)
 -	}
 -
--	if isBrew && err == nil {
--		if latestVersion == "" {
--			latestVersion, err = getLatestBrewVersion()
--			if err != nil {
--				return nil, err
--			}
--		}
--
+-	var cmd string
+-	if isBrew {
 -		cmd = "$ brew upgrade infracost"
 -	} else {
--		if latestVersion == "" {
--			latestVersion, err = getLatestGitHubVersion()
--			if err != nil {
--				return nil, err
--			}
--		}
--
 -		cmd = "Go to https://www.infracost.io/docs/update for instructions"
 -		if runtime.GOOS == "linux" && runtime.GOARCH == "amd64" {
 -			cmd = "$ curl -s -L https://github.com/infracost/infracost/releases/latest/download/infracost-linux-amd64.tar.gz | tar xz -C /tmp && \\\n  sudo mv /tmp/infracost-linux-amd64 /usr/local/bin/infracost"
@@ -65,7 +54,21 @@
 -		}
 -	}
 -
--	if cachedRelease == "" {
+-	// Get the latest version
+-	latestVersion := cachedLatestVersion
+-	if latestVersion == "" {
+-		if isBrew {
+-			latestVersion, err = getLatestBrewVersion()
+-		} else {
+-			latestVersion, err = getLatestGitHubVersion()
+-		}
+-		if err != nil {
+-			return nil, err
+-		}
+-	}
+-
+-	// Save the latest version in the cache
+-	if latestVersion != cachedLatestVersion {
 -		err := saveCachedLatestVersion(state, latestVersion)
 -		if err != nil {
 -			log.Debugf("error saving cached latest version: %v", err)
