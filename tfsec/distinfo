@@ -1,6 +1,6 @@
-TIMESTAMP = 1615933651
-SHA256 (liamg-tfsec-v0.39.8_GH0.tar.gz) = 04db1519ccf9d3f3ff74dd461b54942775b24024a22aea584c09aff383d88b47
-SIZE (liamg-tfsec-v0.39.8_GH0.tar.gz) = 4294351
+TIMESTAMP = 1616022113
+SHA256 (liamg-tfsec-v0.39.9_GH0.tar.gz) = 9d9f5d85da8f791a24b07cb8a392a86d9077f3997a061008605bf2d80e7c755e
+SIZE (liamg-tfsec-v0.39.9_GH0.tar.gz) = 4295585
 SHA256 (agext-levenshtein-v1.2.2_GH0.tar.gz) = b238bfd1dce6da173913c27cf2e172d58a55e7e6b7fc11736c7e45bd1af4818f
 SIZE (agext-levenshtein-v1.2.2_GH0.tar.gz) = 13098
 SHA256 (apparentlymart-go-cidr-v1.1.0_GH0.tar.gz) = 359897e7e89bf1d8efa69ae5ec490c0a88ba4892fffbf94b17244355e0893503
