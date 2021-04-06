@@ -1,0 +1,4 @@
+A CLI tool that generates tf/json and tfstate files based on existing
+infrastructure (reverse Terraform).
+
+WWW: https://github.com/GoogleCloudPlatform/terraformer
