@@ -20,7 +20,7 @@ GH_ACCOUNT=	gruntwork-io
 
 PLIST_FILES=	bin/${PORTNAME}
 
-_OPTIONS_extract= 501:pre-post-extract
+_OPTIONS_extract=	501:pre-post-extract
 
 pre-post-extract: .PHONY
 	${MV} ${WRKDIR}/go-commons-0.7.0 ${WRKDIR}/gruntwork-cli-0.7.0
