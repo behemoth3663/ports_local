@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	cloud-nuke
-PORTVERSION=	0.1.25
+PORTVERSION=	0.1.28
 DISTVERSIONPREFIX=	v
 CATEGORIES=	sysutils
 
@@ -19,6 +19,11 @@ GH_ACCOUNT=	gruntwork-io
 #GO_TARGET=	./cmd/${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME}
+
+_OPTIONS_extract= 501:pre-post-extract
+
+pre-post-extract: .PHONY
+	${MV} ${WRKDIR}/go-commons-0.7.0 ${WRKDIR}/gruntwork-cli-0.7.0
 
 fetch-version: .PHONY get-version
 

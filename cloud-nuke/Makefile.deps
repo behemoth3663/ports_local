@@ -1,27 +1,32 @@
 GH_TUPLE=	\
-		aws:aws-sdk-go:v1.22.3:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		aws:aws-sdk-go:v1.34.27:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
 		bgentry:speakeasy:v0.1.0:bgentry_speakeasy/vendor/github.com/bgentry/speakeasy \
 		boombuler:barcode:6c824513bacc:boombuler_barcode/vendor/github.com/boombuler/barcode \
-		davecgh:go-spew:v1.1.0:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
-		fatih:color:v1.5.0:fatih_color/vendor/github.com/fatih/color \
+		cpuguy83:go-md2man:v2.0.0:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
+		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
+		fatih:color:v1.9.0:fatih_color/vendor/github.com/fatih/color \
 		go-errors:errors:d98b870cc4e0:go_errors_errors/vendor/github.com/go-errors/errors \
-		go-sql-driver:mysql:v1.4.1:go_sql_driver_mysql/vendor/github.com/go-sql-driver/mysql \
-		go-yaml:yaml:v2.2.4:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
-		golang:appengine:v1.6.1:golang_appengine/vendor/google.golang.org/appengine \
-		golang:crypto:f99c8df09eb5:golang_crypto/vendor/golang.org/x/crypto \
+		go-sql-driver:mysql:v1.5.0:go_sql_driver_mysql/vendor/github.com/go-sql-driver/mysql \
+		go-yaml:yaml:9f266ea9e77c:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
+		go-yaml:yaml:v2.2.8:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
+		golang:crypto:5ea612d1eb83:golang_crypto/vendor/golang.org/x/crypto \
 		golang:mock:v1.4.0:golang_mock/vendor/github.com/golang/mock \
-		golang:net:ca1201d0de80:golang_net/vendor/golang.org/x/net \
-		golang:sys:5da285871e9c:golang_sys/vendor/golang.org/x/sys \
-		google:uuid:064e2069ce9c:google_uuid/vendor/github.com/google/uuid \
-		gruntwork-io:gruntwork-cli:v0.1.2:gruntwork_io_gruntwork_cli/vendor/github.com/gruntwork-io/gruntwork-cli \
-		gruntwork-io:terratest:v0.13.19:gruntwork_io_terratest/vendor/github.com/gruntwork-io/terratest \
+		golang:net:ab3426394381:golang_net/vendor/golang.org/x/net \
+		golang:sys:ed371f2e16b4:golang_sys/vendor/golang.org/x/sys \
+		google:uuid:v1.1.1:google_uuid/vendor/github.com/google/uuid \
+		gruntwork-io:go-commons:v0.8.2:gruntwork_io_go_commons/vendor/github.com/gruntwork-io/go-commons \
+		gruntwork-io:gruntwork-cli:v0.7.0:gruntwork_io_gruntwork_cli/vendor/github.com/gruntwork-io/gruntwork-cli \
+		gruntwork-io:terratest:v0.32.9:gruntwork_io_terratest/vendor/github.com/gruntwork-io/terratest \
 		hashicorp:errwrap:v1.0.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
 		hashicorp:go-multierror:v1.1.0:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
-		jmespath:go-jmespath:c2b33e8439af:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
-		mattn:go-colorable:v0.0.9:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
-		mattn:go-isatty:v0.0.3:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
+		jmespath:go-jmespath:v0.3.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
+		konsorten:go-windows-terminal-sequences:v1.0.3:konsorten_go_windows_terminal_sequences/vendor/github.com/konsorten/go-windows-terminal-sequences \
+		mattn:go-colorable:v0.1.4:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
+		mattn:go-isatty:v0.0.11:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
-		pquerna:otp:v1.2.0:pquerna_otp/vendor/github.com/pquerna/otp \
-		sirupsen:logrus:v1.0.4:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
-		stretchr:testify:v1.4.0:stretchr_testify/vendor/github.com/stretchr/testify \
-		urfave:cli:v1.20.0:urfave_cli/vendor/github.com/urfave/cli
+		pquerna:otp:v1.3.0:pquerna_otp/vendor/github.com/pquerna/otp \
+		russross:blackfriday:v2.0.1:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
+		shurcooL:sanitized_anchor_name:v1.0.0:shurcool_sanitized_anchor_name/vendor/github.com/shurcooL/sanitized_anchor_name \
+		sirupsen:logrus:v1.6.0:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
+		stretchr:testify:v1.6.1:stretchr_testify/vendor/github.com/stretchr/testify \
+		urfave:cli:v1.22.4:urfave_cli/vendor/github.com/urfave/cli
