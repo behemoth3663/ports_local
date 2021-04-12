@@ -1,5 +1,0 @@
-One of this command-line utility program measures and displays how much and how
-efficiently space is used by individual tables and indexes with an SQLite
-database file. Another - outputs SQL text that would transform DB1 into DB2.
-
-WWW: https://www.sqlite.org/sqlanalyze.html
