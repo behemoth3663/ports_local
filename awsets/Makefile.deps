@@ -1,0 +1,24 @@
+GH_TUPLE=	\
+		VividCortex:ewma:v1.1.1:vividcortex_ewma/vendor/github.com/VividCortex/ewma \
+		aws:aws-sdk-go-v2:v1.0.0:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+		aws:smithy-go:v1.0.0:aws_smithy_go/vendor/github.com/aws/smithy-go \
+		cheggaaa:pb:v3.0.5:cheggaaa_pb_v3/vendor/github.com/cheggaaa/pb \
+		cpuguy83:go-md2man:f79a8a8ca69d:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
+		emicklei:dot:v0.15.0:emicklei_dot/vendor/github.com/emicklei/dot \
+		etcd-io:bbolt:v1.3.5:etcd_io_bbolt/vendor/go.etcd.io/bbolt \
+		fatih:color:v1.7.0:fatih_color/vendor/github.com/fatih/color \
+		fatih:structs:v1.1.0:fatih_structs/vendor/github.com/fatih/structs \
+		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
+		golang:sys:d101bd2416d5:golang_sys/vendor/golang.org/x/sys \
+		golang:xerrors:5ec99f83aff1:golang_xerrors/vendor/golang.org/x/xerrors \
+		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
+		mattn:go-colorable:v0.1.2:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
+		mattn:go-isatty:v0.0.12:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
+		mattn:go-runewidth:v0.0.7:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
+		russross:blackfriday:v2.0.1:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
+		shurcooL:sanitized_anchor_name:v1.0.0:shurcool_sanitized_anchor_name/vendor/github.com/shurcooL/sanitized_anchor_name \
+		trek10inc:awsets:v0.8.0:trek10inc_awsets \
+		urfave:cli:v2.3.0:urfave_cli_v2/vendor/github.com/urfave/cli/v2
+
+post-extract:
+	@${RLN} ${WRKSRC_trek10inc_awsets} ..
