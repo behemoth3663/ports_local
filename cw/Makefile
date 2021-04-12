@@ -23,7 +23,7 @@ PLIST_FILES=	bin/${PORTNAME}
 
 fetch-version: .PHONY get-version
 
-.sinclude "${.CURDIR}/Makefile.deps"
-.include "${.CURDIR}/../go113mod-vendor.mk"
+.-include "${.CURDIR}/Makefile.deps"
+#.include "${.CURDIR}/../go113mod-vendor.mk"
 
 .include <bsd.port.mk>

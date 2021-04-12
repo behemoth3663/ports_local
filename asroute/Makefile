@@ -22,7 +22,7 @@ fetch-version: .PHONY get-version
 #make makesum
 #make cargo-crates | grep -Ev '^=' >Makefile.deps
 #make makesum
-.sinclude "${.CURDIR}/Makefile.deps"
+.-include "${.CURDIR}/Makefile.deps"
 
 PLIST_FILES=	bin/${PORTNAME}
 

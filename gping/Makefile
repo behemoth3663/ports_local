@@ -25,7 +25,7 @@ BROKEN=	'Error pinging: Unsupported OS Unknown, src/main.rs:122:33'
 
 #https://www.freebsd.org/doc/en_US.ISO8859-1/books/porters-handbook/building.html#using-cargo
 #rm -f -- distinfo Makefile.deps && make makesum && make cargo-crates && | make cargo-crates >Makefile.deps && make makesum
-.sinclude "${.CURDIR}/Makefile.deps"
+.-include "${.CURDIR}/Makefile.deps"
 
 PLIST_FILES=	bin/${PORTNAME}
 

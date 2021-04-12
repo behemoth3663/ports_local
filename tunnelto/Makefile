@@ -24,7 +24,7 @@ fetch-version: .PHONY get-version
 
 #https://www.freebsd.org/doc/en_US.ISO8859-1/books/porters-handbook/building.html#using-cargo
 #rm -f -- distinfo Makefile.deps && make makesum && make cargo-crates | grep -Ev '^=' >Makefile.deps && make makesum
-.sinclude "${.CURDIR}/Makefile.deps"
+.-include "${.CURDIR}/Makefile.deps"
 
 PLIST_FILES=	bin/${PORTNAME} \
 		bin/${PORTNAME}_server

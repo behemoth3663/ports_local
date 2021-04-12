@@ -25,7 +25,7 @@ fetch-version: .PHONY get-version
 #pre-build: .PHONY
 #	cd ${WRKSRC} && ${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod vendor
 
-.sinclude "${.CURDIR}/Makefile.deps"
+.-include "${.CURDIR}/Makefile.deps"
 #.include "${.CURDIR}/../go113mod-vendor.mk"
 
 .include <bsd.port.mk>

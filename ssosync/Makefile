@@ -21,7 +21,7 @@ PLIST_FILES=	bin/${PORTNAME}
 fetch-version: .PHONY get-version
 
 #rm -f -- distinfo Makefile.deps && make makesum && make go113mod-vendor && make makesum && mkcal
-.sinclude "${.CURDIR}/Makefile.deps"
-.include "${.CURDIR}/../go113mod-vendor.mk"
+.-include "${.CURDIR}/Makefile.deps"
+#.include "${.CURDIR}/../go113mod-vendor.mk"
 
 .include <bsd.port.mk>

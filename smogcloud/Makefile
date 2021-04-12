@@ -18,6 +18,6 @@ GH_TAGNAME=	30ce52e
 
 PLIST_FILES=	bin/${PORTNAME}
 
-.sinclude "${.CURDIR}/Makefile.deps"
+.-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>

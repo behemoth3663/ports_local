@@ -26,7 +26,7 @@ fetch-version: .PHONY get-version
 #pre-build: .PHONY
 #	cd ${WRKSRC} && ${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod vendor
 
-.sinclude "${.CURDIR}/Makefile.deps"
+.-include "${.CURDIR}/Makefile.deps"
 
 #https://www.freebsd.org/doc/en_US.ISO8859-1/books/porters-handbook/dads-after-port-mk.html
 .include <bsd.port.pre.mk>
