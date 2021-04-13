@@ -12,7 +12,7 @@ LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/../../LICENSE
 
 USES=		go:modules
-#GO_TARGET=	./cmd/${PORTNAME}
+
 WRKSRC_SUBDIR=	cmd/${PORTNAME}
 
 USE_GITHUB=	yes
@@ -20,11 +20,13 @@ GH_ACCOUNT=	trek10inc
 
 PLIST_FILES=	bin/${PORTNAME}
 
+GO_BUILDFLAGS+=	-ldflags='-X main.version=${PORTVERSION} -X main.commit=8d9d922 -X main.date=${:!date +%F_%T!}'
+
 fetch-version: .PHONY get-version
 
 post-patch: .PHONY
 	${MKDIR} ${WRKSRC}/vendor/github.com/${GH_ACCOUNT}/${PORTNAME}
-	find ${WRKSRC}/../.. -maxdepth 1 \( \
+	${FIND} ${WRKSRC}/../.. -maxdepth 1 \( \
 		\( -type f -and -name '*.go' \) -or \
 		\( -type d -and -not -name '.*' -and -not -name 'cmd' \) \
 	\) -exec ${RLN} {} ${WRKSRC}/vendor/github.com/${GH_ACCOUNT}/${PORTNAME} \;
