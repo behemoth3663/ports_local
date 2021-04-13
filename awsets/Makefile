@@ -20,7 +20,7 @@ GH_ACCOUNT=	trek10inc
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags='-X main.version=${PORTVERSION} -X main.commit=8d9d922 -X main.date=${:!date +%F_%T!}'
+GO_BUILDFLAGS+=	-ldflags="-X 'main.version=${PORTVERSION}' -X 'main.commit=8d9d922' -X 'main.date=${:!date +%F_%T!:S/_/ /}'"
 
 fetch-version: .PHONY get-version
 
