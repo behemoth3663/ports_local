@@ -11,9 +11,7 @@ COMMENT=	Compliance and security violations in terraform code
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-# - can't resolve difficulties
 USES=		go:modules
-#USES=		go
 GO_TARGET=	./cmd/${PORTNAME}
 
 USE_GITHUB=	yes

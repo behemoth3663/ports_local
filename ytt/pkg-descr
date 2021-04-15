@@ -2,5 +2,4 @@ ytt is a templating tool that understands YAML structure. It helps you easily
 configure complex software via reusable templates and user provided values.
 Part of k14s.io
 
-
 WWW: https://github.com/k14s/ytt
