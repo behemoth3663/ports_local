@@ -1,4 +1,4 @@
---- internal/update/update.go.orig	2021-03-09 20:19:02 UTC
+--- internal/update/update.go.orig	2021-04-16 14:37:16 UTC
 +++ internal/update/update.go
 @@ -14,11 +14,8 @@ import (
  	"time"
@@ -12,7 +12,7 @@
  )
  
  type Info struct {
-@@ -27,70 +24,7 @@ type Info struct {
+@@ -27,66 +24,7 @@ type Info struct {
  }
  
  func CheckForUpdate(cfg *config.Config) (*Info, error) {
@@ -42,12 +42,8 @@
 -		cmd = "$ brew upgrade infracost"
 -	} else {
 -		cmd = "Go to https://www.infracost.io/docs/update for instructions"
--		if runtime.GOOS == "linux" && runtime.GOARCH == "amd64" {
--			cmd = "$ curl -s -L https://github.com/infracost/infracost/releases/latest/download/infracost-linux-amd64.tar.gz | tar xz -C /tmp && \\\n  sudo mv /tmp/infracost-linux-amd64 /usr/local/bin/infracost"
--		} else if runtime.GOOS == "darwin" && runtime.GOARCH == "amd64" {
--			cmd = "$ curl -s -L https://github.com/infracost/infracost/releases/latest/download/infracost-darwin-amd64.tar.gz | tar xz -C /tmp && \\\n  sudo mv /tmp/infracost-darwin-amd64 /usr/local/bin/infracost"
--		} else if runtime.GOOS == "darwin" && runtime.GOARCH == "arm64" {
--			cmd = "$ curl -s -L https://github.com/infracost/infracost/releases/latest/download/infracost-darwin-arm64.tar.gz | tar xz -C /tmp && \\\n  sudo mv /tmp/infracost-darwin-arm64 /usr/local/bin/infracost"
+-		if runtime.GOOS == "linux" || runtime.GOOS == "darwin" {
+-			cmd = "$ curl -fsSL https://raw.githubusercontent.com/infracost/infracost/master/scripts/install.sh | sh"
 -		}
 -	}
 -
