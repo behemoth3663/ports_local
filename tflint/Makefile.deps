@@ -7,23 +7,23 @@ GH_TUPLE=	\
 		bmatcuk:doublestar:v1.1.5:bmatcuk_doublestar/vendor/github.com/bmatcuk/doublestar \
 		fatih:color:v1.10.0:fatih_color/vendor/github.com/fatih/color \
 		golang:appengine:v1.6.6:golang_appengine/vendor/google.golang.org/appengine \
-		golang:crypto:75b288015ac9:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:0c34fe9e7dc2:golang_crypto/vendor/golang.org/x/crypto \
 		golang:lint:738671d3881b:golang_lint/vendor/golang.org/x/lint \
 		golang:mock:v1.5.0:golang_mock/vendor/github.com/golang/mock \
 		golang:mod:v0.3.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:c7110b5ffcbb:golang_net/vendor/golang.org/x/net \
+		golang:net:e18ecbb05110:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:5d25da1a8d43:golang_oauth2/vendor/golang.org/x/oauth2 \
-		golang:protobuf:v1.4.2:golang_protobuf/vendor/github.com/golang/protobuf \
+		golang:protobuf:v1.4.3:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:sys:1e4c9ba3b0c4:golang_sys/vendor/golang.org/x/sys \
 		golang:text:v0.3.5:golang_text/vendor/golang.org/x/text \
 		golang:tools:eafbe7b904eb:golang_tools/vendor/golang.org/x/tools \
 		golang:xerrors:5ec99f83aff1:golang_xerrors/vendor/golang.org/x/xerrors \
 		google:go-cmp:v0.5.5:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-genproto:0bd0a958aa1d:google_go_genproto/vendor/google.golang.org/genproto \
-		google:uuid:v1.1.1:google_uuid/vendor/github.com/google/uuid \
+		google:uuid:v1.2.0:google_uuid/vendor/github.com/google/uuid \
 		grpc:grpc-go:v1.32.0:grpc_grpc_go/vendor/google.golang.org/grpc \
 		hashicorp:aws-sdk-go-base:v0.7.0:hashicorp_aws_sdk_go_base/vendor/github.com/hashicorp/aws-sdk-go-base \
-		hashicorp:errwrap:v1.0.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
+		hashicorp:errwrap:v1.1.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
 		hashicorp:go-hclog:v0.15.0:hashicorp_go_hclog/vendor/github.com/hashicorp/go-hclog \
 		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
@@ -34,18 +34,17 @@ GH_TUPLE=	\
 		hashicorp:hcl:v2.9.1:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
 		hashicorp:logutils:v1.0.0:hashicorp_logutils/vendor/github.com/hashicorp/logutils \
 		hashicorp:terraform-svchost:f050f53b9734:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
-		hashicorp:terraform:v0.14.9:hashicorp_terraform/vendor/github.com/hashicorp/terraform \
+		hashicorp:terraform:v0.15.0:hashicorp_terraform/vendor/github.com/hashicorp/terraform \
 		hashicorp:yamux:2f1d1f20f75d:hashicorp_yamux/vendor/github.com/hashicorp/yamux \
 		jessevdk:go-flags:v1.5.0:jessevdk_go_flags/vendor/github.com/jessevdk/go-flags \
 		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
 		jstemmer:go-junit-report:v0.9.1:jstemmer_go_junit_report/vendor/github.com/jstemmer/go-junit-report \
 		mattn:go-colorable:v0.1.8:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
 		mattn:go-isatty:v0.0.12:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
-		mitchellh:copystructure:v1.1.1:mitchellh_copystructure/vendor/github.com/mitchellh/copystructure \
 		mitchellh:go-homedir:v1.1.0:mitchellh_go_homedir/vendor/github.com/mitchellh/go-homedir \
 		mitchellh:go-testing-interface:v1.14.1:mitchellh_go_testing_interface/vendor/github.com/mitchellh/go-testing-interface \
 		mitchellh:go-wordwrap:v1.0.0:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
-		mitchellh:reflectwalk:v1.0.1:mitchellh_reflectwalk/vendor/github.com/mitchellh/reflectwalk \
+		mitchellh:panicwrap:v1.0.0:mitchellh_panicwrap/vendor/github.com/mitchellh/panicwrap \
 		oklog:run:v1.0.0:oklog_run/vendor/github.com/oklog/run \
 		protocolbuffers:protobuf-go:v1.25.0:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		sourcegraph:go-lsp:0c7d621186c1:sourcegraph_go_lsp/vendor/github.com/sourcegraph/go-lsp \
