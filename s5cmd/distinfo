@@ -1,6 +1,6 @@
-TIMESTAMP = 1605306593
-SHA256 (peak-s5cmd-v1.2.0_GH0.tar.gz) = 386b8a123a87c207f3256643489789a8dea2cdaa3cb6926576b45c526ceb7f6a
-SIZE (peak-s5cmd-v1.2.0_GH0.tar.gz) = 2704117
+TIMESTAMP = 1618766750
+SHA256 (peak-s5cmd-v1.2.1_GH0.tar.gz) = 33c2aedbf1367f0cca7048f9becd74ae426204dcecbcbdfae9d1db98607b45df
+SIZE (peak-s5cmd-v1.2.1_GH0.tar.gz) = 2704397
 SHA256 (aws-aws-sdk-go-v1.35.13_GH0.tar.gz) = 91b50cec8ab2a701535d9e7dcb5cf0a588aa3002ba50fdc1d6452e0c158ed12f
 SIZE (aws-aws-sdk-go-v1.35.13_GH0.tar.gz) = 16390172
 SHA256 (boltdb-bolt-v1.3.1_GH0.tar.gz) = b5ae498b780f535a5d308c188dee1329b3536275d29ad6758876084c0b8586a8
