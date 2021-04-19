@@ -26,7 +26,7 @@ PLIST_FILES=	bin/${PORTNAME}
 GH_SHORT_HASH=	git ls-remote --tags https://github.com/${GH_ACCOUNT}/${PORTNAME}.git \
 	| ${SED} -rn 's|^(.{7}).*/${DISTVERSIONPREFIX}${PORTVERSION:S/./\\&/g}$$|\1|p'
 
-GO_BUILDFLAGS+=	-ldflags=" \
+GO_BUILDFLAGS+=	-ldflags="-s \
 	-X 'main.version=${PORTVERSION}' \
 	-X 'main.commit=${:!${GH_SHORT_HASH}!}' \
 	-X 'main.date=${:!date +%F_%T!:S/_/ /}'"

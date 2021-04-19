@@ -20,15 +20,10 @@ GH_TAGNAME=	e55c48c
 
 PLIST_FILES=	bin/${PORTNAME}
 
-fetch-version: .PHONY get-version
+GO_BUILDFLAGS+=	-ldflags="-s -X 'github.com/${GH_ACCOUNT}/${PORTNAME}/cmd.version=${PORTVERSION}'"
 
-#workaround for can't find vendor/gitlab.com/poldi1405/go-ansi
-#pre-build: .PHONY
-#	cd ${WRKSRC} && ${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod vendor
+fetch-version: .PHONY get-version
 
 .-include "${.CURDIR}/Makefile.deps"
 
-#https://www.freebsd.org/doc/en_US.ISO8859-1/books/porters-handbook/dads-after-port-mk.html
-.include <bsd.port.pre.mk>
-GO_BUILDFLAGS:=${GO_BUILDFLAGS:C|-ldflags=(.*)|-ldflags="\\1 -X github.com/${GH_ACCOUNT}/${PORTNAME}/cmd.version=${PORTVERSION}"|}
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>

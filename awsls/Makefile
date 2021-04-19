@@ -26,17 +26,10 @@ fetch-version: .PHONY get-version
 GH_SHORT_HASH=	git ls-remote --tags https://github.com/${GH_ACCOUNT}/${PORTNAME}.git \
 	| ${SED} -rn 's|^(.{7}).*/${DISTVERSIONPREFIX}${PORTVERSION:S/./\\&/g}$$|\1|p'
 
-#doesn't work
-#GO_BUILDFLAGS+=-ldflags="\
-#	-X 'internal.version=${PORTVERSION}' \
-#	-X 'internal.commit=${:!${GH_SHORT_HASH}!}' \
-#	-X 'internal.date=${:!date +%F_%T!:S/_/ /}'"
-do-patch: .PHONY
-	${REINPLACE_CMD} -r \
-		-e 's|^([[:space:]]*version[[:space:]]*=[[:space:]]*")[^"]*(".*)|\1${PORTVERSION}\2|' \
-		-e 's|^([[:space:]]*commit[[:space:]]*=[[:space:]]*")[^"]*(".*)|\1${:!${GH_SHORT_HASH}!}\2|' \
-		-e 's|^([[:space:]]*date[[:space:]]*=[[:space:]]*")[^"]*(".*)|\1${:!date +%F_%T!:S/_/ /}\2|' \
-	${WRKSRC}/internal/version.go
+GO_BUILDFLAGS+=	-ldflags="-s \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal.version=${PORTVERSION}' \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal.commit=${:!${GH_SHORT_HASH}!}' \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal.date=${:!date +%F_%T!:S/_/ /}'"
 
 do-build: .PHONY
 	pwd="$${PWD}" && trap "cd \"$${pwd}\"" INT EXIT && cd ${WRKSRC} && \

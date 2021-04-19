@@ -20,7 +20,7 @@ GH_ACCOUNT=	sclevine
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-X main.Version=${PORTVERSION}"
+GO_BUILDFLAGS+=	-ldflags="-s -X 'main.Version=${PORTVERSION}'"
 
 #rm -f -- distinfo Makefile.deps && make makesum && make gomod-vendor && make gomod-vendor >Makefile.deps && make makesum && mkcal && instpc
 .-include "${.CURDIR}/Makefile.deps"

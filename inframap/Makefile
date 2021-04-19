@@ -20,7 +20,7 @@ GH_ACCOUNT=	cycloidio
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -X github.com/${GH_ACCOUNT}/${PORTNAME}/cmd.Version=${PORTVERSION}"
+GO_BUILDFLAGS+=	-ldflags="-s -X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.Version=${PORTVERSION}'"
 
 fetch-version: .PHONY get-version
 

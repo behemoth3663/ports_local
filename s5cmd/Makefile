@@ -20,7 +20,7 @@ GH_ACCOUNT=	peak
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=v${PORTVERSION}"
+GO_BUILDFLAGS+=	-ldflags="-s -X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=v${PORTVERSION}'"
 
 #rm -f -- distinfo Makefile.deps && make makesum && make gomod-vendor && make gomod-vendor >Makefile.deps && make makesum && mkcal && instpc
 .-include "${.CURDIR}/Makefile.deps"
