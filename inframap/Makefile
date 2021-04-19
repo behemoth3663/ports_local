@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	inframap
-PORTVERSION=	0.6.2
+PORTVERSION=	0.6.3
 DISTVERSIONPREFIX=	v
 CATEGORIES=	sysutils
 
@@ -20,9 +20,7 @@ GH_ACCOUNT=	cycloidio
 
 PLIST_FILES=	bin/${PORTNAME}
 
-#_OPTIONS_extract=	501:pre-post-extract
-#pre-post-extract: .PHONY
-#	${MV} ${WRKDIR}/go-commons-0.7.0 ${WRKDIR}/gruntwork-cli-0.7.0
+GO_BUILDFLAGS+=	-ldflags="-s -X github.com/${GH_ACCOUNT}/${PORTNAME}/cmd.Version=${PORTVERSION}"
 
 fetch-version: .PHONY get-version
 

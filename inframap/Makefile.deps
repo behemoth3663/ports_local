@@ -1,5 +1,5 @@
 GH_TUPLE=	\
-		adrg:xdg:v0.3.2:adrg_xdg/vendor/github.com/adrg/xdg \
+		adrg:xdg:v0.3.3:adrg_xdg/vendor/github.com/adrg/xdg \
 		agext:levenshtein:v1.2.3:agext_levenshtein/vendor/github.com/agext/levenshtein \
 		apparentlymart:go-textseg:v13.0.0:apparentlymart_go_textseg_v13/vendor/github.com/apparentlymart/go-textseg/v13 \
 		apparentlymart:go-versions:v1.0.1:apparentlymart_go_versions/vendor/github.com/apparentlymart/go-versions \
@@ -15,11 +15,11 @@ GH_TUPLE=	\
 		golang:crypto:0c34fe9e7dc2:golang_crypto/vendor/golang.org/x/crypto \
 		golang:lint:83fdc39ff7b5:golang_lint/vendor/golang.org/x/lint \
 		golang:mod:v0.4.2:golang_mod/vendor/golang.org/x/mod \
-		golang:net:d1beb07c2056:golang_net/vendor/golang.org/x/net \
-		golang:oauth2:22b0adad7558:golang_oauth2/vendor/golang.org/x/oauth2 \
-		golang:protobuf:v1.5.1:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sys:47abb6519492:golang_sys/vendor/golang.org/x/sys \
-		golang:text:v0.3.5:golang_text/vendor/golang.org/x/text \
+		golang:net:a5a99cb37ef4:golang_net/vendor/golang.org/x/net \
+		golang:oauth2:2e8d93401602:golang_oauth2/vendor/golang.org/x/oauth2 \
+		golang:protobuf:v1.5.2:golang_protobuf/vendor/github.com/golang/protobuf \
+		golang:sys:5e06dd20ab57:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.3.6:golang_text/vendor/golang.org/x/text \
 		golang:tools:v0.1.0:golang_tools/vendor/golang.org/x/tools \
 		golang:xerrors:5ec99f83aff1:golang_xerrors/vendor/golang.org/x/xerrors \
 		google:go-cmp:v0.5.5:google_go_cmp/vendor/github.com/google/go-cmp \
@@ -28,14 +28,14 @@ GH_TUPLE=	\
 		hashicorp:go-hclog:v0.14.1:hashicorp_go_hclog/vendor/github.com/hashicorp/go-hclog \
 		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
 		hashicorp:go-retryablehttp:v0.6.8:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
-		hashicorp:go-version:v1.2.1:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
+		hashicorp:go-version:v1.3.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
 		hashicorp:hcl:v2.9.1:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
 		hashicorp:terraform-svchost:f050f53b9734:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
-		hashicorp:terraform:v0.14.9:hashicorp_terraform/vendor/github.com/hashicorp/terraform \
+		hashicorp:terraform:v0.14.10:hashicorp_terraform/vendor/github.com/hashicorp/terraform \
 		inconshreveable:mousetrap:v1.0.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
 		markbates:pkger:v0.17.1:markbates_pkger/vendor/github.com/markbates/pkger \
 		mattn:go-colorable:v0.1.7:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
-		mitchellh:copystructure:v1.1.1:mitchellh_copystructure/vendor/github.com/mitchellh/copystructure \
+		mitchellh:copystructure:v1.1.2:mitchellh_copystructure/vendor/github.com/mitchellh/copystructure \
 		mitchellh:go-wordwrap:v1.0.1:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
 		mitchellh:reflectwalk:v1.0.1:mitchellh_reflectwalk/vendor/github.com/mitchellh/reflectwalk \
 		pascaldekloe:name:v1.0.1:pascaldekloe_name/vendor/github.com/pascaldekloe/name \
