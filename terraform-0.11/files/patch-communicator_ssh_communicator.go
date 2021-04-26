@@ -1,11 +1,11 @@
---- communicator/ssh/communicator.go.orig	2019-05-16 20:40:50 UTC
+--- communicator/ssh/communicator.go.orig	2021-04-26 21:41:43 UTC
 +++ communicator/ssh/communicator.go
-@@ -167,6 +167,18 @@ func (c *Communicator) Connect(o terraform.UIOutput) (
+@@ -182,6 +182,16 @@ func (c *Communicator) Connect(o terraform.UIOutput) (
  		return err
  	}
  
 +	// imported from vendor/golang.org/x/crypto/ssh/common.go
-+	var supportedCiphers = []string{
++	c.config.config.Ciphers = []string{
 +		"aes128-ctr", "aes192-ctr", "aes256-ctr",
 +		"aes128-gcm@openssh.com",
 +		"chacha20-poly1305@openssh.com",
@@ -14,8 +14,6 @@
 +		"3des-cbc",
 +	}
 +
-+	c.config.config.Ciphers = supportedCiphers
-+
- 	log.Printf("[DEBUG] handshaking with SSH")
- 	host := fmt.Sprintf("%s:%d", c.connInfo.Host, c.connInfo.Port)
- 	sshConn, sshChan, req, err := ssh.NewClientConn(c.conn, host, c.config.config)
+ 	log.Printf("[DEBUG] Connection established. Handshaking for user %v", c.connInfo.User)
+ 	sshConn, sshChan, req, err := ssh.NewClientConn(c.conn, hostAndPort, c.config.config)
+ 	if err != nil {
