@@ -35,6 +35,4 @@ do-build: .PHONY
 	pwd="$${PWD}" && trap "cd \"$${pwd}\"" INT EXIT && cd ${WRKSRC} && \
 	${GO_CMD} build ${GO_BUILDFLAGS} -o ${GO_WRKDIR_BIN}/${PORTNAME}
 
-.-include "${.CURDIR}/Makefile.deps"
-
 .include <bsd.port.mk>
