@@ -22,15 +22,18 @@ PLIST_FILES+=	bin/${PORTNAME}${PKGNAMESUFFIX}
 
 JQ_GETVER_EXPR=	[.[].name | gsub("^[a-z]+";"") | select(test("^${PORTVERSION:C/[^.]+$/[0-9]+/:S/./\\\\./g}$$"; "n"))][0]
 
-#rm -f -- distinfo Makefile.deps && make makesum && make gomod-vendor &&  make gomod-vendor >Makefile.deps && make makesum && mkcal
-.-include "${.CURDIR}/Makefile.deps"
+GO_BUILDFLAGS+=	-ldflags="-s \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Prerelease='"
 
-post-patch:
-	${REINPLACE_CMD} 's|Prerelease = "dev"|Prerelease = ""|' \
-		${WRKSRC}/version/version.go
+#post-patch: .PHONY
+#	${REINPLACE_CMD} 's|Prerelease = "dev"|Prerelease = ""|' \
+#		${WRKSRC}/version/version.go
 
-post-install:
+post-install: .PHONY
 	${MV} ${STAGEDIR}${PREFIX}/bin/${PORTNAME} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION}
 	${INSTALL} -l rs ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}${PKGNAMESUFFIX}
+
+#rm -f -- distinfo Makefile.deps && make makesum && make gomod-vendor &&  make gomod-vendor >Makefile.deps && make makesum && mkcal
+.-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>

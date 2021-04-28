@@ -20,6 +20,10 @@ GH_ACCOUNT=	cloudskiff
 
 PLIST_FILES=	bin/${PORTNAME}
 
+GO_BUILDFLAGS+=	-ldflags="-s \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/pkg/version.version=${PORTVERSION}' \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/build.env=release'"
+
 #_OPTIONS_extract=	501:pre-post-extract
 #pre-post-extract: .PHONY
 #	${MV} ${WRKDIR}/go-commons-0.7.0 ${WRKDIR}/gruntwork-cli-0.7.0

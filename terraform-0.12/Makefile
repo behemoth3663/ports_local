@@ -22,11 +22,18 @@ PLIST_FILES+=	bin/${PORTNAME}${PKGNAMESUFFIX}
 
 JQ_GETVER_EXPR=	[.[].name | gsub("^[a-z]+";"") | select(test("^${PORTVERSION:C/[^.]+$/[0-9]+/:S/./\\\\./g}$$"; "n"))][0]
 
-post-patch:
+# github.com/hashicorp/go-azure-helpers/authentication
+#vendor/github.com/hashicorp/go-azure-helpers/authentication/auth_method_azure_cli_token.go:93:18: undefined: adal.TokenRefresh
+#vendor/github.com/hashicorp/go-azure-helpers/authentication/auth_method_azure_cli_token.go:106:5: spt.SetCustomRefreshFunc undefined (type *adal.ServicePrincipalToken has no field or method SetCustomRefreshFunc)
+#*** Error code 2
+#rm -f -- distinfo Makefile.deps && make makesum && make gomod-vendor &&  make gomod-vendor >Makefile.deps && make makesum && mkcal
+#.-include "${.CURDIR}/Makefile.deps"
+
+post-patch: .PHONY
 	${REINPLACE_CMD} 's|Prerelease = "dev"|Prerelease = ""|' \
 		${WRKSRC}/version/version.go
 
-post-install:
+post-install: .PHONY
 	${MV} ${STAGEDIR}${PREFIX}/bin/${PORTNAME} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION}
 	${INSTALL} -l rs ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}${PKGNAMESUFFIX}
 
