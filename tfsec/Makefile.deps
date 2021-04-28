@@ -25,7 +25,7 @@ GH_TUPLE=	\
 		mitchellh:go-wordwrap:v1.0.0:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
 		niemeyer:pretty:a10e7caefd8e:niemeyer_pretty/vendor/github.com/niemeyer/pretty \
 		olekukonko:tablewriter:v0.0.5:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
-		owenrumney:go-sarif:v1.0.2:owenrumney_go_sarif/vendor/github.com/owenrumney/go-sarif \
+		owenrumney:go-sarif:v1.0.4:owenrumney_go_sarif/vendor/github.com/owenrumney/go-sarif \
 		pkg:term:aa71e9d9e942:pkg_term/vendor/github.com/pkg/term \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		rivo:uniseg:v0.2.0:rivo_uniseg/vendor/github.com/rivo/uniseg \
