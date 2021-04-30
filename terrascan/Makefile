@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	terrascan
-PORTVERSION=	1.5.0
+PORTVERSION=	1.5.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	sysutils
 
@@ -16,10 +16,9 @@ GO_TARGET=	./cmd/${PORTNAME}
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	accurics
+GH_TAGNAME=	d8fd9c4
 
 PLIST_FILES=	bin/${PORTNAME}
-
-fetch-version: .PHONY get-version
 
 _OPTIONS_extract=	701:post-post-extract
 
@@ -27,7 +26,8 @@ post-post-extract: .PHONY
 	${MV} ${WRKSRC}/vendor/sigs.k8s.io/kustomize/api/api/* ${WRKSRC}/vendor/sigs.k8s.io/kustomize/api
 	${MV} ${WRKSRC}/vendor/sigs.k8s.io/kustomize/kyaml/kyaml/* ${WRKSRC}/vendor/sigs.k8s.io/kustomize/kyaml
 
-#rm -f -- distinfo Makefile.deps && make makesum && make gomod-vendor && make gomod-vendor >Makefile.deps && make makesum && mkcal && instpc
+fetch-version: .PHONY get-version
+
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>
