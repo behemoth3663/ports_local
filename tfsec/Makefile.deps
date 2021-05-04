@@ -16,7 +16,7 @@ GH_TUPLE=	\
 		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
 		hashicorp:go-uuid:v1.0.1:hashicorp_go_uuid/vendor/github.com/hashicorp/go-uuid \
 		hashicorp:hcl:v2.10.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
-		hashicorp:terraform:v0.15.0:hashicorp_terraform/vendor/github.com/hashicorp/terraform \
+		hashicorp:terraform:v0.15.1:hashicorp_terraform/vendor/github.com/hashicorp/terraform \
 		inconshreveable:mousetrap:v1.0.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
 		liamg:clinch:v1.5.6:liamg_clinch/vendor/github.com/liamg/clinch \
 		liamg:tml:v0.4.0:liamg_tml/vendor/github.com/liamg/tml \
