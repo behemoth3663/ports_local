@@ -1,9 +1,9 @@
---- command/version.go.orig	2021-01-06 19:16:17 UTC
+--- command/version.go.orig	2020-09-30 18:07:32 UTC
 +++ command/version.go
-@@ -105,21 +105,6 @@ func (c *VersionCommand) Run(args []string) int {
+@@ -103,20 +103,6 @@ func (c *VersionCommand) Run(args []string) int {
+ 			pluginVersions = append(pluginVersions, fmt.Sprintf("+ provider %s v%s", providerAddr, version))
  		}
  	}
- 
 -	// If we have a version check function, then let's check for
 -	// the latest version as well.
 -	if c.CheckFunc != nil {
@@ -18,7 +18,6 @@
 -			latest = info.Latest
 -		}
 -	}
--
+ 
  	if jsonOutput {
  		selectionsOutput := make(map[string]string)
- 		for providerAddr, lock := range providerLocks {
