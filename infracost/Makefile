@@ -1,4 +1,4 @@
-# $FreeBSD$
+#
 
 PORTNAME=	infracost
 PORTVERSION=	0.8.6

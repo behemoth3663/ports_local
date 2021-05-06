@@ -1,4 +1,4 @@
-# $FreeBSD$
+#
 
 PORTNAME=	awsets
 PORTVERSION=	0.8.0

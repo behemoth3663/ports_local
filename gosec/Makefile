@@ -1,4 +1,4 @@
-# $FreeBSD$
+#
 
 PORTNAME=	gosec
 PORTVERSION=	2.7.0

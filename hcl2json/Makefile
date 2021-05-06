@@ -1,4 +1,4 @@
-# $FreeBSD$
+#
 
 PORTNAME=	hcl2json
 PORTVERSION=	0.3.3
@@ -20,7 +20,6 @@ PLIST_FILES=	bin/${PORTNAME}
 
 fetch-version: .PHONY get-version
 
-#rm -f -- distinfo Makefile.deps && make makesum && make go113mod-vendor && make makesum && mkcal
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>

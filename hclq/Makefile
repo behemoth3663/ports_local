@@ -1,4 +1,4 @@
-# $FreeBSD$
+#
 
 PORTNAME=	hclq
 PORTVERSION=	0.5.3

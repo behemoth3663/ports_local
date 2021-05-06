@@ -1,4 +1,4 @@
---- communicator/ssh/communicator.go.orig	2019-12-02 20:18:41.000000000 +0200
+--- communicator/ssh/communicator.go.orig	2019-12-02 18:18:41 UTC
 +++ communicator/ssh/communicator.go
 @@ -184,6 +184,16 @@ func (c *Communicator) Connect(o terraform.UIOutput) (
  		return err

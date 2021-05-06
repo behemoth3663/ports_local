@@ -1,4 +1,4 @@
-# $FreeBSD$
+#
 
 PORTNAME=	gogrep
 PORTVERSION=	0.0.2

@@ -1,4 +1,4 @@
-# $FreeBSD$
+#
 
 PORTNAME=	tflint
 PORTVERSION=	0.28.1

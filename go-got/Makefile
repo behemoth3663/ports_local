@@ -1,4 +1,4 @@
-# $FreeBSD$
+#
 
 PORTNAME=	got
 PORTVERSION=	0.5.0
@@ -28,6 +28,5 @@ pre-build: .PHONY
 	cd ${WRKSRC} && ${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod vendor
 
 .-include "${.CURDIR}/Makefile.deps"
-#.include "${.CURDIR}/../go113mod-vendor.mk"
 
 .include <bsd.port.mk>

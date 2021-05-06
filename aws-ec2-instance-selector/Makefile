@@ -1,4 +1,4 @@
-# $FreeBSD$
+#
 
 PORTNAME=	aws-ec2-instance-selector
 PORTVERSION=	2.0.2
@@ -25,6 +25,5 @@ PLIST_FILES=	bin/${PORTNAME}
 fetch-version: .PHONY get-version
 
 .-include "${.CURDIR}/Makefile.deps"
-#.include "${.CURDIR}/../go113mod-vendor.mk"
 
 .include <bsd.port.mk>

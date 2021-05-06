@@ -1,4 +1,4 @@
-# $FreeBSD$
+#
 
 PORTNAME=	ytt
 PORTVERSION=	0.32.0

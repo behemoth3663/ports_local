@@ -1,4 +1,4 @@
-# $FreeBSD$
+#
 
 PORTNAME=	asroute
 #DISTVERSIONPREFIX=	v
@@ -6,7 +6,7 @@ DISTVERSION=	0.1.0
 CATEGORIES=	net
 
 MAINTAINER=	none@freebsd.org
-COMMENT=	Interpret traceroute output to show names of ASN traversed 
+COMMENT=	Interpret traceroute output to show names of ASN traversed
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE

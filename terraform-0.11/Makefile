@@ -30,6 +30,5 @@ post-install:
 	${MV} ${STAGEDIR}${PREFIX}/bin/${PORTNAME} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION}
 	${INSTALL} -l rs ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}${PKGNAMESUFFIX}
 
-.include <bsd.port.mk>
-
 #GO_CMD=		${LOCALBASE}/go-1.13/bin/go
+.include <bsd.port.mk>

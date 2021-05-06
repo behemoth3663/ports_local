@@ -1,4 +1,4 @@
-# $FreeBSD$
+#
 
 PORTNAME=	smogcloud
 PORTVERSION=	0.0.1

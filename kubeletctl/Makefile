@@ -1,4 +1,4 @@
-# $FreeBSD$
+#
 
 PORTNAME=	kubeletctl
 PORTVERSION=	1.6
@@ -26,6 +26,5 @@ fetch-version: .PHONY get-version
 #	cd ${WRKSRC} && ${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod vendor
 
 .-include "${.CURDIR}/Makefile.deps"
-#.include "${.CURDIR}/../go113mod-vendor.mk"
 
 .include <bsd.port.mk>

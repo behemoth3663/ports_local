@@ -1,4 +1,4 @@
-# $FreeBSD$
+#
 
 PORTNAME=	driftctl
 PORTVERSION=	0.7.1

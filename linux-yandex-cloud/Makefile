@@ -1,4 +1,4 @@
-# $FreeBSD$
+#
 
 PORTNAME=	yandex-cloud
 PORTVERSION=	0.65.0

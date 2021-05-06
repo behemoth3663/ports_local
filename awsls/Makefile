@@ -1,4 +1,4 @@
-# $FreeBSD$
+#
 
 PORTNAME=	awsls
 PORTVERSION=	0.10.0

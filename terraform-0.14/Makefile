@@ -1,4 +1,4 @@
-# $FreeBSD: head/sysutils/terraform/Makefile 520926 2019-12-26 15:43:22Z lifanov $
+#
 
 PORTNAME=	terraform
 PORTVERSION=	0.14.11

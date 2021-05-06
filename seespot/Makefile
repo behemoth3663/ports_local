@@ -1,5 +1,4 @@
-# Created by: a1vm
-# $FreeBSD: head/local/seespot/Makefile 000000 2018-08-22 06:54:28Z meta $
+#
 
 PORTNAME=	seespot
 PORTVERSION=	0.0.1

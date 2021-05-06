@@ -1,4 +1,4 @@
-# $FreeBSD$
+#
 
 PORTNAME=	terraformer
 PORTVERSION=	0.8.13

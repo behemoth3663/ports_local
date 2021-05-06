@@ -1,4 +1,4 @@
-# $FreeBSD$
+#
 
 PORTNAME=	gping
 PORTVERSION=	0.1.6
@@ -11,6 +11,8 @@ COMMENT=	Ping with a graph
 LICENSE=	MIT
 #LICENSE_FILE=	${WRKSRC}/LICENSE
 
+BROKEN=		Error pinging: Unsupported OS Unknown, src/main.rs:122:33
+
 USES=		cargo
 # ssl
 USE_GITHUB=	yes
@@ -20,8 +22,6 @@ GH_ACCOUNT=	orf
 #GH_TAGNAME=	ab321d9
 
 JQ_GETVER_EXPR=	[.[].name | select(test("^[0-9.]+$$"; "n"))][0]
-
-BROKEN=	'Error pinging: Unsupported OS Unknown, src/main.rs:122:33'
 
 #https://www.freebsd.org/doc/en_US.ISO8859-1/books/porters-handbook/building.html#using-cargo
 #rm -f -- distinfo Makefile.deps && make makesum && make cargo-crates && | make cargo-crates >Makefile.deps && make makesum

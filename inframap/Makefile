@@ -1,4 +1,4 @@
-# $FreeBSD$
+#
 
 PORTNAME=	inframap
 PORTVERSION=	0.6.4

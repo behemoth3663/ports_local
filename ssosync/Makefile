@@ -1,4 +1,4 @@
-# $FreeBSD$
+#
 
 PORTNAME=	ssosync
 PORTVERSION=	0.0.2
@@ -20,8 +20,6 @@ PLIST_FILES=	bin/${PORTNAME}
 
 fetch-version: .PHONY get-version
 
-#rm -f -- distinfo Makefile.deps && make makesum && make go113mod-vendor && make makesum && mkcal
 .-include "${.CURDIR}/Makefile.deps"
-#.include "${.CURDIR}/../go113mod-vendor.mk"
 
 .include <bsd.port.mk>

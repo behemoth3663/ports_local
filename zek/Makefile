@@ -1,4 +1,4 @@
-# $FreeBSD$
+#
 
 PORTNAME=	zek
 PORTVERSION=	0.1.9
@@ -22,6 +22,5 @@ PLIST_FILES=	bin/${PORTNAME}
 fetch-version: .PHONY get-version
 
 .-include "${.CURDIR}/Makefile.deps"
-#.include "${.CURDIR}/../go113mod-vendor.mk"
 
 .include <bsd.port.mk>

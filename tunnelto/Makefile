@@ -1,4 +1,4 @@
-# $FreeBSD$
+#
 
 PORTNAME=	tunnelto
 #DISTVERSIONPREFIX=	v

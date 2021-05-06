@@ -1,4 +1,4 @@
-# $FreeBSD$
+#
 
 PORTNAME=	cloud-nuke
 PORTVERSION=	0.1.30

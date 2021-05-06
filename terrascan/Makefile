@@ -1,4 +1,4 @@
-# $FreeBSD$
+#
 
 PORTNAME=	terrascan
 PORTVERSION=	1.5.1

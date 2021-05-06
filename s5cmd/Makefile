@@ -1,4 +1,4 @@
-# $FreeBSD$
+#
 
 PORTNAME=	s5cmd
 PORTVERSION=	1.2.1

@@ -1,4 +1,4 @@
-# $FreeBSD$
+#
 
 PORTNAME=	topngx
 #DISTVERSIONPREFIX=	v

@@ -1,4 +1,4 @@
-# $FreeBSD$
+#
 
 PORTNAME=	ktunnel
 PORTVERSION=	1.2.7
@@ -7,7 +7,7 @@ CATEGORIES=	net
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Expose your local resources to kubernetes
-                                                                   	
+
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 

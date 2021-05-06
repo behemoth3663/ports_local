@@ -1,4 +1,4 @@
-# $FreeBSD$
+#
 
 PORTNAME=	phoneinfoga
 PORTVERSION=	2.3.7
