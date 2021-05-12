@@ -2,6 +2,7 @@ GH_TUPLE=	\
 		aws:aws-lambda-go:v1.8.2:aws_aws_lambda_go/vendor/github.com/aws/aws-lambda-go \
 		cppforlife:cobrautil:bb86e6965d72:cppforlife_cobrautil/vendor/github.com/cppforlife/cobrautil \
 		cppforlife:go-cli-ui:512793797f05:cppforlife_go_cli_ui/vendor/github.com/cppforlife/go-cli-ui \
+		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		go-check:check:41f04d3bba15:go_check_check/vendor/gopkg.in/check.v1 \
 		hashicorp:go-version:v1.2.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
 		inconshreveable:mousetrap:v1.0.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
@@ -9,5 +10,7 @@ GH_TUPLE=	\
 		k14s:starlark-go:3a5c849cc368:k14s_starlark_go/vendor/github.com/k14s/starlark-go \
 		kr:pretty:v0.1.0:kr_pretty/vendor/github.com/kr/pretty \
 		kr:text:v0.1.0:kr_text/vendor/github.com/kr/text \
+		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		spf13:cobra:v1.0.0:spf13_cobra/vendor/github.com/spf13/cobra \
-		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag
+		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
+		stretchr:testify:v1.2.2:stretchr_testify/vendor/github.com/stretchr/testify
