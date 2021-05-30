@@ -1,0 +1,7 @@
+TIMESTAMP = 1622375771
+SHA256 (centos/dump-0.4-0.23.b44.el7.i686.rpm) = 5c66a459eeef3371f824d01f9d940307cfce443473276fd89348bf96cfe0056f
+SIZE (centos/dump-0.4-0.23.b44.el7.i686.rpm) = 147424
+SHA256 (centos/dump-0.4-0.23.b44.el7.x86_64.rpm) = d907d154160b6c3900110c24088c8267748b39e61b0fecd3267d9c165a77ea55
+SIZE (centos/dump-0.4-0.23.b44.el7.x86_64.rpm) = 151336
+SHA256 (centos/dump-0.4-0.23.b44.el7.src.rpm) = 7aa676f339bb42a2d2dec22bd63181c84ee6e3d97e2b429c100071422a0fb51f
+SIZE (centos/dump-0.4-0.23.b44.el7.src.rpm) = 346017
