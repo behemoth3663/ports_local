@@ -6,11 +6,11 @@ GH_TUPLE=	\
 		aliscott:go-pretty:408905a61c8e:aliscott_go_pretty_v6/vendor/github.com/jedib0t/go-pretty/v6 \
 		apparentlymart:go-textseg:v1.0.0:apparentlymart_go_textseg/vendor/github.com/apparentlymart/go-textseg \
 		apparentlymart:go-textseg:v12.0.0:apparentlymart_go_textseg_v12/vendor/github.com/apparentlymart/go-textseg/v12 \
-		briandowns:spinner:v1.12.0:briandowns_spinner/vendor/github.com/briandowns/spinner \
+		briandowns:spinner:v1.13.0:briandowns_spinner/vendor/github.com/briandowns/spinner \
 		chzyer:readline:2972be24d48e:chzyer_readline/vendor/github.com/chzyer/readline \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		dustin:go-humanize:v1.0.0:dustin_go_humanize/vendor/github.com/dustin/go-humanize \
-		fatih:color:v1.10.0:fatih_color/vendor/github.com/fatih/color \
+		fatih:color:v1.12.0:fatih_color/vendor/github.com/fatih/color \
 		go-check:check:41f04d3bba15:go_check_check/vendor/gopkg.in/check.v1 \
 		go-playground:assert:v1.2.1:go_playground_assert/vendor/gopkg.in/go-playground/assert.v1 \
 		go-yaml:yaml:9f266ea9e77c:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
@@ -48,7 +48,7 @@ GH_TUPLE=	\
 		spf13:cobra:v1.1.3:spf13_cobra/vendor/github.com/spf13/cobra \
 		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
 		stretchr:testify:v1.7.0:stretchr_testify/vendor/github.com/stretchr/testify \
-		tidwall:gjson:v1.7.5:tidwall_gjson/vendor/github.com/tidwall/gjson \
+		tidwall:gjson:v1.8.0:tidwall_gjson/vendor/github.com/tidwall/gjson \
 		tidwall:match:v1.0.3:tidwall_match/vendor/github.com/tidwall/match \
 		tidwall:pretty:v1.1.0:tidwall_pretty/vendor/github.com/tidwall/pretty \
 		zclconf:go-cty:v1.7.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
