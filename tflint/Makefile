@@ -1,12 +1,12 @@
-#
+# Created by: Gabriel M. Dutra <0xdutra@gmail.com>
 
 PORTNAME=	tflint
-PORTVERSION=	0.28.1
+PORTVERSION=	0.29.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	sysutils
 
-MAINTAINER=	none@freebsd.org
-COMMENT=	Terraform linter focused on possible errors, best practices, etc.
+MAINTAINER=	0xdutra@gmail.com
+COMMENT=	Terraform Linter
 
 LICENSE=	MPL20
 LICENSE_FILE=	${WRKSRC}/LICENSE
