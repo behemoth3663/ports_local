@@ -40,7 +40,6 @@ GH_TUPLE=	\
 		mitchellh:copystructure:v1.2.0:mitchellh_copystructure/vendor/github.com/mitchellh/copystructure \
 		mitchellh:go-wordwrap:v1.0.1:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
 		mitchellh:panicwrap:v1.0.0:mitchellh_panicwrap/vendor/github.com/mitchellh/panicwrap \
-		mitchellh:prefixedio:5733675afd51:mitchellh_prefixedio/vendor/github.com/mitchellh/prefixedio \
 		mitchellh:reflectwalk:v1.0.2:mitchellh_reflectwalk/vendor/github.com/mitchellh/reflectwalk \
 		pascaldekloe:name:v1.0.1:pascaldekloe_name/vendor/github.com/pascaldekloe/name \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
