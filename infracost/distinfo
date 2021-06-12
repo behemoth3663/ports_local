@@ -1,6 +1,6 @@
-TIMESTAMP = 1622965815
-SHA256 (infracost-infracost-v0.9.0_GH0.tar.gz) = 05a89911551395448b33fafe694c71bd2003591f64b9af9506e3941cf29d6c68
-SIZE (infracost-infracost-v0.9.0_GH0.tar.gz) = 357435
+TIMESTAMP = 1623484272
+SHA256 (infracost-infracost-v0.9.1_GH0.tar.gz) = 08ff25176f79bb9f6a8ed65654e6e9495eada363c70e61e0f8c1fe45eef86b44
+SIZE (infracost-infracost-v0.9.1_GH0.tar.gz) = 371184
 SHA256 (Masterminds-goutils-v1.1.0_GH0.tar.gz) = 053a61c4b0d78e6978600c99562f04d053993c428d549a20b627151cf1aabbae
 SIZE (Masterminds-goutils-v1.1.0_GH0.tar.gz) = 14610
 SHA256 (Masterminds-semver-v1.5.0_GH0.tar.gz) = c9140eddfb03dc862f826e7761561260b9a840afa7519cc0919e89a43b5be5ba
