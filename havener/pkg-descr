@@ -1,0 +1,9 @@
+If you use a Kubernetes cluster, chances are very high that you use kubectl a
+lot. These are fine tools and allow you to do everything you need to do, but 
+there are use cases where you end up with a very long kubectl command in your 
+terminal. This is why we created havener to introduce a convenience wrapper 
+around kubectl. Think of it as a swiss army knife for Kubernetes tasks. 
+Possible use cases are for example executing a command on multiple pods at 
+the same time, or retrieving usage details.
+
+WWW: https://github.com/homeport/havener
