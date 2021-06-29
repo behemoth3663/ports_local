@@ -1,0 +1,29 @@
+--- Makefile.deps.orig	2021-06-29 08:46:19 UTC
++++ Makefile.deps
+@@ -12,7 +12,7 @@ GH_TUPLE=	\
+ 		Azure:go-autorest:v14.2.0:azure_go_autorest/vendor/github.com/Azure/go-autorest \
+ 		Azure:go-ntlmssp:bad6df29494a:azure_go_ntlmssp/vendor/github.com/Azure/go-ntlmssp \
+ 		ChrisTrenkamp:goxpath:97928f7e12b6:christrenkamp_goxpath/vendor/github.com/ChrisTrenkamp/goxpath \
+-		NaverCloudPlatform:ncloud-sdk-go-v2:v1.2.0:navercloudplatform_ncloud_sdk_go_v2/vendor/github.com/NaverCloudPlatform/ncloud-sdk-go-v2 \
++		NaverCloudPlatform:ncloud-sdk-go-v2:v1.1.7:navercloudplatform_ncloud_sdk_go_v2/vendor/github.com/NaverCloudPlatform/ncloud-sdk-go-v2 \
+ 		StackExchange:wmi:cbe66965904d:stackexchange_wmi/vendor/github.com/StackExchange/wmi \
+ 		Telmate:proxmox-api-go:b9cc6607c070:telmate_proxmox_api_go/vendor/github.com/Telmate/proxmox-api-go \
+ 		agext:levenshtein:v1.2.1:agext_levenshtein/vendor/github.com/agext/levenshtein \
+@@ -98,8 +98,6 @@ GH_TUPLE=	\
+ 		hashicorp:go-checkpoint:1545e56e46de:hashicorp_go_checkpoint/vendor/github.com/hashicorp/go-checkpoint \
+ 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
+ 		hashicorp:go-cty-funcs:2721b1e36840:hashicorp_go_cty_funcs/vendor/github.com/hashicorp/go-cty-funcs \
+-		hashicorp:go-getter:a6995fa1edad:hashicorp_go_getter_v2/vendor/github.com/hashicorp/go-getter/gcs/v2 \
+-		hashicorp:go-getter:a6995fa1edad:hashicorp_go_getter_v2_1/vendor/github.com/hashicorp/go-getter/s3/v2 \
+ 		hashicorp:go-getter:v2.0.0:hashicorp_go_getter_v2_2/vendor/github.com/hashicorp/go-getter/v2 \
+ 		hashicorp:go-hclog:v0.12.0:hashicorp_go_hclog/vendor/github.com/hashicorp/go-hclog \
+ 		hashicorp:go-immutable-radix:v1.1.0:hashicorp_go_immutable_radix/vendor/github.com/hashicorp/go-immutable-radix \
+@@ -210,7 +208,7 @@ GH_TUPLE=	\
+ 		square:go-jose:v2.5.1:square_go_jose/vendor/gopkg.in/square/go-jose.v2 \
+ 		stretchr:objx:v0.3.0:stretchr_objx/vendor/github.com/stretchr/objx \
+ 		stretchr:testify:v1.7.0:stretchr_testify/vendor/github.com/stretchr/testify \
+-		tencentcloud:tencentcloud-sdk-go:v3.0.222:tencentcloud_tencentcloud_sdk_go/vendor/github.com/tencentcloud/tencentcloud-sdk-go \
++		tencentcloud:tencentcloud-sdk-go:v1.0.196:tencentcloud_tencentcloud_sdk_go/vendor/github.com/tencentcloud/tencentcloud-sdk-go \
+ 		ucloud:ucloud-sdk-go:v0.20.2:ucloud_ucloud_sdk_go/vendor/github.com/ucloud/ucloud-sdk-go \
+ 		ufilesdk-dev:ufile-gosdk:v1.0.1:ufilesdk_dev_ufile_gosdk/vendor/github.com/ufilesdk-dev/ufile-gosdk \
+ 		ugorji:go:v1.2.4:ugorji_go_codec/vendor/github.com/ugorji/go \

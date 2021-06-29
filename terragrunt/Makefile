@@ -1,8 +1,8 @@
 # Created by: Gabriel M. Dutra <0xdutra@gmail.com>
 
 PORTNAME=	terragrunt
-DISTVERSION=	0.30.3
 DISTVERSIONPREFIX=	v
+DISTVERSION=	0.31.0
 CATEGORIES=	sysutils
 
 MAINTAINER=	0xdutra@gmail.com
@@ -19,6 +19,11 @@ GH_ACCOUNT=	gruntwork-io
 GO_BUILDFLAGS=	-ldflags="-X main.VERSION=v${PORTVERSION}"
 
 PLIST_FILES=	bin/${PORTNAME}
+
+_OPTIONS_extract=	501:pre-post-extract
+
+pre-post-extract: .PHONY
+	${LN} -s ${WRKDIR}/go-commons-0.7.0 ${WRKDIR}/gruntwork-cli-0.7.0
 
 .-include "${.CURDIR}/Makefile.deps"
 
