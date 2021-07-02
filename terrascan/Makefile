@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	terrascan
-PORTVERSION=	1.7.0
+PORTVERSION=	1.8.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	sysutils
 
@@ -20,14 +20,19 @@ GH_TAGNAME=	d8fd9c4
 
 PLIST_FILES=	bin/${PORTNAME}
 
+fetch-version: .PHONY get-version
+
 _OPTIONS_extract=	701:post-post-extract
 
 post-post-extract: .PHONY
 	${MV} ${WRKSRC}/vendor/sigs.k8s.io/kustomize/api/api/* ${WRKSRC}/vendor/sigs.k8s.io/kustomize/api
 	${MV} ${WRKSRC}/vendor/sigs.k8s.io/kustomize/kyaml/kyaml/* ${WRKSRC}/vendor/sigs.k8s.io/kustomize/kyaml
 
-fetch-version: .PHONY get-version
-
 .-include "${.CURDIR}/Makefile.deps"
+
+#-               kubernetes-sigs:kustomize:v0.10.15:kubernetes_sigs_kustomize_1/vendor/sigs.k8s.io/kustomize/kyaml \
+#-               kubernetes-sigs:kustomize:v0.8.5:kubernetes_sigs_kustomize/vendor/sigs.k8s.io/kustomize/api \
+#+               kubernetes-sigs:kustomize:kyaml/v0.10.15:kubernetes_sigs_kustomize_1/vendor/sigs.k8s.io/kustomize/kyaml \
+#+               kubernetes-sigs:kustomize:api/v0.8.5:kubernetes_sigs_kustomize/vendor/sigs.k8s.io/kustomize/api \
 
 .include <bsd.port.mk>
