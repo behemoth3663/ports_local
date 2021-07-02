@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	cloud-nuke
-PORTVERSION=	0.2.0
+PORTVERSION=	0.3.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	sysutils
 
@@ -16,18 +16,10 @@ USES=		go:modules
 USE_GITHUB=	yes
 GH_ACCOUNT=	gruntwork-io
 
-#GO_TARGET=	./cmd/${PORTNAME}
-
 PLIST_FILES=	bin/${PORTNAME}
-
-_OPTIONS_extract=	501:pre-post-extract
-
-pre-post-extract: .PHONY
-	${LN} -s ${WRKDIR}/go-commons-0.7.0 ${WRKDIR}/gruntwork-cli-0.7.0
 
 fetch-version: .PHONY get-version
 
-#rm -f -- distinfo Makefile.deps && make makesum && make gomod-vendor && make gomod-vendor >Makefile.deps && make makesum && mkcal && instpc
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>

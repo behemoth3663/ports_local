@@ -1,5 +1,5 @@
 GH_TUPLE=	\
-		aws:aws-sdk-go:v1.34.27:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		aws:aws-sdk-go:v1.38.68:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
 		bgentry:speakeasy:v0.1.0:bgentry_speakeasy/vendor/github.com/bgentry/speakeasy \
 		boombuler:barcode:6c824513bacc:boombuler_barcode/vendor/github.com/boombuler/barcode \
 		cpuguy83:go-md2man:v2.0.0:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
@@ -10,16 +10,15 @@ GH_TUPLE=	\
 		go-yaml:yaml:9f266ea9e77c:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
 		go-yaml:yaml:v2.2.8:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
 		golang:crypto:5ea612d1eb83:golang_crypto/vendor/golang.org/x/crypto \
-		golang:mock:v1.4.0:golang_mock/vendor/github.com/golang/mock \
-		golang:net:ab3426394381:golang_net/vendor/golang.org/x/net \
-		golang:sys:ed371f2e16b4:golang_sys/vendor/golang.org/x/sys \
+		golang:mock:v1.6.0:golang_mock/vendor/github.com/golang/mock \
+		golang:net:a5a99cb37ef4:golang_net/vendor/golang.org/x/net \
+		golang:sys:977fb7262007:golang_sys/vendor/golang.org/x/sys \
 		google:uuid:v1.1.1:google_uuid/vendor/github.com/google/uuid \
 		gruntwork-io:go-commons:v0.8.2:gruntwork_io_go_commons/vendor/github.com/gruntwork-io/go-commons \
-		gruntwork-io:gruntwork-cli:v0.7.0:gruntwork_io_gruntwork_cli/vendor/github.com/gruntwork-io/gruntwork-cli \
-		gruntwork-io:terratest:v0.32.9:gruntwork_io_terratest/vendor/github.com/gruntwork-io/terratest \
+		gruntwork-io:terratest:v0.36.3:gruntwork_io_terratest/vendor/github.com/gruntwork-io/terratest \
 		hashicorp:errwrap:v1.0.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
 		hashicorp:go-multierror:v1.1.0:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
-		jmespath:go-jmespath:v0.3.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
+		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
 		konsorten:go-windows-terminal-sequences:v1.0.3:konsorten_go_windows_terminal_sequences/vendor/github.com/konsorten/go-windows-terminal-sequences \
 		mattn:go-colorable:v0.1.4:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
 		mattn:go-isatty:v0.0.11:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
