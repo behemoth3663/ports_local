@@ -1,4 +1,4 @@
---- internal/update/update.go.orig	2021-04-16 14:37:16 UTC
+--- internal/update/update.go.orig	2021-07-06 14:33:15 UTC
 +++ internal/update/update.go
 @@ -14,11 +14,8 @@ import (
  	"time"
@@ -15,13 +15,13 @@
 @@ -27,66 +24,7 @@ type Info struct {
  }
  
- func CheckForUpdate(cfg *config.Config) (*Info, error) {
--	if skipUpdateCheck(cfg) {
+ func CheckForUpdate(ctx *config.RunContext) (*Info, error) {
+-	if skipUpdateCheck(ctx) {
 -		return nil, nil
 -	}
 -
 -	// Check cache for the latest version
--	cachedLatestVersion, err := checkCachedLatestVersion(cfg)
+-	cachedLatestVersion, err := checkCachedLatestVersion(ctx)
 -	if err != nil {
 -		log.Debugf("error getting cached latest version: %v", err)
 -	}
@@ -62,7 +62,7 @@
 -
 -	// Save the latest version in the cache
 -	if latestVersion != cachedLatestVersion {
--		err := setCachedLatestVersion(cfg, latestVersion)
+-		err := setCachedLatestVersion(ctx, latestVersion)
 -		if err != nil {
 -			log.Debugf("error saving cached latest version: %v", err)
 -		}
@@ -79,4 +79,4 @@
 +	return nil, nil
  }
  
- func skipUpdateCheck(cfg *config.Config) bool {
+ func skipUpdateCheck(ctx *config.RunContext) bool {
