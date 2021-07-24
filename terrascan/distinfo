@@ -1,6 +1,6 @@
-TIMESTAMP = 1625263551
-SHA256 (accurics-terrascan-v1.8.0-d8fd9c4_GH0.tar.gz) = a0cec8cdfc81a1f5fe2dd33b1fa6533708dc8bf18c83ee7438e747f925b251b4
-SIZE (accurics-terrascan-v1.8.0-d8fd9c4_GH0.tar.gz) = 839944
+TIMESTAMP = 1627131149
+SHA256 (accurics-terrascan-v1.8.1-d8fd9c4_GH0.tar.gz) = a0cec8cdfc81a1f5fe2dd33b1fa6533708dc8bf18c83ee7438e747f925b251b4
+SIZE (accurics-terrascan-v1.8.1-d8fd9c4_GH0.tar.gz) = 839944
 SHA256 (BurntSushi-toml-v0.3.1_GH0.tar.gz) = 6593da894578ba510a470735ffbdc88ce88033094dc5a8f4d3957ab87e18803f
 SIZE (BurntSushi-toml-v0.3.1_GH0.tar.gz) = 42077
 SHA256 (Masterminds-goutils-v1.1.0_GH0.tar.gz) = 053a61c4b0d78e6978600c99562f04d053993c428d549a20b627151cf1aabbae
