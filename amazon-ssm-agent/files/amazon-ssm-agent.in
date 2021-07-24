@@ -1,0 +1,39 @@
+#!/bin/sh
+
+# $FreeBSD: head/sysutils/amazon-ssm-agent/files/amazon-ssm-agent.in 423636 2016-10-10 04:40:10Z cperciva $
+#
+# PROVIDE: amazon-ssm-agent
+# REQUIRE: LOGIN
+# KEYWORD: shutdown
+#
+# Add the following lines to /etc/rc.conf.local or /etc/rc.conf
+# to enable this service:
+#
+# amazon_ssm_agent_enable:	Set to YES to enable the Amazon SSM Agent
+
+. /etc/rc.subr
+
+readonly name='amazon_ssm_agent'
+rcvar="${name}_enable"
+
+load_rc_config "${name}"
+
+eval ": \${${rcvar}:=NO}"
+
+procname='%%PREFIX%%/sbin/amazon-ssm-agent'
+ppidfile="/var/run/${name}.pid"
+pidfile="/var/run/${procname##*/}.pid"
+command='/usr/sbin/daemon'
+command_args="-f -P ${ppidfile} -p ${pidfile} ${procname}"
+
+stop_postcmd='/usr/bin/killall -q ssm-session-worker'
+status_postcmd='poststatus'
+
+poststatus() {
+	local ppid junk
+	read ppid junk < "${ppidfile}" 2>/dev/null
+	test "${ppid}" -gt 1 2>/dev/null || return 0
+	echo "The parent of ${name} is running as pid ${ppid}."
+}
+
+run_rc_command "${1}"

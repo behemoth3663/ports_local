@@ -1,0 +1,80 @@
+From b084979a353b90bbec8d60d27858bd9c3067ee1c Mon Sep 17 00:00:00 2001
+From: Magnus Jason <magnus.jason@rea-group.com>
+Date: Thu, 24 Jun 2021 16:05:03 +1000
+Subject: [PATCH] Support for specifying host for port forwarding.
+
+Fixes: https://github.com/aws/amazon-ssm-agent/issues/208
+
+This is a long requested feature.
+SSH has long supported forwarding ports from remote hosts, this brings similar functionality to SSM sessions.
+---
+ agent/session/plugins/port/port.go     |  3 ++-
+ agent/session/plugins/port/port_mux.go | 10 ++++++----
+ 2 files changed, 8 insertions(+), 5 deletions(-)
+
+diff --git a/agent/session/plugins/port/port.go b/agent/session/plugins/port/port.go
+index fa8ad265..fe1c5d6c 100644
+--- a/agent/session/plugins/port/port.go
++++ b/agent/session/plugins/port/port.go
+@@ -39,6 +39,7 @@ const muxSupportedClientVersion = "1.1.70"
+ // PortParameters contains inputs required to execute port plugin.
+ type PortParameters struct {
+ 	PortNumber string `json:"portNumber" yaml:"portNumber"`
++	Host       string `json:"host"`
+ 	Type       string `json:"type"`
+ }
+ 
+@@ -65,7 +66,7 @@ var GetSession = func(context context.T, portParameters PortParameters, cancelle
+ 	if portParameters.Type == mgsConfig.LocalPortForwarding &&
+ 		versionutil.Compare(clientVersion, muxSupportedClientVersion, true) >= 0 {
+ 
+-		if session, err = NewMuxPortSession(context, cancelled, portParameters.PortNumber, sessionId); err == nil {
++		if session, err = NewMuxPortSession(context, cancelled, portParameters.Host, portParameters.PortNumber, sessionId); err == nil {
+ 			return session, nil
+ 		}
+ 	} else {
+diff --git a/agent/session/plugins/port/port_mux.go b/agent/session/plugins/port/port_mux.go
+index 0b230dac..2b691d99 100644
+--- a/agent/session/plugins/port/port_mux.go
++++ b/agent/session/plugins/port/port_mux.go
+@@ -56,6 +56,7 @@ type MuxPortSession struct {
+ 	context          agentContext.T
+ 	portSession      IPortSession
+ 	cancelled        chan struct{}
++	serverHost       string
+ 	serverPortNumber string
+ 	sessionId        string
+ 	socketFile       string
+@@ -74,10 +75,11 @@ func (s *MuxServer) close() {
+ }
+ 
+ // NewMuxPortSession returns a new instance of the MuxPortSession.
+-func NewMuxPortSession(context agentContext.T, cancelled chan struct{}, portNumber string, sessionId string) (IPortSession, error) {
++func NewMuxPortSession(context agentContext.T, cancelled chan struct{}, host string, portNumber string, sessionId string) (IPortSession, error) {
+ 	var plugin = MuxPortSession{
+ 		context:          context,
+ 		cancelled:        cancelled,
++		serverHost:       host,
+ 		serverPortNumber: portNumber,
+ 		sessionId:        sessionId}
+ 	return &plugin, nil
+@@ -249,7 +251,7 @@ func (p *MuxPortSession) handleServerConnections(ctx context.Context, dataChanne
+ 		}
+ 	}()
+ 	// net.Dial assumes local system when host in addr is empty
+-	localAddr := fmt.Sprintf(":%s", p.serverPortNumber)
++	destinationAddr := fmt.Sprintf("%s:%s", p.serverHost, p.serverPortNumber)
+ 	for {
+ 		select {
+ 		case <-ctx.Done():
+@@ -263,8 +265,8 @@ func (p *MuxPortSession) handleServerConnections(ctx context.Context, dataChanne
+ 
+ 			log.Debugf("Started a new mux stream %d\n", stream.ID())
+ 
+-			if conn, err := net.Dial("tcp", localAddr); err == nil {
+-				log.Tracef("Established connection to port %s", p.serverPortNumber)
++			if conn, err := net.Dial("tcp", destinationAddr); err == nil {
++				log.Tracef("Established connection to address: %s", destinationAddr)
+ 				go func() {
+ 					defer func() {
+ 						if r := recover(); r != nil {
