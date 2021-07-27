@@ -1,6 +1,6 @@
-TIMESTAMP = 1625699033
-SHA256 (cloudskiff-driftctl-v0.12.0_GH0.tar.gz) = 8fb57c3268c2c6a85a496b6464e438b9f8743f78b21ac1b8b13950f127aa903b
-SIZE (cloudskiff-driftctl-v0.12.0_GH0.tar.gz) = 15459025
+TIMESTAMP = 1627423500
+SHA256 (cloudskiff-driftctl-v0.13.0_GH0.tar.gz) = 268d93e1c78504fd44b8df22b7c6353564c5423b79bf9e808b7814b255ccf049
+SIZE (cloudskiff-driftctl-v0.13.0_GH0.tar.gz) = 8857044
 SHA256 (agext-levenshtein-v1.2.2_GH0.tar.gz) = b238bfd1dce6da173913c27cf2e172d58a55e7e6b7fc11736c7e45bd1af4818f
 SIZE (agext-levenshtein-v1.2.2_GH0.tar.gz) = 13098
 SHA256 (apparentlymart-go-cidr-v1.1.0_GH0.tar.gz) = 359897e7e89bf1d8efa69ae5ec490c0a88ba4892fffbf94b17244355e0893503
