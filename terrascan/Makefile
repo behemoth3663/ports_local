@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	terrascan
-PORTVERSION=	1.8.1
+PORTVERSION=	1.6.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	sysutils
 
@@ -16,7 +16,7 @@ GO_TARGET=	./cmd/${PORTNAME}
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	accurics
-GH_TAGNAME=	d8fd9c4
+#GH_TAGNAME=	a09b879
 
 PLIST_FILES=	bin/${PORTNAME}
 
@@ -30,9 +30,9 @@ post-post-extract: .PHONY
 
 .-include "${.CURDIR}/Makefile.deps"
 
-#-               kubernetes-sigs:kustomize:v0.10.15:kubernetes_sigs_kustomize_1/vendor/sigs.k8s.io/kustomize/kyaml \
-#-               kubernetes-sigs:kustomize:v0.8.5:kubernetes_sigs_kustomize/vendor/sigs.k8s.io/kustomize/api \
-#+               kubernetes-sigs:kustomize:kyaml/v0.10.15:kubernetes_sigs_kustomize_1/vendor/sigs.k8s.io/kustomize/kyaml \
-#+               kubernetes-sigs:kustomize:api/v0.8.5:kubernetes_sigs_kustomize/vendor/sigs.k8s.io/kustomize/api \
+#-		kubernetes-sigs:kustomize:v0.10.15:kubernetes_sigs_kustomize_1/vendor/sigs.k8s.io/kustomize/kyaml \
+#-		kubernetes-sigs:kustomize:v0.8.5:kubernetes_sigs_kustomize/vendor/sigs.k8s.io/kustomize/api \
+#+		kubernetes-sigs:kustomize:kyaml/v0.10.15:kubernetes_sigs_kustomize_1/vendor/sigs.k8s.io/kustomize/kyaml \
+#+		kubernetes-sigs:kustomize:api/v0.8.5:kubernetes_sigs_kustomize/vendor/sigs.k8s.io/kustomize/api \
 
 .include <bsd.port.mk>
