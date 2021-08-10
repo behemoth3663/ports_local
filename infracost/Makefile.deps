@@ -21,7 +21,7 @@ GH_TUPLE=	\
 		golang:sys:04245dca01da:golang_sys/vendor/golang.org/x/sys \
 		golang:text:v0.3.6:golang_text/vendor/golang.org/x/text \
 		google:go-cmp:v0.5.6:google_go_cmp/vendor/github.com/google/go-cmp \
-		google:uuid:v1.2.0:google_uuid/vendor/github.com/google/uuid \
+		google:uuid:v1.3.0:google_uuid/vendor/github.com/google/uuid \
 		hashicorp:hcl2:fb75b3253c80:hashicorp_hcl2/vendor/github.com/hashicorp/hcl2 \
 		huandu:xstrings:v1.3.2:huandu_xstrings/vendor/github.com/huandu/xstrings \
 		imdario:mergo:v0.3.12:imdario_mergo/vendor/github.com/imdario/mergo \
