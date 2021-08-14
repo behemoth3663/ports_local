@@ -1,5 +1,5 @@
 GH_TUPLE=	\
-		aws:aws-lambda-go:v1.24.0:aws_aws_lambda_go/vendor/github.com/aws/aws-lambda-go \
+		aws:aws-lambda-go:v1.26.0:aws_aws_lambda_go/vendor/github.com/aws/aws-lambda-go \
 		cppforlife:cobrautil:bb86e6965d72:cppforlife_cobrautil/vendor/github.com/cppforlife/cobrautil \
 		cppforlife:go-cli-ui:512793797f05:cppforlife_go_cli_ui/vendor/github.com/cppforlife/go-cli-ui \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
