@@ -1,12 +1,14 @@
-TIMESTAMP = 1628632948
-SHA256 (infracost-infracost-v0.9.5_GH0.tar.gz) = 34bc174e31f28fd951e33110f376240654504e7945d500b491e26117952c34a7
-SIZE (infracost-infracost-v0.9.5_GH0.tar.gz) = 405305
+TIMESTAMP = 1630079403
+SHA256 (infracost-infracost-v0.9.6_GH0.tar.gz) = 4bccfdc2feead094e39482eb58ded08707880b7f2416d0b606a71b25faf3d583
+SIZE (infracost-infracost-v0.9.6_GH0.tar.gz) = 412607
 SHA256 (Masterminds-goutils-v1.1.0_GH0.tar.gz) = 053a61c4b0d78e6978600c99562f04d053993c428d549a20b627151cf1aabbae
 SIZE (Masterminds-goutils-v1.1.0_GH0.tar.gz) = 14610
 SHA256 (Masterminds-semver-v1.5.0_GH0.tar.gz) = c9140eddfb03dc862f826e7761561260b9a840afa7519cc0919e89a43b5be5ba
 SIZE (Masterminds-semver-v1.5.0_GH0.tar.gz) = 21188
 SHA256 (Masterminds-sprig-v2.22.0_GH0.tar.gz) = c6d0f6e2a3b2aecc888b62c15defcccf16a44e7435c47c7f158b98946c5ee970
 SIZE (Masterminds-sprig-v2.22.0_GH0.tar.gz) = 42051
+SHA256 (Rhymond-go-money-v1.0.3_GH0.tar.gz) = bf95f6dd53284a0df69085300e19ef9a0173c861c03f7003dfc0c3ed1c211235
+SIZE (Rhymond-go-money-v1.0.3_GH0.tar.gz) = 13872
 SHA256 (agext-levenshtein-v1.2.2_GH0.tar.gz) = b238bfd1dce6da173913c27cf2e172d58a55e7e6b7fc11736c7e45bd1af4818f
 SIZE (agext-levenshtein-v1.2.2_GH0.tar.gz) = 13098
 SHA256 (aliscott-go-pretty-408905a61c8e_GH0.tar.gz) = 6cd68a3cb959fb67233c2a7770dff0200a374b9d4dd1aa909cbb4cc699cb6f67

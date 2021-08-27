@@ -2,6 +2,7 @@ GH_TUPLE=	\
 		Masterminds:goutils:v1.1.0:masterminds_goutils/vendor/github.com/Masterminds/goutils \
 		Masterminds:semver:v1.5.0:masterminds_semver/vendor/github.com/Masterminds/semver \
 		Masterminds:sprig:v2.22.0:masterminds_sprig/vendor/github.com/Masterminds/sprig \
+		Rhymond:go-money:v1.0.3:rhymond_go_money/vendor/github.com/Rhymond/go-money \
 		agext:levenshtein:v1.2.2:agext_levenshtein/vendor/github.com/agext/levenshtein \
 		aliscott:go-pretty:408905a61c8e:aliscott_go_pretty_v6/vendor/github.com/jedib0t/go-pretty/v6 \
 		apparentlymart:go-textseg:v1.0.0:apparentlymart_go_textseg/vendor/github.com/apparentlymart/go-textseg \
