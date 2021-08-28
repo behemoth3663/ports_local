@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	aws-ec2-instance-selector
-PORTVERSION=	2.0.2
+PORTVERSION=	2.0.3
 DISTVERSIONPREFIX=	v
 CATEGORIES=	sysutils
 DISTNAME=	amazon-ec2-instance-selector
