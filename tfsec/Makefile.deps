@@ -19,7 +19,7 @@ GH_TUPLE=	\
 		golang:net:a5a99cb37ef4:golang_net/vendor/golang.org/x/net \
 		golang:sys:59db8d763f22:golang_sys/vendor/golang.org/x/sys \
 		golang:term:2321bbc49cbf:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.3.6:golang_text/vendor/golang.org/x/text \
+		golang:text:v0.3.7:golang_text/vendor/golang.org/x/text \
 		google:go-cmp:v0.5.6:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:uuid:v1.3.0:google_uuid/vendor/github.com/google/uuid \
 		hashicorp:go-uuid:v1.0.2:hashicorp_go_uuid/vendor/github.com/hashicorp/go-uuid \
