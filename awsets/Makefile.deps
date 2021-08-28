@@ -1,24 +1,56 @@
 GH_TUPLE=	\
 		VividCortex:ewma:v1.1.1:vividcortex_ewma/vendor/github.com/VividCortex/ewma \
-		aws:aws-sdk-go-v2:v1.0.0:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
-		aws:smithy-go:v1.0.0:aws_smithy_go/vendor/github.com/aws/smithy-go \
-		cheggaaa:pb:v3.0.5:cheggaaa_pb_v3/vendor/github.com/cheggaaa/pb \
+		aws:aws-sdk-go-v2:4fa06e52d5d7:aws_aws_sdk_go_v2_autoscaling \
+		aws:aws-sdk-go-v2:bf1672aee769:aws_aws_sdk_go_v2_configsources \
+		aws:aws-sdk-go-v2:v1.2.0:aws_aws_sdk_go_v2_ini/vendor/github.com/aws/aws-sdk-go-v2 \
+		aws:aws-sdk-go-v2:v1.3.2:aws_aws_sdk_go_v2_credentials \
+		aws:aws-sdk-go-v2:v1.4.0:aws_aws_sdk_go_v2_imds \
+		aws:aws-sdk-go-v2:v1.5.0:aws_aws_sdk_go_v2_appsync \
+		aws:aws-sdk-go-v2:v1.6.0:aws_aws_sdk_go_v2_config \
+		aws:aws-sdk-go-v2:v1.7.0:aws_aws_sdk_go_v2_cloudwatch \
+		aws:aws-sdk-go-v2:v1.7.1:aws_aws_sdk_go_v2_cloudfront \
+		aws:aws-sdk-go-v2:v1.8.0:aws_aws_sdk_go_v2 \
+		aws:aws-sdk-go-v2:v1.8.1:aws_aws_sdk_go_v2_docdb \
+		aws:aws-sdk-go-v2:v1.9.0:aws_aws_sdk_go_v2_iot \
+		aws:smithy-go:v1.7.0:aws_smithy_go/vendor/github.com/aws/smithy-go \
+		cheggaaa:pb:v3.0.8:cheggaaa_pb_v3/vendor/github.com/cheggaaa/pb \
 		cpuguy83:go-md2man:f79a8a8ca69d:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
-		emicklei:dot:v0.15.0:emicklei_dot/vendor/github.com/emicklei/dot \
-		etcd-io:bbolt:v1.3.5:etcd_io_bbolt/vendor/go.etcd.io/bbolt \
-		fatih:color:v1.7.0:fatih_color/vendor/github.com/fatih/color \
+		emicklei:dot:v0.16.0:emicklei_dot/vendor/github.com/emicklei/dot \
+		etcd-io:bbolt:v1.3.6:etcd_io_bbolt/vendor/go.etcd.io/bbolt \
+		fatih:color:v1.10.0:fatih_color/vendor/github.com/fatih/color \
 		fatih:structs:v1.1.0:fatih_structs/vendor/github.com/fatih/structs \
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
-		golang:sys:d101bd2416d5:golang_sys/vendor/golang.org/x/sys \
+		golang:sys:5e06dd20ab57:golang_sys/vendor/golang.org/x/sys \
 		golang:xerrors:5ec99f83aff1:golang_xerrors/vendor/golang.org/x/xerrors \
 		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
-		mattn:go-colorable:v0.1.2:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
+		mattn:go-colorable:v0.1.8:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
 		mattn:go-isatty:v0.0.12:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
-		mattn:go-runewidth:v0.0.7:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
+		mattn:go-runewidth:v0.0.12:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
+		rivo:uniseg:v0.2.0:rivo_uniseg/vendor/github.com/rivo/uniseg \
 		russross:blackfriday:v2.0.1:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
 		shurcooL:sanitized_anchor_name:v1.0.0:shurcool_sanitized_anchor_name/vendor/github.com/shurcooL/sanitized_anchor_name \
-		trek10inc:awsets:v0.8.0:trek10inc_awsets \
+		trek10inc:awsets:v1.0.1:trek10inc_awsets \
 		urfave:cli:v2.3.0:urfave_cli_v2/vendor/github.com/urfave/cli/v2
 
 post-extract:
-	@${RLN} ${WRKSRC_trek10inc_awsets} ..
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2} ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/config
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_config}/config ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/config
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/credentials
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_credentials}/credentials ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/credentials
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_imds}/feature/ec2/imds ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_configsources}/internal/configsources ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/appsync
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_appsync}/service/appsync ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/appsync
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/autoscaling
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_autoscaling}/service/autoscaling ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/autoscaling
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/cloudfront
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_cloudfront}/service/cloudfront ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/cloudfront
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/cloudwatch
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_cloudwatch}/service/cloudwatch ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/cloudwatch
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/docdb
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_docdb}/service/docdb ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/docdb
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/iot
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_iot}/service/iot ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/iot

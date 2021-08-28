@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	awsets
-PORTVERSION=	0.8.0
+PORTVERSION=	1.0.2
 DISTVERSIONPREFIX=	v
 CATEGORIES=	sysutils
 
@@ -39,6 +39,15 @@ post-patch: .PHONY
 		\( -type f -and -name '*.go' \) -or \
 		\( -type d -and -not -name '.*' -and -not -name 'cmd' \) \
 	\) -exec ${RLN} {} ${WRKSRC}/vendor/github.com/${GH_ACCOUNT}/${PORTNAME} \;
+	cd ${WRKSRC}/vendor/github.com/${GH_ACCOUNT}/${PORTNAME}/lister && \
+	${REINPLACE_CMD} -r 's|MaxResults:[[:space:]]+aws\.|MaxResults: *aws.|' \
+		ec2_dhcpoption.go ec2_flowlog.go ec2_instance.go ec2_internetgateway.go \
+		ec2_launchtemplate.go ec2_natgateway.go ec2_networkacl.go \
+		ec2_networkinterface.go ec2_routetable.go ec2_securitygroup.go \
+		ec2_snapshot.go ec2_spotfleet.go ec2_subnet.go ec2_transitgateway.go \
+		ec2_volume.go ec2_vpc.go ec2_vpcendpoint.go ec2_vpcendpointservice.go \
+		ec2_vpcpeering.go && \
+	${REINPLACE_CMD} -r 's|AllRegions:[[:space:]]+aws\.|AllRegions: *aws.|' ../main.go
 
 .-include "${.CURDIR}/Makefile.deps"
 
