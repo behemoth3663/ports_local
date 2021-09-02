@@ -1,0 +1,7 @@
+GH_TUPLE=	\
+		golang:sys:d5e6a3e2c0ae:golang_sys/vendor/golang.org/x/sys \
+		mattn:go-colorable:v0.1.7:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
+		mattn:go-isatty:v0.0.12:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
+		mattn:go-runewidth:v0.0.9:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
+		olekukonko:tablewriter:v0.0.4:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
+		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors

@@ -1,0 +1,15 @@
+TIMESTAMP = 1630621831
+SHA256 (mfridman-tparse-v0.8.3_GH0.tar.gz) = 6fdc11ef617435ef3bc55662683d95a17fd223494722577bfb33bcef7202a3bd
+SIZE (mfridman-tparse-v0.8.3_GH0.tar.gz) = 106003
+SHA256 (golang-sys-d5e6a3e2c0ae_GH0.tar.gz) = 6cd44aa33cb0fc4caedadde44b3a943bece0aa67d803c00bfb09b03222845f19
+SIZE (golang-sys-d5e6a3e2c0ae_GH0.tar.gz) = 1539001
+SHA256 (mattn-go-colorable-v0.1.7_GH0.tar.gz) = e394441b47cb26bb0c60ffdf2c60d57facbbc39f7a60763fdb1ec752cb460abf
+SIZE (mattn-go-colorable-v0.1.7_GH0.tar.gz) = 9560
+SHA256 (mattn-go-isatty-v0.0.12_GH0.tar.gz) = addbdc341d7685ed4cc8d2d8a8fd2bd9b784bde00d0ea99fb251039fc10c611c
+SIZE (mattn-go-isatty-v0.0.12_GH0.tar.gz) = 4548
+SHA256 (mattn-go-runewidth-v0.0.9_GH0.tar.gz) = 4f20a337ad06e071f29535afe9c5207d3e8840c8c86672bbc5f9837c6229c835
+SIZE (mattn-go-runewidth-v0.0.9_GH0.tar.gz) = 16714
+SHA256 (olekukonko-tablewriter-v0.0.4_GH0.tar.gz) = a86028430fb4dd99ce0030a7c4d37915337c3b9a9efbfd2698b375f3e3488bd0
+SIZE (olekukonko-tablewriter-v0.0.4_GH0.tar.gz) = 19252
+SHA256 (pkg-errors-v0.9.1_GH0.tar.gz) = 56bfd893023daa498508bfe161de1be83299fcf15376035e7df79cbd7d6fa608
+SIZE (pkg-errors-v0.9.1_GH0.tar.gz) = 13415

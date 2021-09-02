@@ -1,0 +1,5 @@
+CLI tool for analyzing and summarizing go test output.
+Pipe friendly.
+CI/CD friendly.
+
+WWW: https://github.com/mfridman/tparse
