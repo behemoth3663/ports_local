@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	aws-nuke
-PORTVERSION=	2.15.0
+PORTVERSION=	2.16.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	sysutils
 
@@ -20,7 +20,8 @@ GH_ACCOUNT=	rebuy-de
 
 PLIST_FILES=	bin/${PORTNAME}
 
-#rm -f -- distinfo Makefile.deps && make makesum && make gomod-vendor && make gomod-vendor >Makefile.deps && make makesum && mkcal && instpc
+#rm -f -- distinfo Makefile.deps && doas make clean && make makesum gomod-vendor && make gomod-vendor >Makefile.deps
+#doas make clean && make makesum package && instpc
 .-include "${.CURDIR}/Makefile.deps"
 
 GH_SHORT_HASH=	git ls-remote --tags https://github.com/${GH_ACCOUNT}/${PORTNAME}.git \
@@ -32,9 +33,9 @@ GO_BUILDFLAGS+=	-ldflags="-s \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.BuildHash=${:!${GH_SHORT_HASH}!}' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.BuildEnvironment='"
 
-#turn on when gomod-vendor
-#post-patch: .PHONY
-#	pwd="$${PWD}" && trap "cd \"$${pwd}\"" INT EXIT && cd ${WRKSRC} && \
-#	${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} generate ./...
+post-patch: .PHONY
+.if ${.TARGETS:Mgomod-vendor}
+	cd ${WRKSRC} && ${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} generate ./...
+.endif
 
 .include <bsd.port.mk>
