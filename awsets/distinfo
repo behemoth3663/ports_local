@@ -1,6 +1,6 @@
-TIMESTAMP = 1630186809
-SHA256 (trek10inc-awsets-v1.0.2_GH0.tar.gz) = 7e1e406252c9c759a3f1a7ff6fd4482ff81840cc6cda44bf1838b83264fa5946
-SIZE (trek10inc-awsets-v1.0.2_GH0.tar.gz) = 104783
+TIMESTAMP = 1631096230
+SHA256 (trek10inc-awsets-v1.0.3_GH0.tar.gz) = 05eb7ce9b29331e56bbf80e2ef0cb7f59c669f4a6c601fc5850a4a3939d01426
+SIZE (trek10inc-awsets-v1.0.3_GH0.tar.gz) = 104854
 SHA256 (VividCortex-ewma-v1.1.1_GH0.tar.gz) = 3b2d62412b7ba2726a379cc0ae557595c027dc8206d0ef98f13831281b8f2b85
 SIZE (VividCortex-ewma-v1.1.1_GH0.tar.gz) = 6042
 SHA256 (aws-aws-sdk-go-v2-4fa06e52d5d7_GH0.tar.gz) = ebe0c1696ecbca1afd6c395edd47aaa62e8daac1a856a5c0a9815c253bb81c62
