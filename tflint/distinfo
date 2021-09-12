@@ -1,6 +1,6 @@
-TIMESTAMP = 1631396460
-SHA256 (terraform-linters-tflint-v0.32.0_GH0.tar.gz) = 2524c88b600f3585170d409ea8f4310bdacb1ec2fcf90ae4d1611d0d423acc76
-SIZE (terraform-linters-tflint-v0.32.0_GH0.tar.gz) = 1350023
+TIMESTAMP = 1631438902
+SHA256 (terraform-linters-tflint-v0.32.1_GH0.tar.gz) = 4c1004cb01f509b7c338527610dcbda2f8e888c3fe9557a4e8886e6cd1e1853f
+SIZE (terraform-linters-tflint-v0.32.1_GH0.tar.gz) = 1350205
 SHA256 (Masterminds-semver-v3.1.1_GH0.tar.gz) = d029a39800f201d5b95ec5dbf653e5b20aab757783a6876be1b3017d1c4a444f
 SIZE (Masterminds-semver-v3.1.1_GH0.tar.gz) = 24506
 SHA256 (agext-levenshtein-v1.2.3_GH0.tar.gz) = ba59a69fcaea38ec40470cac08620dd2cca1980355d9b10e90e37b3b3ac2eb46
