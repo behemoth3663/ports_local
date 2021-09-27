@@ -1,8 +1,8 @@
-TIMESTAMP = 1627658586
+TIMESTAMP = 1632746524
 SHA256 (goftp-server-v0.4.1_GITEA0.tar.gz) = e4f9f0a3b352f19a95380daa132c35a5db1331c5600eb2ad21ec75b42f6dd8bc
 SIZE (goftp-server-v0.4.1_GITEA0.tar.gz) = 27213
-SHA256 (ncw-rclone-v1.56.0_GH0.tar.gz) = c8dc7927d3c27e9897398855013c5e4eb31a76ab45dd4aed7bcf5f0121375286
-SIZE (ncw-rclone-v1.56.0_GH0.tar.gz) = 15277975
+SHA256 (ncw-rclone-v1.56.1_GH0.tar.gz) = 15e32033778a010b90aad58cb214bc65fde6e6eff7a7c9a19710549f18799e4c
+SIZE (ncw-rclone-v1.56.1_GH0.tar.gz) = 15282495
 SHA256 (Azure-azure-pipeline-go-v0.2.3_GH0.tar.gz) = 99bd58f4a07dd02d9615e3638b3bb6dbfad80ef678ccdb8e17e3fa2b0fef343e
 SIZE (Azure-azure-pipeline-go-v0.2.3_GH0.tar.gz) = 17102
 SHA256 (Azure-azure-storage-blob-go-v0.13.0_GH0.tar.gz) = 6bf7145210331efa3f0417f6684cf764c22743cf23122048ec136600daebf443
