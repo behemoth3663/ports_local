@@ -1,3 +1,3 @@
-TIMESTAMP = 1630793207
-SHA256 (aws-amazon-ssm-agent-3.1.282.0_GH0.tar.gz) = 38794c15f08446f3e93f0f97a8105de7b05b61eb0a532433192a20f76f0897cd
-SIZE (aws-amazon-ssm-agent-3.1.282.0_GH0.tar.gz) = 25023408
+TIMESTAMP = 1632738549
+SHA256 (aws-amazon-ssm-agent-3.1.338.0_GH0.tar.gz) = bc8ccbff085c88037004ebd12608a47247d94d501ed4e4924a7c02b61d9ffc6a
+SIZE (aws-amazon-ssm-agent-3.1.338.0_GH0.tar.gz) = 25022471

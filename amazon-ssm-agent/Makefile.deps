@@ -4,7 +4,7 @@ GH_TUPLE=	\
 		Workiva:go-datastructures:v1.0.53:workiva_go_datastructures/vendor/github.com/Workiva/go-datastructures \
 		aws:aws-sdk-go::aws_aws_sdk_go/github.com/aws/aws-sdk-go \
 		aws:aws-sdk-go:v1.35.23:aws_aws_sdk_go_1 \
-		carlescere:scheduler:ee74d2f83d82:carlescere_scheduler/vendor/github.com/carlescere/scheduler \
+		carlescere:scheduler:9b78eac89dfb:carlescere_scheduler/vendor/github.com/carlescere/scheduler \
 		cenkalti:backoff:v4.0.2:cenkalti_backoff_v4/vendor/github.com/cenkalti/backoff/v4 \
 		cihub:seelog:f561c5e57575:cihub_seelog/vendor/github.com/cihub/seelog \
 		coreos:go-semver:v0.2.0:coreos_go_semver/vendor/github.com/coreos/go-semver \
