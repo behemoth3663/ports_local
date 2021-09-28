@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	tfsec
-PORTVERSION=	0.58.10
+PORTVERSION=	0.58.11
 DISTVERSIONPREFIX=	v
 CATEGORIES=	security
 
@@ -24,7 +24,7 @@ PLIST_FILES=	bin/${PORTNAME}
 
 fetch-version: .PHONY get-version
 
-#rm -f -- distinfo Makefile.deps && make makesum && make gomod-vendor && make gomod-vendor >Makefile.deps && make makesum && mkcal && instpc
+#rm -f -- distinfo Makefile.deps && doas make clean && make makesum gomod-vendor && make gomod-vendor >Makefile.deps && doas make clean && make makesum package && instpc
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>
