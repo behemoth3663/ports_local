@@ -1,6 +1,6 @@
 PORTNAME=	rclone
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.56.1
+DISTVERSION=	1.56.2
 CATEGORIES=	net
 
 MAINTAINER=	brad@facefault.org
@@ -40,7 +40,7 @@ _OPTIONS_extract+=	750:post-extract-gitea
 
 post-extract-gitea:
 .for account project tag subdir in ${_GITEA_TUPLE:S/:/ /g}
-	@${MKDIR} ${WRKSRC}/${subdir:H}                    
+	@${MKDIR} ${WRKSRC}/${subdir:H}
 	@${RLN} ${WRKDIR}/${project} ${WRKSRC}/${subdir}
 .endfor
 
