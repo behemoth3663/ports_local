@@ -1,0 +1,7 @@
+TIMESTAMP = 1622367193
+SHA256 (centos/xfsprogs-4.5.0-22.el7.i686.rpm) = dea9da7856addfd1273948165031d74935a7f187f2be11777c6c4718ed8a8864
+SIZE (centos/xfsprogs-4.5.0-22.el7.i686.rpm) = 945992
+SHA256 (centos/xfsprogs-4.5.0-22.el7.x86_64.rpm) = a041f624159cd9848f1aa97a74e141487974888e43b9dbe2667b1b2d4fd4d9bd
+SIZE (centos/xfsprogs-4.5.0-22.el7.x86_64.rpm) = 918604
+SHA256 (centos/xfsprogs-4.5.0-22.el7.src.rpm) = 607fd030db294f99d2719001a6e4362354608ba8d775eb56e4b2a4661af76980
+SIZE (centos/xfsprogs-4.5.0-22.el7.src.rpm) = 1600721

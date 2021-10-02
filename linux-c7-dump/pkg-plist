@@ -1,0 +1,17 @@
+%%ETCDIR%%dates
+usr/sbin/dump
+usr/sbin/rdump
+usr/sbin/restore
+usr/sbin/rrestore
+%%PORTDOCS%%%%DOCSDIR%%/CHANGES
+%%PORTDOCS%%%%DOCSDIR%%/KNOWNBUGS
+%%PORTDOCS%%%%DOCSDIR%%/MAINTAINERS
+%%PORTDOCS%%%%DOCSDIR%%/README
+%%PORTDOCS%%%%DOCSDIR%%/REPORTING-BUGS
+%%PORTDOCS%%%%DOCSDIR%%/THANKS
+%%PORTDOCS%%%%DOCSDIR%%/TODO
+%%PORTDOCS%%%%DOCSDIR%%/dump.lsm
+usr/share/man/man8/dump.8.gz
+usr/share/man/man8/rdump.8.gz
+usr/share/man/man8/restore.8.gz
+usr/share/man/man8/rrestore.8.gz

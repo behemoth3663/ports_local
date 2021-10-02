@@ -1,0 +1,11 @@
+The dump package contains both dump and restore. Dump examines files
+in a filesystem, determines which ones need to be backed up, and
+copies those files to a specified disk, tape, or other storage medium.
+The restore command performs the inverse function of dump; it can
+restore a full backup of a filesystem. Subsequent incremental backups
+can then be layered on top of the full backup. Single files and
+directory subtrees may also be restored from full or partial backups.
+Install dump if you need a system for both backing up filesystems and
+restoring filesystems after backups.
+
+WWW: http://dump.sourceforge.net/
