@@ -22,17 +22,19 @@ PLIST_FILES+=	bin/${PORTNAME}${PKGNAMESUFFIX}
 
 JQ_GETVER_EXPR=	[.[].name | gsub("^[a-z]+";"") | select(test("^${PORTVERSION:C/[^.]+$/[0-9]+/:S/./\\\\./g}$$"; "n"))][0]
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Prerelease="
-
-#post-patch: .PHONY
-#	${REINPLACE_CMD} 's|Prerelease = "dev"|Prerelease = ""|' \
-#		${WRKSRC}/version/version.go
-
 post-install: .PHONY
 	${MV} ${STAGEDIR}${PREFIX}/bin/${PORTNAME} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION}
 	${INSTALL} -l rs ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}${PKGNAMESUFFIX}
 
-#rm -f -- distinfo Makefile.deps && make makesum && make gomod-vendor &&  make gomod-vendor >Makefile.deps && make makesum && mkcal
+#rm -f -- distinfo Makefile.deps && make makesum && make gomod-vendor && make gomod-vendor >Makefile.deps && make makesum && mkcal
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>
+
+#GO_BUILDFLAGS+=-ldflags="-s -w -X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Prerelease="
+#GO_ENV+=	GOOS=${OPSYS:tl}
+#.include <bsd.port.pre.mk>
+#GO_CMD=	${LINUXBASE}/usr/local/go/bin/go
+#GO_CMD=	${LOCALBASE}/go-linux/bin/go
+#GO_BUILDFLAGS:=${GO_BUILDFLAGS:N-mod=vendor} -mod=mod
+#.include <bsd.port.post.mk>

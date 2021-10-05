@@ -506,6 +506,3 @@ post-extract:
 	@${RLN} ${WRKSRC_codegangsta_negroni} ${WRKSRC}/vendor/github.com/urfave/negroni
 	@${MKDIR} ${WRKSRC}/vendor/gopkg.in
 	@${RLN} ${WRKSRC_fsnotify_fsnotify} ${WRKSRC}/vendor/gopkg.in/fsnotify.v1
-
-	${RM} -r ${WRKSRC}/vendor/golang.org/x/sys
-	${MV} ${WRKSRC}/vendor/golang.org/x/sys_${GOLANG_SYS_V} ${WRKSRC}/vendor/golang.org/x/sys
