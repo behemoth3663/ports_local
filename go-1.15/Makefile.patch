@@ -1,0 +1,70 @@
+--- ./Makefile.orig	2021-10-03 22:07:32 UTC
++++ ./Makefile
+@@ -2,18 +2,18 @@
+ # $FreeBSD$
+ 
+ PORTNAME=	go
+-PORTVERSION?=	1.15.8
+-PORTREVISION?=	0
+-PORTEPOCH?=	1
++PORTVERSION=	1.15.8
++PORTEPOCH=	1
+ CATEGORIES=	lang
+ MASTER_SITES?=	https://golang.org/dl/ \
+ 		https://github.com/dmgk/go-bootstrap/releases/download/${BOOTSTRAP_TAG}/:bootstrap \
+ 		LOCAL/dmgk:bootstrap
++PKGNAMESUFFIX=	-${PORTVERSION:R}
+ DISTFILES?=	go${PORTVERSION}.src.tar.gz \
+ 		go-${OPSYS:tl}-${GOARCH_${ARCH}}${GOARM_${ARCH}}-${BOOTSTRAP_TAG}.tar.xz:bootstrap
+ 
+ MAINTAINER=	dmgk@FreeBSD.org
+-COMMENT?=	Go programming language
++COMMENT=	Go programming language
+ 
+ LICENSE=	BSD3CLAUSE
+ LICENSE_FILE=	${WRKSRC}/LICENSE
+@@ -83,7 +83,7 @@ do-build:
+ 		XDG_CACHE_HOME=${WRKDIR} \
+ 		GOROOT_BOOTSTRAP=${WRKDIR}/go-${OPSYS:tl}-${GOARCH_${ARCH}}${GOARM_${ARCH}}-bootstrap \
+ 		GOROOT=${WRKSRC} \
+-		GOROOT_FINAL=${PREFIX}/go \
++		GOROOT_FINAL=${PREFIX}/${PORTNAME}${PKGNAMESUFFIX} \
+ 		GOBIN= \
+ 		GOOS=${OPSYS:tl} \
+ 		GOARCH=${GOARCH_${ARCH}} \
+@@ -95,13 +95,10 @@ do-install:
+ 	@cd ${WRKSRC} ; \
+ 		${RM} -r .gitattributes .gitignore .github favicon.ico robots.txt \
+ 		pkg/obj pkg/bootstrap pkg/${OPSYS:tl}_${GOARCH_${ARCH}}/cmd
+-	@${MKDIR} ${STAGEDIR}${PREFIX}/go
+-	@${CP} -a ${WRKSRC}/* ${STAGEDIR}${PREFIX}/go
+-.for file in ${BINARIES}
+-	@${LN} -sf ../go/bin/${file} ${STAGEDIR}${PREFIX}/bin/${file}
+-	@${ECHO_CMD} bin/${file} >> ${TMPPLIST}
+-.endfor
+-	@cd ${STAGEDIR}${PREFIX} && ${FIND} go -type f >> ${TMPPLIST}
++	@${MKDIR} ${STAGEDIR}${PREFIX}/${PORTNAME}${PKGNAMESUFFIX}
++	@${CP} -a ${WRKSRC}/* ${STAGEDIR}${PREFIX}/${PORTNAME}${PKGNAMESUFFIX}
++	@cd ${STAGEDIR}${PREFIX} && ${FIND} ${PORTNAME}${PKGNAMESUFFIX} \
++		-type f ! -name '*.orig' ! -name '*.bak' >> ${TMPPLIST}
+ 
+ do-test:
+ 	cd ${WRKSRC}/src && ${SETENV} \
+@@ -112,17 +109,5 @@ do-test:
+ 		GO386=${GO386} \
+ 		GOARM=${GOARM_${ARCH}} \
+ 		${SH} run.bash -no-rebuild
+-
+-.if !defined(_GO_MAKESUM_GUARD)
+-makesum:
+-	${MAKE} -D_GO_MAKESUM_GUARD makesum ARCH=${ONLY_FOR_ARCHS:O:[1]} DISTINFO_FILE=${DISTINFO_FILE}.tmp
+-.for arch in ${ONLY_FOR_ARCHS:O:[2..-1]}
+-	${MAKE} -D_GO_MAKESUM_GUARD makesum ARCH=${arch} DISTINFO_FILE=${DISTINFO_FILE}.${arch}
+-	${SED} 1d ${DISTINFO_FILE}.${arch} >> ${DISTINFO_FILE}.tmp
+-	${RM} ${DISTINFO_FILE}.${arch}
+-.endfor
+-	${AWK} '!seen[$$0]++' ${DISTINFO_FILE}.tmp > ${DISTINFO_FILE}
+-	${RM} ${DISTINFO_FILE}.tmp
+-.endif
+ 
+ .include <bsd.port.post.mk>
