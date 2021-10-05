@@ -3,7 +3,7 @@
 PORTNAME=	terraform
 PORTVERSION=	1.0.8
 DISTVERSIONPREFIX=	v
-CATEGORIES=	local
+CATEGORIES=	sysutils
 PKGNAMESUFFIX?=	-${PORTVERSION:R}
 
 MAINTAINER=	none@freebsd.org
@@ -22,7 +22,7 @@ PLIST_FILES+=	bin/${PORTNAME}${PKGNAMESUFFIX}
 
 JQ_GETVER_EXPR=	[.[].name | gsub("^[a-z]+";"") | select(test("^${PORTVERSION:C/[^.]+$/[0-9]+/:S/./\\\\./g}$$"; "n"))][0]
 
-GO_BUILDFLAGS+=	-ldflags="-s -X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Prerelease='"
+GO_BUILDFLAGS+=	-ldflags="-s -w -X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Prerelease="
 
 #post-patch: .PHONY
 #	${REINPLACE_CMD} 's|Prerelease = "dev"|Prerelease = ""|' \
