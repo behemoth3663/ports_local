@@ -7,36 +7,46 @@ GH_TUPLE=	\
 		aliscott:go-pretty:408905a61c8e:aliscott_go_pretty_v6/vendor/github.com/jedib0t/go-pretty/v6 \
 		apparentlymart:go-textseg:v1.0.0:apparentlymart_go_textseg/vendor/github.com/apparentlymart/go-textseg \
 		apparentlymart:go-textseg:v12.0.0:apparentlymart_go_textseg_v12/vendor/github.com/apparentlymart/go-textseg/v12 \
+		aws:aws-sdk-go-v2:a930583ec379:aws_aws_sdk_go_v2_imds \
+		aws:aws-sdk-go-v2:cc132614991d:aws_aws_sdk_go_v2_ec2 \
+		aws:aws-sdk-go-v2:config/v1.8.2:aws_aws_sdk_go_v2_config \
+		aws:aws-sdk-go-v2:credentials/v1.4.2:aws_aws_sdk_go_v2_credentials \
+		aws:aws-sdk-go-v2:v1.3.0:aws_aws_sdk_go_v2_accept_encoding/vendor/github.com/aws/aws-sdk-go-v2 \
+		aws:aws-sdk-go-v2:v1.3.1:aws_aws_sdk_go_v2_presigned_url \
+		aws:aws-sdk-go-v2:v1.7.1:aws_aws_sdk_go_v2_s3shared \
+		aws:aws-sdk-go-v2:v1.8.1:aws_aws_sdk_go_v2_cloudwatch \
+		aws:aws-sdk-go-v2:v1.9.1:aws_aws_sdk_go_v2 \
+		aws:smithy-go:v1.8.0:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		awslabs:goformation:v4.19.5:awslabs_goformation_v4/vendor/github.com/awslabs/goformation/v4 \
 		briandowns:spinner:v1.15.0:briandowns_spinner/vendor/github.com/briandowns/spinner \
 		chzyer:readline:2972be24d48e:chzyer_readline/vendor/github.com/chzyer/readline \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		dustin:go-humanize:v1.0.0:dustin_go_humanize/vendor/github.com/dustin/go-humanize \
-		fatih:color:v1.12.0:fatih_color/vendor/github.com/fatih/color \
+		fatih:color:v1.13.0:fatih_color/vendor/github.com/fatih/color \
 		go-check:check:41f04d3bba15:go_check_check/vendor/gopkg.in/check.v1 \
 		go-playground:assert:v1.2.1:go_playground_assert/vendor/gopkg.in/go-playground/assert.v1 \
 		go-yaml:yaml:9f266ea9e77c:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
-		golang:crypto:75b288015ac9:golang_crypto/vendor/golang.org/x/crypto \
-		golang:mod:v0.5.0:golang_mod/vendor/golang.org/x/mod \
-		golang:sys:04245dca01da:golang_sys/vendor/golang.org/x/sys \
+		golang:crypto:32db794688a5:golang_crypto/vendor/golang.org/x/crypto \
+		golang:mod:v0.5.1:golang_mod/vendor/golang.org/x/mod \
+		golang:sys:b8560ed6a9b7:golang_sys/vendor/golang.org/x/sys \
 		golang:text:v0.3.6:golang_text/vendor/golang.org/x/text \
 		google:go-cmp:v0.5.6:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:uuid:v1.3.0:google_uuid/vendor/github.com/google/uuid \
-		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
 		hashicorp:hcl2:fb75b3253c80:hashicorp_hcl2/vendor/github.com/hashicorp/hcl2 \
 		huandu:xstrings:v1.3.2:huandu_xstrings/vendor/github.com/huandu/xstrings \
 		imdario:mergo:v0.3.12:imdario_mergo/vendor/github.com/imdario/mergo \
 		inconshreveable:mousetrap:v1.0.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
-		joho:godotenv:v1.3.0:joho_godotenv/vendor/github.com/joho/godotenv \
+		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
+		joho:godotenv:v1.4.0:joho_godotenv/vendor/github.com/joho/godotenv \
 		juju:ansiterm:720a0952cc2a:juju_ansiterm/vendor/github.com/juju/ansiterm \
 		kballard:go-shellquote:95032a82bc51:kballard_go_shellquote/vendor/github.com/kballard/go-shellquote \
 		kelseyhightower:envconfig:v1.4.0:kelseyhightower_envconfig/vendor/github.com/kelseyhightower/envconfig \
 		kylelemons:godebug:v1.1.0:kylelemons_godebug/vendor/github.com/kylelemons/godebug \
 		lunixbochs:vtclean:2d01aacdc34a:lunixbochs_vtclean/vendor/github.com/lunixbochs/vtclean \
 		manifoldco:promptui:v0.8.0:manifoldco_promptui/vendor/github.com/manifoldco/promptui \
-		mattn:go-colorable:v0.1.8:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
-		mattn:go-isatty:v0.0.12:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
+		mattn:go-colorable:v0.1.9:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
+		mattn:go-isatty:v0.0.14:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
 		mattn:go-runewidth:v0.0.9:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
 		mitchellh:copystructure:v1.0.0:mitchellh_copystructure/vendor/github.com/mitchellh/copystructure \
 		mitchellh:go-homedir:v1.1.0:mitchellh_go_homedir/vendor/github.com/mitchellh/go-homedir \
@@ -51,7 +61,24 @@ GH_TUPLE=	\
 		spf13:cobra:v1.1.3:spf13_cobra/vendor/github.com/spf13/cobra \
 		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
 		stretchr:testify:v1.7.0:stretchr_testify/vendor/github.com/stretchr/testify \
-		tidwall:gjson:v1.8.1:tidwall_gjson/vendor/github.com/tidwall/gjson \
+		tidwall:gjson:v1.9.1:tidwall_gjson/vendor/github.com/tidwall/gjson \
 		tidwall:match:v1.0.3:tidwall_match/vendor/github.com/tidwall/match \
-		tidwall:pretty:v1.1.0:tidwall_pretty/vendor/github.com/tidwall/pretty \
+		tidwall:pretty:v1.2.0:tidwall_pretty/vendor/github.com/tidwall/pretty \
 		zclconf:go-cty:v1.7.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+
+post-extract:
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2} ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/config
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_config}/config ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/config
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/credentials
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_credentials}/credentials ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/credentials
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_imds}/feature/ec2/imds ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/cloudwatch
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_cloudwatch}/service/cloudwatch ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/cloudwatch
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/ec2
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_ec2}/service/ec2 ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/ec2
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_presigned_url}/service/internal/presigned-url ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/s3shared
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_s3shared}/service/internal/s3shared ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/s3shared

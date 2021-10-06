@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	infracost
-PORTVERSION=	0.9.7
+PORTVERSION=	0.9.9
 DISTVERSIONPREFIX=	v
 CATEGORIES=	sysutils
 
@@ -20,6 +20,9 @@ GH_ACCOUNT=	infracost
 PLIST_FILES=	bin/${PORTNAME}
 
 fetch-version: .PHONY get-version
+
+pre-build: .PHONY
+	cd ${WRKSRC} && ${GO_CMD} mod vendor -v && ${GO_CMD} mod tidy -v
 
 #rm -f -- distinfo Makefile.deps && make makesum && make gomod-vendor && make gomod-vendor >Makefile.deps && make makesum && mkcal && instpc
 .-include "${.CURDIR}/Makefile.deps"
