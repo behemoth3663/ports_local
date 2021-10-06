@@ -1,5 +1,5 @@
 PORTNAME=	terraform-docs
-PORTVERSION=	0.14.1
+PORTVERSION=	0.16.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	sysutils textproc
 
