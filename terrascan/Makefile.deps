@@ -193,10 +193,6 @@ GL_TUPLE+=	\
 		cznic:strutil:dbc88fcb642d7337518b6f7cc925fedd5436f88f:cznic_strutil/vendor/modernc.org/strutil \
 		cznic:token:46658f20d51b8d0b6c4c551c363c8510c30c2a72:cznic_token/vendor/modernc.org/token
 
-#GL_TUPLE=	yawning:bsaes:26d1add596b6d800bdeeb3bc3b2c7b316c056b6d:yawning_bsaes/vendor/git.schwanenlied.me/yawning/bsaes.git \
-#		yawning:obfs4:f638c33f6c6f697498150d5f0dfbf26453759262:yawning_obfs4/vendor/gitlab.com/yawning/obfs4.git \
-#		yawning:utls:ad258eb64575fd468dbd2f93ef229df5f7fe72b4:yawning_utls/vendor/gitlab.com/yawning/utls.git
-
 post-extract:
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go/storage

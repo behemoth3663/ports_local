@@ -16,7 +16,7 @@ USES=	go:modules
 USE_GITHUB=	yes
 GH_ACCOUNT=	gruntwork-io
 
-GO_BUILDFLAGS=	-ldflags="-X main.VERSION=v${PORTVERSION}"
+GO_BUILDFLAGS=	-ldflags="-s -w -extldflags '-static' -X main.VERSION=v${PORTVERSION}"
 
 PLIST_FILES=	bin/${PORTNAME}
 

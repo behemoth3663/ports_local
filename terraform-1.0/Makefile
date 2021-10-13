@@ -20,6 +20,8 @@ GH_ACCOUNT=	hashicorp
 PLIST_FILES=	bin/${PORTNAME}-${PORTVERSION}
 PLIST_FILES+=	bin/${PORTNAME}${PKGNAMESUFFIX}
 
+GO_BUILDFLAGS=	-ldflags='-s -w -extldflags "-static"'
+
 JQ_GETVER_EXPR=	[.[].name | gsub("^[a-z]+";"") | select(test("^${PORTVERSION:C/[^.]+$/[0-9]+/:S/./\\\\./g}$$"; "n"))][0]
 
 post-install: .PHONY
