@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	terrascan
-PORTVERSION=	1.11.0
+PORTVERSION=	1.7.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	sysutils
 
@@ -21,17 +21,19 @@ GH_ACCOUNT=	accurics
 
 PLIST_FILES=	bin/${PORTNAME}
 
-fetch-version: .PHONY get-version
+GO_BUILDFLAGS+=	-ldflags='-s -w -extldflags "-static"'
 
 _OPTIONS_extract=	701:post-post-extract
 
 post-post-extract: .PHONY
-	find ${WRKSRC}/vendor/modernc.org/libc -name '*_linux*.go' -type f | while read src; do \
-		dst=$$(echo "$${src}" | sed 's/_linux/_freebsd/'); \
-		test -f "$${dst}" || ln -s "$${src}" "$${dst}"; \
-	done
+#	find ${WRKSRC}/vendor/modernc.org/libc -name '*_linux*.go' -type f | while read src; do \
+#		dst=$$(echo "$${src}" | sed 's/_linux/_freebsd/'); \
+#		test -f "$${dst}" || ln -s "$${src}" "$${dst}"; \
+#	done
 	${MV} ${WRKSRC}/vendor/sigs.k8s.io/kustomize/api/api/* ${WRKSRC}/vendor/sigs.k8s.io/kustomize/api || :
 	${MV} ${WRKSRC}/vendor/sigs.k8s.io/kustomize/kyaml/kyaml/* ${WRKSRC}/vendor/sigs.k8s.io/kustomize/kyaml || :
+
+fetch-version: .PHONY get-version
 
 .-include "${.CURDIR}/Makefile.deps"
 
