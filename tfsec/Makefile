@@ -18,7 +18,7 @@ GH_ACCOUNT=	liamg
 
 GO_TARGET=	./cmd/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -X 'github.com/aquasecurity/tfsec/version.Version=${PORTVERSION}'"
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' -X 'github.com/aquasecurity/tfsec/version.Version=${PORTVERSION}'"
 
 PLIST_FILES=	bin/${PORTNAME}
 

@@ -18,6 +18,8 @@ GH_ACCOUNT=	terraform-linters
 
 PLIST_FILES=	bin/${PORTNAME}
 
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
+
 fetch-version: .PHONY get-version
 
 #rm -f -- distinfo Makefile.deps && make makesum && make gomod-vendor &&  make gomod-vendor >Makefile.deps && make makesum && mkcal
