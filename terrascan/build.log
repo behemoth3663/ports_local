@@ -1,0 +1,203 @@
+===>  Cleaning for terrascan-1.11.0
+===>  License APACHE20 accepted by the user
+===>   terrascan-1.11.0 depends on file: /usr/local/sbin/pkg - found
+===> Fetching all distfiles required by terrascan-1.11.0 for building
+===>  Extracting for terrascan-1.11.0
+=> SHA256 Checksum OK for accurics-terrascan-v1.11.0_GH0.tar.gz.
+=> SHA256 Checksum OK for Azure-azure-sdk-for-go-v56.2.0_GH0.tar.gz.
+=> SHA256 Checksum OK for Azure-go-autorest-446f41b7d65b_GH0.tar.gz.
+=> SHA256 Checksum OK for Azure-go-autorest-55c0c4ebc34d_GH0.tar.gz.
+=> SHA256 Checksum OK for Azure-go-autorest-79a63e70c4d8_GH0.tar.gz.
+=> SHA256 Checksum OK for Azure-go-autorest-autorest-v0.11.18_GH0.tar.gz.
+=> SHA256 Checksum OK for Azure-go-autorest-b3a0b30a7423_GH0.tar.gz.
+=> SHA256 Checksum OK for Azure-go-autorest-b965d219bd9d_GH0.tar.gz.
+=> SHA256 Checksum OK for Azure-go-autorest-logger-v0.2.1_GH0.tar.gz.
+=> SHA256 Checksum OK for Azure-go-autorest-tracing-v0.6.0_GH0.tar.gz.
+=> SHA256 Checksum OK for Azure-go-autorest-v14.2.0_GH0.tar.gz.
+=> SHA256 Checksum OK for BurntSushi-toml-v0.4.1_GH0.tar.gz.
+=> SHA256 Checksum OK for GoogleCloudPlatform-docker-credential-gcr-v2.0.5_GH0.tar.gz.
+=> SHA256 Checksum OK for Masterminds-goutils-v1.1.1_GH0.tar.gz.
+=> SHA256 Checksum OK for Masterminds-semver-v3.1.1_GH0.tar.gz.
+=> SHA256 Checksum OK for Masterminds-sprig-v3.2.2_GH0.tar.gz.
+=> SHA256 Checksum OK for OneOfOne-xxhash-v1.2.7_GH0.tar.gz.
+=> SHA256 Checksum OK for PuerkitoBio-purell-v1.1.1_GH0.tar.gz.
+=> SHA256 Checksum OK for PuerkitoBio-urlesc-de5bf2ad4578_GH0.tar.gz.
+=> SHA256 Checksum OK for VerbalExpressions-GoVerbalExpressions-4d76a1099a6e_GH0.tar.gz.
+=> SHA256 Checksum OK for agext-levenshtein-v1.2.2_GH0.tar.gz.
+=> SHA256 Checksum OK for apparentlymart-go-textseg-v13.0.0_GH0.tar.gz.
+=> SHA256 Checksum OK for apparentlymart-go-versions-v1.0.1_GH0.tar.gz.
+=> SHA256 Checksum OK for aws-aws-sdk-go-v2-615c6e2d4514_GH0.tar.gz.
+=> SHA256 Checksum OK for aws-aws-sdk-go-v2-v1.2.1_GH0.tar.gz.
+=> SHA256 Checksum OK for aws-aws-sdk-go-v2-v1.3.0_GH0.tar.gz.
+=> SHA256 Checksum OK for aws-aws-sdk-go-v2-v1.3.1_GH0.tar.gz.
+=> SHA256 Checksum OK for aws-aws-sdk-go-v2-v1.3.2_GH0.tar.gz.
+=> SHA256 Checksum OK for aws-aws-sdk-go-v2-v1.5.0_GH0.tar.gz.
+=> SHA256 Checksum OK for aws-aws-sdk-go-v2-v1.6.0_GH0.tar.gz.
+=> SHA256 Checksum OK for aws-aws-sdk-go-v2-v1.7.1_GH0.tar.gz.
+=> SHA256 Checksum OK for aws-aws-sdk-go-v1.37.0_GH0.tar.gz.
+=> SHA256 Checksum OK for aws-smithy-go-v1.6.0_GH0.tar.gz.
+=> SHA256 Checksum OK for awslabs-goformation-v4.19.1_GH0.tar.gz.
+=> SHA256 Checksum OK for bgentry-go-netrc-9fd32a8b3d3d_GH0.tar.gz.
+=> SHA256 Checksum OK for census-instrumentation-opencensus-go-v0.22.4_GH0.tar.gz.
+=> SHA256 Checksum OK for containerd-typeurl-v1.0.1_GH0.tar.gz.
+=> SHA256 Checksum OK for cyphar-filepath-securejoin-v0.2.2_GH0.tar.gz.
+=> SHA256 Checksum OK for davecgh-go-spew-v1.1.1_GH0.tar.gz.
+=> SHA256 Checksum OK for dimchansky-utfbom-v1.1.1_GH0.tar.gz.
+=> SHA256 Checksum OK for docker-cli-v20.10.5_GH0.tar.gz.
+=> SHA256 Checksum OK for docker-go-connections-v0.4.0_GH0.tar.gz.
+=> SHA256 Checksum OK for docker-go-units-v0.4.0_GH0.tar.gz.
+=> SHA256 Checksum OK for dominikh-go-tools-v0.2.1_GH0.tar.gz.
+=> SHA256 Checksum OK for emirpasic-gods-v1.12.0_GH0.tar.gz.
+=> SHA256 Checksum OK for evanphx-json-patch-v4.11.0_GH0.tar.gz.
+=> SHA256 Checksum OK for fatih-color-v1.9.0_GH0.tar.gz.
+=> SHA256 Checksum OK for felixge-httpsnoop-v1.0.1_GH0.tar.gz.
+=> SHA256 Checksum OK for form3tech-oss-jwt-go-v3.2.2_GH0.tar.gz.
+=> SHA256 Checksum OK for fsnotify-fsnotify-v1.4.9_GH0.tar.gz.
+=> SHA256 Checksum OK for ghodss-yaml-v1.0.0_GH0.tar.gz.
+=> SHA256 Checksum OK for go-errors-errors-v1.0.1_GH0.tar.gz.
+=> SHA256 Checksum OK for go-inf-inf-v0.9.1_GH0.tar.gz.
+=> SHA256 Checksum OK for go-logr-logr-v0.4.0_GH0.tar.gz.
+=> SHA256 Checksum OK for go-openapi-jsonpointer-v0.19.3_GH0.tar.gz.
+=> SHA256 Checksum OK for go-openapi-jsonreference-v0.19.3_GH0.tar.gz.
+=> SHA256 Checksum OK for go-openapi-swag-v0.19.5_GH0.tar.gz.
+=> SHA256 Checksum OK for go-tomb-tomb-dd632973f1e7_GH0.tar.gz.
+=> SHA256 Checksum OK for go-warnings-warnings-v0.1.2_GH0.tar.gz.
+=> SHA256 Checksum OK for go-yaml-yaml-496545a6307b_GH0.tar.gz.
+=> SHA256 Checksum OK for go-yaml-yaml-v2.4.0_GH0.tar.gz.
+=> SHA256 Checksum OK for gobwas-glob-v0.2.3_GH0.tar.gz.
+=> SHA256 Checksum OK for gogo-protobuf-v1.3.2_GH0.tar.gz.
+=> SHA256 Checksum OK for golang-appengine-v1.6.6_GH0.tar.gz.
+=> SHA256 Checksum OK for golang-crypto-0c34fe9e7dc2_GH0.tar.gz.
+=> SHA256 Checksum OK for golang-groupcache-8c9f03a8e57e_GH0.tar.gz.
+=> SHA256 Checksum OK for golang-lint-738671d3881b_GH0.tar.gz.
+=> SHA256 Checksum OK for golang-mod-v0.5.1_GH0.tar.gz.
+=> SHA256 Checksum OK for golang-net-aaa1db679c0d_GH0.tar.gz.
+=> SHA256 Checksum OK for golang-oauth2-5d25da1a8d43_GH0.tar.gz.
+=> SHA256 Checksum OK for golang-protobuf-v1.4.3_GH0.tar.gz.
+=> SHA256 Checksum OK for golang-sync-036812b2e83c_GH0.tar.gz.
+=> SHA256 Checksum OK for golang-sys-2c5d950f24ef_GH0.tar.gz.
+=> SHA256 Checksum OK for golang-term-6a3ed077a48d_GH0.tar.gz.
+=> SHA256 Checksum OK for golang-text-v0.3.6_GH0.tar.gz.
+=> SHA256 Checksum OK for golang-time-89c76fbcd5d1_GH0.tar.gz.
+=> SHA256 Checksum OK for golang-tools-v0.1.7_GH0.tar.gz.
+=> SHA256 Checksum OK for golang-xerrors-5ec99f83aff1_GH0.tar.gz.
+=> SHA256 Checksum OK for google-go-cmp-v0.5.6_GH0.tar.gz.
+=> SHA256 Checksum OK for google-go-containerregistry-v0.1.2_GH0.tar.gz.
+=> SHA256 Checksum OK for google-go-genproto-8816d57aaa9a_GH0.tar.gz.
+=> SHA256 Checksum OK for google-gofuzz-v1.1.0_GH0.tar.gz.
+=> SHA256 Checksum OK for google-shlex-e7afc7fbc510_GH0.tar.gz.
+=> SHA256 Checksum OK for google-starlark-go-8dd3e2ee1dd5_GH0.tar.gz.
+=> SHA256 Checksum OK for google-uuid-v1.2.0_GH0.tar.gz.
+=> SHA256 Checksum OK for googleapis-gax-go-v2.0.5_GH0.tar.gz.
+=> SHA256 Checksum OK for googleapis-gnostic-v0.5.1_GH0.tar.gz.
+=> SHA256 Checksum OK for googleapis-google-api-go-client-v0.34.0_GH0.tar.gz.
+=> SHA256 Checksum OK for googleapis-google-cloud-go-storage-v1.10.0_GH0.tar.gz.
+=> SHA256 Checksum OK for googleapis-google-cloud-go-v0.65.0_GH0.tar.gz.
+=> SHA256 Checksum OK for gorilla-handlers-v1.5.1_GH0.tar.gz.
+=> SHA256 Checksum OK for gorilla-mux-v1.8.0_GH0.tar.gz.
+=> SHA256 Checksum OK for grpc-grpc-go-v1.31.1_GH0.tar.gz.
+=> SHA256 Checksum OK for hashicorp-errwrap-v1.1.0_GH0.tar.gz.
+=> SHA256 Checksum OK for hashicorp-go-cleanhttp-v0.5.2_GH0.tar.gz.
+=> SHA256 Checksum OK for hashicorp-go-getter-v1.5.7_GH0.tar.gz.
+=> SHA256 Checksum OK for hashicorp-go-hclog-v0.15.0_GH0.tar.gz.
+=> SHA256 Checksum OK for hashicorp-go-multierror-v1.1.1_GH0.tar.gz.
+=> SHA256 Checksum OK for hashicorp-go-retryablehttp-v0.6.6_GH0.tar.gz.
+=> SHA256 Checksum OK for hashicorp-go-safetemp-v1.0.0_GH0.tar.gz.
+=> SHA256 Checksum OK for hashicorp-go-version-v1.2.1_GH0.tar.gz.
+=> SHA256 Checksum OK for hashicorp-hcl-v1.0.0_GH0.tar.gz.
+=> SHA256 Checksum OK for hashicorp-hcl-v2.10.1_GH0.tar.gz.
+=> SHA256 Checksum OK for hashicorp-terraform-svchost-f050f53b9734_GH0.tar.gz.
+=> SHA256 Checksum OK for hashicorp-terraform-v0.15.3_GH0.tar.gz.
+=> SHA256 Checksum OK for helm-helm-v3.6.1_GH0.tar.gz.
+=> SHA256 Checksum OK for huandu-xstrings-v1.3.2_GH0.tar.gz.
+=> SHA256 Checksum OK for iancoleman-strcase-v0.1.3_GH0.tar.gz.
+=> SHA256 Checksum OK for imdario-mergo-v0.3.12_GH0.tar.gz.
+=> SHA256 Checksum OK for inconshreveable-mousetrap-v1.0.0_GH0.tar.gz.
+=> SHA256 Checksum OK for itchyny-astgen-go-0da0671862a3_GH0.tar.gz.
+=> SHA256 Checksum OK for itchyny-gojq-v0.12.1_GH0.tar.gz.
+=> SHA256 Checksum OK for itchyny-timefmt-go-v0.1.1_GH0.tar.gz.
+=> SHA256 Checksum OK for jbenet-go-context-d14ea06fba99_GH0.tar.gz.
+=> SHA256 Checksum OK for jmespath-go-jmespath-v0.4.0_GH0.tar.gz.
+=> SHA256 Checksum OK for json-iterator-go-v1.1.10_GH0.tar.gz.
+=> SHA256 Checksum OK for jstemmer-go-junit-report-v0.9.1_GH0.tar.gz.
+=> SHA256 Checksum OK for kballard-go-shellquote-95032a82bc51_GH0.tar.gz.
+=> SHA256 Checksum OK for kevinburke-ssh_config-01f96b0aa0cd_GH0.tar.gz.
+=> SHA256 Checksum OK for klauspost-compress-v1.11.2_GH0.tar.gz.
+=> SHA256 Checksum OK for kubernetes-sigs-kustomize-kyaml-v0.11.0_GH0.tar.gz.
+=> SHA256 Checksum OK for kubernetes-sigs-kustomize-api-v0.8.11_GH0.tar.gz.
+=> SHA256 Checksum OK for kubernetes-sigs-structured-merge-diff-v4.1.0_GH0.tar.gz.
+=> SHA256 Checksum OK for kubernetes-sigs-yaml-v1.2.0_GH0.tar.gz.
+=> SHA256 Checksum OK for kubernetes-api-v0.19.0_GH0.tar.gz.
+=> SHA256 Checksum OK for kubernetes-apiextensions-apiserver-v0.21.0_GH0.tar.gz.
+=> SHA256 Checksum OK for kubernetes-apimachinery-v0.19.0_GH0.tar.gz.
+=> SHA256 Checksum OK for kubernetes-client-go-v0.19.0_GH0.tar.gz.
+=> SHA256 Checksum OK for kubernetes-klog-v2.8.0_GH0.tar.gz.
+=> SHA256 Checksum OK for kubernetes-kube-openapi-95288971da7e_GH0.tar.gz.
+=> SHA256 Checksum OK for kubernetes-utils-67b214c5f920_GH0.tar.gz.
+=> SHA256 Checksum OK for lukechampine-uint128-v1.1.1_GH0.tar.gz.
+=> SHA256 Checksum OK for mailru-easyjson-v0.7.0_GH0.tar.gz.
+=> SHA256 Checksum OK for mattn-go-colorable-v0.1.6_GH0.tar.gz.
+=> SHA256 Checksum OK for mattn-go-isatty-v0.0.12_GH0.tar.gz.
+=> SHA256 Checksum OK for mitchellh-copystructure-v1.1.1_GH0.tar.gz.
+=> SHA256 Checksum OK for mitchellh-go-homedir-v1.1.0_GH0.tar.gz.
+=> SHA256 Checksum OK for mitchellh-go-testing-interface-v1.0.0_GH0.tar.gz.
+=> SHA256 Checksum OK for mitchellh-go-wordwrap-v1.0.0_GH0.tar.gz.
+=> SHA256 Checksum OK for mitchellh-panicwrap-v1.0.0_GH0.tar.gz.
+=> SHA256 Checksum OK for mitchellh-reflectwalk-v1.0.1_GH0.tar.gz.
+=> SHA256 Checksum OK for moby-buildkit-v0.8.3_GH0.tar.gz.
+=> SHA256 Checksum OK for moby-moby-af34b94a78a1_GH0.tar.gz.
+=> SHA256 Checksum OK for docker-docker-credential-helpers-v0.6.3_GH0.tar.gz.
+=> SHA256 Checksum OK for modern-go-concurrent-bacd9c7ef1dd_GH0.tar.gz.
+=> SHA256 Checksum OK for modern-go-reflect2-v1.0.1_GH0.tar.gz.
+=> SHA256 Checksum OK for monochromegane-go-gitignore-205db1a8cc00_GH0.tar.gz.
+=> SHA256 Checksum OK for nxadm-tail-v1.4.8_GH0.tar.gz.
+=> SHA256 Checksum OK for onsi-ginkgo-v1.15.1_GH0.tar.gz.
+=> SHA256 Checksum OK for onsi-gomega-v1.11.0_GH0.tar.gz.
+=> SHA256 Checksum OK for open-policy-agent-opa-v0.22.0_GH0.tar.gz.
+=> SHA256 Checksum OK for owenrumney-go-sarif-v1.0.4_GH0.tar.gz.
+=> SHA256 Checksum OK for pelletier-go-toml-v1.9.3_GH0.tar.gz.
+=> SHA256 Checksum OK for pkg-errors-v0.9.1_GH0.tar.gz.
+=> SHA256 Checksum OK for pmezard-go-difflib-v1.0.0_GH0.tar.gz.
+=> SHA256 Checksum OK for protocolbuffers-protobuf-go-v1.25.0_GH0.tar.gz.
+=> SHA256 Checksum OK for rcrowley-go-metrics-3113b8401b8a_GH0.tar.gz.
+=> SHA256 Checksum OK for remyoudompheng-bigfft-eec4a21b6bb0_GH0.tar.gz.
+=> SHA256 Checksum OK for sanathkr-go-yaml-ed9d249f429b_GH0.tar.gz.
+=> SHA256 Checksum OK for sanathkr-yaml-0056894fa522_GH0.tar.gz.
+=> SHA256 Checksum OK for sergi-go-diff-v1.1.0_GH0.tar.gz.
+=> SHA256 Checksum OK for shopspring-decimal-v1.2.0_GH0.tar.gz.
+=> SHA256 Checksum OK for sirupsen-logrus-v1.8.1_GH0.tar.gz.
+=> SHA256 Checksum OK for spf13-afero-v1.6.0_GH0.tar.gz.
+=> SHA256 Checksum OK for spf13-cast-v1.3.1_GH0.tar.gz.
+=> SHA256 Checksum OK for spf13-cobra-v1.1.3_GH0.tar.gz.
+=> SHA256 Checksum OK for spf13-pflag-v1.0.5_GH0.tar.gz.
+=> SHA256 Checksum OK for src-d-gcfg-v1.4.0_GH0.tar.gz.
+=> SHA256 Checksum OK for src-d-go-billy-v4.3.2_GH0.tar.gz.
+=> SHA256 Checksum OK for src-d-go-git-v4.13.1_GH0.tar.gz.
+=> SHA256 Checksum OK for stretchr-testify-v1.7.0_GH0.tar.gz.
+=> SHA256 Checksum OK for tencentcloud-tencentcloud-sdk-go-v1.0.191_GH0.tar.gz.
+=> SHA256 Checksum OK for uber-go-atomic-v1.6.0_GH0.tar.gz.
+=> SHA256 Checksum OK for uber-go-multierr-v1.5.0_GH0.tar.gz.
+=> SHA256 Checksum OK for uber-go-zap-v1.16.0_GH0.tar.gz.
+=> SHA256 Checksum OK for ulikunitz-xz-v0.5.8_GH0.tar.gz.
+=> SHA256 Checksum OK for xanzy-ssh-agent-v0.2.1_GH0.tar.gz.
+=> SHA256 Checksum OK for xeipuuv-gojsonpointer-02993c407bfb_GH0.tar.gz.
+=> SHA256 Checksum OK for xeipuuv-gojsonreference-bd5ef7bd5415_GH0.tar.gz.
+=> SHA256 Checksum OK for xeipuuv-gojsonschema-v1.2.0_GH0.tar.gz.
+=> SHA256 Checksum OK for xlab-treeprint-a009c3971eca_GH0.tar.gz.
+=> SHA256 Checksum OK for yashtewari-glob-intersection-5c77d914dd0b_GH0.tar.gz.
+=> SHA256 Checksum OK for zclconf-go-cty-v1.8.3_GH0.tar.gz.
+/bin/mv /usr/obj/usr/ports/local/terrascan/work/terrascan-1.11.0/vendor/sigs.k8s.io/kustomize/api/api/* /usr/obj/usr/ports/local/terrascan/work/terrascan-1.11.0/vendor/sigs.k8s.io/kustomize/api
+/bin/mv /usr/obj/usr/ports/local/terrascan/work/terrascan-1.11.0/vendor/sigs.k8s.io/kustomize/kyaml/kyaml/* /usr/obj/usr/ports/local/terrascan/work/terrascan-1.11.0/vendor/sigs.k8s.io/kustomize/kyaml
+===>  Patching for terrascan-1.11.0
+===>   terrascan-1.11.0 depends on file: /usr/local/bin/go - found
+===>  Configuring for terrascan-1.11.0
+===>  Building for terrascan-1.11.0
+(cd /usr/obj/usr/ports/local/terrascan/work/terrascan-1.11.0;  for t in ./cmd/terrascan; do  out=$(/usr/bin/basename $(echo ${t} |  /usr/bin/sed -Ee 's/^[^:]*:([^:]+).*$/\1/' -e 's/^\.$/terrascan/'));  pkg=$(echo ${t} |  /usr/bin/sed -Ee 's/^([^:]*).*$/\1/' -e 's/^terrascan$/./');  echo "===>  Building ${out} from ${pkg}";  /usr/bin/env XDG_DATA_HOME=/usr/obj/usr/ports/local/terrascan/work  XDG_CONFIG_HOME=/usr/obj/usr/ports/local/terrascan/work  XDG_CACHE_HOME=/usr/obj/usr/ports/local/terrascan/work/.cache  HOME=/usr/obj/usr/ports/local/terrascan/work TMPDIR="/tmp" PATH=/usr/obj/usr/ports/local/terrascan/work/.bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin NO_PIE=yes MK_DEBUG_FILES=no MK_KERNEL_SYMBOLS=no SHELL=/bin/sh NO_LINT=YES PREFIX=/usr/local  LOCALBASE=/usr/local  CC="cc" CFLAGS="-O2 -fmerge-all-constants -pipe  -fstack-protector-strong -fno-strict-aliasing "  CPP="cpp" CPPFLAGS=""  LDFLAGS=" -fstack-protector-strong " LIBS=""  CXX="c++" CXXFLAGS="-O2 -fmerge-all-constants -pipe -fstack-protector-strong -fno-strict-aliasing  "  MANPREFIX="/usr/local" BSD_INSTALL_PROGRAM="install  -s -m 555"  BSD_INSTALL_LIB="install  -s -m 0644"  BSD_INSTALL_SCRIPT="install  -m 555"  BSD_INSTALL_DATA="install  -m 0644"  BSD_INSTALL_MAN="install  -m 444" CGO_ENABLED=1  CGO_CFLAGS="-I/usr/local/include"  CGO_LDFLAGS="-L/usr/local/lib"  GOARM= GOPATH="/usr/ports/distfiles/go/local_terrascan"  GOBIN="/usr/obj/usr/ports/local/terrascan/work/bin"  GO111MODULE=on  GOFLAGS=-modcacherw  GOSUMDB=sum.golang.org GO_NO_VENDOR_CHECKS=1 GOPROXY=off /usr/local/bin/go build -v -buildmode=exe -trimpath -ldflags=-s -mod=vendor  -o /usr/obj/usr/ports/local/terrascan/work/bin/${out}  ${pkg};  done)
+===>  Building terrascan from ./cmd/terrascan
+pkg/k8s/dblogs/webhook-scan-logger.go:28:2: cannot find package "." in:
+	/usr/obj/usr/ports/local/terrascan/work/terrascan-1.11.0/vendor/modernc.org/sqlite
+*** Error code 1
+
+Stop.
+make: stopped in /usr/ports/local/terrascan
+       13.11 real         9.73 user         4.48 sys

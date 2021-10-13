@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	terrascan
-PORTVERSION=	1.7.0
+PORTVERSION=	1.11.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	sysutils
 
@@ -34,4 +34,11 @@ post-post-extract: .PHONY
 #+		kubernetes-sigs:kustomize:kyaml/v0.10.15:kubernetes_sigs_kustomize_1/vendor/sigs.k8s.io/kustomize/kyaml \
 #+		kubernetes-sigs:kustomize:api/v0.8.5:kubernetes_sigs_kustomize/vendor/sigs.k8s.io/kustomize/api \
 
+#pre-build: .PHONY
+#	cd ${WRKSRC} && ${GO_CMD} mod tidy -v && ${GO_CMD} mod download
+
 .include <bsd.port.mk>
+#.include <bsd.port.pre.mk>
+#GO_CMD=	${LOCALBASE}/go-1.16/bin/go
+#GO_BUILDFLAGS:=	${GO_BUILDFLAGS:N-mod=vendor} -mod=mod
+#.include <bsd.port.post.mk>
