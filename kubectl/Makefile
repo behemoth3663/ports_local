@@ -26,7 +26,8 @@ GH_HASH=	git ls-remote --tags \
 GO_PKGNAME=	k8s.io/kubernetes
 GO_TARGET=	${GO_PKGNAME}/cmd/${PORTNAME}
 
-GO_BUILDFLAGS=	-ldflags="-s -w -buildid= \
+#-buildid=
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 		-X k8s.io/component-base/version.buildDate=${:!date +%Y-%m-%dT%H:%M:%SZ!} \
 		-X k8s.io/component-base/version.gitTreeState=clean \
 		-X k8s.io/component-base/version.gitCommit=${:!${GH_HASH}!:[1]} \
