@@ -23,7 +23,7 @@ GH_HASH=	git ls-remote --tags \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
-		-X main.GitVersion=v${PORTVERSION} \
+		-X main.GitVersion=${DISTVERSIONPREFIX}${PORTVERSION} \
 		-X main.GitCommit=${:!${GH_HASH}!:[1]} \
 		-X main.BuildDate=${:!date +%Y-%m-%dT%H:%M:%SZ!}"
 
