@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	gosec
-PORTVERSION=	2.8.1
+PORTVERSION=	2.9.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	devel security local
 
@@ -22,10 +22,12 @@ GO_TARGET=	./cmd/${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GH_SHORT_HASH=	git ls-remote --tags https://github.com/${GH_ACCOUNT}/${PORTNAME}.git \
-	| ${SED} -rn 's|^(.{7}).*/${DISTVERSIONPREFIX}${PORTVERSION:S/./\\&/g}$$|\1|p'
+GH_SHORT_HASH=	git ls-remote --tags \
+		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
+		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} \
+		| ${SED} -r 's|^(.{7}).*|\1|'
 
-GO_BUILDFLAGS+=	-ldflags="-s \
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 	-X 'main.Version=${PORTVERSION}' \
 	-X 'main.GitTag=${:!${GH_SHORT_HASH}!}' \
 	-X 'main.BuildDate=${:!date +%F_%T!:S/_/ /}'"
