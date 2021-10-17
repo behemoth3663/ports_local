@@ -23,16 +23,16 @@ PLIST_FILES=	bin/${PORTNAME}
 
 fetch-version: .PHONY get-version
 
-GH_SHORT_HASH=	git ls-remote --tags https://github.com/${GH_ACCOUNT}/${PORTNAME}.git \
-	| ${SED} -rn 's|^(.{7}).*/${DISTVERSIONPREFIX}${PORTVERSION:S/./\\&/g}$$|\1|p'
+GH_COMMIT=	git ls-remote --tags \
+		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
+		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
 
-GO_BUILDFLAGS+=	-ldflags="-s \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal.version=${PORTVERSION}' \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal.commit=${:!${GH_SHORT_HASH}!}' \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal.date=${:!date +%F_%T!:S/_/ /}'"
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal.version=${DISTVERSIONPREFIX}${PORTVERSION}' \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal.commit=${:!${GH_COMMIT}!:[1]:C/(.{7}).*/\1/}' \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal.date=${%FT%TZ:L:gmtime}'"
 
 do-build: .PHONY
-	pwd="$${PWD}" && trap "cd \"$${pwd}\"" INT EXIT && cd ${WRKSRC} && \
-	${GO_CMD} build ${GO_BUILDFLAGS} -o ${GO_WRKDIR_BIN}/${PORTNAME}
+	cd ${WRKSRC} && ${GO_CMD} build ${GO_BUILDFLAGS} -o ${GO_WRKDIR_BIN}/${PORTNAME}
 
 .include <bsd.port.mk>

@@ -22,15 +22,14 @@ GO_TARGET=	./cmd/${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GH_SHORT_HASH=	git ls-remote --tags \
+GH_COMMIT=	git ls-remote --tags \
 		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
-		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} \
-		| ${SED} -r 's|^(.{7}).*|\1|'
+		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 	-X 'main.Version=${PORTVERSION}' \
-	-X 'main.GitTag=${:!${GH_SHORT_HASH}!}' \
-	-X 'main.BuildDate=${:!date +%F_%T!:S/_/ /}'"
+	-X 'main.GitTag=${:!${GH_COMMIT}!:[1]:C/(.{7}).*/\1/}' \
+	-X 'main.BuildDate=${%F %T:L:gmtime}'"
 
 fetch-version: .PHONY get-version
 

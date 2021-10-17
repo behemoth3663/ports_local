@@ -22,14 +22,14 @@ GH_ACCOUNT=	trek10inc
 
 PLIST_FILES=	bin/${PORTNAME}
 
-#8d9d922d9dc592bedd5ac77b89c71a5f5b1b7e1c	refs/tags/v0.8.0
-GH_SHORT_HASH=	git ls-remote --tags https://github.com/${GH_ACCOUNT}/${PORTNAME}.git \
-	| ${SED} -rn 's|^(.{7}).*/${DISTVERSIONPREFIX}${PORTVERSION:S/./\\&/g}$$|\1|p'
+GH_COMMIT=	git ls-remote --tags \
+		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
+		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
 
-GO_BUILDFLAGS+=	-ldflags="-s \
-	-X 'main.version=${PORTVERSION}' \
-	-X 'main.commit=${:!${GH_SHORT_HASH}!}' \
-	-X 'main.date=${:!date +%F_%T!:S/_/ /}'"
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+	-X 'main.version=${DISTVERSIONPREFIX}${PORTVERSION} \
+	-X 'main.commit=${:!${GH_COMMIT}!:[1]:C/(.{7}).*/\1/}' \
+	-X 'main.date=${%FT%TZ:L:gmtime}'"
 
 fetch-version: .PHONY get-version
 

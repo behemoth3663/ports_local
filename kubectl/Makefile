@@ -19,18 +19,18 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	kubernetes
 GH_PROJECT=	kubernetes
 
-GH_HASH=	git ls-remote --tags \
-		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
-		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}^{}
-
 GO_PKGNAME=	k8s.io/kubernetes
 GO_TARGET=	${GO_PKGNAME}/cmd/${PORTNAME}
 
-#-buildid=
+GH_COMMIT=	git ls-remote --tags \
+		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
+		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}^{}
+
+#-buildid= -X k8s.io/component-base/version.gitTreeState=clean \
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
-		-X k8s.io/component-base/version.buildDate=${:!date +%Y-%m-%dT%H:%M:%SZ!} \
-		-X k8s.io/component-base/version.gitTreeState=clean \
-		-X k8s.io/component-base/version.gitCommit=${:!${GH_HASH}!:[1]} \
+		-X k8s.io/component-base/version.buildDate=${%FT%TZ:L:gmtime} \
+		-X k8s.io/component-base/version.gitTreeState= \
+		-X k8s.io/component-base/version.gitCommit=${:!${GH_COMMIT}!:[1]} \
 		-X k8s.io/component-base/version.gitMajor=${PORTVERSION:R:R} \
 		-X k8s.io/component-base/version.gitMinor=${PORTVERSION:R:E} \
 		-X k8s.io/component-base/version.gitVersion=${DISTVERSIONPREFIX}${PORTVERSION} \

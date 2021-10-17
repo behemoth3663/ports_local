@@ -24,13 +24,14 @@ PLIST_FILES=	bin/${PORTNAME}
 #doas make clean && make makesum package && instpc
 .-include "${.CURDIR}/Makefile.deps"
 
-GH_SHORT_HASH=	git ls-remote --tags https://github.com/${GH_ACCOUNT}/${PORTNAME}.git \
-	| ${SED} -rn 's|^(.{7}).*/${DISTVERSIONPREFIX}${PORTVERSION:S/./\\&/g}$$|\1|p'
+GH_COMMIT=	git ls-remote --tags \
+		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
+		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
 
-GO_BUILDFLAGS+=	-ldflags="-s \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.BuildVersion=${PORTVERSION}' \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.BuildDate=${:!date +%F_%T!:S/_/ /}' \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.BuildHash=${:!${GH_SHORT_HASH}!}' \
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.BuildVersion=${DISTVERSIONPREFIX}${PORTVERSION} \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.BuildDate=${%FT%TZ:L:gmtime}' \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.BuildHash=${:!${GH_COMMIT}!:[1]:C/(.{7}).*/\1/}' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.BuildEnvironment='"
 
 post-patch: .PHONY

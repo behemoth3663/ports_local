@@ -18,14 +18,14 @@ USES=	go:modules
 USE_GITHUB=	yes
 GH_ACCOUNT=	ddosify
 
-GH_HASH=	git ls-remote --tags \
+GH_COMMIT=	git ls-remote --tags \
 		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 		-X main.GitVersion=${DISTVERSIONPREFIX}${PORTVERSION} \
 		-X main.GitCommit=${:!${GH_HASH}!:[1]} \
-		-X main.BuildDate=${:!date +%Y-%m-%dT%H:%M:%SZ!}"
+		-X main.BuildDate=${%FT%TZ:L:gmtime}'"
 
 PLIST_FILES=	bin/${PORTNAME}
 
