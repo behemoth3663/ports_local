@@ -1,0 +1,9 @@
+TIMESTAMP = 1634676714
+SHA256 (vitalif-hsbench-0.2+-8782423_GH0.tar.gz) = ff06ae21a0b51de77a620eb9432138c1ba517a5da0773f33a8adf7a2ef406dd6
+SIZE (vitalif-hsbench-0.2+-8782423_GH0.tar.gz) = 29147
+SHA256 (aws-aws-sdk-go-v1.40.51_GH0.tar.gz) = 9e5c929196b7184333328083e60857d4fd1db072d6ff26c1dd11a40625318c23
+SIZE (aws-aws-sdk-go-v1.40.51_GH0.tar.gz) = 20823565
+SHA256 (cloudfoundry-bytefmt-67692ebc98de_GH0.tar.gz) = 6d63e4b1744e892cbdb47bb7b5ce87472e1a0b1307f4a1acfaec867f7f8cbd9e
+SIZE (cloudfoundry-bytefmt-67692ebc98de_GH0.tar.gz) = 2032018
+SHA256 (jmespath-go-jmespath-v0.4.0_GH0.tar.gz) = aa86d00b6836345eee196c13df2df084a18e0b1159935de9289f2ef6a7fe375d
+SIZE (jmespath-go-jmespath-v0.4.0_GH0.tar.gz) = 128861

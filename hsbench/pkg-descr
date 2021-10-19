@@ -1,0 +1,4 @@
+Simple yet extremely fast benchmark that could easily be scripted 
+into orchestration frameworks to run tests at scale
+
+WWW: https://github.com/vitalif/hsbench
