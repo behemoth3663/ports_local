@@ -11,17 +11,19 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 
-GO_MODULE=	github.com/Dreamacro/clash
+#GO_MODULE=	github.com/Dreamacro/clash
+USE_GITHUB=	yes
+GH_ACCOUNT=	Dreamacro
 
 PLIST_FILES=	bin/${PORTNAME}
 
-PORTSCOUT=	limit:^[0-9\.]*$$
-
 GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X '${GO_MODULE}/constant.Version=${DISTVERSIONPREFIX}${PORTVERSION}' \
-	-X '${GO_MODULE}/constant.BuildTime=${%FT%TZ:L:gmtime}'"
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/constant.Version=${DISTVERSIONPREFIX}${PORTVERSION}' \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/constant.BuildTime=${%FT%TZ:L:gmtime}'"
 
 pre-patch: .PHONY .SILENT
 	${CP} ${WRKSRC}/listener/redir/tcp_linux.go ${WRKSRC}/listener/redir/tcp_freebsd.go
+
+.-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>
