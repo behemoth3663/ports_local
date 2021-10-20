@@ -1,3 +1,0 @@
-GH_TUPLE=	aws:aws-sdk-go:v1.40.51:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
-		cloudfoundry:bytefmt:67692ebc98de:cloudfoundry_bytefmt/vendor/code.cloudfoundry.org/bytefmt \
-		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath

@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	cw
-PORTVERSION=	3.3.0
+PORTVERSION=	4.1.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	sysutils
 
@@ -11,7 +11,7 @@ COMMENT=	Best way to tail AWS CloudWatch Logs from your terminal
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-BROKEN=		PORTNAME conflicts with sysutils/cw
+#BROKEN=		PORTNAME conflicts with sysutils/cw
 
 USES=		go:modules
 
