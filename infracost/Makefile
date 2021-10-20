@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	infracost
-PORTVERSION=	0.9.10
+PORTVERSION=	0.9.11
 DISTVERSIONPREFIX=	v
 CATEGORIES=	sysutils
 
@@ -25,6 +25,6 @@ pre-build: .PHONY
 	cd ${WRKSRC} && ${GO_CMD} mod vendor -v && ${GO_CMD} mod tidy -v
 
 #rm -f -- distinfo Makefile.deps && make makesum && make gomod-vendor && make gomod-vendor >Makefile.deps && make makesum && mkcal && instpc
-.-include "${.CURDIR}/Makefile.deps"
+#.-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>

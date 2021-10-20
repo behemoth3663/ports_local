@@ -7,6 +7,7 @@ GH_TUPLE=	\
 		aliscott:go-pretty:408905a61c8e:aliscott_go_pretty_v6/vendor/github.com/jedib0t/go-pretty/v6 \
 		apparentlymart:go-textseg:v1.0.0:apparentlymart_go_textseg/vendor/github.com/apparentlymart/go-textseg \
 		apparentlymart:go-textseg:v12.0.0:apparentlymart_go_textseg_v12/vendor/github.com/apparentlymart/go-textseg/v12 \
+		aws:aws-sdk-go-v2:26a9df85b9bd:aws_aws_sdk_go_v2_eks \
 		aws:aws-sdk-go-v2:a930583ec379:aws_aws_sdk_go_v2_imds \
 		aws:aws-sdk-go-v2:cc132614991d:aws_aws_sdk_go_v2_ec2 \
 		aws:aws-sdk-go-v2:config/v1.8.2:aws_aws_sdk_go_v2_config \
@@ -15,7 +16,7 @@ GH_TUPLE=	\
 		aws:aws-sdk-go-v2:v1.3.1:aws_aws_sdk_go_v2_presigned_url \
 		aws:aws-sdk-go-v2:v1.7.1:aws_aws_sdk_go_v2_s3shared \
 		aws:aws-sdk-go-v2:v1.8.1:aws_aws_sdk_go_v2_cloudwatch \
-		aws:aws-sdk-go-v2:v1.9.1:aws_aws_sdk_go_v2 \
+		aws:aws-sdk-go-v2:v1.9.2:aws_aws_sdk_go_v2 \
 		aws:smithy-go:v1.8.0:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		awslabs:goformation:v4.19.5:awslabs_goformation_v4/vendor/github.com/awslabs/goformation/v4 \
 		briandowns:spinner:v1.15.0:briandowns_spinner/vendor/github.com/briandowns/spinner \
@@ -25,7 +26,7 @@ GH_TUPLE=	\
 		fatih:color:v1.13.0:fatih_color/vendor/github.com/fatih/color \
 		go-check:check:41f04d3bba15:go_check_check/vendor/gopkg.in/check.v1 \
 		go-playground:assert:v1.2.1:go_playground_assert/vendor/gopkg.in/go-playground/assert.v1 \
-		go-yaml:yaml:9f266ea9e77c:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
+		go-yaml:yaml:496545a6307b:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
 		golang:crypto:32db794688a5:golang_crypto/vendor/golang.org/x/crypto \
 		golang:mod:v0.5.1:golang_mod/vendor/golang.org/x/mod \
@@ -39,6 +40,7 @@ GH_TUPLE=	\
 		inconshreveable:mousetrap:v1.0.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
 		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
 		joho:godotenv:v1.4.0:joho_godotenv/vendor/github.com/joho/godotenv \
+		json-iterator:go:v1.1.12:json_iterator_go/vendor/github.com/json-iterator/go \
 		juju:ansiterm:720a0952cc2a:juju_ansiterm/vendor/github.com/juju/ansiterm \
 		kballard:go-shellquote:95032a82bc51:kballard_go_shellquote/vendor/github.com/kballard/go-shellquote \
 		kelseyhightower:envconfig:v1.4.0:kelseyhightower_envconfig/vendor/github.com/kelseyhightower/envconfig \
@@ -52,6 +54,8 @@ GH_TUPLE=	\
 		mitchellh:go-homedir:v1.1.0:mitchellh_go_homedir/vendor/github.com/mitchellh/go-homedir \
 		mitchellh:go-wordwrap:v1.0.0:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
 		mitchellh:reflectwalk:v1.0.1:mitchellh_reflectwalk/vendor/github.com/mitchellh/reflectwalk \
+		modern-go:concurrent:bacd9c7ef1dd:modern_go_concurrent/vendor/github.com/modern-go/concurrent \
+		modern-go:reflect2:v1.0.2:modern_go_reflect2/vendor/github.com/modern-go/reflect2 \
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		sanathkr:go-yaml:ed9d249f429b:sanathkr_go_yaml/vendor/github.com/sanathkr/go-yaml \
@@ -78,6 +82,8 @@ post-extract:
 	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_cloudwatch}/service/cloudwatch ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/cloudwatch
 	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/ec2
 	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_ec2}/service/ec2 ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/ec2
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/eks
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_eks}/service/eks ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/eks
 	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url
 	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_presigned_url}/service/internal/presigned-url ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url
 	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/s3shared
