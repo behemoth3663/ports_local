@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	terraformer
-PORTVERSION=	0.8.17
+PORTVERSION=	0.8.18
 #DISTVERSIONPREFIX=	v
 CATEGORIES=	sysutils
 
@@ -21,7 +21,8 @@ PLIST_FILES=	bin/${PORTNAME}
 fetch-version: .PHONY get-version
 
 do-build: .PHONY
-	pwd="$${PWD}" && trap "cd \"$${pwd}\"" INT EXIT && cd ${WRKSRC} && \
+	cd ${WRKSRC} && \
+	${GO_CMD} mod tidy -v && \
 	${GO_CMD} mod download && \
 	${GO_CMD} build ${GO_BUILDFLAGS:N-mod*} -o ${GO_WRKDIR_BIN}/${PORTNAME}
 
