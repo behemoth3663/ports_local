@@ -3,7 +3,7 @@
 
 PORTNAME=	go
 PORTVERSION=	1.15.15
-PORTEPOCH=	1
+#PORTEPOCH=	1
 CATEGORIES=	lang
 MASTER_SITES?=	https://golang.org/dl/ \
 		https://github.com/dmgk/go-bootstrap/releases/download/${BOOTSTRAP_TAG}/:bootstrap \
