@@ -1,0 +1,15 @@
+GH_TUPLE=	\
+		BurntSushi:toml:v0.3.1:burntsushi_toml/vendor/github.com/BurntSushi/toml \
+		alessio:shellescape:v1.4.1:alessio_shellescape/vendor/github.com/alessio/shellescape \
+		evanphx:json-patch:v5.2.0:evanphx_json_patch_v5/vendor/github.com/evanphx/json-patch \
+		go-yaml:yaml:496545a6307b:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
+		go-yaml:yaml:v2.2.8:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
+		golang:sys:22da62e12c0c:golang_sys/vendor/golang.org/x/sys \
+		inconshreveable:mousetrap:v1.0.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
+		kubernetes-sigs:yaml:v1.2.0:kubernetes_sigs_yaml/vendor/sigs.k8s.io/yaml \
+		kubernetes:apimachinery:v0.20.2:kubernetes_apimachinery/vendor/k8s.io/apimachinery \
+		mattn:go-isatty:v0.0.12:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
+		pelletier:go-toml:v1.8.1:pelletier_go_toml/vendor/github.com/pelletier/go-toml \
+		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
+		spf13:cobra:v1.1.1:spf13_cobra/vendor/github.com/spf13/cobra \
+		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag
