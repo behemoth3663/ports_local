@@ -1,0 +1,10 @@
+GH_TUPLE=	\
+		aws:aws-sdk-go-v2:v0.7.0:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+		golang:crypto:089bfa567519:golang_crypto/vendor/golang.org/x/crypto \
+		golang:sys:69cdffdb9359:golang_sys/vendor/golang.org/x/sys \
+		golang:term:03fcf44c2211:golang_term/vendor/golang.org/x/term \
+		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
+		mattn:go-runewidth:v0.0.13:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
+		mitchellh:colorstring:d06e56a500db:mitchellh_colorstring/vendor/github.com/mitchellh/colorstring \
+		rivo:uniseg:v0.2.0:rivo_uniseg/vendor/github.com/rivo/uniseg \
+		schollz:progressbar:v3.8.3:schollz_progressbar_v3/vendor/github.com/schollz/progressbar/v3
