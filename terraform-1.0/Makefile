@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	terraform
-PORTVERSION=	1.0.9
+PORTVERSION=	1.0.10
 DISTVERSIONPREFIX=	v
 CATEGORIES=	sysutils
 PKGNAMESUFFIX?=	-${PORTVERSION:R}
@@ -20,8 +20,6 @@ GH_ACCOUNT=	hashicorp
 PLIST_FILES=	bin/${PORTNAME}-${PORTVERSION}
 PLIST_FILES+=	bin/${PORTNAME}${PKGNAMESUFFIX}
 
-GO_BUILDFLAGS=	-ldflags='-s -w -extldflags "-static"'
-
 JQ_GETVER_EXPR=	[.[].name | gsub("^[a-z]+";"") | select(test("^${PORTVERSION:C/[^.]+$/[0-9]+/:S/./\\\\./g}$$"; "n"))][0]
 
 post-install: .PHONY
@@ -32,9 +30,3 @@ post-install: .PHONY
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>
-##GO_BUILDFLAGS+=-ldflags="-s -w -X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Prerelease="
-#GO_ENV+=	GOOS=${OPSYS:tl}
-#.include <bsd.port.pre.mk>
-#GO_CMD=	${LINUXBASE}/usr/local/go/bin/go
-#GO_BUILDFLAGS:=${GO_BUILDFLAGS:N-mod=vendor} -mod=mod
-#.include <bsd.port.post.mk>
