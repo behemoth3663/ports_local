@@ -1,0 +1,13 @@
+TIMESTAMP = 1635706133
+SHA256 (jreisinger-checkip-v0.7.0_GH0.tar.gz) = 5d21957b471e51912beb28833623a5a7d36761c06e79a4a6f1c212276de400ab
+SIZE (jreisinger-checkip-v0.7.0_GH0.tar.gz) = 153759
+SHA256 (golang-sys-c709ea063b76_GH0.tar.gz) = 6bd10b121b2f10f066a79cbe3c9e92762b1f5573c3d99e83fe716a6625b5c875
+SIZE (golang-sys-c709ea063b76_GH0.tar.gz) = 1535862
+SHA256 (kylelemons-go-gypsy-v1.0.0_GH0.tar.gz) = 6efc02e34c2571643ed3841bb64183f32b21a3761eaf7043941c50fd63460fd1
+SIZE (kylelemons-go-gypsy-v1.0.0_GH0.tar.gz) = 13655
+SHA256 (logrusorgru-aurora-v2.0.3_GH0.tar.gz) = d90bbcd63cd16fa21d6ae8b5a8b3043e6ad47c4146727af335fcc0fd6237fd11
+SIZE (logrusorgru-aurora-v2.0.3_GH0.tar.gz) = 136777
+SHA256 (oschwald-geoip2-golang-v1.5.0_GH0.tar.gz) = d63758fa83c0dbe54195f32d97be69e6240ecd0663812068c1c3fd0335c4bb4b
+SIZE (oschwald-geoip2-golang-v1.5.0_GH0.tar.gz) = 9599
+SHA256 (oschwald-maxminddb-golang-v1.8.0_GH0.tar.gz) = bb215e75bc25e25ccd733225ccc2f2144ab10a76d616f13232d5cd873b983986
+SIZE (oschwald-maxminddb-golang-v1.8.0_GH0.tar.gz) = 25029

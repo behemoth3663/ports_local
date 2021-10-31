@@ -1,0 +1,6 @@
+GH_TUPLE=	\
+		golang:sys:c709ea063b76:golang_sys/vendor/golang.org/x/sys \
+		kylelemons:go-gypsy:v1.0.0:kylelemons_go_gypsy/vendor/github.com/kylelemons/go-gypsy \
+		logrusorgru:aurora:v2.0.3:logrusorgru_aurora/vendor/github.com/logrusorgru/aurora \
+		oschwald:geoip2-golang:v1.5.0:oschwald_geoip2_golang/vendor/github.com/oschwald/geoip2-golang \
+		oschwald:maxminddb-golang:v1.8.0:oschwald_maxminddb_golang/vendor/github.com/oschwald/maxminddb-golang

@@ -14,6 +14,8 @@ LICENSE_FILE=	${WRKSRC}/LICENSE.md
 USES=		go:modules
 
 GO_MODULE=	github.com/cloudskiff/${PORTNAME}
+GH_ACCOUNT=	${GO_MODULE:H:T}
+GH_PROJECT=	${GO_MODULE:T}
 
 PLIST_FILES=	bin/${PORTNAME}
 
