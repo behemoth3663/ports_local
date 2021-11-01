@@ -1,7 +1,7 @@
 # Created by: Gabriel M. Dutra <0xdutra@gmail.com>
 
 PORTNAME=	tflint
-PORTVERSION=	0.33.0
+PORTVERSION=	0.33.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	sysutils
 
@@ -17,8 +17,6 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	terraform-linters
 
 PLIST_FILES=	bin/${PORTNAME}
-
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
 
 fetch-version: .PHONY get-version
 
