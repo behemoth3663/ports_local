@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	got
-PORTVERSION=	0.5.0
+PORTVERSION=	0.6.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	ftp
 PKGNAMEPREFIX=	go-
@@ -14,19 +14,15 @@ LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
-GO_TARGET=	./cmd/${PORTNAME}
 
-USE_GITHUB=	yes
-GH_ACCOUNT=	melbahja
+GO_MODULE=	github.com/melbahja/${PORTNAME}
+GH_ACCOUNT=	${GO_MODULE:H:T}
+GH_PROJECT=	${GO_MODULE:T}
+
+GO_TARGET=	./cmd/${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME}
 
 fetch-version: .PHONY get-version
-
-#workaround for can't find vendor/gitlab.com/poldi1405/go-ansi
-pre-build: .PHONY
-	cd ${WRKSRC} && ${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod vendor
-
-.-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>
