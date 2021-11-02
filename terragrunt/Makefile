@@ -2,7 +2,7 @@
 
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.35.5
+DISTVERSION=	0.35.6
 CATEGORIES=	sysutils
 
 MAINTAINER=	0xdutra@gmail.com
@@ -16,7 +16,7 @@ USES=	go:modules
 USE_GITHUB=	yes
 GH_ACCOUNT=	gruntwork-io
 
-GO_BUILDFLAGS=	-ldflags="-s -w -extldflags '-static' -X main.VERSION=${DISTVERSIONPREFIX}${PORTVERSION}"
+GO_BUILDFLAGS=	-ldflags="-s -w -X main.VERSION=${DISTVERSIONPREFIX}${PORTVERSION}"
 
 PLIST_FILES=	bin/${PORTNAME}
 
@@ -27,9 +27,5 @@ pre-post-extract: .PHONY
 	${LN} -s $$(${FIND} ${WRKDIR} -maxdepth 1 -type d -name 'go-commons-*' | ${SED} -r 's|(.*/)(go-commons-)(.*)|\1\2\3 \1gruntwork-cli-\3|') || :
 
 .-include "${.CURDIR}/Makefile.deps"
-
-#		gruntwork-io:gruntwork-cli:v0.7.0:gruntwork_io_gruntwork_cli/vendor/github.com/gruntwork-io/gruntwork-cli \
-#		gruntwork-io:go-commons:v0.7.0:gruntwork_io_go_commons/vendor/github.com/gruntwork-io/gruntwork-cli \
-#GH_TUPLE:=	${GH_TUPLE:C/gruntwork([-_])cli/go\1commons/g}
 
 .include <bsd.port.mk>
