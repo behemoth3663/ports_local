@@ -1,6 +1,6 @@
 PORTNAME=	rclone
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.56.2
+DISTVERSION=	1.57.0
 CATEGORIES=	net
 
 MAINTAINER=	brad@facefault.org
@@ -9,7 +9,7 @@ COMMENT=	Sync files to and from various cloud services
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/COPYING
 
-USES=		cpe go:modules
+USES=		go:modules
 USE_GITHUB=	yes
 GH_ACCOUNT=	ncw
 
