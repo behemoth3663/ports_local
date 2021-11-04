@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	cloud-nuke
-PORTVERSION=	0.5.1
+PORTVERSION=	0.5.2
 DISTVERSIONPREFIX=	v
 CATEGORIES=	sysutils
 
@@ -18,7 +18,10 @@ GH_ACCOUNT=	gruntwork-io
 
 PLIST_FILES=	bin/${PORTNAME}
 
-fetch-version: .PHONY get-version
+_OPTIONS_extract=	501:pre-post-extract
+
+pre-post-extract: .PHONY
+	test -d ${WRKDIR}/go-commons-0.7.0 && ${MV} ${WRKDIR}/go-commons-0.7.0 ${WRKDIR}/gruntwork-cli-0.7.0
 
 .-include "${.CURDIR}/Makefile.deps"
 
