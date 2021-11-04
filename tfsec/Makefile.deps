@@ -37,7 +37,7 @@ GH_TUPLE=	\
 		mitchellh:go-homedir:v1.1.0:mitchellh_go_homedir/vendor/github.com/mitchellh/go-homedir \
 		mitchellh:go-wordwrap:v1.0.0:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
 		olekukonko:tablewriter:v0.0.5:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
-		owenrumney:go-sarif:v1.0.11:owenrumney_go_sarif/vendor/github.com/owenrumney/go-sarif \
+		owenrumney:go-sarif:v1.0.12:owenrumney_go_sarif/vendor/github.com/owenrumney/go-sarif \
 		owenrumney:squealer:v0.2.28:owenrumney_squealer/vendor/github.com/owenrumney/squealer \
 		pkg:term:aa71e9d9e942:pkg_term/vendor/github.com/pkg/term \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \

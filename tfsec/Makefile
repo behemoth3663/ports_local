@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	tfsec
-PORTVERSION=	0.58.14
+PORTVERSION=	0.58.15
 DISTVERSIONPREFIX=	v
 CATEGORIES=	security
 
@@ -18,11 +18,9 @@ GH_ACCOUNT=	liamg
 
 GO_TARGET=	./cmd/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' -X 'github.com/aquasecurity/tfsec/version.Version=${PORTVERSION}'"
+GO_BUILDFLAGS+=	-ldflags="-s -w -X 'github.com/aquasecurity/tfsec/version.Version=${PORTVERSION}'"
 
 PLIST_FILES=	bin/${PORTNAME}
-
-fetch-version: .PHONY get-version
 
 #rm -f -- distinfo Makefile.deps && doas make clean && make makesum gomod-vendor && make gomod-vendor >Makefile.deps && doas make clean && make makesum package && instpc
 .-include "${.CURDIR}/Makefile.deps"
