@@ -39,7 +39,7 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 
 #without GOPROXY=off
 do-build: .PHONY
-	(cd ${GO_WRKSRC} &&
+	(cd ${GO_WRKSRC} && \
 		${SETENV} ${MAKE_ENV} ${GO_ENV} ${GO_CMD} build ${GO_BUILDFLAGS} \
 			-o ${GO_WRKDIR_BIN}/${PORTNAME})
 

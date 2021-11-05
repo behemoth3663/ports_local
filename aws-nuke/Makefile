@@ -29,7 +29,7 @@ GH_COMMIT=	git ls-remote --tags \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.BuildVersion=${DISTVERSIONPREFIX}${PORTVERSION} \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.BuildVersion=${DISTVERSIONPREFIX}${PORTVERSION}' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.BuildDate=${%FT%TZ:L:gmtime}' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.BuildHash=${:!${GH_COMMIT}!:[1]:C/(.{7}).*/\1/}' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.BuildEnvironment='"

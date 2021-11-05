@@ -27,7 +27,7 @@ GH_COMMIT=	git ls-remote --tags \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
-	-X 'main.version=${DISTVERSIONPREFIX}${PORTVERSION} \
+	-X 'main.version=${DISTVERSIONPREFIX}${PORTVERSION}' \
 	-X 'main.commit=${:!${GH_COMMIT}!:[1]:C/(.{7}).*/\1/}' \
 	-X 'main.date=${%FT%TZ:L:gmtime}'"
 
