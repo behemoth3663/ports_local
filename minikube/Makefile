@@ -20,7 +20,8 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	kubernetes
 
 GO_TARGET=	./cmd/${PORTNAME}
-GO_BUILDFLAGS=	-ldflags="-X k8s.io/minikube/pkg/version.version=${DISTVERSIONPREFIX}${PORTVERSION} \
+GO_BUILDFLAGS+=	-ldflags="-s -w \
+		-X k8s.io/minikube/pkg/version.version=${DISTVERSIONPREFIX}${PORTVERSION} \
 		-X k8s.io/minikube/pkg/version.isoVersion=${DISTVERSIONPREFIX}${PORTVERSION:R:R}.${PORTVERSION:R:E}.0 \
 		-X k8s.io/minikube/pkg/version.storageProvisionerVersion=v4 \
 		-X k8s.io/minikube/pkg/version.isoPath=minikube/iso"
@@ -29,11 +30,11 @@ PLIST_FILES=	bin/${PORTNAME}
 
 SUB_FILES=	pkg-message
 
-post-patch:
+post-patch: .PHONY
 	cd ${WRKSRC}/vendor/github.com/pkg/browser && \
 		${LN} -s browser_linux.go browser_freebsd.go || :
 
-pre-build:
+pre-build: .PHONY
 	cd ${WRKSRC} && \
 		${LOCALBASE}/bin/go-bindata -nomemcopy \
 		-o pkg/minikube/assets/assets.go -pkg assets deploy/addons/... && \

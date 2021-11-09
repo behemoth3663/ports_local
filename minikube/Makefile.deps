@@ -222,9 +222,6 @@ GH_TUPLE=	\
 		xo:terminfo:ca9a967f8778:xo_terminfo/vendor/github.com/xo/terminfo \
 		zchee:go-vmnet:97ebf9174097:zchee_go_vmnet/vendor/github.com/zchee/go-vmnet
 
-		# Errors found during processing:
-		#	tuple.discoverMirrors https://gonum.org/v1/plot?go-get=1: status 404
-
 post-extract:
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/monitoring
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_monitoring}/monitoring ${WRKSRC}/vendor/cloud.google.com/go/monitoring
