@@ -30,17 +30,19 @@ PLIST_FILES=	bin/${PORTNAME}
 
 SUB_FILES=	pkg-message
 
-post-patch: .PHONY
-	cd ${WRKSRC}/vendor/github.com/pkg/browser && \
-		${LN} -s browser_linux.go browser_freebsd.go || :
+post-patch: .PHONY .IGNORE
+	${LN} -s ${WRKSRC}/vendor/github.com/pkg/browser/browser_linux.go \
+		${WRKSRC}/vendor/github.com/pkg/browser/browser_freebsd.go
 
-pre-build: .PHONY
+pre-build: .PHONY .IGNORE
 	cd ${WRKSRC} && \
 		${LOCALBASE}/bin/go-bindata -nomemcopy \
-		-o pkg/minikube/assets/assets.go -pkg assets deploy/addons/... && \
+			-o pkg/minikube/assets/assets.go \
+			-pkg assets deploy/addons/... && \
 		${LOCALBASE}/bin/go-bindata -nomemcopy \
-		-o pkg/minikube/translate/translations.go -pkg translate translations/... && \
-		${LOCALBASE}/bin/gofmt -s -w pkg/minikube/translate/translations.go || :
+			-o pkg/minikube/translate/translations.go \
+			-pkg translate translations/... && \
+		${LOCALBASE}/bin/gofmt -s -w pkg/minikube/translate/translations.go
 
 .-include "${.CURDIR}/Makefile.deps"
 
