@@ -2,7 +2,7 @@
 
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.35.6
+DISTVERSION=	0.35.8
 CATEGORIES=	sysutils
 
 MAINTAINER=	0xdutra@gmail.com
@@ -24,7 +24,8 @@ _OPTIONS_extract=	501:pre-post-extract
 
 #${LN} -s ${WRKDIR}/go-commons-0.7.0 ${WRKDIR}/gruntwork-cli-0.7.0
 pre-post-extract: .PHONY
-	${LN} -s $$(${FIND} ${WRKDIR} -maxdepth 1 -type d -name 'go-commons-*' | ${SED} -r 's|(.*/)(go-commons-)(.*)|\1\2\3 \1gruntwork-cli-\3|') || :
+	src_dst="$$(${FIND} ${WRKDIR} -maxdepth 1 -type d -name 'go-commons-*' | ${SED} -r 's|(.*/)(go-commons-)(.*)|\1\2\3 \1gruntwork-cli-\3|')"; \
+	test -z "$${src_dst}" || ${LN} -s $${src_dst}
 
 .-include "${.CURDIR}/Makefile.deps"
 
