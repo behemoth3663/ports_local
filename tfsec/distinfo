@@ -1,6 +1,6 @@
-TIMESTAMP = 1636037506
-SHA256 (liamg-tfsec-v0.58.15_GH0.tar.gz) = a324ddcde0f0c61a74914a048fad103fdce2e1de49b6304c1a2cdd5ac292995f
-SIZE (liamg-tfsec-v0.58.15_GH0.tar.gz) = 4749229
+TIMESTAMP = 1636541545
+SHA256 (liamg-tfsec-v0.59.0_GH0.tar.gz) = 0bf6488b8b4dac7c83b1175eb7d6b6786b41ca892f1678ff0b16597e45466fdd
+SIZE (liamg-tfsec-v0.59.0_GH0.tar.gz) = 4749877
 SHA256 (ProtonMail-go-crypto-04723f9f07d7_GH0.tar.gz) = 09ca24a9956ebb6a8564ef17ab6b0eab6387938ac608a0c429f75360d3b176f5
 SIZE (ProtonMail-go-crypto-04723f9f07d7_GH0.tar.gz) = 308315
 SHA256 (acomagu-bufpipe-v1.0.3_GH0.tar.gz) = 9d34d4a015aa069649b951c36d4dc50fdbf6a2075717812ba68b9260d5c79986
@@ -99,5 +99,5 @@ SHA256 (stretchr-testify-v1.7.0_GH0.tar.gz) = 560c0984072cb436b17bbce5699b205d5a
 SIZE (stretchr-testify-v1.7.0_GH0.tar.gz) = 91073
 SHA256 (zclconf-go-cty-yaml-v1.0.2_GH0.tar.gz) = 31102eb50cb6159d7dbbc82447477ec27914a6f3f0069af9e4b53116748755e3
 SIZE (zclconf-go-cty-yaml-v1.0.2_GH0.tar.gz) = 59431
-SHA256 (zclconf-go-cty-v1.9.1_GH0.tar.gz) = cab1a91e7239b6ccb1b3a98e8d05164742d885a126cc3a4d09a54c9f0d527c94
-SIZE (zclconf-go-cty-v1.9.1_GH0.tar.gz) = 197531
+SHA256 (zclconf-go-cty-v1.10.0_GH0.tar.gz) = 6e154e5cb159cf669af7e11792fcbbb92430dd835b16e72709bd93d3fc4d0a72
+SIZE (zclconf-go-cty-v1.10.0_GH0.tar.gz) = 199322
