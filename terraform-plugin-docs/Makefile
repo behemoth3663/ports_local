@@ -1,5 +1,5 @@
 PORTNAME=	terraform-plugin-docs
-PORTVERSION=	0.4.0
+PORTVERSION=	0.5.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	sysutils textproc
 
@@ -17,6 +17,8 @@ GH_ACCOUNT=	hashicorp
 GO_TARGET=	./cmd/tfplugindocs
 
 PLIST_FILES=	bin/tfplugindocs
+
+fetch-version: .PHONY get-version
 
 .-include "${.CURDIR}/Makefile.deps"
 
