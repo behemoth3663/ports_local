@@ -2,7 +2,7 @@
 
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.35.9
+DISTVERSION=	0.35.10
 CATEGORIES=	sysutils
 
 MAINTAINER=	0xdutra@gmail.com
@@ -28,6 +28,6 @@ pre-post-extract: .PHONY
 		${LN} -s "$${src}" "$${dst}"; \
 	done
 
-.-include "${.CURDIR}/Makefile.deps"
+.sinclude "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>
