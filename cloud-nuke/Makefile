@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	cloud-nuke
-PORTVERSION=	0.5.2
+PORTVERSION=	0.6.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	sysutils
 
@@ -21,7 +21,9 @@ PLIST_FILES=	bin/${PORTNAME}
 _OPTIONS_extract=	501:pre-post-extract
 
 pre-post-extract: .PHONY
-	test -d ${WRKDIR}/go-commons-0.7.0 && ${MV} ${WRKDIR}/go-commons-0.7.0 ${WRKDIR}/gruntwork-cli-0.7.0
+	${FIND} ${WRKDIR} -maxdepth 1 -type d -name 'go-commons-*' | while read src; do \
+		${LN} -s "$${src}" "$${src%%go-commons-*}gruntwork-cli-$${src##*go-commons-}"; \
+	done
 
 .-include "${.CURDIR}/Makefile.deps"
 
