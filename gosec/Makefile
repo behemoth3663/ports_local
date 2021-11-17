@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	gosec
-PORTVERSION=	2.9.1
+PORTVERSION=	2.9.2
 DISTVERSIONPREFIX=	v
 CATEGORIES=	devel security local
 
@@ -26,7 +26,7 @@ GH_COMMIT=	git ls-remote --tags \
 		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'main.Version=${PORTVERSION}' \
 	-X 'main.GitTag=${:!${GH_COMMIT}!:[1]:C/(.{7}).*/\1/}' \
 	-X 'main.BuildDate=${%F %T:L:gmtime}'"

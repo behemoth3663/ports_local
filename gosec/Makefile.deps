@@ -11,11 +11,11 @@ GH_TUPLE=	\
 		golang:tools:v0.1.7:golang_tools/vendor/golang.org/x/tools \
 		golang:xerrors:5ec99f83aff1:golang_xerrors/vendor/golang.org/x/xerrors \
 		google:uuid:v1.3.0:google_uuid/vendor/github.com/google/uuid \
-		gookit:color:v1.4.2:gookit_color/vendor/github.com/gookit/color \
-		lib:pq:v1.10.3:lib_pq/vendor/github.com/lib/pq \
+		gookit:color:v1.5.0:gookit_color/vendor/github.com/gookit/color \
+		lib:pq:v1.10.4:lib_pq/vendor/github.com/lib/pq \
 		mozilla:tls-observatory:7bc42856d2e5:mozilla_tls_observatory/vendor/github.com/mozilla/tls-observatory \
 		nbutton23:zxcvbn-go:fa2cb2858354:nbutton23_zxcvbn_go/vendor/github.com/nbutton23/zxcvbn-go \
 		nxadm:tail:v1.4.8:nxadm_tail/vendor/github.com/nxadm/tail \
-		onsi:ginkgo:v1.16.4:onsi_ginkgo/vendor/github.com/onsi/ginkgo \
-		onsi:gomega:v1.16.0:onsi_gomega/vendor/github.com/onsi/gomega \
+		onsi:ginkgo:v1.16.5:onsi_ginkgo/vendor/github.com/onsi/ginkgo \
+		onsi:gomega:v1.17.0:onsi_gomega/vendor/github.com/onsi/gomega \
 		xo:terminfo:ca9a967f8778:xo_terminfo/vendor/github.com/xo/terminfo
