@@ -1,0 +1,4 @@
+CLI tool that checks for updates of external terraform modules referenced in 
+given Terraform source. Single binary, no dependencies.
+
+WWW: https://github.com/keilerkonzept/terraform-module-versions
