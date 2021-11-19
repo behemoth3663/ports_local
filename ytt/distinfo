@@ -1,8 +1,10 @@
-TIMESTAMP = 1633815986
-SHA256 (k14s-ytt-v0.37.0_GH0.tar.gz) = e3b69b22a004a2dfc277e62d506ebbe6ff54a0af171a7a2217d7661dd4d46277
-SIZE (k14s-ytt-v0.37.0_GH0.tar.gz) = 1255215
-SHA256 (aws-aws-lambda-go-v1.26.0_GH0.tar.gz) = 0d8779f8acbe3e6121f7f419b6766ef2403a4788979f596c5ec27210bdab3241
-SIZE (aws-aws-lambda-go-v1.26.0_GH0.tar.gz) = 90817
+TIMESTAMP = 1637315687
+SHA256 (k14s-ytt-v0.38.0_GH0.tar.gz) = 9e64281c58c2522f4715738a78ab77147bf6a94117c5cb37740a693f8355943d
+SIZE (k14s-ytt-v0.38.0_GH0.tar.gz) = 1273459
+SHA256 (BurntSushi-toml-v0.4.1_GH0.tar.gz) = 280ad65e56f4a23dec30da7ccfd696d9d939a449af8b8be349c8fc487a117a85
+SIZE (BurntSushi-toml-v0.4.1_GH0.tar.gz) = 80986
+SHA256 (aws-aws-lambda-go-v1.27.0_GH0.tar.gz) = ca07c345cf16affa661098ff1dd4561bee4ba849801afe7c426ffa9a77c01348
+SIZE (aws-aws-lambda-go-v1.27.0_GH0.tar.gz) = 95091
 SHA256 (cppforlife-cobrautil-bb86e6965d72_GH0.tar.gz) = 5e41373f4569e7a9dc966c39f4417f4d14cc07d28f04311af62c07b4b4c28ea7
 SIZE (cppforlife-cobrautil-bb86e6965d72_GH0.tar.gz) = 68147
 SHA256 (cppforlife-go-cli-ui-512793797f05_GH0.tar.gz) = d5bea9d2350831be425fab5b6a6a4d7124bea360ab61302e49b089fa2aaac71e

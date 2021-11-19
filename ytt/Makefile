@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	ytt
-PORTVERSION=	0.37.0
+PORTVERSION=	0.38.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	textproc
 
@@ -24,6 +24,6 @@ WRKSRC=		${WRKDIR}/carvel-${PORTNAME}-${PORTVERSION}
 
 fetch-version: .PHONY get-version
 
-.-include "${.CURDIR}/Makefile.deps"
+.sinclude "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>
