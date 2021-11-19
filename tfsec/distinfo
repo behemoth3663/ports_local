@@ -1,6 +1,6 @@
-TIMESTAMP = 1636541545
-SHA256 (liamg-tfsec-v0.59.0_GH0.tar.gz) = 0bf6488b8b4dac7c83b1175eb7d6b6786b41ca892f1678ff0b16597e45466fdd
-SIZE (liamg-tfsec-v0.59.0_GH0.tar.gz) = 4749877
+TIMESTAMP = 1637363850
+SHA256 (liamg-tfsec-v0.60.0_GH0.tar.gz) = 64d6ec30942bfc071c3dbc4a6dd0e50a1b1ef4e63bbfbc441a76a7882c595fa8
+SIZE (liamg-tfsec-v0.60.0_GH0.tar.gz) = 4748463
 SHA256 (ProtonMail-go-crypto-04723f9f07d7_GH0.tar.gz) = 09ca24a9956ebb6a8564ef17ab6b0eab6387938ac608a0c429f75360d3b176f5
 SIZE (ProtonMail-go-crypto-04723f9f07d7_GH0.tar.gz) = 308315
 SHA256 (acomagu-bufpipe-v1.0.3_GH0.tar.gz) = 9d34d4a015aa069649b951c36d4dc50fdbf6a2075717812ba68b9260d5c79986
