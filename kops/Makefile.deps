@@ -128,7 +128,7 @@ GH_TUPLE=	\
 		kr:fs:v0.1.0:kr_fs/vendor/github.com/kr/fs \
 		kubernetes-sigs:controller-runtime:v0.9.7:kubernetes_sigs_controller_runtime/vendor/sigs.k8s.io/controller-runtime \
 		kubernetes-sigs:kustomize:kyaml/v0.11.0:kubernetes_sigs_kustomize_1/vendor/sigs.k8s.io/kustomize/kyaml \
- 		kubernetes-sigs:kustomize:api/v0.8.11:kubernetes_sigs_kustomize/vendor/sigs.k8s.io/kustomize/api \
+		kubernetes-sigs:kustomize:api/v0.8.11:kubernetes_sigs_kustomize/vendor/sigs.k8s.io/kustomize/api \
 		kubernetes-sigs:structured-merge-diff:v4.1.2:kubernetes_sigs_structured_merge_diff/vendor/sigs.k8s.io/structured-merge-diff/v4 \
 		kubernetes-sigs:yaml:v1.2.0:kubernetes_sigs_yaml/vendor/sigs.k8s.io/yaml \
 		kubernetes:api:v0.22.2:kubernetes_api/vendor/k8s.io/api \

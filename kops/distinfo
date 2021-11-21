@@ -1,6 +1,6 @@
-TIMESTAMP = 1636539514
-SHA256 (kubernetes-kops-v1.22.1_GH0.tar.gz) = 47c9eae2bb12073cab907c2ffbe10bf54141f2ce6637291de7faffc9241b5b85
-SIZE (kubernetes-kops-v1.22.1_GH0.tar.gz) = 28958278
+TIMESTAMP = 1637491523
+SHA256 (kubernetes-kops-v1.22.2_GH0.tar.gz) = b6c80827d9a2562743e6b88e23f5ad21bf80d3650acc6dc6009fcc0b3d42df0a
+SIZE (kubernetes-kops-v1.22.2_GH0.tar.gz) = 29012815
 SHA256 (Azure-azure-pipeline-go-v0.2.3_GH0.tar.gz) = 99bd58f4a07dd02d9615e3638b3bb6dbfad80ef678ccdb8e17e3fa2b0fef343e
 SIZE (Azure-azure-pipeline-go-v0.2.3_GH0.tar.gz) = 17102
 SHA256 (Azure-azure-sdk-for-go-v55.0.0_GH0.tar.gz) = f7385b0d4cc3baa185a4506dd62c735d80ecd3f9437d3981314747d933e7dfe8
