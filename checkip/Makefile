@@ -1,5 +1,5 @@
 PORTNAME=	checkip
-PORTVERSION=	0.7.0
+PORTVERSION=	0.16.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	net
 
@@ -14,12 +14,7 @@ USES=		go:modules
 USE_GITHUB=	yes
 GH_ACCOUNT=	jreisinger
 
-GO_TARGET=	./cmd
-
 PLIST_FILES=	bin/${PORTNAME}
-
-post-stage: .PHONY
-	mv ${STAGEDIR}${PREFIX}/bin/cmd ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
 
 fetch-version: .PHONY get-version
 
