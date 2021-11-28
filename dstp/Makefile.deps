@@ -1,0 +1,9 @@
+GH_TUPLE=	\
+		fatih:color:v1.13.0:fatih_color/vendor/github.com/fatih/color \
+		go-ping:ping:6e2b003bffdd:go_ping_ping/vendor/github.com/go-ping/ping \
+		golang:net:d523dce5a7f4:golang_net/vendor/golang.org/x/net \
+		golang:sync:036812b2e83c:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:0f9fa26af87c:golang_sys/vendor/golang.org/x/sys \
+		google:uuid:v1.2.0:google_uuid/vendor/github.com/google/uuid \
+		mattn:go-colorable:v0.1.9:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
+		mattn:go-isatty:v0.0.14:mattn_go_isatty/vendor/github.com/mattn/go-isatty
