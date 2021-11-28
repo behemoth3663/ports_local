@@ -20,6 +20,8 @@ PLIST_FILES=	bin/${PORTNAME}
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -X 'main.versionString=${PORTVERSION}'"
 
+JQ_GETVER_EXPR=	[.[].name | gsub("^[a-z]+-"; "") | select(test("^[0-9.]+$$"; "n"))][0]
+
 fetch-version: .PHONY get-version
 
 .-include "${.CURDIR}/Makefile.deps"
