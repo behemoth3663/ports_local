@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	tparse
-PORTVERSION=	0.8.3
+PORTVERSION=	0.9.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	textproc
 
@@ -17,9 +17,6 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	mfridman
 
 PLIST_FILES=	bin/${PORTNAME}
-
-pre-build: .PHONY
-	cd ${GO_WRKSRC} && ${SETENV} GIT_TAG=${DISTVERSIONPREFIX}${PORTVERSION} ${GO_CMD} generate -v ./...
 
 fetch-version: .PHONY get-version
 

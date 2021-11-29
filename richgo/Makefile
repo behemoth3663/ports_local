@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	richgo
-PORTVERSION=	0.3.9
+PORTVERSION=	0.3.10
 DISTVERSIONPREFIX=	v
 CATEGORIES=	devel
 
@@ -15,10 +15,6 @@ USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	kyoh86
-
-#GO_TARGET=	./cmd/${PORTNAME}
-
-#GO_BUILDFLAGS+=	-ldflags="-s -X 'github.com/aquasecurity/tfsec/version.Version=${PORTVERSION}'"
 
 PLIST_FILES=	bin/${PORTNAME}
 
