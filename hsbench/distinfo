@@ -1,8 +1,8 @@
-TIMESTAMP = 1634747927
-SHA256 (amilevskiy-hsbench-v2.0.6_GH0.tar.gz) = 618d5541e503463b0f7fb262c1b1e74ec5435657431efe11050cc0efd2e3ee22
-SIZE (amilevskiy-hsbench-v2.0.6_GH0.tar.gz) = 31049
-SHA256 (aws-aws-sdk-go-v1.41.6_GH0.tar.gz) = 042c30b786fd55eae98204d6608c183e8c6d1d271cdeade079c5e23bbcadf49f
-SIZE (aws-aws-sdk-go-v1.41.6_GH0.tar.gz) = 21029304
+TIMESTAMP = 1639172417
+SHA256 (amilevskiy-hsbench-v2.0.5_GH0.tar.gz) = 143ff6a435071b5409f3cec667930ae44943aba799a7e311ca32350006338fb0
+SIZE (amilevskiy-hsbench-v2.0.5_GH0.tar.gz) = 30094
+SHA256 (aws-aws-sdk-go-v1.42.22_GH0.tar.gz) = 7fc93854220649bbd2d2f625864c36131c35985e4992b153c1e0e356a1b8b886
+SIZE (aws-aws-sdk-go-v1.42.22_GH0.tar.gz) = 22475747
 SHA256 (cloudfoundry-bytefmt-5bb3c17173e5_GH0.tar.gz) = 53232e2c2c0f29abaef66dfbbe77e456004349689cf22a3da5734913a224ce68
 SIZE (cloudfoundry-bytefmt-5bb3c17173e5_GH0.tar.gz) = 2035870
 SHA256 (jmespath-go-jmespath-v0.4.0_GH0.tar.gz) = aa86d00b6836345eee196c13df2df084a18e0b1159935de9289f2ef6a7fe375d
