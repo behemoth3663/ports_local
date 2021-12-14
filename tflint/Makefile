@@ -1,7 +1,7 @@
 # Created by: Gabriel M. Dutra <0xdutra@gmail.com>
 
 PORTNAME=	tflint
-PORTVERSION=	0.33.2
+PORTVERSION=	0.34.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	sysutils
 
