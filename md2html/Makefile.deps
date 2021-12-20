@@ -1,0 +1,10 @@
+GH_TUPLE=	\
+		PuerkitoBio:goquery:v1.6.0:puerkitobio_goquery/vendor/github.com/PuerkitoBio/goquery \
+		alecthomas:chroma:5b9087ac1446:alecthomas_chroma/vendor/github.com/alecthomas/chroma \
+		andybalholm:cascadia:v1.1.0:andybalholm_cascadia/vendor/github.com/andybalholm/cascadia \
+		danwakefield:fnmatch:cbb64ac3d964:danwakefield_fnmatch/vendor/github.com/danwakefield/fnmatch \
+		dlclark:regexp2:v1.2.0:dlclark_regexp2/vendor/github.com/dlclark/regexp2 \
+		golang:net:16171245cfb2:golang_net/vendor/golang.org/x/net \
+		jessevdk:go-flags:v1.4.0:jessevdk_go_flags/vendor/github.com/jessevdk/go-flags \
+		nocd5:goldmark-highlighting:f7ed7f755f7e:nocd5_goldmark_highlighting/vendor/github.com/nocd5/goldmark-highlighting \
+		yuin:goldmark:v1.3.0:yuin_goldmark/vendor/github.com/yuin/goldmark

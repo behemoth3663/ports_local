@@ -1,0 +1,6 @@
+Converts Markdown to a single file HTML. All scripts and css will be embeded 
+in the file and thus the converted file is viewable even offline. Has an 
+option to embed image to HTML by base64 encode and hence the file is 
+conveyable without any resources.
+
+WWW: https://github.com/nocd5/md2html
