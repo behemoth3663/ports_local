@@ -2,13 +2,14 @@ CARGO_CRATES=	addr2line-0.14.1 \
 		adler-1.0.2 \
 		aho-corasick-0.7.15 \
 		ansi_term-0.11.0 \
+		ansi_term-0.12.1 \
 		arrayref-0.3.6 \
 		arrayvec-0.5.2 \
 		askama-0.9.0 \
 		askama_derive-0.9.0 \
 		askama_escape-0.3.0 \
 		askama_shared-0.9.1 \
-		async-trait-0.1.48 \
+		async-trait-0.1.50 \
 		atty-0.2.14 \
 		autocfg-1.0.1 \
 		backtrace-0.3.56 \
@@ -18,6 +19,7 @@ CARGO_CRATES=	addr2line-0.14.1 \
 		bitflags-1.2.1 \
 		blake2b_simd-0.5.11 \
 		block-buffer-0.9.0 \
+		bstr-0.2.15 \
 		buf_redux-0.8.4 \
 		bumpalo-3.6.1 \
 		byteorder-1.4.3 \
@@ -28,6 +30,8 @@ CARGO_CRATES=	addr2line-0.14.1 \
 		cfg-if-1.0.0 \
 		chrono-0.4.19 \
 		clap-2.33.3 \
+		cli-table-0.4.6 \
+		cli-table-derive-0.4.4 \
 		colored-1.9.3 \
 		console-0.14.1 \
 		const_fn-0.4.6 \
@@ -38,6 +42,8 @@ CARGO_CRATES=	addr2line-0.14.1 \
 		crc32fast-1.2.1 \
 		crossbeam-utils-0.8.3 \
 		crypto-mac-0.10.0 \
+		csv-1.1.6 \
+		csv-core-0.1.10 \
 		dashmap-4.0.2 \
 		data-encoding-2.3.2 \
 		digest-0.9.0 \
@@ -47,6 +53,7 @@ CARGO_CRATES=	addr2line-0.14.1 \
 		dirs-sys-next-0.1.2 \
 		discard-1.0.4 \
 		dtoa-0.4.8 \
+		either-1.6.1 \
 		encode_unicode-0.3.6 \
 		encoding_rs-0.8.28 \
 		enum-as-inner-0.3.3 \
@@ -87,6 +94,7 @@ CARGO_CRATES=	addr2line-0.14.1 \
 		humansize-1.1.0 \
 		humantime-1.3.0 \
 		hyper-0.14.5 \
+		hyper-rustls-0.22.1 \
 		hyper-tls-0.5.0 \
 		idna-0.2.2 \
 		indexmap-1.6.2 \
@@ -95,6 +103,7 @@ CARGO_CRATES=	addr2line-0.14.1 \
 		instant-0.1.9 \
 		ipconfig-0.2.2 \
 		ipnet-2.3.0 \
+		itertools-0.9.0 \
 		itoa-0.4.7 \
 		js-sys-0.3.50 \
 		lazy_static-1.4.0 \
@@ -104,6 +113,7 @@ CARGO_CRATES=	addr2line-0.14.1 \
 		log-0.4.14 \
 		lru-cache-0.1.2 \
 		match_cfg-0.1.0 \
+		matchers-0.0.1 \
 		matches-0.1.8 \
 		md5-0.7.0 \
 		memchr-2.3.4 \
@@ -130,6 +140,7 @@ CARGO_CRATES=	addr2line-0.14.1 \
 		parking_lot-0.11.1 \
 		parking_lot_core-0.8.3 \
 		percent-encoding-2.1.0 \
+		pest-2.1.3 \
 		pin-project-1.0.6 \
 		pin-project-internal-1.0.6 \
 		pin-project-lite-0.2.6 \
@@ -157,10 +168,12 @@ CARGO_CRATES=	addr2line-0.14.1 \
 		redox_users-0.3.5 \
 		redox_users-0.4.0 \
 		regex-1.4.5 \
+		regex-automata-0.1.9 \
 		regex-syntax-0.6.23 \
 		remove_dir_all-0.5.3 \
 		reqwest-0.11.2 \
 		resolv-conf-0.7.0 \
+		ring-0.16.20 \
 		rusoto_core-0.46.0 \
 		rusoto_credential-0.46.0 \
 		rusoto_dynamodb-0.46.0 \
@@ -168,15 +181,19 @@ CARGO_CRATES=	addr2line-0.14.1 \
 		rust-argon2-0.8.3 \
 		rustc-demangle-0.1.18 \
 		rustc_version-0.2.3 \
+		rustls-0.19.1 \
 		ryu-1.0.5 \
 		safemem-0.3.3 \
 		schannel-0.1.19 \
 		scoped-tls-1.0.0 \
 		scopeguard-1.1.0 \
+		sct-0.6.1 \
 		security-framework-2.2.0 \
 		security-framework-sys-2.2.0 \
 		semver-0.9.0 \
+		semver-0.11.0 \
 		semver-parser-0.7.0 \
+		semver-parser-0.10.2 \
 		serde-1.0.125 \
 		serde_derive-1.0.125 \
 		serde_json-1.0.64 \
@@ -185,12 +202,14 @@ CARGO_CRATES=	addr2line-0.14.1 \
 		sha-1-0.9.4 \
 		sha1-0.6.0 \
 		sha2-0.9.3 \
+		sharded-slab-0.1.1 \
 		shlex-0.1.1 \
 		signal-hook-registry-1.3.0 \
 		slab-0.4.2 \
 		smallvec-1.6.1 \
 		socket2-0.3.19 \
 		socket2-0.4.0 \
+		spin-0.5.2 \
 		standback-0.2.17 \
 		stdweb-0.4.20 \
 		stdweb-derive-0.5.3 \
@@ -207,6 +226,7 @@ CARGO_CRATES=	addr2line-0.14.1 \
 		textwrap-0.11.0 \
 		thiserror-1.0.24 \
 		thiserror-impl-1.0.24 \
+		thread_local-1.1.3 \
 		time-0.1.43 \
 		time-0.2.26 \
 		time-macros-0.1.1 \
@@ -216,6 +236,7 @@ CARGO_CRATES=	addr2line-0.14.1 \
 		tokio-1.5.0 \
 		tokio-macros-1.1.0 \
 		tokio-native-tls-0.3.0 \
+		tokio-rustls-0.22.0 \
 		tokio-stream-0.1.5 \
 		tokio-tungstenite-0.13.0 \
 		tokio-tungstenite-0.14.0 \
@@ -223,7 +244,11 @@ CARGO_CRATES=	addr2line-0.14.1 \
 		toml-0.5.8 \
 		tower-service-0.3.1 \
 		tracing-0.1.25 \
+		tracing-attributes-0.1.15 \
 		tracing-core-0.1.17 \
+		tracing-log-0.1.2 \
+		tracing-serde-0.1.2 \
+		tracing-subscriber-0.2.17 \
 		trust-dns-proto-0.20.1 \
 		trust-dns-resolver-0.20.1 \
 		try-lock-0.2.3 \
@@ -231,12 +256,14 @@ CARGO_CRATES=	addr2line-0.14.1 \
 		tungstenite-0.13.0 \
 		twoway-0.1.8 \
 		typenum-1.13.0 \
+		ucd-trie-0.1.3 \
 		unicase-2.6.0 \
 		unicode-bidi-0.3.5 \
 		unicode-normalization-0.1.17 \
 		unicode-segmentation-1.7.1 \
 		unicode-width-0.1.8 \
 		unicode-xid-0.2.1 \
+		untrusted-0.7.1 \
 		url-2.2.1 \
 		utf-8-0.7.5 \
 		uuid-0.8.2 \
@@ -254,6 +281,8 @@ CARGO_CRATES=	addr2line-0.14.1 \
 		wasm-bindgen-macro-support-0.2.73 \
 		wasm-bindgen-shared-0.2.73 \
 		web-sys-0.3.50 \
+		webpki-0.21.4 \
+		webpki-roots-0.21.1 \
 		widestring-0.4.3 \
 		winapi-0.3.9 \
 		winapi-i686-pc-windows-gnu-0.4.0 \
@@ -262,4 +291,6 @@ CARGO_CRATES=	addr2line-0.14.1 \
 		winreg-0.6.2 \
 		winreg-0.7.0 \
 		xml-rs-0.8.3 \
-		zeroize-1.2.0
+		zeroize-1.2.0 \
+		libhoney-rust@git+https://github.com/agrinman/libhoney-rust?rev=556a2fe57fb0836a815b7fbe4a2a3a43c54dbbdc\#556a2fe57fb0836a815b7fbe4a2a3a43c54dbbdc \
+		tracing-distributed,tracing-honeycomb@git+https://github.com/agrinman/tracing-honeycomb?rev=687bafa722ccd584f45aa470fbb637bc57c999cd\#687bafa722ccd584f45aa470fbb637bc57c999cd
