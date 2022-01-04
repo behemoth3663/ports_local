@@ -1,9 +1,9 @@
 #
 
 PORTNAME=	infracost
-PORTVERSION=	0.9.15
+PORTVERSION=	0.9.16
 DISTVERSIONPREFIX=	v
-CATEGORIES=	sysutils
+CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Cloud cost estimates for Terraform
