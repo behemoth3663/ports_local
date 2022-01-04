@@ -1,7 +1,7 @@
 PORTNAME=	clash
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.8.0
-CATEGORIES=	net
+DISTVERSION=	1.9.0
+CATEGORIES=	local net
 
 MAINTAINER=	yuri@FreeBSD.org
 COMMENT=	Rule-based tunnel in Go
