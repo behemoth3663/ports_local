@@ -1,0 +1,11 @@
+CARGO_CRATES=	bitflags-1.0.3 \
+		byteorder-1.1.0 \
+		cc-1.0.18 \
+		cfg-if-0.1.5 \
+		kernel32-sys-0.2.2 \
+		libc-0.2.43 \
+		named_pipe-0.2.4 \
+		nix-0.11.0 \
+		void-1.0.2 \
+		winapi-0.2.8 \
+		winapi-build-0.1.1
