@@ -1,9 +1,9 @@
 #
 
-PORTNAME=	cw
-PORTVERSION=	4.1.0
+PORTNAME=	cwl
+PORTVERSION=	4.1.1
 DISTVERSIONPREFIX=	v
-CATEGORIES=	sysutils
+CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Best way to tail AWS CloudWatch Logs from your terminal
@@ -11,19 +11,19 @@ COMMENT=	Best way to tail AWS CloudWatch Logs from your terminal
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-#BROKEN=		PORTNAME conflicts with sysutils/cw
-
 USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	lucagrulla
-
-#GO_TARGET=	./cmd/${PORTNAME}
+GH_PROJECT=	cw
 
 PLIST_FILES=	bin/${PORTNAME}
 
 fetch-version: .PHONY get-version
 
-.-include "${.CURDIR}/Makefile.deps"
+post-patch: .PHONY
+	cd ${WRKSRC} && \
+		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod vendor
+	chmod -R u+w ${WRKDIR}/.gopath
 
 .include <bsd.port.mk>
