@@ -2,15 +2,17 @@ GH_TUPLE=	\
 		VividCortex:ewma:v1.2.0:vividcortex_ewma/vendor/github.com/VividCortex/ewma \
 		aws:aws-sdk-go-v2:1c4c3b1b8ecf:aws_aws_sdk_go_v2_accessanalyzer \
 		aws:aws-sdk-go-v2:8c270fe9e215:aws_aws_sdk_go_v2_imds \
-		aws:aws-sdk-go-v2:credentials/v1.6.4:aws_aws_sdk_go_v2_credentials \
+		aws:aws-sdk-go-v2:credentials/v1.6.5:aws_aws_sdk_go_v2_credentials \
+		aws:aws-sdk-go-v2:db2e64c2fc49:aws_aws_sdk_go_v2_sts \
 		aws:aws-sdk-go-v2:v1.0.0:aws_aws_sdk_go_v2_eventstream/vendor/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream \
 		aws:aws-sdk-go-v2:v1.10.0:aws_aws_sdk_go_v2_dynamodb \
-		aws:aws-sdk-go-v2:v1.11.0:aws_aws_sdk_go_v2_config \
-		aws:aws-sdk-go-v2:v1.11.1:aws_aws_sdk_go_v2_batch \
+		aws:aws-sdk-go-v2:v1.11.0:aws_aws_sdk_go_v2_kafka \
+		aws:aws-sdk-go-v2:v1.11.1:aws_aws_sdk_go_v2_config \
 		aws:aws-sdk-go-v2:v1.11.2:aws_aws_sdk_go_v2 \
 		aws:aws-sdk-go-v2:v1.3.2:aws_aws_sdk_go_v2_ini/vendor/github.com/aws/aws-sdk-go-v2 \
 		aws:aws-sdk-go-v2:v1.3.3:aws_aws_sdk_go_v2_endpoint_discovery/vendor/github.com/aws/aws-sdk-go-v2/service/internal/endpoint-discovery \
 		aws:aws-sdk-go-v2:v1.5.0:aws_aws_sdk_go_v2_accept_encoding \
+		aws:aws-sdk-go-v2:v1.7.0:aws_aws_sdk_go_v2_sso \
 		aws:aws-sdk-go-v2:v1.8.1:aws_aws_sdk_go_v2_dynamodbstreams \
 		aws:aws-sdk-go-v2:v1.9.1:aws_aws_sdk_go_v2_qldb \
 		aws:aws-sdk-go-v2:v1.9.2:aws_aws_sdk_go_v2_acm \
@@ -22,7 +24,7 @@ GH_TUPLE=	\
 		fatih:color:v1.13.0:fatih_color/vendor/github.com/fatih/color \
 		fatih:structs:v1.1.0:fatih_structs/vendor/github.com/fatih/structs \
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
-		golang:sys:af8b64212486:golang_sys/vendor/golang.org/x/sys \
+		golang:sys:1d35b9e2eb4e:golang_sys/vendor/golang.org/x/sys \
 		golang:xerrors:5ec99f83aff1:golang_xerrors/vendor/golang.org/x/xerrors \
 		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
 		mattn:go-colorable:v0.1.12:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
@@ -32,9 +34,6 @@ GH_TUPLE=	\
 		russross:blackfriday:v2.1.0:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
 		trek10inc:awsets:v1.0.4:trek10inc_awsets \
 		urfave:cli:v2.3.0:urfave_cli_v2/vendor/github.com/urfave/cli/v2
-
-		# Errors found during processing:
-		#	tag v2.0.2 doesn't seem to exist in aws/aws-sdk-go-v2
 
 post-extract:
 	@${RLN} ${WRKSRC_trek10inc_awsets} ..
@@ -49,13 +48,17 @@ post-extract:
 	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_accessanalyzer}/service/accessanalyzer ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/accessanalyzer
 	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/acm
 	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_acm}/service/acm ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/acm
-	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/batch
-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_batch}/service/batch ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/batch
 	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/dynamodb
 	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_dynamodb}/service/dynamodb ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/dynamodb
 	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/dynamodbstreams
 	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_dynamodbstreams}/service/dynamodbstreams ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/dynamodbstreams
 	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding
 	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_accept_encoding}/service/internal/accept-encoding ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/kafka
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_kafka}/service/kafka ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/kafka
 	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/qldb
 	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_qldb}/service/qldb ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/qldb
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sso
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_sso}/service/sso ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sso
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sts
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_sts}/service/sts ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sts

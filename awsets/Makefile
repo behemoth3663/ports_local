@@ -34,12 +34,21 @@ GO_BUILDFLAGS+=	-ldflags="-s -w \
 fetch-version: .PHONY get-version
 
 post-patch: .PHONY
-	${MKDIR} ${WRKSRC}/vendor/github.com/${GH_ACCOUNT}/${PORTNAME}
-	${FIND} ${WRKSRC}/../.. -maxdepth 1 \( \
-		\( -type d -not -name '.*' -not -name cmd \) -or \
-		\( -type f \( -name '*.go' -or -name 'go.*' \) \) \
-	\) -exec ${RLN} {} ${WRKSRC}/vendor/github.com/${GH_ACCOUNT}/${PORTNAME} \;
+	cd ${WRKSRC} && \
+		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod vendor
+	chmod -R u+w ${WRKDIR}/.gopath
 
+#	cd ${WRKSRC} && \
+#		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} get -u=patch && \
+#		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod vendor
+
+#	${MKDIR} ${WRKSRC}/vendor/github.com/${GH_ACCOUNT}/${PORTNAME}
+#	${FIND} ${WRKSRC}/../.. -maxdepth 1 \( \
+#		\( -type d -not -name '.*' -not -name cmd \) -or \
+#		\( -type f \( -name '*.go' -or -name 'go.*' \) \) \
+#	\) -exec ${RLN} {} ${WRKSRC}/vendor/github.com/${GH_ACCOUNT}/${PORTNAME} \;
+
+#-
 #	cd ${WRKSRC}/vendor/github.com/${GH_ACCOUNT}/${PORTNAME}/lister && \
 #	${REINPLACE_CMD} -r 's|MaxResults:[[:space:]]+aws\.|MaxResults: *aws.|' \
 #		ec2_dhcpoption.go ec2_flowlog.go ec2_instance.go ec2_internetgateway.go \
@@ -50,6 +59,6 @@ post-patch: .PHONY
 #		ec2_vpcpeering.go && \
 #	${REINPLACE_CMD} -r 's|AllRegions:[[:space:]]+aws\.|AllRegions: *aws.|' ../main.go
 
-.-include "${.CURDIR}/Makefile.deps"
+#.-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>
