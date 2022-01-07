@@ -1,0 +1,68 @@
+--- ./Makefile.deps.orig	2022-01-07 20:01:10 UTC
++++ ./Makefile.deps
+@@ -1,4 +1,5 @@
+ GH_TUPLE=	\
++		hashicorp:${PORTNAME}:${DISTVERSIONPREFIX}${PORTVERSION}:DEFAULT \
+ 		Azure:azure-pipeline-go:v0.2.3:azure_azure_pipeline_go/vendor/github.com/Azure/azure-pipeline-go \
+ 		Azure:azure-sdk-for-go:v51.1.0:azure_azure_sdk_for_go/vendor/github.com/Azure/azure-sdk-for-go \
+ 		Azure:azure-storage-blob-go:v0.13.0:azure_azure_storage_blob_go/vendor/github.com/Azure/azure-storage-blob-go \
+@@ -143,7 +144,7 @@ GH_TUPLE=	\
+ 		hailocab:go-hostpool:e80d13ce29ed:hailocab_go_hostpool/vendor/github.com/hailocab/go-hostpool \
+ 		hashicorp:cap:v0.1.0:hashicorp_cap/vendor/github.com/hashicorp/cap \
+ 		hashicorp:consul-template:v0.26.0:hashicorp_consul_template/vendor/github.com/hashicorp/consul-template \
+-		hashicorp:consul:v1.4.0:hashicorp_consul_api/vendor/github.com/hashicorp/consul \
++		hashicorp:consul:api/v1.4.0:hashicorp_consul_api/vendor/github.com/hashicorp/consul \
+ 		hashicorp:errwrap:v1.1.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
+ 		hashicorp:go-bindata:bf7910af8997:hashicorp_go_bindata/vendor/github.com/hashicorp/go-bindata \
+ 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
+@@ -201,10 +202,6 @@ GH_TUPLE=	\
+ 		hashicorp:vault-plugin-secrets-mongodbatlas:v0.4.0:hashicorp_vault_plugin_secrets_mongodbatlas/vendor/github.com/hashicorp/vault-plugin-secrets-mongodbatlas \
+ 		hashicorp:vault-plugin-secrets-openldap:v0.5.2:hashicorp_vault_plugin_secrets_openldap/vendor/github.com/hashicorp/vault-plugin-secrets-openldap \
+ 		hashicorp:vault-plugin-secrets-terraform:v0.2.0:hashicorp_vault_plugin_secrets_terraform/vendor/github.com/hashicorp/vault-plugin-secrets-terraform \
+-		hashicorp:vault:0400d2f3deaf:hashicorp_vault_sdk_1/github.com/hashicorp/vault \
+-		hashicorp:vault:1fc8af4c041f:hashicorp_vault_api_1 \
+-		hashicorp:vault::hashicorp_vault_api/github.com/hashicorp/vault/api \
+-		hashicorp:vault::hashicorp_vault_sdk/github.com/hashicorp/vault/sdk \
+ 		hashicorp:vic:bbfe86ec9443:hashicorp_vic/vendor/github.com/hashicorp/vic \
+ 		hashicorp:yamux:2f1d1f20f75d:hashicorp_yamux/vendor/github.com/hashicorp/yamux \
+ 		huandu:xstrings:v1.3.2:huandu_xstrings/vendor/github.com/huandu/xstrings \
+@@ -259,7 +256,7 @@ GH_TUPLE=	\
+ 		mitchellh:mapstructure:v1.3.3:mitchellh_mapstructure/vendor/github.com/mitchellh/mapstructure \
+ 		mitchellh:pointerstructure:v1.0.0:mitchellh_pointerstructure/vendor/github.com/mitchellh/pointerstructure \
+ 		mitchellh:reflectwalk:v1.0.1:mitchellh_reflectwalk/vendor/github.com/mitchellh/reflectwalk \
+-		moby:moby:v17.12.0-ce-rc1.0.20200309214505-aa6a9891b09c:moby_moby/vendor/github.com/docker/docker \
++		moby:moby:v17.12.0-ce-rc1:moby_moby/vendor/github.com/docker/docker \
+ 		moby:term:7f0af18e79f2:moby_term/vendor/github.com/moby/term \
+ 		modern-go:concurrent:bacd9c7ef1dd:modern_go_concurrent/vendor/github.com/modern-go/concurrent \
+ 		modern-go:reflect2:v1.0.1:modern_go_reflect2/vendor/github.com/modern-go/reflect2 \
+@@ -316,7 +313,7 @@ GH_TUPLE=	\
+ 		stretchr:objx:v0.2.0:stretchr_objx/vendor/github.com/stretchr/objx \
+ 		stretchr:testify:v1.7.0:stretchr_testify/vendor/github.com/stretchr/testify \
+ 		svanharmelen:jsonapi:0c0828c3f16d:svanharmelen_jsonapi/vendor/github.com/svanharmelen/jsonapi \
+-		tencentcloud:tencentcloud-sdk-go:v3.0.83:tencentcloud_tencentcloud_sdk_go/vendor/github.com/tencentcloud/tencentcloud-sdk-go \
++		tencentcloud:tencentcloud-sdk-go:v1.0.162:tencentcloud_tencentcloud_sdk_go/vendor/github.com/tencentcloud/tencentcloud-sdk-go \
+ 		tidwall:pretty:v1.0.1:tidwall_pretty/vendor/github.com/tidwall/pretty \
+ 		tklauser:go-sysconf:v0.3.6:tklauser_go_sysconf/vendor/github.com/tklauser/go-sysconf \
+ 		tklauser:numcpus:v0.2.2:tklauser_numcpus/vendor/github.com/tklauser/numcpus \
+@@ -333,14 +330,6 @@ GH_TUPLE=	\
+ 		yuin:gopher-lua:ee81675732da:yuin_gopher_lua/vendor/github.com/yuin/gopher-lua
+ 
+ post-extract:
+-	@${RM} -r ${WRKSRC}/api
+-	@${RLN} ${WRKSRC_hashicorp_vault_api}/api ${WRKSRC}/api
+-	@${RM} -r ${WRKSRC}/api
+-	@${RLN} ${WRKSRC_hashicorp_vault_api_1}/api ${WRKSRC}/api
+-	@${RM} -r ${WRKSRC}/sdk
+-	@${RLN} ${WRKSRC_hashicorp_vault_sdk}/sdk ${WRKSRC}/sdk
+-	@${RM} -r ${WRKSRC}/sdk
+-	@${RLN} ${WRKSRC_hashicorp_vault_sdk_1}/sdk ${WRKSRC}/sdk
+ 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/spanner
+ 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_spanner}/spanner ${WRKSRC}/vendor/cloud.google.com/go/spanner
+ 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
+@@ -371,3 +360,6 @@ post-extract:
+ 	@${RLN} ${WRKSRC_hashicorp_go_kms_wrapping_entropy}/entropy ${WRKSRC}/vendor/github.com/hashicorp/go-kms-wrapping/entropy
+ 	@${RM} -r ${WRKSRC}/vendor/github.com/hashicorp/go-secure-stdlib/strutil
+ 	@${RLN} ${WRKSRC_hashicorp_go_secure_stdlib_strutil}/strutil ${WRKSRC}/vendor/github.com/hashicorp/go-secure-stdlib/strutil
++	@${MKDIR} ${WRKSRC}/vendor/github.com/hashicorp/vault/
++	@${RLN} ${WRKSRC}/api ${WRKSRC}/vendor/github.com/hashicorp/vault/api
++	@${RLN} ${WRKSRC}/sdk ${WRKSRC}/vendor/github.com/hashicorp/vault/sdk
