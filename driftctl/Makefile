@@ -1,9 +1,9 @@
 #
 
 PORTNAME=	driftctl
-PORTVERSION=	0.18.3
+PORTVERSION=	0.18.4
 DISTVERSIONPREFIX=	v
-CATEGORIES=	sysutils
+CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Detect, track and alert on infrastructure drift
