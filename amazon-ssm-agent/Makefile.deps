@@ -24,7 +24,7 @@ GH_TUPLE=	\
 		golang:oauth2:6b3c2da341f1:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.4.2:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:sync:036812b2e83c:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:0f9fa26af87c:golang_sys/vendor/golang.org/x/sys \
+		golang:sys:1d35b9e2eb4e:golang_sys/vendor/golang.org/x/sys \
 		google:go-github:a117bb2595a5:google_go_github/vendor/github.com/google/go-github \
 		google:go-querystring:v1.0.0:google_go_querystring/vendor/github.com/google/go-querystring \
 		google:shlex:e7afc7fbc510:google_shlex/vendor/github.com/google/shlex \
@@ -49,6 +49,6 @@ GH_TUPLE=	\
 		xanzy:ssh-agent:v0.3.0:xanzy_ssh_agent/vendor/github.com/xanzy/ssh-agent \
 		xtaci:smux:v1.5.15:xtaci_smux/vendor/github.com/xtaci/smux
 
-post-extract:
+post-extract: .PHONY
 	@${RLN} ${WRKSRC_aws_aws_sdk_go} ${WRKSRC}/extra/aws-sdk-go
 	@${RLN} ${WRKSRC_nightlyone_lockfile} ${WRKSRC}/extra/lockfile

@@ -1,8 +1,8 @@
 #
 
 PORTNAME=	amazon-ssm-agent
-PORTVERSION=	3.1.715.0
-CATEGORIES=	sysutils
+PORTVERSION=	3.1.804.0
+CATEGORIES=	local sysutils
 
 MAINTAINER=	cperciva@FreeBSD.org
 COMMENT=	Amazon Simple Systems Manager Agent
@@ -47,7 +47,7 @@ post-patch: .PHONY
 		's|(const[[:space:]]+Version[=[:space:]]+)"[.0-9]+"|\1"${PORTVERSION}"|' \
 	${WRKSRC}/agent/version/version.go
 
-post-install:
+post-install: .PHONY
 	${MKDIR} ${STAGEDIR}${PREFIX}/etc/amazon/ssm
 	${INSTALL_DATA} ${WRKSRC}/amazon-ssm-agent.json.template ${STAGEDIR}${PREFIX}/etc/amazon/ssm
 	${INSTALL_DATA} ${WRKSRC}/seelog_unix.xml ${STAGEDIR}${PREFIX}/etc/amazon/ssm/seelog_unix.xml.template
