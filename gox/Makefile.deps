@@ -1,0 +1,2 @@
+GH_TUPLE=	hashicorp:go-version:v1.0.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
+		mitchellh:iochan:v1.0.0:mitchellh_iochan/vendor/github.com/mitchellh/iochan

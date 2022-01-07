@@ -1,0 +1,7 @@
+TIMESTAMP = 1641579876
+SHA256 (mitchellh-gox-v1.0.1_GH0.tar.gz) = 25aab55a4ba75653931be2a2b95e29216b54bd8fecc7931bd416efe49a388229
+SIZE (mitchellh-gox-v1.0.1_GH0.tar.gz) = 30819
+SHA256 (hashicorp-go-version-v1.0.0_GH0.tar.gz) = 12b2d8fd048ebbf3df38df5865aa7a673444a0c553cac0e338d0471c14733f96
+SIZE (hashicorp-go-version-v1.0.0_GH0.tar.gz) = 12479
+SHA256 (mitchellh-iochan-v1.0.0_GH0.tar.gz) = 2a9d55fa9fcdfca4c9299b0500acd5a6ced203cff60f296a5f136cf78fce938b
+SIZE (mitchellh-iochan-v1.0.0_GH0.tar.gz) = 1817
