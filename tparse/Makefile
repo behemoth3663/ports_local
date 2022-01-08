@@ -3,7 +3,7 @@
 PORTNAME=	tparse
 PORTVERSION=	0.9.0
 DISTVERSIONPREFIX=	v
-CATEGORIES=	textproc
+CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Analyzing and summarizing go test output

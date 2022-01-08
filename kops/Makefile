@@ -3,7 +3,7 @@
 PORTNAME=	kops
 PORTVERSION=	1.22.2
 DISTVERSIONPREFIX=	v
-CATEGORIES=	sysutils
+CATEGORIES=	local sysutils
 
 MAINTAINER=	danilo@FreeBSD.org
 COMMENT=	Kubernetes Operations

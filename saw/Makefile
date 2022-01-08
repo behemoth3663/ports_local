@@ -3,7 +3,7 @@
 PORTNAME=	saw
 PORTVERSION=	0.2.2
 DISTVERSIONPREFIX=	v
-CATEGORIES=	sysutils
+CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Fast, multi-purpose tool for AWS CloudWatch Logs

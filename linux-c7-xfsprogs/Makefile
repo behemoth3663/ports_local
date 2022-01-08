@@ -1,7 +1,9 @@
+#
+
 PORTNAME=	xfsprogs
 PORTVERSION=	4.5.0
 DISTVERSIONSUFFIX=	-22.el7
-CATEGORIES=	sysutils linux
+CATEGORIES=	local linux sysutils
 
 MAINTAINER=	emulation@FreeBSD.org
 COMMENT=	Utilities for managing the XFS filesystem (CentOS ${LINUX_DIST_VER})

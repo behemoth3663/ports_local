@@ -3,7 +3,7 @@
 PORTNAME=	speedtest-go
 PORTVERSION=	1.1.4
 DISTVERSIONPREFIX=	v
-CATEGORIES=	net
+CATEGORIES=	local net
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Go backend for LibreSpeed

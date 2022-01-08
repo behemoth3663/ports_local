@@ -313,7 +313,7 @@ GH_TUPLE=	\
 		stretchr:objx:v0.2.0:stretchr_objx/vendor/github.com/stretchr/objx \
 		stretchr:testify:v1.7.0:stretchr_testify/vendor/github.com/stretchr/testify \
 		svanharmelen:jsonapi:0c0828c3f16d:svanharmelen_jsonapi/vendor/github.com/svanharmelen/jsonapi \
-		tencentcloud:tencentcloud-sdk-go:v1.0.162:tencentcloud_tencentcloud_sdk_go/vendor/github.com/tencentcloud/tencentcloud-sdk-go \
+		tencentcloud:tencentcloud-sdk-go:v1.0.326:tencentcloud_tencentcloud_sdk_go/vendor/github.com/tencentcloud/tencentcloud-sdk-go \
 		tidwall:pretty:v1.0.1:tidwall_pretty/vendor/github.com/tidwall/pretty \
 		tklauser:go-sysconf:v0.3.6:tklauser_go_sysconf/vendor/github.com/tklauser/go-sysconf \
 		tklauser:numcpus:v0.2.2:tklauser_numcpus/vendor/github.com/tklauser/numcpus \

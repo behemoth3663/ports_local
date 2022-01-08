@@ -4,7 +4,7 @@
 PORTNAME=	pkg-plist
 PORTVERSION=	1.4
 PORTEPOCH=	9
-CATEGORIES=	ports-mgmt python
+CATEGORIES=	local ports-mgmt python
 MASTER_SITES=	http://code.arp242.net/${BB_PROJECT}/get/${BB_COMMIT}.tar.gz?dummy=/
 
 MAINTAINER=	ports@FreeBSD.org

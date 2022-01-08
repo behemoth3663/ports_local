@@ -1,7 +1,7 @@
 PORTNAME=	rclone
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.57.0
-CATEGORIES=	net
+CATEGORIES=	local net
 
 MAINTAINER=	brad@facefault.org
 COMMENT=	Sync files to and from various cloud services

@@ -2,8 +2,7 @@
 
 PORTNAME=	terraformer
 PORTVERSION=	0.8.18
-#DISTVERSIONPREFIX=	v
-CATEGORIES=	sysutils
+CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Generate terraform files from existing infrastructure

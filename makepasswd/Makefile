@@ -1,10 +1,10 @@
-# Created by: Toni Viemerö <toni.viemero@iki.fi>
+# Created by: Toni Viemer
 # $FreeBSD: head/security/makepasswd/Makefile 530719 2020-04-04 20:51:40Z antoine $
 
 PORTNAME=	makepasswd
 PORTVERSION=	1.10
 PORTREVISION=	6
-CATEGORIES=	security
+CATEGORIES=	local security
 MASTER_SITES=	DEBIAN_POOL
 DISTNAME=	${PORTNAME}_${PORTVERSION}.orig
 

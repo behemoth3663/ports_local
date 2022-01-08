@@ -3,7 +3,7 @@
 PORTNAME=	tfsec
 PORTVERSION=	0.63.1
 DISTVERSIONPREFIX=	v
-CATEGORIES=	security
+CATEGORIES=	local security
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Static analysis powered security scanner for your terraform code

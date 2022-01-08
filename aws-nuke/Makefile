@@ -3,7 +3,7 @@
 PORTNAME=	aws-nuke
 PORTVERSION=	2.16.0
 DISTVERSIONPREFIX=	v
-CATEGORIES=	sysutils
+CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Remove all resources from an AWS account

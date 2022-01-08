@@ -3,7 +3,7 @@
 PORTNAME=	awsls
 PORTVERSION=	0.11.0
 DISTVERSIONPREFIX=	v
-CATEGORIES=	sysutils
+CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	List command for AWS resources

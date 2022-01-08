@@ -3,7 +3,7 @@
 PORTNAME=	hcl2json
 PORTVERSION=	0.3.3
 DISTVERSIONPREFIX=	v
-CATEGORIES=	textproc
+CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Convert hcl2 to json

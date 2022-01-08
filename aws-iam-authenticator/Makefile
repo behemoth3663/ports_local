@@ -3,7 +3,7 @@
 PORTNAME=	aws-iam-authenticator
 PORTVERSION=	0.5.3
 DISTVERSIONPREFIX=	v
-CATEGORIES=	security
+CATEGORIES=	local security
 
 MAINTAINER=	danilo@FreeBSD.org
 COMMENT=	Use AWS IAM credentials to authenticate to a Kubernetes cluster

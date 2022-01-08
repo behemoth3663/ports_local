@@ -3,7 +3,7 @@
 PORTNAME=	richgo
 PORTVERSION=	0.3.10
 DISTVERSIONPREFIX=	v
-CATEGORIES=	devel
+CATEGORIES=	local devel
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Enrich `go test` outputs with text decorations

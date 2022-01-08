@@ -2,7 +2,7 @@
 
 PORTNAME=	tunnelto
 PORTVERSION=	0.1.18
-CATEGORIES=	sysutils
+CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Expose your local web server to the Internet via a public URL

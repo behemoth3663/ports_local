@@ -3,7 +3,7 @@
 PORTNAME=	gogrep
 PORTVERSION=	0.0.2
 DISTVERSIONPREFIX=	v
-CATEGORIES=	textproc
+CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Search for Go code using syntax trees

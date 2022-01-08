@@ -2,7 +2,7 @@
 
 PORTNAME=	seespot
 PORTVERSION=	0.0.1
-CATEGORIES=	local
+CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Watches for a termination notification in AWS

@@ -1,7 +1,9 @@
+#
+
 PORTNAME=	dump
 PORTVERSION=	0.4
 DISTVERSIONSUFFIX=	-0.23.b44.el7
-CATEGORIES=	sysutils linux
+CATEGORIES=	local linux sysutils
 
 MAINTAINER=	emulation@FreeBSD.org
 COMMENT=	Programs for backing up and restoring ext2/ext3 filesystems (CentOS ${LINUX_DIST_VER})

@@ -3,7 +3,7 @@
 PORTNAME=	yj
 PORTVERSION=	5.0.0
 DISTVERSIONPREFIX=	v
-CATEGORIES=	textproc
+CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Convert between YAML, TOML, JSON, and HCL
@@ -15,8 +15,6 @@ USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	sclevine
-
-#GO_TARGET=	./cmd/${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME}
 

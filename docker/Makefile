@@ -3,7 +3,7 @@
 PORTNAME=		docker
 PORTVERSION=		19.03.15
 DISTVERSIONPREFIX=	v
-CATEGORIES=		sysutils
+CATEGORIES=		local sysutils
 
 MAINTAINER=		ports@FreeBSD.org
 COMMENT=		Open-source application container engine

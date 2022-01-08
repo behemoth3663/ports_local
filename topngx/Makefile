@@ -3,7 +3,7 @@
 PORTNAME=	topngx
 #DISTVERSIONPREFIX=	v
 DISTVERSION=	0.3.1
-CATEGORIES=	sysutils
+CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Top for www/nginx

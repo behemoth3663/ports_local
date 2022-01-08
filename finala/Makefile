@@ -3,7 +3,7 @@
 PORTNAME=	finala
 PORTVERSION=	0.4.0
 DISTVERSIONPREFIX=	v
-CATEGORIES=	sysutils local
+CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Resource cloud scanner that reports wasteful and unused resources

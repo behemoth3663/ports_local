@@ -3,7 +3,7 @@
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.35.16
-CATEGORIES=	sysutils
+CATEGORIES=	local sysutils
 
 MAINTAINER=	0xdutra@gmail.com
 COMMENT=	Terragrunt is a thin wrapper for Terraform

@@ -2,7 +2,7 @@ PORTNAME=	packer
 PORTVERSION=	1.7.8
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
-CATEGORIES=	sysutils
+CATEGORIES=	local sysutils
 
 MAINTAINER=	brad@facefault.org
 COMMENT=	Tool for creating machine images

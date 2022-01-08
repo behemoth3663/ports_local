@@ -3,7 +3,7 @@
 PORTNAME=	cloud-nuke
 PORTVERSION=	0.7.3
 DISTVERSIONPREFIX=	v
-CATEGORIES=	sysutils
+CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	CLI tool to delete all resources in an AWS account

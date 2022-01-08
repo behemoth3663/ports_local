@@ -1,7 +1,9 @@
+#
+
 PORTNAME=	s3-benchmark
 PORTVERSION=	0.0.3
 DISTVERSIONPREFIX=	v
-CATEGORIES=	net
+CATEGORIES=	local net
 
 MAINTAINER=	none@FreeBSD.org
 COMMENT=	Measure Amazon S3's performance

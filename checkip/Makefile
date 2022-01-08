@@ -1,7 +1,9 @@
+#
+
 PORTNAME=	checkip
 PORTVERSION=	0.16.2
 DISTVERSIONPREFIX=	v
-CATEGORIES=	net
+CATEGORIES=	local net
 
 MAINTAINER=	none@FreeBSD.org
 COMMENT=	Check an IP address using various public services 

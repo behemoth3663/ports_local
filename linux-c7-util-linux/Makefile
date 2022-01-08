@@ -1,8 +1,8 @@
 #
 
-PORTNAME=	attr
-PORTVERSION=	2.4.46
-DISTVERSIONSUFFIX=	-13.el7
+PORTNAME=	util-linux
+PORTVERSION=	2.23.2
+DISTVERSIONSUFFIX=	-65.el7
 CATEGORIES=	local linux sysutils
 
 MAINTAINER=	emulation@FreeBSD.org

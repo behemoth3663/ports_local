@@ -3,7 +3,7 @@
 PORTNAME=	ytt
 PORTVERSION=	0.38.0
 DISTVERSIONPREFIX=	v
-CATEGORIES=	textproc
+CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	YAML tool with templates and user provided values

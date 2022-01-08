@@ -3,7 +3,7 @@
 PORTNAME=	sysbox
 PORTVERSION=	0.14.0
 DISTVERSIONPREFIX=	release-
-CATEGORIES=	sysutils
+CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	sysadmin/scripting utilities, distributed as a single binary

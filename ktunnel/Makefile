@@ -3,7 +3,7 @@
 PORTNAME=	ktunnel
 PORTVERSION=	1.2.7
 DISTVERSIONPREFIX=	v
-CATEGORIES=	net
+CATEGORIES=	local net
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Expose your local resources to kubernetes

@@ -1,7 +1,9 @@
+#
+
 PORTNAME=	hsbench
 PORTVERSION=	2.0.5
 DISTVERSIONPREFIX=	v
-CATEGORIES=	net
+CATEGORIES=	local net
 
 MAINTAINER=	none@FreeBSD.org
 COMMENT=	S3 benchmark utility

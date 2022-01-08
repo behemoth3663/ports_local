@@ -3,7 +3,7 @@
 PORTNAME=	ssosync
 PORTVERSION=	0.0.2
 DISTVERSIONPREFIX=	v
-CATEGORIES=	sysutils
+CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Populate AWS SSO directly with Google Apps users

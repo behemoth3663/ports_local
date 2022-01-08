@@ -4,7 +4,7 @@ PORTNAME=	kubectl
 #PORTVERSION=	1.20.11, 1.22.2
 PORTVERSION=	1.21.5
 DISTVERSIONPREFIX=	v
-CATEGORIES=	sysutils
+CATEGORIES=	local sysutils
 
 MAINTAINER=	danilo@FreeBSD.org
 COMMENT=	Kubernetes command-line tool

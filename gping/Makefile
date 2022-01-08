@@ -3,7 +3,7 @@
 PORTNAME=	gping
 PORTVERSION=	0.1.6
 DISTVERSIONPREFIX=	v
-CATEGORIES=	net
+CATEGORIES=	local net
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Ping with a graph

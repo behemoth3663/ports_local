@@ -3,7 +3,7 @@
 PORTNAME=	gosec
 PORTVERSION=	2.9.5
 DISTVERSIONPREFIX=	v
-CATEGORIES=	devel security local
+CATEGORIES=	local devel security
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Golang Security Checker

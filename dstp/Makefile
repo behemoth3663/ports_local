@@ -3,7 +3,7 @@
 PORTNAME=	dstp
 PORTVERSION=	0.4.0
 DISTVERSIONPREFIX=	v
-CATEGORIES=	net
+CATEGORIES=	local net
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Run common networking tests against site

@@ -1,4 +1,4 @@
-TIMESTAMP = 1641585913
+TIMESTAMP = 1641592686
 SHA256 (hashicorp-vault-v1.8.7_GH0.tar.gz) = d4ba23edb8fc0c3f811a8b561c3bb88925a26ee2a857053c4abe39f3f351b97d
 SIZE (hashicorp-vault-v1.8.7_GH0.tar.gz) = 20963269
 SHA256 (Azure-azure-pipeline-go-v0.2.3_GH0.tar.gz) = 99bd58f4a07dd02d9615e3638b3bb6dbfad80ef678ccdb8e17e3fa2b0fef343e
@@ -627,8 +627,8 @@ SHA256 (stretchr-testify-v1.7.0_GH0.tar.gz) = 560c0984072cb436b17bbce5699b205d5a
 SIZE (stretchr-testify-v1.7.0_GH0.tar.gz) = 91073
 SHA256 (svanharmelen-jsonapi-0c0828c3f16d_GH0.tar.gz) = f021c39bcc19e52eae4d91bd12571f61e5aca3e2ce0ead9d899797833fedfe1a
 SIZE (svanharmelen-jsonapi-0c0828c3f16d_GH0.tar.gz) = 28891
-SHA256 (tencentcloud-tencentcloud-sdk-go-v1.0.162_GH0.tar.gz) = d492ca69c3af0684a58bd9667163f7fbed9b8f49ee85c814cc4654b00c6ae003
-SIZE (tencentcloud-tencentcloud-sdk-go-v1.0.162_GH0.tar.gz) = 2543656
+SHA256 (tencentcloud-tencentcloud-sdk-go-v1.0.326_GH0.tar.gz) = 8ba66b77fb4a71876a57a4da1eed5548280b87dfb1ea14131bcc70b2b6dba333
+SIZE (tencentcloud-tencentcloud-sdk-go-v1.0.326_GH0.tar.gz) = 4400667
 SHA256 (tidwall-pretty-v1.0.1_GH0.tar.gz) = 8760b255a279f4335d724e38ee48eecac4afa71f47c7207c704b4a6e8d7005c0
 SIZE (tidwall-pretty-v1.0.1_GH0.tar.gz) = 8838
 SHA256 (tklauser-go-sysconf-v0.3.6_GH0.tar.gz) = c3925a5ed176bc62dc1c1abcb3905eea8a0e6bbf001b4aba1a9fc830d40cc0ce

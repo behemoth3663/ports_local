@@ -3,7 +3,7 @@
 PORTNAME=	terrascan
 PORTVERSION=	1.7.0
 DISTVERSIONPREFIX=	v
-CATEGORIES=	sysutils
+CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Compliance and security violations in terraform code

@@ -2,7 +2,7 @@
 
 PORTNAME=	terraform-module-versions
 PORTVERSION=	3.1.8
-CATEGORIES=	sysutils
+CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	CLI tool that checks Terraform code for module updates

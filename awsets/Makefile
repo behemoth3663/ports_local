@@ -3,7 +3,7 @@
 PORTNAME=	awsets
 PORTVERSION=	1.0.4
 DISTVERSIONPREFIX=	v
-CATEGORIES=	sysutils
+CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Utility for export all AWS resources

@@ -3,7 +3,7 @@
 PORTNAME=	aws-ec2-instance-selector
 PORTVERSION=	2.0.3
 DISTVERSIONPREFIX=	v
-CATEGORIES=	sysutils
+CATEGORIES=	local sysutils
 DISTNAME=	amazon-ec2-instance-selector
 
 MAINTAINER=	none@freebsd.org

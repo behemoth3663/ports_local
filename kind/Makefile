@@ -1,7 +1,9 @@
+#
+
 PORTNAME=	kind
 PORTVERSION=	0.11.1
 DISTVERSIONPREFIX=	v
-CATEGORIES=	sysutils
+CATEGORIES=	local sysutils
 
 MAINTAINER=	none@FreeBSD.org
 COMMENT=	Kubernetes IN Docker - local clusters for testing Kubernetes

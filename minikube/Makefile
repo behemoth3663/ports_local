@@ -3,7 +3,7 @@
 PORTNAME=	minikube
 PORTVERSION=	1.24.0
 DISTVERSIONPREFIX=	v
-CATEGORIES=	sysutils
+CATEGORIES=	local sysutils
 
 MAINTAINER=	danilo@FreeBSD.org
 COMMENT=	Run Kubernetes locally

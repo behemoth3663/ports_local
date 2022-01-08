@@ -3,7 +3,7 @@
 PORTNAME=	smogcloud
 PORTVERSION=	0.0.1
 DISTVERSIONPREFIX=	v
-CATEGORIES=	security
+CATEGORIES=	local security
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Comprehensive asset inventory

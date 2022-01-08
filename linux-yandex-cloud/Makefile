@@ -2,7 +2,7 @@
 
 PORTNAME=	yandex-cloud
 PORTVERSION=	0.65.0
-CATEGORIES=	sysutils linux
+CATEGORIES=	local linux sysutils
 MASTER_SITES=   https://storage.yandexcloud.net/yandexcloud-yc/release/${DISTVERSION}/linux/${ARCH:S/i//}/
 PKGNAMEPREFIX=	linux-
 DISTNAME=	yc

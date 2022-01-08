@@ -3,7 +3,7 @@
 PORTNAME=	jumble
 PORTVERSION=	0.1.0
 DISTVERSIONPREFIX=	v
-CATEGORIES=	graphics
+CATEGORIES=	local graphics
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Create diagrams on a grid using HCL syntax

@@ -1,7 +1,9 @@
+#
+
 PORTNAME=	terraform-plugin-docs
 PORTVERSION=	0.5.1
 DISTVERSIONPREFIX=	v
-CATEGORIES=	sysutils textproc
+CATEGORIES=	local sysutils textproc
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Generate and validate Terraform plugin/provider documentation

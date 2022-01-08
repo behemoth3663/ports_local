@@ -3,7 +3,7 @@
 PORTNAME=	zek
 PORTVERSION=	0.1.9
 DISTVERSIONPREFIX=	v
-CATEGORIES=	textproc
+CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Create a Go struct from an XML document

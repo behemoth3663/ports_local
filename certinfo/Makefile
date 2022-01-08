@@ -3,7 +3,7 @@
 PORTNAME=	certinfo
 PORTVERSION=	1.0.6
 DISTVERSIONPREFIX=	v
-CATEGORIES=	security
+CATEGORIES=	local security
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Print x509 certificate info

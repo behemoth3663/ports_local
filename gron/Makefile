@@ -3,7 +3,7 @@
 PORTNAME=	gron
 PORTVERSION=	0.6.1
 DISTVERSIONPREFIX=	v
-CATEGORIES=	textproc
+CATEGORIES=	local textproc
 
 MAINTAINER=	zi@FreeBSD.org
 COMMENT=	Transforms JSON into discrete assignments that are easier to grep

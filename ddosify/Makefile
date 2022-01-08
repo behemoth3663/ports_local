@@ -3,7 +3,7 @@
 PORTNAME=	ddosify
 PORTVERSION=	0.7.1
 DISTVERSIONPREFIX=	v
-CATEGORIES=	benchmarks
+CATEGORIES=	local benchmarks
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	High-performance load testing tool

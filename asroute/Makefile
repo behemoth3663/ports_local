@@ -3,7 +3,7 @@
 PORTNAME=	asroute
 #DISTVERSIONPREFIX=	v
 DISTVERSION=	0.1.0
-CATEGORIES=	net
+CATEGORIES=	local net
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Interpret traceroute output to show names of ASN traversed

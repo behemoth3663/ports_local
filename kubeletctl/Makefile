@@ -3,7 +3,7 @@
 PORTNAME=	kubeletctl
 PORTVERSION=	1.8
 DISTVERSIONPREFIX=	v
-CATEGORIES=	sysutils
+CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Client for kubelet

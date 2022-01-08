@@ -1,0 +1,7 @@
+TIMESTAMP = 1633469685
+SHA256 (centos/util-linux-2.23.2-65.el7.i686.rpm) = 481be4f5f8840b3e60e3aad37f6ce3261c6410cf77d7c6c763ecc7aac7fc1f48
+SIZE (centos/util-linux-2.23.2-65.el7.i686.rpm) = 2103608
+SHA256 (centos/util-linux-2.23.2-65.el7.x86_64.rpm) = 9e11f0990818b6acc7a573025d9d1fbc153217de8cfe230e98a7bda40fb85066
+SIZE (centos/util-linux-2.23.2-65.el7.x86_64.rpm) = 2075404
+SHA256 (centos/util-linux-2.23.2-65.el7.src.rpm) = 916a03c84139211c239c15b154ae565d46589a38a44c99207c37e84ca36969b7
+SIZE (centos/util-linux-2.23.2-65.el7.src.rpm) = 3941742

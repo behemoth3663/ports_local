@@ -3,7 +3,7 @@
 PORTNAME=	hclq
 PORTVERSION=	0.5.3
 #DISTVERSIONPREFIX=	v
-CATEGORIES=	sysutils
+CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Command-line processor for HashiCorp Command Language files

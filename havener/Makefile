@@ -3,7 +3,7 @@
 PORTNAME=	havener
 PORTVERSION=	2.0.2
 DISTVERSIONPREFIX=	v
-CATEGORIES=	sysutils
+CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Swiss army knife for Kubernetes tasks

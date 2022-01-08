@@ -3,7 +3,7 @@
 PORTNAME=	inframap
 PORTVERSION=	0.6.7
 DISTVERSIONPREFIX=	v
-CATEGORIES=	sysutils
+CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Generate a human-readable graph from tfstate or HCL

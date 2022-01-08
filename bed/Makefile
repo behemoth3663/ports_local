@@ -3,7 +3,7 @@
 PORTNAME=	bed
 PORTVERSION=	0.2.2
 DISTVERSIONPREFIX=	v
-CATEGORIES=	editors
+CATEGORIES=	local editors
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Binary editor written in Go

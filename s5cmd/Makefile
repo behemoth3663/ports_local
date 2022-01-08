@@ -3,7 +3,7 @@
 PORTNAME=	s5cmd
 PORTVERSION=	1.4.0
 DISTVERSIONPREFIX=	v
-CATEGORIES=	net
+CATEGORIES=	local net
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Parallel S3 and local filesystem execution tool

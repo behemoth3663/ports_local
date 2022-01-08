@@ -1,7 +1,9 @@
+#
+
 PORTNAME=	terraform-docs
 PORTVERSION=	0.16.0
 DISTVERSIONPREFIX=	v
-CATEGORIES=	sysutils textproc
+CATEGORIES=	local sysutils textproc
 
 MAINTAINER=	0xdutra@gmail.com
 COMMENT=	Generate documentation from Terraform modules
