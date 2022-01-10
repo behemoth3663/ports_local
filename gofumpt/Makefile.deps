@@ -1,0 +1,12 @@
+GH_TUPLE=	\
+		frankban:quicktest:v1.14.0:frankban_quicktest/vendor/github.com/frankban/quicktest \
+		go-errgo:errgo:v2.1.0:go_errgo_errgo/vendor/gopkg.in/errgo.v2 \
+		golang:mod:v0.5.1:golang_mod/vendor/golang.org/x/mod \
+		golang:sys:03aa0b5f6827:golang_sys/vendor/golang.org/x/sys \
+		golang:tools:v0.1.8:golang_tools/vendor/golang.org/x/tools \
+		golang:xerrors:5ec99f83aff1:golang_xerrors/vendor/golang.org/x/xerrors \
+		google:go-cmp:v0.5.6:google_go_cmp/vendor/github.com/google/go-cmp \
+		kr:pretty:v0.3.0:kr_pretty/vendor/github.com/kr/pretty \
+		kr:text:v0.2.0:kr_text/vendor/github.com/kr/text \
+		pkg:diff:20ebb0f2a09e:pkg_diff/vendor/github.com/pkg/diff \
+		rogpeppe:go-internal:v1.8.1:rogpeppe_go_internal/vendor/github.com/rogpeppe/go-internal
