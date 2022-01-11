@@ -1,0 +1,97 @@
+--- ./Makefile.deps.orig	2022-01-11 22:20:52.712618000 +0200
++++ ./Makefile.deps	2022-01-11 22:54:56.861001000 +0200
+@@ -36,11 +36,6 @@
+ 		ashanbrown:makezero:b6261585ddde:ashanbrown_makezero/vendor/github.com/ashanbrown/makezero \
+ 		atc0005:go-teams-notify:v2.6.0:atc0005_go_teams_notify_v2/vendor/github.com/atc0005/go-teams-notify/v2 \
+ 		aws:amazon-ec2-instance-selector:3e43512d88f8:aws_amazon_ec2_instance_selector_v2/vendor/github.com/aws/amazon-ec2-instance-selector/v2 \
+-		aws:aws-sdk-go-v2:994cb2c7c1c8:aws_aws_sdk_go_v2_ini \
+-		aws:aws-sdk-go-v2:v1.3.0:aws_aws_sdk_go_v2_presigned_url/vendor/github.com/aws/aws-sdk-go-v2 \
+-		aws:aws-sdk-go-v2:v1.4.0:aws_aws_sdk_go_v2_credentials \
+-		aws:aws-sdk-go-v2:v1.5.0:aws_aws_sdk_go_v2_imds \
+-		aws:aws-sdk-go-v2:v1.7.0:aws_aws_sdk_go_v2_config \
+ 		aws:aws-sdk-go-v2:v1.9.0:aws_aws_sdk_go_v2 \
+ 		aws:aws-sdk-go:v1.41.13:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+ 		aws:smithy-go:v1.8.0:aws_smithy_go/vendor/github.com/aws/smithy-go \
+@@ -91,16 +86,7 @@
+ 		envoyproxy:protoc-gen-validate:v0.6.1:envoyproxy_protoc_gen_validate/vendor/github.com/envoyproxy/protoc-gen-validate \
+ 		esimonov:ifshort:v1.0.2:esimonov_ifshort/vendor/github.com/esimonov/ifshort \
+ 		etcd-io:bbolt:v1.3.5:etcd_io_bbolt/vendor/go.etcd.io/bbolt \
+-		etcd-io:etcd:v2.305.0:etcd_io_etcd_2/vendor/go.etcd.io/etcd/client/v2 \
+-		etcd-io:etcd:v3.5.0-alpha.0:etcd_io_etcd_3/vendor/go.etcd.io/etcd/client/v3 \
+-		etcd-io:etcd:v3.5.0-alpha.0:etcd_io_etcd_4/vendor/go.etcd.io/etcd/etcdctl/v3 \
+-		etcd-io:etcd:v3.5.0-alpha.0:etcd_io_etcd_5/vendor/go.etcd.io/etcd/pkg/v3 \
+-		etcd-io:etcd:v3.5.0-alpha.0:etcd_io_etcd_6/vendor/go.etcd.io/etcd/raft/v3 \
+-		etcd-io:etcd:v3.5.0-alpha.0:etcd_io_etcd_7/vendor/go.etcd.io/etcd/server/v3 \
+-		etcd-io:etcd:v3.5.0-alpha.0:etcd_io_etcd_8/vendor/go.etcd.io/etcd/tests/v3 \
+-		etcd-io:etcd:v3.5.0-alpha.0:etcd_io_etcd_9/vendor/go.etcd.io/etcd/v3 \
+-		etcd-io:etcd:v3.5.0:etcd_io_etcd/vendor/go.etcd.io/etcd/api/v3 \
+-		etcd-io:etcd:v3.5.0:etcd_io_etcd_1/vendor/go.etcd.io/etcd/client/pkg/v3 \
++		etcd-io:etcd:v2.3.8:etcd_io_etcd/vendor/go.etcd.io/etcd \
+ 		ettle:strcase:v0.1.1:ettle_strcase/vendor/github.com/ettle/strcase \
+ 		evanphx:json-patch:v4.9.0:evanphx_json_patch/vendor/github.com/evanphx/json-patch \
+ 		evanphx:json-patch:v5.5.0:evanphx_json_patch_v5 \
+@@ -123,7 +109,6 @@
+ 		go-git:go-git:v5.4.2:go_git_go_git_v5/vendor/github.com/go-git/go-git/v5 \
+ 		go-inf:inf:v0.9.1:go_inf_inf/vendor/gopkg.in/inf.v0 \
+ 		go-ini:ini:v1.62.0:go_ini_ini/vendor/github.com/go-ini/ini \
+-		go-ini:ini:v1.62.0:go_ini_ini_1/vendor/gopkg.in/ini.v1 \
+ 		go-logr:logr:v0.4.0:go_logr_logr/vendor/github.com/go-logr/logr \
+ 		go-mail:mail:v2.3.1:go_mail_mail/vendor/gopkg.in/mail.v2 \
+ 		go-openapi:jsonpointer:v0.19.3:go_openapi_jsonpointer/vendor/github.com/go-openapi/jsonpointer \
+@@ -221,7 +206,7 @@
+ 		hashicorp:golang-lru:v0.5.4:hashicorp_golang_lru/vendor/github.com/hashicorp/golang-lru \
+ 		hashicorp:hcl:v1.0.0:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
+ 		hashicorp:vault:e0cfd64bc267:hashicorp_vault_sdk \
+-		hashicorp:vault:v1.1.0:hashicorp_vault_api/vendor/github.com/hashicorp/vault \
++		hashicorp:vault:v1.2.7:hashicorp_vault_api/vendor/github.com/hashicorp/vault \
+ 		huandu:xstrings:v1.3.2:huandu_xstrings/vendor/github.com/huandu/xstrings \
+ 		iancoleman:orderedmap:v0.2.0:iancoleman_orderedmap/vendor/github.com/iancoleman/orderedmap \
+ 		imdario:mergo:v0.3.12:imdario_mergo/vendor/github.com/imdario/mergo \
+@@ -242,12 +227,12 @@
+ 		kisielk:errcheck:v1.6.0:kisielk_errcheck/vendor/github.com/kisielk/errcheck \
+ 		kisielk:gotool:v1.0.0:kisielk_gotool/vendor/github.com/kisielk/gotool \
+ 		kr:fs:v0.1.0:kr_fs/vendor/github.com/kr/fs \
+-		kris-nova:logger:v0.2.1:kris_nova_logger/vendor/github.com/kris-nova/logger \
++		kris-nova:log4go:v0.2.1:kris_nova_logger/vendor/github.com/kris-nova/logger \
+ 		kris-nova:lolgopher:73f0047e8b65:kris_nova_lolgopher/vendor/github.com/kris-nova/lolgopher \
+ 		kris-nova:novaarchive:c7c1cabb2577:kris_nova_novaarchive/vendor/github.com/kris-nova/novaarchive \
+ 		kubernetes-sigs:aws-iam-authenticator:v0.5.2:kubernetes_sigs_aws_iam_authenticator/vendor/sigs.k8s.io/aws-iam-authenticator \
+-		kubernetes-sigs:kustomize:v0.10.17:kubernetes_sigs_kustomize_1/vendor/sigs.k8s.io/kustomize/kyaml \
+-		kubernetes-sigs:kustomize:v0.8.8:kubernetes_sigs_kustomize/vendor/sigs.k8s.io/kustomize/api \
++		kubernetes-sigs:kustomize:kyaml/v0.10.17:kubernetes_sigs_kustomize_1/vendor/sigs.k8s.io/kustomize/kyaml \
++		kubernetes-sigs:kustomize:api/v0.8.8:kubernetes_sigs_kustomize/vendor/sigs.k8s.io/kustomize/api \
+ 		kubernetes-sigs:mdtoc:v1.0.1:kubernetes_sigs_mdtoc/vendor/sigs.k8s.io/mdtoc \
+ 		kubernetes-sigs:structured-merge-diff:v4.1.0:kubernetes_sigs_structured_merge_diff/vendor/sigs.k8s.io/structured-merge-diff/v4 \
+ 		kubernetes-sigs:yaml:v1.2.0:kubernetes_sigs_yaml/vendor/sigs.k8s.io/yaml \
+@@ -429,15 +414,6 @@
+ 	@${RLN} ${WRKSRC_azure_go_autorest_logger}/logger ${WRKSRC}/vendor/github.com/Azure/go-autorest/logger
+ 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/tracing
+ 	@${RLN} ${WRKSRC_azure_go_autorest_tracing}/tracing ${WRKSRC}/vendor/github.com/Azure/go-autorest/tracing
+-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2} ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2
+-	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/config
+-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_config}/config ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/config
+-	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/credentials
+-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_credentials}/credentials ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/credentials
+-	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds
+-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_imds}/feature/ec2/imds ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds
+-	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/ini
+-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_ini}/internal/ini ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/ini
+ 	@${RM} -r ${WRKSRC}/vendor/github.com/blang/semver/v4
+ 	@${RLN} ${WRKSRC_blang_semver_v4}/v4 ${WRKSRC}/vendor/github.com/blang/semver/v4
+ 	@${MKDIR} ${WRKSRC}/vendor/github.com/cenkalti
+@@ -448,3 +424,15 @@
+ 	@${RLN} ${WRKSRC_hashicorp_vault_sdk}/sdk ${WRKSRC}/vendor/github.com/hashicorp/vault/sdk
+ 	@${MKDIR} ${WRKSRC}/vendor/github.com/jgautheron
+ 	@${RLN} ${WRKSRC_fsnotify_fsnotify} ${WRKSRC}/vendor/github.com/jgautheron/goconst
++	@${MKDIR} ${WRKSRC}/vendor/gopkg.in
++	@${RLN} ${WRKSRC_go_ini_ini} ${WRKSRC}/vendor/gopkg.in/ini.v1
++	${MV} ${WRKSRC}/vendor/sigs.k8s.io/kustomize/api/api/* ${WRKSRC}/vendor/sigs.k8s.io/kustomize/api || :
++	${MV} ${WRKSRC}/vendor/sigs.k8s.io/kustomize/kyaml/kyaml/* ${WRKSRC}/vendor/sigs.k8s.io/kustomize/kyaml || :
++
++#	@${RM} -r ${WRKSRC}/vendor/sigs.k8s.io/kustomize/api
++#	@${RLN} ${WRKSRC_kubernetes_sigs_kustomize}/api ${WRKSRC}/vendor/sigs.k8s.io/kustomize/api
++
++#	@${RM} -r ${WRKSRC}/vendor/sigs.k8s.io/kustomize/api
++#	@${MKDIR} ${WRKSRC}/vendor/sigs.k8s.io/kustomize/api
++#	@${RLN} ${WRKSRC_kubernetes_sigs_kustomize}/api/filesys ${WRKSRC}/vendor/sigs.k8s.io/kustomize/api/filesys
++#	@${RLN} ${WRKSRC_kubernetes_sigs_kustomize}/api/krusty ${WRKSRC}/vendor/sigs.k8s.io/kustomize/api/krusty
