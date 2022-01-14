@@ -48,7 +48,3 @@ GH_TUPLE=	\
 		twinj:uuid:89173bcdda19:twinj_uuid/vendor/github.com/twinj/uuid \
 		xanzy:ssh-agent:v0.3.0:xanzy_ssh_agent/vendor/github.com/xanzy/ssh-agent \
 		xtaci:smux:v1.5.15:xtaci_smux/vendor/github.com/xtaci/smux
-
-post-extract: .PHONY
-	@${RLN} ${WRKSRC_aws_aws_sdk_go} ${WRKSRC}/extra/aws-sdk-go
-	@${RLN} ${WRKSRC_nightlyone_lockfile} ${WRKSRC}/extra/lockfile
