@@ -27,6 +27,6 @@ pre-post-extract: .PHONY
 		${LN} -s "$${src}" "$${src%%go-commons-*}gruntwork-cli-$${src##*go-commons-}"; \
 	done
 
-.sinclude "${.CURDIR}/Makefile.deps"
+.-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>

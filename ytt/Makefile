@@ -24,6 +24,6 @@ WRKSRC=		${WRKDIR}/carvel-${PORTNAME}-${PORTVERSION}
 
 fetch-version: .PHONY get-version
 
-.sinclude "${.CURDIR}/Makefile.deps"
+.-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>
