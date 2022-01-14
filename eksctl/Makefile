@@ -1,7 +1,7 @@
 # Created by: Danilo Egea Gondolfo <danilo@FreeBSD.org>
 
 PORTNAME=	eksctl
-PORTVERSION=	0.78.0
+PORTVERSION=	0.79.0
 CATEGORIES=	local sysutils
 
 MAINTAINER=	danilo@FreeBSD.org
@@ -23,7 +23,7 @@ PLIST_FILES=	bin/${PORTNAME}
 
 GO_TARGET=	./cmd/${PORTNAME}
 GO_BUILDFLAGS=	-ldflags="-X github.com/weaveworks/eksctl/pkg/version.gitCommit=${PORTVERSION} \
-		-X github.com/weaveworks/eksctl/pkg/version.builtAt=$$(date +'%s')"
+		-X github.com/weaveworks/eksctl/pkg/version.builtAt=${%s:L:gmtime}"
 
 .-include "${.CURDIR}/Makefile.deps"
 

@@ -42,7 +42,7 @@ GH_TUPLE=	\
 		aws:aws-sdk-go-v2:v1.5.0:aws_aws_sdk_go_v2_imds \
 		aws:aws-sdk-go-v2:v1.7.0:aws_aws_sdk_go_v2_config \
 		aws:aws-sdk-go-v2:v1.9.0:aws_aws_sdk_go_v2 \
-		aws:aws-sdk-go:v1.41.13:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		aws:aws-sdk-go:v1.42.28:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
 		aws:smithy-go:v1.8.0:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		awslabs:goformation:v4.15.5:awslabs_goformation_v4/vendor/github.com/awslabs/goformation/v4 \
 		benjamintf1:unmarshalledmatchers:bb1c1f34eaea:benjamintf1_unmarshalledmatchers/vendor/github.com/benjamintf1/unmarshalledmatchers \
@@ -106,9 +106,6 @@ GH_TUPLE=	\
 		evanphx:json-patch:v5.5.0:evanphx_json_patch_v5 \
 		fatih:color:v1.12.0:fatih_color/vendor/github.com/fatih/color \
 		fatih:structtag:v1.2.0:fatih_structtag/vendor/github.com/fatih/structtag \
-		fluxcd:flux:cb08da1b356a:fluxcd_flux_install/vendor/github.com/fluxcd/flux \
-		fluxcd:go-git-providers:v0.2.0:fluxcd_go_git_providers/vendor/github.com/fluxcd/go-git-providers \
-		fluxcd:helm-operator:1467489f7ee4:fluxcd_helm_operator_install/vendor/github.com/fluxcd/helm-operator \
 		form3tech-oss:jwt-go:v3.2.3:form3tech_oss_jwt_go/vendor/github.com/form3tech-oss/jwt-go \
 		fsnotify:fsnotify:v1.5.1:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
 		fullstorydev:grpcurl:v1.8.1:fullstorydev_grpcurl/vendor/github.com/fullstorydev/grpcurl \
@@ -152,7 +149,7 @@ GH_TUPLE=	\
 		golang:groupcache:41bb18bfe9da:golang_groupcache/vendor/github.com/golang/groupcache \
 		golang:mock:v1.6.0:golang_mock/vendor/github.com/golang/mock \
 		golang:mod:v0.5.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:59d4e928ea9d:golang_net/vendor/golang.org/x/net \
+		golang:net:fe4d6282115f:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:2bc19b11175f:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.2:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:snappy:v0.0.3:golang_snappy/vendor/github.com/golang/snappy \
@@ -179,8 +176,6 @@ GH_TUPLE=	\
 		google:go-cloud:v0.24.0:google_go_cloud/vendor/gocloud.dev \
 		google:go-cmp:v0.5.6:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-genproto:fe130286e0e2:google_go_genproto/vendor/google.golang.org/genproto \
-		google:go-github:v32.1.0:google_go_github_v32/vendor/github.com/google/go-github/v32 \
-		google:go-github:v35.3.0:google_go_github_v35/vendor/github.com/google/go-github/v35 \
 		google:go-github:v39.2.0:google_go_github_v39/vendor/github.com/google/go-github/v39 \
 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
 		google:gofuzz:v1.2.0:google_gofuzz/vendor/github.com/google/gofuzz \
@@ -206,7 +201,6 @@ GH_TUPLE=	\
 		gostaticanalysis:comment:v1.4.1:gostaticanalysis_comment/vendor/github.com/gostaticanalysis/comment \
 		gostaticanalysis:forcetypeassert:01d4955beaa5:gostaticanalysis_forcetypeassert/vendor/github.com/gostaticanalysis/forcetypeassert \
 		gostaticanalysis:nilerr:v0.1.1:gostaticanalysis_nilerr/vendor/github.com/gostaticanalysis/nilerr \
-		gregjones:httpcache:901d90724c79:gregjones_httpcache/vendor/github.com/gregjones/httpcache \
 		grpc-ecosystem:go-grpc-middleware:v1.3.0:grpc_ecosystem_go_grpc_middleware/vendor/github.com/grpc-ecosystem/go-grpc-middleware \
 		grpc-ecosystem:go-grpc-prometheus:v1.2.0:grpc_ecosystem_go_grpc_prometheus/vendor/github.com/grpc-ecosystem/go-grpc-prometheus \
 		grpc-ecosystem:grpc-gateway:v1.16.0:grpc_ecosystem_grpc_gateway/vendor/github.com/grpc-ecosystem/grpc-gateway \
@@ -226,7 +220,6 @@ GH_TUPLE=	\
 		iancoleman:orderedmap:v0.2.0:iancoleman_orderedmap/vendor/github.com/iancoleman/orderedmap \
 		imdario:mergo:v0.3.12:imdario_mergo/vendor/github.com/imdario/mergo \
 		inconshreveable:mousetrap:v1.0.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
-		instrumenta:kubeval:8d013ec9fc56:instrumenta_kubeval/vendor/github.com/instrumenta/kubeval \
 		jbenet:go-context:d14ea06fba99:jbenet_go_context/vendor/github.com/jbenet/go-context \
 		jhump:protoreflect:v1.8.2:jhump_protoreflect/vendor/github.com/jhump/protoreflect \
 		jingyugao:rowserrcheck:v1.1.0:jingyugao_rowserrcheck/vendor/github.com/jingyugao/rowserrcheck \
@@ -235,7 +228,6 @@ GH_TUPLE=	\
 		jonboulle:clockwork:v0.2.2:jonboulle_clockwork/vendor/github.com/jonboulle/clockwork \
 		json-iterator:go:v1.1.11:json_iterator_go/vendor/github.com/json-iterator/go \
 		julz:importas:841f0c0fe66d:julz_importas/vendor/github.com/julz/importas \
-		justinbarrick:go-k8s-portforward:b575325c1855:justinbarrick_go_k8s_portforward/vendor/github.com/justinbarrick/go-k8s-portforward \
 		kballard:go-shellquote:95032a82bc51:kballard_go_shellquote/vendor/github.com/kballard/go-shellquote \
 		kevinburke:rest:22cd0577e450:kevinburke_rest/vendor/github.com/kevinburke/rest \
 		kevinburke:ssh_config:v1.1.0:kevinburke_ssh_config/vendor/github.com/kevinburke/ssh_config \
@@ -306,7 +298,6 @@ GH_TUPLE=	\
 		mitchellh:mapstructure:v1.4.1:mitchellh_mapstructure/vendor/github.com/mitchellh/mapstructure \
 		mitchellh:reflectwalk:v1.0.2:mitchellh_reflectwalk/vendor/github.com/mitchellh/reflectwalk \
 		mmarkdown:mmark:v2.0.40:mmarkdown_mmark/vendor/github.com/mmarkdown/mmark \
-		moby:spdystream:v0.2.0:moby_spdystream/vendor/github.com/moby/spdystream \
 		modern-go:concurrent:bacd9c7ef1dd:modern_go_concurrent/vendor/github.com/modern-go/concurrent \
 		modern-go:reflect2:v1.0.1:modern_go_reflect2/vendor/github.com/modern-go/reflect2 \
 		monochromegane:go-gitignore:205db1a8cc00:monochromegane_go_gitignore/vendor/github.com/monochromegane/go-gitignore \
@@ -323,7 +314,6 @@ GH_TUPLE=	\
 		olekukonko:tablewriter:v0.0.5:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
 		onsi:ginkgo:v1.16.4:onsi_ginkgo/vendor/github.com/onsi/ginkgo \
 		onsi:gomega:v1.16.0:onsi_gomega/vendor/github.com/onsi/gomega \
-		op:go-logging:970db520ece7:op_go_logging/vendor/github.com/op/go-logging \
 		pelletier:go-toml:v1.9.3:pelletier_go_toml/vendor/github.com/pelletier/go-toml \
 		phayes:checkstyle:bfd46e6a821d:phayes_checkstyle/vendor/github.com/phayes/checkstyle \
 		pierrec:lz4:v2.0.5:pierrec_lz4/vendor/github.com/pierrec/lz4 \
@@ -346,13 +336,10 @@ GH_TUPLE=	\
 		sanathkr:go-yaml:ed9d249f429b:sanathkr_go_yaml/vendor/github.com/sanathkr/go-yaml \
 		sanathkr:yaml:0056894fa522:sanathkr_yaml/vendor/github.com/sanathkr/yaml \
 		sanposhiho:wastedassign:v2.0.6:sanposhiho_wastedassign_v2/vendor/github.com/sanposhiho/wastedassign/v2 \
-		sassoftware:go-rpmutils:a8f1baeba37b:sassoftware_go_rpmutils/vendor/github.com/sassoftware/go-rpmutils \
 		securego:gosec:v2.8.1:securego_gosec_v2/vendor/github.com/securego/gosec/v2 \
 		sergi:go-diff:v1.2.0:sergi_go_diff/vendor/github.com/sergi/go-diff \
 		sethvargo:go-password:v0.2.0:sethvargo_go_password/vendor/github.com/sethvargo/go-password \
 		shazow:go-diff:b6b7b6733b8c:shazow_go_diff/vendor/github.com/shazow/go-diff \
-		shurcooL:httpfs:8d4bc4ba7749:shurcool_httpfs/vendor/github.com/shurcooL/httpfs \
-		shurcooL:vfsgen:6a9ea43bcacd:shurcool_vfsgen/vendor/github.com/shurcooL/vfsgen \
 		sirupsen:logrus:v1.8.1:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
 		slack-go:slack:v0.9.4:slack_go_slack/vendor/github.com/slack-go/slack \
 		soheilhy:cmux:v0.1.5:soheilhy_cmux/vendor/github.com/soheilhy/cmux \
@@ -394,15 +381,12 @@ GH_TUPLE=	\
 		vartanbeno:go-reddit:v2.0.0:vartanbeno_go_reddit_v2/vendor/github.com/vartanbeno/go-reddit/v2 \
 		vektra:mockery:v1.1.2:vektra_mockery/vendor/github.com/vektra/mockery \
 		voxelbrain:goptions:58cddc247ea2:voxelbrain_goptions/vendor/github.com/voxelbrain/goptions \
-		weaveworks:goformation:532b27315cf1:weaveworks_goformation_v4/vendor/github.com/weaveworks/goformation/v4 \
+		weaveworks:goformation:8bde16a86f4c:weaveworks_goformation_v4/vendor/github.com/weaveworks/goformation/v4 \
 		weaveworks:launcher:1ca323f1de15:weaveworks_launcher/vendor/github.com/weaveworks/launcher \
 		weaveworks:schemer:338b258ad2ca:weaveworks_schemer/vendor/github.com/weaveworks/schemer \
-		whilp:git-urls:6db9661140c0:whilp_git_urls/vendor/github.com/whilp/git-urls \
 		xanzy:go-gitlab:v0.50.3:xanzy_go_gitlab/vendor/github.com/xanzy/go-gitlab \
 		xanzy:ssh-agent:v0.3.1:xanzy_ssh_agent/vendor/github.com/xanzy/ssh-agent \
-		xeipuuv:gojsonpointer:02993c407bfb:xeipuuv_gojsonpointer/vendor/github.com/xeipuuv/gojsonpointer \
-		xeipuuv:gojsonreference:bd5ef7bd5415:xeipuuv_gojsonreference/vendor/github.com/xeipuuv/gojsonreference \
-		xeipuuv:gojsonschema:v1.2.0:xeipuuv_gojsonschema/vendor/github.com/xeipuuv/gojsonschema \
+		xgfone:netaddr:v0.5.1:xgfone_netaddr/vendor/github.com/xgfone/netaddr \
 		xiang90:probing:43a291ad63a2:xiang90_probing/vendor/github.com/xiang90/probing \
 		xlab:treeprint:a009c3971eca:xlab_treeprint/vendor/github.com/xlab/treeprint \
 		yeya24:promlinter:v0.1.0:yeya24_promlinter/vendor/github.com/yeya24/promlinter
