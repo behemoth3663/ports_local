@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	cloud-nuke
-PORTVERSION=	0.7.3
+PORTVERSION=	0.8.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
