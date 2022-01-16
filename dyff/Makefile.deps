@@ -1,0 +1,32 @@
+GH_TUPLE=	\
+		BurntSushi:toml:v0.4.1:burntsushi_toml/vendor/github.com/BurntSushi/toml \
+		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
+		fsnotify:fsnotify:v1.5.1:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
+		go-tomb:tomb:dd632973f1e7:go_tomb_tomb/vendor/gopkg.in/tomb.v1 \
+		go-yaml:yaml:496545a6307b:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
+		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
+		golang:net:3c21e5b27794:golang_net/vendor/golang.org/x/net \
+		golang:sync:036812b2e83c:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:97ca703d548d:golang_sys/vendor/golang.org/x/sys \
+		golang:term:140adaaadfaf:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.3.7:golang_text/vendor/golang.org/x/text \
+		gonvenience:bunt:v1.3.2:gonvenience_bunt/vendor/github.com/gonvenience/bunt \
+		gonvenience:neat:v1.3.7:gonvenience_neat/vendor/github.com/gonvenience/neat \
+		gonvenience:term:v1.0.1:gonvenience_term/vendor/github.com/gonvenience/term \
+		gonvenience:text:v1.0.6:gonvenience_text/vendor/github.com/gonvenience/text \
+		gonvenience:wrap:v1.1.0:gonvenience_wrap/vendor/github.com/gonvenience/wrap \
+		gonvenience:ytbx:v1.4.2:gonvenience_ytbx/vendor/github.com/gonvenience/ytbx \
+		inconshreveable:mousetrap:v1.0.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
+		lucasb-eyer:go-colorful:v1.2.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
+		mattn:go-ciede2000:782e8c62fec3:mattn_go_ciede2000/vendor/github.com/mattn/go-ciede2000 \
+		mattn:go-isatty:v0.0.14:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
+		mitchellh:go-ps:v1.0.0:mitchellh_go_ps/vendor/github.com/mitchellh/go-ps \
+		mitchellh:hashstructure:v1.1.0:mitchellh_hashstructure/vendor/github.com/mitchellh/hashstructure \
+		nxadm:tail:v1.4.8:nxadm_tail/vendor/github.com/nxadm/tail \
+		onsi:ginkgo:v1.16.5:onsi_ginkgo/vendor/github.com/onsi/ginkgo \
+		onsi:gomega:v1.17.0:onsi_gomega/vendor/github.com/onsi/gomega \
+		sergi:go-diff:v1.2.0:sergi_go_diff/vendor/github.com/sergi/go-diff \
+		spf13:cobra:v1.3.0:spf13_cobra/vendor/github.com/spf13/cobra \
+		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
+		texttheater:golang-levenshtein:v1.0.1:texttheater_golang_levenshtein/vendor/github.com/texttheater/golang-levenshtein \
+		virtuald:go-ordered-json:b18e6e673d74:virtuald_go_ordered_json/vendor/github.com/virtuald/go-ordered-json
