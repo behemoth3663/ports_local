@@ -2,7 +2,7 @@
 
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.35.19
+DISTVERSION=	0.35.20
 CATEGORIES=	local sysutils
 
 MAINTAINER=	0xdutra@gmail.com
