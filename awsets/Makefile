@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	awsets
-PORTVERSION=	1.0.4
+PORTVERSION=	1.0.6
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -36,7 +36,7 @@ fetch-version: .PHONY get-version
 post-patch: .PHONY
 	cd ${WRKSRC} && \
 		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod vendor
-	chmod -R u+w ${WRKDIR}/.gopath
+	${CHMOD} -R u+w ${WRKDIR}/.gopath
 
 #	cd ${WRKSRC} && \
 #		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} get -u=patch && \
