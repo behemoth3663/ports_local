@@ -1,6 +1,6 @@
-TIMESTAMP = 1642327321
-SHA256 (gruntwork-io-cloud-nuke-v0.8.2_GH0.tar.gz) = a00447bc8ff651c2ef26e73cfa397e8ecde2677023951451be786c62640bbdbf
-SIZE (gruntwork-io-cloud-nuke-v0.8.2_GH0.tar.gz) = 198417
+TIMESTAMP = 1642549601
+SHA256 (gruntwork-io-cloud-nuke-v0.9.0_GH0.tar.gz) = 095e77943cc06a872fa4ce8e3eb2dbc5e07c3363e3221b5875a7cb2ee1ec53aa
+SIZE (gruntwork-io-cloud-nuke-v0.9.0_GH0.tar.gz) = 201645
 SHA256 (aws-aws-sdk-go-v1.42.4_GH0.tar.gz) = f06a83cfae6578c39cc7138dfe463c5f384ca39444dee5a081a498b5c382a0b0
 SIZE (aws-aws-sdk-go-v1.42.4_GH0.tar.gz) = 21409799
 SHA256 (bgentry-speakeasy-v0.1.0_GH0.tar.gz) = 863f57f96f77c2b4e5488e34e8df47478e9ffa9920779ca4df2cc3adc0d03252
