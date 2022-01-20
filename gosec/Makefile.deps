@@ -1,8 +1,6 @@
 GH_TUPLE=	\
-		fsnotify:fsnotify:v1.4.9:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
-		go-tomb:tomb:dd632973f1e7:go_tomb_tomb/vendor/gopkg.in/tomb.v1 \
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
-		golang:crypto:4570a0811e8b:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:5e0467b6c7ce:golang_crypto/vendor/golang.org/x/crypto \
 		golang:lint:6edffad5e616:golang_lint/vendor/golang.org/x/lint \
 		golang:mod:v0.5.1:golang_mod/vendor/golang.org/x/mod \
 		golang:net:69e39bad7dc2:golang_net/vendor/golang.org/x/net \
@@ -15,7 +13,6 @@ GH_TUPLE=	\
 		lib:pq:v1.10.4:lib_pq/vendor/github.com/lib/pq \
 		mozilla:tls-observatory:7bc42856d2e5:mozilla_tls_observatory/vendor/github.com/mozilla/tls-observatory \
 		nbutton23:zxcvbn-go:fa2cb2858354:nbutton23_zxcvbn_go/vendor/github.com/nbutton23/zxcvbn-go \
-		nxadm:tail:v1.4.8:nxadm_tail/vendor/github.com/nxadm/tail \
-		onsi:ginkgo:v1.16.5:onsi_ginkgo/vendor/github.com/onsi/ginkgo \
+		onsi:ginkgo:v2.0.0:onsi_ginkgo_v2/vendor/github.com/onsi/ginkgo/v2 \
 		onsi:gomega:v1.17.0:onsi_gomega/vendor/github.com/onsi/gomega \
 		xo:terminfo:ca9a967f8778:xo_terminfo/vendor/github.com/xo/terminfo

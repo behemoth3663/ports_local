@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	gosec
-PORTVERSION=	2.9.5
+PORTVERSION=	2.9.6
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local devel security
 
