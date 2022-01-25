@@ -1,12 +1,12 @@
 GH_TUPLE=	\
-		aws:aws-sdk-go:v1.38.42:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		aws:aws-sdk-go:v1.40.39:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		fatih:color:v1.10.0:fatih_color/vendor/github.com/fatih/color \
 		go-yaml:yaml:9f266ea9e77c:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
 		golang:mock:v1.4.4:golang_mock/vendor/github.com/golang/mock \
 		golang:sync:09787c993a3a:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:fdedc70b468f:golang_sys/vendor/golang.org/x/sys \
+		golang:sys:04245dca01da:golang_sys/vendor/golang.org/x/sys \
 		golang:tools:aa38f8e97acc:golang_tools/vendor/golang.org/x/tools \
 		inconshreveable:mousetrap:v1.0.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
 		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \

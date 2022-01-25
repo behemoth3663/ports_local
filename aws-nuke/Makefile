@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	aws-nuke
-PORTVERSION=	2.16.0
+PORTVERSION=	2.17.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -36,7 +36,7 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 
 post-patch: .PHONY
 .if ${.TARGETS:Mgomod-vendor}
-	cd ${WRKSRC} && ${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} generate ./...
+	@cd ${WRKSRC} && ${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} generate ./...
 .endif
 
 .include <bsd.port.mk>
