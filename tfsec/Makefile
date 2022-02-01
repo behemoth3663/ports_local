@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	tfsec
-PORTVERSION=	1.0.6
+PORTVERSION=	1.0.7
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local security
 
@@ -14,11 +14,11 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 USES=		go:modules
 
 USE_GITHUB=	yes
-GH_ACCOUNT=	liamg
+GH_ACCOUNT=	aquasecurity
 
 GO_TARGET=	./cmd/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -X 'github.com/aquasecurity/${PORTNAME}/version.Version=${PORTVERSION}'"
+GO_BUILDFLAGS+=	-ldflags="-s -w -X 'github.com/${GH_ACCOUNT}/${PORTNAME}/version.Version=${PORTVERSION}'"
 
 PLIST_FILES=	bin/${PORTNAME}
 
