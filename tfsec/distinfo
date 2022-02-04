@@ -1,6 +1,6 @@
-TIMESTAMP = 1643726499
-SHA256 (aquasecurity-tfsec-v1.0.8_GH0.tar.gz) = 88b09b0b914deebf142d1b739ab20491b3e5fc5f2f4cb0cc84578f884b6bc906
-SIZE (aquasecurity-tfsec-v1.0.8_GH0.tar.gz) = 10721363
+TIMESTAMP = 1643987869
+SHA256 (aquasecurity-tfsec-v1.0.11_GH0.tar.gz) = 9f48bf4e4bee549093e33a88ad73881ededbba163c68eecc973b2ca13f8792af
+SIZE (aquasecurity-tfsec-v1.0.11_GH0.tar.gz) = 10721562
 SHA256 (ProtonMail-go-crypto-04723f9f07d7_GH0.tar.gz) = 09ca24a9956ebb6a8564ef17ab6b0eab6387938ac608a0c429f75360d3b176f5
 SIZE (ProtonMail-go-crypto-04723f9f07d7_GH0.tar.gz) = 308315
 SHA256 (acomagu-bufpipe-v1.0.3_GH0.tar.gz) = 9d34d4a015aa069649b951c36d4dc50fdbf6a2075717812ba68b9260d5c79986

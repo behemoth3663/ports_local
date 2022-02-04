@@ -29,4 +29,10 @@ post-install: .PHONY
 #rm -f -- distinfo Makefile.deps && make makesum && make gomod-vendor && make gomod-vendor >Makefile.deps && make makesum && mkcal
 .-include "${.CURDIR}/Makefile.deps"
 
+# XXX: Work around ports framework inability to regenerate GH_TUPLE for Go
+# modules for modules with embedded slashes in version numbers.
+#GH_TUPLE:=	${GH_TUPLE:S|v1.1.0:grpc_grpc_go_1|cmd%2Fprotoc-gen-go-grpc%2Fv1.1.0:grpc_grpc_go_1/|1}
+#pre-extract:
+#	${LN} -s ${WRKDIR}/grpc-go-cmd-protoc-gen-go-grpc-v1.1.0 ${WRKSRC_grpc_grpc_go_1}
+
 .include <bsd.port.mk>

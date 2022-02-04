@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	tfsec
-PORTVERSION=	1.0.8
+PORTVERSION=	1.0.11
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local security
 
@@ -18,7 +18,8 @@ GH_ACCOUNT=	aquasecurity
 
 GO_TARGET=	./cmd/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -X 'github.com/${GH_ACCOUNT}/${PORTNAME}/version.Version=${PORTVERSION}'"
+GO_BUILDFLAGS+=	-ldflags="-s -w \
+	-X 'github.com/${GH_ACCOUNT}/${PORTNAME}/version.Version=${PORTVERSION}'"
 
 PLIST_FILES=	bin/${PORTNAME}
 
