@@ -5,7 +5,7 @@ GH_TUPLE=	\
 		agext:levenshtein:v1.2.2:agext_levenshtein/vendor/github.com/agext/levenshtein \
 		apparentlymart:go-cidr:v1.1.0:apparentlymart_go_cidr/vendor/github.com/apparentlymart/go-cidr \
 		apparentlymart:go-textseg:v13.0.0:apparentlymart_go_textseg_v13/vendor/github.com/apparentlymart/go-textseg/v13 \
-		aquasecurity:defsec:v0.6.9:aquasecurity_defsec/vendor/github.com/aquasecurity/defsec \
+		aquasecurity:defsec:v0.7.1:aquasecurity_defsec/vendor/github.com/aquasecurity/defsec \
 		bmatcuk:doublestar:v1.3.4:bmatcuk_doublestar/vendor/github.com/bmatcuk/doublestar \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		emirpasic:gods:v1.12.0:emirpasic_gods/vendor/github.com/emirpasic/gods \
@@ -17,9 +17,9 @@ GH_TUPLE=	\
 		go-warnings:warnings:v0.1.2:go_warnings_warnings/vendor/gopkg.in/warnings.v0 \
 		go-yaml:yaml:496545a6307b:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
-		golang:crypto:32db794688a5:golang_crypto/vendor/golang.org/x/crypto \
-		golang:net:60bc85c4be6d:golang_net/vendor/golang.org/x/net \
-		golang:sys:97ca703d548d:golang_sys/vendor/golang.org/x/sys \
+		golang:crypto:5e0467b6c7ce:golang_crypto/vendor/golang.org/x/crypto \
+		golang:net:0dd24b26b47d:golang_net/vendor/golang.org/x/net \
+		golang:sys:da31bd327af9:golang_sys/vendor/golang.org/x/sys \
 		golang:term:a79de5458b56:golang_term/vendor/golang.org/x/term \
 		golang:text:v0.3.7:golang_text/vendor/golang.org/x/text \
 		google:go-cmp:v0.5.7:google_go_cmp/vendor/github.com/google/go-cmp \
