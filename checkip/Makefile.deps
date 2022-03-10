@@ -6,6 +6,7 @@ GH_TUPLE=	\
 		golang:sync:036812b2e83c:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:c6e025ad8005:golang_sys/vendor/golang.org/x/sys \
 		google:uuid:v1.2.0:google_uuid/vendor/github.com/google/uuid \
+		jreisinger:nmapservices:v0.1.2:jreisinger_nmapservices/vendor/github.com/jreisinger/nmapservices \
 		oschwald:geoip2-golang:v1.5.0:oschwald_geoip2_golang/vendor/github.com/oschwald/geoip2-golang \
 		oschwald:maxminddb-golang:v1.8.0:oschwald_maxminddb_golang/vendor/github.com/oschwald/maxminddb-golang \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
