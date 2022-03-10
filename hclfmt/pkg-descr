@@ -1,0 +1,4 @@
+hclfmt is a command to format and prettify HCL files. It's similar to the 
+popular gofmt command.
+
+WWW: https://github.com/fatih/hclfmt
