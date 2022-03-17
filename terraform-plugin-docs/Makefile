@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	terraform-plugin-docs
-PORTVERSION=	0.5.1
+PORTVERSION=	0.6.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils textproc
 
