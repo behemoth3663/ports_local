@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	infracost
-PORTVERSION=	0.9.19
+PORTVERSION=	0.9.20
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -21,10 +21,17 @@ PLIST_FILES=	bin/${PORTNAME}
 
 fetch-version: .PHONY get-version
 
-pre-build: .PHONY
-	cd ${WRKSRC} && ${GO_CMD} mod vendor -v && ${GO_CMD} mod tidy -v
-
-#rm -f -- distinfo Makefile.deps && make makesum && make gomod-vendor && make gomod-vendor >Makefile.deps && make makesum && mkcal && instpc
 #.-include "${.CURDIR}/Makefile.deps"
+#_OPTIONS_extract+=	600:pre-post-extract
+ #pre-post-extract: .PHONY
+#	cd ${WRKSRC} && \
+#		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod vendor -v && \
+#		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod tidy -v
+#	${CP} ${.CURDIR}/files/go.mod ${.CURDIR}/files/go.sum ${WRKSRC}
+
+pre-build: .PHONY
+	cd ${WRKSRC} && \
+		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod vendor -v && \
+		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod tidy -v
 
 .include <bsd.port.mk>
