@@ -21,8 +21,8 @@ fetch-version: .PHONY get-version
 
 do-build: .PHONY
 	cd ${WRKSRC} && \
-	${GO_CMD} mod tidy -v && \
-	${GO_CMD} mod download && \
-	${GO_CMD} build ${GO_BUILDFLAGS:N-mod*} -o ${GO_WRKDIR_BIN}/${PORTNAME}
+		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod tidy -v && \
+		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod download && \
+		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} build ${GO_BUILDFLAGS:N-mod*} -o ${GO_WRKDIR_BIN}/${PORTNAME}
 
 .include <bsd.port.mk>
