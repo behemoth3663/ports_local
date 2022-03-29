@@ -1,6 +1,6 @@
 GH_TUPLE=	\
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
-		golang:crypto:86341886e292:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:b769efc7c000:golang_crypto/vendor/golang.org/x/crypto \
 		golang:lint:6edffad5e616:golang_lint/vendor/golang.org/x/lint \
 		golang:mod:v0.5.1:golang_mod/vendor/golang.org/x/mod \
 		golang:net:69e39bad7dc2:golang_net/vendor/golang.org/x/net \

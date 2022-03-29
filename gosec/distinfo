@@ -1,10 +1,10 @@
-TIMESTAMP = 1645659347
-SHA256 (securego-gosec-v2.10.0_GH0.tar.gz) = a2cfd36884745693f7e6737922a6e3a9d60aeafe5dd24fcc398250ffa201ceda
-SIZE (securego-gosec-v2.10.0_GH0.tar.gz) = 135052
+TIMESTAMP = 1648549504
+SHA256 (securego-gosec-v2.11.0_GH0.tar.gz) = 24805fc392be01bbdd01bd192acde2effa4aa3b669b2938e46bca892889141cc
+SIZE (securego-gosec-v2.11.0_GH0.tar.gz) = 135498
 SHA256 (go-yaml-yaml-v2.4.0_GH0.tar.gz) = d8e94679e5fff6bd1a35e10241543929a5f3da44f701755babf99b3daf0faac0
 SIZE (go-yaml-yaml-v2.4.0_GH0.tar.gz) = 73209
-SHA256 (golang-crypto-86341886e292_GH0.tar.gz) = 92b4ef34c44645bf9e6fccc20ca0a4307ef1e4e526f583141c05832182124b6b
-SIZE (golang-crypto-86341886e292_GH0.tar.gz) = 1628070
+SHA256 (golang-crypto-b769efc7c000_GH0.tar.gz) = cd6192e15495d7bf8bf3ad70e30c299b010321c0582939b94593fe0449c27f16
+SIZE (golang-crypto-b769efc7c000_GH0.tar.gz) = 1628239
 SHA256 (golang-lint-6edffad5e616_GH0.tar.gz) = 36bd9104a849af61871ec89d776c0b4e7574b5ed0e814a029c02574b0cef4057
 SIZE (golang-lint-6edffad5e616_GH0.tar.gz) = 31976
 SHA256 (golang-mod-v0.5.1_GH0.tar.gz) = 0ceb1aa06f263416ac67b6844a1704cc8078749c7e8ea9c3900a5c06d00e6036
