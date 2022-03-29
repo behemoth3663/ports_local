@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	terraformer
-PORTVERSION=	0.8.18
+PORTVERSION=	0.8.19
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
