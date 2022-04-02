@@ -3,6 +3,7 @@
 PORTNAME=	vegeta
 PORTVERSION=	12.8.4
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local benchmarks
 
 MAINTAINER=	none@freebsd.org

@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	amazon-ssm-agent
-PORTVERSION=	3.1.1141.0
+PORTVERSION=	3.1.1188.0
 CATEGORIES=	local sysutils
 
 MAINTAINER=	cperciva@FreeBSD.org
@@ -40,7 +40,6 @@ PLIST_FILES=	etc/amazon/ssm/amazon-ssm-agent.json.template	\
 USE_RC_SUBR=	amazon-ssm-agent
 
 EXTRA_PATCHES+=	${FILESDIR}/2fce6aca986ea92277f4726c7acae915d15054ed.patch:-p1
-EXTRA_PATCHES+=	${FILESDIR}/b084979a353b90bbec8d60d27858bd9c3067ee1c.patch:-p1
 
 post-patch: .PHONY
 	${REINPLACE_CMD} -r -e \
