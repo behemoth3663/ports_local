@@ -1,5 +1,5 @@
 GH_TUPLE=	\
-		AlecAivazis:survey:v2.3.3:alecaivazis_survey_v2/vendor/github.com/AlecAivazis/survey/v2 \
+		AlecAivazis:survey:v2.3.4:alecaivazis_survey_v2/vendor/github.com/AlecAivazis/survey/v2 \
 		Masterminds:semver:v1.5.0:masterminds_semver/vendor/github.com/Masterminds/semver \
 		OneOfOne:xxhash:v1.2.8:oneofone_xxhash/vendor/github.com/OneOfOne/xxhash \
 		ProtonMail:go-crypto:04723f9f07d7:protonmail_go_crypto/vendor/github.com/ProtonMail/go-crypto \
@@ -7,7 +7,7 @@ GH_TUPLE=	\
 		agext:levenshtein:v1.2.3:agext_levenshtein/vendor/github.com/agext/levenshtein \
 		apparentlymart:go-cidr:v1.1.0:apparentlymart_go_cidr/vendor/github.com/apparentlymart/go-cidr \
 		apparentlymart:go-textseg:v13.0.0:apparentlymart_go_textseg_v13/vendor/github.com/apparentlymart/go-textseg/v13 \
-		aquasecurity:defsec:v0.27.0:aquasecurity_defsec/vendor/github.com/aquasecurity/defsec \
+		aquasecurity:defsec:v0.28.1:aquasecurity_defsec/vendor/github.com/aquasecurity/defsec \
 		aws:aws-sdk-go:v1.31.6:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
 		bgentry:go-netrc:9fd32a8b3d3d:bgentry_go_netrc/vendor/github.com/bgentry/go-netrc \
 		bmatcuk:doublestar:v1.3.4:bmatcuk_doublestar/vendor/github.com/bmatcuk/doublestar \
@@ -69,7 +69,7 @@ GH_TUPLE=	\
 		olekukonko:tablewriter:v0.0.5:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
 		open-policy-agent:opa:v0.38.1:open_policy_agent_opa/vendor/github.com/open-policy-agent/opa \
 		owenrumney:go-sarif:v2.1.1:owenrumney_go_sarif_v2/vendor/github.com/owenrumney/go-sarif \
-		owenrumney:squealer:v0.3.1:owenrumney_squealer/vendor/github.com/owenrumney/squealer \
+		owenrumney:squealer:v0.3.2:owenrumney_squealer/vendor/github.com/owenrumney/squealer \
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		protocolbuffers:protobuf-go:v1.27.1:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
