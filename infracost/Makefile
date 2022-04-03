@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	infracost
-PORTVERSION=	0.9.20
+PORTVERSION=	0.9.21
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -23,7 +23,7 @@ fetch-version: .PHONY get-version
 
 #.-include "${.CURDIR}/Makefile.deps"
 #_OPTIONS_extract+=	600:pre-post-extract
- #pre-post-extract: .PHONY
+#pre-post-extract: .PHONY
 #	cd ${WRKSRC} && \
 #		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod vendor -v && \
 #		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod tidy -v
