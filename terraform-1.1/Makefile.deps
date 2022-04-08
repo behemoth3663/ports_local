@@ -8,7 +8,7 @@ GH_TUPLE=	\
 		Azure:go-autorest:tracing/v0.6.0:azure_go_autorest_tracing \
 		Azure:go-autorest:v14.2.0:azure_go_autorest/vendor/github.com/Azure/go-autorest \
 		Azure:go-ntlmssp:66371956d46c:azure_go_ntlmssp/vendor/github.com/Azure/go-ntlmssp \
-		BurntSushi:toml:v0.3.1:burntsushi_toml/vendor/github.com/BurntSushi/toml \
+		BurntSushi:toml:v0.4.1:burntsushi_toml/vendor/github.com/BurntSushi/toml \
 		ChrisTrenkamp:goxpath:c5096ec8773d:christrenkamp_goxpath/vendor/github.com/ChrisTrenkamp/goxpath \
 		Masterminds:goutils:v1.1.0:masterminds_goutils/vendor/github.com/Masterminds/goutils \
 		Masterminds:semver:v1.5.0:masterminds_semver/vendor/github.com/Masterminds/semver \
@@ -43,7 +43,7 @@ GH_TUPLE=	\
 		coreos:pkg:399ea9e2e55f:coreos_pkg/vendor/github.com/coreos/pkg \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		dimchansky:utfbom:v1.1.1:dimchansky_utfbom/vendor/github.com/dimchansky/utfbom \
-		dominikh:go-tools:v0.3.0-0.dev:dominikh_go_tools/vendor/honnef.co/go/tools \
+		dominikh:go-tools:v0.3.0:dominikh_go_tools/vendor/honnef.co/go/tools \
 		dylanmei:iso8601:v0.1.0:dylanmei_iso8601/vendor/github.com/dylanmei/iso8601 \
 		dylanmei:winrmtest:fbc9ae56efb6:dylanmei_winrmtest/vendor/github.com/dylanmei/winrmtest \
 		etcd-io:etcd:15715dcf1ace:etcd_io_etcd/vendor/go.etcd.io/etcd \
@@ -64,15 +64,15 @@ GH_TUPLE=	\
 		golang:lint:83fdc39ff7b5:golang_lint/vendor/golang.org/x/lint \
 		golang:mock:v1.4.4:golang_mock/vendor/github.com/golang/mock \
 		golang:mock:v1.6.0:golang_mock_1 \
-		golang:mod:v0.4.2:golang_mod/vendor/golang.org/x/mod \
+		golang:mod:9b9b3d81d5e3:golang_mod/vendor/golang.org/x/mod \
 		golang:net:fe4d6282115f:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:f6687ab2804c:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.2:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sys:d867a43fc93e:golang_sys/vendor/golang.org/x/sys \
+		golang:sys:9d821ace8654:golang_sys/vendor/golang.org/x/sys \
 		golang:term:6a3ed077a48d:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.3.6:golang_text/vendor/golang.org/x/text \
+		golang:text:v0.3.7:golang_text/vendor/golang.org/x/text \
 		golang:time:f0f3c7e86c11:golang_time/vendor/golang.org/x/time \
-		golang:tools:v0.1.7:golang_tools/vendor/golang.org/x/tools \
+		golang:tools:77aa08bb151a:golang_tools/vendor/golang.org/x/tools \
 		golang:xerrors:5ec99f83aff1:golang_xerrors/vendor/golang.org/x/xerrors \
 		google:go-cmp:v0.5.6:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-genproto:93e7006c17a6:google_go_genproto/vendor/google.golang.org/genproto \
