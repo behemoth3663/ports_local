@@ -1,12 +1,12 @@
 #
 
 PORTNAME=	checkip
-PORTVERSION=	0.19.0
+PORTVERSION=	0.24.5
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local net
 
 MAINTAINER=	none@FreeBSD.org
-COMMENT=	Check an IP address using various public services 
+COMMENT=	Check an IP address using various public services
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
@@ -15,6 +15,8 @@ USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	jreisinger
+
+GO_TARGET=	./cmd/${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME}
 
