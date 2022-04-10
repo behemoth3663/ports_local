@@ -1,6 +1,6 @@
-TIMESTAMP = 1646941917
-SHA256 (ddosify-ddosify-v0.7.5_GH0.tar.gz) = b642a9dad04a6fe5250b7585e4885f18e254f2c06eae8305162c7a7dc55499d0
-SIZE (ddosify-ddosify-v0.7.5_GH0.tar.gz) = 549985
+TIMESTAMP = 1649604637
+SHA256 (ddosify-ddosify-v0.7.6_GH0.tar.gz) = e473d54bc5c32e5617312e1c085f22ca71f3c376b91b801a59b5b3039185fbf0
+SIZE (ddosify-ddosify-v0.7.6_GH0.tar.gz) = 550093
 SHA256 (asaskevich-govalidator-f21760c49a8d_GH0.tar.gz) = 8d22a0b8a8870f814314637343ba97d598aed64c026ab1dab045ee43eb34d416
 SIZE (asaskevich-govalidator-f21760c49a8d_GH0.tar.gz) = 62652
 SHA256 (enescakir-emoji-v1.0.0_GH0.tar.gz) = d62dc29e5a3f08b8de6fdb8919089cfa9a82c003466b0b1cb5feb33563612839
