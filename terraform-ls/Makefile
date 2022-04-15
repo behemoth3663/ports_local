@@ -1,9 +1,9 @@
 #
 
 PORTNAME=	terraform-ls
-PORTVERSION=	0.26.0
+PORTVERSION=	0.27.0
 DISTVERSIONPREFIX=	v
-CATEGORIES=	local sysutils
+CATEGORIES=	local devel
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Terraform Language Server
