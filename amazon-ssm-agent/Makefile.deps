@@ -9,6 +9,7 @@ GH_TUPLE=	\
 		coreos:go-semver:v0.2.0:coreos_go_semver/vendor/github.com/coreos/go-semver \
 		creack:pty:v1.1.11:creack_pty/vendor/github.com/creack/pty \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
+		digitalocean:go-smbios:390a4f403a8e:digitalocean_go_smbios/vendor/github.com/digitalocean/go-smbios \
 		emirpasic:gods:v1.12.0:emirpasic_gods/vendor/github.com/emirpasic/gods \
 		fsnotify:fsnotify:v1.5.1:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
 		go-git:gcfg:v1.5.0:go_git_gcfg/vendor/github.com/go-git/gcfg \
