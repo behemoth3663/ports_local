@@ -1,6 +1,6 @@
 GH_TUPLE=	\
 		fatih:color:v1.7.0:fatih_color/vendor/github.com/fatih/color \
-		golang:sys:fe61309f8881:golang_sys/vendor/golang.org/x/sys \
+		golang:sys:33da011f77ad:golang_sys/vendor/golang.org/x/sys \
 		mattn:go-colorable:v0.0.9:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
 		mattn:go-isatty:v0.0.4:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
 		nwidger:jsoncolor:75a6de4340e5:nwidger_jsoncolor/vendor/github.com/nwidger/jsoncolor \
