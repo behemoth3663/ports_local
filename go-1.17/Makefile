@@ -4,7 +4,7 @@ PORTNAME=	go
 PORTVERSION?=	1.17.9
 #PORTREVISION?=	0
 #PORTEPOCH?=	1
-CATEGORIES=	lang
+CATEGORIES=	local lang
 MASTER_SITES?=	https://golang.org/dl/ \
 		https://github.com/dmgk/go-bootstrap/releases/download/${BOOTSTRAP_TAG}/:bootstrap \
 		LOCAL/dmgk:bootstrap
