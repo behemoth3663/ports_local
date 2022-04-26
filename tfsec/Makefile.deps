@@ -7,7 +7,7 @@ GH_TUPLE=	\
 		agext:levenshtein:v1.2.3:agext_levenshtein/vendor/github.com/agext/levenshtein \
 		apparentlymart:go-cidr:v1.1.0:apparentlymart_go_cidr/vendor/github.com/apparentlymart/go-cidr \
 		apparentlymart:go-textseg:v13.0.0:apparentlymart_go_textseg_v13/vendor/github.com/apparentlymart/go-textseg/v13 \
-		aquasecurity:defsec:v0.36.0:aquasecurity_defsec/vendor/github.com/aquasecurity/defsec \
+		aquasecurity:defsec:v0.43.1:aquasecurity_defsec/vendor/github.com/aquasecurity/defsec \
 		aws:aws-sdk-go:v1.31.6:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
 		bgentry:go-netrc:9fd32a8b3d3d:bgentry_go_netrc/vendor/github.com/bgentry/go-netrc \
 		bmatcuk:doublestar:v1.3.4:bmatcuk_doublestar/vendor/github.com/bmatcuk/doublestar \
@@ -44,7 +44,7 @@ GH_TUPLE=	\
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
 		hashicorp:go-getter:v1.5.11:hashicorp_go_getter/vendor/github.com/hashicorp/go-getter \
 		hashicorp:go-safetemp:v1.0.0:hashicorp_go_safetemp/vendor/github.com/hashicorp/go-safetemp \
-		hashicorp:go-uuid:v1.0.2:hashicorp_go_uuid/vendor/github.com/hashicorp/go-uuid \
+		hashicorp:go-uuid:v1.0.3:hashicorp_go_uuid/vendor/github.com/hashicorp/go-uuid \
 		hashicorp:go-version:v1.4.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
 		hashicorp:hcl:v2.11.1:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
 		inconshreveable:go-update:8152e7eb6ccf:inconshreveable_go_update/vendor/github.com/inconshreveable/go-update \
