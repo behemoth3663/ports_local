@@ -91,7 +91,7 @@ GH_TUPLE=	\
 		mitchellh:go-wordwrap:v1.0.1:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
 		mitchellh:mapstructure:v1.3.3:mitchellh_mapstructure/vendor/github.com/mitchellh/mapstructure \
 		mozilla-services:gopgagent:4d7ea76ff71a:mozilla_services_gopgagent/vendor/go.mozilla.org/gopgagent \
-		mozilla:sops:v3.7.0:mozilla_sops/vendor/go.mozilla.org/sops/v3 \
+		mozilla:sops:v3.7.2:mozilla_sops/vendor/go.mozilla.org/sops/v3 \
 		niemeyer:pretty:a10e7caefd8e:niemeyer_pretty/vendor/github.com/niemeyer/pretty \
 		opencontainers:runc:v1.0.0-rc9:opencontainers_runc/vendor/github.com/opencontainers/runc \
 		ory:dockertest:v3.3.5:ory_dockertest/vendor/github.com/ory/dockertest \

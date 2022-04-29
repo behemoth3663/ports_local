@@ -20,7 +20,6 @@ GH_TUPLE=	\
 		aws:aws-sdk-go:v1.42.1:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
 		bazil:fuse:fb710f7dfd05:bazil_fuse/vendor/bazil.org/fuse \
 		beorn7:perks:v1.0.1:beorn7_perks/vendor/github.com/beorn7/perks \
-		billziss-gh:cgofuse:v1.5.0:billziss_gh_cgofuse/vendor/github.com/billziss-gh/cgofuse \
 		btcsuite:btcutil:a53e38424cce:btcsuite_btcutil/vendor/github.com/btcsuite/btcutil \
 		buengese:sgzip:v0.1.1:buengese_sgzip/vendor/github.com/buengese/sgzip \
 		calebcase:tmpfile:v1.0.3:calebcase_tmpfile/vendor/github.com/calebcase/tmpfile \
@@ -42,7 +41,7 @@ GH_TUPLE=	\
 		gogo:protobuf:v1.3.2:gogo_protobuf/vendor/github.com/gogo/protobuf \
 		golang-jwt:jwt:v4.1.0:golang_jwt_jwt_v4/vendor/github.com/golang-jwt/jwt/v4 \
 		golang:appengine:v1.6.7:golang_appengine/vendor/google.golang.org/appengine \
-		golang:crypto:e495a2d5b3d3:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:ae2d96664a29:golang_crypto/vendor/golang.org/x/crypto \
 		golang:groupcache:41bb18bfe9da:golang_groupcache/vendor/github.com/golang/groupcache \
 		golang:net:69e39bad7dc2:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:d3ed0bb246c8:golang_oauth2/vendor/golang.org/x/oauth2 \
@@ -113,6 +112,7 @@ GH_TUPLE=	\
 		tklauser:go-sysconf:v0.3.9:tklauser_go_sysconf/vendor/github.com/tklauser/go-sysconf \
 		tklauser:numcpus:v0.3.0:tklauser_numcpus/vendor/github.com/tklauser/numcpus \
 		vivint:infectious:25a574ae18a3:vivint_infectious/vendor/github.com/vivint/infectious \
+		winfsp:cgofuse:v1.5.0:winfsp_cgofuse/vendor/github.com/winfsp/cgofuse \
 		xanzy:ssh-agent:v0.3.1:xanzy_ssh_agent/vendor/github.com/xanzy/ssh-agent \
 		youmark:pkcs8:1326539a0a0a:youmark_pkcs8/vendor/github.com/youmark/pkcs8 \
 		yunify:qingstor-sdk-go:v3.2.0:yunify_qingstor_sdk_go_v3/vendor/github.com/yunify/qingstor-sdk-go/v3 \
