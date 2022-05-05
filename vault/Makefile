@@ -24,7 +24,7 @@ COMMIT_ID!=	git ls-remote --tags \
 		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
 
-GO_BUILDFLAGS=	-tags=ui \
+GO_BUILDFLAGS+=	-tags=ui \
 		-ldflags="-s -w \
 		-X github.com/hashicorp/vault/sdk/version.Version=${PORTVERSION} \
 		-X github.com/hashicorp/vault/sdk/version.VersionPrerelease= \

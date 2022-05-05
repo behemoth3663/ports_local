@@ -18,7 +18,7 @@ GH_ACCOUNT=	homeport
 
 GO_TARGET=	./cmd/${PORTNAME}
 
-GO_BUILDFLAGS=	-ldflags="-s -w \
+GO_BUILDFLAGS+=	-ldflags="-s -w \
 		-X 'github.com/${GH_ACCOUNT}/${PORTNAME}/internal/cmd.version=${DISTVERSIONPREFIX}${PORTVERSION}'"
 
 PLIST_FILES=	bin/${PORTNAME}
