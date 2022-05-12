@@ -1,6 +1,6 @@
-TIMESTAMP = 1650201939
-SHA256 (aws-amazon-ssm-agent-3.1.1260.0_GH0.tar.gz) = 3deac6efeaa9438c09a344f534fae6ae83f0025b46692c6dc60e904d6187dcf9
-SIZE (aws-amazon-ssm-agent-3.1.1260.0_GH0.tar.gz) = 23355071
+TIMESTAMP = 1652345708
+SHA256 (aws-amazon-ssm-agent-3.1.1374.0_GH0.tar.gz) = 32a43838c5f893f047778bb94791b3a8c72549448b08cbee157c036a4279d7de
+SIZE (aws-amazon-ssm-agent-3.1.1374.0_GH0.tar.gz) = 23356291
 SHA256 (Jeffail-gabs-v1.0.0_GH0.tar.gz) = 4213521b5bbf7ed1d7afe3e6072fdb02e288ad6de0f745b4edc8f24036809030
 SIZE (Jeffail-gabs-v1.0.0_GH0.tar.gz) = 69061
 SHA256 (Microsoft-go-winio-v0.5.0_GH0.tar.gz) = 82c90c7289b8885d4ecf8f8739399200f69bf7ff0d6ac9715d9f5b0f29a8f49d

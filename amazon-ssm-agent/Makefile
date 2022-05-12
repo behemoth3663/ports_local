@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	amazon-ssm-agent
-PORTVERSION=	3.1.1260.0
+PORTVERSION=	3.1.1374.0
 CATEGORIES=	local sysutils
 
 MAINTAINER=	cperciva@FreeBSD.org
@@ -20,8 +20,7 @@ GH_SUBDIR=	src/github.com/aws/amazon-ssm-agent
 
 JQ_GETVER_EXPR=	[.[].name | select(test("^[-0-9.]+$$"; "n"))][0]
 
-GO_TARGET=	\
-		./agent/framework/processor/executer/outofproc/worker:${PREFIX}/sbin/ssm-document-worker \
+GO_TARGET=	./agent/framework/processor/executer/outofproc/worker:${PREFIX}/sbin/ssm-document-worker \
 		./agent/framework/processor/executer/outofproc/sessionworker:${PREFIX}/sbin/ssm-session-worker \
 		./agent/session/logging:${PREFIX}/sbin/ssm-session-logger \
 		./agent:${PREFIX}/sbin/ssm-agent-worker \
