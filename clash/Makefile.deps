@@ -1,29 +1,30 @@
 GH_TUPLE=	\
-		Dreamacro:go-shadowsocks2:v0.1.7:dreamacro_go_shadowsocks2/vendor/github.com/Dreamacro/go-shadowsocks2 \
+		Dreamacro:go-shadowsocks2:v0.1.8:dreamacro_go_shadowsocks2/vendor/github.com/Dreamacro/go-shadowsocks2 \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		etcd-io:bbolt:v1.3.6:etcd_io_bbolt/vendor/go.etcd.io/bbolt \
 		go-chi:chi:v5.0.7:go_chi_chi_v5/vendor/github.com/go-chi/chi/v5 \
-		go-chi:cors:v1.2.0:go_chi_cors/vendor/github.com/go-chi/cors \
+		go-chi:cors:v1.2.1:go_chi_cors/vendor/github.com/go-chi/cors \
 		go-chi:render:v1.0.1:go_chi_render/vendor/github.com/go-chi/render \
-		go-yaml:yaml:9f266ea9e77c:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
+		go-yaml:yaml:496545a6307b:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
 		gofrs:uuid:v4.2.0:gofrs_uuid/vendor/github.com/gofrs/uuid \
-		golang:crypto:3147a52a75dd:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:2cf3adece122:golang_crypto/vendor/golang.org/x/crypto \
 		golang:mod:v0.4.2:golang_mod/vendor/golang.org/x/mod \
-		golang:net:27dd8689420f:golang_net/vendor/golang.org/x/net \
+		golang:net:2871e0cb64e4:golang_net/vendor/golang.org/x/net \
 		golang:sync:036812b2e83c:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:039c03cc5b86:golang_sys/vendor/golang.org/x/sys \
+		golang:sys:988cb79eb6c6:golang_sys/vendor/golang.org/x/sys \
 		golang:text:v0.3.7:golang_text/vendor/golang.org/x/text \
 		golang:tools:07bc1bf47fb2:golang_tools/vendor/golang.org/x/tools \
 		golang:xerrors:5ec99f83aff1:golang_xerrors/vendor/golang.org/x/xerrors \
 		gorilla:websocket:v1.5.0:gorilla_websocket/vendor/github.com/gorilla/websocket \
-		insomniacslk:dhcp:3c283ff8b7dd:insomniacslk_dhcp/vendor/github.com/insomniacslk/dhcp \
-		miekg:dns:v1.1.47:miekg_dns/vendor/github.com/miekg/dns \
-		oschwald:geoip2-golang:v1.6.1:oschwald_geoip2_golang/vendor/github.com/oschwald/geoip2-golang \
-		oschwald:maxminddb-golang:v1.8.0:oschwald_maxminddb_golang/vendor/github.com/oschwald/maxminddb-golang \
+		insomniacslk:dhcp:1ca156eafb9f:insomniacslk_dhcp/vendor/github.com/insomniacslk/dhcp \
+		kr:text:v0.2.0:kr_text/vendor/github.com/kr/text \
+		miekg:dns:v1.1.48:miekg_dns/vendor/github.com/miekg/dns \
+		oschwald:geoip2-golang:v1.7.0:oschwald_geoip2_golang/vendor/github.com/oschwald/geoip2-golang \
+		oschwald:maxminddb-golang:v1.9.0:oschwald_maxminddb_golang/vendor/github.com/oschwald/maxminddb-golang \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		sirupsen:logrus:v1.8.1:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
 		stretchr:testify:v1.7.1:stretchr_testify/vendor/github.com/stretchr/testify \
 		u-root:uio:82958018845c:u_root_uio/vendor/github.com/u-root/uio \
 		uber-go:atomic:v1.9.0:uber_go_atomic/vendor/go.uber.org/atomic \
-		uber-go:automaxprocs:v1.4.0:uber_go_automaxprocs/vendor/go.uber.org/automaxprocs
+		uber-go:automaxprocs:v1.5.1:uber_go_automaxprocs/vendor/go.uber.org/automaxprocs

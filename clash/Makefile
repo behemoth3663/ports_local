@@ -1,6 +1,6 @@
 PORTNAME=	clash
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.10.0
+DISTVERSION=	1.10.6
 CATEGORIES=	local net
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -11,7 +11,6 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 
-#GO_MODULE=	github.com/Dreamacro/clash
 USE_GITHUB=	yes
 GH_ACCOUNT=	Dreamacro
 
