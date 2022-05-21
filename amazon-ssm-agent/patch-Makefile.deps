@@ -1,0 +1,32 @@
+--- Makefile.deps.orig	2022-05-21 19:17:23 UTC
++++ Makefile.deps
+@@ -2,8 +2,7 @@ GH_TUPLE=	\
+ 		Jeffail:gabs:v1.0.0:jeffail_gabs/vendor/github.com/Jeffail/gabs \
+ 		Microsoft:go-winio:v0.5.0:microsoft_go_winio/vendor/github.com/Microsoft/go-winio \
+ 		Workiva:go-datastructures:v1.0.53:workiva_go_datastructures/vendor/github.com/Workiva/go-datastructures \
+-		aws:aws-sdk-go::aws_aws_sdk_go/github.com/aws/aws-sdk-go \
+-		aws:aws-sdk-go:v1.41.4:aws_aws_sdk_go_1 \
++		aws:aws-sdk-go:v1.41.4:aws_aws_sdk_go/github.com/aws/aws-sdk-go \
+ 		carlescere:scheduler:9b78eac89dfb:carlescere_scheduler/vendor/github.com/carlescere/scheduler \
+ 		cenkalti:backoff:v4.0.2:cenkalti_backoff_v4/vendor/github.com/cenkalti/backoff/v4 \
+ 		cihub:seelog:f561c5e57575:cihub_seelog/vendor/github.com/cihub/seelog \
+@@ -40,8 +39,7 @@ GH_TUPLE=	\
+ 		mitchellh:go-homedir:v1.1.0:mitchellh_go_homedir/vendor/github.com/mitchellh/go-homedir \
+ 		mitchellh:go-ps:v1.0.0:mitchellh_go_ps/vendor/github.com/mitchellh/go-ps \
+ 		nanomsg:mangos:v3.3.0:nanomsg_mangos/vendor/go.nanomsg.org/mangos/v3 \
+-		nightlyone:lockfile::nightlyone_lockfile/github.com/nightlyone/lockfile \
+-		nightlyone:lockfile:v0.0.0:nightlyone_lockfile_1 \
++		nightlyone:lockfile:v1.0.0:nightlyone_lockfile/github.com/nightlyone/lockfile \
+ 		pborman:ansi:v1.0.0:pborman_ansi/vendor/github.com/pborman/ansi \
+ 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
+ 		protocolbuffers:protobuf-go:v1.25.0:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
+@@ -51,9 +49,3 @@ GH_TUPLE=	\
+ 		twinj:uuid:89173bcdda19:twinj_uuid/vendor/github.com/twinj/uuid \
+ 		xanzy:ssh-agent:v0.3.0:xanzy_ssh_agent/vendor/github.com/xanzy/ssh-agent \
+ 		xtaci:smux:v1.5.15:xtaci_smux/vendor/github.com/xtaci/smux
+-
+-post-extract:
+-	@${RLN} ${WRKSRC_aws_aws_sdk_go} ${WRKSRC}/extra/aws-sdk-go
+-	@${RLN} ${WRKSRC_aws_aws_sdk_go_1} ${WRKSRC}/extra/aws-sdk-go
+-	@${RLN} ${WRKSRC_nightlyone_lockfile} ${WRKSRC}/extra/lockfile
+-	@${RLN} ${WRKSRC_nightlyone_lockfile_1} ${WRKSRC}/extra/lockfile
