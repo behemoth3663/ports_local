@@ -9,7 +9,7 @@ GH_TUPLE=	\
 		alecthomas:chroma:v0.10.0:alecthomas_chroma/vendor/github.com/alecthomas/chroma \
 		apparentlymart:go-cidr:v1.1.0:apparentlymart_go_cidr/vendor/github.com/apparentlymart/go-cidr \
 		apparentlymart:go-textseg:v13.0.0:apparentlymart_go_textseg_v13/vendor/github.com/apparentlymart/go-textseg/v13 \
-		aquasecurity:defsec:v0.57.3:aquasecurity_defsec/vendor/github.com/aquasecurity/defsec \
+		aquasecurity:defsec:v0.57.8:aquasecurity_defsec/vendor/github.com/aquasecurity/defsec \
 		aws:aws-sdk-go:v1.34.9:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
 		bgentry:go-netrc:9fd32a8b3d3d:bgentry_go_netrc/vendor/github.com/bgentry/go-netrc \
 		bmatcuk:doublestar:v1.3.4:bmatcuk_doublestar/vendor/github.com/bmatcuk/doublestar \
@@ -58,7 +58,7 @@ GH_TUPLE=	\
 		kballard:go-shellquote:95032a82bc51:kballard_go_shellquote/vendor/github.com/kballard/go-shellquote \
 		kevinburke:ssh_config:4977a11b4351:kevinburke_ssh_config/vendor/github.com/kevinburke/ssh_config \
 		klauspost:compress:v1.15.1:klauspost_compress/vendor/github.com/klauspost/compress \
-		liamg:clinch:v1.5.6:liamg_clinch/vendor/github.com/liamg/clinch \
+		liamg:clinch:v1.6.1:liamg_clinch/vendor/github.com/liamg/clinch \
 		liamg:gifwrap:v0.0.6:liamg_gifwrap/vendor/github.com/liamg/gifwrap \
 		liamg:iamgo:v0.0.6:liamg_iamgo/vendor/github.com/liamg/iamgo \
 		liamg:jfather:v0.0.7:liamg_jfather/vendor/github.com/liamg/jfather \
