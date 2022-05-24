@@ -61,7 +61,7 @@ GH_TUPLE=	\
 		golang-jwt:jwt:v3.2.1:golang_jwt_jwt/vendor/github.com/dgrijalva/jwt-go \
 		golang-jwt:jwt:v4.2.0:golang_jwt_jwt_v4/vendor/github.com/golang-jwt/jwt/v4 \
 		golang:appengine:v1.6.7:golang_appengine/vendor/google.golang.org/appengine \
-		golang:crypto:eb4f295cb31f:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:6f7dac969898:golang_crypto/vendor/golang.org/x/crypto \
 		golang:groupcache:41bb18bfe9da:golang_groupcache/vendor/github.com/golang/groupcache \
 		golang:lint:83fdc39ff7b5:golang_lint/vendor/golang.org/x/lint \
 		golang:mock:v1.4.4:golang_mock_1/vendor/github.com/golang/mock \
@@ -189,9 +189,6 @@ GH_TUPLE=	\
 		zclconf:go-cty-debug:b22d67c1ba0b:zclconf_go_cty_debug/vendor/github.com/zclconf/go-cty-debug \
 		zclconf:go-cty-yaml:v1.0.2:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
 		zclconf:go-cty:v1.10.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
-
-		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
-		#	::6cf2b201936e:group_name/vendor/golang.org/x/exp/typeparams (from go.googlesource.com/exp@6cf2b201936e)
 
 post-extract:
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
