@@ -1,1 +1,6 @@
-GH_TUPLE=	icza:gox:370c390b446f:icza_gox/vendor/github.com/icza/gox
+GH_TUPLE=	\
+		davecgh:go-spew:v1.1.0:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
+		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
+		icza:gox:e2d488ab2fbc:icza_gox/vendor/github.com/icza/gox \
+		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
+		stretchr:testify:v1.7.1:stretchr_testify/vendor/github.com/stretchr/testify
