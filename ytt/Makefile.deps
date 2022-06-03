@@ -1,6 +1,6 @@
 GH_TUPLE=	\
-		BurntSushi:toml:v1.0.0:burntsushi_toml/vendor/github.com/BurntSushi/toml \
-		aws:aws-lambda-go:v1.28.0:aws_aws_lambda_go/vendor/github.com/aws/aws-lambda-go \
+		BurntSushi:toml:v1.1.0:burntsushi_toml/vendor/github.com/BurntSushi/toml \
+		aws:aws-lambda-go:v1.32.0:aws_aws_lambda_go/vendor/github.com/aws/aws-lambda-go \
 		cppforlife:cobrautil:bb86e6965d72:cppforlife_cobrautil/vendor/github.com/cppforlife/cobrautil \
 		cppforlife:go-cli-ui:512793797f05:cppforlife_go_cli_ui/vendor/github.com/cppforlife/go-cli-ui \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
@@ -14,6 +14,6 @@ GH_TUPLE=	\
 		kr:pretty:v0.2.0:kr_pretty/vendor/github.com/kr/pretty \
 		kr:text:v0.1.0:kr_text/vendor/github.com/kr/text \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
-		spf13:cobra:v1.3.0:spf13_cobra/vendor/github.com/spf13/cobra \
+		spf13:cobra:v1.4.0:spf13_cobra/vendor/github.com/spf13/cobra \
 		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
-		stretchr:testify:v1.7.0:stretchr_testify/vendor/github.com/stretchr/testify
+		stretchr:testify:v1.7.1:stretchr_testify/vendor/github.com/stretchr/testify
