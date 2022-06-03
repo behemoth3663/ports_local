@@ -1,8 +1,10 @@
 GH_TUPLE=	\
-		golang:sys:0c823b97ae02:golang_sys/vendor/golang.org/x/sys \
-		mattn:go-colorable:v0.1.11:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
+		charmbracelet:lipgloss:v0.4.0:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
+		golang:sys:45d2b4557a2a:golang_sys/vendor/golang.org/x/sys \
+		lucasb-eyer:go-colorful:v1.2.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
 		mattn:go-isatty:v0.0.14:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
 		mattn:go-runewidth:v0.0.13:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
+		muesli:reflow:v0.3.0:muesli_reflow/vendor/github.com/muesli/reflow \
+		muesli:termenv:v0.11.0:muesli_termenv/vendor/github.com/muesli/termenv \
 		olekukonko:tablewriter:v0.0.5:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
-		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
 		rivo:uniseg:v0.2.0:rivo_uniseg/vendor/github.com/rivo/uniseg
