@@ -1,52 +1,24 @@
 GH_TUPLE=	\
-		RoaringBitmap:roaring:v0.9.4:roaringbitmap_roaring/vendor/github.com/RoaringBitmap/roaring \
-		anacrolix:chansync:3f72684c4a93:anacrolix_chansync/vendor/github.com/anacrolix/chansync \
-		anacrolix:confluence:v1.8.0:anacrolix_confluence/vendor/github.com/anacrolix/confluence \
-		anacrolix:dht:99263ec9c1c8:anacrolix_dht_v2/vendor/github.com/anacrolix/dht/v2 \
-		anacrolix:envpprof:v1.1.1:anacrolix_envpprof/vendor/github.com/anacrolix/envpprof \
-		anacrolix:go-libutp:v1.0.4:anacrolix_go_libutp/vendor/github.com/anacrolix/go-libutp \
-		anacrolix:log:v0.9.0:anacrolix_log/vendor/github.com/anacrolix/log \
-		anacrolix:missinggo:v1.0.0:anacrolix_missinggo_perf/vendor/github.com/anacrolix/missinggo \
-		anacrolix:missinggo:v1.3.0:anacrolix_missinggo \
-		anacrolix:missinggo:v2.5.2:anacrolix_missinggo_v2/vendor/github.com/anacrolix/missinggo/v2 \
-		anacrolix:mmsg:v1.0.0:anacrolix_mmsg/vendor/github.com/anacrolix/mmsg \
-		anacrolix:multiless:de2f6cf29619:anacrolix_multiless/vendor/github.com/anacrolix/multiless \
-		anacrolix:stm:v0.3.0:anacrolix_stm/vendor/github.com/anacrolix/stm \
-		anacrolix:sync:v0.4.0:anacrolix_sync/vendor/github.com/anacrolix/sync \
-		anacrolix:torrent:v1.33.0:anacrolix_torrent/vendor/github.com/anacrolix/torrent \
-		anacrolix:upnp:5e9378ed1425:anacrolix_upnp/vendor/github.com/anacrolix/upnp \
-		anacrolix:utp:v0.1.0:anacrolix_utp/vendor/github.com/anacrolix/utp \
-		armon:go-metrics:v0.3.9:armon_go_metrics/vendor/github.com/armon/go-metrics \
-		benbjohnson:immutable:v0.3.0:benbjohnson_immutable/vendor/github.com/benbjohnson/immutable \
-		bits-and-blooms:bitset:v1.2.0:bits_and_blooms_bitset/vendor/github.com/bits-and-blooms/bitset \
-		bradfitz:iter:e8f45d346db8:bradfitz_iter/vendor/github.com/bradfitz/iter \
-		crawshaw:sqlite:98b1f83c5508:crawshaw_sqlite/vendor/crawshaw.io/sqlite \
-		creack:pty:v1.1.17:creack_pty/vendor/github.com/creack/pty \
-		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
-		dustin:go-humanize:v1.0.0:dustin_go_humanize/vendor/github.com/dustin/go-humanize \
-		edsrzf:mmap-go:v1.0.0:edsrzf_mmap_go/vendor/github.com/edsrzf/mmap-go \
-		elliotchance:orderedmap:v1.4.0:elliotchance_orderedmap/vendor/github.com/elliotchance/orderedmap \
-		etcd-io:bbolt:v1.3.6:etcd_io_bbolt/vendor/go.etcd.io/bbolt \
+		armon:go-metrics:v0.4.0:armon_go_metrics/vendor/github.com/armon/go-metrics \
+		creack:pty:v1.1.18:creack_pty/vendor/github.com/creack/pty \
 		gdamore:encoding:v1.0.0:gdamore_encoding/vendor/github.com/gdamore/encoding \
-		gdamore:tcell:f057f0a857a1:gdamore_tcell_v2/vendor/github.com/gdamore/tcell/v2 \
-		go-check:check:41f04d3bba15:go_check_check/vendor/gopkg.in/check.v1 \
+		gdamore:tcell:v2.5.1:gdamore_tcell_v2/vendor/github.com/gdamore/tcell/v2 \
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
-		golang:crypto:089bfa567519:golang_crypto/vendor/golang.org/x/crypto \
-		golang:net:4f30a5c0130f:golang_net/vendor/golang.org/x/net \
+		golang:crypto:793ad666bf5e:golang_crypto/vendor/golang.org/x/crypto \
+		golang:mod:9b9b3d81d5e3:golang_mod/vendor/golang.org/x/mod \
+		golang:net:c960675eff93:golang_net/vendor/golang.org/x/net \
 		golang:protobuf:v1.5.2:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sync:036812b2e83c:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:69063c4bb744:golang_sys/vendor/golang.org/x/sys \
-		golang:term:03fcf44c2211:golang_term/vendor/golang.org/x/term \
+		golang:sync:0976fa681c29:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:bc2c85ada10a:golang_sys/vendor/golang.org/x/sys \
+		golang:term:065cf7ba2467:golang_term/vendor/golang.org/x/term \
 		golang:text:v0.3.7:golang_text/vendor/golang.org/x/text \
-		golang:time:1f47c861a9ac:golang_time/vendor/golang.org/x/time \
-		golang:xerrors:5ec99f83aff1:golang_xerrors/vendor/golang.org/x/xerrors \
+		golang:tools:v0.1.10:golang_tools/vendor/golang.org/x/tools \
+		golang:xerrors:f3a8303e98df:golang_xerrors/vendor/golang.org/x/xerrors \
 		google:btree:v1.0.1:google_btree/vendor/github.com/google/btree \
-		google:go-genproto:37fc39342514:google_go_genproto/vendor/google.golang.org/genproto \
+		google:go-genproto:27df5f98adab:google_go_genproto/vendor/google.golang.org/genproto \
 		google:goexpect:ab937bf7fd6f:google_goexpect/vendor/github.com/google/goexpect \
 		google:goterm:555d40f16ae2:google_goterm/vendor/github.com/google/goterm \
-		google:uuid:v1.3.0:google_uuid/vendor/github.com/google/uuid \
-		gorilla:websocket:v1.4.2:gorilla_websocket/vendor/github.com/gorilla/websocket \
-		grpc:grpc-go:v1.41.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+		grpc:grpc-go:v1.47.0:grpc_grpc_go/vendor/google.golang.org/grpc \
 		hashicorp:errwrap:v1.1.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
 		hashicorp:go-immutable-radix:v1.3.1:hashicorp_go_immutable_radix/vendor/github.com/hashicorp/go-immutable-radix \
 		hashicorp:go-msgpack:v1.1.5:hashicorp_go_msgpack/vendor/github.com/hashicorp/go-msgpack \
@@ -54,43 +26,17 @@ GH_TUPLE=	\
 		hashicorp:go-sockaddr:v1.0.2:hashicorp_go_sockaddr/vendor/github.com/hashicorp/go-sockaddr \
 		hashicorp:go-uuid:v1.0.1:hashicorp_go_uuid/vendor/github.com/hashicorp/go-uuid \
 		hashicorp:golang-lru:v0.5.4:hashicorp_golang_lru/vendor/github.com/hashicorp/golang-lru \
-		hashicorp:memberlist:v0.2.4:hashicorp_memberlist/vendor/github.com/hashicorp/memberlist \
-		huandu:xstrings:v1.3.2:huandu_xstrings/vendor/github.com/huandu/xstrings \
+		hashicorp:memberlist:v0.3.1:hashicorp_memberlist/vendor/github.com/hashicorp/memberlist \
+		kr:pretty:v0.3.0:kr_pretty/vendor/github.com/kr/pretty \
 		lucasb-eyer:go-colorful:v1.2.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
 		mattn:go-runewidth:v0.0.13:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
-		miekg:dns:v1.1.43:miekg_dns/vendor/github.com/miekg/dns \
-		mschoch:smat:v0.2.0:mschoch_smat/vendor/github.com/mschoch/smat \
+		miekg:dns:v1.1.49:miekg_dns/vendor/github.com/miekg/dns \
 		nightlyone:lockfile:v1.0.0:nightlyone_lockfile/vendor/github.com/nightlyone/lockfile \
-		peterh:liner:v1.2.1:peterh_liner/vendor/github.com/peterh/liner \
-		pion:datachannel:v1.4.21:pion_datachannel/vendor/github.com/pion/datachannel \
-		pion:dtls:v2.0.9:pion_dtls_v2/vendor/github.com/pion/dtls/v2 \
-		pion:ice:v2.1.12:pion_ice_v2/vendor/github.com/pion/ice/v2 \
-		pion:interceptor:v0.0.15:pion_interceptor/vendor/github.com/pion/interceptor \
-		pion:logging:v0.2.2:pion_logging/vendor/github.com/pion/logging \
-		pion:mdns:v0.0.5:pion_mdns/vendor/github.com/pion/mdns \
-		pion:randutil:v0.1.0:pion_randutil/vendor/github.com/pion/randutil \
-		pion:rtcp:v1.2.6:pion_rtcp/vendor/github.com/pion/rtcp \
-		pion:rtp:v1.7.2:pion_rtp/vendor/github.com/pion/rtp \
-		pion:sctp:v1.7.12:pion_sctp/vendor/github.com/pion/sctp \
-		pion:sdp:v3.0.4:pion_sdp_v3/vendor/github.com/pion/sdp/v3 \
-		pion:srtp:v2.0.5:pion_srtp_v2/vendor/github.com/pion/srtp/v2 \
-		pion:stun:v0.3.5:pion_stun/vendor/github.com/pion/stun \
-		pion:transport:v0.12.3:pion_transport/vendor/github.com/pion/transport \
-		pion:turn:v2.0.5:pion_turn_v2/vendor/github.com/pion/turn/v2 \
-		pion:udp:v0.1.1:pion_udp/vendor/github.com/pion/udp \
-		pion:webrtc:v3.0.32:pion_webrtc_v3/vendor/github.com/pion/webrtc/v3 \
-		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
-		protocolbuffers:protobuf-go:v1.27.1:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
-		rivo:tview:5508f4b00266:rivo_tview/vendor/github.com/rivo/tview \
+		peterh:liner:v1.2.2:peterh_liner/vendor/github.com/peterh/liner \
+		protocolbuffers:protobuf-go:v1.28.0:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
+		rivo:tview:9994674d60a8:rivo_tview/vendor/github.com/rivo/tview \
 		rivo:uniseg:v0.2.0:rivo_uniseg/vendor/github.com/rivo/uniseg \
-		rs:dnscache:295bba877686:rs_dnscache/vendor/github.com/rs/dnscache \
-		ryszard:goskiplist:2dfbae5fcf46:ryszard_goskiplist/vendor/github.com/ryszard/goskiplist \
+		rogpeppe:go-internal:v1.8.0:rogpeppe_go_internal/vendor/github.com/rogpeppe/go-internal \
 		sean-:seed:e2103e2c3529:sean__seed/vendor/github.com/sean-/seed \
-		skx:subcommands:v0.9.1:skx_subcommands/vendor/github.com/skx/subcommands \
-		spaolacci:murmur3:v1.1.0:spaolacci_murmur3/vendor/github.com/spaolacci/murmur3 \
-		stretchr:testify:v1.7.0:stretchr_testify/vendor/github.com/stretchr/testify \
-		willf:bitset:v1.1.11:willf_bitset/vendor/github.com/willf/bitset \
-		willf:bloom:v2.0.3:willf_bloom/vendor/github.com/willf/bloom
-
-post-extract:
-	@${RLN} ${WRKSRC_anacrolix_missinggo} ${WRKSRC}/vendor/github.com/anacrolix/missinggo
+		skx:subcommands:v0.9.2:skx_subcommands/vendor/github.com/skx/subcommands \
+		stretchr:testify:v1.7.1:stretchr_testify/vendor/github.com/stretchr/testify
