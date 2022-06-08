@@ -7,8 +7,8 @@ GH_TUPLE=	\
 		fatih:color:v1.9.0:fatih_color/vendor/github.com/fatih/color \
 		go-errors:errors:d98b870cc4e0:go_errors_errors/vendor/github.com/go-errors/errors \
 		go-sql-driver:mysql:v1.5.0:go_sql_driver_mysql/vendor/github.com/go-sql-driver/mysql \
-		go-yaml:yaml:9f266ea9e77c:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
 		go-yaml:yaml:v2.2.8:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
+		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
 		golang:crypto:5ea612d1eb83:golang_crypto/vendor/golang.org/x/crypto \
 		golang:mock:v1.6.0:golang_mock/vendor/github.com/golang/mock \
 		golang:net:04defd469f4e:golang_net/vendor/golang.org/x/net \
@@ -28,5 +28,6 @@ GH_TUPLE=	\
 		russross:blackfriday:v2.0.1:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
 		shurcooL:sanitized_anchor_name:v1.0.0:shurcool_sanitized_anchor_name/vendor/github.com/shurcooL/sanitized_anchor_name \
 		sirupsen:logrus:v1.6.0:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
-		stretchr:testify:v1.6.1:stretchr_testify/vendor/github.com/stretchr/testify \
+		stretchr:objx:v0.4.0:stretchr_objx/vendor/github.com/stretchr/objx \
+		stretchr:testify:v1.7.1:stretchr_testify/vendor/github.com/stretchr/testify \
 		urfave:cli:v1.22.4:urfave_cli/vendor/github.com/urfave/cli

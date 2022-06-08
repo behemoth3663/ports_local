@@ -1,7 +1,7 @@
 # Created by: Devon H. O'Dell <devon.odell@gmail.com>
 
 PORTNAME=	go
-PORTVERSION?=	1.18.2
+PORTVERSION?=	1.18.3
 #PORTREVISION?=	1
 PORTEPOCH?=	2
 CATEGORIES=	local lang

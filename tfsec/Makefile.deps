@@ -6,10 +6,11 @@ GH_TUPLE=	\
 		ProtonMail:go-crypto:04723f9f07d7:protonmail_go_crypto/vendor/github.com/ProtonMail/go-crypto \
 		acomagu:bufpipe:v1.0.3:acomagu_bufpipe/vendor/github.com/acomagu/bufpipe \
 		agext:levenshtein:v1.2.3:agext_levenshtein/vendor/github.com/agext/levenshtein \
+		agnivade:levenshtein:v1.0.1:agnivade_levenshtein/vendor/github.com/agnivade/levenshtein \
 		alecthomas:chroma:v0.10.0:alecthomas_chroma/vendor/github.com/alecthomas/chroma \
 		apparentlymart:go-cidr:v1.1.0:apparentlymart_go_cidr/vendor/github.com/apparentlymart/go-cidr \
 		apparentlymart:go-textseg:v13.0.0:apparentlymart_go_textseg_v13/vendor/github.com/apparentlymart/go-textseg/v13 \
-		aquasecurity:defsec:v0.61.0:aquasecurity_defsec/vendor/github.com/aquasecurity/defsec \
+		aquasecurity:defsec:v0.62.0:aquasecurity_defsec/vendor/github.com/aquasecurity/defsec \
 		aws:aws-sdk-go:v1.34.9:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
 		bgentry:go-netrc:9fd32a8b3d3d:bgentry_go_netrc/vendor/github.com/bgentry/go-netrc \
 		bmatcuk:doublestar:v1.3.4:bmatcuk_doublestar/vendor/github.com/bmatcuk/doublestar \
@@ -25,7 +26,7 @@ GH_TUPLE=	\
 		go-git:go-git:v5.4.2:go_git_go_git_v5/vendor/github.com/go-git/go-git/v5 \
 		go-warnings:warnings:v0.1.2:go_warnings_warnings/vendor/gopkg.in/warnings.v0 \
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
-		go-yaml:yaml:v3.0.0:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
+		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
 		gobwas:glob:v0.2.3:gobwas_glob/vendor/github.com/gobwas/glob \
 		golang:appengine:v1.6.7:golang_appengine/vendor/google.golang.org/appengine \
 		golang:crypto:3147a52a75dd:golang_crypto/vendor/golang.org/x/crypto \
@@ -43,7 +44,7 @@ GH_TUPLE=	\
 		googleapis:google-api-go-client:v0.62.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
 		googleapis:google-cloud-go:storage/v1.10.0:googleapis_google_cloud_go_storage \
 		googleapis:google-cloud-go:v0.99.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
-		grpc:grpc-go:v1.46.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+		grpc:grpc-go:v1.47.0:grpc_grpc_go/vendor/google.golang.org/grpc \
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
 		hashicorp:go-getter:v1.6.1:hashicorp_go_getter/vendor/github.com/hashicorp/go-getter \
 		hashicorp:go-safetemp:v1.0.0:hashicorp_go_safetemp/vendor/github.com/hashicorp/go-safetemp \
@@ -73,7 +74,7 @@ GH_TUPLE=	\
 		mitchellh:go-testing-interface:v1.0.0:mitchellh_go_testing_interface/vendor/github.com/mitchellh/go-testing-interface \
 		mitchellh:go-wordwrap:v1.0.0:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
 		olekukonko:tablewriter:v0.0.5:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
-		open-policy-agent:opa:v0.40.0:open_policy_agent_opa/vendor/github.com/open-policy-agent/opa \
+		open-policy-agent:opa:v0.41.0:open_policy_agent_opa/vendor/github.com/open-policy-agent/opa \
 		owenrumney:go-sarif:v2.1.1:owenrumney_go_sarif_v2/vendor/github.com/owenrumney/go-sarif \
 		owenrumney:squealer:c0be93f0edea:owenrumney_squealer/vendor/github.com/owenrumney/squealer \
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
@@ -87,6 +88,7 @@ GH_TUPLE=	\
 		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
 		stretchr:testify:v1.7.1:stretchr_testify/vendor/github.com/stretchr/testify \
 		ulikunitz:xz:v0.5.8:ulikunitz_xz/vendor/github.com/ulikunitz/xz \
+		vektah:gqlparser:v2.4.4:vektah_gqlparser_v2/vendor/github.com/vektah/gqlparser/v2 \
 		xanzy:ssh-agent:v0.3.0:xanzy_ssh_agent/vendor/github.com/xanzy/ssh-agent \
 		xeipuuv:gojsonpointer:02993c407bfb:xeipuuv_gojsonpointer/vendor/github.com/xeipuuv/gojsonpointer \
 		xeipuuv:gojsonreference:bd5ef7bd5415:xeipuuv_gojsonreference/vendor/github.com/xeipuuv/gojsonreference \

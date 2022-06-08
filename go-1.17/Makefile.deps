@@ -1,0 +1,106 @@
+make -D_GO_MAKESUM_GUARD makesum ARCH=aarch64 DISTINFO_FILE=/usr/ports/local/go-1.17/distinfo.tmp
+go-1.17.11 is vulnerable:
+  go -- crypto/tls: clients can panic when provided a certificate of the wrong type for the negotiated parameters
+  CVE: CVE-2021-34558
+  WWW: https://vuxml.FreeBSD.org/freebsd/c365536d-e3cf-11eb-9d8d-b37b683944c2.html
+
+  go -- encoding/binary: ReadUvarint and ReadVarint can read an unlimited number of bytes from invalid inputs
+  CVE: CVE-2020-16845
+  WWW: https://vuxml.FreeBSD.org/freebsd/bc7aff8c-d806-11ea-a5aa-0800272260e5.html
+
+  go -- math/big: panic during recursive division of very large numbers; cmd/go: arbitrary code execution at build time through cgo
+  CVE: CVE-2020-28366
+  CVE: CVE-2020-28367
+  CVE: CVE-2020-28362
+  WWW: https://vuxml.FreeBSD.org/freebsd/db4b2f27-252a-11eb-865c-00155d646400.html
+
+  go -- multiple vulnerabilities
+  CVE: CVE-2022-27536
+  CVE: CVE-2022-28327
+  CVE: CVE-2022-24675
+  WWW: https://vuxml.FreeBSD.org/freebsd/61bce714-ca0c-11ec-9cfc-10c37b4ac2ea.html
+
+  go -- archive/zip: overflow in preallocation check can cause OOM panic
+  CVE: CVE-2021-39293
+  WWW: https://vuxml.FreeBSD.org/freebsd/4ea1082a-1259-11ec-b4fa-dd5a552bdd17.html
+
+  go -- remote denial of service
+  CVE: CVE-2016-3959
+  WWW: https://vuxml.FreeBSD.org/freebsd/f2217cdf-01e4-11e6-b1ce-002590263bf5.html
+
+  go -- net/http: panic due to racy read of persistConn after handler panic
+  CVE: CVE-2021-36221
+  WWW: https://vuxml.FreeBSD.org/freebsd/880552c4-f63f-11eb-9d56-7186043316e9.html
+
+  go -- invalid headers are normalized, allowing request smuggling
+  CVE: CVE-2019-16276
+  WWW: https://vuxml.FreeBSD.org/freebsd/a92dcc5c-e05c-11e9-b589-10c37b4ac2ea.html
+
+  go -- cmd/go: packages using cgo can cause arbitrary code execution at build time; crypto/elliptic: incorrect operations on the P-224 curve
+  CVE: CVE-2021-3114
+  CVE: CVE-2021-3115
+  WWW: https://vuxml.FreeBSD.org/freebsd/6a4805d5-5aaf-11eb-a21d-79f5bc5ef6a9.html
+
+  go -- multiple vulnerabilities
+  CVE: CVE-2022-23773
+  CVE: CVE-2022-23772
+  CVE: CVE-2022-23806
+  WWW: https://vuxml.FreeBSD.org/freebsd/096ab080-907c-11ec-bb14-002324b2fba8.html
+
+  go -- syscall.Faccessat checks wrong group on Linux
+  CVE: CVE-2022-29526
+  WWW: https://vuxml.FreeBSD.org/freebsd/a1360138-d446-11ec-8ea1-10c37b4ac2ea.html
+
+  go -- misc/wasm, cmd/link: do not let command line arguments overwrite global data
+  CVE: CVE-2021-38297
+  WWW: https://vuxml.FreeBSD.org/freebsd/4fce9635-28c0-11ec-9ba8-002324b2fba8.html
+
+  go -- encoding/xml: infinite loop when using xml.NewTokenDecoder with a custom TokenReader; archive/zip: panic when calling Reader.Open
+  CVE: CVE-2021-27919
+  CVE: CVE-2021-27918
+  WWW: https://vuxml.FreeBSD.org/freebsd/72709326-81f7-11eb-950a-00155d646401.html
+
+  go -- multiple vulnerabilities
+  CVE: CVE-2021-33196
+  CVE: CVE-2021-33195
+  CVE: CVE-2021-33197
+  CVE: CVE-2021-33198
+  WWW: https://vuxml.FreeBSD.org/freebsd/079b3641-c4bd-11eb-a22a-693f0544ae52.html
+
+  go -- multiple vulnerabilities
+  CVE: CVE-2022-24921
+  WWW: https://vuxml.FreeBSD.org/freebsd/e2af876f-a7c8-11ec-9a2a-002324b2fba8.html
+
+  go -- multiple vulnerabilities
+  CVE: CVE-2021-41772
+  CVE: CVE-2021-41771
+  WWW: https://vuxml.FreeBSD.org/freebsd/930def19-3e05-11ec-9ba8-002324b2fba8.html
+
+  go -- multiple vulnerabilities
+  CVE: CVE-2015-5741
+  CVE: CVE-2015-5740
+  CVE: CVE-2015-5739
+  WWW: https://vuxml.FreeBSD.org/freebsd/4464212e-4acd-11e5-934b-002590263bf5.html
+
+  go -- net/http/cgi, net/http/fcgi: Cross-Site Scripting (XSS) when Content-Type is not specified
+  CVE: CVE-2020-24553
+  WWW: https://vuxml.FreeBSD.org/freebsd/67b050ae-ec82-11ea-9071-10c37b4ac2ea.html
+
+  go -- net/http: ReadRequest can stack overflow due to recursion with very large headers
+  CVE: CVE-2021-31525
+  WWW: https://vuxml.FreeBSD.org/freebsd/7f242313-aea5-11eb-8151-67f74cf7c704.html
+
+  go -- multiple vulnerabilities
+  CVE: CVE-2021-44717
+  CVE: CVE-2021-44716
+  WWW: https://vuxml.FreeBSD.org/freebsd/720505fe-593f-11ec-9ba8-002324b2fba8.html
+
+20 problem(s) in 1 installed package(s) found.
+*** Error code 1
+
+Stop.
+make[1]: stopped in /usr/ports/local/go-1.17
+*** Error code 1
+
+Stop.
+make: stopped in /usr/ports/local/go-1.17
