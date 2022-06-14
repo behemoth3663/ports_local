@@ -1,6 +1,6 @@
-TIMESTAMP = 1655152981
-SHA256 (hashicorp-terraform-plugin-docs-v0.10.0_GH0.tar.gz) = e694c649ea72a028abd50dda7482d828ef84779a034b94814e8ac40590cfb8d8
-SIZE (hashicorp-terraform-plugin-docs-v0.10.0_GH0.tar.gz) = 40776
+TIMESTAMP = 1655240392
+SHA256 (hashicorp-terraform-plugin-docs-v0.10.1_GH0.tar.gz) = 2fe81621b6d0434607fa2e583d6bc47a4bb6651e16462515cb32d55b467ab29a
+SIZE (hashicorp-terraform-plugin-docs-v0.10.1_GH0.tar.gz) = 40804
 SHA256 (Masterminds-goutils-v1.1.1_GH0.tar.gz) = 6eed023c54f386a71f360e19d34f7a43e640ac44dfc39c22ad4afd7ae04aaa3d
 SIZE (Masterminds-goutils-v1.1.1_GH0.tar.gz) = 14847
 SHA256 (Masterminds-semver-v3.1.1_GH0.tar.gz) = d029a39800f201d5b95ec5dbf653e5b20aab757783a6876be1b3017d1c4a444f
