@@ -1,7 +1,7 @@
 # Created by: Danilo Egea Gondolfo <danilo@FreeBSD.org>
 
 PORTNAME=	aws-iam-authenticator
-PORTVERSION=	0.5.3
+PORTVERSION=	0.5.8
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local security
 
