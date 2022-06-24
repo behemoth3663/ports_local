@@ -27,7 +27,7 @@ GH_TUPLE=	\
 		golang:net:6b1517762897:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:08078c50e5b5:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.4.3:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sys:71e4cd670f79:golang_sys/vendor/golang.org/x/sys \
+		golang:sys:5e4e11fc645e:golang_sys/vendor/golang.org/x/sys \
 		golang:term:2321bbc49cbf:golang_term/vendor/golang.org/x/term \
 		golang:text:v0.3.5:golang_text/vendor/golang.org/x/text \
 		golang:tools:abf6a1d87e11:golang_tools/vendor/golang.org/x/tools \
@@ -40,7 +40,7 @@ GH_TUPLE=	\
 		googleapis:google-cloud-go:v0.74.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
 		grpc:grpc-go:v1.34.0:grpc_grpc_go/vendor/google.golang.org/grpc \
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
-		hashicorp:go-getter:v1.5.11:hashicorp_go_getter/vendor/github.com/hashicorp/go-getter \
+		hashicorp:go-getter:v1.6.2:hashicorp_go_getter/vendor/github.com/hashicorp/go-getter \
 		hashicorp:go-safetemp:v1.0.0:hashicorp_go_safetemp/vendor/github.com/hashicorp/go-safetemp \
 		hashicorp:go-version:v1.2.1:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
 		hashicorp:hcl:v1.0.0:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
