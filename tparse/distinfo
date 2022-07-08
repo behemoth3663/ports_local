@@ -1,6 +1,6 @@
-TIMESTAMP = 1654276919
-SHA256 (mfridman-tparse-v0.10.3_GH0.tar.gz) = 49559367fa21558773a34645d17b540e39315e6ad7087396a5246dcde31cf6ef
-SIZE (mfridman-tparse-v0.10.3_GH0.tar.gz) = 221194
+TIMESTAMP = 1657279129
+SHA256 (mfridman-tparse-v0.11.0_GH0.tar.gz) = 2a7d2e797671a01abc9f2310a3c295fee47d2f639f8d7ea3e5a663abb3f68ecf
+SIZE (mfridman-tparse-v0.11.0_GH0.tar.gz) = 223268
 SHA256 (charmbracelet-lipgloss-v0.4.0_GH0.tar.gz) = c2f5ad6afcd9e4f3c21b523c5c8ecf077451029ac7e7b36ae6e8c2ce54eba194
 SIZE (charmbracelet-lipgloss-v0.4.0_GH0.tar.gz) = 26872
 SHA256 (golang-sys-45d2b4557a2a_GH0.tar.gz) = 2eb19203e1d4bf31014bfcb9bb90857d1900171aee57f38f7df92e8238c2de7d
