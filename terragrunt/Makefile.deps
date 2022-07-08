@@ -37,7 +37,6 @@ GH_TUPLE=	\
 		golang:appengine:v1.6.7:golang_appengine/vendor/google.golang.org/appengine \
 		golang:crypto:0c34fe9e7dc2:golang_crypto/vendor/golang.org/x/crypto \
 		golang:groupcache:41bb18bfe9da:golang_groupcache/vendor/github.com/golang/groupcache \
-		golang:mod:v0.5.1:golang_mod/vendor/golang.org/x/mod \
 		golang:net:60bc85c4be6d:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:2bc19b11175f:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.2:golang_protobuf/vendor/github.com/golang/protobuf \
