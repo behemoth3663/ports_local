@@ -1,5 +1,5 @@
 GH_TUPLE=	\
-		aws:aws-sdk-go:v1.42.4:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		aws:aws-sdk-go:v1.44.46:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
 		bgentry:speakeasy:v0.1.0:bgentry_speakeasy/vendor/github.com/bgentry/speakeasy \
 		boombuler:barcode:6c824513bacc:boombuler_barcode/vendor/github.com/boombuler/barcode \
 		cpuguy83:go-md2man:v2.0.0:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
@@ -11,8 +11,8 @@ GH_TUPLE=	\
 		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
 		golang:crypto:5ea612d1eb83:golang_crypto/vendor/golang.org/x/crypto \
 		golang:mock:v1.6.0:golang_mock/vendor/github.com/golang/mock \
-		golang:net:04defd469f4e:golang_net/vendor/golang.org/x/net \
-		golang:sys:977fb7262007:golang_sys/vendor/golang.org/x/sys \
+		golang:net:cd36cc0744dd:golang_net/vendor/golang.org/x/net \
+		golang:sys:1d35b9e2eb4e:golang_sys/vendor/golang.org/x/sys \
 		google:uuid:v1.1.1:google_uuid/vendor/github.com/google/uuid \
 		gruntwork-io:go-commons:v0.8.2:gruntwork_io_go_commons/vendor/github.com/gruntwork-io/go-commons \
 		gruntwork-io:gruntwork-cli:v0.7.0:gruntwork_io_gruntwork_cli/vendor/github.com/gruntwork-io/gruntwork-cli \
