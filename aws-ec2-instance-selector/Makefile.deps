@@ -1,5 +1,5 @@
 GH_TUPLE=	\
-		aws:aws-sdk-go:v1.43.31:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		aws:aws-sdk-go:v1.44.51:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
 		blang:semver:v4.0.0:blang_semver_v4/vendor/github.com/blang/semver \
 		go-ini:ini:v1.57.0:go_ini_ini/vendor/gopkg.in/ini.v1 \
 		imdario:mergo:v0.3.11:imdario_mergo/vendor/github.com/imdario/mergo \

@@ -1,8 +1,8 @@
-TIMESTAMP = 1655401469
-SHA256 (aws-amazon-ec2-instance-selector-v2.3.1_GH0.tar.gz) = 7358d2bc97e8bbd896029f8832549beb41eeb855fad65e07f61f0c797d98d1ac
-SIZE (aws-amazon-ec2-instance-selector-v2.3.1_GH0.tar.gz) = 155558
-SHA256 (aws-aws-sdk-go-v1.43.31_GH0.tar.gz) = 93fd5bbc588b4feae004f3299689ae788854c61a0df7c22a726aa1758b362a57
-SIZE (aws-aws-sdk-go-v1.43.31_GH0.tar.gz) = 23080078
+TIMESTAMP = 1657734658
+SHA256 (aws-amazon-ec2-instance-selector-v2.3.2_GH0.tar.gz) = b5f78c671edcdbac061896af2cc87633034d86693ebf63413535601de2f298ad
+SIZE (aws-amazon-ec2-instance-selector-v2.3.2_GH0.tar.gz) = 155756
+SHA256 (aws-aws-sdk-go-v1.44.51_GH0.tar.gz) = 815a4c2000d431cb8a8e0595a23dbdf410614efde886b517707745ab9c3c322e
+SIZE (aws-aws-sdk-go-v1.44.51_GH0.tar.gz) = 23836748
 SHA256 (blang-semver-v4.0.0_GH0.tar.gz) = 873e979323df6060cb4f843bc920f07fa59c05002359bf5d4a3311c8911f6640
 SIZE (blang-semver-v4.0.0_GH0.tar.gz) = 27777
 SHA256 (go-ini-ini-v1.57.0_GH0.tar.gz) = e612924cffa395825f32e65db18cff0366705952433e52c6efc81fc1c3adfd2a
