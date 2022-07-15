@@ -3,6 +3,7 @@
 PORTNAME=	ddosify
 PORTVERSION=	0.8.0
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local benchmarks
 
 MAINTAINER=	none@freebsd.org
