@@ -28,6 +28,5 @@ GH_TUPLE=	\
 		russross:blackfriday:v2.0.1:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
 		shurcooL:sanitized_anchor_name:v1.0.0:shurcool_sanitized_anchor_name/vendor/github.com/shurcooL/sanitized_anchor_name \
 		sirupsen:logrus:v1.6.0:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
-		stretchr:objx:v0.4.0:stretchr_objx/vendor/github.com/stretchr/objx \
 		stretchr:testify:v1.7.1:stretchr_testify/vendor/github.com/stretchr/testify \
 		urfave:cli:v1.22.4:urfave_cli/vendor/github.com/urfave/cli
