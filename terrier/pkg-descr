@@ -1,0 +1,5 @@
+Terrier is a Image and Container analysis tool that can be used to scan Images
+and Containers to identify and verify the presence of specific files according
+to their hashes.
+
+WWW: https://github.com/heroku/terrier
