@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	terraform-module-versions
-PORTVERSION=	3.1.11
+PORTVERSION=	3.1.12
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org

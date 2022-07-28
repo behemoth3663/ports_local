@@ -1,6 +1,6 @@
-TIMESTAMP = 1656058257
-SHA256 (keilerkonzept-terraform-module-versions-3.1.11_GH0.tar.gz) = 8f3dcc0eaf260e8c6497df59a84fdcdd2903647abc7d868b796d1e085c79cd49
-SIZE (keilerkonzept-terraform-module-versions-3.1.11_GH0.tar.gz) = 5558792
+TIMESTAMP = 1658731055
+SHA256 (keilerkonzept-terraform-module-versions-3.1.12_GH0.tar.gz) = 72e03adaa30dd9073ada90e2e7196cd1c95d7c6cddcd6db91ea4ea4e62982e7e
+SIZE (keilerkonzept-terraform-module-versions-3.1.12_GH0.tar.gz) = 5558837
 SHA256 (Masterminds-semver-v3.1.1_GH0.tar.gz) = d029a39800f201d5b95ec5dbf653e5b20aab757783a6876be1b3017d1c4a444f
 SIZE (Masterminds-semver-v3.1.1_GH0.tar.gz) = 24506
 SHA256 (Microsoft-go-winio-v0.4.16_GH0.tar.gz) = 0cb82f4cdba942af6b545695d694e91b9d9d56bd38555c81744235d7c6f6485d
