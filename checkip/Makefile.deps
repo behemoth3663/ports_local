@@ -1,6 +1,6 @@
 GH_TUPLE=	\
 		davecgh:go-spew:v1.1.0:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
-		go-ping:ping:6e2b003bffdd:go_ping_ping/vendor/github.com/go-ping/ping \
+		go-ping:ping:v1.1.0:go_ping_ping/vendor/github.com/go-ping/ping \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
 		golang:net:d523dce5a7f4:golang_net/vendor/golang.org/x/net \
 		golang:sync:036812b2e83c:golang_sync/vendor/golang.org/x/sync \

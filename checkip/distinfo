@@ -1,10 +1,10 @@
-TIMESTAMP = 1659001861
-SHA256 (jreisinger-checkip-v0.40.0_GH0.tar.gz) = 5aae081c9d9dd1f9857e7f3c4d46d26c9008f2f40005e2296487ffd16da98567
-SIZE (jreisinger-checkip-v0.40.0_GH0.tar.gz) = 30285
+TIMESTAMP = 1659171255
+SHA256 (jreisinger-checkip-v0.40.1_GH0.tar.gz) = c6a167de539b041aa4e23d0fbd2611db3fad730e61465da5672f650138014e87
+SIZE (jreisinger-checkip-v0.40.1_GH0.tar.gz) = 30257
 SHA256 (davecgh-go-spew-v1.1.0_GH0.tar.gz) = 1f7e0bd2db0341925b5f2ee5834e99380f4c2b1bd36cf0fa62d7717899d39d62
 SIZE (davecgh-go-spew-v1.1.0_GH0.tar.gz) = 42337
-SHA256 (go-ping-ping-6e2b003bffdd_GH0.tar.gz) = 4330f1f0313c1d0aef929977c734ad360a29e5974d137b0f7cb19df053e77ad8
-SIZE (go-ping-ping-6e2b003bffdd_GH0.tar.gz) = 15356
+SHA256 (go-ping-ping-v1.1.0_GH0.tar.gz) = c0978cdedb6815844dde0dd38858a2135850ac7412731abe29d86d5cc225e9f5
+SIZE (go-ping-ping-v1.1.0_GH0.tar.gz) = 15541
 SHA256 (go-yaml-yaml-v3.0.1_GH0.tar.gz) = cf05411540d3e6ef8f1fd88434b34f94cedaceb540329031d80e23b74540c4e5
 SIZE (go-yaml-yaml-v3.0.1_GH0.tar.gz) = 91173
 SHA256 (golang-net-d523dce5a7f4_GH0.tar.gz) = 2845c6b37390b25a88a8a71e211e1ed9da8a1f6363baa275d6d30e8dd0d00a21
