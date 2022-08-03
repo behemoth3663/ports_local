@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	terraform-module-versions
-PORTVERSION=	3.1.12
+PORTVERSION=	3.1.13
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -20,6 +20,9 @@ PLIST_FILES=	bin/${PORTNAME}
 GO_BUILDFLAGS+=	-ldflags="-s -w -X 'main.version=${PORTVERSION}'"
 
 fetch-version: .PHONY get-version
+
+post-patch: .PHONY .SILENT
+	cd ${WRKSRC} && ${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod tidy -v
 
 .-include "${.CURDIR}/Makefile.deps"
 
