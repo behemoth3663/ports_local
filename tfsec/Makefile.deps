@@ -1,7 +1,7 @@
 GH_TUPLE=	\
 		AlecAivazis:survey:v2.3.5:alecaivazis_survey_v2/vendor/github.com/AlecAivazis/survey/v2 \
 		Masterminds:semver:v1.5.0:masterminds_semver/vendor/github.com/Masterminds/semver \
-		Microsoft:go-winio:v0.5.1:microsoft_go_winio/vendor/github.com/Microsoft/go-winio \
+		Microsoft:go-winio:v0.5.2:microsoft_go_winio/vendor/github.com/Microsoft/go-winio \
 		OneOfOne:xxhash:v1.2.8:oneofone_xxhash/vendor/github.com/OneOfOne/xxhash \
 		ProtonMail:go-crypto:04723f9f07d7:protonmail_go_crypto/vendor/github.com/ProtonMail/go-crypto \
 		acomagu:bufpipe:v1.0.3:acomagu_bufpipe/vendor/github.com/acomagu/bufpipe \
@@ -10,8 +10,8 @@ GH_TUPLE=	\
 		alecthomas:chroma:v0.10.0:alecthomas_chroma/vendor/github.com/alecthomas/chroma \
 		apparentlymart:go-cidr:v1.1.0:apparentlymart_go_cidr/vendor/github.com/apparentlymart/go-cidr \
 		apparentlymart:go-textseg:v13.0.0:apparentlymart_go_textseg_v13/vendor/github.com/apparentlymart/go-textseg/v13 \
-		aquasecurity:defsec:v0.68.8:aquasecurity_defsec/vendor/github.com/aquasecurity/defsec \
-		aws:aws-sdk-go:v1.34.9:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		aquasecurity:defsec:v0.69.2:aquasecurity_defsec/vendor/github.com/aquasecurity/defsec \
+		aws:aws-sdk-go:v1.44.48:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
 		bgentry:go-netrc:9fd32a8b3d3d:bgentry_go_netrc/vendor/github.com/bgentry/go-netrc \
 		bmatcuk:doublestar:v1.3.4:bmatcuk_doublestar/vendor/github.com/bmatcuk/doublestar \
 		census-instrumentation:opencensus-go:v0.23.0:census_instrumentation_opencensus_go/vendor/go.opencensus.io \
@@ -31,13 +31,13 @@ GH_TUPLE=	\
 		golang:appengine:v1.6.7:golang_appengine/vendor/google.golang.org/appengine \
 		golang:crypto:3147a52a75dd:golang_crypto/vendor/golang.org/x/crypto \
 		golang:groupcache:41bb18bfe9da:golang_groupcache/vendor/github.com/golang/groupcache \
-		golang:net:cd36cc0744dd:golang_net/vendor/golang.org/x/net \
+		golang:net:290c469a71a5:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:d3ed0bb246c8:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.2:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:sys:5e4e11fc645e:golang_sys/vendor/golang.org/x/sys \
 		golang:term:03fcf44c2211:golang_term/vendor/golang.org/x/term \
 		golang:text:v0.3.7:golang_text/vendor/golang.org/x/text \
-		golang:xerrors:5ec99f83aff1:golang_xerrors/vendor/golang.org/x/xerrors \
+		golang:xerrors:2f41105eb62f:golang_xerrors/vendor/golang.org/x/xerrors \
 		google:go-genproto:42d7afdf6368:google_go_genproto/vendor/google.golang.org/genproto \
 		google:uuid:v1.3.0:google_uuid/vendor/github.com/google/uuid \
 		googleapis:gax-go:v2.1.1:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
@@ -55,13 +55,13 @@ GH_TUPLE=	\
 		inconshreveable:go-update:8152e7eb6ccf:inconshreveable_go_update/vendor/github.com/inconshreveable/go-update \
 		inconshreveable:mousetrap:v1.0.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
 		jbenet:go-context:d14ea06fba99:jbenet_go_context/vendor/github.com/jbenet/go-context \
-		jmespath:go-jmespath:v0.3.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
+		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
 		kballard:go-shellquote:95032a82bc51:kballard_go_shellquote/vendor/github.com/kballard/go-shellquote \
 		kevinburke:ssh_config:4977a11b4351:kevinburke_ssh_config/vendor/github.com/kevinburke/ssh_config \
 		klauspost:compress:v1.15.1:klauspost_compress/vendor/github.com/klauspost/compress \
 		liamg:clinch:v1.6.1:liamg_clinch/vendor/github.com/liamg/clinch \
 		liamg:gifwrap:v0.0.6:liamg_gifwrap/vendor/github.com/liamg/gifwrap \
-		liamg:iamgo:v0.0.6:liamg_iamgo/vendor/github.com/liamg/iamgo \
+		liamg:iamgo:v0.0.9:liamg_iamgo/vendor/github.com/liamg/iamgo \
 		liamg:jfather:v0.0.7:liamg_jfather/vendor/github.com/liamg/jfather \
 		liamg:memoryfs:v1.4.2:liamg_memoryfs/vendor/github.com/liamg/memoryfs \
 		liamg:tml:v0.6.0:liamg_tml/vendor/github.com/liamg/tml \
@@ -82,6 +82,7 @@ GH_TUPLE=	\
 		protocolbuffers:protobuf-go:v1.28.0:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		rcrowley:go-metrics:10cdbea86bc0:rcrowley_go_metrics/vendor/github.com/rcrowley/go-metrics \
 		rivo:uniseg:v0.2.0:rivo_uniseg/vendor/github.com/rivo/uniseg \
+		rogpeppe:go-internal:v1.8.1:rogpeppe_go_internal/vendor/github.com/rogpeppe/go-internal \
 		sergi:go-diff:v1.1.0:sergi_go_diff/vendor/github.com/sergi/go-diff \
 		sirupsen:logrus:v1.8.1:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
 		spf13:cobra:v1.5.0:spf13_cobra/vendor/github.com/spf13/cobra \
