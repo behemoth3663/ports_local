@@ -3,7 +3,7 @@
 PORTNAME=	terraform-docs
 PORTVERSION=	0.16.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	3
+PORTREVISION=	4
 CATEGORIES=	local sysutils textproc
 
 MAINTAINER=	0xdutra@gmail.com
