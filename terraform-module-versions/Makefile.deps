@@ -16,8 +16,7 @@ GH_TUPLE=	\
 		go-git:go-git:v5.4.2:go_git_go_git_v5/vendor/github.com/go-git/go-git/v5 \
 		go-test:deep:v1.0.7:go_test_deep/vendor/github.com/go-test/deep \
 		go-warnings:warnings:v0.1.2:go_warnings_warnings/vendor/gopkg.in/warnings.v0 \
-		go-yaml:yaml:eeeca48fe776:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
-		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
+		go-yaml:yaml:eeeca48fe776:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
 		gobwas:glob:v0.2.3:gobwas_glob/vendor/github.com/gobwas/glob \
 		golang:appengine:v1.6.7:golang_appengine/vendor/google.golang.org/appengine \
 		golang:crypto:83a5a9bb288b:golang_crypto/vendor/golang.org/x/crypto \
@@ -58,7 +57,7 @@ GH_TUPLE=	\
 		mitchellh:go-testing-interface:v1.14.1:mitchellh_go_testing_interface/vendor/github.com/mitchellh/go-testing-interface \
 		mitchellh:go-wordwrap:v1.0.1:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
 		olekukonko:tablewriter:v0.0.5:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
-		peterbourgon:ff:v3.1.2:peterbourgon_ff_v3/vendor/github.com/peterbourgon/ff/v3 \
+		peterbourgon:ff:v3.3.0:peterbourgon_ff_v3/vendor/github.com/peterbourgon/ff/v3 \
 		protocolbuffers:protobuf-go:v1.25.0:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		sergi:go-diff:v1.1.0:sergi_go_diff/vendor/github.com/sergi/go-diff \
 		sgreben:flagvar:v1.10.1:sgreben_flagvar/vendor/github.com/sgreben/flagvar \
