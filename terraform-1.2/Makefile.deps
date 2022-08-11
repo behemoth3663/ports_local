@@ -64,8 +64,8 @@ GH_TUPLE=	\
 		golang:crypto:6f7dac969898:golang_crypto/vendor/golang.org/x/crypto \
 		golang:groupcache:41bb18bfe9da:golang_groupcache/vendor/github.com/golang/groupcache \
 		golang:lint:83fdc39ff7b5:golang_lint/vendor/golang.org/x/lint \
-		golang:mock:v1.4.4:golang_mock_1/vendor/github.com/golang/mock \
-		golang:mock:v1.6.0:golang_mock \
+		golang:mock:v1.4.4:golang_mock/vendor/github.com/golang/mock \
+		golang:mock:v1.6.0:golang_mock_1 \
 		golang:mod:9b9b3d81d5e3:golang_mod/vendor/golang.org/x/mod \
 		golang:net:fe4d6282115f:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:2bc19b11175f:golang_oauth2/vendor/golang.org/x/oauth2 \
@@ -210,6 +210,6 @@ post-extract:
 	@${RLN} ${WRKSRC_azure_go_autorest_logger}/logger ${WRKSRC}/vendor/github.com/Azure/go-autorest/logger
 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/tracing
 	@${RLN} ${WRKSRC_azure_go_autorest_tracing}/tracing ${WRKSRC}/vendor/github.com/Azure/go-autorest/tracing
-	@${RLN} ${WRKSRC_golang_mock} ${WRKSRC}/vendor/github.com/golang/mock
+	@${RLN} ${WRKSRC_golang_mock_1} ${WRKSRC}/vendor/github.com/golang/mock
 	@${RM} -r ${WRKSRC}/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tag
 	@${RLN} ${WRKSRC_tencentcloud_tencentcloud_sdk_go_tag}/tencentcloud/tag ${WRKSRC}/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tag
