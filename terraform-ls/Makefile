@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	terraform-ls
-PORTVERSION=	0.28.1
+PORTVERSION=	0.29.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local devel
 
@@ -30,5 +30,10 @@ post-patch:
 		-e 's|^([[:space:]]*var[[:space:]]+version[[:space:]]*=[[:space:]]*)".*"[[:space:]]*$$|\1"${PORTVERSION}"|' \
 		-e 's|^([[:space:]]*var[[:space:]]+prerelease[[:space:]]*=[[:space:]]*)".*"[[:space:]]*$$|\1""|' \
 	${WRKSRC}/version.go
+	${REINPLACE_CMD} -r \
+		-e 's|^[[:space:]]*go[[:space:]]+1\.[[:digit:]]+[[:space:]]*$$|go 1.18|' \
+	${WRKSRC}/go.mod
+	@cd ${WRKSRC} && \
+		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod tidy -v
 
 .include <bsd.port.mk>
