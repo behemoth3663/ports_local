@@ -1,0 +1,25 @@
+GH_TUPLE=	\
+		agext:levenshtein:v1.2.1:agext_levenshtein/vendor/github.com/agext/levenshtein \
+		apparentlymart:go-textseg:v13.0.0:apparentlymart_go_textseg_v13/vendor/github.com/apparentlymart/go-textseg/v13 \
+		fsnotify:fsnotify:v1.4.7:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
+		go-check:check:41f04d3bba15:go_check_check/vendor/gopkg.in/check.v1 \
+		go-yaml:yaml:v2.2.7:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
+		golang:sys:4f61da869c0c:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.3.5:golang_text/vendor/golang.org/x/text \
+		google:go-cmp:v0.3.1:google_go_cmp/vendor/github.com/google/go-cmp \
+		hashicorp:hcl:v1.0.0:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
+		hashicorp:hcl:v2.12.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
+		hashicorp:logutils:v1.0.0:hashicorp_logutils/vendor/github.com/hashicorp/logutils \
+		inconshreveable:mousetrap:v1.0.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
+		magiconair:properties:v1.8.0:magiconair_properties/vendor/github.com/magiconair/properties \
+		mitchellh:go-wordwrap:ad45545899c7:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
+		mitchellh:mapstructure:v1.1.2:mitchellh_mapstructure/vendor/github.com/mitchellh/mapstructure \
+		pelletier:go-toml:v1.2.0:pelletier_go_toml/vendor/github.com/pelletier/go-toml \
+		spf13:afero:v1.1.2:spf13_afero/vendor/github.com/spf13/afero \
+		spf13:cast:v1.3.0:spf13_cast/vendor/github.com/spf13/cast \
+		spf13:cobra:v0.0.5:spf13_cobra/vendor/github.com/spf13/cobra \
+		spf13:jwalterweatherman:v1.0.0:spf13_jwalterweatherman/vendor/github.com/spf13/jwalterweatherman \
+		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
+		spf13:viper:v1.3.2:spf13_viper/vendor/github.com/spf13/viper \
+		stretchr:testify:v1.4.0:stretchr_testify/vendor/github.com/stretchr/testify \
+		zclconf:go-cty:v1.8.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
