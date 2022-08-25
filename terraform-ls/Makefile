@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	terraform-ls
-PORTVERSION=	0.29.0
+PORTVERSION=	0.29.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local devel
 
@@ -16,24 +16,17 @@ USES=		go:modules
 USE_GITHUB=	yes
 GH_ACCOUNT=	hashicorp
 
-#GO_BUILDFLAGS+=	-ldflags="-s -w -X 'github.com/main.version=${PORTVERSION}'"
-
 PLIST_FILES=	bin/${PORTNAME}
 
-#rm -f -- distinfo Makefile.deps && doas make clean && make makesum gomod-vendor && make gomod-vendor >Makefile.deps && doas make clean && make makesum package && instpc
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 #var version = "0.0.0"
-#var prerelease = "dev"
+#var versionPrerelease = "dev"
 post-patch:
 	${REINPLACE_CMD} -r \
 		-e 's|^([[:space:]]*var[[:space:]]+version[[:space:]]*=[[:space:]]*)".*"[[:space:]]*$$|\1"${PORTVERSION}"|' \
-		-e 's|^([[:space:]]*var[[:space:]]+prerelease[[:space:]]*=[[:space:]]*)".*"[[:space:]]*$$|\1""|' \
+		-e 's|^([[:space:]]*var[[:space:]]+versionPrerelease[[:space:]]*=[[:space:]]*)".*"[[:space:]]*$$|\1""|' \
 	${WRKSRC}/version.go
-	${REINPLACE_CMD} -r \
-		-e 's|^[[:space:]]*go[[:space:]]+1\.[[:digit:]]+[[:space:]]*$$|go 1.18|' \
-	${WRKSRC}/go.mod
-	@cd ${WRKSRC} && \
-		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod tidy -v
 
 .include <bsd.port.mk>

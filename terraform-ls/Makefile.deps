@@ -7,7 +7,7 @@ GH_TUPLE=	\
 		antonmedv:expr:v1.9.0:antonmedv_expr/vendor/github.com/antonmedv/expr \
 		apparentlymart:go-textseg:v1.0.0:apparentlymart_go_textseg/vendor/github.com/apparentlymart/go-textseg \
 		apparentlymart:go-textseg:v13.0.0:apparentlymart_go_textseg_v13/vendor/github.com/apparentlymart/go-textseg/v13 \
-		armon:go-radix:7fddfc383310:armon_go_radix/vendor/github.com/armon/go-radix \
+		armon:go-radix:v1.0.0:armon_go_radix/vendor/github.com/armon/go-radix \
 		bgentry:speakeasy:v0.1.0:bgentry_speakeasy/vendor/github.com/bgentry/speakeasy \
 		bobheadxi:gobenchdata:v1.2.1:bobheadxi_gobenchdata/vendor/go.bobheadxi.dev/gobenchdata \
 		creachadair:jrpc2:v0.41.1:creachadair_jrpc2/vendor/github.com/creachadair/jrpc2 \
@@ -69,7 +69,7 @@ GH_TUPLE=	\
 		pelletier:go-toml:v2.0.2:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
-		posener:complete:v1.1.1:posener_complete/vendor/github.com/posener/complete \
+		posener:complete:v1.2.3:posener_complete/vendor/github.com/posener/complete \
 		rivo:uniseg:v0.2.0:rivo_uniseg/vendor/github.com/rivo/uniseg \
 		rs:zerolog:v1.27.0:rs_zerolog/vendor/github.com/rs/zerolog \
 		shopspring:decimal:v1.2.0:shopspring_decimal/vendor/github.com/shopspring/decimal \
@@ -88,3 +88,6 @@ GH_TUPLE=	\
 		vektra:mockery:v2.14.0:vektra_mockery_v2/vendor/github.com/vektra/mockery/v2 \
 		zclconf:go-cty-debug:b22d67c1ba0b:zclconf_go_cty_debug/vendor/github.com/zclconf/go-cty-debug \
 		zclconf:go-cty:v1.10.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+
+		# Errors found during processing:
+		#	XML syntax error on line 12: expected attribute name in element
