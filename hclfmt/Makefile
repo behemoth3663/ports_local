@@ -1,33 +1,35 @@
 #
 
 PORTNAME=	hclfmt
-PORTVERSION=	0.1.0
+PORTVERSION=	2.13.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Format and prettify HCL files
 
-LICENSE=	BSD3CLAUSE
+LICENSE=	MPL20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 
 USE_GITHUB=	yes
-GH_ACCOUNT=	fatih
+GH_ACCOUNT=	hashicorp
+GH_PROJECT=	hcl
 
-GH_TAGNAME=	374cd0f
+GO_TARGET=	./cmd/${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME}
 
 fetch-version: .PHONY get-version
 
-#USES=go:modules but there is no go.mod
-pre-patch: .PHONY
-	cd ${WRKSRC} && \
-	${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod init ${GO_PKGNAME} && \
-	${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod tidy
-
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
+
+#const versionStr = "0.0.1-dev"
+post-patch:
+	${REINPLACE_CMD} -r \
+		-e 's|^([[:space:]]*const[[:space:]]+versionStr[[:space:]]*=[[:space:]]*)".*"[[:space:]]*$$|\1"${PORTVERSION}"|' \
+	${WRKSRC}/${GO_TARGET}/main.go
 
 .include <bsd.port.mk>
