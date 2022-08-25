@@ -66,15 +66,15 @@ GH_TUPLE=	\
 		golang:lint:83fdc39ff7b5:golang_lint/vendor/golang.org/x/lint \
 		golang:mock:v1.4.4:golang_mock/vendor/github.com/golang/mock \
 		golang:mock:v1.6.0:golang_mock_1 \
-		golang:mod:9b9b3d81d5e3:golang_mod/vendor/golang.org/x/mod \
-		golang:net:fe4d6282115f:golang_net/vendor/golang.org/x/net \
+		golang:mod:86c51ed26bb4:golang_mod/vendor/golang.org/x/mod \
+		golang:net:a158d28d115b:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:2bc19b11175f:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.2:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sys:5e4e11fc645e:golang_sys/vendor/golang.org/x/sys \
-		golang:term:6886f2dfbf5b:golang_term/vendor/golang.org/x/term \
+		golang:sys:8c9f86f7a55f:golang_sys/vendor/golang.org/x/sys \
+		golang:term:03fcf44c2211:golang_term/vendor/golang.org/x/term \
 		golang:text:v0.3.7:golang_text/vendor/golang.org/x/text \
 		golang:time:0e9765cccd65:golang_time/vendor/golang.org/x/time \
-		golang:tools:77aa08bb151a:golang_tools/vendor/golang.org/x/tools \
+		golang:tools:v0.1.12:golang_tools/vendor/golang.org/x/tools \
 		golang:xerrors:5ec99f83aff1:golang_xerrors/vendor/golang.org/x/xerrors \
 		google:go-cmp:v0.5.6:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-genproto:6c239bbf2bb1:google_go_genproto/vendor/google.golang.org/genproto \
@@ -188,7 +188,7 @@ GH_TUPLE=	\
 		xlab:treeprint:1d6e34225557:xlab_treeprint/vendor/github.com/xlab/treeprint \
 		zclconf:go-cty-debug:b22d67c1ba0b:zclconf_go_cty_debug/vendor/github.com/zclconf/go-cty-debug \
 		zclconf:go-cty-yaml:v1.0.2:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
-		zclconf:go-cty:v1.10.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+		zclconf:go-cty:v1.11.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
 		#	::6cf2b201936e:group_name/vendor/golang.org/x/exp/typeparams (from go.googlesource.com/exp@6cf2b201936e)

@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	terraform
-PORTVERSION=	1.2.7
+PORTVERSION=	1.2.8
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX?=	-${PORTVERSION:R}
@@ -27,6 +27,18 @@ post-install: .PHONY
 	${INSTALL} -l rs ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}${PKGNAMESUFFIX}
 
 #rm -f -- distinfo Makefile.deps && make makesum && make gomod-vendor && make gomod-vendor >Makefile.deps && make makesum && mkcal
+deps: .PHONY deps-clean Makefile.deps
+
+deps-clean: .PHONY
+	rm -f -- distinfo Makefile.deps
+	${SU_CMD} 'make -C ${.CURDIR} clean'
+
+Makefile.deps!
+	make -C ${.CURDIR} makesum gomod-vendor | \
+		grep --extended-regexp --invert-match '^(/|=+>)' | \
+		tee ${.CURDIR}/Makefile.deps
+	patch --directory ${.CURDIR} <${.CURDIR}/patch-Makefile.deps
+
 .-include "${.CURDIR}/Makefile.deps"
 
 # XXX: Work around ports framework inability to regenerate GH_TUPLE for Go
