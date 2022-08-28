@@ -1,5 +1,5 @@
---- Makefile.deps.orig	2022-05-21 19:17:23 UTC
-+++ Makefile.deps
+--- ./Makefile.deps.orig	2022-08-28 19:38:32 UTC
++++ ./Makefile.deps
 @@ -2,8 +2,7 @@ GH_TUPLE=	\
  		Jeffail:gabs:v1.0.0:jeffail_gabs/vendor/github.com/Jeffail/gabs \
  		Microsoft:go-winio:v0.5.0:microsoft_go_winio/vendor/github.com/Microsoft/go-winio \
@@ -14,8 +14,8 @@
  		mitchellh:go-homedir:v1.1.0:mitchellh_go_homedir/vendor/github.com/mitchellh/go-homedir \
  		mitchellh:go-ps:v1.0.0:mitchellh_go_ps/vendor/github.com/mitchellh/go-ps \
  		nanomsg:mangos:v3.3.0:nanomsg_mangos/vendor/go.nanomsg.org/mangos/v3 \
--		nightlyone:lockfile::nightlyone_lockfile/github.com/nightlyone/lockfile \
--		nightlyone:lockfile:v0.0.0:nightlyone_lockfile_1 \
+-		nightlyone:lockfile::nightlyone_lockfile_1/github.com/nightlyone/lockfile \
+-		nightlyone:lockfile:v0.0.0:nightlyone_lockfile \
 +		nightlyone:lockfile:v1.0.0:nightlyone_lockfile/github.com/nightlyone/lockfile \
  		pborman:ansi:v1.0.0:pborman_ansi/vendor/github.com/pborman/ansi \
  		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
@@ -28,5 +28,5 @@
 -post-extract:
 -	@${RLN} ${WRKSRC_aws_aws_sdk_go} ${WRKSRC}/extra/aws-sdk-go
 -	@${RLN} ${WRKSRC_aws_aws_sdk_go_1} ${WRKSRC}/extra/aws-sdk-go
--	@${RLN} ${WRKSRC_nightlyone_lockfile} ${WRKSRC}/extra/lockfile
 -	@${RLN} ${WRKSRC_nightlyone_lockfile_1} ${WRKSRC}/extra/lockfile
+-	@${RLN} ${WRKSRC_nightlyone_lockfile} ${WRKSRC}/extra/lockfile
