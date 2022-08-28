@@ -1,7 +1,7 @@
 GH_TUPLE=	\
 		agext:levenshtein:v1.2.2:agext_levenshtein/vendor/github.com/agext/levenshtein \
 		apparentlymart:go-textseg:v13.0.0:apparentlymart_go_textseg_v13/vendor/github.com/apparentlymart/go-textseg/v13 \
-		aws:aws-sdk-go:v1.44.76:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		aws:aws-sdk-go:v1.44.86:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
 		dave:dst:v0.27.0:dave_dst/vendor/github.com/dave/dst \
 		fatih:color:v1.9.0:fatih_color/vendor/github.com/fatih/color \
 		go-check:check:10cb98267c6c:go_check_check/vendor/gopkg.in/check.v1 \
