@@ -1,7 +1,6 @@
 PORTNAME=	clash
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.11.4
-PORTREVISION=	1
+DISTVERSION=	1.11.8
 CATEGORIES=	local net
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -24,6 +23,7 @@ GO_BUILDFLAGS+=	-ldflags="-s -w \
 pre-patch: .PHONY .SILENT
 	${CP} ${WRKSRC}/listener/redir/tcp_linux.go ${WRKSRC}/listener/redir/tcp_freebsd.go
 
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>
