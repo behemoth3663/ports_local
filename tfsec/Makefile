@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	tfsec
-PORTVERSION=	1.27.5
+PORTVERSION=	1.27.6
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local security
 
@@ -23,7 +23,7 @@ GO_BUILDFLAGS+=	-ldflags="-s -w \
 
 PLIST_FILES=	bin/${PORTNAME}
 
-#rm -f -- distinfo Makefile.deps && doas make clean && make makesum gomod-vendor && make gomod-vendor >Makefile.deps && doas make clean && make makesum package && instpc
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>
