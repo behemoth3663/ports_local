@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	checkip
-PORTVERSION=	0.40.1
+PORTVERSION=	0.40.3
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local net
 
@@ -22,6 +22,7 @@ PLIST_FILES=	bin/${PORTNAME}
 
 fetch-version: .PHONY get-version
 
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>
