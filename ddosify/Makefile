@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	ddosify
-PORTVERSION=	0.8.1
+PORTVERSION=	0.8.2
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local benchmarks
 
@@ -29,6 +29,7 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 
 PLIST_FILES=	bin/${PORTNAME}
 
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>
