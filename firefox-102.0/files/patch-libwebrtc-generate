@@ -39,39 +39,6 @@ index 0000000000..d056686355
 +ac_add_options --enable-bootstrap
 +
 +mk_add_options MOZ_OBJDIR=obj-arm64_True_arm64_freebsd
-diff --git dom/media/webrtc/third_party_build/gn-configs/generate-gn-build-files.sh dom/media/webrtc/third_party_build/gn-configs/generate-gn-build-files.sh
-index 4452b0ce76..34a8ddf28e 100755
---- dom/media/webrtc/third_party_build/gn-configs/generate-gn-build-files.sh
-+++ dom/media/webrtc/third_party_build/gn-configs/generate-gn-build-files.sh
-@@ -57,17 +57,6 @@ set -eEuo pipefail
- 
- SYS_NAME=`uname`
- 
--# Check for modified files and abort if present.
--MODIFIED_FILES=`hg status --modified --added --exclude "**/moz.build" --exclude "dom/media/webrtc/third_party_build/**.json"`
--if [ "x$MODIFIED_FILES" = "x" ]; then
--  # Completely clean the mercurial checkout before proceeding
--  hg update -C -r .
--  hg purge
--else
--  echo "There are modified files in the checkout. Cowardly aborting!"
--  echo "$MODIFIED_FILES"
--  exit 1
--fi
- 
- IS_WIN=0
- IS_DARWIN=0
-@@ -94,6 +83,10 @@ elif [ "x$SYS_NAME" = "xMINGW32_NT-6.2" ]; then
-   IS_WIN=1
- elif [ "x$SYS_NAME" = "xOpenBSD" ]; then
-   CONFIGS="x64_False_x64_openbsd x64_True_x64_openbsd"
-+elif [ "x$SYS_NAME" = "xFreeBSD" ]; then
-+  CONFIGS="x64_False_x64_freebsd x64_True_x64_freebsd"
-+  CONFIGS="$CONFIGS x64_False_x86_freebsd x64_True_x86_freebsd"
-+  #CONFIGS="arm64_False_arm64_freebsd arm64_True_arm64_freebsd"
- else
-   # Ensure rust has the correct targets for building x86 and arm64.  These
-   # operations succeed quickly if previously completed.
 diff --git dom/media/webrtc/third_party_build/gn-configs/x64_False_x64_freebsd.mozconfig dom/media/webrtc/third_party_build/gn-configs/x64_False_x64_freebsd.mozconfig
 new file mode 100644
 index 0000000000..37319939ba

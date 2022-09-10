@@ -1,13 +1,14 @@
 # Created by: Alan Eldridge <alane@FreeBSD.org>
 
 PORTNAME=	firefox
-DISTVERSION=	102.0
-PORTREVISION=	1
-PORTEPOCH=	2
+DISTVERSION=	102.2.0
+#PORTREVISION=	0
+#PORTEPOCH=	2
 CATEGORIES=	www
-MASTER_SITES=	MOZILLA/${PORTNAME}/releases/${DISTVERSION}/source \
-		MOZILLA/${PORTNAME}/candidates/${DISTVERSION}${DISTVERSIONSUFFIX}-candidates/build2/source
-DISTFILES=	${DISTNAME}.source${EXTRACT_SUFX}
+MASTER_SITES=	MOZILLA/${PORTNAME}/releases/${DISTVERSION}esr/source \
+		MOZILLA/${PORTNAME}/candidates/${DISTVERSION}esr-candidates/build1/source
+PKGNAMESUFFIX=	-esr
+DISTFILES=	${DISTNAME}esr.source${EXTRACT_SUFX}
 
 MAINTAINER=	gecko@FreeBSD.org
 COMMENT=	Web browser based on the browser portion of Mozilla
@@ -30,6 +31,7 @@ BUILD_DEPENDS=	nspr>=4.32:devel/nspr \
 		zip:archivers/zip
 
 USE_GECKO=	gecko
+CPE_PRODUCT=	${PORTNAME}
 CONFLICTS_INSTALL=	firefox-esr
 USE_MOZILLA=	-sqlite
 CFLAGS_powerpc64le=	-DSQLITE_BYTEORDER=1234
@@ -74,4 +76,37 @@ post-install:
 	${MKDIR} ${STAGEDIR}${PREFIX}/share/pixmaps
 	${LN} -sf ${FIREFOX_ICON_SRC} ${STAGEDIR}${PREFIX}/share/pixmaps/${FIREFOX_ICON}
 
-.include <bsd.port.mk>
+.include <bsd.port.pre.mk>
+
+LLVM_DEFAULT=13
+LLVM_VERSION=13.0.1
+DEFAULT_VERSIONS:=${DEFAULT_VERSIONS:C/llvm=.*/llvm=13/}
+
+OPT_LEVEL=3
+
+.if ! ${CFLAGS:M-fomit-frame-pointer}
+  CFLAGS+=-fomit-frame-pointer
+.endif
+
+CFLAGS:=${CFLAGS:N-O*} -O${OPT_LEVEL}
+
+.if !empty(CPUTYPE)
+  CFLAGS+=-march=${CPUTYPE}
+.endif
+
+#MOZ_OPTIONS+=	--disable-maintenance-service
+MOZ_OPTIONS+=	--disable-crashreporter
+MOZ_OPTIONS+=	--disable-parental-controls
+MOZ_OPTIONS+=	--disable-necko-wifi
+MOZ_OPTIONS+=	--disable-rust-simd
+#?MOZ_OPTIONS:=	${MOZ_OPTIONS:S/--enable-lto=thin/--enable-lto=full/}
+
+MOZ_EXPORT:=	${MOZ_EXPORT:NLLVM_CONFIG=llvm-config11}
+MOZ_EXPORT:=	${MOZ_EXPORT:C,^(MAKE|PKG_CONFIG)=,\1=/usr/local/bin/,}
+MOZ_EXPORT:=	${MOZ_EXPORT:NRUSTFLAGS=*} RUSTFLAGS="-C opt-level=${CFLAGS:M-O*:S/-O//:S/3/2/} -C target-cpu=${CFLAGS:M-march=*:S/-march=//:S/^$/x86-64/}"
+
+MOZ_EXPORT+=	MOZ_TELEMETRY_ON_BY_DEFAULT=0
+MOZ_EXPORT+=	MOZ_DATA_REPORTING=0
+MOZ_EXPORT+=	MOZ_SCTP=0
+
+.include <bsd.port.post.mk>
