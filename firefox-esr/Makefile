@@ -3,7 +3,7 @@
 PORTNAME=	firefox
 DISTVERSION=	102.2.0
 #PORTREVISION=	0
-#PORTEPOCH=	2
+PORTEPOCH=	1
 CATEGORIES=	www
 MASTER_SITES=	MOZILLA/${PORTNAME}/releases/${DISTVERSION}esr/source \
 		MOZILLA/${PORTNAME}/candidates/${DISTVERSION}esr-candidates/build1/source
@@ -32,7 +32,7 @@ BUILD_DEPENDS=	nspr>=4.32:devel/nspr \
 
 USE_GECKO=	gecko
 CPE_PRODUCT=	${PORTNAME}
-CONFLICTS_INSTALL=	firefox-esr
+CONFLICTS_INSTALL=	firefox
 USE_MOZILLA=	-sqlite
 CFLAGS_powerpc64le=	-DSQLITE_BYTEORDER=1234
 # work around bindgen not finding ICU, e.g.
@@ -47,7 +47,7 @@ FIREFOX_DESKTOP=	${MOZSRC}/taskcluster/docker/${MOZILLA}-snap/${MOZILLA}.desktop
 MOZ_OPTIONS=	--enable-application=browser \
 		--enable-official-branding
 
-.include "${.CURDIR}/../../www/firefox/Makefile.options"
+.include "${.CURDIR}/Makefile.options"
 
 .include <bsd.port.options.mk>
 
@@ -76,6 +76,36 @@ post-install:
 	${MKDIR} ${STAGEDIR}${PREFIX}/share/pixmaps
 	${LN} -sf ${FIREFOX_ICON_SRC} ${STAGEDIR}${PREFIX}/share/pixmaps/${FIREFOX_ICON}
 
+#patches/sed-patches/
+EXTRA_PATCHES+=	${.CURDIR}/librewolf/common/patches/sed-patches/allow-searchengines-non-esr.patch:-p1
+EXTRA_PATCHES+=	${.CURDIR}/librewolf/common/patches/sed-patches/disable-pocket.patch:-p1
+#EXTRA_PATCHES+=${.CURDIR}/librewolf/common/patches/sed-patches/remove-internal-plugin-certs.patch:-p1
+EXTRA_PATCHES+=	${.CURDIR}/librewolf/common/patches/sed-patches/stop-undesired-requests.patch:-p1
+
+#patches/ui-patches/
+#EXTRA_PATCHES+=${.CURDIR}/librewolf/common/patches/ui-patches/add-language-warning.patch:-p1
+EXTRA_PATCHES+=	${.CURDIR}/librewolf/common/patches/ui-patches/pref-naming-a1vm.patch:-p1
+EXTRA_PATCHES+=	${.CURDIR}/librewolf/common/patches/ui-patches/remove-branding-urlbar.patch:-p1
+EXTRA_PATCHES+=	${.CURDIR}/librewolf/common/patches/ui-patches/remove-cfrprefs.patch:-p1
+EXTRA_PATCHES+=	${.CURDIR}/librewolf/common/patches/ui-patches/remove-organization-policy-banner.patch:-p1
+EXTRA_PATCHES+=	${.CURDIR}/librewolf/common/patches/ui-patches/remove-snippets-from-home.patch:-p1
+#EXTRA_PATCHES+=${.CURDIR}/librewolf/common/patches/ui-patches/sanitizing-description.patch:-p1
+
+#patches/
+EXTRA_PATCHES+=	${.CURDIR}/librewolf/common/patches/about-dialog-a1vm.patch:-p1
+#EXTRA_PATCHES+=${.CURDIR}/librewolf/common/patches/allow_dark_preference_with_rfp.patch:-p1
+#EXTRA_PATCHES+=${.CURDIR}/librewolf/common/patches/allow-ubo-private-mode.patch:-p1
+#EXTRA_PATCHES+=${.CURDIR}/librewolf/common/patches/arm.patch:-p1
+#EXTRA_PATCHES+=${.CURDIR}/librewolf/common/patches/browser-confvars-a1vm.patch:-p1
+EXTRA_PATCHES+=	${.CURDIR}/librewolf/common/patches/context-menu.patch:-p1
+#?EXTRA_PATCHES+=${.CURDIR}/librewolf/common/patches/megabar.patch:-p1
+#-EXTRA_PATCHES+=${.CURDIR}/librewolf/common/patches/mozilla_dirs.patch:-p1
+EXTRA_PATCHES+=	${.CURDIR}/librewolf/common/patches/mozilla-vpn-ad.patch:-p1
+EXTRA_PATCHES+=	${.CURDIR}/librewolf/common/patches/remove_addons.patch:-p1
+#-EXTRA_PATCHES+=${.CURDIR}/librewolf/common/patches/search-config.patch:-p1
+#EXTRA_PATCHES+=${.CURDIR}/librewolf/common/patches/unity-menubar.patch:-p1
+EXTRA_PATCHES+=	${.CURDIR}/librewolf/common/patches/urlbarprovider-interventions.patch:-p1
+
 .include <bsd.port.pre.mk>
 
 LLVM_DEFAULT=13
@@ -89,10 +119,6 @@ OPT_LEVEL=3
 .endif
 
 CFLAGS:=${CFLAGS:N-O*} -O${OPT_LEVEL}
-
-.if !empty(CPUTYPE)
-  CFLAGS+=-march=${CPUTYPE}
-.endif
 
 #MOZ_OPTIONS+=	--disable-maintenance-service
 MOZ_OPTIONS+=	--disable-crashreporter

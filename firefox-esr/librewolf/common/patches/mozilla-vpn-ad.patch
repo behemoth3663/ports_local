@@ -1,0 +1,28 @@
+--- a/browser/components/privatebrowsing/content/aboutPrivateBrowsing.html.orig	2022-02-28 20:14:26 UTC
++++ b/browser/components/privatebrowsing/content/aboutPrivateBrowsing.html
+@@ -53,14 +53,14 @@
+           <div class="fake-caret"></div>
+         </button>
+       </div>
+-      <div class="info">
++      <!--div class="info">
+         <h1 id="info-title"></h1>
+         <p id="info-body"></p>
+         <a id="private-browsing-myths"></a>
+-      </div>
++      </div-->
+     </div>
+ 
+-    <div class="promo" hidden>
++    <!--div class="promo" hidden>
+       <div class="promo-image-large">
+         <img src="" alt="" />
+       </div>
+@@ -75,6 +75,6 @@
+         </div>
+       </div>
+       <button data-l10n-id="about-private-browsing-promo-close-button" id="dismiss-btn" class="promo-dismiss"></button>
+-    </div>
++    </div-->
+   </body>
+ </html>

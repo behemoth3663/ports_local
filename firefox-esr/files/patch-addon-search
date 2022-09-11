@@ -2,10 +2,10 @@ https://github.com/mozilla/addons/issues/708
 https://github.com/mozilla/addons-frontend/issues/4610
 
 diff --git browser/app/profile/firefox.js browser/app/profile/firefox.js
-index af08811..77a3b18 100644
---- browser/app/profile/firefox.js
-+++ browser/app/profile/firefox.js
-@@ -38,7 +38,7 @@ pref("extensions.postDownloadThirdPartyPrompt", true);
+index 75c2c5e435e35..4d8c09c02759b 100644
+--- browser/app/profile/firefox.js.orig	2021-11-02 16:33:38.105280000 +0100
++++ browser/app/profile/firefox.js	2021-11-02 16:37:53.792644000 +0100
+@@ -39,7 +39,7 @@
  // Preferences for AMO integration
  pref("extensions.getAddons.cache.enabled", true);
  pref("extensions.getAddons.get.url", "https://services.addons.mozilla.org/api/v4/addons/search/?guid=%IDS%&lang=%LOCALE%");
@@ -14,7 +14,7 @@ index af08811..77a3b18 100644
  pref("extensions.getAddons.link.url", "https://addons.mozilla.org/%LOCALE%/firefox/");
  pref("extensions.getAddons.langpacks.url", "https://services.addons.mozilla.org/api/v4/addons/language-tools/?app=firefox&type=language&appversion=%VERSION%");
  pref("extensions.getAddons.discovery.api_url", "https://services.addons.mozilla.org/api/v4/discovery/?lang=%LOCALE%&edition=%DISTRIBUTION%");
-@@ -193,8 +193,8 @@ pref("app.update.langpack.enabled", true);
+@@ -206,8 +206,8 @@
  //  .. etc ..
  //
  pref("extensions.update.enabled", true);
@@ -26,10 +26,10 @@ index af08811..77a3b18 100644
                                              // Themes every day
  
 diff --git toolkit/mozapps/extensions/internal/AddonRepository.jsm toolkit/mozapps/extensions/internal/AddonRepository.jsm
-index 661c902..a41b32f 100644
---- toolkit/mozapps/extensions/internal/AddonRepository.jsm
-+++ toolkit/mozapps/extensions/internal/AddonRepository.jsm
-@@ -592,7 +592,7 @@ var AddonRepository = {
+index f70fd8d7e3bd8..81e8cd7764fdf 100644
+--- toolkit/mozapps/extensions/internal/AddonRepository.jsm.orig	2021-11-02 16:38:22.800491000 +0100
++++ toolkit/mozapps/extensions/internal/AddonRepository.jsm	2021-11-02 16:39:24.255593000 +0100
+@@ -584,7 +584,7 @@
        addon.version = String(aEntry.current_version.version);
        if (Array.isArray(aEntry.current_version.files)) {
          for (let file of aEntry.current_version.files) {
@@ -39,10 +39,10 @@ index 661c902..a41b32f 100644
                addon.sourceURI = NetUtil.newURI(file.url);
              }
 diff --git toolkit/mozapps/extensions/internal/XPIDatabase.jsm toolkit/mozapps/extensions/internal/XPIDatabase.jsm
-index f8c99c7..c6ba8a1 100644
---- toolkit/mozapps/extensions/internal/XPIDatabase.jsm
-+++ toolkit/mozapps/extensions/internal/XPIDatabase.jsm
-@@ -520,7 +520,7 @@ class AddonInternal {
+index f70fd8d7e3bd8..81e8cd7764fdf 100644
+--- toolkit/mozapps/extensions/internal/XPIDatabase.jsm.orig	2021-11-02 16:39:45.832056000 +0100
++++ toolkit/mozapps/extensions/internal/XPIDatabase.jsm	2021-11-02 16:40:38.136056000 +0100
+@@ -483,7 +483,7 @@
      // Something is causing errors in here
      try {
        for (let platform of this.targetPlatforms) {
