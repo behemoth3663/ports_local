@@ -1,0 +1,17 @@
+TIMESTAMP = 1662992031
+SHA256 (Snawoot-dumbproxy-v1.6.1_GH0.tar.gz) = 6708b8293758d458651aad3fc951e22e2cc4506e31ff5b02fd58ded214682499
+SIZE (Snawoot-dumbproxy-v1.6.1_GH0.tar.gz) = 15603
+SHA256 (GehirnInc-crypt-bb7000b8a962_GH0.tar.gz) = 1a57049bd9c75e5e3f5679f1786e74181da1d2d69b3ccc1a944820d20d6f2699
+SIZE (GehirnInc-crypt-bb7000b8a962_GH0.tar.gz) = 10251
+SHA256 (golang-crypto-c86fa9a7ed90_GH0.tar.gz) = f436823d4146655bd73066361741748045e7fef78bb1f39ad44feca624655a70
+SIZE (golang-crypto-c86fa9a7ed90_GH0.tar.gz) = 1631836
+SHA256 (golang-net-83b083e8dc8b_GH0.tar.gz) = 39e58948d9d65c8f6be2b9fc0f5c2993179f740aad764fa8d7387ddf293d0121
+SIZE (golang-net-83b083e8dc8b_GH0.tar.gz) = 1226340
+SHA256 (golang-sys-3c1f35247d10_GH0.tar.gz) = 27fdc75cc74da979f59142f1f5a1f08505c55918a0d5019ed4ebb04901834842
+SIZE (golang-sys-3c1f35247d10_GH0.tar.gz) = 1336787
+SHA256 (golang-term-03fcf44c2211_GH0.tar.gz) = 1919967c8fbf15de9261a2315d90072357524ee557d7df106b426def02a8e5f3
+SIZE (golang-term-03fcf44c2211_GH0.tar.gz) = 14972
+SHA256 (golang-text-v0.3.7_GH0.tar.gz) = 7cab2f6c3133ac1d422edd952b0dd2082fa55a73c2663fb2defd9bf83d649b26
+SIZE (golang-text-v0.3.7_GH0.tar.gz) = 8354718
+SHA256 (tg123-go-htpasswd-v1.2.0_GH0.tar.gz) = 628b2e0095432c9ed98690711bab9b113bd0dac07136975b9b69221f2f2d5be0
+SIZE (tg123-go-htpasswd-v1.2.0_GH0.tar.gz) = 89910
