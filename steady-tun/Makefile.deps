@@ -1,0 +1,2 @@
+GH_TUPLE=	golang:sync:43a5402ce75a:golang_sync/vendor/golang.org/x/sync \
+		huandu:skiplist:v1.1.0:huandu_skiplist/vendor/github.com/huandu/skiplist
