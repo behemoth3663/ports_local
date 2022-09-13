@@ -2,12 +2,12 @@
 
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.38.9
-PORTREVISION=	1
+DISTVERSION=	0.38.10
 CATEGORIES=	local sysutils
 
 MAINTAINER=	0xdutra@gmail.com
 COMMENT=	Terragrunt is a thin wrapper for Terraform
+WWW=		https://terragrunt.gruntwork.io/
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
