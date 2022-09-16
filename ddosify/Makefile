@@ -1,12 +1,13 @@
 #
 
 PORTNAME=	ddosify
-PORTVERSION=	0.8.2
+PORTVERSION=	0.8.3
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local benchmarks
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	High-performance load testing tool
+WWW=		https://ddosify.com/
 
 LICENSE=	AGPLv3
 LICENSE_FILE=	${WRKSRC}/LICENSE
