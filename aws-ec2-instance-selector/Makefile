@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	aws-ec2-instance-selector
-PORTVERSION=	2.3.2
+PORTVERSION=	2.4.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 DISTNAME=	amazon-ec2-instance-selector
@@ -24,6 +24,7 @@ PLIST_FILES=	bin/${PORTNAME}
 
 fetch-version: .PHONY get-version
 
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>
