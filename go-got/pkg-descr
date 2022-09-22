@@ -1,4 +1,2 @@
 Simple golang package and CLI tool to download large files faster runner than
 cURL and Wget
-
-WWW: https://github.com/melbahja/got

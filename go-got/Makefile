@@ -9,6 +9,7 @@ DISTNAME=	got
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Simple and fast concurrent downloader
+WWW=		https://github.com/melbahja/got
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
