@@ -1,12 +1,13 @@
 #
 
 PORTNAME=	tfsec
-PORTVERSION=	1.27.6
+PORTVERSION=	1.28.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local security
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Static analysis powered security scanner for your terraform code
+WWW=		https://github.com/liamg/tfsec
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE

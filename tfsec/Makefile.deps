@@ -10,8 +10,8 @@ GH_TUPLE=	\
 		alecthomas:chroma:v0.10.0:alecthomas_chroma/vendor/github.com/alecthomas/chroma \
 		apparentlymart:go-cidr:v1.1.0:apparentlymart_go_cidr/vendor/github.com/apparentlymart/go-cidr \
 		apparentlymart:go-textseg:v13.0.0:apparentlymart_go_textseg_v13/vendor/github.com/apparentlymart/go-textseg/v13 \
-		aquasecurity:defsec:v0.73.0:aquasecurity_defsec/vendor/github.com/aquasecurity/defsec \
-		aws:aws-sdk-go:v1.44.77:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		aquasecurity:defsec:v0.76.0:aquasecurity_defsec/vendor/github.com/aquasecurity/defsec \
+		aws:aws-sdk-go:v1.44.95:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
 		bgentry:go-netrc:9fd32a8b3d3d:bgentry_go_netrc/vendor/github.com/bgentry/go-netrc \
 		bmatcuk:doublestar:v1.3.4:bmatcuk_doublestar/vendor/github.com/bmatcuk/doublestar \
 		census-instrumentation:opencensus-go:v0.23.0:census_instrumentation_opencensus_go/vendor/go.opencensus.io \
