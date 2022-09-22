@@ -21,6 +21,8 @@ GO_TARGET=	./cmd/${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME}
 
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static -X 'github.com/${GH_ACCOUNT}/${PORTNAME}/internal/cmd.version=${PORTVERSION}'"
+
 fetch-version: .PHONY get-version
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
@@ -30,6 +32,7 @@ fetch-version: .PHONY get-version
 #-		kubernetes-sigs:kustomize:v0.8.11:kubernetes_sigs_kustomize/vendor/sigs.k8s.io/kustomize/api \
 #+		kubernetes-sigs:kustomize:kyaml/v0.11.0:kubernetes_sigs_kustomize_1/vendor/sigs.k8s.io/kustomize/kyaml \
 #+		kubernetes-sigs:kustomize:api/v0.8.11:kubernetes_sigs_kustomize/vendor/sigs.k8s.io/kustomize/api \
-GH_TUPLE:=	${GH_TUPLE:C|(kubernetes-sigs:kustomize:)(.*)/([^/]+)\$|\1\3/\2/\3|}
+#Not working well for unknown reason - when failed use patch- instead
+#GH_TUPLE:=	${GH_TUPLE:C|(kubernetes-sigs:kustomize:)(.*)/([^/]+)\$|\1\3/\2/\3|}
 
 .include <bsd.port.mk>
