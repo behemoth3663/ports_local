@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	keepassxc-proxy-rust
-PORTVERSION=	0.0.20210116
+PORTVERSION=	0.0.20220921
 CATEGORIES=	local security
 
 MAINTAINER=	none@freebsd.org
@@ -13,7 +13,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 USES=		cargo
 USE_GITHUB=	yes
 GH_ACCOUNT=	varjolintu
-GH_TAGNAME=	338735e
+GH_TAGNAME=	ee769d0
 
 fetch-version: .PHONY get-version
 
