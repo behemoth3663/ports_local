@@ -1,12 +1,13 @@
 #
 
 PORTNAME=	driftctl
-PORTVERSION=	0.32.1
+PORTVERSION=	0.37.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Detect, track and alert on infrastructure drift
+WWW=		https://github.com/cloudskiff/driftctl
 
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE.md

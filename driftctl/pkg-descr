@@ -3,5 +3,3 @@ IaC: Terraform
 Cloud providers: AWS, GitHub (Azure and GCP on the roadmap for 2021).
 Warning: This tool is still in beta state and will evolve in the future with
 potential breaking changes!
-
-WWW: https://github.com/cloudskiff/driftctl
