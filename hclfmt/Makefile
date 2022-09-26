@@ -1,12 +1,13 @@
 #
 
 PORTNAME=	hclfmt
-PORTVERSION=	2.14.0
+PORTVERSION=	2.14.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Format and prettify HCL files
+WWW=		https://github.com/hashicorp/hcl
 
 LICENSE=	MPL20
 LICENSE_FILE=	${WRKSRC}/LICENSE
