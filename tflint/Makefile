@@ -1,12 +1,13 @@
 # Created by: Gabriel M. Dutra <0xdutra@gmail.com>
 
 PORTNAME=	tflint
-PORTVERSION=	0.40.1
+PORTVERSION=	0.41.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
 MAINTAINER=	0xdutra@gmail.com
 COMMENT=	Terraform Linter
+WWW=		https://github.com/terraform-linters/tflint
 
 LICENSE=	MPL20
 LICENSE_FILE=	${WRKSRC}/LICENSE

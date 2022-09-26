@@ -1,4 +1,2 @@
 Terraform linter focused on possible errors, best practices, etc.
 Only for Terraform >= 0.12
-
-WWW: https://github.com/terraform-linters/tflint
