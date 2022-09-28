@@ -1,12 +1,13 @@
 #
 
 PORTNAME=	infracost
-PORTVERSION=	0.10.11
+PORTVERSION=	0.10.12
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Cloud cost estimates for Terraform
+WWW=		https://github.com/infracost/infracost
 
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
