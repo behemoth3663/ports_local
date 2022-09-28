@@ -1,12 +1,13 @@
 #
 
 PORTNAME=	tflint-ruleset-aws
-PORTVERSION=	0.17.0
+PORTVERSION=	0.17.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	TFLint ruleset for terraform-provider-aws
+WWW=		https://github.com/terraform-linters/tflint-ruleset-aws
 
 LICENSE=	MPL20
 LICENSE_FILE=	${WRKSRC}/LICENSE
