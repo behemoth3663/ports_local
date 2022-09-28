@@ -1,11 +1,12 @@
 #
 
 PORTNAME=	amazon-ssm-agent
-PORTVERSION=	3.1.1767.0
+PORTVERSION=	3.1.1856.0
 CATEGORIES=	local sysutils
 
 MAINTAINER=	cperciva@FreeBSD.org
 COMMENT=	Amazon Simple Systems Manager Agent
+WWW=		https://github.com/aws/amazon-ssm-agent
 
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
