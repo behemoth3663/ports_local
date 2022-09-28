@@ -1,12 +1,13 @@
 #
 
 PORTNAME=	cloud-nuke
-PORTVERSION=	0.19.0
+PORTVERSION=	0.19.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	CLI tool to delete all resources in an AWS account
+WWW=		https://github.com/gruntwork-io/cloud-nuke
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
@@ -25,6 +26,7 @@ pre-post-extract: .PHONY
 		${LN} -s "$${src}" "$${src%%go-commons-*}gruntwork-cli-$${src##*go-commons-}"; \
 	done
 
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>

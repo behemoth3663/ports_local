@@ -1,5 +1,6 @@
 GH_TUPLE=	\
 		aws:aws-sdk-go-v2:v1.16.11:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+		aws:aws-sdk-go-v2:v1.16.13:aws_aws_sdk_go_v2_sts \
 		aws:aws-sdk-go:v1.44.74:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
 		aws:smithy-go:v1.12.1:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		bgentry:speakeasy:v0.1.0:bgentry_speakeasy/vendor/github.com/bgentry/speakeasy \
@@ -32,3 +33,7 @@ GH_TUPLE=	\
 		sirupsen:logrus:v1.6.0:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
 		stretchr:testify:v1.7.1:stretchr_testify/vendor/github.com/stretchr/testify \
 		urfave:cli:v1.22.4:urfave_cli/vendor/github.com/urfave/cli
+
+post-extract:
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sts
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_sts}/service/sts ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sts
