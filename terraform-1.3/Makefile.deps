@@ -105,7 +105,7 @@ GH_TUPLE=	\
 		hashicorp:go-version:v1.6.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
 		hashicorp:golang-lru:v0.5.1:hashicorp_golang_lru/vendor/github.com/hashicorp/golang-lru \
 		hashicorp:hcl:a4b07c25de5f:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
-		hashicorp:hcl:v2.14.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
+		hashicorp:hcl:v2.14.1:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
 		hashicorp:jsonapi:ee7dae0fb22d:hashicorp_jsonapi/vendor/github.com/hashicorp/jsonapi \
 		hashicorp:serf:v0.9.5:hashicorp_serf/vendor/github.com/hashicorp/serf \
 		hashicorp:terraform-config-inspect:4fd17a0faac2:hashicorp_terraform_config_inspect/vendor/github.com/hashicorp/terraform-config-inspect \
