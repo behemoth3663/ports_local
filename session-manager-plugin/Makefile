@@ -6,6 +6,7 @@ CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Helps to AWS CLI with sessions to your managed instances
+WWW=		https://github.com/aws/session-manager-plugin
 
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
