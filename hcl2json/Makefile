@@ -3,6 +3,7 @@
 PORTNAME=	hcl2json
 PORTVERSION=	0.3.4
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
@@ -20,6 +21,7 @@ PLIST_FILES=	bin/${PORTNAME}
 
 fetch-version: .PHONY get-version
 
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>

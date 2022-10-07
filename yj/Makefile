@@ -3,7 +3,7 @@
 PORTNAME=	yj
 PORTVERSION=	5.1.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
@@ -22,7 +22,7 @@ PLIST_FILES=	bin/${PORTNAME}
 GO_BUILDFLAGS+=	-ldflags="-s -X 'main.Version=${PORTVERSION}'"
 GO_BUILDFLAGS+=	-buildvcs=false
 
-#rm -f -- distinfo Makefile.deps && make makesum && make gomod-vendor && make gomod-vendor >Makefile.deps && make makesum && mkcal && instpc
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>

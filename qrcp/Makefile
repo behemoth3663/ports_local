@@ -2,6 +2,7 @@
 
 PORTNAME=	qrcp
 PORTVERSION=	0.8.4
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -30,7 +31,7 @@ post-patch: .PHONY
 		-e 's|^([[:space:]]*date[[:space:]]*=[[:space:]]*).*|\1"${%FT%TZ:L:gmtime}"|' \
 	${WRKSRC}/version/version.go
 
-#rm -f -- distinfo Makefile.deps && make makesum && make gomod-vendor &&  make gomod-vendor >Makefile.deps && make makesum && mkcal
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>

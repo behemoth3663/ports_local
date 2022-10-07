@@ -3,6 +3,7 @@
 PORTNAME=	terraform
 PORTVERSION=	0.11.15
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX?=	-${PORTVERSION:R}
 
@@ -22,13 +23,12 @@ PLIST_FILES+=	bin/${PORTNAME}${PKGNAMESUFFIX}
 
 JQ_GETVER_EXPR=	[.[].name | gsub("^[a-z]+";"") | select(test("^${PORTVERSION:C/[^.]+$/[0-9]+/:S/./\\\\./g}$$"; "n"))][0]
 
-post-patch:
+post-patch: .PHONY
 	${REINPLACE_CMD} 's|Prerelease = "dev"|Prerelease = ""|' \
 		${WRKSRC}/version/version.go
 
-post-install:
+post-install: .PHONY
 	${MV} ${STAGEDIR}${PREFIX}/bin/${PORTNAME} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION}
 	${INSTALL} -l rs ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}${PKGNAMESUFFIX}
 
-#GO_CMD=		${LOCALBASE}/go-1.13/bin/go
 .include <bsd.port.mk>

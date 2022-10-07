@@ -3,6 +3,7 @@
 PORTNAME=	richgo
 PORTVERSION=	0.3.10
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local devel
 
 MAINTAINER=	none@freebsd.org
@@ -20,7 +21,7 @@ PLIST_FILES=	bin/${PORTNAME}
 
 fetch-version: .PHONY get-version
 
-#rm -f -- distinfo Makefile.deps && doas make clean && make makesum gomod-vendor && make gomod-vendor >Makefile.deps && doas make clean && make makesum package && instpc
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>

@@ -2,6 +2,7 @@
 
 PORTNAME=	inframap
 PORTVERSION=	0.6.7
+PORTREVISION=	1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -24,7 +25,7 @@ GO_BUILDFLAGS+=	-ldflags="-s -X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.Vers
 
 fetch-version: .PHONY get-version
 
-#rm -f -- distinfo Makefile.deps && make makesum && make gomod-vendor && make gomod-vendor >Makefile.deps && make makesum && mkcal && instpc
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>

@@ -3,6 +3,7 @@
 PORTNAME=	hclfmt
 PORTVERSION=	2.14.1
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
@@ -28,7 +29,7 @@ fetch-version: .PHONY get-version
 .-include "${.CURDIR}/Makefile.deps"
 
 #const versionStr = "0.0.1-dev"
-post-patch:
+post-patch: .PHONY
 	${REINPLACE_CMD} -r \
 		-e 's|^([[:space:]]*const[[:space:]]+versionStr[[:space:]]*=[[:space:]]*)".*"[[:space:]]*$$|\1"${PORTVERSION}"|' \
 	${WRKSRC}/${GO_TARGET}/main.go

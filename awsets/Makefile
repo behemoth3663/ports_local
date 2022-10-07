@@ -33,10 +33,11 @@ GO_BUILDFLAGS+=	-ldflags="-s -w \
 
 fetch-version: .PHONY get-version
 
-post-patch: .PHONY
-	cd ${WRKSRC} && \
-		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod vendor
-	${CHMOD} -R u+w ${WRKDIR}/.gopath
+#post-patch: .PHONY
+#	cd ${WRKSRC} && \
+#		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod vendor && \
+#		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod tidy -v
+#	${CHMOD} -R u+w ${WRKDIR}/.gopath
 
 #	cd ${WRKSRC} && \
 #		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} get -u=patch && \
@@ -59,6 +60,7 @@ post-patch: .PHONY
 #		ec2_vpcpeering.go && \
 #	${REINPLACE_CMD} -r 's|AllRegions:[[:space:]]+aws\.|AllRegions: *aws.|' ../main.go
 
-#.-include "${.CURDIR}/Makefile.deps"
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>

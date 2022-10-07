@@ -3,6 +3,7 @@
 PORTNAME=	hcltomd
 PORTVERSION=	1.0.0
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
@@ -31,6 +32,7 @@ GO_BUILDFLAGS+=	-ldflags="-s -w \
 
 fetch-version: .PHONY get-version
 
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>

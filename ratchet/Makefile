@@ -3,6 +3,7 @@
 PORTNAME=	ratchet
 PORTVERSION=	0.2.3
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -28,8 +29,7 @@ GH_COMMIT=	git ls-remote --tags \
 #	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=${PORTVERSION}' \
 #	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Commit=${:!${GH_COMMIT}!:[1]:C/(.{7}).*/\1/}'"
 
-#rm -f -- distinfo Makefile.deps && doas make clean && make makesum gomod-vendor && make gomod-vendor >Makefile.deps
-#doas make clean && make makesum package && instpc
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 post-patch:

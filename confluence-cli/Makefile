@@ -3,6 +3,7 @@
 PORTNAME=	confluence-cli
 PORTVERSION=	0.2
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local net
 
 MAINTAINER=	none@freebsd.org
@@ -25,7 +26,7 @@ post-patch: .PHONY
 		${SETENV} ${GO_ENV} ${GO_CMD} get -u=patch && \
 		${SETENV} ${GO_ENV} ${GO_CMD} mod tidy -v
 
-#rm -f -- distinfo Makefile.deps && make makesum && make gomod-vendor &&  make gomod-vendor >Makefile.deps && make makesum && mkcal
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>

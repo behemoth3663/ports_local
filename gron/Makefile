@@ -3,6 +3,7 @@
 PORTNAME=	gron
 PORTVERSION=	0.7.1
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local textproc
 
 MAINTAINER=	zi@FreeBSD.org
@@ -18,6 +19,7 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -X main.gronVersion=${PORTVERSION}"
 
 PLIST_FILES=	bin/${PORTNAME}
 
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>

@@ -2,6 +2,7 @@
 
 PORTNAME=	seespot
 PORTVERSION=	0.0.1
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org

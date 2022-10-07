@@ -3,7 +3,7 @@
 PORTNAME=	vegeta
 PORTVERSION=	12.8.4
 DISTVERSIONPREFIX=	v
-PORTREVISION=	3
+PORTREVISION=	4
 CATEGORIES=	local benchmarks
 
 MAINTAINER=	none@freebsd.org
@@ -30,7 +30,7 @@ GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'main.Commit=${:!${GH_COMMIT}!:[1]:C/(.{7}).*/\1/}' \
 	-X 'main.Date=${%FT%TZ:L:gmtime}'"
 
-#rm -f -- distinfo Makefile.deps && doas make clean && make makesum gomod-vendor && make gomod-vendor >Makefile.deps && doas make clean && make makesum package && instpc
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>

@@ -1,7 +1,7 @@
 PORTNAME=	rclone
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.58.1
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	local net
 
 MAINTAINER=	brad@facefault.org
@@ -28,6 +28,7 @@ PLIST_FILES=	bin/rclone
 
 JQ_GETVER_EXPR=	.[0].name | gsub("[-a-z]"; "")
 
+#.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.pre.mk>

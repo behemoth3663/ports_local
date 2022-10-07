@@ -3,6 +3,7 @@
 PORTNAME=	traefik-config-validator
 PORTVERSION=	0.0.2
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -22,10 +23,10 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -X 'github.com/main.version=${PORTVERSION}'"
 
 PLIST_FILES=	bin/${PORTNAME}
 
-#rm -f -- distinfo Makefile.deps && doas make clean && make makesum gomod-vendor && make gomod-vendor >Makefile.deps && doas make clean && make makesum package && instpc
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
-post-patch:
+post-patch: .PHONY
 	${REINPLACE_CMD} -r \
 		's|^([[:space:]]*version[[:space:]]*=[[:space:]]*)".*"[[:space:]]*$$|\1"${PORTVERSION}"|' \
 	${WRKSRC}/${GO_TARGET}/main.go

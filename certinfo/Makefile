@@ -3,6 +3,7 @@
 PORTNAME=	certinfo
 PORTVERSION=	1.0.7
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local security
 
 MAINTAINER=	none@freebsd.org
@@ -20,7 +21,7 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -X 'main.Version=${DISTVERSIONPREFIX}${PORTVERSI
 
 PLIST_FILES=	bin/${PORTNAME}
 
-#rm -f -- distinfo Makefile.deps && doas make clean && make makesum gomod-vendor && make gomod-vendor >Makefile.deps && doas make clean && make makesum package && instpc
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>

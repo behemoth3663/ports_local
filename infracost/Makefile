@@ -3,6 +3,7 @@
 PORTNAME=	infracost
 PORTVERSION=	0.10.12
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -35,4 +36,5 @@ pre-build: .PHONY
 		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod vendor -v && \
 		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod tidy -v
 
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .include <bsd.port.mk>

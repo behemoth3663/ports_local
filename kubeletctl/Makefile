@@ -3,6 +3,7 @@
 PORTNAME=	kubeletctl
 PORTVERSION=	1.8
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -25,6 +26,7 @@ fetch-version: .PHONY get-version
 #pre-build: .PHONY
 #	cd ${WRKSRC} && ${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod vendor
 
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>

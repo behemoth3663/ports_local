@@ -3,6 +3,7 @@
 PORTNAME=	hcledit
 PORTVERSION=	0.2.6
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -18,6 +19,7 @@ GH_ACCOUNT=	minamijoyo
 
 PLIST_FILES=	bin/${PORTNAME}
 
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>

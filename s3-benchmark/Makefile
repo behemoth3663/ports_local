@@ -3,6 +3,7 @@
 PORTNAME=	s3-benchmark
 PORTVERSION=	0.0.3
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local net
 
 MAINTAINER=	none@FreeBSD.org
@@ -22,6 +23,7 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -X 'main.version=${DISTVERSIONPREFIX}${PORTVERSI
 
 fetch-version: .PHONY get-version
 
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>

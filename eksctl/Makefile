@@ -2,6 +2,7 @@
 
 PORTNAME=	eksctl
 PORTVERSION=	0.79.0
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	danilo@FreeBSD.org
@@ -25,6 +26,7 @@ GO_TARGET=	./cmd/${PORTNAME}
 GO_BUILDFLAGS=	-ldflags="-X github.com/weaveworks/eksctl/pkg/version.gitCommit=${PORTVERSION} \
 		-X github.com/weaveworks/eksctl/pkg/version.builtAt=${%s:L:gmtime}"
 
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>

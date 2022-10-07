@@ -3,6 +3,7 @@
 PORTNAME=	kops
 PORTVERSION=	1.22.2
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	danilo@FreeBSD.org
@@ -29,6 +30,7 @@ pre-build: .PHONY
 			-o upup/models/bindata.go -pkg models \
 			-prefix upup/models/ upup/models/...
 
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>

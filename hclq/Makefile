@@ -2,7 +2,7 @@
 
 PORTNAME=	hclq
 PORTVERSION=	0.5.3
-#DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -12,7 +12,6 @@ LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
-#GO_TARGET=	./cmd/${PORTNAME}
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	mattolenik
@@ -24,6 +23,7 @@ GO_BUILDFLAGS+=	-ldflags="-s -X 'github.com/${GH_ACCOUNT}/${PORTNAME}/cmd.versio
 
 fetch-version: .PHONY get-version
 
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>

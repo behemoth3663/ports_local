@@ -3,6 +3,7 @@
 PORTNAME=	driftctl
 PORTVERSION=	0.37.0
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org

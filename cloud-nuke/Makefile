@@ -3,6 +3,7 @@
 PORTNAME=	cloud-nuke
 PORTVERSION=	0.20.0
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org

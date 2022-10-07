@@ -2,6 +2,7 @@
 
 PORTNAME=	terraformer
 PORTVERSION=	0.8.22
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org

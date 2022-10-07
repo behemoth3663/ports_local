@@ -3,6 +3,7 @@
 PORTNAME=	tflint-ruleset-aws
 PORTVERSION=	0.17.1
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org

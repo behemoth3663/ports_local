@@ -1,6 +1,7 @@
 PORTNAME=	steady-tun
 PORTVERSION=	1.1.1
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local net
 
 MAINTAINER=	none@freebsd.org

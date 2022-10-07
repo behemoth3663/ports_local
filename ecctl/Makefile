@@ -3,6 +3,7 @@
 PORTNAME=	ecctl
 PORTVERSION=	1.8.0
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -24,13 +25,13 @@ GH_COMMIT=	git ls-remote --tags \
 		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
 
-#rm -f -- distinfo Makefile.deps && doas make clean && make makesum gomod-vendor && make gomod-vendor >Makefile.deps && doas make clean && make makesum package && instpc
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 #	version string
 #	commit  string
 #	built   string
-post-patch:
+post-patch: .PHONY
 	${REINPLACE_CMD} -r \
 		-e 's|^([[:space:]]*version[[:space:]]+string).*$$|\1 = "${DISTVERSIONPREFIX}${PORTVERSION}"|' \
 		-e 's|^([[:space:]]*commit[[:space:]]+string).*$$|\1 = "${:!${GH_COMMIT}!:[1]:C/(.{7}).*/\1/}"|' \

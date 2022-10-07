@@ -3,6 +3,7 @@
 PORTNAME=	terrascan
 PORTVERSION=	1.7.0
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org

@@ -2,6 +2,7 @@
 
 PORTNAME=	terraform-module-versions
 PORTVERSION=	3.1.14
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -24,6 +25,7 @@ fetch-version: .PHONY get-version
 post-patch: .PHONY .SILENT
 	cd ${WRKSRC} && ${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod tidy -v
 
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>

@@ -3,6 +3,7 @@
 PORTNAME=	dstp
 PORTVERSION=	0.4.0
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local net
 
 MAINTAINER=	none@freebsd.org
@@ -18,11 +19,9 @@ GH_ACCOUNT=	ycd
 
 GO_TARGET=	./cmd/${PORTNAME}
 
-#GO_BUILDFLAGS+=	-ldflags="-s -w -X 'main.Version=${DISTVERSIONPREFIX}${PORTVERSION}'"
-
 PLIST_FILES=	bin/${PORTNAME}
 
-#rm -f -- distinfo Makefile.deps && doas make clean && make makesum gomod-vendor && make gomod-vendor >Makefile.deps && doas make clean && make makesum package && instpc
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>

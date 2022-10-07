@@ -3,6 +3,7 @@
 PORTNAME=	havener
 PORTVERSION=	2.0.8
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org

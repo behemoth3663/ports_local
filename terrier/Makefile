@@ -2,6 +2,7 @@
 
 PORTNAME=	terrier
 PORTVERSION=	0.0.2
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -24,6 +25,7 @@ post-install: .PHONY
 	${MKDIR} ${STAGEDIR}${PREFIX}/share/examples/${PORTNAME}
 	${INSTALL_DATA} ${WRKSRC}/cfg.yml ${STAGEDIR}${PREFIX}/share/examples/${PORTNAME}
 
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>
