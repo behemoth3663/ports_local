@@ -1,9 +1,8 @@
 #
 
 PORTNAME=	got
-PORTVERSION=	0.6.1
+PORTVERSION=	0.7.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
 CATEGORIES=	local ftp
 PKGNAMEPREFIX=	go-
 DISTNAME=	got
@@ -16,15 +15,18 @@ LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
+USE_GITHUB=	yes
+USE_GITLAB=	nodefault
 
-GO_MODULE=	github.com/melbahja/${PORTNAME}
-GH_ACCOUNT=	${GO_MODULE:H:T}
-GH_PROJECT=	${GO_MODULE:T}
+GH_ACCOUNT=	melbahja
 
 GO_TARGET=	./cmd/${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME}
 
 fetch-version: .PHONY get-version
+
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>

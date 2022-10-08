@@ -1,0 +1,17 @@
+GH_TUPLE=	\
+		cpuguy83:go-md2man:v2.0.2:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
+		dustin:go-humanize:v1.0.0:dustin_go_humanize/vendor/github.com/dustin/go-humanize \
+		golang:crypto:630584e8d5aa:golang_crypto/vendor/golang.org/x/crypto \
+		golang:sys:a90be440212d:golang_sys/vendor/golang.org/x/sys \
+		golang:term:a9ba230a4035:golang_term/vendor/golang.org/x/term \
+		russross:blackfriday:v2.1.0:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
+		urfave:cli:v2.11.1:urfave_cli_v2/vendor/github.com/urfave/cli/v2 \
+		xrash:smetrics:039620a65673:xrash_smetrics/vendor/github.com/xrash/smetrics
+
+#Forged intentionally
+GL_TUPLE=	poldi1405:go-ansi:f16b3132df33b3f258971f36dbe5e909983381c9:poldi1405_go_ansi/vendor/gitlab.com/poldi1405/go-ansi \
+		poldi1405:go-indicators:f16b3132df33b3f258971f36dbe5e909983381c9:poldi1405_go_indicators/vendor/gitlab.com/poldi1405/go-indicators
+
+		# Errors found during processing:
+		#	error getting commit v1.1.0 for poldi1405/go-ansi: not found
+		#	error getting commit v1.0.0 for poldi1405/go-indicators: not found
