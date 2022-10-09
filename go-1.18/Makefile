@@ -1,9 +1,9 @@
 # Created by: Devon H. O'Dell <devon.odell@gmail.com>
 
 PORTNAME=	go
-PORTVERSION?=	1.18.3
+PORTVERSION?=	1.18.7
 #PORTREVISION?=	1
-PORTEPOCH?=	2
+PORTEPOCH?=	1
 CATEGORIES=	local lang
 MASTER_SITES?=	https://golang.org/dl/ \
 		https://github.com/dmgk/go-bootstrap/releases/download/${BOOTSTRAP_TAG}/:bootstrap \
