@@ -1,13 +1,13 @@
 #
 
 PORTNAME=	kind
-PORTVERSION=	0.11.1
+PORTVERSION=	0.16.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@FreeBSD.org
 COMMENT=	Kubernetes IN Docker - local clusters for testing Kubernetes
+WWW=		https://kind.sigs.k8s.io/
 
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
