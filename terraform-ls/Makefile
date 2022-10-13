@@ -1,13 +1,13 @@
 #
 
 PORTNAME=	terraform-ls
-PORTVERSION=	0.29.2
+PORTVERSION=	0.29.3
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
 CATEGORIES=	local devel
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Terraform Language Server
+WWW=		https://github.com/hashicorp/terraform-ls
 
 LICENSE=	MPL20
 LICENSE_FILE=	${WRKSRC}/LICENSE
