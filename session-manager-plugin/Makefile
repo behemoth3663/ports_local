@@ -1,8 +1,7 @@
 #
 
 PORTNAME=	session-manager-plugin
-PORTVERSION=	1.2.339.0
-PORTREVISION=	1
+PORTVERSION=	1.2.398.0
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -21,6 +20,7 @@ GO_TARGET=	./src/sessionmanagerplugin-main \
 		./src/ssmcli-main
 
 PLIST_FILES=	bin/${PORTNAME}
+PLIST_FILES+=	bin/ssm-cli
 
 # github.com/aws/SSMCLI/src/message
 # vendor/github.com/aws/SSMCLI/src/message/messageparser.go:170:3: cannot use nil as type uuid.UUID in return argument
@@ -30,7 +30,8 @@ PLIST_FILES=	bin/${PORTNAME}
 # vendor/github.com/aws/SSMCLI/src/message/messageparser.go:194:3: cannot use nil as type uuid.UUID in return argument
 # vendor/github.com/aws/SSMCLI/src/message/messageparser.go:417:11: invalid operation: input == nil (mismatched types uuid.UUID and nil)
 # vendor/github.com/aws/SSMCLI/src/message/messageparser.go:497:20: undefined: uuid.CleanHyphen
-# .-include "${.CURDIR}/Makefile.deps"
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.-include "${.CURDIR}/Makefile.deps"
 # GH_TUPLE=	\
 # 		aws:aws-sdk-go:v1.43.21:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
 # 		aws:session-manager-plugin:57d7ac0605c0:aws_session_manager_plugin/vendor/github.com/aws/SSMCLI \
@@ -59,24 +60,33 @@ PLIST_FILES=	bin/${PORTNAME}
 # pre-post-extract: .PHONY
 # 	${CP} ${.CURDIR}/files/go.mod ${.CURDIR}/files/go.sum ${WRKSRC}
 
+# pre-patch: .PHONY
+# 	${MV} ${WRKSRC}/vendor/src/* ${WRKSRC}/vendor
+# 	${LN} -s ${WRKSRC} ${WRKSRC}/vendor/github.com/aws/SSMCLI
+# 	cd ${WRKSRC} && \
+# 	${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod init ${GO_PKGNAME} && \
+# 	${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod edit \
+# 		-require=github.com/davecgh/go-spew@v1.1.1 && \
+# 	${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod edit \
+# 		-require=github.com/pmezard/go-difflib@v1.0.0 && \
+# 	${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod edit \
+# 		-replace github.com/${GH_ACCOUNT}/SSMCLI=github.com/${GH_ACCOUNT}/${PORTNAME}@${PORTVERSION} && \
+# 	${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod tidy
+# 	${MKDIR} ${WRKSRC}/vendor/github.com/davecgh \
+# 		${WRKSRC}/vendor/github.com/pmezard
+# 	${LN} -s ${WRKDIR}/.gopath/pkg/mod/github.com/davecgh/go-spew@v1.1.1 \
+# 		${WRKSRC}/vendor/github.com/davecgh/go-spew
+# 	${LN} -s ${WRKDIR}/.gopath/pkg/mod/github.com/pmezard/go-difflib@v1.0.0 \
+# 		${WRKSRC}/vendor/github.com/pmezard/go-difflib
+
 pre-patch: .PHONY
-	${MV} ${WRKSRC}/vendor/src/* ${WRKSRC}/vendor
+#	${MV} ${WRKSRC}/vendor/src/* ${WRKSRC}/vendor
 	${LN} -s ${WRKSRC} ${WRKSRC}/vendor/github.com/aws/SSMCLI
-	cd ${WRKSRC} && \
-	${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod init ${GO_PKGNAME} && \
-	${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod edit \
-		-require=github.com/davecgh/go-spew@v1.1.1 && \
-	${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod edit \
-		-require=github.com/pmezard/go-difflib@v1.0.0 && \
-	${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod edit \
-		-replace github.com/${GH_ACCOUNT}/SSMCLI=github.com/${GH_ACCOUNT}/${PORTNAME}@${PORTVERSION} && \
-	${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod tidy
-	${MKDIR} ${WRKSRC}/vendor/github.com/davecgh \
-		${WRKSRC}/vendor/github.com/pmezard
-	${LN} -s ${WRKDIR}/.gopath/pkg/mod/github.com/davecgh/go-spew@v1.1.1 \
-		${WRKSRC}/vendor/github.com/davecgh/go-spew
-	${LN} -s ${WRKDIR}/.gopath/pkg/mod/github.com/pmezard/go-difflib@v1.0.0 \
-		${WRKSRC}/vendor/github.com/pmezard/go-difflib
+	${CP} ${PATCHDIR}/go.* ${WRKSRC}
+#	cd ${WRKSRC} && \
+#		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod init ${GO_PKGNAME}
+#	cd ${WRKSRC} && \
+#		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod tidy -v
 
 post-stage: .PHONY
 	${MV} ${STAGEDIR}${PREFIX}/bin/sessionmanagerplugin-main ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
