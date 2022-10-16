@@ -32,4 +32,11 @@ pre-build: .PHONY
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
+#-kubernetes-sigs:kustomize:    v0.12.1:kubernetes_sigs_kustomize/vendor/sigs.k8s.io/kustomize/api
+#-kubernetes-sigs:kustomize:    v0.13.9:kubernetes_sigs_kustomize_1/vendor/sigs.k8s.io/kustomize/kyaml
+#+kubernetes-sigs:kustomize:api/v0.12.1:kubernetes_sigs_kustomize/vendor/sigs.k8s.io/kustomize/api
+#+kubernetes-sigs:kustomize:kyaml/v0.13.9:kubernetes_sigs_kustomize_1/vendor/sigs.k8s.io/kustomize/kyaml
+#                              \1                          \2    \3                                     \4
+GH_TUPLE:=	${GH_TUPLE:C|^(kubernetes-sigs:kustomize:)([^:]+)(:.*/vendor/sigs\\.k8s\\.io/kustomize/)([^[:space:]]+)|\1\4/\2\3\4|}
+
 .include <bsd.port.mk>
