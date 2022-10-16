@@ -1,9 +1,8 @@
 # Created by: Danilo Egea Gondolfo <danilo@FreeBSD.org>
 
 PORTNAME=	kops
-PORTVERSION=	1.22.2
+PORTVERSION=	1.25.1
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	danilo@FreeBSD.org
