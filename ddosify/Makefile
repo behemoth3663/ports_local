@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	ddosify
-PORTVERSION=	0.8.3
+PORTVERSION=	0.9.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local benchmarks
 
