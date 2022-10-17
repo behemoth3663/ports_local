@@ -1,12 +1,13 @@
 # Created by: Danilo Egea Gondolfo <danilo@FreeBSD.org>
 
 PORTNAME=	minikube
-PORTVERSION=	1.24.0
+PORTVERSION=	1.27.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
 MAINTAINER=	danilo@FreeBSD.org
 COMMENT=	Run Kubernetes locally
+WWW=		https://github.com/kubernetes/minikube
 
 LICENSE=	APACHE20
 
@@ -20,21 +21,21 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	kubernetes
 
 GO_TARGET=	./cmd/${PORTNAME}
-GO_BUILDFLAGS+=	-ldflags="-s -w \
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 		-X k8s.io/minikube/pkg/version.version=${DISTVERSIONPREFIX}${PORTVERSION} \
-		-X k8s.io/minikube/pkg/version.isoVersion=${DISTVERSIONPREFIX}${PORTVERSION:R:R}.${PORTVERSION:R:E}.0 \
-		-X k8s.io/minikube/pkg/version.storageProvisionerVersion=v4 \
+		-X k8s.io/minikube/pkg/version.isoVersion=${DISTVERSIONPREFIX}${PORTVERSION} \
+		-X k8s.io/minikube/pkg/version.storageProvisionerVersion=v5 \
 		-X k8s.io/minikube/pkg/version.isoPath=minikube/iso"
 
 PLIST_FILES=	bin/${PORTNAME}
 
 SUB_FILES=	pkg-message
 
-post-patch: .PHONY .IGNORE
-	${LN} -s ${WRKSRC}/vendor/github.com/pkg/browser/browser_linux.go \
+post-patch: .PHONY
+	-${LN} -s ${WRKSRC}/vendor/github.com/pkg/browser/browser_linux.go \
 		${WRKSRC}/vendor/github.com/pkg/browser/browser_freebsd.go
 
-pre-build: .PHONY .IGNORE
+pre-build: .PHONY
 	cd ${WRKSRC} && \
 		${LOCALBASE}/bin/go-bindata -nomemcopy \
 			-o pkg/minikube/assets/assets.go \
@@ -42,8 +43,9 @@ pre-build: .PHONY .IGNORE
 		${LOCALBASE}/bin/go-bindata -nomemcopy \
 			-o pkg/minikube/translate/translations.go \
 			-pkg translate translations/... && \
-		${LOCALBASE}/bin/gofmt -s -w pkg/minikube/translate/translations.go
+		${LOCALBASE}/bin/gofmt${GO_SUFFIX} -s -w pkg/minikube/translate/translations.go
 
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>
