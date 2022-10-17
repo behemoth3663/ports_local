@@ -1,19 +1,19 @@
 GH_TUPLE=	\
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
-		golang:crypto:630584e8d5aa:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:56aed061732a:golang_crypto/vendor/golang.org/x/crypto \
 		golang:lint:6edffad5e616:golang_lint/vendor/golang.org/x/lint \
 		golang:mod:86c51ed26bb4:golang_mod/vendor/golang.org/x/mod \
 		golang:net:a158d28d115b:golang_net/vendor/golang.org/x/net \
 		golang:sys:8c9f86f7a55f:golang_sys/vendor/golang.org/x/sys \
-		golang:text:v0.3.7:golang_text/vendor/golang.org/x/text \
+		golang:text:v0.3.8:golang_text/vendor/golang.org/x/text \
 		golang:tools:v0.1.12:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.5.8:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:uuid:v1.3.0:google_uuid/vendor/github.com/google/uuid \
-		gookit:color:v1.5.1:gookit_color/vendor/github.com/gookit/color \
-		lib:pq:v1.10.6:lib_pq/vendor/github.com/lib/pq \
+		gookit:color:v1.5.2:gookit_color/vendor/github.com/gookit/color \
+		lib:pq:v1.10.7:lib_pq/vendor/github.com/lib/pq \
 		mozilla:tls-observatory:7bc42856d2e5:mozilla_tls_observatory/vendor/github.com/mozilla/tls-observatory \
 		nbutton23:zxcvbn-go:fa2cb2858354:nbutton23_zxcvbn_go/vendor/github.com/nbutton23/zxcvbn-go \
-		onsi:ginkgo:v2.1.4:onsi_ginkgo_v2/vendor/github.com/onsi/ginkgo/v2 \
-		onsi:gomega:v1.20.0:onsi_gomega/vendor/github.com/onsi/gomega \
+		onsi:ginkgo:v2.3.1:onsi_ginkgo_v2/vendor/github.com/onsi/ginkgo/v2 \
+		onsi:gomega:v1.22.1:onsi_gomega/vendor/github.com/onsi/gomega \
 		xo:terminfo:ca9a967f8778:xo_terminfo/vendor/github.com/xo/terminfo
