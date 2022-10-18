@@ -339,8 +339,8 @@ GL_TUPLE=	\
 
 		# Errors found during processing:
 		#	XML syntax error on line 12: expected attribute name in element
-		#	tuple.discoverMirrors https://gonum.org/v1/netlib?go-get=1: status 404
 		#	tuple.discoverMirrors https://gonum.org/v1/gonum?go-get=1: status 404
+		#	tuple.discoverMirrors https://gonum.org/v1/netlib?go-get=1: status 404
 		#	XML syntax error on line 12: expected attribute name in element
 		#	tuple.discoverMirrors https://gonum.org/v1/gonum?go-get=1: status 404
 		#	tuple.discoverMirrors https://gonum.org/v1/netlib?go-get=1: status 404

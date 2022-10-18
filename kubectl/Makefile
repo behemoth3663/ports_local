@@ -40,7 +40,11 @@ GO_BUILDFLAGS=	-ldflags="-s -w -extldflags '-static' \
 
 PLIST_FILES=	bin/${PORTNAME}
 
-KUBERNETES_API_VERSION=	v0.21.5
+#KUBERNETES_API_VERSION!=git ls-remote --tags \
+#		https://github.com/kubernetes/api | \
+#		sed -rn 's|^.*[[:space:]]refs/tags/(${DISTVERSIONPREFIX}[.0-9]+)\^\{\}[[:space:]]*$$|\1|p' | \
+#		sort --version-sort --reverse | head -1
+KUBERNETES_API_VERSION=	v0.25.3
 
 OPTIONS_DEFINE=		BASH ZSH
 OPTIONS_DEFAULT=	BASH ZSH

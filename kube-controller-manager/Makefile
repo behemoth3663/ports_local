@@ -27,16 +27,21 @@ GH_COMMIT=	git ls-remote --tags \
 		refs/tags/${GH_PROJECT}-${PORTVERSION}^{}
 
 GO_BUILDFLAGS=	-ldflags="-s -w -extldflags '-static' \
-		-X k8s.io/kubernetes/pkg/version.buildDate=${%FT%TZ:L:gmtime} \
-		-X k8s.io/kubernetes/pkg/version.gitTreeState= \
-		-X k8s.io/kubernetes/pkg/version.gitCommit=${:!${GH_COMMIT}!:[1]} \
-		-X k8s.io/kubernetes/pkg/version.gitMajor=${PORTVERSION:R:R} \
-		-X k8s.io/kubernetes/pkg/version.gitMinor=${PORTVERSION:R:E} \
-		-X k8s.io/kubernetes/pkg/version.gitVersion=${DISTVERSIONPREFIX}${PORTVERSION}"
+		-X k8s.io/component-base/version.buildDate=${%FT%TZ:L:gmtime} \
+		-X k8s.io/component-base/version.gitTreeState= \
+		-X k8s.io/component-base/version.gitCommit=${:!${GH_COMMIT}!:[1]} \
+		-X k8s.io/component-base/version.gitMajor=${PORTVERSION:R:R} \
+		-X k8s.io/component-base/version.gitMinor=${PORTVERSION:R:E} \
+		-X k8s.io/component-base/version.gitVersion=${DISTVERSIONPREFIX}${PORTVERSION} \
+		-X k8s.io/client-go/pkg/version.gitVersion=${DISTVERSIONPREFIX}${PORTVERSION}"
 
 PLIST_FILES=	bin/${PORTNAME}
 
-KUBERNETES_API_VERSION=	v0.21.5
+#KUBERNETES_API_VERSION!=git ls-remote --tags \
+#		https://github.com/kubernetes/api | \
+#		sed -rn 's|^.*[[:space:]]refs/tags/(${DISTVERSIONPREFIX}[.0-9]+)\^\{\}[[:space:]]*$$|\1|p' | \
+#		sort --version-sort --reverse | head -1
+KUBERNETES_API_VERSION=	v0.25.3
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
