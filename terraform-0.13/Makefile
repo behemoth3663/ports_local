@@ -30,6 +30,9 @@ JQ_GETVER_EXPR=	[.[].name | gsub("^[a-z]+";"") | select(test("^${PORTVERSION:C/[
 #rm -f -- distinfo Makefile.deps && make makesum && make gomod-vendor &&  make gomod-vendor >Makefile.deps && make makesum && mkcal
 #.-include "${.CURDIR}/Makefile.deps"
 
+#does get nothing
+#GO_BUILDFLAGS+=-ldflags="-s -w -extldflags '-static'"
+
 post-patch: .PHONY
 	${REINPLACE_CMD} 's|Prerelease = "dev"|Prerelease = ""|' \
 		${WRKSRC}/version/version.go
