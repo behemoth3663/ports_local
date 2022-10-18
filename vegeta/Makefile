@@ -12,7 +12,7 @@ COMMENT=	HTTP load testing tool and library
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-RUN_DEPENDS=	git:devel/git
+BUILD_DEPENDS=	git:devel/git
 
 USES=		go:modules
 

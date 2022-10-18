@@ -12,9 +12,9 @@ WWW=		https://ddosify.com/
 LICENSE=	AGPLv3
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-RUN_DEPENDS=	git:devel/git
+BUILD_DEPENDS=	git:devel/git
 
-USES=	go:modules
+USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	ddosify

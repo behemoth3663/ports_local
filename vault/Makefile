@@ -12,7 +12,7 @@ COMMENT=	Tool for securely accessing secrets
 LICENSE=	MPL20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-RUN_DEPENDS=	git:devel/git
+BUILD_DEPENDS=	git:devel/git
 
 USES=		cpe go:modules
 CPE_VENDOR=	hashicorp

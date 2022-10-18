@@ -12,7 +12,7 @@ COMMENT=	List command for AWS resources
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE.md
 
-RUN_DEPENDS=	git:devel/git
+BUILD_DEPENDS=	git:devel/git
 
 #go:modules
 # Errors found during processing:

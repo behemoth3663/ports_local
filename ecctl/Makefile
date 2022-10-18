@@ -12,7 +12,7 @@ COMMENT=	The official ESS and ECE command line interface
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-RUN_DEPENDS=	git:devel/git
+BUILD_DEPENDS=	git:devel/git
 
 USES=		go:modules
 

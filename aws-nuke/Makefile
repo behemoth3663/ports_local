@@ -12,7 +12,7 @@ WWW=		https://github.com/rebuy-de/aws-nuke
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-RUN_DEPENDS=	git:devel/git
+BUILD_DEPENDS=	git:devel/git
 
 USES=		go:modules
 

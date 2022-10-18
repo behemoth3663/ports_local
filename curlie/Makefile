@@ -11,6 +11,7 @@ LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 RUN_DEPENDS=	curl:ftp/curl
+BUILD_DEPENDS=	git:devel/git
 
 USES=		go:modules
 USE_GITHUB=	yes

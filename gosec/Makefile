@@ -11,7 +11,7 @@ COMMENT=	Golang Security Checker
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
-RUN_DEPENDS=	git:devel/git
+BUILD_DEPENDS=	git:devel/git
 
 USES=		go:modules
 

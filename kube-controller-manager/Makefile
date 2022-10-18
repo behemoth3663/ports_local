@@ -9,7 +9,7 @@ WWW=		https://github.com/kubernetes/kubernetes
 
 LICENSE=	APACHE20
 
-RUN_DEPENDS=	git:devel/git
+BUILD_DEPENDS=	git:devel/git
 
 USES=		cpe go:modules
 CPE_VENDOR=	jenkins

@@ -12,7 +12,7 @@ COMMENT=	Terraform Provider Lint Tool
 LICENSE=	MPL20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-RUN_DEPENDS=	git:devel/git
+BUILD_DEPENDS=	git:devel/git
 
 USES=		go:modules
 
