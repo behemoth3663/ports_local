@@ -1,5 +1,5 @@
---- ./Makefile.deps.orig	2022-08-28 19:38:32 UTC
-+++ ./Makefile.deps
+--- Makefile.deps.orig	2022-08-28 19:38:32 UTC
++++ Makefile.deps
 @@ -2,8 +2,7 @@ GH_TUPLE=	\
  		Jeffail:gabs:v1.0.0:jeffail_gabs/vendor/github.com/Jeffail/gabs \
  		Microsoft:go-winio:v0.5.0:microsoft_go_winio/vendor/github.com/Microsoft/go-winio \
