@@ -1,0 +1,2 @@
+GH_TUPLE=	golang:crypto:159ae71589f3:golang_crypto/vendor/golang.org/x/crypto \
+		golang:sys:33540a1f6037:golang_sys/vendor/golang.org/x/sys
