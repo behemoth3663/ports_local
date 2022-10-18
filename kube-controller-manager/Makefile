@@ -24,9 +24,9 @@ GO_TARGET=	${GO_PKGNAME}/cmd/${PORTNAME}
 
 GH_COMMIT=	git ls-remote --tags \
 		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
-		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}^{}
+		refs/tags/${GH_PROJECT}-${PORTVERSION}^{}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+GO_BUILDFLAGS=	-ldflags="-s -w -extldflags '-static' \
 		-X k8s.io/kubernetes/pkg/version.buildDate=${%FT%TZ:L:gmtime} \
 		-X k8s.io/kubernetes/pkg/version.gitTreeState= \
 		-X k8s.io/kubernetes/pkg/version.gitCommit=${:!${GH_COMMIT}!:[1]} \
