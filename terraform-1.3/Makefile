@@ -1,9 +1,8 @@
 #
 
 PORTNAME=	terraform
-PORTVERSION=	1.3.2
+PORTVERSION=	1.3.3
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX?=	-${PORTVERSION:R}
 
@@ -33,8 +32,9 @@ post-install: .PHONY
 
 # XXX: Work around ports framework inability to regenerate GH_TUPLE for Go
 # modules for modules with embedded slashes in version numbers.
-#GH_TUPLE:=	${GH_TUPLE:S|v1.1.0:grpc_grpc_go_1|cmd%2Fprotoc-gen-go-grpc%2Fv1.1.0:grpc_grpc_go_1/|1}
-#pre-extract:
-#	${LN} -s ${WRKDIR}/grpc-go-cmd-protoc-gen-go-grpc-v1.1.0 ${WRKSRC_grpc_grpc_go_1}
+GH_TUPLE:=	${GH_TUPLE:S|v1.1.0:grpc_grpc_go_1|cmd%2Fprotoc-gen-go-grpc%2Fv1.1.0:grpc_grpc_go_1/|1}
+
+pre-extract: .PHONY
+	${LN} -s ${WRKDIR}/grpc-go-cmd-protoc-gen-go-grpc-v1.1.0 ${WRKSRC_grpc_grpc_go_1}
 
 .include <bsd.port.mk>
