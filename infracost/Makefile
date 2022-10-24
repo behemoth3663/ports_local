@@ -1,9 +1,8 @@
 #
 
 PORTNAME=	infracost
-PORTVERSION=	0.10.12
+PORTVERSION=	0.10.13
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -23,18 +22,7 @@ PLIST_FILES=	bin/${PORTNAME}
 
 fetch-version: .PHONY get-version
 
-#.-include "${.CURDIR}/Makefile.deps"
-#_OPTIONS_extract+=	600:pre-post-extract
-#pre-post-extract: .PHONY
-#	cd ${WRKSRC} && \
-#		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod vendor -v && \
-#		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod tidy -v
-#	${CP} ${.CURDIR}/files/go.mod ${.CURDIR}/files/go.sum ${WRKSRC}
-
-pre-build: .PHONY
-	cd ${WRKSRC} && \
-		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod vendor -v && \
-		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod tidy -v
-
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.-include "${.CURDIR}/Makefile.deps"
+
 .include <bsd.port.mk>
