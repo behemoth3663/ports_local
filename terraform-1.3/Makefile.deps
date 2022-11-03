@@ -87,7 +87,7 @@ GH_TUPLE=	\
 		hashicorp:consul:v0.8.0:hashicorp_consul_sdk/vendor/github.com/hashicorp/consul/sdk \
 		hashicorp:consul:v1.9.1:hashicorp_consul_api/vendor/github.com/hashicorp/consul \
 		hashicorp:errwrap:v1.1.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
-		hashicorp:go-azure-helpers:v0.31.1:hashicorp_go_azure_helpers/vendor/github.com/hashicorp/go-azure-helpers \
+		hashicorp:go-azure-helpers:v0.43.0:hashicorp_go_azure_helpers/vendor/github.com/hashicorp/go-azure-helpers \
 		hashicorp:go-checkpoint:v0.5.0:hashicorp_go_checkpoint/vendor/github.com/hashicorp/go-checkpoint \
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
 		hashicorp:go-getter:v1.6.2:hashicorp_go_getter/vendor/github.com/hashicorp/go-getter \
@@ -177,7 +177,7 @@ GH_TUPLE=	\
 		xlab:treeprint:1d6e34225557:xlab_treeprint/vendor/github.com/xlab/treeprint \
 		zclconf:go-cty-debug:b22d67c1ba0b:zclconf_go_cty_debug/vendor/github.com/zclconf/go-cty-debug \
 		zclconf:go-cty-yaml:v1.0.2:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
-		zclconf:go-cty:v1.11.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+		zclconf:go-cty:v1.12.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
 		#	::6cf2b201936e:group_name/vendor/golang.org/x/exp/typeparams (from go.googlesource.com/exp@6cf2b201936e)
