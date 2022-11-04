@@ -1,19 +1,18 @@
 #
 
 PORTNAME=	kubeletctl
-PORTVERSION=	1.8
+PORTVERSION=	1.9
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Client for kubelet
+WWW=		https://github.com/cyberark/kubeletctl
 
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
-#GO_TARGET=	./cmd/${PORTNAME}
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	cyberark
@@ -21,10 +20,6 @@ GH_ACCOUNT=	cyberark
 PLIST_FILES=	bin/${PORTNAME}
 
 fetch-version: .PHONY get-version
-
-#workaround for can't find vendor/gitlab.com/poldi1405/go-ansi
-#pre-build: .PHONY
-#	cd ${WRKSRC} && ${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod vendor
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
