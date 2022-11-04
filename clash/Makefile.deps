@@ -6,24 +6,27 @@ GH_TUPLE=	\
 		go-chi:cors:v1.2.1:go_chi_cors/vendor/github.com/go-chi/cors \
 		go-chi:render:v1.0.2:go_chi_render/vendor/github.com/go-chi/render \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
-		gofrs:uuid:v4.2.0:gofrs_uuid/vendor/github.com/gofrs/uuid \
-		golang:crypto:5757bc0c5503:golang_crypto/vendor/golang.org/x/crypto \
-		golang:mod:v0.4.2:golang_mod/vendor/golang.org/x/mod \
-		golang:net:b0a4917ee28c:golang_net/vendor/golang.org/x/net \
-		golang:sync:7fc1605a5dde:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:c680a09ffe64:golang_sys/vendor/golang.org/x/sys \
-		golang:text:v0.3.7:golang_text/vendor/golang.org/x/text \
-		golang:tools:07bc1bf47fb2:golang_tools/vendor/golang.org/x/tools \
-		golang:xerrors:5ec99f83aff1:golang_xerrors/vendor/golang.org/x/xerrors \
+		gofrs:uuid:v4.3.1:gofrs_uuid/vendor/github.com/gofrs/uuid \
+		golang:crypto:a3485e174077:golang_crypto/vendor/golang.org/x/crypto \
+		golang:mod:86c51ed26bb4:golang_mod/vendor/golang.org/x/mod \
+		golang:net:a1278a7f7ee0:golang_net/vendor/golang.org/x/net \
+		golang:sync:v0.1.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:fc697a31fa06:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.4.0:golang_text/vendor/golang.org/x/text \
+		golang:tools:v0.1.12:golang_tools/vendor/golang.org/x/tools \
+		google:go-cmp:v0.5.9:google_go_cmp/vendor/github.com/google/go-cmp \
 		gorilla:websocket:v1.5.0:gorilla_websocket/vendor/github.com/gorilla/websocket \
-		insomniacslk:dhcp:de18a9d48e84:insomniacslk_dhcp/vendor/github.com/insomniacslk/dhcp \
+		insomniacslk:dhcp:5308ebe5334c:insomniacslk_dhcp/vendor/github.com/insomniacslk/dhcp \
+		josharian:native:v1.0.0:josharian_native/vendor/github.com/josharian/native \
 		kr:text:v0.2.0:kr_text/vendor/github.com/kr/text \
+		mdlayher:netlink:v1.6.2:mdlayher_netlink/vendor/github.com/mdlayher/netlink \
+		mdlayher:socket:v0.2.3:mdlayher_socket/vendor/github.com/mdlayher/socket \
 		miekg:dns:v1.1.50:miekg_dns/vendor/github.com/miekg/dns \
 		oschwald:geoip2-golang:v1.8.0:oschwald_geoip2_golang/vendor/github.com/oschwald/geoip2-golang \
 		oschwald:maxminddb-golang:v1.10.0:oschwald_maxminddb_golang/vendor/github.com/oschwald/maxminddb-golang \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		sirupsen:logrus:v1.9.0:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
-		stretchr:testify:v1.8.0:stretchr_testify/vendor/github.com/stretchr/testify \
+		stretchr:testify:v1.8.1:stretchr_testify/vendor/github.com/stretchr/testify \
 		u-root:uio:82958018845c:u_root_uio/vendor/github.com/u-root/uio \
 		uber-go:atomic:v1.10.0:uber_go_atomic/vendor/go.uber.org/atomic \
 		uber-go:automaxprocs:v1.5.1:uber_go_automaxprocs/vendor/go.uber.org/automaxprocs
