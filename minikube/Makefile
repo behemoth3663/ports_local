@@ -1,7 +1,7 @@
 # Created by: Danilo Egea Gondolfo <danilo@FreeBSD.org>
 
 PORTNAME=	minikube
-PORTVERSION=	1.27.1
+PORTVERSION=	1.28.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -31,8 +31,8 @@ PLIST_FILES=	bin/${PORTNAME}
 
 SUB_FILES=	pkg-message
 
-post-patch: .PHONY
-	-${LN} -s ${WRKSRC}/vendor/github.com/pkg/browser/browser_linux.go \
+post-patch: .PHONY .IGNORE
+	${LN} -s ${WRKSRC}/vendor/github.com/pkg/browser/browser_linux.go \
 		${WRKSRC}/vendor/github.com/pkg/browser/browser_freebsd.go
 
 pre-build: .PHONY

@@ -1,10 +1,6 @@
---- Makefile.deps.orig	2022-10-17 19:12:51 UTC
-+++ Makefile.deps
-@@ -91,12 +91,12 @@ GH_TUPLE=	\
- 		googleapis:enterprise-certificate-proxy:v0.1.0:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
- 		googleapis:gax-go:v2.5.1:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
- 		googleapis:google-api-go-client:v0.98.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
- 		googleapis:google-cloud-go:compute/v1.7.0:googleapis_google_cloud_go_compute \
+--- ./Makefile.deps.orig	2022-11-08 22:08:09 UTC
++++ ./Makefile.deps
+@@ -96,8 +96,8 @@ GH_TUPLE=	\
  		googleapis:google-cloud-go:monitoring/v1.1.0:googleapis_google_cloud_go_monitoring \
  		googleapis:google-cloud-go:storage/v1.27.0:googleapis_google_cloud_go_storage \
  		googleapis:google-cloud-go:trace/v1.2.0:googleapis_google_cloud_go_trace \
@@ -12,19 +8,19 @@
 -		googleapis:google-cloud-go:v0.3.0:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go \
 +		googleapis:google-cloud-go:v0.104.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
 +		googleapis:google-cloud-go:iam/v0.3.0:googleapis_google_cloud_go_iam \
- 		gookit:color:v1.4.2:gookit_color/vendor/github.com/gookit/color \
- 		grpc:grpc-go:v1.49.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+ 		gookit:color:v1.5.2:gookit_color/vendor/github.com/gookit/color \
+ 		grpc:grpc-go:v1.50.1:grpc_grpc_go/vendor/google.golang.org/grpc \
  		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
-@@ -157,7 +157,7 @@ GH_TUPLE=	\
+@@ -159,7 +159,7 @@ GH_TUPLE=	\
  		mitchellh:go-wordwrap:v1.0.0:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
  		mitchellh:mapstructure:v1.5.0:mitchellh_mapstructure/vendor/github.com/mitchellh/mapstructure \
  		moby:hyperkit:2f061e447e14:moby_hyperkit/vendor/github.com/moby/hyperkit \
--		moby:moby:v0.6.4:moby_moby_1/vendor/github.com/docker/docker-credential-helpers \
-+		docker:docker-credential-helpers:v0.6.4:docker_docker_credential_helpers/vendor/github.com/docker/docker-credential-helpers \
- 		moby:moby:v20.10.18:moby_moby/vendor/github.com/docker/docker \
+-		moby:moby:v0.7.0:moby_moby_1/vendor/github.com/docker/docker-credential-helpers \
++		docker:docker-credential-helpers:v0.7.0:docker_docker_credential_helpers/vendor/github.com/docker/docker-credential-helpers \
+ 		moby:moby:v20.10.21:moby_moby/vendor/github.com/docker/docker \
  		moby:spdystream:v0.2.0:moby_spdystream/vendor/github.com/moby/spdystream \
  		moby:sys:mount/v0.2.0:moby_sys_mount/vendor/github.com/moby/sys \
-@@ -231,10 +225,11 @@ post-extract:
+@@ -234,10 +234,11 @@ post-extract:
  	@${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go/storage
  	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/trace
  	@${RLN} ${WRKSRC_googleapis_google_cloud_go_trace}/trace ${WRKSRC}/vendor/cloud.google.com/go/trace
