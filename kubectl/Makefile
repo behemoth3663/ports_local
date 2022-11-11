@@ -2,7 +2,7 @@
 
 PORTNAME=	kubectl
 #PORTVERSION=	1.20.11, 1.22.2, 1.21.5
-PORTVERSION=	1.25.3
+PORTVERSION=	1.25.4
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -40,11 +40,12 @@ GO_BUILDFLAGS=	-ldflags="-s -w -extldflags '-static' \
 
 PLIST_FILES=	bin/${PORTNAME}
 
+#to get the new version value
 #KUBERNETES_API_VERSION!=git ls-remote --tags \
 #		https://github.com/kubernetes/api | \
 #		sed -rn 's|^.*[[:space:]]refs/tags/(${DISTVERSIONPREFIX}[.0-9]+)\^\{\}[[:space:]]*$$|\1|p' | \
 #		sort --version-sort --reverse | head -1
-KUBERNETES_API_VERSION=	v0.25.3
+KUBERNETES_API_VERSION=	v0.25.4
 
 OPTIONS_DEFINE=		BASH ZSH
 OPTIONS_DEFAULT=	BASH ZSH
