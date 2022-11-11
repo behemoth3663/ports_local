@@ -1,5 +1,5 @@
 PORTNAME=	helm
-PORTVERSION=	3.10.1
+PORTVERSION=	3.10.2
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -9,9 +9,8 @@ WWW=		https://helm.sh
 
 LICENSE=	APACHE20
 
-RUN_DEPENDS=	kubectl:sysutils/kubectl
-
 BUILD_DEPENDS=	git:devel/git
+RUN_DEPENDS=	kubectl:sysutils/kubectl
 
 USES=		cpe go:modules tar:xz
 
