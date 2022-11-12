@@ -1,5 +1,5 @@
 PORTNAME=	kube-scheduler
-PORTVERSION=	1.25.3
+PORTVERSION=	1.25.4
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local net
 
@@ -41,7 +41,7 @@ PLIST_FILES=	bin/${PORTNAME}
 #		https://github.com/kubernetes/api | \
 #		sed -rn 's|^.*[[:space:]]refs/tags/(${DISTVERSIONPREFIX}[.0-9]+)\^\{\}[[:space:]]*$$|\1|p' | \
 #		sort --version-sort --reverse | head -1
-KUBERNETES_API_VERSION=	v0.25.3
+KUBERNETES_API_VERSION=	v0.25.4
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"

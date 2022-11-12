@@ -338,10 +338,10 @@ GL_TUPLE=	\
 		#	::28db891af037:group_name/vendor/dmitri.shuralyov.com/gpu/mtl (from dmitri.shuralyov.com/gpu/mtl@28db891af037)
 
 		# Errors found during processing:
-		#	XML syntax error on line 12: expected attribute name in element
+		#	XML syntax error on line 13: invalid <![ sequence
 		#	tuple.discoverMirrors https://gonum.org/v1/netlib?go-get=1: status 404
 		#	tuple.discoverMirrors https://gonum.org/v1/gonum?go-get=1: status 404
-		#	XML syntax error on line 12: expected attribute name in element
+		#	XML syntax error on line 13: invalid <![ sequence
 		#	tuple.discoverMirrors https://gonum.org/v1/gonum?go-get=1: status 404
 		#	tuple.discoverMirrors https://gonum.org/v1/netlib?go-get=1: status 404
 		#	tuple.discoverMirrors https://gonum.org/v1/plot?go-get=1: status 404
