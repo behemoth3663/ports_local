@@ -1,12 +1,12 @@
-TIMESTAMP = 1638201321
-SHA256 (kyoh86-richgo-v0.3.10_GH0.tar.gz) = 6952e7cc4f449552c5e2876b660b4cbe3cb7e1a08022eebe63a0c146b7165009
-SIZE (kyoh86-richgo-v0.3.10_GH0.tar.gz) = 27375
+TIMESTAMP = 1668773960
+SHA256 (kyoh86-richgo-v0.3.11_GH0.tar.gz) = 479b6a90cf591bd52664b83365f714c1cc88a30552f044cab98ea53d98b26e5e
+SIZE (kyoh86-richgo-v0.3.11_GH0.tar.gz) = 27435
 SHA256 (davecgh-go-spew-v1.1.0_GH0.tar.gz) = 1f7e0bd2db0341925b5f2ee5834e99380f4c2b1bd36cf0fa62d7717899d39d62
 SIZE (davecgh-go-spew-v1.1.0_GH0.tar.gz) = 42337
 SHA256 (go-yaml-yaml-v2.4.0_GH0.tar.gz) = d8e94679e5fff6bd1a35e10241543929a5f3da44f701755babf99b3daf0faac0
 SIZE (go-yaml-yaml-v2.4.0_GH0.tar.gz) = 73209
-SHA256 (golang-sys-b3129d9d1021_GH0.tar.gz) = c50e414d20ea5a1a1c74e9659375bcba7333642c5453a67a881ba8020a3f6bae
-SIZE (golang-sys-b3129d9d1021_GH0.tar.gz) = 1221573
+SHA256 (golang-sys-da31bd327af9_GH0.tar.gz) = 0c834c593096084aa9458c2ad0ff9177a6397950f4dc7376c9d67367f0687623
+SIZE (golang-sys-da31bd327af9_GH0.tar.gz) = 1257001
 SHA256 (kyoh86-xdg-v1.2.0_GH0.tar.gz) = 357555c7fba96cad7cd37ccc60d07bde5022d50ec468e64e9adb045dbc39ba68
 SIZE (kyoh86-xdg-v1.2.0_GH0.tar.gz) = 5085
 SHA256 (mattn-go-isatty-v0.0.14_GH0.tar.gz) = e6460325edf600297cf2ef68834938fb1c5b8d5f234b3b24ec7c0a29a2d70b39
