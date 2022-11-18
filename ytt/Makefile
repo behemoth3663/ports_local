@@ -1,17 +1,16 @@
 #
 
 PORTNAME=	ytt
-PORTVERSION=	0.43.0
+PORTVERSION=	0.44.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
 CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	YAML tool with templates and user provided values
+WWW=		https://github.com/k14s/ytt
 
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
-WWW=		https://github.com/k14s/ytt
 
 USES=		go:modules
 
