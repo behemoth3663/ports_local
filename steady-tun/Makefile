@@ -1,11 +1,11 @@
 PORTNAME=	steady-tun
-PORTVERSION=	1.1.1
+PORTVERSION=	1.2.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
 CATEGORIES=	local net
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Secure TLS tunnel with pool of prepared upstream connections
+WWW=		https://github.com/Snawoot/steady-tun
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
