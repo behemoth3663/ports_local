@@ -1,0 +1,11 @@
+--- Makefile.deps.orig	2022-11-27 21:19:37 UTC
++++ Makefile.deps
+@@ -101,7 +101,7 @@ GH_TUPLE=	\
+ 		googleapis:gax-go:v2.7.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
+ 		googleapis:google-api-go-client:v0.103.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+ 		googleapis:google-cloud-go:compute/v1.12.1:googleapis_google_cloud_go_compute/vendor/cloud.google.com/go \
+-		googleapis:google-cloud-go:v0.2.1:googleapis_google_cloud_go/vendor/cloud.google.com/go/compute/metadata \
++		googleapis:google-cloud-go:compute/metadata/v0.2.1:googleapis_google_cloud_go/vendor/cloud.google.com/go/compute/metadata \
+ 		gophercloud:gophercloud:v1.0.0:gophercloud_gophercloud/vendor/github.com/gophercloud/gophercloud \
+ 		gorilla:mux:v1.8.0:gorilla_mux/vendor/github.com/gorilla/mux \
+ 		gregjones:httpcache:901d90724c79:gregjones_httpcache/vendor/github.com/gregjones/httpcache \

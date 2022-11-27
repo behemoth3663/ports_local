@@ -1,12 +1,13 @@
 # Created by: Danilo Egea Gondolfo <danilo@FreeBSD.org>
 
 PORTNAME=	kops
-PORTVERSION=	1.25.2
+PORTVERSION=	1.25.3
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
 MAINTAINER=	danilo@FreeBSD.org
 COMMENT=	Kubernetes Operations
+WWW=		https://github.com/kubernetes/kops
 
 LICENSE=	APACHE20
 
