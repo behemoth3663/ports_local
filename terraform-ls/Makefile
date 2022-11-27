@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	terraform-ls
-PORTVERSION=	0.29.3
+PORTVERSION=	0.30.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local devel
 
@@ -24,7 +24,7 @@ PLIST_FILES=	bin/${PORTNAME}
 
 #var version = "0.0.0"
 #var versionPrerelease = "dev"
-post-patch:
+post-patch: .PHONY
 	${REINPLACE_CMD} -r \
 		-e 's|^([[:space:]]*var[[:space:]]+version[[:space:]]*=[[:space:]]*)".*"[[:space:]]*$$|\1"${PORTVERSION}"|' \
 		-e 's|^([[:space:]]*var[[:space:]]+versionPrerelease[[:space:]]*=[[:space:]]*)".*"[[:space:]]*$$|\1""|' \
