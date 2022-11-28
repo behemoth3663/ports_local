@@ -1,3 +1,1 @@
-Syntax based grep for HCL(v2)
-
-WWW: https://github.com/magodo/hclgrep
+Search for HCL(v2) using syntax tree.

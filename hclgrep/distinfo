@@ -1,6 +1,6 @@
-TIMESTAMP = 1644184941
-SHA256 (magodo-hclgrep-v0.0.1-5ed9cc8_GH0.tar.gz) = 1c91719e5666331dd2c3eae533badcd3cbcd10b2ec05506e721fe668ebd78bad
-SIZE (magodo-hclgrep-v0.0.1-5ed9cc8_GH0.tar.gz) = 17943
+TIMESTAMP = 1669673488
+SHA256 (magodo-hclgrep-v0.0.2-1b2b24c_GH0.tar.gz) = 77b5a4383c5b51f2ba4ddcd650224656f37a36ffaf62cd11bebe21ca92143dde
+SIZE (magodo-hclgrep-v0.0.2-1b2b24c_GH0.tar.gz) = 18524
 SHA256 (agext-levenshtein-v1.2.1_GH0.tar.gz) = c6e4bc2db1f0d9bc57fd3f1887567d527f6df1bcfbb079d1d1c4eab17f320b50
 SIZE (agext-levenshtein-v1.2.1_GH0.tar.gz) = 12728
 SHA256 (apparentlymart-go-textseg-v13.0.0_GH0.tar.gz) = 7479ac3309883e2bdb6f562004f2044d3d13d19b78c41db12957aa573fdf3556
