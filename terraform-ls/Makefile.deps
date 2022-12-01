@@ -38,13 +38,13 @@ GH_TUPLE=	\
 		hashicorp:go-version:v1.6.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
 		hashicorp:golang-lru:v0.5.4:hashicorp_golang_lru/vendor/github.com/hashicorp/golang-lru \
 		hashicorp:hc-install:v0.4.0:hashicorp_hc_install/vendor/github.com/hashicorp/hc-install \
-		hashicorp:hcl-lang:6addab33cf00:hashicorp_hcl_lang/vendor/github.com/hashicorp/hcl-lang \
+		hashicorp:hcl-lang:9f07ba77f1d7:hashicorp_hcl_lang/vendor/github.com/hashicorp/hcl-lang \
 		hashicorp:hcl:v1.0.0:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
 		hashicorp:hcl:v2.15.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
 		hashicorp:terraform-exec:v0.17.3:hashicorp_terraform_exec/vendor/github.com/hashicorp/terraform-exec \
 		hashicorp:terraform-json:v0.14.0:hashicorp_terraform_json/vendor/github.com/hashicorp/terraform-json \
 		hashicorp:terraform-registry-address:7d51757b572c:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
-		hashicorp:terraform-schema:88812f3e8011:hashicorp_terraform_schema/vendor/github.com/hashicorp/terraform-schema \
+		hashicorp:terraform-schema:8c89111ff59a:hashicorp_terraform_schema/vendor/github.com/hashicorp/terraform-schema \
 		hashicorp:terraform-svchost:f050f53b9734:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
 		huandu:xstrings:v1.3.2:huandu_xstrings/vendor/github.com/huandu/xstrings \
 		imdario:mergo:v0.3.12:imdario_mergo/vendor/github.com/imdario/mergo \
