@@ -1,7 +1,7 @@
 GH_TUPLE=	\
 		agext:levenshtein:v1.2.2:agext_levenshtein/vendor/github.com/agext/levenshtein \
 		apparentlymart:go-textseg:v13.0.0:apparentlymart_go_textseg_v13/vendor/github.com/apparentlymart/go-textseg/v13 \
-		aws:aws-sdk-go:v1.44.136:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		aws:aws-sdk-go:v1.44.155:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
 		dave:dst:v0.27.2:dave_dst/vendor/github.com/dave/dst \
 		fatih:color:v1.13.0:fatih_color/vendor/github.com/fatih/color \
 		go-check:check:10cb98267c6c:go_check_check/vendor/gopkg.in/check.v1 \
@@ -9,9 +9,9 @@ GH_TUPLE=	\
 		golang:appengine:v1.6.6:golang_appengine/vendor/google.golang.org/appengine \
 		golang:mock:v1.6.0:golang_mock/vendor/github.com/golang/mock \
 		golang:mod:86c51ed26bb4:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.1.0:golang_net/vendor/golang.org/x/net \
+		golang:net:v0.2.0:golang_net/vendor/golang.org/x/net \
 		golang:protobuf:v1.5.2:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sys:v0.1.0:golang_sys/vendor/golang.org/x/sys \
+		golang:sys:v0.2.0:golang_sys/vendor/golang.org/x/sys \
 		golang:text:v0.4.0:golang_text/vendor/golang.org/x/text \
 		golang:tools:v0.1.12:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.5.9:google_go_cmp/vendor/github.com/google/go-cmp \
