@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	kubeletctl
-PORTVERSION=	1.9
+PORTVERSION=	1.10
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
