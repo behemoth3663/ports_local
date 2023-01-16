@@ -35,17 +35,17 @@ GH_TUPLE=	\
 		go-sql-driver:mysql:v1.5.0:go_sql_driver_mysql/vendor/github.com/go-sql-driver/mysql \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
 		golang:appengine:v1.6.7:golang_appengine/vendor/google.golang.org/appengine \
-		golang:crypto:85d78b3ac167:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.5.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:a9213eeb770e:golang_exp/vendor/golang.org/x/exp \
 		golang:groupcache:41bb18bfe9da:golang_groupcache/vendor/github.com/golang/groupcache \
-		golang:net:v0.1.0:golang_net/vendor/golang.org/x/net \
+		golang:net:v0.5.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:2bc19b11175f:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.2:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:snappy:v0.0.4:golang_snappy/vendor/github.com/golang/snappy \
 		golang:sync:886fb9371eb4:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.1.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.1.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.4.0:golang_text/vendor/golang.org/x/text \
+		golang:sys:v0.4.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.4.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.6.0:golang_text/vendor/golang.org/x/text \
 		golang:time:3af7569d3a1e:golang_time/vendor/golang.org/x/time \
 		google:go-cmp:v0.5.9:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-genproto:241b8fcbd6c8:google_go_genproto/vendor/google.golang.org/genproto \
