@@ -2,7 +2,7 @@
 
 PORTNAME=	markdown2html
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.1.8
+DISTVERSION=	1.1.10
 CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org

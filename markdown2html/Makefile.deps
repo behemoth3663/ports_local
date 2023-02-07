@@ -1,112 +1,127 @@
 CARGO_CRATES=	adler-1.0.2 \
-		aho-corasick-0.7.18 \
+		aho-corasick-0.7.20 \
 		ansi_term-0.12.1 \
 		atty-0.2.14 \
 		autocfg-1.1.0 \
-		base64-0.13.0 \
+		base64-0.13.1 \
 		bincode-1.3.3 \
+		bit-set-0.5.3 \
+		bit-vec-0.6.3 \
 		bitflags-1.3.2 \
-		block-buffer-0.7.3 \
-		block-padding-0.1.5 \
-		byte-tools-0.3.1 \
-		byteorder-1.4.3 \
-		cc-1.0.73 \
+		block-buffer-0.10.3 \
+		cc-1.0.79 \
 		cfg-if-1.0.0 \
 		clap-2.34.0 \
-		clap-3.1.6 \
-		comrak-0.12.1 \
-		concat-with-0.2.7 \
+		clap-3.2.23 \
+		clap_lex-0.2.4 \
+		comrak-0.14.0 \
+		concat-with-0.2.8 \
 		cow-utils-0.1.2 \
+		cpufeatures-0.2.5 \
 		crc32fast-1.3.2 \
-		digest-0.8.1 \
+		crypto-common-0.1.6 \
+		digest-0.10.6 \
 		dirs-4.0.0 \
 		dirs-sys-0.3.7 \
-		educe-0.4.19 \
+		educe-0.4.20 \
 		entities-1.0.1 \
-		enum-ordinalize-3.1.11 \
-		fake-simd-0.1.2 \
-		flate2-1.0.22 \
+		enum-ordinalize-3.1.12 \
+		errno-0.2.8 \
+		errno-dragonfly-0.1.2 \
+		fancy-regex-0.7.1 \
+		flate2-1.0.25 \
 		fnv-1.0.7 \
-		generic-array-0.12.4 \
-		getrandom-0.2.5 \
-		hashbrown-0.11.2 \
+		generic-array-0.14.6 \
+		getrandom-0.2.8 \
+		hashbrown-0.12.3 \
 		hermit-abi-0.1.19 \
-		html-escape-0.2.11 \
+		html-escape-0.2.13 \
 		html-minifier-3.0.15 \
-		indexmap-1.8.0 \
-		itoa-1.0.1 \
-		lazy-static-include-3.1.2 \
+		indexmap-1.9.2 \
+		io-lifetimes-1.0.5 \
+		itoa-1.0.5 \
+		lazy-static-include-3.1.3 \
 		lazy_static-1.4.0 \
 		lazycell-1.3.0 \
-		libc-0.2.121 \
+		libc-0.2.139 \
 		line-wrap-0.1.1 \
-		linked-hash-map-0.5.4 \
+		linked-hash-map-0.5.6 \
+		linux-raw-sys-0.1.4 \
 		macro-utils-0.1.3 \
-		manifest-dir-macros-0.1.14 \
-		maplit-1.0.2 \
-		memchr-2.4.1 \
+		manifest-dir-macros-0.1.16 \
+		memchr-2.5.0 \
 		minifier-0.0.43 \
-		miniz_oxide-0.4.4 \
+		miniz_oxide-0.6.2 \
 		num-bigint-0.4.3 \
-		num-integer-0.1.44 \
-		num-traits-0.2.14 \
-		num_threads-0.1.5 \
-		once_cell-1.10.0 \
-		onig-6.3.1 \
-		onig_sys-69.7.1 \
-		opaque-debug-0.2.3 \
-		os_str_bytes-6.0.0 \
-		path-absolutize-3.0.12 \
-		path-dedot-3.0.16 \
-		pest-2.1.3 \
-		pest_derive-2.1.0 \
-		pest_generator-2.1.3 \
-		pest_meta-2.1.3 \
-		pkg-config-0.3.24 \
-		plist-1.3.1 \
-		proc-macro2-1.0.36 \
-		quote-1.0.16 \
-		redox_syscall-0.2.12 \
-		redox_users-0.4.2 \
-		regex-1.5.5 \
-		regex-syntax-0.6.25 \
+		num-integer-0.1.45 \
+		num-traits-0.2.15 \
+		once_cell-1.17.0 \
+		onig-6.4.0 \
+		onig_sys-69.8.1 \
+		os_str_bytes-6.4.1 \
+		path-absolutize-3.0.14 \
+		path-dedot-3.0.18 \
+		pest-2.5.4 \
+		pest_derive-2.5.4 \
+		pest_generator-2.5.4 \
+		pest_meta-2.5.4 \
+		pkg-config-0.3.26 \
+		plist-1.4.0 \
+		proc-macro2-1.0.51 \
+		quick-xml-0.26.0 \
+		quote-1.0.23 \
+		redox_syscall-0.2.16 \
+		redox_users-0.4.3 \
+		regex-1.7.1 \
+		regex-syntax-0.6.28 \
 		rustc_version-0.4.0 \
-		ryu-1.0.9 \
+		rustix-0.36.8 \
+		ryu-1.0.12 \
 		safemem-0.3.3 \
 		same-file-1.0.6 \
-		semver-1.0.6 \
-		serde-1.0.136 \
-		serde_derive-1.0.136 \
-		serde_json-1.0.79 \
-		sha-1-0.8.2 \
+		semver-1.0.16 \
+		serde-1.0.152 \
+		serde_derive-1.0.152 \
+		serde_json-1.0.92 \
+		sha2-0.10.6 \
 		shell-words-1.1.0 \
 		strsim-0.8.0 \
 		strsim-0.10.0 \
-		syn-1.0.89 \
+		syn-1.0.107 \
 		syntect-4.6.0 \
-		termcolor-1.1.3 \
-		terminal_size-0.1.17 \
+		termcolor-1.2.0 \
+		terminal_size-0.2.3 \
 		textwrap-0.11.0 \
-		textwrap-0.15.0 \
-		thiserror-1.0.30 \
-		thiserror-impl-1.0.30 \
-		time-0.3.9 \
-		twoway-0.2.2 \
+		textwrap-0.16.0 \
+		thiserror-1.0.38 \
+		thiserror-impl-1.0.38 \
+		time-0.3.17 \
+		time-core-0.1.0 \
+		time-macros-0.2.6 \
 		typed-arena-1.7.0 \
-		typenum-1.15.0 \
-		ucd-trie-0.1.3 \
-		unchecked-index-0.2.2 \
-		unicode-width-0.1.9 \
-		unicode-xid-0.2.2 \
+		typenum-1.16.0 \
+		ucd-trie-0.1.5 \
+		unicode-ident-1.0.6 \
+		unicode-width-0.1.10 \
 		unicode_categories-0.1.1 \
 		utf8-width-0.1.6 \
 		vec_map-0.8.2 \
+		version_check-0.9.4 \
 		walkdir-2.3.2 \
-		wasi-0.10.2+wasi-snapshot-preview1 \
+		wasi-0.11.0+wasi-snapshot-preview1 \
 		winapi-0.3.9 \
 		winapi-i686-pc-windows-gnu-0.4.0 \
 		winapi-util-0.1.5 \
 		winapi-x86_64-pc-windows-gnu-0.4.0 \
+		windows-sys-0.42.0 \
+		windows-sys-0.45.0 \
+		windows-targets-0.42.1 \
+		windows_aarch64_gnullvm-0.42.1 \
+		windows_aarch64_msvc-0.42.1 \
+		windows_i686_gnu-0.42.1 \
+		windows_i686_msvc-0.42.1 \
+		windows_x86_64_gnu-0.42.1 \
+		windows_x86_64_gnullvm-0.42.1 \
+		windows_x86_64_msvc-0.42.1 \
 		xdg-2.4.1 \
-		xml-rs-0.8.4 \
 		yaml-rust-0.4.5
