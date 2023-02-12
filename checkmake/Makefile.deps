@@ -1,0 +1,11 @@
+GH_TUPLE=	\
+		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
+		docopt:docopt-go:854c423c8108:docopt_docopt_go/vendor/github.com/docopt/docopt-go \
+		go-ini:ini:v1.11.0:go_ini_ini/vendor/github.com/go-ini/ini \
+		olekukonko:tablewriter:b9346ac189c5:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
+		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
+		smartystreets:goconvey:v1.7.2:smartystreets_goconvey/vendor/github.com/smartystreets/goconvey \
+		stretchr:testify:d77da356e56a:stretchr_testify/vendor/github.com/stretchr/testify
+
+pre-extract: .PHONY
+	${LN} -sf ${WRKDIR}/docopt-go.854c423c8108 ${WRKDIR}/docopt-go-854c423c8108

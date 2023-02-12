@@ -1,0 +1,17 @@
+TIMESTAMP = 1676239666
+SHA256 (mrtazz-checkmake-0.2.1_GH0.tar.gz) = 6e0d5237bc1de2a42ba1cf1a5c1da7d783bd9da06755e0c7faba6c3ba77ab1ee
+SIZE (mrtazz-checkmake-0.2.1_GH0.tar.gz) = 101073
+SHA256 (davecgh-go-spew-v1.1.1_GH0.tar.gz) = 7d82b9bb7291adbe7498fe946920ab3e7fc9e6cbfc3b2294693fad00bf0dd17e
+SIZE (davecgh-go-spew-v1.1.1_GH0.tar.gz) = 42152
+SHA256 (docopt-docopt-go-854c423c8108_GH0.tar.gz) = e6ace6bc87f5c73c272fa4eff3a94d6be61262b98b04ec39f5ba38bda0924fcd
+SIZE (docopt-docopt-go-854c423c8108_GH0.tar.gz) = 23802
+SHA256 (go-ini-ini-v1.11.0_GH0.tar.gz) = 758ac6ba89a8990893cd78fd7867e3afcc6e1555a043d9d1570471edc10d4b10
+SIZE (go-ini-ini-v1.11.0_GH0.tar.gz) = 29828
+SHA256 (olekukonko-tablewriter-b9346ac189c5_GH0.tar.gz) = b7c158789c4a0c3a5f7498c9d8a7b05f20ec3eb4b04ce2da1b27c78b18993db3
+SIZE (olekukonko-tablewriter-b9346ac189c5_GH0.tar.gz) = 9693
+SHA256 (pmezard-go-difflib-v1.0.0_GH0.tar.gz) = 28f3dc1b5c0efd61203ab07233f774740d3bf08da4d8153fb5310db6cea0ebda
+SIZE (pmezard-go-difflib-v1.0.0_GH0.tar.gz) = 11398
+SHA256 (smartystreets-goconvey-v1.7.2_GH0.tar.gz) = 1ecae2ccbb0fb35b8e60058b4303d0adbb595d67a42ce00cce15339331aebe6a
+SIZE (smartystreets-goconvey-v1.7.2_GH0.tar.gz) = 1479805
+SHA256 (stretchr-testify-d77da356e56a_GH0.tar.gz) = b920cda8e523518dd282863745679baa64fa10e510647d2266c59d79060d09d7
+SIZE (stretchr-testify-d77da356e56a_GH0.tar.gz) = 81797
