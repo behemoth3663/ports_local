@@ -1,0 +1,26 @@
+--- Makefile.deps.orig	2023-02-16 23:13:07 UTC
++++ Makefile.deps
+@@ -32,10 +32,9 @@ GH_TUPLE=	\
+ 		googleapis:gax-go:v2.6.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
+ 		googleapis:google-api-go-client:v0.102.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+ 		googleapis:google-cloud-go:compute/v1.12.1:googleapis_google_cloud_go_compute \
++		googleapis:google-cloud-go:compute/metadata/v0.2.1:googleapis_google_cloud_go_compute_metadata \
+ 		googleapis:google-cloud-go:storage/v1.27.0:googleapis_google_cloud_go_storage \
+-		googleapis:google-cloud-go:v0.105.0:googleapis_google_cloud_go \
+-		googleapis:google-cloud-go:v0.2.1:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata \
+-		googleapis:google-cloud-go:v0.7.0:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go \
++		googleapis:google-cloud-go:v0.105.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
+ 		grpc:grpc-go:v1.52.3:grpc_grpc_go/vendor/google.golang.org/grpc \
+ 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
+ 		hashicorp:go-getter:v1.6.2:hashicorp_go_getter/vendor/github.com/hashicorp/go-getter \
+@@ -80,8 +79,9 @@ GH_TUPLE=	\
+ 		zclconf:go-cty:v1.12.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+ 
+ post-extract:
+-	@${RLN} ${WRKSRC_googleapis_google_cloud_go} ${WRKSRC}/vendor/cloud.google.com/go
+ 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute
+ 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute}/compute ${WRKSRC}/vendor/cloud.google.com/go/compute
++	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
++	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
+ 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
+ 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go/storage
