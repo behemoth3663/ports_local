@@ -2,32 +2,33 @@ GH_TUPLE=	\
 		ajg:form:v1.5.1:ajg_form/vendor/github.com/ajg/form \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		etcd-io:bbolt:v1.3.6:etcd_io_bbolt/vendor/go.etcd.io/bbolt \
-		go-chi:chi:v5.0.7:go_chi_chi_v5/vendor/github.com/go-chi/chi/v5 \
+		go-chi:chi:v5.0.8:go_chi_chi_v5/vendor/github.com/go-chi/chi/v5 \
 		go-chi:cors:v1.2.1:go_chi_cors/vendor/github.com/go-chi/cors \
 		go-chi:render:v1.0.2:go_chi_render/vendor/github.com/go-chi/render \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
-		gofrs:uuid:v4.3.1:gofrs_uuid/vendor/github.com/gofrs/uuid \
-		golang:crypto:2c476679df9a:golang_crypto/vendor/golang.org/x/crypto \
+		gofrs:uuid:v4.4.0:gofrs_uuid/vendor/github.com/gofrs/uuid \
+		golang:crypto:v0.5.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:bbda1eaf7a17:golang_exp/vendor/golang.org/x/exp \
 		golang:mod:86c51ed26bb4:golang_mod/vendor/golang.org/x/mod \
-		golang:net:ecf7fda6a59e:golang_net/vendor/golang.org/x/net \
+		golang:net:v0.5.0:golang_net/vendor/golang.org/x/net \
 		golang:sync:v0.1.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:d684c6f88669:golang_sys/vendor/golang.org/x/sys \
-		golang:text:v0.4.0:golang_text/vendor/golang.org/x/text \
+		golang:sys:v0.4.0:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.6.0:golang_text/vendor/golang.org/x/text \
 		golang:tools:v0.1.12:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.5.9:google_go_cmp/vendor/github.com/google/go-cmp \
 		gorilla:websocket:v1.5.0:gorilla_websocket/vendor/github.com/gorilla/websocket \
-		insomniacslk:dhcp:5308ebe5334c:insomniacslk_dhcp/vendor/github.com/insomniacslk/dhcp \
-		josharian:native:v1.0.0:josharian_native/vendor/github.com/josharian/native \
-		mdlayher:netlink:v1.7.0:mdlayher_netlink/vendor/github.com/mdlayher/netlink \
+		insomniacslk:dhcp:de60144f33f8:insomniacslk_dhcp/vendor/github.com/insomniacslk/dhcp \
+		josharian:native:v1.1.0:josharian_native/vendor/github.com/josharian/native \
+		kr:text:v0.2.0:kr_text/vendor/github.com/kr/text \
+		mdlayher:netlink:9881fafed8c7:mdlayher_netlink/vendor/github.com/mdlayher/netlink \
 		mdlayher:socket:v0.4.0:mdlayher_socket/vendor/github.com/mdlayher/socket \
 		miekg:dns:v1.1.50:miekg_dns/vendor/github.com/miekg/dns \
 		oschwald:geoip2-golang:v1.8.0:oschwald_geoip2_golang/vendor/github.com/oschwald/geoip2-golang \
 		oschwald:maxminddb-golang:v1.10.0:oschwald_maxminddb_golang/vendor/github.com/oschwald/maxminddb-golang \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
-		samber:lo:v1.35.0:samber_lo/vendor/github.com/samber/lo \
+		samber:lo:v1.37.0:samber_lo/vendor/github.com/samber/lo \
 		sirupsen:logrus:v1.9.0:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
 		stretchr:testify:v1.8.1:stretchr_testify/vendor/github.com/stretchr/testify \
-		u-root:uio:82958018845c:u_root_uio/vendor/github.com/u-root/uio \
+		u-root:uio:c3537552635f:u_root_uio/vendor/github.com/u-root/uio \
 		uber-go:atomic:v1.10.0:uber_go_atomic/vendor/go.uber.org/atomic \
 		uber-go:automaxprocs:v1.5.1:uber_go_automaxprocs/vendor/go.uber.org/automaxprocs
