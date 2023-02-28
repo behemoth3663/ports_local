@@ -1,13 +1,13 @@
 #
 
 PORTNAME=	s3-benchmark
-PORTVERSION=	0.0.3
+PORTVERSION=	0.0.4
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
 CATEGORIES=	local net
 
 MAINTAINER=	none@FreeBSD.org
 COMMENT=	Measure Amazon S3's performance
+WWW=		https://github.com/amilevskiy/s3-benchmark
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
