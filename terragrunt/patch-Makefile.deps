@@ -1,0 +1,20 @@
+--- Makefile.deps.orig	2023-03-02 20:51:30 UTC
++++ Makefile.deps
+@@ -59,8 +59,7 @@ GH_TUPLE=	\
+ 		googleapis:google-api-go-client:v0.100.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+ 		googleapis:google-cloud-go:compute/v1.10.0:googleapis_google_cloud_go_compute \
+ 		googleapis:google-cloud-go:storage/v1.27.0:googleapis_google_cloud_go_storage \
+-		googleapis:google-cloud-go:v0.104.0:googleapis_google_cloud_go \
+-		googleapis:google-cloud-go:v0.5.0:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go \
++		googleapis:google-cloud-go:v0.104.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
+ 		goware:prefixer:395022866408:goware_prefixer/vendor/github.com/goware/prefixer \
+ 		grpc:grpc-go:v1.51.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+ 		gruntwork-io:gruntwork-cli:v0.7.0:gruntwork_io_gruntwork_cli/vendor/github.com/gruntwork-io/gruntwork-cli \
+@@ -137,7 +136,6 @@ GH_TUPLE=	\
+ 		zclconf:go-cty:v1.12.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+ 
+ post-extract:
+-	@${RLN} ${WRKSRC_googleapis_google_cloud_go} ${WRKSRC}/vendor/cloud.google.com/go
+ 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute
+ 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute}/compute ${WRKSRC}/vendor/cloud.google.com/go/compute
+ 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
