@@ -1,6 +1,6 @@
-TIMESTAMP = 1668172227
-SHA256 (hashicorp-hcl-v2.15.0_GH0.tar.gz) = 76f234c7bd4de52225b5d7a7f09b5dd1df1eb40084478569707d00d0c1c66ef9
-SIZE (hashicorp-hcl-v2.15.0_GH0.tar.gz) = 422420
+TIMESTAMP = 1677792429
+SHA256 (hashicorp-hcl-v2.16.1_GH0.tar.gz) = 688aeca31b0b0d32a61596445cbe3ada3fabad0488b62d5e23f145430a9334a6
+SIZE (hashicorp-hcl-v2.16.1_GH0.tar.gz) = 425438
 SHA256 (agext-levenshtein-v1.2.1_GH0.tar.gz) = c6e4bc2db1f0d9bc57fd3f1887567d527f6df1bcfbb079d1d1c4eab17f320b50
 SIZE (agext-levenshtein-v1.2.1_GH0.tar.gz) = 12728
 SHA256 (apparentlymart-go-dump-23540a00eaa3_GH0.tar.gz) = ed088fb358430457bab0c9d39c2df774885f31d601bd300f2cc9d13493d8f390
