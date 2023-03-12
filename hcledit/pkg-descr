@@ -3,5 +3,3 @@ query tools. It was originally born for refactoring Terraform configurations,
 but it's not limited to specific applications. The HCL specification is
 somewhat generic, so usability takes precedence over strictness if there is
 room for interpreting meanings in the schemaless approach.
-
-WWW: https://github.com/minamijoyo/hcledit

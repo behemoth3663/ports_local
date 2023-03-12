@@ -8,6 +8,7 @@ CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Command line editor for HCL
+WWW=		https://github.com/minamijoyo/hcledit
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
