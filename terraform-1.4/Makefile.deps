@@ -31,7 +31,7 @@ GH_TUPLE=	\
 		armon:circbuf:5111143e8da2:armon_circbuf/vendor/github.com/armon/circbuf \
 		armon:go-metrics:f0300d1749da:armon_go_metrics/vendor/github.com/armon/go-metrics \
 		armon:go-radix:v1.0.0:armon_go_radix/vendor/github.com/armon/go-radix \
-		aws:aws-sdk-go:v1.42.35:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		aws:aws-sdk-go:v1.44.122:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
 		baiyubin:aliyun-sts-go-sdk:cfa1a18b161f:baiyubin_aliyun_sts_go_sdk/vendor/github.com/baiyubin/aliyun-sts-go-sdk \
 		bgentry:go-netrc:9fd32a8b3d3d:bgentry_go_netrc/vendor/github.com/bgentry/go-netrc \
 		bgentry:speakeasy:v0.1.0:bgentry_speakeasy/vendor/github.com/bgentry/speakeasy \
@@ -61,15 +61,15 @@ GH_TUPLE=	\
 		golang:crypto:v0.1.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:groupcache:41bb18bfe9da:golang_groupcache/vendor/github.com/golang/groupcache \
 		golang:mock:v1.6.0:golang_mock/vendor/github.com/golang/mock \
-		golang:mod:86c51ed26bb4:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.5.0:golang_net/vendor/golang.org/x/net \
+		golang:mod:v0.8.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.6.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.4.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.2:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sys:v0.4.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.4.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.6.0:golang_text/vendor/golang.org/x/text \
+		golang:sys:v0.5.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.5.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.8.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.3.0:golang_time/vendor/golang.org/x/time \
-		golang:tools:v0.1.12:golang_tools/vendor/golang.org/x/tools \
+		golang:tools:v0.6.0:golang_tools/vendor/golang.org/x/tools \
 		golang:xerrors:04be3eba64a2:golang_xerrors/vendor/golang.org/x/xerrors \
 		google:go-cmp:v0.5.9:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-genproto:115e99e71e1c:google_go_genproto/vendor/google.golang.org/genproto \
@@ -95,7 +95,7 @@ GH_TUPLE=	\
 		hashicorp:go-azure-helpers:v0.43.0:hashicorp_go_azure_helpers/vendor/github.com/hashicorp/go-azure-helpers \
 		hashicorp:go-checkpoint:v0.5.0:hashicorp_go_checkpoint/vendor/github.com/hashicorp/go-checkpoint \
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
-		hashicorp:go-getter:v1.6.2:hashicorp_go_getter/vendor/github.com/hashicorp/go-getter \
+		hashicorp:go-getter:v1.7.0:hashicorp_go_getter/vendor/github.com/hashicorp/go-getter \
 		hashicorp:go-hclog:v0.15.0:hashicorp_go_hclog/vendor/github.com/hashicorp/go-hclog \
 		hashicorp:go-immutable-radix:v1.0.0:hashicorp_go_immutable_radix/vendor/github.com/hashicorp/go-immutable-radix \
 		hashicorp:go-msgpack:v0.5.4:hashicorp_go_msgpack/vendor/github.com/hashicorp/go-msgpack \
@@ -110,7 +110,7 @@ GH_TUPLE=	\
 		hashicorp:go-version:v1.6.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
 		hashicorp:golang-lru:v0.5.1:hashicorp_golang_lru/vendor/github.com/hashicorp/golang-lru \
 		hashicorp:hcl:a4b07c25de5f:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
-		hashicorp:hcl:v2.16.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
+		hashicorp:hcl:v2.16.2:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
 		hashicorp:jsonapi:ee7dae0fb22d:hashicorp_jsonapi/vendor/github.com/hashicorp/jsonapi \
 		hashicorp:serf:v0.9.5:hashicorp_serf/vendor/github.com/hashicorp/serf \
 		hashicorp:terraform-config-inspect:4fd17a0faac2:hashicorp_terraform_config_inspect/vendor/github.com/hashicorp/terraform-config-inspect \
@@ -122,7 +122,7 @@ GH_TUPLE=	\
 		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
 		json-iterator:go:v1.1.12:json_iterator_go/vendor/github.com/json-iterator/go \
 		kardianos:osext:2bc1f35cddc0:kardianos_osext/vendor/github.com/kardianos/osext \
-		klauspost:compress:v1.11.2:klauspost_compress/vendor/github.com/klauspost/compress \
+		klauspost:compress:v1.15.11:klauspost_compress/vendor/github.com/klauspost/compress \
 		kubernetes-sigs:json:c049b76a60c6:kubernetes_sigs_json/vendor/sigs.k8s.io/json \
 		kubernetes-sigs:structured-merge-diff:v4.2.1:kubernetes_sigs_structured_merge_diff/vendor/sigs.k8s.io/structured-merge-diff/v4 \
 		kubernetes-sigs:yaml:v1.2.0:kubernetes_sigs_yaml/vendor/sigs.k8s.io/yaml \
@@ -145,7 +145,7 @@ GH_TUPLE=	\
 		mitchellh:copystructure:v1.2.0:mitchellh_copystructure/vendor/github.com/mitchellh/copystructure \
 		mitchellh:go-homedir:v1.1.0:mitchellh_go_homedir/vendor/github.com/mitchellh/go-homedir \
 		mitchellh:go-linereader:1b945b3263eb:mitchellh_go_linereader/vendor/github.com/mitchellh/go-linereader \
-		mitchellh:go-testing-interface:v1.0.4:mitchellh_go_testing_interface/vendor/github.com/mitchellh/go-testing-interface \
+		mitchellh:go-testing-interface:v1.14.1:mitchellh_go_testing_interface/vendor/github.com/mitchellh/go-testing-interface \
 		mitchellh:go-wordwrap:v1.0.1:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
 		mitchellh:gox:v1.0.1:mitchellh_gox/vendor/github.com/mitchellh/gox \
 		mitchellh:iochan:v1.0.0:mitchellh_iochan/vendor/github.com/mitchellh/iochan \
@@ -173,17 +173,18 @@ GH_TUPLE=	\
 		tencentcloud:tencentcloud-sdk-go:v1.0.588:tencentcloud_tencentcloud_sdk_go_common \
 		tencentyun:cos-go-sdk-v5:v0.7.29:tencentyun_cos_go_sdk_v5/vendor/github.com/tencentyun/cos-go-sdk-v5 \
 		tombuildsstuff:giovanni:v0.15.1:tombuildsstuff_giovanni/vendor/github.com/tombuildsstuff/giovanni \
-		ulikunitz:xz:v0.5.8:ulikunitz_xz/vendor/github.com/ulikunitz/xz \
-		vmihailenco:msgpack:v4.3.12:vmihailenco_msgpack_v4/vendor/github.com/vmihailenco/msgpack/v4 \
-		vmihailenco:tagparser:v0.1.1:vmihailenco_tagparser/vendor/github.com/vmihailenco/tagparser \
+		ulikunitz:xz:v0.5.10:ulikunitz_xz/vendor/github.com/ulikunitz/xz \
+		vmihailenco:msgpack:v5.3.5:vmihailenco_msgpack_v5/vendor/github.com/vmihailenco/msgpack/v5 \
+		vmihailenco:tagparser:v2.0.0:vmihailenco_tagparser_v2/vendor/github.com/vmihailenco/tagparser/v2 \
 		xanzy:ssh-agent:v0.3.1:xanzy_ssh_agent/vendor/github.com/xanzy/ssh-agent \
 		xlab:treeprint:1d6e34225557:xlab_treeprint/vendor/github.com/xlab/treeprint \
 		zclconf:go-cty-debug:b22d67c1ba0b:zclconf_go_cty_debug/vendor/github.com/zclconf/go-cty-debug \
 		zclconf:go-cty-yaml:v1.0.3:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
-		zclconf:go-cty:v1.12.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+		zclconf:go-cty:v1.13.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
 		#	::6cf2b201936e:group_name/vendor/golang.org/x/exp/typeparams (from go.googlesource.com/exp@6cf2b201936e)
+		#	::v0.1.0-deprecated:group_name/vendor/golang.org/x/tools/cmd/cover (from go.googlesource.com/tools@v0.1.0-deprecated)
 
 post-extract:
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute
