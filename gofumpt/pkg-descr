@@ -3,5 +3,3 @@ is, gofumpt is happy with a subset of the formats that gofmt is happy with.
 
 The tool is a modified fork of gofmt, so it can be used as a drop-in
 replacement. Running gofmt after gofumpt should be a no-op.
-
-WWW: https://github.com/mvdan/gofumpt
