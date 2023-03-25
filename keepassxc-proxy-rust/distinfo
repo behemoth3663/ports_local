@@ -1,4 +1,4 @@
-TIMESTAMP = 1663861370
+TIMESTAMP = 1679787263
 SHA256 (rust/crates/autocfg-1.1.0.crate) = d468802bab17cbc0cc575e9b053f41e72aa36bfa6b7f55e3529ffa43161b97fa
 SIZE (rust/crates/autocfg-1.1.0.crate) = 13272
 SHA256 (rust/crates/bitflags-1.3.2.crate) = bef38d45163c2f1dde094a7dfd33ccf595c92905c8f8f4fdc18d06fb1037718a
@@ -21,5 +21,5 @@ SHA256 (rust/crates/winapi-0.2.8.crate) = 167dc9d6949a9b857f3451275e911c3f442558
 SIZE (rust/crates/winapi-0.2.8.crate) = 455145
 SHA256 (rust/crates/winapi-build-0.1.1.crate) = 2d315eee3b34aca4797b2da6b13ed88266e6d612562a0c46390af8299fc699bc
 SIZE (rust/crates/winapi-build-0.1.1.crate) = 669
-SHA256 (varjolintu-keepassxc-proxy-rust-0.0.20220921-ee769d0_GH0.tar.gz) = cd8af7dbbe6e7aa64fcf7e8cf0f4c1484591a59f7ec1fd30b46afcddd80e4b6b
-SIZE (varjolintu-keepassxc-proxy-rust-0.0.20220921-ee769d0_GH0.tar.gz) = 15937
+SHA256 (varjolintu-keepassxc-proxy-rust-0.2.0_GH0.tar.gz) = 8d6ca797a1eb8547ea9eb737fa196ad7a89a6cfc10ded9ed8a0b01a557fbc439
+SIZE (varjolintu-keepassxc-proxy-rust-0.2.0_GH0.tar.gz) = 16259
