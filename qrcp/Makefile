@@ -2,11 +2,12 @@
 
 PORTNAME=	qrcp
 PORTVERSION=	0.9.1
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Transfer files over Wi-Fi from computer to mobile device
-WWW=		https://github.com/claudiodangelis/qrcp
+WWW=		https://github.com/${GH_ACCOUNT}/${PORTNAME}
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
