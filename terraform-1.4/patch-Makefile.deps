@@ -13,8 +13,8 @@
  		grpc:grpc-go:v1.1.0:grpc_grpc_go_1/vendor/google.golang.org/grpc/cmd/protoc-gen-go-grpc \
  		grpc:grpc-go:v1.50.1:grpc_grpc_go/vendor/google.golang.org/grpc \
  		hashicorp:aws-sdk-go-base:v0.7.1:hashicorp_aws_sdk_go_base/vendor/github.com/hashicorp/aws-sdk-go-base \
-@@ -186,9 +186,10 @@ GH_TUPLE=	\
- 		#	::6cf2b201936e:group_name/vendor/golang.org/x/exp/typeparams (from go.googlesource.com/exp@6cf2b201936e)
+@@ -187,9 +187,10 @@ GH_TUPLE=	\
+ 		#	::v0.1.0-deprecated:group_name/vendor/golang.org/x/tools/cmd/cover (from go.googlesource.com/tools@v0.1.0-deprecated)
  
  post-extract:
 -	@${RLN} ${WRKSRC_googleapis_google_cloud_go} ${WRKSRC}/vendor/cloud.google.com/go
