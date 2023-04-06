@@ -1,0 +1,9 @@
+TIMESTAMP = 1680789111
+SHA256 (AlexNabokikh-tfsort-v0.2.2_GH0.tar.gz) = 4bce17fc003deee9aa727dd69f637d10a8901c853035479f8aab768f73ec1e0b
+SIZE (AlexNabokikh-tfsort-v0.2.2_GH0.tar.gz) = 2922444
+SHA256 (inconshreveable-mousetrap-v1.1.0_GH0.tar.gz) = ab23e7c5cbf42564eb0190ee051b7217c04fd2599d2f26e9ebe205db75963141
+SIZE (inconshreveable-mousetrap-v1.1.0_GH0.tar.gz) = 5338
+SHA256 (spf13-cobra-v1.6.1_GH0.tar.gz) = f38f8b26895903be06089ff20882fc771dbca12f41cf81d7bd823be65e6cec52
+SIZE (spf13-cobra-v1.6.1_GH0.tar.gz) = 111053
+SHA256 (spf13-pflag-v1.0.5_GH0.tar.gz) = 9a2cae1f8e8ab0d2cc8ebe468e871af28d9ac0962cf0520999e3ba85f0c7b808
+SIZE (spf13-pflag-v1.0.5_GH0.tar.gz) = 50796
