@@ -1,0 +1,59 @@
+--- misc/syntax/makefile.syntax.orig	2020-02-07 10:14:34 UTC
++++ misc/syntax/makefile.syntax
+@@ -14,14 +14,33 @@ context default
+     keyword whole linestart ifneq magenta
+     keyword whole linestart else magenta
+ # BSD Makefiles
++    keyword whole linestart .\[\s\t\]depend magenta
+     keyword whole linestart .\[\s\t\]elif magenta
++    keyword whole linestart .\[\s\t\]elifdef magenta
++    keyword whole linestart .\[\s\t\]elifmake magenta
++    keyword whole linestart .\[\s\t\]elifndef magenta
++    keyword whole linestart .\[\s\t\]elifnmake magenta
+     keyword whole linestart .\[\s\t\]else magenta
+     keyword whole linestart .\[\s\t\]endfor magenta
+     keyword whole linestart .\[\s\t\]endif magenta
++    keyword whole linestart .\[\s\t\]error magenta
++    keyword whole linestart .\[\s\t\]export-env magenta
++    keyword whole linestart .\[\s\t\]export-literal magenta
++    keyword whole linestart .\[\s\t\]export magenta
+     keyword whole linestart .\[\s\t\]for magenta
+     keyword whole linestart .\[\s\t\]if magenta
++    keyword whole linestart .\[\s\t\]ifdef magenta
++    keyword whole linestart .\[\s\t\]ifmake magenta
++    keyword whole linestart .\[\s\t\]ifndef magenta
++    keyword whole linestart .\[\s\t\]ifnmake magenta
+     keyword whole linestart .\[\s\t\]include magenta
++    keyword whole linestart .\[\s\t\]\[-s\]include magenta
++    keyword whole linestart .\[\s\t\]info magenta
++    keyword whole linestart .\[\s\t\]newline magenta
+     keyword whole linestart .\[\s\t\]undef magenta
++    keyword whole linestart .\[\s\t\]unexport-env magenta
++    keyword whole linestart .\[\s\t\]unexport magenta
++    keyword whole linestart .\[\s\t\]warning magenta
+ 
+     keyword linestart \t lightgray red
+     keyword whole .PHONY white
+@@ -37,6 +56,22 @@ context default
+     keyword whole .EXPORT_ALL_VARIABLES white
+     keyword whole .NOTPARALLEL white
+     keyword whole .NOEXPORT white
++
++# BSD Makefiles
++    keyword whole .EXEC white
++    keyword whole .MADE white
++    keyword whole .MAKE white
++    keyword whole .META white
++    keyword whole .NOMETA white
++    keyword whole .NOMETA_CMP white
++    keyword whole .NOPATH white
++    keyword whole .NOTMAIN white
++    keyword whole .OPTIONAL white
++    keyword whole .RECURSIVE white
++    keyword whole .USE white
++    keyword whole .USEBEFORE white
++    keyword whole .WAIT white
++
+     keyword = white
+     keyword : yellow
+     keyword \\\n yellow

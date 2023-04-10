@@ -1,0 +1,10 @@
+--- misc/syntax/Makefile.in.orig	2023-04-10 22:16:07 UTC
++++ misc/syntax/Makefile.in
+@@ -499,6 +499,7 @@ SYNTAXFILES = \
+ 	syntax.syntax		\
+ 	tcl.syntax		\
+ 	texinfo.syntax		\
++	tf.syntax		\
+ 	toml.syntax		\
+ 	ts.syntax		\
+ 	tt.syntax		\
