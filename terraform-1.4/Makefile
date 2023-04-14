@@ -23,6 +23,16 @@ PLIST_FILES+=	bin/${PORTNAME}${PKGNAMESUFFIX}
 
 JQ_GETVER_EXPR=	[.[].name | gsub("^[a-z]+";"") | select(test("^${PORTVERSION:C/[^.]+$/[0-9]+/:S/./\\\\./g}$$"; "n"))][0]
 
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+	-X 'version.Version=${PORTVERSION}' \
+	-X 'version.VersionPrerelease='"
+
+post-patch: .PHONY
+	${REINPLACE_CMD} -r \
+		-e 's|Prerelease = "dev"|Prerelease = ""|' \
+		-e 's|Version = "[^"]+"|Version = "${PORTVERSION}"|' \
+		${WRKSRC}/version/version.go
+
 post-install: .PHONY
 	${MV} ${STAGEDIR}${PREFIX}/bin/${PORTNAME} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION}
 	${INSTALL} -l rs ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}${PKGNAMESUFFIX}

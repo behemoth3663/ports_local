@@ -1,4 +1,4 @@
-TIMESTAMP = 1680270156
+TIMESTAMP = 1681166082
 SHA256 (hashicorp-terraform-v1.4.4_GH0.tar.gz) = ab9e6d743c0a00be8c6c1a2723f39191e3cbd14517acbc3e6ff2baa753865074
 SIZE (hashicorp-terraform-v1.4.4_GH0.tar.gz) = 5112761
 SHA256 (Azure-azure-sdk-for-go-v59.2.0_GH0.tar.gz) = b65114ed30d5860465479d848ed0399a318eb8391ae8b1e139dcefc687fd0ae4
@@ -173,8 +173,8 @@ SHA256 (googleapis-google-cloud-go-v0.105.0_GH0.tar.gz) = 64662017ec20751a3c6552
 SIZE (googleapis-google-cloud-go-v0.105.0_GH0.tar.gz) = 15935190
 SHA256 (googleapis-google-cloud-go-compute-metadata-v0.2.1_GH0.tar.gz) = 0b67368826cbb7f9858a820eaa69494ed493eb473f91df47d97905f8a37a55a2
 SIZE (googleapis-google-cloud-go-compute-metadata-v0.2.1_GH0.tar.gz) = 15938439
-SHA256 (googleapis-google-cloud-go-v0.6.0_GH0.tar.gz) = 6c4d336831d663520b0bf4f1fa4b9fc2fee33d9c88966d3a8b8ab96060720671
-SIZE (googleapis-google-cloud-go-v0.6.0_GH0.tar.gz) = 835834
+SHA256 (googleapis-google-cloud-go-iam-v0.6.0_GH0.tar.gz) = e78bfcbeb1a6a5a2e197c5d6fdc9b97c14cd3ed81ce6aa2a9d6e55d15678d85f
+SIZE (googleapis-google-cloud-go-iam-v0.6.0_GH0.tar.gz) = 15920485
 SHA256 (grpc-grpc-go-cmd%2Fprotoc-gen-go-grpc%2Fv1.1.0_GH0.tar.gz) = 9aa1f1f82b45a409c25eb7c06c6b4d2a41eb3c9466ebd808fe6d3dc2fb9165b3
 SIZE (grpc-grpc-go-cmd%2Fprotoc-gen-go-grpc%2Fv1.1.0_GH0.tar.gz) = 1165303
 SHA256 (grpc-grpc-go-v1.50.1_GH0.tar.gz) = 2da3f8ca865d05198fd9748fe85234ac4cfec5db2e8c6024e3c31a18dc205ec7

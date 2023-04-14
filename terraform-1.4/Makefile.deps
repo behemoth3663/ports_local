@@ -85,7 +85,7 @@ GH_TUPLE=	\
 		googleapis:google-cloud-go:storage/v1.28.0:googleapis_google_cloud_go_storage \
 		googleapis:google-cloud-go:v0.105.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
 		googleapis:google-cloud-go:compute/metadata/v0.2.1:googleapis_google_cloud_go_compute_metadata \
-		googleapis:google-cloud-go:v0.6.0:googleapis_google_cloud_go_iam \
+		googleapis:google-cloud-go:iam/v0.6.0:googleapis_google_cloud_go_iam \
 		grpc:grpc-go:v1.1.0:grpc_grpc_go_1/vendor/google.golang.org/grpc/cmd/protoc-gen-go-grpc \
 		grpc:grpc-go:v1.50.1:grpc_grpc_go/vendor/google.golang.org/grpc \
 		hashicorp:aws-sdk-go-base:v0.7.1:hashicorp_aws_sdk_go_base/vendor/github.com/hashicorp/aws-sdk-go-base \
@@ -191,6 +191,8 @@ post-extract:
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute}/compute ${WRKSRC}/vendor/cloud.google.com/go/compute
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
+	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/iam
+	@${RLN} ${WRKSRC_googleapis_google_cloud_go_iam}/iam ${WRKSRC}/vendor/cloud.google.com/go/iam
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/kms
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_kms}/kms ${WRKSRC}/vendor/cloud.google.com/go/kms
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
