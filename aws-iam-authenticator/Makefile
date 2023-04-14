@@ -1,32 +1,42 @@
-# Created by: Danilo Egea Gondolfo <danilo@FreeBSD.org>
-
 PORTNAME=	aws-iam-authenticator
-PORTVERSION=	0.5.9
+PORTVERSION=	0.6.11
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+#PORTREVISION=	1
 CATEGORIES=	local security
 
 MAINTAINER=	danilo@FreeBSD.org
 COMMENT=	Use AWS IAM credentials to authenticate to a Kubernetes cluster
+WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	APACHE20
-WWW=		https://github.com/kubernetes-sigs/aws-iam-authenticator
+LICENSE_FILE=	${WRKSRC}/LICENSE
+
+BUILD_DEPENDS=	git:devel/git
 
 USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	kubernetes-sigs
-GH_SUBDIR=	src/github.com/kubernetes-sigs/${PORTNAME}
 
-GO_TARGET=	${GO_PKGNAME}/cmd/${PORTNAME}
-GO_BUILDFLAGS=	-ldflags="-X main.version=${PORTVERSION}"
+GO_TARGET=	./cmd/${PORTNAME}
+
+GIT_COMMIT=	git ls-remote \
+		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
+		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
+		${SED} -rn 's/(.{7}).*/\1/p'
+
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+	-X 'sigs.k8s.io/${PORTNAME}/pkg.Version=${PORTVERSION}' \
+	-X 'sigs.k8s.io/${PORTNAME}/pkg.BuildDate=${%FT%TZ:L:gmtime}' \
+	-X 'sigs.k8s.io/${PORTNAME}/pkg.CommitID=$$(${GIT_COMMIT})'"
 
 PLIST_FILES=	bin/${PORTNAME}
 
+_OPTIONS_extract=	750:post-post-extract
+post-post-extract: .PHONY
+	@test -d ${WRKSRC}/vendor/github.com && ${LN} -s ${WRKSRC}/src/github.com/${GH_ACCOUNT} ${WRKSRC}/vendor/github.com/ || :
+
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
-
-post-extract: .PHONY
-	${LN} -s ${WRKSRC}/src/github.com/kubernetes-sigs  ${WRKSRC}/vendor/github.com/
 
 .include <bsd.port.mk>
