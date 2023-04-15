@@ -1,39 +1,62 @@
 GH_TUPLE=	\
-		aws:aws-sdk-go-v2:v1.16.11:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+		atomicgo:cursor:v0.1.1:atomicgo_cursor/vendor/atomicgo.dev/cursor \
+		atomicgo:keyboard:v0.2.8:atomicgo_keyboard/vendor/atomicgo.dev/keyboard \
 		aws:aws-sdk-go-v2:v1.16.13:aws_aws_sdk_go_v2_sts \
-		aws:aws-sdk-go:v1.44.74:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
-		aws:smithy-go:v1.12.1:aws_smithy_go/vendor/github.com/aws/smithy-go \
+		aws:aws-sdk-go-v2:v1.17.1:aws_aws_sdk_go_v2_config/vendor/github.com/aws/aws-sdk-go-v2 \
+		aws:aws-sdk-go-v2:v1.17.7:aws_aws_sdk_go_v2 \
+		aws:aws-sdk-go-v2:v1.17.8:aws_aws_sdk_go_v2_kinesis \
+		aws:aws-sdk-go:v1.44.154:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		aws:smithy-go:v1.13.5:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		bgentry:speakeasy:v0.1.0:bgentry_speakeasy/vendor/github.com/bgentry/speakeasy \
 		boombuler:barcode:6c824513bacc:boombuler_barcode/vendor/github.com/boombuler/barcode \
-		cpuguy83:go-md2man:v2.0.0:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
+		charmbracelet:lipgloss:v0.6.0:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
+		containerd:console:v1.0.3:containerd_console/vendor/github.com/containerd/console \
+		cpuguy83:go-md2man:v2.0.2:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
-		fatih:color:v1.9.0:fatih_color/vendor/github.com/fatih/color \
-		go-errors:errors:d98b870cc4e0:go_errors_errors/vendor/github.com/go-errors/errors \
+		fatih:color:v1.13.0:fatih_color/vendor/github.com/fatih/color \
+		go-errors:errors:v1.4.2:go_errors_errors/vendor/github.com/go-errors/errors \
 		go-sql-driver:mysql:v1.5.0:go_sql_driver_mysql/vendor/github.com/go-sql-driver/mysql \
-		go-yaml:yaml:v2.2.8:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
+		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
-		golang:crypto:5ea612d1eb83:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.1.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:exp:f9659909a136:golang_exp/vendor/golang.org/x/exp \
 		golang:mock:v1.6.0:golang_mock/vendor/github.com/golang/mock \
-		golang:net:cd36cc0744dd:golang_net/vendor/golang.org/x/net \
-		golang:sys:1d35b9e2eb4e:golang_sys/vendor/golang.org/x/sys \
-		google:uuid:v1.1.1:google_uuid/vendor/github.com/google/uuid \
-		gruntwork-io:go-commons:v0.8.2:gruntwork_io_go_commons/vendor/github.com/gruntwork-io/go-commons \
+		golang:net:v0.1.0:golang_net/vendor/golang.org/x/net \
+		golang:sys:v0.1.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.1.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.4.0:golang_text/vendor/golang.org/x/text \
+		google:uuid:v1.2.0:google_uuid/vendor/github.com/google/uuid \
+		gookit:color:v1.5.0:gookit_color/vendor/github.com/gookit/color \
+		gruntwork-io:go-commons:v0.16.1:gruntwork_io_go_commons/vendor/github.com/gruntwork-io/go-commons \
 		gruntwork-io:gruntwork-cli:v0.7.0:gruntwork_io_gruntwork_cli/vendor/github.com/gruntwork-io/gruntwork-cli \
-		gruntwork-io:terratest:v0.36.3:gruntwork_io_terratest/vendor/github.com/gruntwork-io/terratest \
+		gruntwork-io:terratest:v0.41.0:gruntwork_io_terratest/vendor/github.com/gruntwork-io/terratest \
 		hashicorp:errwrap:v1.0.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
-		hashicorp:go-multierror:v1.1.0:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
+		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
 		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
-		konsorten:go-windows-terminal-sequences:v1.0.3:konsorten_go_windows_terminal_sequences/vendor/github.com/konsorten/go-windows-terminal-sequences \
-		mattn:go-colorable:v0.1.4:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
-		mattn:go-isatty:v0.0.11:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
+		lithammer:fuzzysearch:v1.1.5:lithammer_fuzzysearch/vendor/github.com/lithammer/fuzzysearch \
+		lucasb-eyer:go-colorful:v1.2.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
+		mattn:go-colorable:v0.1.9:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
+		mattn:go-isatty:v0.0.14:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
+		mattn:go-runewidth:v0.0.13:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
+		mattn:go-zglob:v0.0.3:mattn_go_zglob/vendor/github.com/mattn/go-zglob \
+		muesli:reflow:v0.3.0:muesli_reflow/vendor/github.com/muesli/reflow \
+		muesli:termenv:5ac8409525e0:muesli_termenv/vendor/github.com/muesli/termenv \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		pquerna:otp:v1.3.0:pquerna_otp/vendor/github.com/pquerna/otp \
-		russross:blackfriday:v2.0.1:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
-		shurcooL:sanitized_anchor_name:v1.0.0:shurcool_sanitized_anchor_name/vendor/github.com/shurcooL/sanitized_anchor_name \
-		sirupsen:logrus:v1.6.0:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
-		stretchr:testify:v1.7.1:stretchr_testify/vendor/github.com/stretchr/testify \
-		urfave:cli:v1.22.4:urfave_cli/vendor/github.com/urfave/cli
+		pterm:pterm:v0.12.45:pterm_pterm/vendor/github.com/pterm/pterm \
+		rivo:uniseg:v0.2.0:rivo_uniseg/vendor/github.com/rivo/uniseg \
+		russross:blackfriday:v2.1.0:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
+		sirupsen:logrus:v1.8.1:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
+		stretchr:testify:v1.8.1:stretchr_testify/vendor/github.com/stretchr/testify \
+		urfave:cli:v1.22.12:urfave_cli/vendor/github.com/urfave/cli \
+		urfave:cli:v2.10.3:urfave_cli_v2/vendor/github.com/urfave/cli/v2 \
+		vizzlo:mixpanel:v1.2.0:vizzlo_mixpanel/vendor/vizzlo.com/mixpanel \
+		xo:terminfo:ca9a967f8778:xo_terminfo/vendor/github.com/xo/terminfo \
+		xrash:smetrics:039620a65673:xrash_smetrics/vendor/github.com/xrash/smetrics
 
 post-extract:
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2} ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/kinesis
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_kinesis}/service/kinesis ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/kinesis
 	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sts
 	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_sts}/service/sts ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sts
