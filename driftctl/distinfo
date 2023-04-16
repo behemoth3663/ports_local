@@ -1,5 +1,5 @@
-TIMESTAMP = 1668451577
-SHA256 (go/local_driftctl/driftctl-v0.38.1/v0.38.1.mod) = 3e8c6e25f79b4d2547b79e8dc4932adc1a84a9c7218e89b58439fb3ba0ca9201
-SIZE (go/local_driftctl/driftctl-v0.38.1/v0.38.1.mod) = 6955
-SHA256 (go/local_driftctl/driftctl-v0.38.1/v0.38.1.zip) = 3ef91320dca8c818d2e404f61f9028aa1ec46a14d5ac21f2d1927a1835182813
-SIZE (go/local_driftctl/driftctl-v0.38.1/v0.38.1.zip) = 3395944
+TIMESTAMP = 1681639079
+SHA256 (go/local_driftctl/driftctl-v0.38.2/v0.38.2.mod) = 3e8c6e25f79b4d2547b79e8dc4932adc1a84a9c7218e89b58439fb3ba0ca9201
+SIZE (go/local_driftctl/driftctl-v0.38.2/v0.38.2.mod) = 6955
+SHA256 (go/local_driftctl/driftctl-v0.38.2/v0.38.2.zip) = d828f82121157abaa5037587bd299709c41ac08263a9311fd6860b553a590cb9
+SIZE (go/local_driftctl/driftctl-v0.38.2/v0.38.2.zip) = 3405215
