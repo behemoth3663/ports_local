@@ -1,11 +1,11 @@
 PORTNAME=	clash
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.13.0
+DISTVERSION=	1.15.0
 CATEGORIES=	local net
 
 MAINTAINER=	yuri@FreeBSD.org
 COMMENT=	Rule-based tunnel in Go
-WWW=		https://github.com/Dreamacro/clash
+WWW=		https://github.com/${GH_ACCOUNT}/${PORTNAME}
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
