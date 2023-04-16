@@ -1,12 +1,13 @@
 #
 
 PORTNAME=	certinfo
-PORTVERSION=	1.0.13
+PORTVERSION=	1.0.15
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local security
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Print x509 certificate info
+WWW=		https://github.com/${GH_ACCOUNT}/${PORTNAME}
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
