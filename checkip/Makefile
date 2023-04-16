@@ -1,13 +1,13 @@
 #
 
 PORTNAME=	checkip
-PORTVERSION=	0.44.2
+PORTVERSION=	0.45.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local net
 
 MAINTAINER=	none@FreeBSD.org
 COMMENT=	Check an IP address using various public services
-WWW=		https://github.com/jreisinger/checkip
+WWW=		https://github.com/${GH_ACCOUNT}/${PORTNAME}
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
