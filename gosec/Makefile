@@ -1,12 +1,13 @@
 #
 
 PORTNAME=	gosec
-PORTVERSION=	2.14.0
+PORTVERSION=	2.15.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local devel security
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Golang Security Checker
+WWW=		https://github.com/${GH_ACCOUNT}/${PORTNAME}
 
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
