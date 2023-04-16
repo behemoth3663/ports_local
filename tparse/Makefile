@@ -1,13 +1,14 @@
 #
 
 PORTNAME=	tparse
-PORTVERSION=	0.11.1
+PORTVERSION=	0.12.1
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+#PORTREVISION=	1
 CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Analyzing and summarizing go test output
+WWW=		https://github.com/${GH_ACCOUNT}/${PORTNAME}
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE

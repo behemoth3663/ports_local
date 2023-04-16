@@ -1,10 +1,11 @@
 GH_TUPLE=	\
-		charmbracelet:lipgloss:v0.4.0:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
-		golang:sys:45d2b4557a2a:golang_sys/vendor/golang.org/x/sys \
+		aymanbagabas:go-osc52:v1.0.3:aymanbagabas_go_osc52/vendor/github.com/aymanbagabas/go-osc52 \
+		charmbracelet:lipgloss:v0.6.0:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
+		golang:sys:fbc7d0a398ab:golang_sys/vendor/golang.org/x/sys \
 		lucasb-eyer:go-colorful:v1.2.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
-		mattn:go-isatty:v0.0.14:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
-		mattn:go-runewidth:v0.0.13:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
+		mattn:go-isatty:v0.0.16:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
+		mattn:go-runewidth:v0.0.14:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
 		muesli:reflow:v0.3.0:muesli_reflow/vendor/github.com/muesli/reflow \
-		muesli:termenv:v0.11.0:muesli_termenv/vendor/github.com/muesli/termenv \
+		muesli:termenv:v0.13.0:muesli_termenv/vendor/github.com/muesli/termenv \
 		olekukonko:tablewriter:v0.0.5:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
 		rivo:uniseg:v0.2.0:rivo_uniseg/vendor/github.com/rivo/uniseg
