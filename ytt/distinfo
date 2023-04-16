@@ -1,6 +1,6 @@
-TIMESTAMP = 1671818259
-SHA256 (k14s-ytt-v0.44.1_GH0.tar.gz) = fce87358feb9ef75bbf5b671204dd1c7fe8360d5d0c80a5def60ed14cd4b3bc3
-SIZE (k14s-ytt-v0.44.1_GH0.tar.gz) = 1338502
+TIMESTAMP = 1681644889
+SHA256 (k14s-ytt-v0.45.0_GH0.tar.gz) = a9ae2bf91651538577dd14d8062ade3c7495b5efd376fe28e86303d9d3ba460b
+SIZE (k14s-ytt-v0.45.0_GH0.tar.gz) = 1341408
 SHA256 (BurntSushi-toml-v1.2.1_GH0.tar.gz) = a11c32390eba5e34cc0d54e2993b9a444c8d59933ff1bd6a2b541fc5462d6f91
 SIZE (BurntSushi-toml-v1.2.1_GH0.tar.gz) = 96971
 SHA256 (aws-aws-lambda-go-v1.35.0_GH0.tar.gz) = eaf235f81e0b10206cfb58dafdd23560f2adf33aa63a07760409580abbb95ad9

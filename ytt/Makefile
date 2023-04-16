@@ -1,13 +1,13 @@
 #
 
 PORTNAME=	ytt
-PORTVERSION=	0.44.1
+PORTVERSION=	0.45.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	YAML tool with templates and user provided values
-WWW=		https://github.com/k14s/ytt
+WWW=		https://github.com/${GH_ACCOUNT}/${PORTNAME}
 
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
@@ -20,8 +20,6 @@ GH_ACCOUNT=	k14s
 GO_TARGET=	./cmd/${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME}
-
-WRKSRC=		${WRKDIR}/carvel-${PORTNAME}-${PORTVERSION}
 
 fetch-version: .PHONY get-version
 
