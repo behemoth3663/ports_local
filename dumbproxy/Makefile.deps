@@ -1,8 +1,9 @@
 GH_TUPLE=	\
-		GehirnInc:crypt:bb7000b8a962:gehirninc_crypt/vendor/github.com/GehirnInc/crypt \
-		golang:crypto:c86fa9a7ed90:golang_crypto/vendor/golang.org/x/crypto \
-		golang:net:83b083e8dc8b:golang_net/vendor/golang.org/x/net \
-		golang:sys:3c1f35247d10:golang_sys/vendor/golang.org/x/sys \
-		golang:term:03fcf44c2211:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.3.7:golang_text/vendor/golang.org/x/text \
-		tg123:go-htpasswd:v1.2.0:tg123_go_htpasswd/vendor/github.com/tg123/go-htpasswd
+		GehirnInc:crypt:8cc1b52080c5:gehirninc_crypt/vendor/github.com/GehirnInc/crypt \
+		coreos:go-systemd:v22.5.0:coreos_go_systemd_v22/vendor/github.com/coreos/go-systemd/v22 \
+		golang:crypto:v0.7.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:net:v0.8.0:golang_net/vendor/golang.org/x/net \
+		golang:sys:v0.6.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.6.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.8.0:golang_text/vendor/golang.org/x/text \
+		tg123:go-htpasswd:v1.2.1:tg123_go_htpasswd/vendor/github.com/tg123/go-htpasswd

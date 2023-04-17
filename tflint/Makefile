@@ -8,7 +8,7 @@ CATEGORIES=	local sysutils
 
 MAINTAINER=	0xdutra@gmail.com
 COMMENT=	Terraform Linter
-WWW=		https://github.com/terraform-linters/tflint
+WWW=		https://github.com/${GH_ACCOUNT}/${PORTNAME}
 
 LICENSE=	MPL20
 LICENSE_FILE=	${WRKSRC}/LICENSE
