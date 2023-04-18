@@ -1,17 +1,20 @@
---- Makefile.deps.orig	2023-03-02 21:35:14 UTC
+--- Makefile.deps.orig	2023-04-18 21:10:35 UTC
 +++ Makefile.deps
-@@ -37,6 +37,7 @@ GH_TUPLE=	\
+@@ -99,6 +99,7 @@ GH_TUPLE=	\
  		hashicorp:go-memdb:v1.3.4:hashicorp_go_memdb/vendor/github.com/hashicorp/go-memdb \
  		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
  		hashicorp:go-uuid:v1.0.3:hashicorp_go_uuid/vendor/github.com/hashicorp/go-uuid \
 +		hashicorp:go-version:v1.6.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
  		hashicorp:golang-lru:v0.5.4:hashicorp_golang_lru/vendor/github.com/hashicorp/golang-lru \
- 		hashicorp:hc-install:v0.5.0:hashicorp_hc_install/vendor/github.com/hashicorp/hc-install \
- 		hashicorp:hcl-lang:bb2205f5b041:hashicorp_hcl_lang/vendor/github.com/hashicorp/hcl-lang \
-@@ -84,7 +85,3 @@ GH_TUPLE=	\
- 		vektra:mockery:v2.20.2:vektra_mockery_v2/vendor/github.com/vektra/mockery/v2 \
- 		zclconf:go-cty-debug:b22d67c1ba0b:zclconf_go_cty_debug/vendor/github.com/zclconf/go-cty-debug \
- 		zclconf:go-cty:v1.12.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+ 		hashicorp:hc-install:v0.5.1:hashicorp_hc_install/vendor/github.com/hashicorp/hc-install \
+ 		hashicorp:hcl-lang:a638ff79984b:hashicorp_hcl_lang/vendor/github.com/hashicorp/hcl-lang \
+@@ -229,10 +230,3 @@ GH_TUPLE=	\
+ 		zclconf:go-cty:v1.13.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+ 
+ GL_TUPLE=	bosi:decorder:2782c4d9a70ff07e95fe88e0ecc5b3d7076da62e:bosi_decorder/vendor/gitlab.com/bosi/decorder
+-
+-		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
+-		#	::c95f2b4c22f2:group_name/vendor/golang.org/x/exp/typeparams (from go.googlesource.com/exp@c95f2b4c22f2)
 -
 -post-extract:
 -	@${MKDIR} ${WRKSRC}/vendor/github.com/hashicorp
