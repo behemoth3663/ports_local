@@ -11,16 +11,16 @@ GH_TUPLE=	\
 		go-test:deep:v1.1.0:go_test_deep/vendor/github.com/go-test/deep \
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
 		golang:appengine:v1.6.7:golang_appengine/vendor/google.golang.org/appengine \
-		golang:crypto:v0.7.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.8.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:a9213eeb770e:golang_exp/vendor/golang.org/x/exp \
 		golang:groupcache:41bb18bfe9da:golang_groupcache/vendor/github.com/golang/groupcache \
 		golang:lint:6edffad5e616:golang_lint/vendor/golang.org/x/lint \
-		golang:net:v0.8.0:golang_net/vendor/golang.org/x/net \
-		golang:oauth2:v0.6.0:golang_oauth2/vendor/golang.org/x/oauth2 \
+		golang:net:v0.9.0:golang_net/vendor/golang.org/x/net \
+		golang:oauth2:v0.7.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.2:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sys:v0.6.0:golang_sys/vendor/golang.org/x/sys \
-		golang:text:v0.8.0:golang_text/vendor/golang.org/x/text \
-		golang:tools:v0.7.0:golang_tools/vendor/golang.org/x/tools \
+		golang:sys:v0.7.0:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.9.0:golang_text/vendor/golang.org/x/text \
+		golang:tools:v0.8.0:golang_tools/vendor/golang.org/x/tools \
 		golang:xerrors:04be3eba64a2:golang_xerrors/vendor/golang.org/x/xerrors \
 		google:go-cmp:v0.5.9:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-genproto:76db0878b65f:google_go_genproto/vendor/google.golang.org/genproto \
@@ -67,7 +67,7 @@ GH_TUPLE=	\
 		sourcegraph:go-lsp:219e11d77f5d:sourcegraph_go_lsp/vendor/github.com/sourcegraph/go-lsp \
 		sourcegraph:jsonrpc2:v0.2.0:sourcegraph_jsonrpc2/vendor/github.com/sourcegraph/jsonrpc2 \
 		spf13:afero:v1.9.5:spf13_afero/vendor/github.com/spf13/afero \
-		terraform-linters:tflint-plugin-sdk:v0.16.0:terraform_linters_tflint_plugin_sdk/vendor/github.com/terraform-linters/tflint-plugin-sdk \
+		terraform-linters:tflint-plugin-sdk:v0.16.1:terraform_linters_tflint_plugin_sdk/vendor/github.com/terraform-linters/tflint-plugin-sdk \
 		terraform-linters:tflint-ruleset-terraform:v0.2.2:terraform_linters_tflint_ruleset_terraform/vendor/github.com/terraform-linters/tflint-ruleset-terraform \
 		ulikunitz:xz:v0.5.10:ulikunitz_xz/vendor/github.com/ulikunitz/xz \
 		vmihailenco:msgpack:v5.3.5:vmihailenco_msgpack_v5/vendor/github.com/vmihailenco/msgpack/v5 \
