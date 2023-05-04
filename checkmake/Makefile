@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	checkmake
-PORTVERSION=	0.2.1
+PORTVERSION=	0.2.2
 CATEGORIES=	local devel
 
 MAINTAINER=	none@freebsd.org
