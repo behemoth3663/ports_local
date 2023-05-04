@@ -1,11 +1,10 @@
 GH_TUPLE=	\
-		frankban:quicktest:v1.14.3:frankban_quicktest/vendor/github.com/frankban/quicktest \
-		golang:mod:86c51ed26bb4:golang_mod/vendor/golang.org/x/mod \
-		golang:sync:7fc1605a5dde:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:d48e67d00261:golang_sys/vendor/golang.org/x/sys \
-		golang:tools:v0.1.12:golang_tools/vendor/golang.org/x/tools \
-		google:go-cmp:v0.5.8:google_go_cmp/vendor/github.com/google/go-cmp \
-		kr:pretty:v0.3.0:kr_pretty/vendor/github.com/kr/pretty \
+		frankban:quicktest:v1.14.4:frankban_quicktest/vendor/github.com/frankban/quicktest \
+		golang:mod:v0.10.0:golang_mod/vendor/golang.org/x/mod \
+		golang:sync:v0.1.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.7.0:golang_sys/vendor/golang.org/x/sys \
+		golang:tools:v0.8.0:golang_tools/vendor/golang.org/x/tools \
+		google:go-cmp:v0.5.9:google_go_cmp/vendor/github.com/google/go-cmp \
+		kr:pretty:v0.3.1:kr_pretty/vendor/github.com/kr/pretty \
 		kr:text:v0.2.0:kr_text/vendor/github.com/kr/text \
-		pkg:diff:20ebb0f2a09e:pkg_diff/vendor/github.com/pkg/diff \
-		rogpeppe:go-internal:v1.9.0:rogpeppe_go_internal/vendor/github.com/rogpeppe/go-internal
+		rogpeppe:go-internal:v1.10.0:rogpeppe_go_internal/vendor/github.com/rogpeppe/go-internal
