@@ -1,7 +1,7 @@
 #
 
 PORTNAME=	qrcp
-PORTVERSION=	0.10.0
+PORTVERSION=	0.10.1
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
 
@@ -17,8 +17,8 @@ USES=		go:modules
 USE_GITHUB=	yes
 GH_ACCOUNT=	claudiodangelis
 
-#didn't work
-#GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+#hadn't worked
+#GO_BUILDFLAGS+=-ldflags="-s -w -extldflags '-static' \
 #		-X version.version=${PORTVERSION} \
 #		-X version.date=${%FT%TZ:L:gmtime}'"
 
