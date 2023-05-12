@@ -3,7 +3,7 @@ GH_TUPLE=	\
 		Masterminds:semver:v3.2.1:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
 		Masterminds:sprig:v3.2.1:masterminds_sprig_v3/vendor/github.com/Masterminds/sprig/v3 \
 		agext:levenshtein:v1.2.2:agext_levenshtein/vendor/github.com/agext/levenshtein \
-		algolia:algoliasearch-client-go:v3.28.1:algolia_algoliasearch_client_go_v3/vendor/github.com/algolia/algoliasearch-client-go/v3 \
+		algolia:algoliasearch-client-go:v3.29.1:algolia_algoliasearch_client_go_v3/vendor/github.com/algolia/algoliasearch-client-go/v3 \
 		antonmedv:expr:v1.10.5:antonmedv_expr/vendor/github.com/antonmedv/expr \
 		apparentlymart:go-textseg:v1.0.0:apparentlymart_go_textseg/vendor/github.com/apparentlymart/go-textseg \
 		apparentlymart:go-textseg:v13.0.0:apparentlymart_go_textseg_v13/vendor/github.com/apparentlymart/go-textseg/v13 \
@@ -12,8 +12,8 @@ GH_TUPLE=	\
 		bobheadxi:gobenchdata:v1.3.1:bobheadxi_gobenchdata/vendor/go.bobheadxi.dev/gobenchdata \
 		bobheadxi:streamline:v1.2.1:bobheadxi_streamline/vendor/go.bobheadxi.dev/streamline \
 		chigopher:pathlib:v0.13.0:chigopher_pathlib/vendor/github.com/chigopher/pathlib \
-		creachadair:jrpc2:v1.0.0:creachadair_jrpc2/vendor/github.com/creachadair/jrpc2 \
-		creachadair:mds:c2ef70fc176d:creachadair_mds/vendor/github.com/creachadair/mds \
+		creachadair:jrpc2:v1.0.1:creachadair_jrpc2/vendor/github.com/creachadair/jrpc2 \
+		creachadair:mds:v0.0.1:creachadair_mds/vendor/github.com/creachadair/mds \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		djherbis:buffer:v1.2.0:djherbis_buffer/vendor/github.com/djherbis/buffer \
 		djherbis:nio:v3.0.1:djherbis_nio_v3/vendor/github.com/djherbis/nio/v3 \
@@ -24,12 +24,12 @@ GH_TUPLE=	\
 		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
 		golang:crypto:v0.7.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:mod:v0.10.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.9.0:golang_net/vendor/golang.org/x/net \
-		golang:sync:v0.1.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.7.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.7.0:golang_term/vendor/golang.org/x/term \
+		golang:net:v0.10.0:golang_net/vendor/golang.org/x/net \
+		golang:sync:v0.2.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.8.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.8.0:golang_term/vendor/golang.org/x/term \
 		golang:text:v0.9.0:golang_text/vendor/golang.org/x/text \
-		golang:tools:v0.8.0:golang_tools/vendor/golang.org/x/tools \
+		golang:tools:v0.9.1:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.5.9:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:uuid:v1.3.0:google_uuid/vendor/github.com/google/uuid \
 		hashicorp:errwrap:v1.0.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
@@ -41,7 +41,7 @@ GH_TUPLE=	\
 		hashicorp:go-version:v1.6.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
 		hashicorp:golang-lru:v0.5.4:hashicorp_golang_lru/vendor/github.com/hashicorp/golang-lru \
 		hashicorp:hc-install:v0.5.1:hashicorp_hc_install/vendor/github.com/hashicorp/hc-install \
-		hashicorp:hcl-lang:a638ff79984b:hashicorp_hcl_lang/vendor/github.com/hashicorp/hcl-lang \
+		hashicorp:hcl-lang:6430b42047b5:hashicorp_hcl_lang/vendor/github.com/hashicorp/hcl-lang \
 		hashicorp:hcl:v1.0.0:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
 		hashicorp:hcl:v2.16.2:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
 		hashicorp:terraform-exec:v0.18.1:hashicorp_terraform_exec/vendor/github.com/hashicorp/terraform-exec \
