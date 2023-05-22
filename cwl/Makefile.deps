@@ -1,0 +1,13 @@
+GH_TUPLE=	\
+		alecthomas:kong:v0.7.1:alecthomas_kong/vendor/github.com/alecthomas/kong \
+		aws:aws-sdk-go-v2:v1.17.8:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+		aws:smithy-go:v1.13.5:aws_smithy_go/vendor/github.com/aws/smithy-go \
+		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
+		fatih:color:v1.15.0:fatih_color/vendor/github.com/fatih/color \
+		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
+		golang:sys:v0.7.0:golang_sys/vendor/golang.org/x/sys \
+		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
+		mattn:go-colorable:v0.1.13:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
+		mattn:go-isatty:v0.0.17:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
+		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
+		stretchr:testify:v1.8.2:stretchr_testify/vendor/github.com/stretchr/testify
