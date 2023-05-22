@@ -1,12 +1,11 @@
-#
-
 PORTNAME=	dyff
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.4.7
+DISTVERSION=	1.5.7
 CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	diff tool for YAML files, and sometimes JSON
+WWW=		https://github.com/${GH_ACCOUNT}/${PORTNAME}
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
@@ -30,6 +29,7 @@ PLIST_FILES=	bin/${PORTNAME}
 #		${LN} -s "$${src}" "$${src%%go-commons-*}gruntwork-cli-$${src##*go-commons-}"; \
 #	done
 
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 .include <bsd.port.mk>
