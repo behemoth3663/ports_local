@@ -1,7 +1,5 @@
-#
-
 PORTNAME=	tflint-ruleset-aws
-PORTVERSION=	0.23.0
+PORTVERSION=	0.23.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
