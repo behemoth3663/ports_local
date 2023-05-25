@@ -1,4 +1,2 @@
 Convert between YAML, TOML, JSON, and HCL.
 Preserves map order.
-
-WWW: https://github.com/sclevine/yj
