@@ -1,13 +1,12 @@
-#
-
 PORTNAME=	tfproviderlint
-PORTVERSION=	0.28.1
+PORTVERSION=	0.29.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+#PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Terraform Provider Lint Tool
+WWW=		https://github.com/${GH_ACCOUNT}/${PORTNAME}
 
 LICENSE=	MPL20
 LICENSE_FILE=	${WRKSRC}/LICENSE
