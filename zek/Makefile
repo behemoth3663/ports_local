@@ -1,13 +1,12 @@
-#
-
 PORTNAME=	zek
-PORTVERSION=	0.1.9
+PORTVERSION=	0.1.18
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+#PORTREVISION=	1
 CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Create a Go struct from an XML document
+WWW=		https://github.com/${GH_ACCOUNT}/${PORTNAME}
 
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/LICENSE

@@ -1,4 +1,2 @@
 Create a Go struct from an XML document.
 The resulting struct works best for reading XML.
-
-WWW: https://github.com/miku/zek
