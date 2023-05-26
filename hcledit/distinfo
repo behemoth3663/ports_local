@@ -1,6 +1,6 @@
-TIMESTAMP = 1683218291
-SHA256 (minamijoyo-hcledit-v0.2.7_GH0.tar.gz) = 7b023c5fdb8611721394d32b42e54aa46b482b4a1b9d79e79faaaa12129a41cd
-SIZE (minamijoyo-hcledit-v0.2.7_GH0.tar.gz) = 27661
+TIMESTAMP = 1685084692
+SHA256 (minamijoyo-hcledit-v0.2.8_GH0.tar.gz) = f96f3fee1b140e2894e8e675621884e4983e95c4315ed2df7eaa90ba06f4a0c0
+SIZE (minamijoyo-hcledit-v0.2.8_GH0.tar.gz) = 27902
 SHA256 (agext-levenshtein-v1.2.1_GH0.tar.gz) = c6e4bc2db1f0d9bc57fd3f1887567d527f6df1bcfbb079d1d1c4eab17f320b50
 SIZE (agext-levenshtein-v1.2.1_GH0.tar.gz) = 12728
 SHA256 (apparentlymart-go-textseg-v13.0.0_GH0.tar.gz) = 7479ac3309883e2bdb6f562004f2044d3d13d19b78c41db12957aa573fdf3556

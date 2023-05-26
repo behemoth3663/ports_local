@@ -1,13 +1,11 @@
-#
-
 PORTNAME=	hcledit
-PORTVERSION=	0.2.7
+PORTVERSION=	0.2.8
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Command line editor for HCL
-WWW=		https://github.com/minamijoyo/hcledit
+WWW=		https://github.com/${GH_ACCOUNT}/${PORTNAME}
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
