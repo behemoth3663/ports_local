@@ -1,6 +1,4 @@
-tfsort is a command-line utility designed for meticulous engineers who prefer 
+tfsort is a command-line utility designed for meticulous engineers who prefer
 to keep their Terraform variables and outputs sorted in alphabetical order.
-tfsort also corrects any spacing issues between the blocks and removes any 
+tfsort also corrects any spacing issues between the blocks and removes any
 leading or trailing new lines in the file.
-
-
