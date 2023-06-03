@@ -8,7 +8,7 @@ GH_TUPLE=	\
 		cenkalti:backoff:v4.2.1:cenkalti_backoff_v4/vendor/github.com/cenkalti/backoff/v4 \
 		charmbracelet:glamour:e70ff2d969da:charmbracelet_glamour/vendor/github.com/charmbracelet/glamour \
 		charmbracelet:lipgloss:v0.5.0:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
-		cli:browser:v1.1.0:cli_browser/vendor/github.com/cli/browser \
+		cli:browser:v1.2.0:cli_browser/vendor/github.com/cli/browser \
 		cli:crypto:6be313f59b03:cli_crypto/vendor/golang.org/x/crypto \
 		cli:go-gh:v2.0.0:cli_go_gh_v2/vendor/github.com/cli/go-gh/v2 \
 		cli:oauth:v1.0.1:cli_oauth/vendor/github.com/cli/oauth \
@@ -16,7 +16,7 @@ GH_TUPLE=	\
 		cli:shurcooL-graphql:v0.0.3:cli_shurcool_graphql/vendor/github.com/cli/shurcooL-graphql \
 		cpuguy83:go-md2man:v2.0.2:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
 		creack:pty:v1.1.18:creack_pty/vendor/github.com/creack/pty \
-		danieljoos:wincred:v1.1.2:danieljoos_wincred/vendor/github.com/danieljoos/wincred \
+		danieljoos:wincred:v1.2.0:danieljoos_wincred/vendor/github.com/danieljoos/wincred \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		dlclark:regexp2:v1.4.0:dlclark_regexp2/vendor/github.com/dlclark/regexp2 \
 		fatih:color:v1.7.0:fatih_color/vendor/github.com/fatih/color \
@@ -30,7 +30,7 @@ GH_TUPLE=	\
 		golang:oauth2:6242fa91716a:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.2:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:sync:v0.1.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.6.0:golang_sys/vendor/golang.org/x/sys \
+		golang:sys:v0.8.0:golang_sys/vendor/golang.org/x/sys \
 		golang:term:v0.6.0:golang_term/vendor/golang.org/x/term \
 		golang:text:v0.8.0:golang_text/vendor/golang.org/x/text \
 		google:go-cmp:v0.5.9:google_go_cmp/vendor/github.com/google/go-cmp \
@@ -49,7 +49,7 @@ GH_TUPLE=	\
 		kballard:go-shellquote:95032a82bc51:kballard_go_shellquote/vendor/github.com/kballard/go-shellquote \
 		lucasb-eyer:go-colorful:v1.2.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
 		mattn:go-colorable:v0.1.13:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
-		mattn:go-isatty:v0.0.18:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
+		mattn:go-isatty:v0.0.19:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
 		mattn:go-runewidth:v0.0.14:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
 		mgutz:ansi:d51e80ef957d:mgutz_ansi/vendor/github.com/mgutz/ansi \
 		microcosm-cc:bluemonday:v1.0.20:microcosm_cc_bluemonday/vendor/github.com/microcosm-cc/bluemonday \
@@ -69,9 +69,9 @@ GH_TUPLE=	\
 		sourcegraph:jsonrpc2:v0.1.0:sourcegraph_jsonrpc2/vendor/github.com/sourcegraph/jsonrpc2 \
 		spf13:cobra:v1.6.1:spf13_cobra/vendor/github.com/spf13/cobra \
 		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
-		stretchr:objx:v0.4.0:stretchr_objx/vendor/github.com/stretchr/objx \
-		stretchr:testify:v1.7.5:stretchr_testify/vendor/github.com/stretchr/testify \
+		stretchr:objx:v0.5.0:stretchr_objx/vendor/github.com/stretchr/objx \
+		stretchr:testify:v1.8.4:stretchr_testify/vendor/github.com/stretchr/testify \
 		thlib:go-timezone-local:ef149e42d28e:thlib_go_timezone_local/vendor/github.com/thlib/go-timezone-local \
 		yuin:goldmark-emoji:v1.0.1:yuin_goldmark_emoji/vendor/github.com/yuin/goldmark-emoji \
 		yuin:goldmark:v1.4.13:yuin_goldmark/vendor/github.com/yuin/goldmark \
-		zalando:go-keyring:v0.2.2:zalando_go_keyring/vendor/github.com/zalando/go-keyring
+		zalando:go-keyring:v0.2.3:zalando_go_keyring/vendor/github.com/zalando/go-keyring
