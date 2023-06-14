@@ -1,12 +1,11 @@
-#
-
 PORTNAME=	sysbox
-PORTVERSION=	0.16.0
+PORTVERSION=	0.17.1
 DISTVERSIONPREFIX=	release-
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	sysadmin/scripting utilities, distributed as a single binary
+WWW=		https://github.com/${GH_ACCOUNT}/${PORTNAME}
 
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/LICENSE
