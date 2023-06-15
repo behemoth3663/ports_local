@@ -1,12 +1,10 @@
-#
-
 PORTNAME=	session-manager-plugin
-PORTVERSION=	1.2.398.0
+PORTVERSION=	1.2.463.0
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Helps to AWS CLI with sessions to your managed instances
-WWW=		https://github.com/aws/session-manager-plugin
+WWW=		https://github.com/${GH_ACCOUNT}/${PORTNAME}
 
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
@@ -81,8 +79,9 @@ PLIST_FILES+=	bin/ssm-cli
 
 pre-patch: .PHONY
 #	${MV} ${WRKSRC}/vendor/src/* ${WRKSRC}/vendor
+	${MKDIR} ${WRKSRC}/vendor/github.com/aws
 	${LN} -s ${WRKSRC} ${WRKSRC}/vendor/github.com/aws/SSMCLI
-	${CP} ${PATCHDIR}/go.* ${WRKSRC}
+	@${CP} ${PATCHDIR}/go.* ${WRKSRC}
 #	cd ${WRKSRC} && \
 #		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod init ${GO_PKGNAME}
 #	cd ${WRKSRC} && \
