@@ -7,13 +7,11 @@ GH_TUPLE=	\
 		aws:aws-sdk-go-v2:v1.17.8:aws_aws_sdk_go_v2_kinesis \
 		aws:aws-sdk-go:v1.44.154:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
 		aws:smithy-go:v1.13.5:aws_smithy_go/vendor/github.com/aws/smithy-go \
-		bgentry:speakeasy:v0.1.0:bgentry_speakeasy/vendor/github.com/bgentry/speakeasy \
 		boombuler:barcode:6c824513bacc:boombuler_barcode/vendor/github.com/boombuler/barcode \
 		charmbracelet:lipgloss:v0.6.0:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
 		containerd:console:v1.0.3:containerd_console/vendor/github.com/containerd/console \
 		cpuguy83:go-md2man:v2.0.2:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
-		fatih:color:v1.13.0:fatih_color/vendor/github.com/fatih/color \
 		go-errors:errors:v1.4.2:go_errors_errors/vendor/github.com/go-errors/errors \
 		go-sql-driver:mysql:v1.5.0:go_sql_driver_mysql/vendor/github.com/go-sql-driver/mysql \
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
@@ -27,7 +25,7 @@ GH_TUPLE=	\
 		golang:text:v0.4.0:golang_text/vendor/golang.org/x/text \
 		google:uuid:v1.2.0:google_uuid/vendor/github.com/google/uuid \
 		gookit:color:v1.5.0:gookit_color/vendor/github.com/gookit/color \
-		gruntwork-io:go-commons:v0.16.2:gruntwork_io_go_commons/vendor/github.com/gruntwork-io/go-commons \
+		gruntwork-io:go-commons:v0.17.0:gruntwork_io_go_commons/vendor/github.com/gruntwork-io/go-commons \
 		gruntwork-io:gruntwork-cli:v0.7.0:gruntwork_io_gruntwork_cli/vendor/github.com/gruntwork-io/gruntwork-cli \
 		gruntwork-io:terratest:v0.41.0:gruntwork_io_terratest/vendor/github.com/gruntwork-io/terratest \
 		hashicorp:errwrap:v1.0.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
@@ -35,7 +33,6 @@ GH_TUPLE=	\
 		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
 		lithammer:fuzzysearch:v1.1.5:lithammer_fuzzysearch/vendor/github.com/lithammer/fuzzysearch \
 		lucasb-eyer:go-colorful:v1.2.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
-		mattn:go-colorable:v0.1.9:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
 		mattn:go-isatty:v0.0.14:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
 		mattn:go-runewidth:v0.0.13:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
 		mattn:go-zglob:v0.0.3:mattn_go_zglob/vendor/github.com/mattn/go-zglob \
@@ -50,7 +47,6 @@ GH_TUPLE=	\
 		stretchr:testify:v1.8.1:stretchr_testify/vendor/github.com/stretchr/testify \
 		urfave:cli:v1.22.12:urfave_cli/vendor/github.com/urfave/cli \
 		urfave:cli:v2.10.3:urfave_cli_v2/vendor/github.com/urfave/cli/v2 \
-		vizzlo:mixpanel:v1.2.0:vizzlo_mixpanel/vendor/vizzlo.com/mixpanel \
 		xo:terminfo:ca9a967f8778:xo_terminfo/vendor/github.com/xo/terminfo \
 		xrash:smetrics:039620a65673:xrash_smetrics/vendor/github.com/xrash/smetrics
 
