@@ -1,5 +1,3 @@
-#
-
 PORTNAME=	terraform-module-versions
 PORTVERSION=	3.1.14
 PORTREVISION=	2
@@ -7,7 +5,7 @@ CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	CLI tool that checks Terraform code for module updates
-WWW=		https://github.com/keilerkonzept/terraform-module-versions
+WWW=		https://github.com/${GH_ACCOUNT}/${PORTNAME}
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
