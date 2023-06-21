@@ -1,5 +1,5 @@
 GH_TUPLE=	\
-		aws:aws-sdk-go:v1.44.235:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		aws:aws-sdk-go:v1.44.285:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		fatih:color:v1.15.0:fatih_color/vendor/github.com/fatih/color \
 		gemnasium:logrus-graylog-hook:v3.1.0:gemnasium_logrus_graylog_hook_v3/vendor/github.com/gemnasium/logrus-graylog-hook/v3 \
@@ -7,7 +7,7 @@ GH_TUPLE=	\
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
 		golang:mock:v1.6.0:golang_mock/vendor/github.com/golang/mock \
 		golang:mod:v0.9.0:golang_mod/vendor/golang.org/x/mod \
-		golang:sync:v0.1.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sync:v0.3.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.6.0:golang_sys/vendor/golang.org/x/sys \
 		golang:tools:v0.7.0:golang_tools/vendor/golang.org/x/tools \
 		google:uuid:v1.3.0:google_uuid/vendor/github.com/google/uuid \
@@ -20,7 +20,7 @@ GH_TUPLE=	\
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		rebuy-de:rebuy-go-sdk:v4.5.1:rebuy_de_rebuy_go_sdk_v4/vendor/github.com/rebuy-de/rebuy-go-sdk/v4 \
-		sirupsen:logrus:v1.9.0:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
-		spf13:cobra:v1.6.1:spf13_cobra/vendor/github.com/spf13/cobra \
+		sirupsen:logrus:v1.9.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
+		spf13:cobra:v1.7.0:spf13_cobra/vendor/github.com/spf13/cobra \
 		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
-		stretchr:testify:v1.8.2:stretchr_testify/vendor/github.com/stretchr/testify
+		stretchr:testify:v1.8.4:stretchr_testify/vendor/github.com/stretchr/testify
