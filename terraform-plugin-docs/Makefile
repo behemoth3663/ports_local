@@ -1,13 +1,11 @@
-#
-
 PORTNAME=	terraform-plugin-docs
-PORTVERSION=	0.14.1
+PORTVERSION=	0.15.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils textproc
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Generate and validate Terraform plugin/provider documentation
-WWW=		https://github.com/hashicorp/terraform-plugin-docs
+WWW=		https://github.com/${GH_ACCOUNT}/${PORTNAME}
 
 LICENSE=	MPL20
 LICENSE_FILE=	${WRKSRC}/LICENSE
