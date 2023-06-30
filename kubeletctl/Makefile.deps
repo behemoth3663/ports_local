@@ -14,7 +14,7 @@ GH_TUPLE=	\
 		golang:net:d3edc9973b7e:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:0f29369cfe45:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.3.3:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sys:85ca7c5b95cd:golang_sys/vendor/golang.org/x/sys \
+		golang:sys:v0.7.0:golang_sys/vendor/golang.org/x/sys \
 		golang:text:v0.3.2:golang_text/vendor/golang.org/x/text \
 		golang:time:555d28b269f0:golang_time/vendor/golang.org/x/time \
 		google:gofuzz:v1.1.0:google_gofuzz/vendor/github.com/google/gofuzz \

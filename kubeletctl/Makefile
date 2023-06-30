@@ -1,13 +1,11 @@
-#
-
 PORTNAME=	kubeletctl
-PORTVERSION=	1.10
+PORTVERSION=	1.11
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Client for kubelet
-WWW=		https://github.com/cyberark/kubeletctl
+WWW=		https://github.com/${GH_ACCOUNT}/${PORTNAME}
 
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
