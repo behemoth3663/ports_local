@@ -3,5 +3,3 @@ cluster and your local machine. It lets you expose your machine as a service in
 the cluster or expose it to a specific deployment. You can also use the client
 and server without the orchestration part. Although ktunnel is identified with
 kubernetes, it can also be used as a reverse tunnel on any other remote system
-
-WWW: https://github.com/omrikiei/ktunnel

@@ -1,13 +1,12 @@
-#
-
 PORTNAME=	ktunnel
-PORTVERSION=	1.4.8
+PORTVERSION=	1.5.3
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+#PORTREVISION=	1
 CATEGORIES=	local net
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Expose your local resources to kubernetes
+WWW=		https://github.com/${GH_ACCOUNT}/${PORTNAME}
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
