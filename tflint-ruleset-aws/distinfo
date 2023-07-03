@@ -1,6 +1,6 @@
-TIMESTAMP = 1688032551
-SHA256 (terraform-linters-tflint-ruleset-aws-v0.24.0_GH0.tar.gz) = d915ed6b3603900b7305c748aeb3b369c91a89e3f9ce426d93cf65cbef6cde3e
-SIZE (terraform-linters-tflint-ruleset-aws-v0.24.0_GH0.tar.gz) = 1157921
+TIMESTAMP = 1688394398
+SHA256 (terraform-linters-tflint-ruleset-aws-v0.24.1_GH0.tar.gz) = 27c0c3811f81447896ce1a18b834f0f8bddd83e1132539430b5251c79cfe64ac
+SIZE (terraform-linters-tflint-ruleset-aws-v0.24.1_GH0.tar.gz) = 1158040
 SHA256 (agext-levenshtein-v1.2.2_GH0.tar.gz) = b238bfd1dce6da173913c27cf2e172d58a55e7e6b7fc11736c7e45bd1af4818f
 SIZE (agext-levenshtein-v1.2.2_GH0.tar.gz) = 13098
 SHA256 (apparentlymart-go-textseg-v13.0.0_GH0.tar.gz) = 7479ac3309883e2bdb6f562004f2044d3d13d19b78c41db12957aa573fdf3556
