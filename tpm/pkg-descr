@@ -1,0 +1,7 @@
+Command-line interface tool designed to simplify the management of Terraform
+providers in the plugin cache directory. You can install, uninstall, and list
+providers, helping you to streamline your Terraform workflow.
+
+One of the key benefits is that it does not require Terraform to be
+installed, making it a lightweight and efficient tool for managing your
+cached providers.
