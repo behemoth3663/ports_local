@@ -1,6 +1,6 @@
-TIMESTAMP = 1686721978
-SHA256 (pete911-certinfo-v1.0.17_GH0.tar.gz) = d4f39efb16178ff0c80078d1b7fdf8635faa4b1d3a9ee4ac2d5666a88ad435d0
-SIZE (pete911-certinfo-v1.0.17_GH0.tar.gz) = 155772
+TIMESTAMP = 1688674719
+SHA256 (pete911-certinfo-v1.0.18_GH0.tar.gz) = c84f411bd2fb9361d765846524d4ed18382575428c3865df5353289211b77c9b
+SIZE (pete911-certinfo-v1.0.18_GH0.tar.gz) = 155913
 SHA256 (davecgh-go-spew-v1.1.1_GH0.tar.gz) = 7d82b9bb7291adbe7498fe946920ab3e7fc9e6cbfc3b2294693fad00bf0dd17e
 SIZE (davecgh-go-spew-v1.1.1_GH0.tar.gz) = 42152
 SHA256 (go-yaml-yaml-v3.0.1_GH0.tar.gz) = cf05411540d3e6ef8f1fd88434b34f94cedaceb540329031d80e23b74540c4e5
@@ -9,5 +9,5 @@ SHA256 (icza-gox-23e1aaac139e_GH0.tar.gz) = 851de83cbb74fa3896777632455135762aa7
 SIZE (icza-gox-23e1aaac139e_GH0.tar.gz) = 25531
 SHA256 (pmezard-go-difflib-v1.0.0_GH0.tar.gz) = 28f3dc1b5c0efd61203ab07233f774740d3bf08da4d8153fb5310db6cea0ebda
 SIZE (pmezard-go-difflib-v1.0.0_GH0.tar.gz) = 11398
-SHA256 (stretchr-testify-v1.8.3_GH0.tar.gz) = a32fe6d600fd63fb6c71ed64eccb0c48a18c3b526e33fe6c24582371c6d030bb
-SIZE (stretchr-testify-v1.8.3_GH0.tar.gz) = 104253
+SHA256 (stretchr-testify-v1.8.4_GH0.tar.gz) = 0d3e82b04a05d9428a2a2aec8776bd0a07f14f5d1b4fa0a3676526ca8259fd62
+SIZE (stretchr-testify-v1.8.4_GH0.tar.gz) = 104427

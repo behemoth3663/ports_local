@@ -3,4 +3,4 @@ GH_TUPLE=	\
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
 		icza:gox:23e1aaac139e:icza_gox/vendor/github.com/icza/gox \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
-		stretchr:testify:v1.8.3:stretchr_testify/vendor/github.com/stretchr/testify
+		stretchr:testify:v1.8.4:stretchr_testify/vendor/github.com/stretchr/testify
