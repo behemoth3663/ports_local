@@ -1,8 +1,6 @@
-# Created by: Gabriel M. Dutra <0xdutra@gmail.com>
-
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.48.0
+DISTVERSION=	0.48.1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	0xdutra@gmail.com
