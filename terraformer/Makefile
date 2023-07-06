@@ -1,13 +1,11 @@
-#
-
 PORTNAME=	terraformer
-PORTVERSION=	0.8.22
-PORTREVISION=	1
+PORTVERSION=	0.8.24
+#PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Generate terraform files from existing infrastructure
-WWW=		https://github.com/GoogleCloudPlatform/terraformer
+WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
