@@ -1,12 +1,12 @@
 PORTNAME=	dumbproxy
-PORTVERSION=	1.9.1
+PORTVERSION=	1.10.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local net
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Dumbiest HTTP proxy ever
-WWW=		https://github.com/${GH_ACCOUNT}/${PORTNAME}
+WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
