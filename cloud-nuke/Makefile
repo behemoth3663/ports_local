@@ -1,12 +1,12 @@
 PORTNAME=	cloud-nuke
-PORTVERSION=	0.31.2
+PORTVERSION=	0.32.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	CLI tool to delete all resources in an AWS account
-WWW=		https://github.com/${GH_ACCOUNT}/${PORTNAME}
+WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
