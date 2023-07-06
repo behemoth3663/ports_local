@@ -1,13 +1,11 @@
-#
-
 PORTNAME=	driftctl
-PORTVERSION=	0.38.2
+PORTVERSION=	0.39.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Detect, track and alert on infrastructure drift
-WWW=		https://github.com/${GH_ACCOUNT}/${PORTNAME}
+WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE.md
