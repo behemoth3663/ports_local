@@ -1,14 +1,12 @@
-#
-
 PORTNAME=	tfsec
 PORTVERSION=	1.28.1
 DISTVERSIONPREFIX=	v
-PORTREVISION=	6
+PORTREVISION=	7
 CATEGORIES=	local security
 
-MAINTAINER=	none@freebsd.org
-COMMENT=	Static analysis powered security scanner for your terraform code
-WWW=		https://github.com/liamg/tfsec
+MAINTAINER=	nulldutra@proton.me
+COMMENT=	Security scanner for Terraform
+WWW=		https://aquasecurity.github.io/tfsec
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
@@ -21,7 +19,7 @@ GH_ACCOUNT=	aquasecurity
 GO_TARGET=	./cmd/${PORTNAME}
 
 GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X 'github.com/${GH_ACCOUNT}/${PORTNAME}/version.Version=${PORTVERSION}'"
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=${PORTVERSION}'"
 
 PLIST_FILES=	bin/${PORTNAME}
 
