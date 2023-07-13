@@ -1,21 +1,26 @@
---- Makefile.deps.orig	2023-04-10 22:25:28 UTC
+--- Makefile.deps.orig	2023-07-13 16:34:17 UTC
 +++ Makefile.deps
 @@ -83,9 +83,9 @@ GH_TUPLE=	\
- 		googleapis:google-cloud-go:compute/v1.12.1:googleapis_google_cloud_go_compute \
+ 		googleapis:google-cloud-go:compute/v1.15.1:googleapis_google_cloud_go_compute \
  		googleapis:google-cloud-go:kms/v1.6.0:googleapis_google_cloud_go_kms \
  		googleapis:google-cloud-go:storage/v1.28.0:googleapis_google_cloud_go_storage \
--		googleapis:google-cloud-go:v0.105.0:googleapis_google_cloud_go \
--		googleapis:google-cloud-go:v0.2.1:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata \
--		googleapis:google-cloud-go:v0.6.0:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go \
-+		googleapis:google-cloud-go:v0.105.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
-+		googleapis:google-cloud-go:compute/metadata/v0.2.1:googleapis_google_cloud_go_compute_metadata \
-+		googleapis:google-cloud-go:iam/v0.6.0:googleapis_google_cloud_go_iam \
+-		googleapis:google-cloud-go:v0.107.0:googleapis_google_cloud_go \
+-		googleapis:google-cloud-go:v0.2.3:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata \
+-		googleapis:google-cloud-go:v0.8.0:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go \
++		googleapis:google-cloud-go:v0.107.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
++		googleapis:google-cloud-go:compute/metadata/v0.2.3:googleapis_google_cloud_go_compute_metadata \
++		googleapis:google-cloud-go:iam/v0.8.0:googleapis_google_cloud_go_iam \
  		grpc:grpc-go:v1.1.0:grpc_grpc_go_1/vendor/google.golang.org/grpc/cmd/protoc-gen-go-grpc \
- 		grpc:grpc-go:v1.50.1:grpc_grpc_go/vendor/google.golang.org/grpc \
+ 		grpc:grpc-go:v1.53.0:grpc_grpc_go/vendor/google.golang.org/grpc \
  		hashicorp:aws-sdk-go-base:v0.7.1:hashicorp_aws_sdk_go_base/vendor/github.com/hashicorp/aws-sdk-go-base \
-@@ -187,9 +187,12 @@ GH_TUPLE=	\
- 		#	::v0.1.0-deprecated:group_name/vendor/golang.org/x/tools/cmd/cover (from go.googlesource.com/tools@v0.1.0-deprecated)
+@@ -180,14 +180,13 @@ GH_TUPLE=	\
+ 		zclconf:go-cty-yaml:v1.0.3:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
+ 		zclconf:go-cty:v1.12.2:zclconf_go_cty/vendor/github.com/zclconf/go-cty
  
+-		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
+-		#	::732eee02a75a:group_name/vendor/golang.org/x/exp/typeparams (from go.googlesource.com/exp@732eee02a75a)
+-		#	::v0.1.0-deprecated:group_name/vendor/golang.org/x/tools/cmd/cover (from go.googlesource.com/tools@v0.1.0-deprecated)
+-
  post-extract:
 -	@${RLN} ${WRKSRC_googleapis_google_cloud_go} ${WRKSRC}/vendor/cloud.google.com/go
  	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute
