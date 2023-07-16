@@ -1,13 +1,11 @@
-#
-
 PORTNAME=	vegeta
-PORTVERSION=	12.8.4
+PORTVERSION=	12.9.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	4
 CATEGORIES=	local benchmarks
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	HTTP load testing tool and library
+WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
