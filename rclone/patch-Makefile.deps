@@ -1,0 +1,11 @@
+--- Makefile.deps.orig	2023-07-20 17:44:50 UTC
++++ Makefile.deps
+@@ -63,7 +63,7 @@ GH_TUPLE=	\
+ 		googleapis:gax-go:v2.8.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
+ 		googleapis:google-api-go-client:v0.115.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+ 		googleapis:google-cloud-go:compute/v1.19.0:googleapis_google_cloud_go_compute/vendor/cloud.google.com/go \
+-		googleapis:google-cloud-go:v0.2.3:googleapis_google_cloud_go/vendor/cloud.google.com/go/compute/metadata \
++		googleapis:google-cloud-go:compute/metadata/v0.2.3:googleapis_google_cloud_go/vendor/cloud.google.com/go/compute/metadata \
+ 		grpc:grpc-go:v1.54.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+ 		hanwen:go-fuse:80c1c8221982:hanwen_go_fuse_v2/vendor/github.com/hanwen/go-fuse/v2 \
+ 		hashicorp:errwrap:v1.0.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
