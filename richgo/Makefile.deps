@@ -1,11 +1,12 @@
 GH_TUPLE=	\
-		davecgh:go-spew:v1.1.0:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
+		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
-		golang:sys:da31bd327af9:golang_sys/vendor/golang.org/x/sys \
+		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
+		golang:sys:v0.5.0:golang_sys/vendor/golang.org/x/sys \
 		kyoh86:xdg:v1.2.0:kyoh86_xdg/vendor/github.com/kyoh86/xdg \
-		mattn:go-isatty:v0.0.14:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
+		mattn:go-isatty:v0.0.17:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
 		morikuni:aec:v1.0.0:morikuni_aec/vendor/github.com/morikuni/aec \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		rakyll:statik:v0.1.7:rakyll_statik/vendor/github.com/rakyll/statik \
-		stretchr:testify:v1.4.0:stretchr_testify/vendor/github.com/stretchr/testify \
+		stretchr:testify:v1.8.2:stretchr_testify/vendor/github.com/stretchr/testify \
 		wacul:ptr:v1.0.0:wacul_ptr/vendor/github.com/wacul/ptr

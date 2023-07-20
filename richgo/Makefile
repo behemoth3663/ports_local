@@ -1,13 +1,11 @@
-#
-
 PORTNAME=	richgo
-PORTVERSION=	0.3.11
+PORTVERSION=	0.3.12
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local devel
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Enrich `go test` outputs with text decorations
-WWW=		https://github.com/kyoh86/richgo
+WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
@@ -19,7 +17,7 @@ GH_ACCOUNT=	kyoh86
 
 PLIST_FILES=	bin/${PORTNAME}
 
-fetch-version: .PHONY get-version
+post-post-extract: .PHONY .SILENT
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
