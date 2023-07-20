@@ -1,7 +1,5 @@
 Static analysis libraries and tooling for Terraform Provider code.
-Ratchet is a tool for improving the security of CI/CD workflows by automating 
-the process of pinning and unpinning upstream versions. It's like Bundler, 
-Cargo, Go modules, NPM, Pip, or Yarn, but for CI/CD workflows. Ratchet 
+Ratchet is a tool for improving the security of CI/CD workflows by automating
+the process of pinning and unpinning upstream versions. It's like Bundler,
+Cargo, Go modules, NPM, Pip, or Yarn, but for CI/CD workflows. Ratchet
 supports: Circle CI, GitHub Actions, Google Cloud Build.
-
-WWW: https://github.com/sethvargo/ratchet

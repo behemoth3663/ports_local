@@ -1,13 +1,12 @@
-#
-
 PORTNAME=	ratchet
-PORTVERSION=	0.2.3
+PORTVERSION=	0.4.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+#PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
-COMMENT=	A tool for securing CI/CD workflows with version pinning
+COMMENT=	Tool for securing CI/CD workflows with version pinning
+WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
@@ -25,17 +24,15 @@ GH_COMMIT=	git ls-remote --tags \
 		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
 
-#GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
-#	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=${PORTVERSION}' \
-#	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Commit=${:!${GH_COMMIT}!:[1]:C/(.{7}).*/\1/}'"
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal/version.Version=${PORTVERSION}' \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal/version.Commit=${:!${GH_COMMIT}!:[1]:C/(.{7}).*/\1/}'"
+
+post-post-extract: .PHONY .SILENT
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
-post-patch:
-	${REINPLACE_CMD} -r \
-		-e 's|^([[:space:]]*Version[[:space:]]*=[[:space:]]*).*|\1"${PORTVERSION}"|' \
-		-e 's|^([[:space:]]*Commit[[:space:]]*=[[:space:]]*).*|\1"${:!${GH_COMMIT}!:[1]:C/(.{7}).*/\1/}"|' \
-	${WRKSRC}/internal/version/version.go
- 
+GH_TUPLE:=	${GH_TUPLE:C|^moby:moby(:.*/docker-credential-helpers)|docker:docker-credential-helpers\1|}
+
 .include <bsd.port.mk>
