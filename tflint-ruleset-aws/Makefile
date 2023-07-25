@@ -1,5 +1,5 @@
 PORTNAME=	tflint-ruleset-aws
-PORTVERSION=	0.24.2
+PORTVERSION=	0.24.3
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -16,6 +16,8 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	terraform-linters
 
 PLIST_FILES=	bin/${PORTNAME}
+
+post-post-extract: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
