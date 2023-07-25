@@ -1,5 +1,5 @@
 PORTNAME=	gh
-PORTVERSION=	2.32.0
+PORTVERSION=	2.32.1
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -28,20 +28,9 @@ _DOCS=		README.md docs/gh-vs-hub.md docs/releasing.md \
 		docs/install_linux.md docs/project-layout.md docs/triage.md
 PORTDOCS=	${_DOCS:T}
 
-OPTIONS_DEFINE=		COMPLETIONS DOCS MANPAGES
-OPTIONS_DEFAULT=	COMPLETIONS MANPAGES
+OPTIONS_DEFINE=		DOCS MANPAGES
+OPTIONS_DEFAULT=	MANPAGES
 OPTIONS_SUB=		yes
-
-COMPLETIONS_DESC=		Build and install bash, fish and zsh shell completions
-COMPLETIONS_PLIST_FILES=	share/bash-completion/completions/${PORTNAME} \
-				share/fish/vendor_completions.d/${PORTNAME}.fish \
-				share/zsh/site-functions/_${PORTNAME}
-
-post-install-COMPLETIONS-on:
-.for _shell in bash fish zsh
-	${GO_WRKDIR_BIN}/${PORTNAME} completion -s ${_shell} \
-		>${STAGEDIR}${PREFIX}/${COMPLETIONS_PLIST_FILES:M*${_shell}*}
-.endfor
 
 do-build-MANPAGES-on:
 	(cd ${WRKSRC} && \
@@ -57,6 +46,8 @@ post-install-DOCS-on:
 post-install-MANPAGES-on:
 	${INSTALL_MAN} ${WRKSRC}/docs/man/*.1 \
 		${STAGEDIR}${MAN1PREFIX}/man/man1
+
+post-post-extract: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"

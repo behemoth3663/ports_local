@@ -10,7 +10,7 @@ GH_TUPLE=	\
 		charmbracelet:lipgloss:v0.5.0:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
 		cli:browser:v1.2.0:cli_browser/vendor/github.com/cli/browser \
 		cli:crypto:6be313f59b03:cli_crypto/vendor/golang.org/x/crypto \
-		cli:go-gh:v2.0.1:cli_go_gh_v2/vendor/github.com/cli/go-gh/v2 \
+		cli:go-gh:v2.1.0:cli_go_gh_v2/vendor/github.com/cli/go-gh/v2 \
 		cli:oauth:v1.0.1:cli_oauth/vendor/github.com/cli/oauth \
 		cli:safeexec:v1.0.1:cli_safeexec/vendor/github.com/cli/safeexec \
 		cli:shurcooL-graphql:v0.0.3:cli_shurcool_graphql/vendor/github.com/cli/shurcooL-graphql \
