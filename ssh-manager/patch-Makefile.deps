@@ -1,0 +1,71 @@
+--- Makefile.deps.orig	2023-07-27 10:23:31 UTC
++++ Makefile.deps
+@@ -52,68 +52,6 @@ GH_TUPLE=	\
+ 		stretchr:testify:v1.8.1:stretchr_testify/vendor/github.com/stretchr/testify \
+ 		subosito:gotenv:v1.2.0:subosito_gotenv/vendor/github.com/subosito/gotenv
+ 
+-		# Errors found during processing:
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-
+ post-extract:
+ 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
+ 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go/storage
