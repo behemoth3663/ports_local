@@ -1,5 +1,5 @@
 PORTNAME=	tfvar
-PORTVERSION=	0.7.0
+PORTVERSION=	0.8.0
 DISTVERSIONPREFIX=	v
 #ORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -20,6 +20,8 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 		-X main.version=${DISTVERSIONPREFIX}${PORTVERSION}"
 
 PLIST_FILES=	bin/${PORTNAME}
+
+post-post-extract: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"

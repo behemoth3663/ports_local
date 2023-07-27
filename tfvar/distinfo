@@ -1,6 +1,6 @@
-TIMESTAMP = 1688578169
-SHA256 (shihanng-tfvar-v0.7.0_GH0.tar.gz) = 774c5856b1bbde165a705aa4f9e891e16924551fa5fe687b672fea0375600bda
-SIZE (shihanng-tfvar-v0.7.0_GH0.tar.gz) = 42153
+TIMESTAMP = 1690452936
+SHA256 (shihanng-tfvar-v0.8.0_GH0.tar.gz) = 1a25e1f57b11bd9899e8230d6645dad400d1b546433751104cc4124e80bf5fe0
+SIZE (shihanng-tfvar-v0.8.0_GH0.tar.gz) = 549795
 SHA256 (agext-levenshtein-v1.2.3_GH0.tar.gz) = ba59a69fcaea38ec40470cac08620dd2cca1980355d9b10e90e37b3b3ac2eb46
 SIZE (agext-levenshtein-v1.2.3_GH0.tar.gz) = 13227
 SHA256 (apparentlymart-go-textseg-v13.0.0_GH0.tar.gz) = 7479ac3309883e2bdb6f562004f2044d3d13d19b78c41db12957aa573fdf3556
