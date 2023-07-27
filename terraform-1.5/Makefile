@@ -1,5 +1,5 @@
 PORTNAME=	terraform
-PORTVERSION=	1.5.3
+PORTVERSION=	1.5.4
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX?=	-${PORTVERSION:R}
@@ -34,6 +34,8 @@ post-patch: .PHONY
 post-install: .PHONY
 	${MV} ${STAGEDIR}${PREFIX}/bin/${PORTNAME} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION}
 	${INSTALL} -l rs ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}${PKGNAMESUFFIX}
+
+post-post-extract: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
