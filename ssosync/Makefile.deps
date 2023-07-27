@@ -1,33 +1,43 @@
 GH_TUPLE=	\
-		BurntSushi:toml:v0.3.1:burntsushi_toml/vendor/github.com/BurntSushi/toml \
-		aws:aws-lambda-go:v1.17.0:aws_aws_lambda_go/vendor/github.com/aws/aws-lambda-go \
-		aws:aws-sdk-go:v1.31.7:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
-		census-instrumentation:opencensus-go:v0.22.3:census_instrumentation_opencensus_go/vendor/go.opencensus.io \
+		BurntSushi:toml:v1.0.0:burntsushi_toml/vendor/github.com/BurntSushi/toml \
+		aws:aws-lambda-go:v1.23.0:aws_aws_lambda_go/vendor/github.com/aws/aws-lambda-go \
+		aws:aws-sdk-go:v1.44.102:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		census-instrumentation:opencensus-go:v0.23.0:census_instrumentation_opencensus_go/vendor/go.opencensus.io \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
-		dominikh:go-tools:v0.0.1-2020.1.4:dominikh_go_tools/vendor/honnef.co/go/tools \
-		go-yaml:yaml:v2.2.2:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
-		golang:appengine:v1.6.6:golang_appengine/vendor/google.golang.org/appengine \
+		fsnotify:fsnotify:v1.4.9:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
+		go-ini:ini:v1.62.0:go_ini_ini/vendor/gopkg.in/ini.v1 \
+		go-yaml:yaml:eeeca48fe776:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
+		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
+		golang:appengine:v1.6.7:golang_appengine/vendor/google.golang.org/appengine \
 		golang:groupcache:8c9f03a8e57e:golang_groupcache/vendor/github.com/golang/groupcache \
-		golang:mock:v1.4.3:golang_mock/vendor/github.com/golang/mock \
-		golang:mod:v0.3.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:1ed23360d12c:golang_net/vendor/golang.org/x/net \
-		golang:oauth2:bf48bf16ab8d:golang_oauth2/vendor/golang.org/x/oauth2 \
-		golang:protobuf:v1.4.1:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sys:bc7a7d42d5c3:golang_sys/vendor/golang.org/x/sys \
-		golang:text:v0.3.2:golang_text/vendor/golang.org/x/text \
-		golang:tools:57a9e4404bf7:golang_tools/vendor/golang.org/x/tools \
-		google:go-genproto:b979b6f78d84:google_go_genproto/vendor/google.golang.org/genproto \
+		golang:mock:v1.5.0:golang_mock/vendor/github.com/golang/mock \
+		golang:net:cd36cc0744dd:golang_net/vendor/golang.org/x/net \
+		golang:oauth2:81ed05c6b58c:golang_oauth2/vendor/golang.org/x/oauth2 \
+		golang:protobuf:v1.5.2:golang_protobuf/vendor/github.com/golang/protobuf \
+		golang:sys:1d35b9e2eb4e:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.3.7:golang_text/vendor/golang.org/x/text \
+		google:go-genproto:86c259c2b4ab:google_go_genproto/vendor/google.golang.org/genproto \
 		googleapis:gax-go:v2.0.5:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
-		googleapis:google-api-go-client:v0.24.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
-		googleapis:google-cloud-go:v0.56.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
-		grpc:grpc-go:v1.29.1:grpc_grpc_go/vendor/google.golang.org/grpc \
+		googleapis:google-api-go-client:v0.46.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+		googleapis:google-cloud-go:v0.81.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
+		grpc:grpc-go:v1.37.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
+		hashicorp:go-retryablehttp:v0.7.0:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
+		hashicorp:hcl:v1.0.0:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
 		inconshreveable:mousetrap:v1.0.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
-		jmespath:go-jmespath:v0.3.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
+		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
+		magiconair:properties:v1.8.5:magiconair_properties/vendor/github.com/magiconair/properties \
+		mitchellh:mapstructure:v1.4.1:mitchellh_mapstructure/vendor/github.com/mitchellh/mapstructure \
+		pelletier:go-toml:v1.9.0:pelletier_go_toml/vendor/github.com/pelletier/go-toml \
+		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
-		protocolbuffers:protobuf-go:v1.22.0:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
-		spf13:cobra:v1.0.0:spf13_cobra/vendor/github.com/spf13/cobra \
-		spf13:pflag:v1.0.3:spf13_pflag/vendor/github.com/spf13/pflag \
-		stretchr:testify:v1.5.1:stretchr_testify/vendor/github.com/stretchr/testify \
-		uber-go:atomic:v1.6.0:uber_go_atomic/vendor/go.uber.org/atomic \
-		uber-go:multierr:v1.5.0:uber_go_multierr/vendor/go.uber.org/multierr \
-		uber-go:zap:v1.15.0:uber_go_zap/vendor/go.uber.org/zap
+		protocolbuffers:protobuf-go:v1.26.0:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
+		sirupsen:logrus:v1.8.1:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
+		spf13:afero:v1.6.0:spf13_afero/vendor/github.com/spf13/afero \
+		spf13:cast:v1.3.1:spf13_cast/vendor/github.com/spf13/cast \
+		spf13:cobra:v1.1.3:spf13_cobra/vendor/github.com/spf13/cobra \
+		spf13:jwalterweatherman:v1.1.0:spf13_jwalterweatherman/vendor/github.com/spf13/jwalterweatherman \
+		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
+		spf13:viper:v1.7.1:spf13_viper/vendor/github.com/spf13/viper \
+		stretchr:testify:v1.7.0:stretchr_testify/vendor/github.com/stretchr/testify \
+		subosito:gotenv:v1.2.0:subosito_gotenv/vendor/github.com/subosito/gotenv
