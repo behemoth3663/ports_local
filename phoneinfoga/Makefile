@@ -10,37 +10,31 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-BUILD_DEPENDS=	git:devel/git
+BUILD_DEPENDS=	git:devel/git \
+		swag:local/swag
 
 USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	sundowndev
+GH_PROJECT=	phoneinfoga
 
 PLIST_FILES=	bin/${PORTNAME}
 
 GH_COMMIT=	git ls-remote --tags \
-		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
+		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/build.Version=${DISTVERSIONPREFIX}${PORTVERSION}' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/build.Commit=${:!${GH_COMMIT}!:[1]:C/(.{7}).*/\1/}'"
 
-#post-patch: .PHONY
-#	${REINPLACE_CMD} -r \
-#		-e 's/^[[:space:]]*(var[[:space:]]+Version[[:space:]]*=).*/\1 "${DISTVERSIONPREFIX}${PORTVERSION}"/' \
-#		-e 's/^[[:space:]]*(var[[:space:]]+Commit[[:space:]]*=).*/\1 "f52c5338fd9d6711e5375e53a5356890680b31c7"/' \
-#	${WRKSRC}/config/version.go
-
-pre-build: .PHONY
-	cd ${WRKSRC} &&	${GO_CMD} generate ./...
-#	${MKDIR} ${WRKSRC}/client/dist
-#	cd ${WRKSRC}/api && \
-#	${GO_CMD} run github.com/jessevdk/go-assets-builder ../client/dist -o ./assets.go -p api && \
-#	${GO_CMD} run ${WRKSRC}/vendor/github.com/swaggo/swag/cmd/swag/main.go init -g ./server.go --parseDependency
-
+_OPTIONS_extract+=	750:post-post-extract
 post-post-extract: .PHONY
+	${MKDIR} ${WRKSRC}/client/dist ${WRKSRC}/web/client/dist
+	${TOUCH} ${WRKSRC}/client/dist/empty.txt ${WRKSRC}/web/client/dist/empty.txt
+#	${RM} ${WRKSRC}/vendor/golang.org/x/tools/gopls/internal/regtest/misc/vendor_test.go
+	cd ${WRKSRC} &&	${GO_CMD} generate ./...
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
