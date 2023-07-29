@@ -1,0 +1,24 @@
+GH_TUPLE=	\
+		KyleBanks:depth:v1.2.1:kylebanks_depth/vendor/github.com/KyleBanks/depth \
+		PuerkitoBio:purell:v1.1.1:puerkitobio_purell/vendor/github.com/PuerkitoBio/purell \
+		PuerkitoBio:urlesc:de5bf2ad4578:puerkitobio_urlesc/vendor/github.com/PuerkitoBio/urlesc \
+		cpuguy83:go-md2man:f79a8a8ca69d:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
+		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
+		go-openapi:jsonpointer:v0.19.5:go_openapi_jsonpointer/vendor/github.com/go-openapi/jsonpointer \
+		go-openapi:jsonreference:v0.19.6:go_openapi_jsonreference/vendor/github.com/go-openapi/jsonreference \
+		go-openapi:spec:v0.20.4:go_openapi_spec/vendor/github.com/go-openapi/spec \
+		go-openapi:swag:v0.19.15:go_openapi_swag/vendor/github.com/go-openapi/swag \
+		go-yaml:yaml:eeeca48fe776:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
+		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
+		golang:net:v0.8.0:golang_net/vendor/golang.org/x/net \
+		golang:sys:v0.6.0:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.8.0:golang_text/vendor/golang.org/x/text \
+		golang:tools:v0.7.0:golang_tools/vendor/golang.org/x/tools \
+		josharian:intern:v1.0.0:josharian_intern/vendor/github.com/josharian/intern \
+		kubernetes-sigs:yaml:v1.3.0:kubernetes_sigs_yaml/vendor/sigs.k8s.io/yaml \
+		mailru:easyjson:v0.7.6:mailru_easyjson/vendor/github.com/mailru/easyjson \
+		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
+		russross:blackfriday:v2.0.1:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
+		shurcooL:sanitized_anchor_name:v1.0.0:shurcool_sanitized_anchor_name/vendor/github.com/shurcooL/sanitized_anchor_name \
+		stretchr:testify:v1.7.0:stretchr_testify/vendor/github.com/stretchr/testify \
+		urfave:cli:v2.3.0:urfave_cli_v2/vendor/github.com/urfave/cli/v2
