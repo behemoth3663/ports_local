@@ -1,12 +1,10 @@
-#
-
 PORTNAME=	keepassxc-proxy-rust
 PORTVERSION=	0.2.0
 CATEGORIES=	local security
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Proxy between Native Messaging browser extension
-WWW=		https://github.com/${GH_ACCOUNT}/${PORTNAME}
+WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/LICENSE

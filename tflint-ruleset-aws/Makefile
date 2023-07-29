@@ -5,7 +5,7 @@ CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	TFLint ruleset for terraform-provider-aws
-WWW=		https://github.com/${GH_ACCOUNT}/${GH_ACCOUNT}
+WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MPL20
 LICENSE_FILE=	${WRKSRC}/LICENSE

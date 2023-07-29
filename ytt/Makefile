@@ -5,7 +5,7 @@ CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	YAML tool with templates and user provided values
-WWW=		https://github.com/${GH_ACCOUNT}/${PORTNAME}
+WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE

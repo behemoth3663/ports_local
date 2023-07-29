@@ -1,5 +1,3 @@
-#
-
 PORTNAME=	hclq
 PORTVERSION=	0.5.3
 PORTREVISION=	1
@@ -7,6 +5,7 @@ CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Command-line processor for HashiCorp Command Language files
+WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
@@ -19,7 +18,7 @@ GH_TAGNAME=	e55c48c
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -X 'github.com/${GH_ACCOUNT}/${PORTNAME}/cmd.version=${PORTVERSION}'"
+GO_BUILDFLAGS+=	-ldflags="-s -X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.version=${PORTVERSION}'"
 
 fetch-version: .PHONY get-version
 

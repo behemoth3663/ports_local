@@ -6,7 +6,7 @@ CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Create a Go struct from an XML document
-WWW=		https://github.com/${GH_ACCOUNT}/${PORTNAME}
+WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	GPLv3
 LICENSE_FILE=	${WRKSRC}/LICENSE

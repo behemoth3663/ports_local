@@ -5,7 +5,7 @@ CATEGORIES=	local security
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Print x509 certificate info
-WWW=		https://github.com/${GH_ACCOUNT}/${GH_ACCOUNT}
+WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE

@@ -5,7 +5,7 @@ CATEGORIES=	local devel security
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Golang Security Checker
-WWW=		https://github.com/${GH_ACCOUNT}/${PORTNAME}
+WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
@@ -22,7 +22,7 @@ GO_TARGET=	./cmd/${PORTNAME}
 PLIST_FILES=	bin/${PORTNAME}
 
 GH_COMMIT=	git ls-remote --tags \
-		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
+		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
 
 GO_BUILDFLAGS+=	-ldflags="-s -w \

@@ -5,7 +5,7 @@ CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	CLI tool that checks Terraform code for module updates
-WWW=		https://github.com/${GH_ACCOUNT}/${PORTNAME}
+WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE

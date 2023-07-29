@@ -1,5 +1,3 @@
-#
-
 PORTNAME=	awsls
 PORTVERSION=	0.11.0
 DISTVERSIONPREFIX=	v
@@ -30,7 +28,7 @@ PLIST_FILES=	bin/${PORTNAME}
 fetch-version: .PHONY get-version
 
 GH_COMMIT=	git ls-remote --tags \
-		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
+		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \

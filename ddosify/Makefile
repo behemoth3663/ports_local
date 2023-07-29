@@ -19,7 +19,7 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	ddosify
 
 GH_COMMIT=	git ls-remote --tags \
-		https://github.com/${GH_ACCOUNT}/${GH_ACCOUNT} \
+		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \

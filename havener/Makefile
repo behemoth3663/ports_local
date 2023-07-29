@@ -1,5 +1,3 @@
-#
-
 PORTNAME=	havener
 PORTVERSION=	2.0.8
 DISTVERSIONPREFIX=	v
@@ -8,7 +6,7 @@ CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Swiss army knife for Kubernetes tasks
-WWW=		https://github.com/homeport/havener
+WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
@@ -22,7 +20,7 @@ GO_TARGET=	./cmd/${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static -X 'github.com/${GH_ACCOUNT}/${PORTNAME}/internal/cmd.version=${PORTVERSION}'"
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static -X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal/cmd.version=${PORTVERSION}'"
 
 fetch-version: .PHONY get-version
 

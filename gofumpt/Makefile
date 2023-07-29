@@ -1,5 +1,3 @@
-#
-
 PORTNAME=	gofumpt
 PORTVERSION=	0.5.0
 DISTVERSIONPREFIX=	v
@@ -7,7 +5,7 @@ CATEGORIES=	local devel
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Stricter gofmt
-WWW=		https://github.com/${GH_ACCOUNT}/${PORTNAME}
+WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE

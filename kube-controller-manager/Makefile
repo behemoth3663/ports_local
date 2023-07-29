@@ -23,7 +23,7 @@ GO_PKGNAME=	k8s.io/kubernetes
 GO_TARGET=	${GO_PKGNAME}/cmd/${PORTNAME}
 
 GH_COMMIT=	git ls-remote --tags \
-		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
+		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
 		refs/tags/${GH_PROJECT}-${PORTVERSION}^{}
 
 GO_BUILDFLAGS=	-ldflags="-s -w -extldflags '-static' \

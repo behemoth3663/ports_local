@@ -5,7 +5,7 @@ CATEGORIES=	local devel
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Terraform Language Server
-WWW=		https://github.com/${GH_ACCOUNT}/${PORTNAME}
+WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MPL20
 LICENSE_FILE=	${WRKSRC}/LICENSE

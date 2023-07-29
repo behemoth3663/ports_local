@@ -1,5 +1,3 @@
-#
-
 PORTNAME=	vault
 PORTVERSION=	1.8.7
 DISTVERSIONPREFIX=	v
@@ -21,7 +19,7 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	hashicorp
 
 COMMIT_ID!=	git ls-remote --tags \
-		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
+		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
 
 GO_BUILDFLAGS+=	-tags=ui \

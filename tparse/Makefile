@@ -6,7 +6,7 @@ CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Analyzing and summarizing go test output
-WWW=		https://github.com/${GH_ACCOUNT}/${PORTNAME}
+WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE

@@ -18,7 +18,7 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	${PORTNAME}
 
 GH_COMMIT=	git ls-remote --tags \
-		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
+		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
 
 GO_PKGNAME=	k8s.io/helm

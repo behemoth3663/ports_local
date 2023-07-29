@@ -5,7 +5,7 @@ CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	diff tool for YAML files, and sometimes JSON
-WWW=		https://github.com/${GH_ACCOUNT}/${GH_ACCOUNT}
+WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE

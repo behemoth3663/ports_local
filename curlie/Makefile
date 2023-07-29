@@ -20,7 +20,7 @@ GH_ACCOUNT=	rs
 PLIST_FILES=	bin/${PORTNAME}
 
 GH_COMMIT=	git ls-remote --tags \
-		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
+		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
 
 #commit  = "0000000"

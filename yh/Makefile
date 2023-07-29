@@ -6,7 +6,7 @@ CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	YAML syntax highlighter
-WWW=		https://github.com/${GH_ACCOUNT}/${PORTNAME}
+WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
