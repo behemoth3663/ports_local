@@ -1,6 +1,6 @@
-TIMESTAMP = 1669585201
-SHA256 (Snawoot-steady-tun-v1.2.0_GH0.tar.gz) = 1a238aa0c91033679522d9b1fb99a0711aade1f40e7d933c7b5d9e87c51a5b32
-SIZE (Snawoot-steady-tun-v1.2.0_GH0.tar.gz) = 12338
+TIMESTAMP = 1690662202
+SHA256 (Snawoot-steady-tun-v1.2.1_GH0.tar.gz) = 68703f3ebcb774d9d7574905a4fe9ad06272d15ff2b0fb17c4295efe448dcc63
+SIZE (Snawoot-steady-tun-v1.2.1_GH0.tar.gz) = 12340
 SHA256 (golang-sync-43a5402ce75a_GH0.tar.gz) = c9a58dbd06f5747ccf112cc29eb6f82ab2b8a3cd18908efa2d949a27d3924fc8
 SIZE (golang-sync-43a5402ce75a_GH0.tar.gz) = 17275
 SHA256 (huandu-skiplist-v1.1.0_GH0.tar.gz) = 00759e2d543af152ac26d5759715300e3bc1d11d340bfd986b60fb75b1bf6ff5
