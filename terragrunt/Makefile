@@ -1,6 +1,6 @@
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.48.4
+DISTVERSION=	0.48.5
 CATEGORIES=	local sysutils
 
 MAINTAINER=	0xdutra@gmail.com
@@ -19,12 +19,13 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -X main.VERSION=${DISTVERSIONPREFIX}${PORTVERSIO
 
 PLIST_FILES=	bin/${PORTNAME}
 
-_OPTIONS_extract=	501:pre-post-extract
-
+_OPTIONS_extract=	600:pre-post-extract
 pre-post-extract: .PHONY
 	${FIND} ${WRKDIR} -maxdepth 1 -type d -name 'go-commons-*' | while read src; do \
 		${LN} -s "$${src}" "$${src%%go-commons-*}gruntwork-cli-$${src##*go-commons-}"; \
 	done
+
+post-post-extract: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
