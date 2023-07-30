@@ -21,7 +21,7 @@ GH_ACCOUNT=	idestis
 PLIST_FILES=	bin/${PORTNAME}
 
 GH_COMMIT=	git ls-remote --tags \
-		https://github.com/${GH_ACCOUNT}/${GH_{PROJECT} \
+		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
 
 GO_BUILDFLAGS+=	-ldflags="-s -w \
