@@ -1,5 +1,3 @@
-#
-
 PORTNAME=	awsets
 PORTVERSION=	1.0.6
 DISTVERSIONPREFIX=	v
@@ -7,6 +5,7 @@ CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Utility for export all AWS resources
+WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/../../LICENSE
@@ -22,16 +21,7 @@ GH_ACCOUNT=	trek10inc
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GH_COMMIT=	git ls-remote --tags \
-		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
-		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
-
-GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X 'main.version=${DISTVERSIONPREFIX}${PORTVERSION}' \
-	-X 'main.commit=${:!${GH_COMMIT}!:[1]:C/(.{7}).*/\1/}' \
-	-X 'main.date=${%FT%TZ:L:gmtime}'"
-
-fetch-version: .PHONY get-version
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
 
 #post-patch: .PHONY
 #	cd ${WRKSRC} && \
@@ -59,6 +49,8 @@ fetch-version: .PHONY get-version
 #		ec2_volume.go ec2_vpc.go ec2_vpcendpoint.go ec2_vpcendpointservice.go \
 #		ec2_vpcpeering.go && \
 #	${REINPLACE_CMD} -r 's|AllRegions:[[:space:]]+aws\.|AllRegions: *aws.|' ../main.go
+
+post-post-extract: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"

@@ -27,13 +27,14 @@ PLIST_FILES=	bin/${PORTNAME}
 
 fetch-version: .PHONY get-version
 
-GH_COMMIT=	git ls-remote --tags \
+GIT_COMMIT=	git ls-remote \
 		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
-		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
+		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
+		${SED} -rn 's/(.{7}).*/\1/p'
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal.version=${DISTVERSIONPREFIX}${PORTVERSION}' \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal.commit=${:!${GH_COMMIT}!:[1]:C/(.{7}).*/\1/}' \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal.commit=$$(${GIT_COMMIT})' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal.date=${%FT%TZ:L:gmtime}'"
 
 #without GOPROXY=off

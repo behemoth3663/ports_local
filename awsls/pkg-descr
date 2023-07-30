@@ -4,5 +4,3 @@ resources across 76 different AWS services.
 The goal is to support every AWS resource that is also covered by Terraform
 (currently over 500) without adding much code but rather generating it. If you
 are interested, the code of the list function generator is here.
-
-WWW: https://github.com/jckuester/awsls

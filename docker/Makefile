@@ -7,6 +7,7 @@ CATEGORIES=		local sysutils
 
 MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Open-source application container engine
+WWW=		https://www.docker.com/
 
 LICENSE=	APACHE20
 
@@ -22,13 +23,14 @@ GH_PROJECT=	docker-ce
 GO_PKGNAME=	github.com/${PORTNAME}
 GO_TARGET=	${GO_PKGNAME}/cli/cmd/docker
 
-GH_COMMIT=	git ls-remote --tags \
-		https://github.com/docker/docker-ce \
-		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
+GIT_COMMIT=	git ls-remote \
+		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
+		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
+		${SED} -rn 's/(.{7}).*/\1/p'
 
-GO_BUILDFLAGS+=	-ldflags="-s -w \
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 	-X 'github.com/docker/cli/cli/version.Version=${PORTVERSION}' \
-	-X 'github.com/docker/cli/cli/version.GitCommit=${:!${GH_COMMIT}!:[1]:C/(.{7}).*/\1/}' \
+	-X 'github.com/docker/cli/cli/version.GitCommit=$$(${GIT_COMMIT})' \
 	-X 'github.com/docker/cli/cli/version.BuildTime=${%FT%TZ:L:gmtime}'"
 
 pre-build: .PHONY

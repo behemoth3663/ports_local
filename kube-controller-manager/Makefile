@@ -22,18 +22,19 @@ GH_PROJECT=	kubernetes
 GO_PKGNAME=	k8s.io/kubernetes
 GO_TARGET=	${GO_PKGNAME}/cmd/${PORTNAME}
 
-GH_COMMIT=	git ls-remote --tags \
+GIT_COMMIT=	git ls-remote \
 		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
-		refs/tags/${GH_PROJECT}-${PORTVERSION}^{}
+		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
+		${SED} -rn 's/(.{7}).*/\1/p'
 
-GO_BUILDFLAGS=	-ldflags="-s -w -extldflags '-static' \
-		-X k8s.io/component-base/version.buildDate=${%FT%TZ:L:gmtime} \
-		-X k8s.io/component-base/version.gitTreeState= \
-		-X k8s.io/component-base/version.gitCommit=${:!${GH_COMMIT}!:[1]} \
-		-X k8s.io/component-base/version.gitMajor=${PORTVERSION:R:R} \
-		-X k8s.io/component-base/version.gitMinor=${PORTVERSION:R:E} \
-		-X k8s.io/component-base/version.gitVersion=${DISTVERSIONPREFIX}${PORTVERSION} \
-		-X k8s.io/client-go/pkg/version.gitVersion=${DISTVERSIONPREFIX}${PORTVERSION}"
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+	-X 'k8s.io/component-base/version.buildDate=${%FT%TZ:L:gmtime}' \
+	-X 'k8s.io/component-base/version.gitTreeState=' \
+	-X 'k8s.io/component-base/version.gitCommit=$$(${GIT_COMMIT})' \
+	-X 'k8s.io/component-base/version.gitMajor=${PORTVERSION:R:R}' \
+	-X 'k8s.io/component-base/version.gitMinor=${PORTVERSION:R:E}' \
+	-X 'k8s.io/component-base/version.gitVersion=${DISTVERSIONPREFIX}${PORTVERSION}' \
+	-X 'k8s.io/client-go/pkg/version.gitVersion=${DISTVERSIONPREFIX}${PORTVERSION}'"
 
 PLIST_FILES=	bin/${PORTNAME}
 

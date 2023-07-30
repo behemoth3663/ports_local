@@ -17,14 +17,15 @@ USES=		cpe go:modules tar:xz
 USE_GITHUB=	yes
 GH_ACCOUNT=	${PORTNAME}
 
-GH_COMMIT=	git ls-remote --tags \
+GIT_COMMIT=	git ls-remote \
 		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
-		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
+		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
+		${SED} -rn 's/(.{7}).*/\1/p'
 
 GO_PKGNAME=	k8s.io/helm
-GO_BUILDFLAGS=	-ldflags="-s -w -extldflags '-static' \
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 		-X helm.sh/helm/v3/internal/version.version=${DISTVERSIONPREFIX}${PORTVERSION} \
-		-X helm.sh/helm/v3/internal/version.gitCommit=${:!${GH_COMMIT}!:[1]} \
+		-X helm.sh/helm/v3/internal/version.gitCommit=$$(${GIT_COMMIT}) \
 		-X helm.sh/helm/v3/internal/version.gitTreeState=clean"
 
 GO_TARGET=	./cmd/${PORTNAME}

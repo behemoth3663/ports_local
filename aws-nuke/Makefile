@@ -19,20 +19,23 @@ GH_ACCOUNT=	rebuy-de
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GH_COMMIT=	git ls-remote --tags \
+GIT_COMMIT=	git ls-remote \
 		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
-		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
+		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
+		${SED} -rn 's/(.{7}).*/\1/p'
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/cmd.BuildVersion=${DISTVERSIONPREFIX}${PORTVERSION}' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/cmd.BuildDate=${%FT%TZ:L:gmtime}' \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/cmd.BuildHash=${:!${GH_COMMIT}!:[1]:C/(.{7}).*/\1/}' \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/cmd.BuildHash=$$(${GIT_COMMIT})' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/cmd.BuildEnvironment='"
 
 post-patch: .PHONY
 .if ${.TARGETS:Mgomod-vendor}
 	@cd ${WRKSRC} && ${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} generate ./...
 .endif
+
+post-post-extract: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"

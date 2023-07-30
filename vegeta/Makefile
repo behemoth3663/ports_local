@@ -19,13 +19,14 @@ GH_ACCOUNT=	tsenart
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GH_COMMIT=	git ls-remote --tags \
+GIT_COMMIT=	git ls-remote \
 		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
-		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
+		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
+		${SED} -rn 's/(.{7}).*/\1/p'
 
-GO_BUILDFLAGS+=	-ldflags="-s -w \
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 	-X 'main.Version=${DISTVERSIONPREFIX}${PORTVERSION}' \
-	-X 'main.Commit=${:!${GH_COMMIT}!:[1]:C/(.{7}).*/\1/}' \
+	-X 'main.Commit=$$(${GIT_COMMIT})' \
 	-X 'main.Date=${%FT%TZ:L:gmtime}'"
 
 post-post-extract: .PHONY

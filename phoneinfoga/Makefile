@@ -21,13 +21,14 @@ GH_PROJECT=	phoneinfoga
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GH_COMMIT=	git ls-remote --tags \
+GIT_COMMIT=	git ls-remote \
 		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
-		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
+		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
+		${SED} -rn 's/(.{7}).*/\1/p'
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/build.Version=${DISTVERSIONPREFIX}${PORTVERSION}' \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/build.Commit=${:!${GH_COMMIT}!:[1]:C/(.{7}).*/\1/}'"
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/build.Commit=$$(${GIT_COMMIT})'"
 
 _OPTIONS_extract+=	750:post-post-extract
 post-post-extract: .PHONY

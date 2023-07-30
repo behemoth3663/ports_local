@@ -20,13 +20,14 @@ GH_ACCOUNT=	sethvargo
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GH_COMMIT=	git ls-remote --tags \
+GIT_COMMIT=	git ls-remote \
 		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
-		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
+		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
+		${SED} -rn 's/(.{7}).*/\1/p'
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal/version.Version=${PORTVERSION}' \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal/version.Commit=${:!${GH_COMMIT}!:[1]:C/(.{7}).*/\1/}'"
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal/version.Commit=$$(${GIT_COMMIT})'"
 
 post-post-extract: .PHONY .SILENT
 

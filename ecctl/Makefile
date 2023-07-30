@@ -20,17 +20,17 @@ GH_ACCOUNT=	elastic
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GH_COMMIT=	git ls-remote --tags ${WWW} refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
+GIT_COMMIT=	git ls-remote \
+		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
+		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
+		${SED} -rn 's/(.{7}).*/\1/p'
 
-#	version string
-#	commit  string
-#	built   string
-post-patch: .PHONY
-	${REINPLACE_CMD} -r \
-		-e 's|^([[:space:]]*version[[:space:]]+string).*$$|\1 = "${DISTVERSIONPREFIX}${PORTVERSION}"|' \
-		-e 's|^([[:space:]]*commit[[:space:]]+string).*$$|\1 = "${:!${GH_COMMIT}!:[1]:C/(.{7}).*/\1/}"|' \
-		-e 's|^([[:space:]]*built[[:space:]]+string).*$$|\1 = "${%FT%TZ:L:gmtime}"|' \
-	${WRKSRC}/main.go
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+	-X 'main.version=${DISTVERSIONPREFIX}${PORTVERSION}' \
+	-X 'main.commit=$$(${GIT_COMMIT})' \
+	-X 'main.built=${%FT%TZ:L:gmtime}'"
+
+post-post-extract: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
