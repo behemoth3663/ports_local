@@ -1,5 +1,5 @@
 PORTNAME=	zek
-PORTVERSION=	0.1.18
+PORTVERSION=	0.1.21
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local textproc
@@ -19,7 +19,7 @@ GH_ACCOUNT=	miku
 
 PLIST_FILES=	bin/${PORTNAME}
 
-fetch-version: .PHONY get-version
+post-post-extract: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
