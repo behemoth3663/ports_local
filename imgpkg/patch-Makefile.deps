@@ -1,0 +1,54 @@
+--- Makefile.deps.orig	2023-08-03 16:14:19 UTC
++++ Makefile.deps
+@@ -9,12 +9,12 @@ GH_TUPLE=	\
+ 		Azure:go-autorest:tracing/v0.6.0:azure_go_autorest_tracing \
+ 		Azure:go-autorest:v14.2.0:azure_go_autorest/vendor/github.com/Azure/go-autorest \
+ 		VividCortex:ewma:v1.2.0:vividcortex_ewma/vendor/github.com/VividCortex/ewma \
+-		aws:aws-sdk-go-v2:v1.2.1:aws_aws_sdk_go_v2_presigned_url/vendor/github.com/aws/aws-sdk-go-v2 \
+-		aws:aws-sdk-go-v2:v1.3.0:aws_aws_sdk_go_v2_imds \
++		aws:aws-sdk-go-v2:v1.7.1:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
++		aws:aws-sdk-go-v2:v1.8.1:aws_aws_sdk_go_v2_imds \
+ 		aws:aws-sdk-go-v2:v1.3.1:aws_aws_sdk_go_v2_credentials \
+-		aws:aws-sdk-go-v2:v1.5.0:aws_aws_sdk_go_v2_config \
++		aws:aws-sdk-go-v2:v1.8.1:aws_aws_sdk_go_v2_config \
+ 		aws:aws-sdk-go-v2:v1.6.0:aws_aws_sdk_go_v2_sts \
+-		aws:aws-sdk-go-v2:v1.7.1:aws_aws_sdk_go_v2 \
++		aws:aws-sdk-go-v2:v1.2.1:aws_aws_sdk_go_v2_presigned_url \
+ 		aws:smithy-go:v1.6.0:aws_smithy_go/vendor/github.com/aws/smithy-go \
+ 		awslabs:amazon-ecr-credential-helper:e6f29200ae04:awslabs_amazon_ecr_credential_helper_ecr_login/vendor/github.com/awslabs/amazon-ecr-credential-helper \
+ 		cheggaaa:pb:v3.1.2:cheggaaa_pb_v3/vendor/github.com/cheggaaa/pb \
+@@ -68,20 +68,6 @@ GH_TUPLE=	\
+ 		vbatts:tar-split:v0.11.2:vbatts_tar_split/vendor/github.com/vbatts/tar-split \
+ 		vito:go-interact:v1.0.1:vito_go_interact/vendor/github.com/vito/go-interact
+ 
+-		# Errors found during processing:
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-
+ post-extract:
+ 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
+ 	@${RLN} ${WRKSRC_azure_go_autorest_autorest}/autorest ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
+@@ -97,7 +83,6 @@ post-extract:
+ 	@${RLN} ${WRKSRC_azure_go_autorest_logger}/logger ${WRKSRC}/vendor/github.com/Azure/go-autorest/logger
+ 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/tracing
+ 	@${RLN} ${WRKSRC_azure_go_autorest_tracing}/tracing ${WRKSRC}/vendor/github.com/Azure/go-autorest/tracing
+-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2} ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2
+ 	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/config
+ 	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_config}/config ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/config
+ 	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/credentials
+@@ -106,3 +91,5 @@ post-extract:
+ 	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_imds}/feature/ec2/imds ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds
+ 	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sts
+ 	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_sts}/service/sts ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sts
++	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url
++	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_presigned_url}/service/internal/presigned-url ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url

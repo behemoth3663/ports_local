@@ -1,0 +1,4 @@
+imgpkg (pronounced: "image package") is a tool that allows users to store
+a set of arbitrary files as an OCI image. One of the driving use cases is to 
+store Kubernetes configuration (plain YAML, ytt templates, Helm templates,
+etc.) in OCI registry as an image.
