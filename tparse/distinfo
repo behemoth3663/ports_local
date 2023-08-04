@@ -1,6 +1,6 @@
-TIMESTAMP = 1685890358
-SHA256 (mfridman-tparse-v0.12.2_GH0.tar.gz) = 40c9af45e79e2a6f5ece589debf0742a113848162cd28d1d136534005316d6cf
-SIZE (mfridman-tparse-v0.12.2_GH0.tar.gz) = 227310
+TIMESTAMP = 1691180611
+SHA256 (mfridman-tparse-v0.13.1_GH0.tar.gz) = 7a21da2f13ba5130175181f8d25d00671c54804afbb141744c8a94e1cb8b081b
+SIZE (mfridman-tparse-v0.13.1_GH0.tar.gz) = 229670
 SHA256 (aymanbagabas-go-osc52-v2.0.1_GH0.tar.gz) = dad92f43db3cd17e7395db59533283b5888c2780fa1b2cb67344a9feaa3291e0
 SIZE (aymanbagabas-go-osc52-v2.0.1_GH0.tar.gz) = 5875
 SHA256 (charmbracelet-lipgloss-v0.7.1_GH0.tar.gz) = dc8b9eba491a4f41ed5af4e63c0d17dd293a7fdb1cec970832e73d9c593b959b

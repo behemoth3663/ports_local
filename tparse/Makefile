@@ -1,5 +1,5 @@
 PORTNAME=	tparse
-PORTVERSION=	0.12.2
+PORTVERSION=	0.13.1
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local textproc
@@ -18,9 +18,8 @@ GH_ACCOUNT=	mfridman
 
 PLIST_FILES=	bin/${PORTNAME}
 
-fetch-version: .PHONY get-version
+post-post-extract: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
-
 .include <bsd.port.mk>
