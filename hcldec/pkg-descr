@@ -1,0 +1,2 @@
+Command line tool that transforms HCL input into JSON output using a decoding
+specification given by the user.

@@ -1,10 +1,10 @@
-PORTNAME=	hclfmt
+PORTNAME=	hcldec
 PORTVERSION=	2.17.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
-COMMENT=	Format and prettify HCL files
+COMMENT=	Transforms HCL into JSON using decoding specification
 WWW=		https://github.com/${GH_ACCOUNT}/hcl
 
 LICENSE=	MPL20
