@@ -1,7 +1,7 @@
 PORTNAME=	oauth2-proxy
 PORTVERSION=	7.4.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	6
+PORTREVISION=	7
 CATEGORIES=	www
 
 MAINTAINER=	freebsd@rheinwolf.de
@@ -36,7 +36,8 @@ post-install: .PHONY
 	${MKDIR} ${STAGEDIR}${RUN_DIR}
 	${INSTALL_DATA} ${WRKSRC}/contrib/${PORTNAME}.cfg.example ${STAGEDIR}${PREFIX}/etc/${PORTNAME}.cfg.sample
 
+post-post-extract: .PHONY
+
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
-
 .include <bsd.port.mk>

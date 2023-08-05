@@ -1,7 +1,7 @@
 PORTNAME=	ddosify
 PORTVERSION=	1.0.5
 DISTVERSIONPREFIX=	v
-#ORTREVISION=	1
+PORTREVISION=	1
 CATEGORIES=	local benchmarks
 
 MAINTAINER=	none@freebsd.org
@@ -34,5 +34,4 @@ post-post-extract: .PHONY .SILENT
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
-
 .include <bsd.port.mk>

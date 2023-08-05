@@ -1,6 +1,6 @@
 PORTNAME=	qrcp
 PORTVERSION=	0.10.1
-#PORTREVISION=	1
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -15,22 +15,14 @@ USES=		go:modules
 USE_GITHUB=	yes
 GH_ACCOUNT=	claudiodangelis
 
-#hadn't worked
-#GO_BUILDFLAGS+=-ldflags="-s -w -extldflags '-static' \
-#		-X version.version=${PORTVERSION} \
-#		-X version.date=${%FT%TZ:L:gmtime}'"
+GO_BUILDFLAGS+=-ldflags="-s -w -extldflags '-static' \
+	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.version=${PORTVERSION} \
+	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.date=${%FT%TZ:L:gmtime}'"
 
 PLIST_FILES=	bin/${PORTNAME}
 
-fetch-version: .PHONY get-version
-
-post-patch: .PHONY
-	${REINPLACE_CMD} -r \
-		-e 's|^([[:space:]]*version[[:space:]]*=[[:space:]]*).*|\1"${PORTVERSION}"|' \
-		-e 's|^([[:space:]]*date[[:space:]]*=[[:space:]]*).*|\1"${%FT%TZ:L:gmtime}"|' \
-	${WRKSRC}/version/version.go
+post-post-extract: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
-
 .include <bsd.port.mk>
