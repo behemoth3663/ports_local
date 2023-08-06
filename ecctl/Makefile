@@ -1,11 +1,11 @@
 PORTNAME=	ecctl
-PORTVERSION=	1.9.0
+PORTVERSION=	1.10.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
-COMMENT=	The official ESS and ECE command line interface
+COMMENT=	Official ESS and ECE command line interface
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	APACHE20
@@ -34,5 +34,4 @@ post-post-extract: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
-
 .include <bsd.port.mk>
