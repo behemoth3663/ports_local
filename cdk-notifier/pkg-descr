@@ -1,0 +1,3 @@
+Lightweight CLI tool to parse a CDK log file and post changes to pull request
+requests. Can be used to get more confidence on approving pull requests
+because reviewer will be aware of changes done to your environments.
