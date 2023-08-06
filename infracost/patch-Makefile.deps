@@ -11,7 +11,7 @@
  		gookit:color:v1.5.3:gookit_color/vendor/github.com/gookit/color \
  		gorilla:websocket:v1.4.2:gorilla_websocket/vendor/github.com/gorilla/websocket \
  		goware:prefixer:395022866408:goware_prefixer/vendor/github.com/goware/prefixer \
-@@ -217,94 +217,14 @@ GH_TUPLE=	\
+@@ -218,94 +218,14 @@ GH_TUPLE=	\
  		zclconf:go-cty-yaml:v1.0.3:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
  		zclconf:go-cty:v1.12.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
  

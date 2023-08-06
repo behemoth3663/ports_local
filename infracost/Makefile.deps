@@ -135,7 +135,7 @@ GH_TUPLE=	\
 		iancoleman:orderedmap:v0.2.0:iancoleman_orderedmap/vendor/github.com/iancoleman/orderedmap \
 		imdario:mergo:v0.3.13:imdario_mergo/vendor/github.com/imdario/mergo \
 		inconshreveable:mousetrap:v1.0.1:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
-		infracost:terragrunt:f27e16c7e6bd:infracost_terragrunt/vendor/github.com/gruntwork-io/terragrunt \
+		infracost:terragrunt:60d6b19823f5:infracost_terragrunt/vendor/github.com/gruntwork-io/terragrunt \
 		jbenet:go-context:d14ea06fba99:jbenet_go_context/vendor/github.com/jbenet/go-context \
 		jessevdk:go-flags:v1.5.0:jessevdk_go_flags/vendor/github.com/jessevdk/go-flags \
 		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
@@ -171,6 +171,7 @@ GH_TUPLE=	\
 		pierrec:lz4:v2.6.1:pierrec_lz4/vendor/github.com/pierrec/lz4 \
 		pkg:browser:0426ae3fba23:pkg_browser/vendor/github.com/pkg/browser \
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
+		pkg:profile:v1.2.1:pkg_profile/vendor/github.com/pkg/profile \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		protocolbuffers:protobuf-go:v1.29.1:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		pterm:pterm:v0.12.62:pterm_pterm/vendor/github.com/pterm/pterm \
