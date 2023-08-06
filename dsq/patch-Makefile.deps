@@ -1,0 +1,82 @@
+--- Makefile.deps.orig	2023-08-06 18:02:59 UTC
++++ Makefile.deps
+@@ -41,6 +41,7 @@ GH_TUPLE=	\
+ 		golang:sys:v0.1.0:golang_sys/vendor/golang.org/x/sys \
+ 		golang:text:v0.4.0:golang_text/vendor/golang.org/x/text \
+ 		golang:xerrors:04be3eba64a2:golang_xerrors/vendor/golang.org/x/xerrors \
++		gonum:gonum:v0.9.2:gonum_gonum/vendor/github.com/gonum/gonum \
+ 		google:flatbuffers:v22.9.29:google_flatbuffers/vendor/github.com/google/flatbuffers \
+ 		google:go-cmp:v0.5.9:google_go_cmp/vendor/github.com/google/go-cmp \
+ 		google:go-genproto:63c7b68cfc55:google_go_genproto/vendor/google.golang.org/genproto \
+@@ -50,8 +51,8 @@ GH_TUPLE=	\
+ 		googleapis:google-api-go-client:v0.100.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+ 		googleapis:google-cloud-go:bigquery/v1.42.0:googleapis_google_cloud_go_bigquery \
+ 		googleapis:google-cloud-go:compute/v1.10.0:googleapis_google_cloud_go_compute \
+-		googleapis:google-cloud-go:v0.104.0:googleapis_google_cloud_go \
+-		googleapis:google-cloud-go:v0.5.0:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go \
++		googleapis:google-cloud-go:v0.104.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
++		googleapis:google-cloud-go:iam/v0.5.0:googleapis_google_cloud_go_iam \
+ 		grpc:grpc-go:v1.50.1:grpc_grpc_go/vendor/google.golang.org/grpc \
+ 		hailocab:go-hostpool:e80d13ce29ed:hailocab_go_hostpool/vendor/github.com/hailocab/go-hostpool \
+ 		influxdata:influxdb-client-go:v2.11.0:influxdata_influxdb_client_go_v2/vendor/github.com/influxdata/influxdb-client-go/v2 \
+@@ -106,56 +107,13 @@ GH_TUPLE=	\
+ 		xuri:excelize:v2.6.1:xuri_excelize_v2/vendor/github.com/xuri/excelize/v2 \
+ 		xuri:nfp:5e722a1d9e22:xuri_nfp/vendor/github.com/xuri/nfp
+ 
+-		# Errors found during processing:
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	tuple.discoverMirrors https://gonum.org/v1/gonum?go-get=1: status 404
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-
+ post-extract:
+ 	@${RLN} ${WRKSRC_googleapis_google_cloud_go} ${WRKSRC}/vendor/cloud.google.com/go
+ 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/bigquery
+ 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_bigquery}/bigquery ${WRKSRC}/vendor/cloud.google.com/go/bigquery
+ 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute
+ 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute}/compute ${WRKSRC}/vendor/cloud.google.com/go/compute
++	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/iam
++	@${RLN} ${WRKSRC_googleapis_google_cloud_go_iam}/iam ${WRKSRC}/vendor/cloud.google.com/go/iam
++	@${MKDIR} ${WRKSRC}/vendor/gonum.org/v1
++	@${RLN} ${WRKSRC_gonum_gonum} ${WRKSRC}/vendor/gonum.org/v1/gonum 

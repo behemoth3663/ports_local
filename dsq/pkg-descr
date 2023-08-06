@@ -1,0 +1,4 @@
+Commandline tool for running SQL queries against JSON, CSV, Excel, Parquet,
+and more. This is a CLI companion to DataStation (a GUI) for running SQL
+queries against data files. So if you want the GUI version of this, check out
+DataStation.
