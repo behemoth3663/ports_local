@@ -1,4 +1,2 @@
 This is a tool to convert from HCL to json, to make it easier for non-go
 applications and scripts to process HCL inputs (such as terraform config).
-
-WWW: https://github.com/tmccombs/hcl2json
