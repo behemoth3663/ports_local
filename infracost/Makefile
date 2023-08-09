@@ -1,7 +1,7 @@
 PORTNAME=	infracost
-PORTVERSION=	0.10.27
+PORTVERSION=	0.10.28
 DISTVERSIONPREFIX=	v
-#ORTREVISION=	1
+#PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -27,8 +27,15 @@ pre-post-extract: .PHONY
 		${LN} -s "$${src}" "$${src%%go-commons-*}gruntwork-cli-$${src##*go-commons-}"; \
 	done
 
-post-post-extract: .PHONY
+pre-deps: .PHONY .SILENT
+	${TAR} -C ${PATCHDIR} -cf ${.CURDIR}/${PORTNAME}.tar .
+	${RM} ${PATCHDIR}/*
+
+pre-deps-all: .PHONY
+post-deps-all: .PHONY
+	${TAR} -C ${PATCHDIR} -xf ${.CURDIR}/${PORTNAME}.tar
+	${RM} ${PATCH_COOKIE} ${.CURDIR}/${PORTNAME}.tar
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
