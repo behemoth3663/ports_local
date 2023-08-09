@@ -24,20 +24,20 @@ GH_TUPLE=	\
 		boombuler:barcode:6c824513bacc:boombuler_barcode/vendor/github.com/boombuler/barcode \
 		cenkalti:backoff:v3.2.2:cenkalti_backoff_v3/vendor/github.com/cenkalti/backoff/v3 \
 		census-instrumentation:opencensus-go:v0.23.0:census_instrumentation_opencensus_go/vendor/go.opencensus.io \
-		cpuguy83:go-md2man:v2.0.0:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
+		cpuguy83:go-md2man:v2.0.2:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
 		creack:pty:v1.1.11:creack_pty/vendor/github.com/creack/pty \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		dimchansky:utfbom:v1.1.1:dimchansky_utfbom/vendor/github.com/dimchansky/utfbom \
 		fatih:color:v1.13.0:fatih_color/vendor/github.com/fatih/color \
 		fatih:structs:v1.1.0:fatih_structs/vendor/github.com/fatih/structs \
-		go-errors:errors:d98b870cc4e0:go_errors_errors/vendor/github.com/go-errors/errors \
+		go-errors:errors:v1.4.2:go_errors_errors/vendor/github.com/go-errors/errors \
 		go-ini:ini:v1.66.4:go_ini_ini/vendor/gopkg.in/ini.v1 \
 		go-sql-driver:mysql:v1.5.0:go_sql_driver_mysql/vendor/github.com/go-sql-driver/mysql \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
 		golang-jwt:jwt:v4.3.0:golang_jwt_jwt_v4/vendor/github.com/golang-jwt/jwt/v4 \
 		golang:appengine:v1.6.7:golang_appengine/vendor/google.golang.org/appengine \
 		golang:crypto:v0.5.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:exp:a9213eeb770e:golang_exp/vendor/golang.org/x/exp \
+		golang:exp:f9659909a136:golang_exp/vendor/golang.org/x/exp \
 		golang:groupcache:41bb18bfe9da:golang_groupcache/vendor/github.com/golang/groupcache \
 		golang:net:v0.7.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.1.0:golang_oauth2/vendor/golang.org/x/oauth2 \
@@ -52,7 +52,7 @@ GH_TUPLE=	\
 		google:go-cmp:v0.5.9:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-genproto:527a21cfbd71:google_go_genproto/vendor/google.golang.org/genproto \
 		google:go-github:v35.3.0:google_go_github_v35/vendor/github.com/google/go-github/v35 \
-		google:go-querystring:v1.0.0:google_go_querystring/vendor/github.com/google/go-querystring \
+		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
 		google:shlex:e7afc7fbc510:google_shlex/vendor/github.com/google/shlex \
 		google:uuid:v1.3.0:google_uuid/vendor/github.com/google/uuid \
 		googleapis:enterprise-certificate-proxy:v0.2.0:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
@@ -63,8 +63,9 @@ GH_TUPLE=	\
 		googleapis:google-cloud-go:v0.104.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
 		goware:prefixer:395022866408:goware_prefixer/vendor/github.com/goware/prefixer \
 		grpc:grpc-go:v1.51.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+		gruntwork-io:go-commons:v0.16.2:gruntwork_io_go_commons/vendor/github.com/gruntwork-io/go-commons \
 		gruntwork-io:gruntwork-cli:v0.7.0:gruntwork_io_gruntwork_cli/vendor/github.com/gruntwork-io/gruntwork-cli \
-		gruntwork-io:terratest:v0.32.6:gruntwork_io_terratest/vendor/github.com/gruntwork-io/terratest \
+		gruntwork-io:terratest:v0.41.0:gruntwork_io_terratest/vendor/github.com/gruntwork-io/terratest \
 		hashicorp:errwrap:v1.1.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
 		hashicorp:go-getter:v1.7.0:hashicorp_go_getter/vendor/github.com/hashicorp/go-getter \
@@ -102,7 +103,7 @@ GH_TUPLE=	\
 		lib:pq:v1.10.5:lib_pq/vendor/github.com/lib/pq \
 		mattn:go-colorable:v0.1.13:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
 		mattn:go-isatty:v0.0.16:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
-		mattn:go-zglob:e3c945676326:mattn_go_zglob/vendor/github.com/mattn/go-zglob \
+		mattn:go-zglob:v0.0.3:mattn_go_zglob/vendor/github.com/mattn/go-zglob \
 		mitchellh:copystructure:v1.2.0:mitchellh_copystructure/vendor/github.com/mitchellh/copystructure \
 		mitchellh:go-homedir:v1.1.0:mitchellh_go_homedir/vendor/github.com/mitchellh/go-homedir \
 		mitchellh:go-testing-interface:v1.14.1:mitchellh_go_testing_interface/vendor/github.com/mitchellh/go-testing-interface \
@@ -119,24 +120,24 @@ GH_TUPLE=	\
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		pquerna:otp:468c2dd2b58d:pquerna_otp/vendor/github.com/pquerna/otp \
 		protocolbuffers:protobuf-go:v1.28.1:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
-		russross:blackfriday:v2.0.1:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
+		russross:blackfriday:v2.1.0:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
 		ryanuber:go-glob:v1.0.0:ryanuber_go_glob/vendor/github.com/ryanuber/go-glob \
-		shurcooL:sanitized_anchor_name:v1.0.0:shurcool_sanitized_anchor_name/vendor/github.com/shurcooL/sanitized_anchor_name \
 		sirupsen:logrus:v1.8.1:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
 		sourcegraph:go-lsp:219e11d77f5d:sourcegraph_go_lsp/vendor/github.com/sourcegraph/go-lsp \
 		sourcegraph:jsonrpc2:v0.1.0:sourcegraph_jsonrpc2/vendor/github.com/sourcegraph/jsonrpc2 \
 		spf13:afero:v1.9.3:spf13_afero/vendor/github.com/spf13/afero \
 		square:go-jose:v2.6.0:square_go_jose/vendor/gopkg.in/square/go-jose.v2 \
-		stretchr:testify:v1.7.2:stretchr_testify/vendor/github.com/stretchr/testify \
+		stretchr:testify:v1.8.0:stretchr_testify/vendor/github.com/stretchr/testify \
 		terraform-linters:tflint-plugin-sdk:v0.15.0:terraform_linters_tflint_plugin_sdk/vendor/github.com/terraform-linters/tflint-plugin-sdk \
 		terraform-linters:tflint-ruleset-terraform:v0.2.2:terraform_linters_tflint_ruleset_terraform/vendor/github.com/terraform-linters/tflint-ruleset-terraform \
 		terraform-linters:tflint:v0.44.1:terraform_linters_tflint/vendor/github.com/terraform-linters/tflint \
 		uber-go:atomic:v1.9.0:uber_go_atomic/vendor/go.uber.org/atomic \
 		ulikunitz:xz:v0.5.10:ulikunitz_xz/vendor/github.com/ulikunitz/xz \
-		urfave:cli:v1.20.0:urfave_cli_1/vendor/gopkg.in/urfave/cli.v1 \
-		urfave:cli:v1.22.3:urfave_cli/vendor/github.com/urfave/cli \
+		urfave:cli:v1.20.0:urfave_cli/vendor/gopkg.in/urfave/cli.v1 \
+		urfave:cli:v2.25.5:urfave_cli_v2/vendor/github.com/urfave/cli/v2 \
 		vmihailenco:msgpack:v4.3.12:vmihailenco_msgpack_v4/vendor/github.com/vmihailenco/msgpack/v4 \
 		vmihailenco:tagparser:v0.1.1:vmihailenco_tagparser/vendor/github.com/vmihailenco/tagparser \
+		xrash:smetrics:039620a65673:xrash_smetrics/vendor/github.com/xrash/smetrics \
 		zclconf:go-cty-yaml:v1.0.3:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
 		zclconf:go-cty:v1.12.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 

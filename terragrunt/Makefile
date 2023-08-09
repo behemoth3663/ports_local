@@ -1,6 +1,6 @@
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.48.6
+DISTVERSION=	0.48.7
 CATEGORIES=	local sysutils
 
 MAINTAINER=	0xdutra@gmail.com
@@ -10,7 +10,7 @@ WWW=		https://terragrunt.gruntwork.io/
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
-USES=	go:modules
+USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	gruntwork-io
@@ -25,9 +25,10 @@ pre-post-extract: .PHONY
 		${LN} -s "$${src}" "$${src%%go-commons-*}gruntwork-cli-$${src##*go-commons-}"; \
 	done
 
-post-post-extract: .PHONY
+pre-deps: .PHONY
+pre-deps-all: .PHONY
+post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
-
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
