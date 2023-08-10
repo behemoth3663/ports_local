@@ -1,4 +1,4 @@
---- Makefile.deps.orig	2023-08-03 16:14:19 UTC
+--- Makefile.deps.orig	2023-08-10 16:51:40 UTC
 +++ Makefile.deps
 @@ -9,12 +9,12 @@ GH_TUPLE=	\
  		Azure:go-autorest:tracing/v0.6.0:azure_go_autorest_tracing \
@@ -18,7 +18,7 @@
  		awslabs:amazon-ecr-credential-helper:e6f29200ae04:awslabs_amazon_ecr_credential_helper_ecr_login/vendor/github.com/awslabs/amazon-ecr-credential-helper \
  		cheggaaa:pb:v3.1.2:cheggaaa_pb_v3/vendor/github.com/cheggaaa/pb \
 @@ -68,20 +68,6 @@ GH_TUPLE=	\
- 		vbatts:tar-split:v0.11.2:vbatts_tar_split/vendor/github.com/vbatts/tar-split \
+ 		vbatts:tar-split:v0.11.3:vbatts_tar_split/vendor/github.com/vbatts/tar-split \
  		vito:go-interact:v1.0.1:vito_go_interact/vendor/github.com/vito/go-interact
  
 -		# Errors found during processing:
