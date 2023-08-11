@@ -9,7 +9,7 @@ GH_TUPLE=	\
 		containerd:cgroups:v1.1.0:containerd_cgroups/vendor/github.com/containerd/cgroups \
 		containerd:containerd:v1.7.2:containerd_containerd/vendor/github.com/containerd/containerd \
 		containerd:stargz-snapshotter:v0.14.3:containerd_stargz_snapshotter_estargz/vendor/github.com/containerd/stargz-snapshotter \
-		containers:common:v0.55.2:containers_common/vendor/github.com/containers/common \
+		containers:common:v0.55.3:containers_common/vendor/github.com/containers/common \
 		containers:image:v5.26.1:containers_image_v5/vendor/github.com/containers/image/v5 \
 		containers:libtrust:c1716e8a8d01:containers_libtrust/vendor/github.com/containers/libtrust \
 		containers:ocicrypt:v1.1.7:containers_ocicrypt/vendor/github.com/containers/ocicrypt \

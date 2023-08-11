@@ -1,5 +1,5 @@
 PORTNAME=	skopeo
-PORTVERSION=	1.13.1
+PORTVERSION=	1.13.2
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -18,11 +18,8 @@ GH_ACCOUNT=	containers
 
 PLIST_FILES=	bin/${PORTNAME}
 
-fetch-version: .PHONY get-version
-
-post-post-extract: .PHONY
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
-
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
