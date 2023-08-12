@@ -1,6 +1,6 @@
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.48.7
+DISTVERSION=	0.49.1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	0xdutra@gmail.com
@@ -15,7 +15,8 @@ USES=		go:modules
 USE_GITHUB=	yes
 GH_ACCOUNT=	gruntwork-io
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -X main.VERSION=${DISTVERSIONPREFIX}${PORTVERSION}"
+GO_BUILDFLAGS+=	-ldflags="-s -w  -extldflags '-static' \
+	-X 'github.com/${GH_ACCOUNT}/go-commons/version.Version=${DISTVERSIONPREFIX}${PORTVERSION}'"
 
 PLIST_FILES=	bin/${PORTNAME}
 
@@ -25,9 +26,7 @@ pre-post-extract: .PHONY
 		${LN} -s "$${src}" "$${src%%go-commons-*}gruntwork-cli-$${src##*go-commons-}"; \
 	done
 
-pre-deps: .PHONY
-pre-deps-all: .PHONY
-post-deps-all: .PHONY
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
