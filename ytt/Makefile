@@ -1,5 +1,5 @@
 PORTNAME=	ytt
-PORTVERSION=	0.45.3
+PORTVERSION=	0.45.4
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local textproc
 
@@ -19,9 +19,11 @@ GO_TARGET=	./cmd/${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME}
 
-fetch-version: .PHONY get-version
+GO_BUILDFLAGS+=	-ldflags="-s -w  -extldflags '-static' \
+	-X 'github.com/vmware-tanzu/carvel-ytt/pkg/version.Version=${PORTVERSION}'"
+
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
-
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
