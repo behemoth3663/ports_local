@@ -4,9 +4,9 @@
  file ..\*\\.lsm$ LSM\sFile
  include lsm.syntax
  
--file .\*(bash(_completion|rc)|profile|\\.(sh|bash(rc|_(completion|profile|log(in|out)|aliases|exports|history))|profile|zlog(in|out)|zprofile|zsh(env|rc)))$ Shell\sScript ^#!\s\*/(.\*/|usr/bin/env\s)([a-z]?|ba|pdk)sh
+-file .\*(bash(_completion|rc)|profile|\\.(sh|bash(rc|_(completion|profile|log(in|out)|aliases|exports|history))|profile|zlog(in|out)|zprofile|zsh(env|rc)?))$ Shell\sScript ^#!\s\*/(.\*/|usr/bin/env\s)([a-z]?|ba|pdk)sh
 -include sh.syntax
-+#file .\*(bash(_completion|rc)|profile|\\.(sh|bash(rc|_(completion|profile|log(in|out)|aliases|exports|history))|profile|zlog(in|out)|zprofile|zsh(env|rc)))$ Shell\sScript ^#!\s\*/(.\*/|usr/bin/env\s)([a-z]?|ba|pdk)sh
++#file .\*(bash(_completion|rc)|profile|\\.(sh|bash(rc|_(completion|profile|log(in|out)|aliases|exports|history))|profile|zlog(in|out)|zprofile|zsh(env|rc)?))$ Shell\sScript ^#!\s\*/(.\*/|usr/bin/env\s)([a-z]?|ba|pdk)sh
 +#include sh.syntax
  
  # Since openrc scripts have no extension "by definition", use an empty pattern
@@ -30,12 +30,17 @@
  
  file ..\*\\.(l|y|yxx|ypp)$ Lex/Flex/Yacc/Bison\ssource
  include yxx.syntax
-@@ -345,5 +345,8 @@ include privoxy.syntax
+@@ -345,8 +345,11 @@ include privoxy.syntax
  file .\*\\.toml$ TOML\sFile
  include toml.syntax
  
+-file .\*\\.(mch|ref|imp)$ B\sFile
+-include b.syntax
 +file ..\*\\.(tf|tfvars|hcl)$ Terraform\sFile
 +include tf.syntax
+ 
++#file .\*\\.(mch|ref|imp)$ B\sFile
++#include sh.syntax
 +
  file .\* unknown
 -include unknown.syntax
