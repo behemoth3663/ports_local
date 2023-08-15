@@ -1,0 +1,11 @@
+TIMESTAMP = 1692086733
+SHA256 (FiloSottile-age-v1.1.1_GH0.tar.gz) = f1f3dbade631976701cd295aa89308681318d73118f5673cced13f127a91178c
+SIZE (FiloSottile-age-v1.1.1_GH0.tar.gz) = 204281
+SHA256 (FiloSottile-edwards25519-v1.0.0_GH0.tar.gz) = 05d9c82855140397e949e13aac20194c5dd17d2c9a3e6887765bf4e7c46e1c39
+SIZE (FiloSottile-edwards25519-v1.0.0_GH0.tar.gz) = 39883
+SHA256 (golang-crypto-v0.4.0_GH0.tar.gz) = 173d2ced255ce3b52fd6ad17903ea3a037161b243dd70d874c7534c8362c6108
+SIZE (golang-crypto-v0.4.0_GH0.tar.gz) = 1633454
+SHA256 (golang-sys-v0.3.0_GH0.tar.gz) = e0b14604be069f1ceb6958f8539c49d37f7033bcd03c59e3482164f4be0973f8
+SIZE (golang-sys-v0.3.0_GH0.tar.gz) = 1410672
+SHA256 (golang-term-v0.3.0_GH0.tar.gz) = cb06278319dc6a091453ce9fda106579cbbde8fc2522573912e0f405a2440352
+SIZE (golang-term-v0.3.0_GH0.tar.gz) = 14796

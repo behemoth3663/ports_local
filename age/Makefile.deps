@@ -1,0 +1,5 @@
+GH_TUPLE=	\
+		FiloSottile:edwards25519:v1.0.0:filosottile_edwards25519/vendor/filippo.io/edwards25519 \
+		golang:crypto:v0.4.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:sys:v0.3.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.3.0:golang_term/vendor/golang.org/x/term
