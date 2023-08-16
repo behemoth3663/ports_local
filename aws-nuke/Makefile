@@ -1,5 +1,5 @@
 PORTNAME=	aws-nuke
-PORTVERSION=	2.23.0
+PORTVERSION=	2.24.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -25,19 +25,16 @@ GIT_COMMIT=	git ls-remote \
 		${SED} -rn 's/(.{7}).*/\1/p'
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/cmd.BuildVersion=${DISTVERSIONPREFIX}${PORTVERSION}' \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/cmd.BuildVersion=${PORTVERSION}' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/cmd.BuildDate=${%FT%TZ:L:gmtime}' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/cmd.BuildHash=$$(${GIT_COMMIT})' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/cmd.BuildEnvironment='"
 
-post-patch: .PHONY
-.if ${.TARGETS:Mgomod-vendor}
+pre-deps: .PHONY
 	@cd ${WRKSRC} && ${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} generate ./...
-.endif
 
-post-post-extract: .PHONY
+pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
-
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>

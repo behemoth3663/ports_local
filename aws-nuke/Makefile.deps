@@ -1,5 +1,5 @@
 GH_TUPLE=	\
-		aws:aws-sdk-go:v1.44.285:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		aws:aws-sdk-go:v1.44.323:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		fatih:color:v1.15.0:fatih_color/vendor/github.com/fatih/color \
 		gemnasium:logrus-graylog-hook:v3.1.0:gemnasium_logrus_graylog_hook_v3/vendor/github.com/gemnasium/logrus-graylog-hook/v3 \

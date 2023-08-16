@@ -1,8 +1,8 @@
-TIMESTAMP = 1687384396
-SHA256 (rebuy-de-aws-nuke-v2.23.0_GH0.tar.gz) = 159ac5350f6c5540e59c3a171523782e4f901d2c80bebdd6903895cd602f79c5
-SIZE (rebuy-de-aws-nuke-v2.23.0_GH0.tar.gz) = 130564
-SHA256 (aws-aws-sdk-go-v1.44.285_GH0.tar.gz) = 924b28b861e5967ed3ccb216c24adcd22d47c202bfaa92151470c14e6d49625e
-SIZE (aws-aws-sdk-go-v1.44.285_GH0.tar.gz) = 28644687
+TIMESTAMP = 1692168571
+SHA256 (rebuy-de-aws-nuke-v2.24.0_GH0.tar.gz) = 8c5af4749ef493a1ddf531959a43e123cf04ff4090084487135aab16c799c182
+SIZE (rebuy-de-aws-nuke-v2.24.0_GH0.tar.gz) = 132722
+SHA256 (aws-aws-sdk-go-v1.44.323_GH0.tar.gz) = e3f7434c18df6038fa0e57f90de8579e0ca01a504de9ee6a5ba2483e418f8144
+SIZE (aws-aws-sdk-go-v1.44.323_GH0.tar.gz) = 29190628
 SHA256 (davecgh-go-spew-v1.1.1_GH0.tar.gz) = 7d82b9bb7291adbe7498fe946920ab3e7fc9e6cbfc3b2294693fad00bf0dd17e
 SIZE (davecgh-go-spew-v1.1.1_GH0.tar.gz) = 42152
 SHA256 (fatih-color-v1.15.0_GH0.tar.gz) = e7a92edb32453c11aec9fac4d9f2b8fc42fac72249a7ca567c926a112534030e
