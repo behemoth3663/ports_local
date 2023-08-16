@@ -1,5 +1,5 @@
 PORTNAME=	aws-iam-authenticator
-PORTVERSION=	0.6.11
+PORTVERSION=	0.6.12
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local security
@@ -36,7 +36,8 @@ _OPTIONS_extract=	750:post-post-extract
 post-post-extract: .PHONY
 	@test -d ${WRKSRC}/vendor/github.com && ${LN} -s ${WRKSRC}/src/github.com/${GH_ACCOUNT} ${WRKSRC}/vendor/github.com/ || :
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
+pre-deps pre-deps-all post-deps-all: .PHONY
 
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
