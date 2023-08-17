@@ -44,7 +44,7 @@ GH_TUPLE=	\
 		golang:protobuf:v1.5.3:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:snappy:v0.0.4:golang_snappy/vendor/github.com/golang/snappy \
 		golang:sync:v0.3.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.9.0:golang_sys/vendor/golang.org/x/sys \
+		golang:sys:v0.11.0:golang_sys/vendor/golang.org/x/sys \
 		golang:term:v0.9.0:golang_term/vendor/golang.org/x/term \
 		golang:text:v0.10.0:golang_text/vendor/golang.org/x/text \
 		golang:time:0e9765cccd65:golang_time/vendor/golang.org/x/time \
@@ -123,7 +123,7 @@ GH_TUPLE=	\
 		protocolbuffers:protobuf-go:v1.30.0:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		russross:blackfriday:v2.1.0:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
 		ryanuber:go-glob:v1.0.0:ryanuber_go_glob/vendor/github.com/ryanuber/go-glob \
-		sirupsen:logrus:v1.8.1:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
+		sirupsen:logrus:v1.9.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
 		sourcegraph:go-lsp:219e11d77f5d:sourcegraph_go_lsp/vendor/github.com/sourcegraph/go-lsp \
 		sourcegraph:jsonrpc2:v0.2.0:sourcegraph_jsonrpc2/vendor/github.com/sourcegraph/jsonrpc2 \
 		spf13:afero:v1.9.5:spf13_afero/vendor/github.com/spf13/afero \
