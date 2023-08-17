@@ -1,5 +1,5 @@
 PORTNAME=	gosec
-PORTVERSION=	2.16.0
+PORTVERSION=	2.17.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local devel security
 
@@ -32,9 +32,8 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 	-X 'main.GitTag=$$(${GIT_COMMIT})' \
 	-X 'main.BuildDate=${%F %T:L:gmtime}'"
 
-post-post-extract: .PHONY
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
-
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>

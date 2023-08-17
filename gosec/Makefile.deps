@@ -1,21 +1,21 @@
 GH_TUPLE=	\
+		ccojocar:zxcvbn-go:v1.0.1:ccojocar_zxcvbn_go/vendor/github.com/ccojocar/zxcvbn-go \
 		go-logr:logr:v1.2.4:go_logr_logr/vendor/github.com/go-logr/logr \
 		go-task:slim-sprig:52ccab3ef572:go_task_slim_sprig/vendor/github.com/go-task/slim-sprig \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
-		golang:crypto:v0.9.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.12.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:lint:6edffad5e616:golang_lint/vendor/golang.org/x/lint \
-		golang:mod:v0.10.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.10.0:golang_net/vendor/golang.org/x/net \
-		golang:sys:v0.8.0:golang_sys/vendor/golang.org/x/sys \
-		golang:text:v0.9.0:golang_text/vendor/golang.org/x/text \
-		golang:tools:v0.9.1:golang_tools/vendor/golang.org/x/tools \
+		golang:mod:v0.12.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.14.0:golang_net/vendor/golang.org/x/net \
+		golang:sys:v0.11.0:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.12.0:golang_text/vendor/golang.org/x/text \
+		golang:tools:v0.12.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.5.9:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:pprof:94a9f03dee38:google_pprof/vendor/github.com/google/pprof \
 		google:uuid:v1.3.0:google_uuid/vendor/github.com/google/uuid \
-		gookit:color:v1.5.3:gookit_color/vendor/github.com/gookit/color \
+		gookit:color:v1.5.4:gookit_color/vendor/github.com/gookit/color \
 		lib:pq:v1.10.9:lib_pq/vendor/github.com/lib/pq \
 		mozilla:tls-observatory:7bc42856d2e5:mozilla_tls_observatory/vendor/github.com/mozilla/tls-observatory \
-		nbutton23:zxcvbn-go:fa2cb2858354:nbutton23_zxcvbn_go/vendor/github.com/nbutton23/zxcvbn-go \
-		onsi:ginkgo:v2.9.4:onsi_ginkgo_v2/vendor/github.com/onsi/ginkgo/v2 \
-		onsi:gomega:v1.27.6:onsi_gomega/vendor/github.com/onsi/gomega \
+		onsi:ginkgo:v2.11.0:onsi_ginkgo_v2/vendor/github.com/onsi/ginkgo/v2 \
+		onsi:gomega:v1.27.10:onsi_gomega/vendor/github.com/onsi/gomega \
 		xo:terminfo:ca9a967f8778:xo_terminfo/vendor/github.com/xo/terminfo
