@@ -4,22 +4,22 @@ GH_TUPLE=	\
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		dlclark:regexp2:v1.10.0:dlclark_regexp2/vendor/github.com/dlclark/regexp2 \
 		etcd-io:bbolt:v1.3.7:etcd_io_bbolt/vendor/go.etcd.io/bbolt \
-		go-chi:chi:v5.0.8:go_chi_chi_v5/vendor/github.com/go-chi/chi/v5 \
+		go-chi:chi:v5.0.10:go_chi_chi_v5/vendor/github.com/go-chi/chi/v5 \
 		go-chi:cors:v1.2.1:go_chi_cors/vendor/github.com/go-chi/cors \
-		go-chi:render:v1.0.2:go_chi_render/vendor/github.com/go-chi/render \
+		go-chi:render:v1.0.3:go_chi_render/vendor/github.com/go-chi/render \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
 		gofrs:uuid:v5.0.0:gofrs_uuid_v5/vendor/github.com/gofrs/uuid/v5 \
-		golang:crypto:v0.10.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.12.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:bbda1eaf7a17:golang_exp/vendor/golang.org/x/exp \
 		golang:mod:v0.8.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.11.0:golang_net/vendor/golang.org/x/net \
+		golang:net:v0.14.0:golang_net/vendor/golang.org/x/net \
 		golang:sync:v0.3.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.9.0:golang_sys/vendor/golang.org/x/sys \
-		golang:text:v0.10.0:golang_text/vendor/golang.org/x/text \
+		golang:sys:v0.11.0:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.12.0:golang_text/vendor/golang.org/x/text \
 		golang:tools:v0.6.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.5.9:google_go_cmp/vendor/github.com/google/go-cmp \
 		gorilla:websocket:v1.5.0:gorilla_websocket/vendor/github.com/gorilla/websocket \
-		insomniacslk:dhcp:b20c9ba983df:insomniacslk_dhcp/vendor/github.com/insomniacslk/dhcp \
+		insomniacslk:dhcp:b3ca2534940d:insomniacslk_dhcp/vendor/github.com/insomniacslk/dhcp \
 		josharian:native:v1.1.0:josharian_native/vendor/github.com/josharian/native \
 		kr:text:v0.2.0:kr_text/vendor/github.com/kr/text \
 		mdlayher:netlink:v1.7.2:mdlayher_netlink/vendor/github.com/mdlayher/netlink \
@@ -34,6 +34,6 @@ GH_TUPLE=	\
 		stretchr:testify:v1.8.4:stretchr_testify/vendor/github.com/stretchr/testify \
 		u-root:uio:ffce2a382923:u_root_uio/vendor/github.com/u-root/uio \
 		uber-go:atomic:v1.11.0:uber_go_atomic/vendor/go.uber.org/atomic \
-		uber-go:automaxprocs:v1.5.2:uber_go_automaxprocs/vendor/go.uber.org/automaxprocs \
+		uber-go:automaxprocs:v1.5.3:uber_go_automaxprocs/vendor/go.uber.org/automaxprocs \
 		vishvananda:netlink:55c8b9515a01:vishvananda_netlink/vendor/github.com/vishvananda/netlink \
 		vishvananda:netns:db3c7e526aae:vishvananda_netns/vendor/github.com/vishvananda/netns
