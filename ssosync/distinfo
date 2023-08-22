@@ -1,6 +1,6 @@
-TIMESTAMP = 1690490340
-SHA256 (awslabs-ssosync-v2.0.2_GH0.tar.gz) = 01b4d00d664b377f7e0a59c1c5cc6f6d251d0b3ff91b125650721ffe37cf40d6
-SIZE (awslabs-ssosync-v2.0.2_GH0.tar.gz) = 78776
+TIMESTAMP = 1692737318
+SHA256 (awslabs-ssosync-v2.0.3_GH0.tar.gz) = 7aa798ed3d1d4b5142bf5fe456f6a8d3dfe60fa48ba24de0d7ef29f43fbe693d
+SIZE (awslabs-ssosync-v2.0.3_GH0.tar.gz) = 78972
 SHA256 (BurntSushi-toml-v1.0.0_GH0.tar.gz) = 7f2c8a91ddaed4455c889baf526a5c0a57f9574676513d546b9f0499eae9b0c8
 SIZE (BurntSushi-toml-v1.0.0_GH0.tar.gz) = 90415
 SHA256 (aws-aws-lambda-go-v1.23.0_GH0.tar.gz) = 4776ab2608e5614a0f93461ecf723e3d707d98059838510bb0625a65b73b93e2

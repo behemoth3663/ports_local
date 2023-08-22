@@ -1,5 +1,5 @@
 PORTNAME=	ssosync
-PORTVERSION=	2.0.2
+PORTVERSION=	2.0.3
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -11,6 +11,8 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
+BUILD_DEPENDS=	git:devel/git
+
 USES=		go:modules
 
 USE_GITHUB=	yes
@@ -18,11 +20,19 @@ GH_ACCOUNT=	awslabs
 
 PLIST_FILES=	bin/${PORTNAME}
 
-fetch-version: .PHONY get-version
+GIT_COMMIT=	git ls-remote \
+		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
+		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
+		${SED} -rn 's/(.{7}).*/\1/p'
 
-post-post-extract: .PHONY
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.version=${DISTVERSIONPREFIX}${PORTVERSION}' \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.commit=$$(${GIT_COMMIT})' \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.date=${%FT%TZ:L:gmtime}' \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.builtBy=FreeBSD'"
+
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
-
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
