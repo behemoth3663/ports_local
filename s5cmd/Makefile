@@ -1,7 +1,7 @@
 PORTNAME=	s5cmd
-PORTVERSION=	2.1.0
+PORTVERSION=	2.2.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+#PORTREVISION=	1
 CATEGORIES=	local net
 
 MAINTAINER=	none@freebsd.org
@@ -10,6 +10,8 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
+
+BUILD_DEPENDS=	git:devel/git
 
 USES=		go:modules
 
@@ -20,11 +22,17 @@ GH_ACCOUNT=	peak
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=${DISTVERSIONPREFIX}${PORTVERSION}'"
+GIT_COMMIT=	git ls-remote \
+		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
+		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
+		${SED} -rn 's/(.{7}).*/\1/p'
 
-post-post-extract: .PHONY
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/version.Version=${DISTVERSIONPREFIX}${PORTVERSION}' \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/version.GitCommit=$$(${GIT_COMMIT})'"
+
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
-
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
