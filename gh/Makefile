@@ -1,5 +1,5 @@
 PORTNAME=	gh
-PORTVERSION=	2.32.1
+PORTVERSION=	2.33.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -47,9 +47,8 @@ post-install-MANPAGES-on:
 	${INSTALL_MAN} ${WRKSRC}/docs/man/*.1 \
 		${STAGEDIR}${MAN1PREFIX}/man/man1
 
-post-post-extract: .PHONY
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
-
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
