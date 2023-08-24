@@ -1,0 +1,3 @@
+Takes a Terraform state file as input and destroys all resources it finds in
+it - without needing any *.tf files. This works currently only for resources
+of the Terraform AWS Provider.
