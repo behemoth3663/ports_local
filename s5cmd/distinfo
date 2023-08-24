@@ -1,6 +1,6 @@
-TIMESTAMP = 1692691478
-SHA256 (peak-s5cmd-v2.2.0_GH0.tar.gz) = 1884052843f45045a6f24cff03a32253991b5839e2f7ae5dcaaa1060f2e1756f
-SIZE (peak-s5cmd-v2.2.0_GH0.tar.gz) = 3074382
+TIMESTAMP = 1692869546
+SHA256 (peak-s5cmd-v2.2.1_GH0.tar.gz) = a9c057b577106117202619b99fc1f5d0b65fe4d43f41de59c4a4820e5f9379a9
+SIZE (peak-s5cmd-v2.2.1_GH0.tar.gz) = 3074394
 SHA256 (VividCortex-ewma-v1.2.0_GH0.tar.gz) = 2f26521a9207b91dfbca3d28e5545bc11cb098888ecf3e9ba8e5936387b06a33
 SIZE (VividCortex-ewma-v1.2.0_GH0.tar.gz) = 6683
 SHA256 (aws-aws-sdk-go-v1.44.256_GH0.tar.gz) = d61af6db6bde068cb00280914502ce717f1442f6b3824f2eb1a1a92562708698
