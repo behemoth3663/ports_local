@@ -1,0 +1,52 @@
+--- Makefile.deps.orig	2023-08-24 09:41:15 UTC
++++ Makefile.deps
+@@ -38,49 +38,3 @@ GH_TUPLE=	\
+ 		yudai:golcs:ecda9a501e82:yudai_golcs/vendor/github.com/yudai/golcs \
+ 		yudai:pp:v2.0.1:yudai_pp/vendor/github.com/yudai/pp \
+ 		zclconf:go-cty:v1.13.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+-
+-		# Errors found during processing:
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-

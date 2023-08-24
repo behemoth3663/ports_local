@@ -1,0 +1,3 @@
+Pike is a tool to determine the minimum permissions required to run a
+Terraform/IaC run. Pike currently supports Terraform and supports multiple
+providers (AWS, GCP, AZURE).
