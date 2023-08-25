@@ -9,14 +9,15 @@ GH_TUPLE=	\
 		containerd:cgroups:v1.1.0:containerd_cgroups/vendor/github.com/containerd/cgroups \
 		containerd:containerd:v1.7.2:containerd_containerd/vendor/github.com/containerd/containerd \
 		containerd:stargz-snapshotter:v0.14.3:containerd_stargz_snapshotter_estargz/vendor/github.com/containerd/stargz-snapshotter \
-		containers:common:v0.55.3:containers_common/vendor/github.com/containers/common \
-		containers:image:v5.26.1:containers_image_v5/vendor/github.com/containers/image/v5 \
+		containers:common:v0.55.4:containers_common/vendor/github.com/containers/common \
+		containers:image:v5.26.2:containers_image_v5/vendor/github.com/containers/image/v5 \
 		containers:libtrust:c1716e8a8d01:containers_libtrust/vendor/github.com/containers/libtrust \
 		containers:ocicrypt:v1.1.7:containers_ocicrypt/vendor/github.com/containers/ocicrypt \
-		containers:storage:v1.48.0:containers_storage/vendor/github.com/containers/storage \
+		containers:storage:v1.48.1:containers_storage/vendor/github.com/containers/storage \
 		coreos:go-oidc:v3.6.0:coreos_go_oidc_v3/vendor/github.com/coreos/go-oidc/v3 \
 		cyberphone:json-canonicalization:504adb8a8af1:cyberphone_json_canonicalization/vendor/github.com/cyberphone/json-canonicalization \
 		cyphar:filepath-securejoin:v0.2.3:cyphar_filepath_securejoin/vendor/github.com/cyphar/filepath-securejoin \
+		darccio:mergo:v1.0.0:darccio_mergo/vendor/dario.cat/mergo \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		docker:distribution:v2.8.2:docker_distribution/vendor/github.com/docker/distribution \
 		docker:go-connections:v0.4.0:docker_go_connections/vendor/github.com/docker/go-connections \
@@ -63,7 +64,6 @@ GH_TUPLE=	\
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
 		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
 		hashicorp:go-retryablehttp:v0.7.4:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
-		imdario:mergo:v1.0.0:imdario_mergo/vendor/dario.cat/mergo \
 		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
 		josharian:intern:v1.0.0:josharian_intern/vendor/github.com/josharian/intern \
 		json-iterator:go:v1.1.12:json_iterator_go/vendor/github.com/json-iterator/go \
