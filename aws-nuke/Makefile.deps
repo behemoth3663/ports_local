@@ -1,5 +1,5 @@
 GH_TUPLE=	\
-		aws:aws-sdk-go:v1.44.323:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		aws:aws-sdk-go:v1.44.328:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		fatih:color:v1.15.0:fatih_color/vendor/github.com/fatih/color \
 		gemnasium:logrus-graylog-hook:v3.1.0:gemnasium_logrus_graylog_hook_v3/vendor/github.com/gemnasium/logrus-graylog-hook/v3 \
@@ -10,7 +10,7 @@ GH_TUPLE=	\
 		golang:sync:v0.3.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.6.0:golang_sys/vendor/golang.org/x/sys \
 		golang:tools:v0.7.0:golang_tools/vendor/golang.org/x/tools \
-		google:uuid:v1.3.0:google_uuid/vendor/github.com/google/uuid \
+		google:uuid:v1.3.1:google_uuid/vendor/github.com/google/uuid \
 		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
 		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
 		kr:text:v0.2.0:kr_text/vendor/github.com/kr/text \
