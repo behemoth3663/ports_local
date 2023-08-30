@@ -16,10 +16,22 @@ USES=		go:modules
 USE_GITHUB=	yes
 GH_ACCOUNT=	mfridman
 
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+	-X 'main.version=${DISTVERSIONPREFIX}${PORTVERSION}'"
+
 PLIST_FILES=	bin/${PORTNAME}
 
-post-post-extract: .PHONY
+#Does not work:
+#	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/main.version=${PORTVERSION}'
+#	-X 'main.version=${DISTVERSIONPREFIX}${PORTVERSION}'
+#version = "(devel)"
+post-patch: .PHONY
+	${REINPLACE_CMD} -r \
+		-e 's|^([[:space:]]*version[[:space:]]*=[[:space:]]*)".*"[[:space:]]*$$|\1"${PORTVERSION}"|' \
+	${WRKSRC}/main.go
+
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
