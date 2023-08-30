@@ -8,8 +8,8 @@ GH_TUPLE=	\
 		go-openapi:jsonreference:v0.19.6:go_openapi_jsonreference/vendor/github.com/go-openapi/jsonreference \
 		go-openapi:spec:v0.20.4:go_openapi_spec/vendor/github.com/go-openapi/spec \
 		go-openapi:swag:v0.19.15:go_openapi_swag/vendor/github.com/go-openapi/swag \
-		go-yaml:yaml:eeeca48fe776:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
+		go-yaml:yaml:v3.0.0:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
 		golang:net:v0.8.0:golang_net/vendor/golang.org/x/net \
 		golang:sys:v0.6.0:golang_sys/vendor/golang.org/x/sys \
 		golang:text:v0.8.0:golang_text/vendor/golang.org/x/text \
