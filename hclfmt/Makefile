@@ -1,5 +1,5 @@
 PORTNAME=	hclfmt
-PORTVERSION=	2.17.0
+PORTVERSION=	2.18.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local textproc
 
@@ -28,6 +28,8 @@ post-post-extract: .PHONY
 	${REINPLACE_CMD} -r \
 		-e 's|^([[:space:]]*const[[:space:]]+versionStr[[:space:]]*=[[:space:]]*)".*"[[:space:]]*$$|\1"${PORTVERSION}"|' \
 	${WRKSRC}/${GO_TARGET}/main.go
+
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
