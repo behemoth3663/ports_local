@@ -64,7 +64,7 @@ GH_TUPLE=	\
 		googleapis:google-cloud-go:compute/metadata/v0.2.3:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata \
 		goware:prefixer:395022866408:goware_prefixer/vendor/github.com/goware/prefixer \
 		grpc:grpc-go:v1.55.0:grpc_grpc_go/vendor/google.golang.org/grpc \
-		gruntwork-io:go-commons:v0.16.2:gruntwork_io_go_commons/vendor/github.com/gruntwork-io/go-commons \
+		gruntwork-io:go-commons:v0.17.1:gruntwork_io_go_commons/vendor/github.com/gruntwork-io/go-commons \
 		gruntwork-io:gruntwork-cli:v0.7.0:gruntwork_io_gruntwork_cli/vendor/github.com/gruntwork-io/gruntwork-cli \
 		gruntwork-io:terratest:v0.41.0:gruntwork_io_terratest/vendor/github.com/gruntwork-io/terratest \
 		hashicorp:errwrap:v1.1.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
