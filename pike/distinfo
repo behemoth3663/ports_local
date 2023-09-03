@@ -1,6 +1,6 @@
-TIMESTAMP = 1693417196
-SHA256 (jamesWoolfenden-pike-v0.2.85_GH0.tar.gz) = fcc3817a35da47a8d5ec4a6284ffc538a8e3afb0b8431049fd1ed9a142d7349d
-SIZE (jamesWoolfenden-pike-v0.2.85_GH0.tar.gz) = 287485
+TIMESTAMP = 1693753411
+SHA256 (jamesWoolfenden-pike-v0.2.86_GH0.tar.gz) = 39c1ecefb981223c88a8be671a4739c2774d65ffc86d76017fbbe2f481ae0bc1
+SIZE (jamesWoolfenden-pike-v0.2.86_GH0.tar.gz) = 289349
 SHA256 (ProtonMail-go-crypto-5aa5874ade95_GH0.tar.gz) = 0a39257c4c126603311ee2090609446a8bf8536c40420d51f80fa79b57503186
 SIZE (ProtonMail-go-crypto-5aa5874ade95_GH0.tar.gz) = 333554
 SHA256 (agext-levenshtein-v1.2.3_GH0.tar.gz) = ba59a69fcaea38ec40470cac08620dd2cca1980355d9b10e90e37b3b3ac2eb46
