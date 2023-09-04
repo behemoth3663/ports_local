@@ -1,0 +1,16 @@
+--- Makefile.deps.orig	2023-09-04 19:45:44 UTC
++++ Makefile.deps
+@@ -34,11 +34,11 @@ GH_TUPLE=	\
+ 		google:go-cmp:v0.5.9:google_go_cmp/vendor/github.com/google/go-cmp \
+ 		google:go-genproto:7f2fa6fef1f4:google_go_genproto/vendor/google.golang.org/genproto \
+ 		google:uuid:v1.3.0:google_uuid/vendor/github.com/google/uuid \
+-		googleapis:enterprise-certificate-proxy:v0.2.3:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
++		googleapis:enterprise-certificate-proxy:v0.2.4:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
+ 		googleapis:gax-go:v2.7.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
+ 		googleapis:google-api-go-client:v0.111.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+ 		googleapis:google-cloud-go:compute/v1.18.0:googleapis_google_cloud_go_compute/vendor/cloud.google.com/go \
+-		googleapis:google-cloud-go:v0.2.3:googleapis_google_cloud_go/vendor/cloud.google.com/go/compute/metadata \
++		googleapis:google-cloud-go:compute/metadata/v0.2.3:googleapis_google_cloud_go/vendor/cloud.google.com/go/compute/metadata \
+ 		gorilla:mux:v1.8.0:gorilla_mux/vendor/github.com/gorilla/mux \
+ 		grpc:grpc-go:v1.53.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+ 		hashicorp:hcl:v1.0.0:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
