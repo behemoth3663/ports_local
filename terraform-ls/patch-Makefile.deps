@@ -1,4 +1,4 @@
---- Makefile.deps.orig	2023-08-01 20:16:52 UTC
+--- Makefile.deps.orig	2023-09-04 18:30:51 UTC
 +++ Makefile.deps
 @@ -12,7 +12,7 @@ GH_TUPLE=	\
  		bgentry:speakeasy:v0.1.0:bgentry_speakeasy/vendor/github.com/bgentry/speakeasy \
@@ -7,16 +7,16 @@
 -		chigopher:pathlib:v1.0.0:chigopher_pathlib/vendor/github.com/chigopher/pathlib \
 +		chigopher:pathlib:v0.15.0:chigopher_pathlib/vendor/github.com/chigopher/pathlib \
  		cloudflare:circl:v1.3.3:cloudflare_circl/vendor/github.com/cloudflare/circl \
- 		creachadair:jrpc2:v1.1.0:creachadair_jrpc2/vendor/github.com/creachadair/jrpc2 \
- 		creachadair:mds:v0.0.1:creachadair_mds/vendor/github.com/creachadair/mds \
+ 		creachadair:jrpc2:v1.1.1:creachadair_jrpc2/vendor/github.com/creachadair/jrpc2 \
+ 		creachadair:mds:v0.1.0:creachadair_mds/vendor/github.com/creachadair/mds \
 @@ -43,6 +43,7 @@ GH_TUPLE=	\
  		hashicorp:go-memdb:v1.3.4:hashicorp_go_memdb/vendor/github.com/hashicorp/go-memdb \
  		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
  		hashicorp:go-uuid:v1.0.3:hashicorp_go_uuid/vendor/github.com/hashicorp/go-uuid \
 +		hashicorp:go-version:v1.6.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
  		hashicorp:golang-lru:v0.5.4:hashicorp_golang_lru/vendor/github.com/hashicorp/golang-lru \
- 		hashicorp:hc-install:v0.5.2:hashicorp_hc_install/vendor/github.com/hashicorp/hc-install \
- 		hashicorp:hcl-lang:23442190b6b7:hashicorp_hcl_lang/vendor/github.com/hashicorp/hcl-lang \
+ 		hashicorp:hc-install:v0.6.0:hashicorp_hc_install/vendor/github.com/hashicorp/hc-install \
+ 		hashicorp:hcl-lang:0ab4d92a142f:hashicorp_hcl_lang/vendor/github.com/hashicorp/hcl-lang \
 @@ -72,8 +73,7 @@ GH_TUPLE=	\
  		mitchellh:mapstructure:v1.5.0:mitchellh_mapstructure/vendor/github.com/mitchellh/mapstructure \
  		mitchellh:reflectwalk:v1.0.2:mitchellh_reflectwalk/vendor/github.com/mitchellh/reflectwalk \
@@ -28,9 +28,9 @@
  		otiai10:copy:v1.12.0:otiai10_copy/vendor/github.com/otiai10/copy \
  		pelletier:go-toml:v2.0.6:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
 @@ -94,7 +94,3 @@ GH_TUPLE=	\
- 		vektra:mockery:v2.32.0:vektra_mockery_v2/vendor/github.com/vektra/mockery/v2 \
+ 		vektra:mockery:v2.33.0:vektra_mockery_v2/vendor/github.com/vektra/mockery/v2 \
  		zclconf:go-cty-debug:b22d67c1ba0b:zclconf_go_cty_debug/vendor/github.com/zclconf/go-cty-debug \
- 		zclconf:go-cty:v1.13.2:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+ 		zclconf:go-cty:v1.14.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 -
 -post-extract:
 -	@${MKDIR} ${WRKSRC}/vendor/github.com/hashicorp

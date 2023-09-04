@@ -1,5 +1,5 @@
 PORTNAME=	terraform-ls
-PORTVERSION=	0.31.4
+PORTVERSION=	0.31.5
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local devel
 
@@ -19,9 +19,8 @@ PLIST_FILES=	bin/${PORTNAME}
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
 
-post-post-extract: .PHONY
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
-
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
