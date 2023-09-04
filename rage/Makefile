@@ -1,8 +1,8 @@
-#
-
 PORTNAME=	rage
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.7.1
+#DISTVERSION=	0.9.0
+#error: found a virtual manifest at `/usr/obj/usr/ports/local/rage/work/rage-0.9.0/Cargo.toml` instead of a package manifest
 CATEGORIES=	local security
 
 MAINTAINER=	none@freebsd.org
@@ -18,6 +18,7 @@ GH_ACCOUNT=	str4d
 fetch-version: .PHONY get-version
 
 #https://www.freebsd.org/doc/en_US.ISO8859-1/books/porters-handbook/building.html#using-cargo
+#rm -f Makefile.deps && make makesum
 #make makesum cargo-crates | grep -Ev '^=' >Makefile.deps
 #make makesum
 .-include "${.CURDIR}/Makefile.deps"

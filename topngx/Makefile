@@ -1,8 +1,6 @@
-#
-
 PORTNAME=	topngx
 #DISTVERSIONPREFIX=	v
-DISTVERSION=	0.3.1
+DISTVERSION=	0.4.0
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
