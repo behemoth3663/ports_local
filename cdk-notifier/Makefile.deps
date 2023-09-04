@@ -8,14 +8,14 @@ GH_TUPLE=	\
 		go-ini:ini:v1.67.0:go_ini_ini/vendor/gopkg.in/ini.v1 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
 		golang:appengine:v1.6.7:golang_appengine/vendor/google.golang.org/appengine \
-		golang:crypto:v0.10.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:net:v0.11.0:golang_net/vendor/golang.org/x/net \
-		golang:oauth2:v0.9.0:golang_oauth2/vendor/golang.org/x/oauth2 \
+		golang:crypto:v0.12.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:net:v0.14.0:golang_net/vendor/golang.org/x/net \
+		golang:oauth2:v0.11.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.3:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sys:v0.9.0:golang_sys/vendor/golang.org/x/sys \
-		golang:text:v0.10.0:golang_text/vendor/golang.org/x/text \
+		golang:sys:v0.11.0:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.12.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.3.0:golang_time/vendor/golang.org/x/time \
-		google:go-github:v53.0.0:google_go_github_v53/vendor/github.com/google/go-github/v53 \
+		google:go-github:v53.2.0:google_go_github_v53/vendor/github.com/google/go-github/v53 \
 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
 		hashicorp:go-retryablehttp:v0.7.2:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
@@ -26,7 +26,7 @@ GH_TUPLE=	\
 		niemeyer:pretty:a10e7caefd8e:niemeyer_pretty/vendor/github.com/niemeyer/pretty \
 		pelletier:go-toml:v2.0.8:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
-		protocolbuffers:protobuf-go:v1.30.0:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
+		protocolbuffers:protobuf-go:v1.31.0:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		quasilyte:go-ruleguard:dsl/v0.3.22:quasilyte_go_ruleguard_dsl/vendor/github.com/quasilyte/go-ruleguard \
 		sirupsen:logrus:v1.9.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
 		spf13:afero:v1.9.5:spf13_afero/vendor/github.com/spf13/afero \
@@ -37,4 +37,4 @@ GH_TUPLE=	\
 		spf13:viper:v1.16.0:spf13_viper/vendor/github.com/spf13/viper \
 		stretchr:testify:v1.8.4:stretchr_testify/vendor/github.com/stretchr/testify \
 		subosito:gotenv:v1.4.2:subosito_gotenv/vendor/github.com/subosito/gotenv \
-		xanzy:go-gitlab:v0.86.0:xanzy_go_gitlab/vendor/github.com/xanzy/go-gitlab
+		xanzy:go-gitlab:v0.90.0:xanzy_go_gitlab/vendor/github.com/xanzy/go-gitlab
