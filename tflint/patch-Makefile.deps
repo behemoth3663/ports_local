@@ -1,19 +1,19 @@
---- Makefile.deps.orig	2023-06-29 10:00:54 UTC
+--- Makefile.deps.orig	2023-09-04 09:22:31 UTC
 +++ Makefile.deps
-@@ -32,9 +32,9 @@ GH_TUPLE=	\
- 		googleapis:google-api-go-client:v0.110.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
- 		googleapis:google-cloud-go:compute/v1.18.0:googleapis_google_cloud_go_compute \
- 		googleapis:google-cloud-go:storage/v1.28.1:googleapis_google_cloud_go_storage \
--		googleapis:google-cloud-go:v0.110.0:googleapis_google_cloud_go \
--		googleapis:google-cloud-go:v0.12.0:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go \
+@@ -35,9 +35,9 @@ GH_TUPLE=	\
+ 		googleapis:google-api-go-client:v0.126.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+ 		googleapis:google-cloud-go:compute/v1.20.1:googleapis_google_cloud_go_compute \
+ 		googleapis:google-cloud-go:storage/v1.29.0:googleapis_google_cloud_go_storage \
+-		googleapis:google-cloud-go:v0.110.2:googleapis_google_cloud_go \
+-		googleapis:google-cloud-go:v0.13.0:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go \
 -		googleapis:google-cloud-go:v0.2.3:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata \
-+		googleapis:google-cloud-go:v0.110.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
-+		googleapis:google-cloud-go:iam/v0.12.0:googleapis_google_cloud_go_iam \
++		googleapis:google-cloud-go:v0.110.2:googleapis_google_cloud_go/vendor/cloud.google.com/go \
++		googleapis:google-cloud-go:iam/v0.13.0:googleapis_google_cloud_go_iam \
 +		googleapis:google-cloud-go:compute/metadata/v0.2.3:googleapis_google_cloud_go_compute_metadata \
- 		grpc:grpc-go:v1.55.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+ 		grpc:grpc-go:v1.57.0:grpc_grpc_go/vendor/google.golang.org/grpc \
  		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
  		hashicorp:go-getter:v1.7.1:hashicorp_go_getter/vendor/github.com/hashicorp/go-getter \
-@@ -79,8 +79,11 @@ GH_TUPLE=	\
+@@ -82,8 +82,11 @@ GH_TUPLE=	\
  		zclconf:go-cty:v1.13.2:zclconf_go_cty/vendor/github.com/zclconf/go-cty
  
  post-extract:

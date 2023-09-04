@@ -1,7 +1,7 @@
 # Created by: Gabriel M. Dutra <0xdutra@gmail.com>
 
 PORTNAME=	tflint
-PORTVERSION=	0.47.0
+PORTVERSION=	0.48.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -20,7 +20,8 @@ GH_ACCOUNT=	terraform-linters
 
 PLIST_FILES=	bin/${PORTNAME}
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
+pre-deps pre-deps-all post-deps-all: .PHONY
 
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>

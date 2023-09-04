@@ -1,6 +1,6 @@
-TIMESTAMP = 1692950086
-SHA256 (rebuy-de-aws-nuke-v2.24.2_GH0.tar.gz) = 09986d717de6007663bd3c522eb3c2c97acfc077998edbfb74533144cc5e32cc
-SIZE (rebuy-de-aws-nuke-v2.24.2_GH0.tar.gz) = 133219
+TIMESTAMP = 1693824311
+SHA256 (rebuy-de-aws-nuke-v2.25.0_GH0.tar.gz) = 8a557348f1f8775882b4818f0f2050430840cd71b6f0f052560700152e422d52
+SIZE (rebuy-de-aws-nuke-v2.25.0_GH0.tar.gz) = 137929
 SHA256 (aws-aws-sdk-go-v1.44.328_GH0.tar.gz) = 2c684bc5d746bb4c64d88b736c3cb3da56a83875dfa88dcd226c895e1725062a
 SIZE (aws-aws-sdk-go-v1.44.328_GH0.tar.gz) = 29222633
 SHA256 (davecgh-go-spew-v1.1.1_GH0.tar.gz) = 7d82b9bb7291adbe7498fe946920ab3e7fc9e6cbfc3b2294693fad00bf0dd17e
