@@ -1,0 +1,94 @@
+--- Makefile.deps.orig	2023-09-06 19:42:38 UTC
++++ Makefile.deps
+@@ -24,6 +24,7 @@ GH_TUPLE=	\
+ 		alecthomas:template:fb15b899a751:alecthomas_template/vendor/github.com/alecthomas/template \
+ 		alecthomas:units:b94a6e3cc137:alecthomas_units/vendor/github.com/alecthomas/units \
+ 		andybalholm:brotli:v1.0.5:andybalholm_brotli/vendor/github.com/andybalholm/brotli \
++		apache:arrow:go/v12.0.1:apache_arrow/vendor/github.com/apache/arrow/go/v12 \
+ 		apache:thrift:v0.16.0:apache_thrift/vendor/github.com/apache/thrift \
+ 		atotto:clipboard:v0.1.4:atotto_clipboard/vendor/github.com/atotto/clipboard \
+ 		aws:aws-sdk-go-v2:v1.14.0:aws_aws_sdk_go_v2_s3shared/vendor/github.com/aws/aws-sdk-go-v2 \
+@@ -63,6 +64,9 @@ GH_TUPLE=	\
+ 		dlclark:regexp2:v1.4.0:dlclark_regexp2/vendor/github.com/dlclark/regexp2 \
+ 		docker:cli:v23.0.5:docker_cli/vendor/github.com/docker/cli \
+ 		docker:distribution:v2.8.2:docker_distribution/vendor/github.com/docker/distribution \
++		docker:docker-credential-helpers:v0.8.0:docker_docker_credential_helpers/vendor/github.com/docker/docker-credential-helpers \
++		docker:go-connections:v0.4.0:docker_go_connections/vendor/github.com/docker/go-connections \
++		docker:go-units:v0.5.0:docker_go_units/vendor/github.com/docker/go-units \
+ 		dsnet:compress:v0.0.1:dsnet_compress/vendor/github.com/dsnet/compress \
+ 		dvsekhvalnov:jose2go:v1.5.0:dvsekhvalnov_jose2go/vendor/github.com/dvsekhvalnov/jose2go \
+ 		emirpasic:gods:v1.18.1:emirpasic_gods/vendor/github.com/emirpasic/gods \
+@@ -90,6 +94,7 @@ GH_TUPLE=	\
+ 		gobwas:glob:v0.2.3:gobwas_glob/vendor/github.com/gobwas/glob \
+ 		goccy:go-json:v0.10.0:goccy_go_json/vendor/github.com/goccy/go-json \
+ 		godbus:dbus:4481cbc300e2:godbus_dbus/vendor/github.com/godbus/dbus \
++		gogo:protobuf:v1.3.2:gogo_protobuf/vendor/github.com/gogo/protobuf \
+ 		golang-jwt:jwt:v3.2.2:golang_jwt_jwt/vendor/github.com/golang-jwt/jwt \
+ 		golang-jwt:jwt:v4.5.0:golang_jwt_jwt_v4/vendor/github.com/golang-jwt/jwt/v4 \
+ 		golang-sql:civil:cb61b32ac6fe:golang_sql_civil/vendor/github.com/golang-sql/civil \
+@@ -129,7 +134,7 @@ GH_TUPLE=	\
+ 		googleapis:google-cloud-go:secretmanager/v1.11.1:googleapis_google_cloud_go_secretmanager \
+ 		googleapis:google-cloud-go:storage/v1.31.0:googleapis_google_cloud_go_storage \
+ 		googleapis:google-cloud-go:v0.110.2:googleapis_google_cloud_go/vendor/cloud.google.com/go \
+-		googleapis:google-cloud-go:v0.2.3:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata \
++		googleapis:google-cloud-go:compute/metadata/v0.2.3:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata \
+ 		gorilla:css:v1.0.0:gorilla_css/vendor/github.com/gorilla/css \
+ 		gregjones:httpcache:2bcd89a1743f:gregjones_httpcache/vendor/github.com/gregjones/httpcache \
+ 		grpc:grpc-go:v1.56.2:grpc_grpc_go/vendor/google.golang.org/grpc \
+@@ -235,49 +240,6 @@ GH_TUPLE=	\
+ 		yusufpapurcu:wmi:v1.2.2:yusufpapurcu_wmi/vendor/github.com/yusufpapurcu/wmi \
+ 		zeebo:xxh3:v1.0.2:zeebo_xxh3/vendor/github.com/zeebo/xxh3
+ 
+-		# Errors found during processing:
+-		#	tag v12.0.1 doesn't seem to exist in apache/arrow
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-
+ post-extract:
+ 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute
+ 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute}/compute ${WRKSRC}/vendor/cloud.google.com/go/compute
+@@ -306,3 +268,6 @@ post-extract:
+ 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/tracing
+ 	@${RLN} ${WRKSRC_azure_go_autorest_tracing}/tracing ${WRKSRC}/vendor/github.com/Azure/go-autorest/tracing
+ 	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2} ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2
++	@${RLN} ${WRKSRC}/vendor/github.com/apache/arrow/go/v12/go/arrow ${WRKSRC}/vendor/github.com/apache/arrow/go/v12/arrow
++	@${RLN} ${WRKSRC}/vendor/github.com/apache/arrow/go/v12/go/internal ${WRKSRC}/vendor/github.com/apache/arrow/go/v12/internal
++	@${RLN} ${WRKSRC}/vendor/github.com/apache/arrow/go/v12/go/parquet ${WRKSRC}/vendor/github.com/apache/arrow/go/v12/parquet
