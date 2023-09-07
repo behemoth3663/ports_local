@@ -13,14 +13,14 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 RUN_DEPENDS=	zip:archivers/zip
 
-USES=		gmake gnome libtool perl5 pkgconfig shebangfix tar:xz
-SHEBANG_FILES=	${WRKSRC}/src/vfs/extfs/helpers/s3+.in \
-		${WRKSRC}/src/vfs/extfs/helpers/uc1541
-
 .if ${:!diff --version 2>/dev/null | grep -c GNU\ diffutils || :!} < 1
 EXTRA_PATCHES+=	${FILESDIR}/extra-patch-src_diffviewer_ydiff.c
 RUN_DEPENDS+=	gdiff:textproc/diffutils
 .endif
+
+USES=		gmake gnome libtool perl5 pkgconfig shebangfix tar:xz
+SHEBANG_FILES=	${WRKSRC}/src/vfs/extfs/helpers/s3+.in \
+		${WRKSRC}/src/vfs/extfs/helpers/uc1541
 
 USE_GNOME=	glib20
 GNU_CONFIGURE=	yes

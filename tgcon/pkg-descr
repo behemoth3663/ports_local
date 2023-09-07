@@ -1,0 +1,2 @@
+tgcon - tag as const.
+Generates struct field tag values as string constants.
