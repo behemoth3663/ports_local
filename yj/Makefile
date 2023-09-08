@@ -1,7 +1,7 @@
 PORTNAME=	yj
 PORTVERSION=	5.1.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	12
+PORTREVISION=	13
 CATEGORIES=	local converters
 
 MAINTAINER=	ehaupt@FreeBSD.org
@@ -22,8 +22,8 @@ PLIST_FILES=	bin/${PORTNAME}
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' -X 'main.Version=${PORTVERSION}'"
 
-post-post-extract: .PHONY .SILENT
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
