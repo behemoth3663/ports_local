@@ -1,7 +1,7 @@
 PORTNAME=	tfsec
-PORTVERSION=	1.28.1
+PORTVERSION=	1.28.2
 DISTVERSIONPREFIX=	v
-PORTREVISION=	8
+#PORTREVISION=	8
 CATEGORIES=	local security
 
 MAINTAINER=	nulldutra@proton.me
@@ -23,8 +23,8 @@ GO_BUILDFLAGS+=	-ldflags="-s -w \
 
 PLIST_FILES=	bin/${PORTNAME}
 
-post-post-extract: .PHONY .SILENT
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
