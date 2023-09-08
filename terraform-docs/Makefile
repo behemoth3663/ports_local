@@ -1,7 +1,7 @@
 PORTNAME=	terraform-docs
 PORTVERSION=	0.16.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	15
+PORTREVISION=	16
 CATEGORIES=	local sysutils textproc
 
 MAINTAINER=	0xdutra@gmail.com
@@ -18,8 +18,8 @@ GH_ACCOUNT=	terraform-docs
 
 PLIST_FILES=	bin/${PORTNAME}
 
-post-post-extract: .PHONY .SILENT
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
