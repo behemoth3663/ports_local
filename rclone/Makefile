@@ -1,7 +1,7 @@
 PORTNAME=	rclone
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.63.1
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	local net
 
 MAINTAINER=	brad@facefault.org
@@ -32,9 +32,10 @@ JQ_GETVER_EXPR=	.[0].name | gsub("[-a-z]"; "")
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/fs.VersionSuffix='"
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
+pre-deps pre-deps-all post-deps-all: .PHONY
 
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.pre.mk>
 
 .for account project tag subdir in ${_GITEA_TUPLE:S/:/ /g}

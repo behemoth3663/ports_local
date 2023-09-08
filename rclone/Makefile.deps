@@ -139,9 +139,6 @@ GH_TUPLE=	\
 		zeebo:blake3:v0.2.3:zeebo_blake3/vendor/github.com/zeebo/blake3 \
 		zeebo:errs:v1.3.0:zeebo_errs/vendor/github.com/zeebo/errs
 
-		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
-		#	::v1.0.0-rc1:group_name/vendor/goftp.io/server (from gitea.com/goftp/server@v1.0.0-rc1)
-
 post-extract:
 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/azidentity
 	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_azidentity}/sdk/azidentity ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/azidentity
