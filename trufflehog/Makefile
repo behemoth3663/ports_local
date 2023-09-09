@@ -1,5 +1,5 @@
 PORTNAME=	trufflehog
-PORTVERSION=	3.54.3
+PORTVERSION=	3.54.4
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -22,7 +22,7 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 
 _OPTIONS_extract=	600:pre-post-extract
 pre-post-extract: .PHONY .SILENT
-	${MV} ${WRKSRC_go_redis_redis:H}/go-${WRKSRC_go_redis_redis:T} ${WRKSRC_go_redis_redis}
+	test -z '${WRKSRC_go_redis_redis}' || ${MV} ${WRKSRC_go_redis_redis:H}/go-${WRKSRC_go_redis_redis:T} ${WRKSRC_go_redis_redis}
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
