@@ -1,5 +1,5 @@
 PORTNAME=	dumbproxy
-PORTVERSION=	1.10.0
+PORTVERSION=	1.11.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local net
@@ -18,11 +18,11 @@ GH_ACCOUNT=	Snawoot
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static -X 'main.version=${PORTVERSION}'"
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+	-X 'main.version=${PORTVERSION}'"
 
-fetch-version: .PHONY get-version
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
-
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
