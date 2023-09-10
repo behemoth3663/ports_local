@@ -1,7 +1,5 @@
-A simple, secure and modern encryption tool (and Rust library) with small 
-explicit keys, no config options, and UNIX-style composability.
-
-The format specification is at age-encryption.org/v1. age was designed by 
-@Benjojo12 and @FiloSottile.
-
-WWW: https://github.com/str4d/rage
+A simple, secure and modern encryption tool (and Rust library) with small
+explicit keys, no config options, and UNIX-style composability. The format
+specification is at age-encryption.org/v1. age was designed by @Benjojo12 and
+@FiloSottile. The reference interoperable Go implementation is available at
+filippo.io/age.
