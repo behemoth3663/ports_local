@@ -1,0 +1,46 @@
+--- Makefile.deps.orig	2023-09-10 11:21:30 UTC
++++ Makefile.deps
+@@ -95,9 +95,9 @@ GH_TUPLE=	\
+ 		googleapis:google-api-go-client:v0.101.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+ 		googleapis:google-cloud-go:compute/v1.12.1:googleapis_google_cloud_go_compute \
+ 		googleapis:google-cloud-go:storage/v1.27.0:googleapis_google_cloud_go_storage \
+-		googleapis:google-cloud-go:v0.1.1:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata \
+-		googleapis:google-cloud-go:v0.105.0:googleapis_google_cloud_go \
+-		googleapis:google-cloud-go:v0.6.0:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go \
++		googleapis:google-cloud-go:compute/metadata/v0.1.1:googleapis_google_cloud_go_compute_metadata \
++		googleapis:google-cloud-go:v0.105.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
++		googleapis:google-cloud-go:iam/v0.6.0:googleapis_google_cloud_go_iam \
+ 		grpc:grpc-go:v1.50.1:grpc_grpc_go/vendor/google.golang.org/grpc \
+ 		hako:durafmt:c0fb7b4da026:hako_durafmt/vendor/github.com/hako/durafmt \
+ 		hashicorp:aws-sdk-go-base:v0.7.1:hashicorp_aws_sdk_go_base/vendor/github.com/hashicorp/aws-sdk-go-base \
+@@ -107,8 +107,8 @@ GH_TUPLE=	\
+ 		hashicorp:go-checkpoint:1545e56e46de:hashicorp_go_checkpoint/vendor/github.com/hashicorp/go-checkpoint \
+ 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
+ 		hashicorp:go-cty-funcs:2721b1e36840:hashicorp_go_cty_funcs/vendor/github.com/hashicorp/go-cty-funcs \
+-		hashicorp:go-getter:v2.2.0:hashicorp_go_getter_v2/vendor/github.com/hashicorp/go-getter/gcs/v2 \
+-		hashicorp:go-getter:v2.2.0:hashicorp_go_getter_v2_1/vendor/github.com/hashicorp/go-getter/s3/v2 \
++		hashicorp:go-getter:gcs/v2.2.0:hashicorp_go_getter_v2 \
++		hashicorp:go-getter:s3/v2.2.0:hashicorp_go_getter_v2_1 \
+ 		hashicorp:go-getter:v2.2.0:hashicorp_go_getter_v2_2/vendor/github.com/hashicorp/go-getter/v2 \
+ 		hashicorp:go-hclog:v0.16.2:hashicorp_go_hclog/vendor/github.com/hashicorp/go-hclog \
+ 		hashicorp:go-immutable-radix:v1.3.1:hashicorp_go_immutable_radix/vendor/github.com/hashicorp/go-immutable-radix \
+@@ -202,11 +202,18 @@ GH_TUPLE=	\
+ 		zclconf:go-cty:v1.10.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+ 
+ post-extract:
+-	@${RLN} ${WRKSRC_googleapis_google_cloud_go} ${WRKSRC}/vendor/cloud.google.com/go
+ 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute
+ 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute}/compute ${WRKSRC}/vendor/cloud.google.com/go/compute
+ 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
+ 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go/storage
++	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute_metadata
++	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
++	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/iam
++	@${RLN} ${WRKSRC_googleapis_google_cloud_go_iam}/iam ${WRKSRC}/vendor/cloud.google.com/go/iam
++	@${MKDIR} ${WRKSRC}/vendor/github.com/hashicorp/go-getter/gcs
++	@${RLN} ${WRKSRC_hashicorp_go_getter_v2}/gcs ${WRKSRC}/vendor/github.com/hashicorp/go-getter/gcs/v2
++	@${MKDIR} ${WRKSRC}/vendor/github.com/hashicorp/go-getter/s3
++	@${RLN} ${WRKSRC_hashicorp_go_getter_v2_1}/s3 ${WRKSRC}/vendor/github.com/hashicorp/go-getter/s3/v2
+ 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
+ 	@${RLN} ${WRKSRC_azure_go_autorest_autorest}/autorest ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
+ 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/adal
