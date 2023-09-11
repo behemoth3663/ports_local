@@ -1,5 +1,5 @@
 PORTNAME=	phoneinfoga
-PORTVERSION=	2.10.7
+PORTVERSION=	2.10.8
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local
 
@@ -35,9 +35,10 @@ post-post-extract: .PHONY
 	${MKDIR} ${WRKSRC}/client/dist ${WRKSRC}/web/client/dist
 	${TOUCH} ${WRKSRC}/client/dist/empty.txt ${WRKSRC}/web/client/dist/empty.txt
 #	${RM} ${WRKSRC}/vendor/golang.org/x/tools/gopls/internal/regtest/misc/vendor_test.go
-	cd ${WRKSRC} &&	${GO_CMD} generate ./...
+	cd ${WRKSRC} &&	${GO_CMD} mod vendor &&	${GO_CMD} generate ./...
+
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
-
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
