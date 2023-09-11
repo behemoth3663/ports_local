@@ -1,4 +1,4 @@
---- cmd/tfsec/main.go.orig	2023-09-07 14:36:57 UTC
+--- cmd/tfsec/main.go.orig	2023-09-11 04:56:38 UTC
 +++ cmd/tfsec/main.go
 @@ -8,21 +8,7 @@ import (
  	"github.com/aquasecurity/tfsec/internal/app/tfsec/cmd"
@@ -18,7 +18,7 @@
 -`
 -
  func main() {
--	fmt.Print(transitionMsg)
+-	fmt.Fprint(os.Stderr, transitionMsg)
  	if err := cmd.Root().Execute(); err != nil {
  		if err.Error() != "" {
  			fmt.Printf("Error: %s\n", err)
