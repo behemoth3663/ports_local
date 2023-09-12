@@ -13,6 +13,7 @@ GH_TUPLE=	\
 		Azure:go-autorest:tracing/v0.6.0:azure_go_autorest_tracing \
 		Azure:go-autorest:v14.2.0:azure_go_autorest/vendor/github.com/Azure/go-autorest \
 		Azure:go-ntlmssp:754e69321358:azure_go_ntlmssp/vendor/github.com/Azure/go-ntlmssp \
+		AzureAD:microsoft-authentication-library-for-go:v0.5.1:azuread_microsoft_authentication_library_for_go/vendor/github.com/AzureAD/microsoft-authentication-library-for-go \
 		BobuSumisu:aho-corasick:v1.0.3:bobusumisu_aho_corasick/vendor/github.com/BobuSumisu/aho-corasick \
 		JohnCGriffin:overflow:46fa312c352c:johncgriffin_overflow/vendor/github.com/JohnCGriffin/overflow \
 		Microsoft:go-winio:v0.6.1:microsoft_go_winio/vendor/github.com/Microsoft/go-winio \
@@ -57,7 +58,6 @@ GH_TUPLE=	\
 		couchbase:gocbcore:v10.2.4:couchbase_gocbcore_v10/vendor/github.com/couchbase/gocbcore/v10 \
 		crewjam:rfc5424:v0.1.0:crewjam_rfc5424/vendor/github.com/crewjam/rfc5424 \
 		danieljoos:wincred:v1.1.2:danieljoos_wincred/vendor/github.com/danieljoos/wincred \
-		darccio:mergo:v1.0.0:darccio_mergo/vendor/dario.cat/mergo \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		denisenkom:go-mssqldb:v0.12.3:denisenkom_go_mssqldb/vendor/github.com/denisenkom/go-mssqldb \
 		dimchansky:utfbom:v1.1.1:dimchansky_utfbom/vendor/github.com/dimchansky/utfbom \
@@ -134,7 +134,7 @@ GH_TUPLE=	\
 		googleapis:google-cloud-go:secretmanager/v1.11.1:googleapis_google_cloud_go_secretmanager \
 		googleapis:google-cloud-go:storage/v1.31.0:googleapis_google_cloud_go_storage \
 		googleapis:google-cloud-go:v0.110.2:googleapis_google_cloud_go/vendor/cloud.google.com/go \
-		googleapis:google-cloud-go:compute/metadata/v0.2.3:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata \
+		googleapis:google-cloud-go:compute/metadata/v0.2.3:googleapis_google_cloud_go_compute_metadata \
 		gorilla:css:v1.0.0:gorilla_css/vendor/github.com/gorilla/css \
 		gregjones:httpcache:2bcd89a1743f:gregjones_httpcache/vendor/github.com/gregjones/httpcache \
 		grpc:grpc-go:v1.56.2:grpc_grpc_go/vendor/google.golang.org/grpc \
@@ -147,6 +147,7 @@ GH_TUPLE=	\
 		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
 		hashicorp:go-retryablehttp:v0.7.4:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
 		hashicorp:golang-lru:v0.5.1:hashicorp_golang_lru/vendor/github.com/hashicorp/golang-lru \
+		imdario:mergo:v1.0.0:imdario_mergo/vendor/dario.cat/mergo \
 		jbenet:go-context:d14ea06fba99:jbenet_go_context/vendor/github.com/jbenet/go-context \
 		jlaffaye:ftp:v0.2.0:jlaffaye_ftp/vendor/github.com/jlaffaye/ftp \
 		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
@@ -186,7 +187,7 @@ GH_TUPLE=	\
 		moby:moby:v0.7.0:moby_moby_1/vendor/github.com/docker/docker-credential-helpers \
 		moby:moby:v23.0.5:moby_moby/vendor/github.com/docker/docker \
 		mongodb:mongo-go-driver:v1.12.0:mongodb_mongo_go_driver/vendor/go.mongodb.org/mongo-driver \
-		montanaflynn:stats:1bf9dbcd8cbe:montanaflynn_stats/vendor/github.com/montanaflynn/stats \
+		montanaflynn:stats:v0.6.6:montanaflynn_stats/vendor/github.com/montanaflynn/stats \
 		mtibben:percent:v0.2.1:mtibben_percent/vendor/github.com/mtibben/percent \
 		muesli:ansi:c9f0611b6c70:muesli_ansi/vendor/github.com/muesli/ansi \
 		muesli:cancelreader:v0.2.2:muesli_cancelreader/vendor/github.com/muesli/cancelreader \
@@ -243,6 +244,8 @@ GH_TUPLE=	\
 post-extract:
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute}/compute ${WRKSRC}/vendor/cloud.google.com/go/compute
+	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
+	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/iam
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_iam}/iam ${WRKSRC}/vendor/cloud.google.com/go/iam
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/secretmanager
