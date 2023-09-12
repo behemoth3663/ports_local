@@ -1,6 +1,6 @@
 PORTNAME=	qrcp
 PORTVERSION=	0.10.1
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -21,8 +21,8 @@ GO_BUILDFLAGS+=-ldflags="-s -w -extldflags '-static' \
 
 PLIST_FILES=	bin/${PORTNAME}
 
-post-post-extract: .PHONY
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
