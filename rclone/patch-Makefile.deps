@@ -1,11 +1,20 @@
---- Makefile.deps.orig	2023-07-20 17:44:50 UTC
+--- Makefile.deps.orig	2023-12-22 15:46:26 UTC
 +++ Makefile.deps
-@@ -63,7 +63,7 @@ GH_TUPLE=	\
- 		googleapis:gax-go:v2.8.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
- 		googleapis:google-api-go-client:v0.115.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
- 		googleapis:google-cloud-go:compute/v1.19.0:googleapis_google_cloud_go_compute/vendor/cloud.google.com/go \
+@@ -80,7 +80,7 @@ GH_TUPLE=	\
+ 		golang:text:v0.13.0:golang_text/vendor/golang.org/x/text \
+ 		golang:time:v0.3.0:golang_time/vendor/golang.org/x/time \
+ 		golang:tools:v0.14.0:golang_tools/vendor/golang.org/x/tools \
+-		google:go-genproto:49dd2c1f3d0b:google_go_genproto/vendor/google.golang.org/genproto/googleapis/rpc \
++		google:go-genproto:49dd2c1f3d0b:google_go_genproto/vendor/google.golang.org/genproto \
+ 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
+ 		google:s2a-go:v0.1.7:google_s2a_go/vendor/github.com/google/s2a-go \
+ 		google:uuid:v1.4.0:google_uuid/vendor/github.com/google/uuid \
+@@ -88,7 +88,7 @@ GH_TUPLE=	\
+ 		googleapis:gax-go:v2.12.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
+ 		googleapis:google-api-go-client:v0.148.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+ 		googleapis:google-cloud-go:compute/v1.23.2:googleapis_google_cloud_go_compute/vendor/cloud.google.com/go \
 -		googleapis:google-cloud-go:v0.2.3:googleapis_google_cloud_go/vendor/cloud.google.com/go/compute/metadata \
 +		googleapis:google-cloud-go:compute/metadata/v0.2.3:googleapis_google_cloud_go/vendor/cloud.google.com/go/compute/metadata \
- 		grpc:grpc-go:v1.54.0:grpc_grpc_go/vendor/google.golang.org/grpc \
- 		hanwen:go-fuse:80c1c8221982:hanwen_go_fuse_v2/vendor/github.com/hanwen/go-fuse/v2 \
- 		hashicorp:errwrap:v1.0.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
+ 		grpc:grpc-go:v1.59.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+ 		hanwen:go-fuse:v2.4.0:hanwen_go_fuse_v2/vendor/github.com/hanwen/go-fuse/v2 \
+ 		hashicorp:errwrap:v1.1.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \

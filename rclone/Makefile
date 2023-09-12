@@ -1,15 +1,17 @@
 PORTNAME=	rclone
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.63.1
-PORTREVISION=	2
+DISTVERSION=	1.65.0
+#PORTREVISION=	2
 CATEGORIES=	local net
 
-MAINTAINER=	brad@facefault.org
+MAINTAINER=	tremere@cainites.net
 COMMENT=	Sync files to and from various cloud services
 WWW=		https://rclone.org/
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/COPYING
+
+RUN_DEPENDS=	ca_root_nss>=0:security/ca_root_nss
 
 USES=		go:modules
 USE_GITHUB=	yes
@@ -22,15 +24,26 @@ GH_ACCOUNT=	rclone
 #.if exists(${.CURDIR}/Makefile.deps)
 #_GITEA_TUPLE!=	sed -rn 's|^[[:space:]]*\#[^/]+/(.+)[[:space:]]+\(from[[:space:]]+[^/]+/([^/]+)/([^@]+)@([^)]+).*|\2:\3:\4:\1|p' ${.CURDIR}/Makefile.deps
 #.else
-_GITEA_TUPLE=	goftp:server:v0.4.1:vendor/goftp.io/server
+_GITEA_TUPLE=	goftp:server:v2.0.1:vendor/goftp.io/server/v2
 #.endif
 
-PLIST_FILES=	bin/rclone
+PLIST_FILES=	bin/rclone \
+		man/man1/rclone.1.gz
 
 JQ_GETVER_EXPR=	.[0].name | gsub("[-a-z]"; "")
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/fs.VersionSuffix='"
+
+OPTIONS_DEFINE=	CMOUNT
+
+CMOUNT_DESC=	Enable cmount command (depends on fusefs-libs)
+
+CMOUNT_LIB_DEPENDS=	libfuse.so:sysutils/fusefs-libs
+CMOUNT_VARS=		GO_BUILDFLAGS+="-tags cmount"
+
+post-install:
+	${INSTALL_MAN} ${WRKSRC}/rclone.1 ${STAGEDIR}${MANPREFIX}/man/man1
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
