@@ -1,7 +1,5 @@
-#
-
 PORTNAME=	terraform
-PORTVERSION=	1.4.6
+PORTVERSION=	1.4.7
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX?=	-${PORTVERSION:R}
@@ -46,5 +44,7 @@ GH_TUPLE:=	${GH_TUPLE:S|v1.1.0:grpc_grpc_go_1|cmd%2Fprotoc-gen-go-grpc%2Fv1.1.0:
 
 pre-extract: .PHONY
 	@test -n '${WRKSRC_grpc_grpc_go_1}' && ${LN} -s ${WRKDIR}/grpc-go-cmd-protoc-gen-go-grpc-v1.1.0 ${WRKSRC_grpc_grpc_go_1} || :
+
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include <bsd.port.mk>
