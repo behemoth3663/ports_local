@@ -1,7 +1,5 @@
-#
-
 PORTNAME=	terraform
-PORTVERSION=	1.3.9
+PORTVERSION=	1.3.10
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX?=	-${PORTVERSION:R}
@@ -38,5 +36,7 @@ pre-extract: .PHONY
 .if "${.TARGET}" != "deps"
 	${LN} -s ${WRKDIR}/grpc-go-cmd-protoc-gen-go-grpc-v1.1.0 ${WRKSRC_grpc_grpc_go_1}
 .endif
+
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include <bsd.port.mk>
