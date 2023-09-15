@@ -1,6 +1,6 @@
-TIMESTAMP = 1694764254
-SHA256 (trufflesecurity-trufflehog-v3.56.0_GH0.tar.gz) = 5e655832b225e7bd067d919b7f881de97c0a7b3d00be87fc9fa340def97b569f
-SIZE (trufflesecurity-trufflehog-v3.56.0_GH0.tar.gz) = 2812933
+TIMESTAMP = 1694811243
+SHA256 (trufflesecurity-trufflehog-v3.56.1_GH0.tar.gz) = 9b53807df72646e0c6b96af2a3de4ff5c1b1eedfd04efbdf124154ce4d4ae5e1
+SIZE (trufflesecurity-trufflehog-v3.56.1_GH0.tar.gz) = 2814532
 SHA256 (99designs-go-keychain-8e49817e8af4_GH0.tar.gz) = 2ef17b0e33b0e57081c3ef6996d429a2439926546e6a0e8a727a3e9b8c76a587
 SIZE (99designs-go-keychain-8e49817e8af4_GH0.tar.gz) = 2337378
 SHA256 (99designs-keyring-v1.2.2_GH0.tar.gz) = fcf00da720a2d3673884d3593b30ad5f84bbf9484f2dd36a08be5a5ac9b207fe
