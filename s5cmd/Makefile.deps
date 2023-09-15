@@ -17,7 +17,7 @@ GH_TUPLE=	\
 		hashicorp:errwrap:v1.0.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
 		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
 		iancoleman:strcase:16388991a334:iancoleman_strcase/vendor/github.com/iancoleman/strcase \
-		igungor:gofakes3:v0.0.14:igungor_gofakes3/vendor/github.com/igungor/gofakes3 \
+		igungor:gofakes3:v0.0.15:igungor_gofakes3/vendor/github.com/igungor/gofakes3 \
 		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
 		karrick:godirwalk:v1.15.3:karrick_godirwalk/vendor/github.com/karrick/godirwalk \
 		kballard:go-shellquote:95032a82bc51:kballard_go_shellquote/vendor/github.com/kballard/go-shellquote \
