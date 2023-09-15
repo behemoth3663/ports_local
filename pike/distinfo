@@ -1,6 +1,6 @@
-TIMESTAMP = 1694635030
-SHA256 (jamesWoolfenden-pike-v0.2.94_GH0.tar.gz) = 05b7170899cc5239a4f3da8af24967d4bed48c507b2e324dcba663c0ec4a2166
-SIZE (jamesWoolfenden-pike-v0.2.94_GH0.tar.gz) = 355373
+TIMESTAMP = 1694777630
+SHA256 (jamesWoolfenden-pike-v0.2.95_GH0.tar.gz) = dee6864c75d2278745bf10eb913bacb673971eb6ec6b757c36b5e6cae0bbee64
+SIZE (jamesWoolfenden-pike-v0.2.95_GH0.tar.gz) = 356368
 SHA256 (Microsoft-go-winio-v0.6.1_GH0.tar.gz) = 78c744d5b9d8039846e9e37bbd4b93a4feffad7d56965953f52cdb40cf05fc1b
 SIZE (Microsoft-go-winio-v0.6.1_GH0.tar.gz) = 109937
 SHA256 (ProtonMail-go-crypto-3c4c8a2d2371_GH0.tar.gz) = 2b3a42f57d2cfa7ae669f221e4e64329a36f202189bad2d02bc8ce6f285e1a8b
