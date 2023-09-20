@@ -1,6 +1,6 @@
 PORTNAME=	spruce
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.30.2
+DISTVERSION=	1.31.0
 CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
@@ -19,16 +19,16 @@ GO_TARGET=	./cmd/${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -X 'main.Version=${DISTVERSIONPREFIX}${PORTVERSION}'"
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+	-X 'main.Version=${DISTVERSIONPREFIX}${PORTVERSION}'"
 
 #post-extract: .PHONY
 #	cd ${WRKSRC} && \
 #		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod tidy -go=1.16 && \
 #		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod tidy -go=1.17
 
-fetch-version: .PHONY get-version
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
-
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
