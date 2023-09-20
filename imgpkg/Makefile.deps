@@ -17,7 +17,7 @@ GH_TUPLE=	\
 		aws:aws-sdk-go-v2:v1.2.1:aws_aws_sdk_go_v2_presigned_url \
 		aws:smithy-go:v1.6.0:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		awslabs:amazon-ecr-credential-helper:e6f29200ae04:awslabs_amazon_ecr_credential_helper_ecr_login/vendor/github.com/awslabs/amazon-ecr-credential-helper \
-		cheggaaa:pb:v3.1.2:cheggaaa_pb_v3/vendor/github.com/cheggaaa/pb \
+		cheggaaa:pb:v3.1.4:cheggaaa_pb_v3/vendor/github.com/cheggaaa/pb \
 		chrismellard:docker-credential-acr-env:c57b701bfc08:chrismellard_docker_credential_acr_env/vendor/github.com/chrismellard/docker-credential-acr-env \
 		containerd:stargz-snapshotter:v0.14.3:containerd_stargz_snapshotter_estargz/vendor/github.com/containerd/stargz-snapshotter \
 		cppforlife:cobrautil:d60711905d65:cppforlife_cobrautil/vendor/github.com/cppforlife/cobrautil \
@@ -26,23 +26,23 @@ GH_TUPLE=	\
 		creack:pty:v1.1.11:creack_pty/vendor/github.com/creack/pty \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		dimchansky:utfbom:v1.1.0:dimchansky_utfbom/vendor/github.com/dimchansky/utfbom \
-		docker:cli:v23.0.5:docker_cli/vendor/github.com/docker/cli \
+		docker:cli:v24.0.0:docker_cli/vendor/github.com/docker/cli \
 		docker:distribution:v2.8.2:docker_distribution/vendor/github.com/docker/distribution \
-		fatih:color:v1.14.1:fatih_color/vendor/github.com/fatih/color \
+		fatih:color:v1.15.0:fatih_color/vendor/github.com/fatih/color \
 		form3tech-oss:jwt-go:v3.2.3:form3tech_oss_jwt_go/vendor/github.com/form3tech-oss/jwt-go \
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
 		golang:appengine:v1.6.7:golang_appengine/vendor/google.golang.org/appengine \
-		golang:crypto:v0.1.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:mod:v0.10.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.9.0:golang_net/vendor/golang.org/x/net \
-		golang:oauth2:v0.7.0:golang_oauth2/vendor/golang.org/x/oauth2 \
+		golang:crypto:v0.12.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:mod:v0.12.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.14.0:golang_net/vendor/golang.org/x/net \
+		golang:oauth2:v0.8.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.3:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sync:v0.2.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.8.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.7.0:golang_term/vendor/golang.org/x/term \
-		golang:tools:v0.8.0:golang_tools/vendor/golang.org/x/tools \
-		google:go-containerregistry:v0.15.2:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
+		golang:sync:v0.3.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.12.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.11.0:golang_term/vendor/golang.org/x/term \
+		golang:tools:v0.12.0:golang_tools/vendor/golang.org/x/tools \
+		google:go-containerregistry:v0.16.1:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
 		googleapis:google-cloud-go:v0.99.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
 		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
 		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
@@ -50,21 +50,21 @@ GH_TUPLE=	\
 		kubernetes-sigs:yaml:v1.3.0:kubernetes_sigs_yaml/vendor/sigs.k8s.io/yaml \
 		mattn:go-colorable:v0.1.13:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
 		mattn:go-isatty:v0.0.19:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
-		mattn:go-runewidth:v0.0.12:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
-		maxbrunsfeld:counterfeiter:v6.6.1:maxbrunsfeld_counterfeiter_v6/vendor/github.com/maxbrunsfeld/counterfeiter/v6 \
+		mattn:go-runewidth:v0.0.14:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
+		maxbrunsfeld:counterfeiter:v6.7.0:maxbrunsfeld_counterfeiter_v6/vendor/github.com/maxbrunsfeld/counterfeiter/v6 \
 		mitchellh:go-homedir:v1.1.0:mitchellh_go_homedir/vendor/github.com/mitchellh/go-homedir \
 		moby:moby:v0.7.0:moby_moby_1/vendor/github.com/docker/docker-credential-helpers \
-		moby:moby:v23.0.5:moby_moby/vendor/github.com/docker/docker \
+		moby:moby:v24.0.0:moby_moby/vendor/github.com/docker/docker \
 		opencontainers:go-digest:v1.0.0:opencontainers_go_digest/vendor/github.com/opencontainers/go-digest \
 		opencontainers:image-spec:v1.1.0-rc3:opencontainers_image_spec/vendor/github.com/opencontainers/image-spec \
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		protocolbuffers:protobuf-go:v1.30.0:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		rivo:uniseg:v0.2.0:rivo_uniseg/vendor/github.com/rivo/uniseg \
-		sirupsen:logrus:v1.9.0:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
+		sirupsen:logrus:v1.9.1:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
 		spf13:cobra:v1.7.0:spf13_cobra/vendor/github.com/spf13/cobra \
 		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
-		stretchr:testify:v1.8.3:stretchr_testify/vendor/github.com/stretchr/testify \
+		stretchr:testify:v1.8.4:stretchr_testify/vendor/github.com/stretchr/testify \
 		vbatts:tar-split:v0.11.3:vbatts_tar_split/vendor/github.com/vbatts/tar-split \
 		vito:go-interact:v1.0.1:vito_go_interact/vendor/github.com/vito/go-interact
 
