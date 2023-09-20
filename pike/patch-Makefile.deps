@@ -1,10 +1,21 @@
---- Makefile.deps.orig	2023-09-08 16:35:14 UTC
+--- Makefile.deps.orig	2023-09-20 09:27:46 UTC
 +++ Makefile.deps
-@@ -56,49 +56,3 @@ GH_TUPLE=	\
- 		yudai:golcs:ecda9a501e82:yudai_golcs/vendor/github.com/yudai/golcs \
+@@ -2,9 +2,9 @@ GH_TUPLE=	\
+ 		ProtonMail:go-crypto:3c4c8a2d2371:protonmail_go_crypto/vendor/github.com/ProtonMail/go-crypto \
+ 		agext:levenshtein:v1.2.3:agext_levenshtein/vendor/github.com/agext/levenshtein \
+ 		apparentlymart:go-textseg:v15.0.0:apparentlymart_go_textseg_v15/vendor/github.com/apparentlymart/go-textseg/v15 \
+-		aws:aws-sdk-go-v2:v1.14.0:aws_aws_sdk_go_v2_sso/vendor/github.com/aws/aws-sdk-go-v2 \
++		aws:aws-sdk-go-v2:v1.14.0:aws_aws_sdk_go_v2_sso \
+ 		aws:aws-sdk-go-v2:v1.16.0:aws_aws_sdk_go_v2_ssooidc \
+-		aws:aws-sdk-go-v2:v1.21.0:aws_aws_sdk_go_v2 \
++		aws:aws-sdk-go-v2:v1.21.0:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+ 		aws:aws-sdk-go:v1.45.12:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+ 		aws:smithy-go:v1.14.2:aws_smithy_go/vendor/github.com/aws/smithy-go \
+ 		cloudflare:circl:v1.3.3:cloudflare_circl/vendor/github.com/cloudflare/circl \
+@@ -45,45 +45,8 @@ GH_TUPLE=	\
  		yudai:pp:v2.0.1:yudai_pp/vendor/github.com/yudai/pp \
  		zclconf:go-cty:v1.14.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
--
+ 
 -		# Errors found during processing:
 -		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
 -  "message": "Server Error"
@@ -42,11 +53,10 @@
 -  "message": "Server Error"
 -}
 -
--		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
--  "message": "Server Error"
--}
 -
--		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
--  "message": "Server Error"
--}
--
+ post-extract:
+-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2} ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2
++	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sso
++	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_sso}/service/sso ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sso
+ 	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc
+ 	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_ssooidc}/service/ssooidc ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc
