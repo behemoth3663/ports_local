@@ -1,6 +1,6 @@
-TIMESTAMP = 1695203340
-SHA256 (omrikiei-ktunnel-v1.6.0_GH0.tar.gz) = 0204d0e79403df9789b7ef998334d1ee323224d70d7f6d49ddfcfbae4fd88252
-SIZE (omrikiei-ktunnel-v1.6.0_GH0.tar.gz) = 475669
+TIMESTAMP = 1695299493
+SHA256 (omrikiei-ktunnel-v1.6.1_GH0.tar.gz) = 57d260444dc7641b7136fc02539c581ec57a3a55d529f815447117af1e293ccf
+SIZE (omrikiei-ktunnel-v1.6.1_GH0.tar.gz) = 475655
 SHA256 (cpuguy83-go-md2man-v2.0.2_GH0.tar.gz) = 2f52e37101ea2734b02f2b54a53c74305b95b3a9a27792fdac962b5354aa3e4a
 SIZE (cpuguy83-go-md2man-v2.0.2_GH0.tar.gz) = 64353
 SHA256 (davecgh-go-spew-v1.1.1_GH0.tar.gz) = 7d82b9bb7291adbe7498fe946920ab3e7fc9e6cbfc3b2294693fad00bf0dd17e
