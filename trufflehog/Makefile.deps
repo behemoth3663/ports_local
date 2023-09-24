@@ -47,7 +47,7 @@ GH_TUPLE=	\
 		census-instrumentation:opencensus-go:v0.24.0:census_instrumentation_opencensus_go/vendor/go.opencensus.io \
 		cespare:xxhash:v2.2.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
 		charmbracelet:bubbles:v0.16.1:charmbracelet_bubbles/vendor/github.com/charmbracelet/bubbles \
-		charmbracelet:bubbletea:v0.24.1:charmbracelet_bubbletea/vendor/github.com/charmbracelet/bubbletea \
+		charmbracelet:bubbletea:v0.24.2:charmbracelet_bubbletea/vendor/github.com/charmbracelet/bubbletea \
 		charmbracelet:glamour:v0.6.0:charmbracelet_glamour/vendor/github.com/charmbracelet/glamour \
 		charmbracelet:lipgloss:v0.7.1:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
 		cloudflare:circl:v1.3.3:cloudflare_circl/vendor/github.com/cloudflare/circl \
@@ -75,13 +75,13 @@ GH_TUPLE=	\
 		felixge:fgprof:v0.9.3:felixge_fgprof/vendor/github.com/felixge/fgprof \
 		form3tech-oss:jwt-go:v3.2.5:form3tech_oss_jwt_go/vendor/github.com/form3tech-oss/jwt-go \
 		gabriel-vasile:mimetype:v1.4.2:gabriel_vasile_mimetype/vendor/github.com/gabriel-vasile/mimetype \
-		getsentry:sentry-go:v0.22.0:getsentry_sentry_go/vendor/github.com/getsentry/sentry-go \
-		go-asn1-ber:asn1-ber:v1.5.4:go_asn1_ber_asn1_ber/vendor/github.com/go-asn1-ber/asn1-ber \
+		getsentry:sentry-go:v0.24.1:getsentry_sentry_go/vendor/github.com/getsentry/sentry-go \
+		go-asn1-ber:asn1-ber:v1.5.5:go_asn1_ber_asn1_ber/vendor/github.com/go-asn1-ber/asn1-ber \
 		go-errors:errors:v1.4.2:go_errors_errors/vendor/github.com/go-errors/errors \
 		go-git:gcfg:3a3c6141e376:go_git_gcfg/vendor/github.com/go-git/gcfg \
 		go-git:go-billy:v5.4.1:go_git_go_billy_v5/vendor/github.com/go-git/go-billy/v5 \
 		go-git:go-git:v5.8.1:go_git_go_git_v5/vendor/github.com/go-git/go-git/v5 \
-		go-ldap:ldap:v3.4.5:go_ldap_ldap_v3/vendor/github.com/go-ldap/ldap \
+		go-ldap:ldap:v3.4.6:go_ldap_ldap_v3/vendor/github.com/go-ldap/ldap \
 		go-logr:logr:v1.2.4:go_logr_logr/vendor/github.com/go-logr/logr \
 		go-logr:zapr:v1.2.4:go_logr_zapr/vendor/github.com/go-logr/zapr \
 		go-ole:go-ole:v1.2.6:go_ole_go_ole/vendor/github.com/go-ole/go-ole \
@@ -100,40 +100,40 @@ GH_TUPLE=	\
 		golang-sql:civil:cb61b32ac6fe:golang_sql_civil/vendor/github.com/golang-sql/civil \
 		golang-sql:sqlexp:v0.1.0:golang_sql_sqlexp/vendor/github.com/golang-sql/sqlexp \
 		golang:appengine:v1.6.7:golang_appengine/vendor/google.golang.org/appengine \
-		golang:crypto:v0.12.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.13.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:46f607a40771:golang_exp/vendor/golang.org/x/exp \
 		golang:groupcache:41bb18bfe9da:golang_groupcache/vendor/github.com/golang/groupcache \
 		golang:mod:v0.12.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.14.0:golang_net/vendor/golang.org/x/net \
-		golang:oauth2:v0.10.0:golang_oauth2/vendor/golang.org/x/oauth2 \
+		golang:net:v0.15.0:golang_net/vendor/golang.org/x/net \
+		golang:oauth2:v0.12.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.3:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:snappy:v0.0.4:golang_snappy/vendor/github.com/golang/snappy \
 		golang:sync:v0.3.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.11.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.11.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.12.0:golang_text/vendor/golang.org/x/text \
+		golang:sys:v0.12.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.12.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.13.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.3.0:golang_time/vendor/golang.org/x/time \
 		golang:tools:v0.12.0:golang_tools/vendor/golang.org/x/tools \
 		golang:xerrors:04be3eba64a2:golang_xerrors/vendor/golang.org/x/xerrors \
 		google:flatbuffers:v23.1.21:google_flatbuffers/vendor/github.com/google/flatbuffers \
 		google:go-cmp:v0.5.9:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-containerregistry:v0.15.2:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
-		google:go-genproto:9506855d4529:google_go_genproto/vendor/google.golang.org/genproto \
-		google:go-genproto:ccb25ca9f130:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/rpc \
+		google:go-genproto:782d3b101e98:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/rpc \
+		google:go-genproto:ccb25ca9f130:google_go_genproto/vendor/google.golang.org/genproto \
 		google:go-github:v42.0.0:google_go_github_v42/vendor/github.com/google/go-github/v42 \
 		google:go-github:v53.2.0:google_go_github_v53/vendor/github.com/google/go-github/v53 \
 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
 		google:pprof:6f57359322fd:google_pprof/vendor/github.com/google/pprof \
 		google:s2a-go:v0.1.4:google_s2a_go/vendor/github.com/google/s2a-go \
-		google:uuid:v1.3.0:google_uuid/vendor/github.com/google/uuid \
+		google:uuid:v1.3.1:google_uuid/vendor/github.com/google/uuid \
 		googleapis:enterprise-certificate-proxy:v0.2.5:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
 		googleapis:gax-go:v2.12.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
-		googleapis:google-api-go-client:v0.131.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+		googleapis:google-api-go-client:v0.132.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
 		googleapis:google-cloud-go:compute/v1.20.1:googleapis_google_cloud_go_compute \
 		googleapis:google-cloud-go:iam/v1.1.0:googleapis_google_cloud_go_iam \
 		googleapis:google-cloud-go:secretmanager/v1.11.1:googleapis_google_cloud_go_secretmanager \
-		googleapis:google-cloud-go:storage/v1.31.0:googleapis_google_cloud_go_storage \
-		googleapis:google-cloud-go:v0.110.2:googleapis_google_cloud_go/vendor/cloud.google.com/go \
+		googleapis:google-cloud-go:storage/v1.33.0:googleapis_google_cloud_go_storage \
+		googleapis:google-cloud-go:v0.110.4:googleapis_google_cloud_go/vendor/cloud.google.com/go \
 		googleapis:google-cloud-go:compute/metadata/v0.2.3:googleapis_google_cloud_go_compute_metadata \
 		gorilla:css:v1.0.0:gorilla_css/vendor/github.com/gorilla/css \
 		gregjones:httpcache:2bcd89a1743f:gregjones_httpcache/vendor/github.com/gregjones/httpcache \
@@ -173,8 +173,9 @@ GH_TUPLE=	\
 		lrstanley:bubblezone:e95291e2243e:lrstanley_bubblezone/vendor/github.com/lrstanley/bubblezone \
 		lucasb-eyer:go-colorful:v1.2.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
 		mailru:easyjson:v0.7.7:mailru_easyjson/vendor/github.com/mailru/easyjson \
+		marusama:semaphore:v2.5.0:marusama_semaphore_v2/vendor/github.com/marusama/semaphore/v2 \
 		mattn:go-colorable:v0.1.13:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
-		mattn:go-isatty:v0.0.18:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
+		mattn:go-isatty:v0.0.19:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
 		mattn:go-localereader:v0.0.1:mattn_go_localereader/vendor/github.com/mattn/go-localereader \
 		mattn:go-runewidth:v0.0.14:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
 		mattn:go-sqlite3:v1.14.17:mattn_go_sqlite3/vendor/github.com/mattn/go-sqlite3 \
