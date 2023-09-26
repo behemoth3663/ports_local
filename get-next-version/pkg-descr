@@ -1,0 +1,2 @@
+get-next-version gets the next version for your repository according to 
+semantic versioning based on conventional commits.
