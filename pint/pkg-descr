@@ -1,0 +1,3 @@
+pint will run checks on Prometheus alerting & recording rules to detect
+potential problems with those rules. Some checks rely only on the rule itself
+and can be run "offline" - without talking to any Prometheus server.

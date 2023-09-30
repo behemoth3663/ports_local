@@ -16,9 +16,9 @@ USES=		go:modules
 USE_GITHUB=	yes
 GH_ACCOUNT=	busser
 
-https://github.com//
-
 PLIST_FILES=	bin/${PORTNAME}
+
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
