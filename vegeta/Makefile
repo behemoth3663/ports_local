@@ -1,5 +1,5 @@
 PORTNAME=	vegeta
-PORTVERSION=	12.11.0
+PORTVERSION=	12.11.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local benchmarks
 
@@ -29,9 +29,8 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 	-X 'main.Commit=$$(${GIT_COMMIT})' \
 	-X 'main.Date=${%FT%TZ:L:gmtime}'"
 
-post-post-extract: .PHONY
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
-
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
