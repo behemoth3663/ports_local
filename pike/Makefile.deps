@@ -4,6 +4,8 @@ GH_TUPLE=	\
 		acomagu:bufpipe:v1.0.4:acomagu_bufpipe/vendor/github.com/acomagu/bufpipe \
 		agext:levenshtein:v1.2.3:agext_levenshtein/vendor/github.com/agext/levenshtein \
 		apparentlymart:go-textseg:v15.0.0:apparentlymart_go_textseg_v15/vendor/github.com/apparentlymart/go-textseg/v15 \
+		aws:aws-sdk-go-v2:4599f78694ca:aws_aws_sdk_go_v2_configsources \
+		aws:aws-sdk-go-v2:f0b396e56da1:aws_aws_sdk_go_v2_sts \
 		aws:aws-sdk-go-v2:v1.14.0:aws_aws_sdk_go_v2_sso \
 		aws:aws-sdk-go-v2:v1.16.0:aws_aws_sdk_go_v2_ssooidc \
 		aws:aws-sdk-go-v2:v1.21.0:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
@@ -62,5 +64,9 @@ GH_TUPLE=	\
 post-extract:
 	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sso
 	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_sso}/service/sso ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sso
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_configsources}/internal/configsources ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources
 	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc
 	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_ssooidc}/service/ssooidc ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sts
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_sts}/service/sts ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sts
