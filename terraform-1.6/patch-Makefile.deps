@@ -1,0 +1,134 @@
+--- Makefile.deps.orig	2023-10-06 15:21:58 UTC
++++ Makefile.deps
+@@ -108,13 +108,13 @@ GH_TUPLE=	\
+ 		googleapis:google-cloud-go:compute/v1.19.1:googleapis_google_cloud_go_compute \
+ 		googleapis:google-cloud-go:kms/v1.10.1:googleapis_google_cloud_go_kms \
+ 		googleapis:google-cloud-go:storage/v1.28.1:googleapis_google_cloud_go_storage \
+-		googleapis:google-cloud-go:v0.110.0:googleapis_google_cloud_go \
+-		googleapis:google-cloud-go:v0.13.0:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go \
+-		googleapis:google-cloud-go:v0.2.3:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata \
++		googleapis:google-cloud-go:v0.110.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
++		googleapis:google-cloud-go:iam/v0.13.0:googleapis_google_cloud_go_iam \
++		googleapis:google-cloud-go:compute/metadata/v0.2.3:googleapis_google_cloud_go_compute_metadata \
+ 		grpc-ecosystem:grpc-gateway:v2.16.0:grpc_ecosystem_grpc_gateway_v2/vendor/github.com/grpc-ecosystem/grpc-gateway/v2 \
+ 		grpc:grpc-go:v1.1.0:grpc_grpc_go_1/vendor/google.golang.org/grpc/cmd/protoc-gen-go-grpc \
+ 		grpc:grpc-go:v1.56.1:grpc_grpc_go/vendor/google.golang.org/grpc \
+-		hashicorp:aws-sdk-go-base:v2.0.0-beta.35:hashicorp_aws_sdk_go_base_v2/vendor/github.com/hashicorp/aws-sdk-go-base \
++		hashicorp:aws-sdk-go-base:v2.0.0-beta.35:hashicorp_aws_sdk_go_base_v2/vendor/github.com/hashicorp/aws-sdk-go-base/v2 \
+ 		hashicorp:consul:v0.8.0:hashicorp_consul_sdk/vendor/github.com/hashicorp/consul/sdk \
+ 		hashicorp:consul:v1.13.0:hashicorp_consul_api/vendor/github.com/hashicorp/consul \
+ 		hashicorp:copywrite:v0.16.3:hashicorp_copywrite/vendor/github.com/hashicorp/copywrite \
+@@ -201,12 +201,7 @@ GH_TUPLE=	\
+ 		nu7hatch:gouuid:179d4d0c4d8d:nu7hatch_gouuid/vendor/github.com/nu7hatch/gouuid \
+ 		oklog:run:v1.0.0:oklog_run/vendor/github.com/oklog/run \
+ 		oklog:ulid:v1.3.1:oklog_ulid/vendor/github.com/oklog/ulid \
+-		open-telemetry:opentelemetry-go-contrib:9a582bd098a2:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/exporters/autoexport \
+-		open-telemetry:opentelemetry-go:v1.16.0:open_telemetry_opentelemetry_go_1/vendor/go.opentelemetry.io/otel/exporters/otlp/internal/retry \
+-		open-telemetry:opentelemetry-go:v1.16.0:open_telemetry_opentelemetry_go_2/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace \
+-		open-telemetry:opentelemetry-go:v1.16.0:open_telemetry_opentelemetry_go_3/vendor/go.opentelemetry.io/otel/sdk \
+ 		open-telemetry:opentelemetry-go:v1.17.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
+-		open-telemetry:opentelemetry-proto-go:v0.20.0:open_telemetry_opentelemetry_proto_go/vendor/go.opentelemetry.io/proto/otlp \
+ 		packer-community:winrmcp:c76d91c1e7db:packer_community_winrmcp/vendor/github.com/packer-community/winrmcp \
+ 		pkg:browser:0426ae3fba23:pkg_browser/vendor/github.com/pkg/browser \
+ 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
+@@ -236,96 +231,13 @@ GH_TUPLE=	\
+ 		zclconf:go-cty-yaml:v1.0.3:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
+ 		zclconf:go-cty:v1.14.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+ 
+-		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
+-		#	::732eee02a75a:group_name/vendor/golang.org/x/exp/typeparams (from go.googlesource.com/exp@732eee02a75a)
+-		#	::v0.1.0-deprecated:group_name/vendor/golang.org/x/tools/cmd/cover (from go.googlesource.com/tools@v0.1.0-deprecated)
+-
+-		# Errors found during processing:
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+-  "message": "Server Error"
+-}
+-
+-
+ post-extract:
+-	@${RLN} ${WRKSRC_googleapis_google_cloud_go} ${WRKSRC}/vendor/cloud.google.com/go
+ 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute
+ 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute}/compute ${WRKSRC}/vendor/cloud.google.com/go/compute
++	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
++	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
++	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/iam
++	@${RLN} ${WRKSRC_googleapis_google_cloud_go_iam}/iam ${WRKSRC}/vendor/cloud.google.com/go/iam
+ 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/kms
+ 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_kms}/kms ${WRKSRC}/vendor/cloud.google.com/go/kms
+ 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
