@@ -1,6 +1,6 @@
 PORTNAME=	ssh-manager
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.2.0
+DISTVERSION=	1.3.0
 CATEGORIES=	local security
 
 MAINTAINER=	none@freebsd.org
@@ -15,14 +15,13 @@ USES=	go:modules
 USE_GITHUB=	yes
 GH_ACCOUNT=	omegion
 
-GO_BUILDFLAGS+=	-ldflags="-s -w \
-		-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal/info.Version=${DISTVERSIONPREFIX}${PORTVERSION}'"
-
 PLIST_FILES=	bin/${PORTNAME}
 
-post-post-extract: .PHONY
+GO_BUILDFLAGS+=	-ldflags="-s -w \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal/info.Version=${DISTVERSIONPREFIX}${PORTVERSION}'"
+
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
-
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>

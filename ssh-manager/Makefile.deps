@@ -1,7 +1,7 @@
 GH_TUPLE=	\
-		aws:aws-sdk-go-v2:v1.17.2:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
-		aws:aws-sdk-go-v2:v1.17.6:aws_aws_sdk_go_v2_sts \
-		aws:smithy-go:v1.13.5:aws_smithy_go/vendor/github.com/aws/smithy-go \
+		aws:aws-sdk-go-v2:v1.20.0:aws_aws_sdk_go_v2_sts/vendor/github.com/aws/aws-sdk-go-v2 \
+		aws:aws-sdk-go-v2:v1.21.1:aws_aws_sdk_go_v2 \
+		aws:smithy-go:v1.15.0:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		census-instrumentation:opencensus-go:v0.23.0:census_instrumentation_opencensus_go/vendor/go.opencensus.io \
 		census-instrumentation:opencensus-proto:v0.3.0:census_instrumentation_opencensus_proto/vendor/github.com/census-instrumentation/opencensus-proto \
 		cespare:xxhash:v2.1.2:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
@@ -18,11 +18,11 @@ GH_TUPLE=	\
 		golang:appengine:v1.6.7:golang_appengine/vendor/google.golang.org/appengine \
 		golang:groupcache:41bb18bfe9da:golang_groupcache/vendor/github.com/golang/groupcache \
 		golang:mock:v1.6.0:golang_mock/vendor/github.com/golang/mock \
-		golang:net:fe4d6282115f:golang_net/vendor/golang.org/x/net \
+		golang:net:v0.7.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:d3ed0bb246c8:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.2:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sys:c0bba94af5f8:golang_sys/vendor/golang.org/x/sys \
-		golang:text:v0.3.7:golang_text/vendor/golang.org/x/text \
+		golang:sys:v0.5.0:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.7.0:golang_text/vendor/golang.org/x/text \
 		golang:xerrors:5ec99f83aff1:golang_xerrors/vendor/golang.org/x/xerrors \
 		google:go-cmp:v0.5.8:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-genproto:3ac035c7e7cb:google_go_genproto/vendor/google.golang.org/genproto \
@@ -33,8 +33,8 @@ GH_TUPLE=	\
 		googleapis:google-cloud-go:v0.99.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
 		grpc:grpc-go:v1.43.0:grpc_grpc_go/vendor/google.golang.org/grpc \
 		hashicorp:hcl:v1.0.0:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
-		inconshreveable:mousetrap:v1.0.1:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
-		kubernetes:utils:7d6a63dca704:kubernetes_utils/vendor/k8s.io/utils \
+		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
+		kubernetes:utils:9f6742963106:kubernetes_utils/vendor/k8s.io/utils \
 		magiconair:properties:v1.8.5:magiconair_properties/vendor/github.com/magiconair/properties \
 		mitchellh:mapstructure:v1.4.3:mitchellh_mapstructure/vendor/github.com/mitchellh/mapstructure \
 		omegion:cobra-commander:v0.11.0:omegion_cobra_commander/vendor/github.com/omegion/cobra-commander \
@@ -42,18 +42,17 @@ GH_TUPLE=	\
 		pelletier:go-toml:v1.9.4:pelletier_go_toml/vendor/github.com/pelletier/go-toml \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		protocolbuffers:protobuf-go:v1.27.1:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
-		sirupsen:logrus:v1.9.0:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
+		sirupsen:logrus:v1.9.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
 		spf13:afero:v1.7.0:spf13_afero/vendor/github.com/spf13/afero \
 		spf13:cast:v1.4.1:spf13_cast/vendor/github.com/spf13/cast \
-		spf13:cobra:v1.6.1:spf13_cobra/vendor/github.com/spf13/cobra \
+		spf13:cobra:v1.7.0:spf13_cobra/vendor/github.com/spf13/cobra \
 		spf13:jwalterweatherman:v1.1.0:spf13_jwalterweatherman/vendor/github.com/spf13/jwalterweatherman \
 		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
 		spf13:viper:v1.10.1:spf13_viper/vendor/github.com/spf13/viper \
-		stretchr:testify:v1.8.1:stretchr_testify/vendor/github.com/stretchr/testify \
+		stretchr:testify:v1.8.4:stretchr_testify/vendor/github.com/stretchr/testify \
 		subosito:gotenv:v1.2.0:subosito_gotenv/vendor/github.com/subosito/gotenv
 
 post-extract:
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go/storage
-	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sts
-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_sts}/service/sts ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sts
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2} ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2
