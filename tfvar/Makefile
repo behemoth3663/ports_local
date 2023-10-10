@@ -1,5 +1,5 @@
 PORTNAME=	tfvar
-PORTVERSION=	0.8.0
+PORTVERSION=	0.8.1
 DISTVERSIONPREFIX=	v
 #ORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -16,14 +16,13 @@ USES=		go:modules
 USE_GITHUB=	yes
 GH_ACCOUNT=	shihanng
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
-		-X main.version=${DISTVERSIONPREFIX}${PORTVERSION}"
-
 PLIST_FILES=	bin/${PORTNAME}
 
-post-post-extract: .PHONY
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+	-X main.version=${DISTVERSIONPREFIX}${PORTVERSION}"
+
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
-
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
