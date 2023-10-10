@@ -1,5 +1,5 @@
 PORTNAME=	tfupdate
-PORTVERSION=	0.7.2
+PORTVERSION=	0.8.0
 DISTVERSIONPREFIX=	v
 #ORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -20,8 +20,10 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
 
 PLIST_FILES=	bin/${PORTNAME}
 
-post-post-extract: .PHONY
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
+
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>

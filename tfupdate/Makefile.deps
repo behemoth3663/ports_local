@@ -1,6 +1,7 @@
 GH_TUPLE=	\
 		agext:levenshtein:v1.2.2:agext_levenshtein/vendor/github.com/agext/levenshtein \
 		apparentlymart:go-textseg:v13.0.0:apparentlymart_go_textseg_v13/vendor/github.com/apparentlymart/go-textseg/v13 \
+		apparentlymart:go-textseg:v15.0.0:apparentlymart_go_textseg_v15/vendor/github.com/apparentlymart/go-textseg/v15 \
 		armon:go-radix:7fddfc383310:armon_go_radix/vendor/github.com/armon/go-radix \
 		bgentry:speakeasy:v0.1.0:bgentry_speakeasy/vendor/github.com/bgentry/speakeasy \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
@@ -8,12 +9,12 @@ GH_TUPLE=	\
 		golang:appengine:v1.6.7:golang_appengine/vendor/google.golang.org/appengine \
 		golang:crypto:v0.1.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:2e198f4a06a1:golang_exp/vendor/golang.org/x/exp \
-		golang:mod:v0.6.0:golang_mod/vendor/golang.org/x/mod \
+		golang:mod:v0.8.0:golang_mod/vendor/golang.org/x/mod \
 		golang:net:v0.5.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.4.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.2:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sys:v0.4.0:golang_sys/vendor/golang.org/x/sys \
-		golang:text:v0.6.0:golang_text/vendor/golang.org/x/text \
+		golang:sys:v0.5.0:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.11.0:golang_text/vendor/golang.org/x/text \
 		google:go-cmp:v0.5.9:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-github:v28.1.1:google_go_github_v28/vendor/github.com/google/go-github/v28 \
 		google:go-querystring:v1.0.0:google_go_querystring/vendor/github.com/google/go-querystring \
@@ -21,7 +22,7 @@ GH_TUPLE=	\
 		hashicorp:go-multierror:v1.0.0:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
 		hashicorp:go-version:v1.6.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
 		hashicorp:hcl:a4b07c25de5f:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
-		hashicorp:hcl:v2.17.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
+		hashicorp:hcl:v2.18.1:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
 		hashicorp:logutils:v1.0.0:hashicorp_logutils/vendor/github.com/hashicorp/logutils \
 		hashicorp:terraform-config-inspect:f32df32a01cd:hashicorp_terraform_config_inspect/vendor/github.com/hashicorp/terraform-config-inspect \
 		hashicorp:terraform-registry-address:v0.2.0:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
