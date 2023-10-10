@@ -1,8 +1,8 @@
---- Makefile.deps.orig	2023-10-05 10:29:27 UTC
+--- Makefile.deps.orig	2023-10-10 17:07:57 UTC
 +++ Makefile.deps
-@@ -6,9 +6,9 @@ GH_TUPLE=	\
- 		apparentlymart:go-textseg:v15.0.0:apparentlymart_go_textseg_v15/vendor/github.com/apparentlymart/go-textseg/v15 \
+@@ -7,9 +7,9 @@ GH_TUPLE=	\
  		aws:aws-sdk-go-v2:4599f78694ca:aws_aws_sdk_go_v2_configsources \
+ 		aws:aws-sdk-go-v2:config/v1.18.40:aws_aws_sdk_go_v2_config \
  		aws:aws-sdk-go-v2:f0b396e56da1:aws_aws_sdk_go_v2_sts \
 -		aws:aws-sdk-go-v2:v1.14.0:aws_aws_sdk_go_v2_sso/vendor/github.com/aws/aws-sdk-go-v2 \
 +		aws:aws-sdk-go-v2:v1.14.0:aws_aws_sdk_go_v2_sso \
@@ -12,7 +12,7 @@
  		aws:aws-sdk-go:v1.45.12:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
  		aws:smithy-go:v1.14.2:aws_smithy_go/vendor/github.com/aws/smithy-go \
  		cloudflare:circl:v1.3.3:cloudflare_circl/vendor/github.com/cloudflare/circl \
-@@ -61,38 +61,9 @@ GH_TUPLE=	\
+@@ -62,23 +62,9 @@ GH_TUPLE=	\
  		yudai:pp:v2.0.1:yudai_pp/vendor/github.com/yudai/pp \
  		zclconf:go-cty:v1.14.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
  
@@ -25,22 +25,7 @@
 -  "message": "Server Error"
 -}
 -
--		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
--  "message": "Server Error"
--}
--
--		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
--  "message": "Server Error"
--}
--
--		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
--  "message": "Server Error"
--}
--
--		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
--  "message": "Server Error"
--}
--
+-		#	tag v2.4.35 doesn't seem to exist in aws/aws-sdk-go-v2
 -		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
 -  "message": "Server Error"
 -}
@@ -50,6 +35,6 @@
 -	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2} ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2
 +	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sso
 +	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_sso}/service/sso ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sso
+ 	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/config
+ 	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_config}/config ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/config
  	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources
- 	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_configsources}/internal/configsources ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources
- 	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc
