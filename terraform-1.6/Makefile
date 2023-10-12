@@ -1,6 +1,7 @@
 PORTNAME=	terraform
 PORTVERSION=	1.6.1
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX?=	-${PORTVERSION:R}
 
@@ -32,7 +33,7 @@ pre-extract: .PHONY .SILENT
 	test -n '${WRKSRC_grpc_grpc_go_1}' && ${LN} -s ${WRKDIR}/grpc-go-cmd-protoc-gen-go-grpc-v1.1.0 ${WRKSRC_grpc_grpc_go_1} || :
 
 post-patch: .PHONY .SILENT
-	${RM} ${WRKSRC}/telemetry.go ${WRKSRC}internal/command/telemetry.go
+	${RM} ${WRKSRC}/telemetry.go ${WRKSRC}/internal/command/telemetry.go
 
 post-install: .PHONY
 	${MV} ${STAGEDIR}${PREFIX}/bin/${PORTNAME} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION}

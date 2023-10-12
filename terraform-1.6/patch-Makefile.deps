@@ -1,6 +1,6 @@
---- Makefile.deps.orig	2023-10-11 19:08:34 UTC
+--- Makefile.deps.orig	2023-10-12 21:28:29 UTC
 +++ Makefile.deps
-@@ -114,13 +114,13 @@ GH_TUPLE=	\
+@@ -116,13 +116,13 @@ GH_TUPLE=	\
  		googleapis:google-cloud-go:compute/v1.19.1:googleapis_google_cloud_go_compute \
  		googleapis:google-cloud-go:kms/v1.10.1:googleapis_google_cloud_go_kms \
  		googleapis:google-cloud-go:storage/v1.28.1:googleapis_google_cloud_go_storage \
@@ -18,7 +18,7 @@
  		hashicorp:consul:v0.8.0:hashicorp_consul_sdk/vendor/github.com/hashicorp/consul/sdk \
  		hashicorp:consul:v1.13.0:hashicorp_consul_api/vendor/github.com/hashicorp/consul \
  		hashicorp:copywrite:v0.16.3:hashicorp_copywrite/vendor/github.com/hashicorp/copywrite \
-@@ -207,12 +207,7 @@ GH_TUPLE=	\
+@@ -209,12 +209,7 @@ GH_TUPLE=	\
  		nu7hatch:gouuid:179d4d0c4d8d:nu7hatch_gouuid/vendor/github.com/nu7hatch/gouuid \
  		oklog:run:v1.0.0:oklog_run/vendor/github.com/oklog/run \
  		oklog:ulid:v1.3.1:oklog_ulid/vendor/github.com/oklog/ulid \
@@ -31,7 +31,7 @@
  		packer-community:winrmcp:c76d91c1e7db:packer_community_winrmcp/vendor/github.com/packer-community/winrmcp \
  		pkg:browser:0426ae3fba23:pkg_browser/vendor/github.com/pkg/browser \
  		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
-@@ -242,29 +237,13 @@ GH_TUPLE=	\
+@@ -244,29 +239,13 @@ GH_TUPLE=	\
  		zclconf:go-cty-yaml:v1.0.3:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
  		zclconf:go-cty:v1.14.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
  
@@ -40,18 +40,18 @@
 -		#	::v0.1.0-deprecated:group_name/vendor/golang.org/x/tools/cmd/cover (from go.googlesource.com/tools@v0.1.0-deprecated)
 -
 -		# Errors found during processing:
+-		#	tag v2.4.35 doesn't seem to exist in aws/aws-sdk-go-v2
 -		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
 -  "message": "Server Error"
 -}
 -
--		#	tag v2.4.35 doesn't seem to exist in aws/aws-sdk-go-v2
--		#	error getting commit service/sso/v1.13.6 for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/commits/service/sso/v1.13.6: 403, body: {
--  "documentation_url": "https://docs.github.com/en/free-pro-team@latest/rest/overview/resources-in-the-rest-api#secondary-rate-limits",
--  "message": "You have exceeded a secondary rate limit. Please wait a few minutes before you try again. If you reach out to GitHub Support for help, please include the request ID E11C:6001:4FD3286:50969A7:6526F2AD."
--}
 -		#	error getting commit service/ssooidc/v1.15.6 for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/commits/service/ssooidc/v1.15.6: 403, body: {
 -  "documentation_url": "https://docs.github.com/en/free-pro-team@latest/rest/overview/resources-in-the-rest-api#secondary-rate-limits",
--  "message": "You have exceeded a secondary rate limit. Please wait a few minutes before you try again. If you reach out to GitHub Support for help, please include the request ID E11C:6001:4FD43F5:5097B29:6526F2B1."
+-  "message": "You have exceeded a secondary rate limit. Please wait a few minutes before you try again. If you reach out to GitHub Support for help, please include the request ID E17C:4311:6C53D4:6DA585:652864FA."
+-}
+-		#	error getting commit service/sts/v1.21.5 for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/commits/service/sts/v1.21.5: 403, body: {
+-  "documentation_url": "https://docs.github.com/en/free-pro-team@latest/rest/overview/resources-in-the-rest-api#secondary-rate-limits",
+-  "message": "You have exceeded a secondary rate limit. Please wait a few minutes before you try again. If you reach out to GitHub Support for help, please include the request ID E17C:4311:6C5AB4:6DAC71:652864FD."
 -}
 -
  post-extract:

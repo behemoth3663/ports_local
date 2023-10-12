@@ -9,7 +9,17 @@
  
  	"github.com/hashicorp/terraform/internal/configs"
  	"github.com/hashicorp/terraform/internal/configs/configload"
-@@ -225,11 +223,6 @@ func (m *Meta) installModules(ctx context.Context, roo
+@@ -184,9 +182,6 @@ func (m *Meta) loadHCLFile(filename string) (hcl.Body,
+ // this package has a reasonable implementation for displaying notifications
+ // via a provided cli.Ui.
+ func (m *Meta) installModules(ctx context.Context, rootDir, testsDir string, upgrade, installErrsOnly bool, hooks initwd.ModuleInstallHooks) (abort bool, diags tfdiags.Diagnostics) {
+-	ctx, span := tracer.Start(ctx, "install modules")
+-	defer span.End()
+-
+ 	rootDir = m.normalizePath(rootDir)
+ 
+ 	err := os.MkdirAll(m.modulesDir(), os.ModePerm)
+@@ -225,11 +220,6 @@ func (m *Meta) installModules(ctx context.Context, roo
  // this package has a reasonable implementation for displaying notifications
  // via a provided cli.Ui.
  func (m *Meta) initDirFromModule(ctx context.Context, targetDir string, addr string, hooks initwd.ModuleInstallHooks) (abort bool, diags tfdiags.Diagnostics) {
