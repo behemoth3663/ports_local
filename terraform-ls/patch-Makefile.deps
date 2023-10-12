@@ -1,4 +1,4 @@
---- Makefile.deps.orig	2023-10-06 18:43:01 UTC
+--- Makefile.deps.orig	2023-10-12 20:27:34 UTC
 +++ Makefile.deps
 @@ -12,7 +12,7 @@ GH_TUPLE=	\
  		bgentry:speakeasy:v0.1.0:bgentry_speakeasy/vendor/github.com/bgentry/speakeasy \
@@ -15,20 +15,20 @@
  		hashicorp:go-uuid:v1.0.3:hashicorp_go_uuid/vendor/github.com/hashicorp/go-uuid \
 +		hashicorp:go-version:v1.6.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
  		hashicorp:golang-lru:v0.5.4:hashicorp_golang_lru/vendor/github.com/hashicorp/golang-lru \
- 		hashicorp:hc-install:v0.6.0:hashicorp_hc_install/vendor/github.com/hashicorp/hc-install \
- 		hashicorp:hcl-lang:e85fd3da0ca4:hashicorp_hcl_lang/vendor/github.com/hashicorp/hcl-lang \
-@@ -73,8 +74,7 @@ GH_TUPLE=	\
+ 		hashicorp:hc-install:v0.6.1:hashicorp_hc_install/vendor/github.com/hashicorp/hc-install \
+ 		hashicorp:hcl-lang:6ec57d47fbbb:hashicorp_hcl_lang/vendor/github.com/hashicorp/hcl-lang \
+@@ -73,9 +74,6 @@ GH_TUPLE=	\
  		mitchellh:mapstructure:v1.5.0:mitchellh_mapstructure/vendor/github.com/mitchellh/mapstructure \
  		mitchellh:reflectwalk:v1.0.2:mitchellh_reflectwalk/vendor/github.com/mitchellh/reflectwalk \
  		olekukonko:tablewriter:v0.0.5:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
 -		open-telemetry:opentelemetry-go-contrib:v0.45.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/httptrace/otelhttptrace \
 -		open-telemetry:opentelemetry-go-contrib:v0.45.0:open_telemetry_opentelemetry_go_contrib_1/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp \
-+		open-telemetry:opentelemetry-go-contrib:instrumentation/runtime/v0.45.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib \
- 		open-telemetry:opentelemetry-go:v1.19.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
+-		open-telemetry:opentelemetry-go:v1.19.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
  		otiai10:copy:v1.14.0:otiai10_copy/vendor/github.com/otiai10/copy \
  		pelletier:go-toml:v2.0.6:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
-@@ -95,7 +95,3 @@ GH_TUPLE=	\
- 		vektra:mockery:v2.35.1:vektra_mockery_v2/vendor/github.com/vektra/mockery/v2 \
+ 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
+@@ -95,7 +93,3 @@ GH_TUPLE=	\
+ 		vektra:mockery:v2.35.3:vektra_mockery_v2/vendor/github.com/vektra/mockery/v2 \
  		zclconf:go-cty-debug:b22d67c1ba0b:zclconf_go_cty_debug/vendor/github.com/zclconf/go-cty-debug \
  		zclconf:go-cty:v1.14.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 -

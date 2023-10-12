@@ -74,8 +74,6 @@ GH_TUPLE=	\
 		mitchellh:mapstructure:v1.5.0:mitchellh_mapstructure/vendor/github.com/mitchellh/mapstructure \
 		mitchellh:reflectwalk:v1.0.2:mitchellh_reflectwalk/vendor/github.com/mitchellh/reflectwalk \
 		olekukonko:tablewriter:v0.0.5:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
-		open-telemetry:opentelemetry-go-contrib:instrumentation/runtime/v0.45.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib \
-		open-telemetry:opentelemetry-go:v1.19.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
 		otiai10:copy:v1.14.0:otiai10_copy/vendor/github.com/otiai10/copy \
 		pelletier:go-toml:v2.0.6:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
