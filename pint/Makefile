@@ -17,8 +17,6 @@ GO_TARGET=	./cmd/${PORTNAME}
 USE_GITHUB=	yes
 GH_ACCOUNT=	cloudflare
 
-https://github.com//
-
 PLIST_FILES=	bin/${PORTNAME}
 
 GIT_COMMIT=	git ls-remote \
