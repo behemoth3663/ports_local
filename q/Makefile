@@ -1,4 +1,4 @@
-PORTNAME=	q
+PORTNAME=	dns-q
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.13.5
 CATEGORIES=	local dns
@@ -16,6 +16,7 @@ USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	natesales
+GH_PROJECT=	q
 
 PLIST_FILES=	bin/${PORTNAME}
 
