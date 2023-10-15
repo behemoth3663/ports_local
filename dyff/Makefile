@@ -1,6 +1,6 @@
 PORTNAME=	dyff
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.5.8
+DISTVERSION=	1.6.0
 CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
@@ -17,14 +17,13 @@ GH_ACCOUNT=	homeport
 
 GO_TARGET=	./cmd/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w \
-		-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal/cmd.version=${DISTVERSIONPREFIX}${PORTVERSION}'"
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal/cmd.version=${DISTVERSIONPREFIX}${PORTVERSION}'"
 
 PLIST_FILES=	bin/${PORTNAME}
 
-post-post-extract: .PHONY .SILENT
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
-
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
