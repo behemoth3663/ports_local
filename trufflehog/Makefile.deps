@@ -29,6 +29,7 @@ GH_TUPLE=	\
 		apache:thrift:v0.16.0:apache_thrift/vendor/github.com/apache/thrift \
 		atotto:clipboard:v0.1.4:atotto_clipboard/vendor/github.com/atotto/clipboard \
 		aws:aws-sdk-go-v2:390cf19a7507:aws_aws_sdk_go_v2_manager \
+		aws:aws-sdk-go-v2:credentials/v1.13.18:aws_aws_sdk_go_v2_credentials \
 		aws:aws-sdk-go-v2:v1.14.0:aws_aws_sdk_go_v2_s3shared/vendor/github.com/aws/aws-sdk-go-v2 \
 		aws:aws-sdk-go-v2:v1.17.7:aws_aws_sdk_go_v2 \
 		aws:aws-sdk-go:v1.45.19:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
@@ -101,17 +102,17 @@ GH_TUPLE=	\
 		golang-sql:civil:cb61b32ac6fe:golang_sql_civil/vendor/github.com/golang-sql/civil \
 		golang-sql:sqlexp:v0.1.0:golang_sql_sqlexp/vendor/github.com/golang-sql/sqlexp \
 		golang:appengine:v1.6.7:golang_appengine/vendor/google.golang.org/appengine \
-		golang:crypto:v0.13.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.14.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:46f607a40771:golang_exp/vendor/golang.org/x/exp \
 		golang:groupcache:41bb18bfe9da:golang_groupcache/vendor/github.com/golang/groupcache \
 		golang:mod:v0.12.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.15.0:golang_net/vendor/golang.org/x/net \
+		golang:net:v0.17.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.12.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.3:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:snappy:v0.0.4:golang_snappy/vendor/github.com/golang/snappy \
 		golang:sync:v0.3.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.12.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.12.0:golang_term/vendor/golang.org/x/term \
+		golang:sys:v0.13.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.13.0:golang_term/vendor/golang.org/x/term \
 		golang:text:v0.13.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.3.0:golang_time/vendor/golang.org/x/time \
 		golang:tools:v0.12.0:golang_tools/vendor/golang.org/x/tools \
@@ -276,5 +277,7 @@ post-extract:
 	@${RLN} ${WRKSRC}/vendor/github.com/apache/arrow/go/v12/go/arrow ${WRKSRC}/vendor/github.com/apache/arrow/go/v12/arrow
 	@${RLN} ${WRKSRC}/vendor/github.com/apache/arrow/go/v12/go/internal ${WRKSRC}/vendor/github.com/apache/arrow/go/v12/internal
 	@${RLN} ${WRKSRC}/vendor/github.com/apache/arrow/go/v12/go/parquet ${WRKSRC}/vendor/github.com/apache/arrow/go/v12/parquet
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/credentials
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_credentials}/credentials ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/credentials
 	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/s3/manager
 	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_manager}/feature/s3/manager ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/s3/manager
