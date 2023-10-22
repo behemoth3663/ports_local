@@ -37,11 +37,9 @@ GH_TUPLE=	\
 		armon:go-radix:v1.0.0:armon_go_radix/vendor/github.com/armon/go-radix \
 		asaskevich:govalidator:7a23bdc65eef:asaskevich_govalidator/vendor/github.com/asaskevich/govalidator \
 		aws:aws-sdk-go-v2:396f97a998c5:aws_aws_sdk_go_v2_eventstream \
-		aws:aws-sdk-go-v2:4599f78694ca:aws_aws_sdk_go_v2_imds \
+		aws:aws-sdk-go-v2:4599f78694ca:aws_aws_sdk_go_v2_configsources \
 		aws:aws-sdk-go-v2:787a81828a38:aws_aws_sdk_go_v2_endpoint_discovery \
 		aws:aws-sdk-go-v2:7a78b54e2ed3:aws_aws_sdk_go_v2_sso \
-		aws:aws-sdk-go-v2:config/v1.18.39:aws_aws_sdk_go_v2_config \
-		aws:aws-sdk-go-v2:credentials/v1.13.37:aws_aws_sdk_go_v2_credentials \
 		aws:aws-sdk-go-v2:d2d9723441a4:aws_aws_sdk_go_v2_manager \
 		aws:aws-sdk-go-v2:v1.21.0:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
 		aws:aws-sdk-go-v2:v1.21.1:aws_aws_sdk_go_v2_dynamodb \
@@ -96,7 +94,7 @@ GH_TUPLE=	\
 		golang:net:v0.15.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.8.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.3:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sync:v0.3.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sync:v0.4.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.12.0:golang_sys/vendor/golang.org/x/sys \
 		golang:term:v0.12.0:golang_term/vendor/golang.org/x/term \
 		golang:text:v0.13.0:golang_text/vendor/golang.org/x/text \
@@ -140,12 +138,12 @@ GH_TUPLE=	\
 		hashicorp:go-rootcerts:v1.0.2:hashicorp_go_rootcerts/vendor/github.com/hashicorp/go-rootcerts \
 		hashicorp:go-safetemp:v1.0.0:hashicorp_go_safetemp/vendor/github.com/hashicorp/go-safetemp \
 		hashicorp:go-slug:v0.12.2:hashicorp_go_slug/vendor/github.com/hashicorp/go-slug \
-		hashicorp:go-tfe:v1.34.0:hashicorp_go_tfe/vendor/github.com/hashicorp/go-tfe \
+		hashicorp:go-tfe:v1.36.0:hashicorp_go_tfe/vendor/github.com/hashicorp/go-tfe \
 		hashicorp:go-uuid:v1.0.3:hashicorp_go_uuid/vendor/github.com/hashicorp/go-uuid \
 		hashicorp:go-version:v1.6.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
 		hashicorp:golang-lru:v0.5.1:hashicorp_golang_lru/vendor/github.com/hashicorp/golang-lru \
 		hashicorp:hcl:v1.0.0:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
-		hashicorp:hcl:v2.18.1:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
+		hashicorp:hcl:v2.19.1:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
 		hashicorp:jsonapi:ee7dae0fb22d:hashicorp_jsonapi/vendor/github.com/hashicorp/jsonapi \
 		hashicorp:serf:v0.9.6:hashicorp_serf/vendor/github.com/hashicorp/serf \
 		hashicorp:terraform-plugin-log:v0.9.0:hashicorp_terraform_plugin_log/vendor/github.com/hashicorp/terraform-plugin-log \
@@ -239,6 +237,10 @@ GH_TUPLE=	\
 		zclconf:go-cty-yaml:v1.0.3:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
 		zclconf:go-cty:v1.14.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 
+		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
+		#	::732eee02a75a:group_name/vendor/golang.org/x/exp/typeparams (from go.googlesource.com/exp@732eee02a75a)
+		#	::v0.1.0-deprecated:group_name/vendor/golang.org/x/tools/cmd/cover (from go.googlesource.com/tools@v0.1.0-deprecated)
+
 post-extract:
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute}/compute ${WRKSRC}/vendor/cloud.google.com/go/compute
@@ -266,14 +268,10 @@ post-extract:
 	@${RLN} ${WRKSRC_azure_go_autorest_tracing}/tracing ${WRKSRC}/vendor/github.com/Azure/go-autorest/tracing
 	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream
 	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_eventstream}/aws/protocol/eventstream ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream
-	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/config
-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_config}/config ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/config
-	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/credentials
-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_credentials}/credentials ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/credentials
-	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds
-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_imds}/feature/ec2/imds ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds
 	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/s3/manager
 	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_manager}/feature/s3/manager ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/s3/manager
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_configsources}/internal/configsources ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources
 	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/dynamodb
 	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_dynamodb}/service/dynamodb ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/dynamodb
 	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/endpoint-discovery
