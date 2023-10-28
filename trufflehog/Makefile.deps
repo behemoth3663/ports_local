@@ -28,8 +28,7 @@ GH_TUPLE=	\
 		apache:arrow:go/v12.0.1:apache_arrow/vendor/github.com/apache/arrow/go/v12 \
 		apache:thrift:v0.16.0:apache_thrift/vendor/github.com/apache/thrift \
 		atotto:clipboard:v0.1.4:atotto_clipboard/vendor/github.com/atotto/clipboard \
-		aws:aws-sdk-go-v2:390cf19a7507:aws_aws_sdk_go_v2_manager \
-		aws:aws-sdk-go-v2:credentials/v1.13.18:aws_aws_sdk_go_v2_credentials \
+		aws:aws-sdk-go-v2:390cf19a7507:aws_aws_sdk_go_v2_configsources \
 		aws:aws-sdk-go-v2:v1.14.0:aws_aws_sdk_go_v2_s3shared/vendor/github.com/aws/aws-sdk-go-v2 \
 		aws:aws-sdk-go-v2:v1.17.7:aws_aws_sdk_go_v2 \
 		aws:aws-sdk-go:v1.45.19:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
@@ -75,15 +74,14 @@ GH_TUPLE=	\
 		envoyproxy:protoc-gen-validate:v1.0.2:envoyproxy_protoc_gen_validate/vendor/github.com/envoyproxy/protoc-gen-validate \
 		fatih:color:v1.15.0:fatih_color/vendor/github.com/fatih/color \
 		felixge:fgprof:v0.9.3:felixge_fgprof/vendor/github.com/felixge/fgprof \
+		flyingmutant:rapid:v1.1.0:flyingmutant_rapid/vendor/pgregory.net/rapid \
 		form3tech-oss:jwt-go:v3.2.5:form3tech_oss_jwt_go/vendor/github.com/form3tech-oss/jwt-go \
 		gabriel-vasile:mimetype:v1.4.2:gabriel_vasile_mimetype/vendor/github.com/gabriel-vasile/mimetype \
 		getsentry:sentry-go:v0.24.1:getsentry_sentry_go/vendor/github.com/getsentry/sentry-go \
 		go-asn1-ber:asn1-ber:v1.5.5:go_asn1_ber_asn1_ber/vendor/github.com/go-asn1-ber/asn1-ber \
 		go-errors:errors:v1.4.2:go_errors_errors/vendor/github.com/go-errors/errors \
 		go-git:gcfg:3a3c6141e376:go_git_gcfg/vendor/github.com/go-git/gcfg \
-		go-git:go-billy:v5.4.1:go_git_go_billy_v5/vendor/github.com/go-git/go-billy/v5 \
 		go-git:go-git:v5.8.1:go_git_go_git_v5/vendor/github.com/go-git/go-git/v5 \
-		go-ldap:ldap:v3.4.6:go_ldap_ldap_v3/vendor/github.com/go-ldap/ldap \
 		go-logr:logr:v1.2.4:go_logr_logr/vendor/github.com/go-logr/logr \
 		go-logr:zapr:v1.2.4:go_logr_zapr/vendor/github.com/go-logr/zapr \
 		go-ole:go-ole:v1.2.6:go_ole_go_ole/vendor/github.com/go-ole/go-ole \
@@ -122,14 +120,12 @@ GH_TUPLE=	\
 		google:go-containerregistry:v0.15.2:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
 		google:go-genproto:782d3b101e98:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/rpc \
 		google:go-genproto:ccb25ca9f130:google_go_genproto/vendor/google.golang.org/genproto \
-		google:go-github:v42.0.0:google_go_github_v42/vendor/github.com/google/go-github/v42 \
 		google:go-github:v55.0.0:google_go_github_v55/vendor/github.com/google/go-github/v55 \
 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
 		google:pprof:6f57359322fd:google_pprof/vendor/github.com/google/pprof \
 		google:s2a-go:v0.1.4:google_s2a_go/vendor/github.com/google/s2a-go \
 		google:uuid:v1.3.1:google_uuid/vendor/github.com/google/uuid \
 		googleapis:enterprise-certificate-proxy:v0.2.5:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
-		googleapis:gax-go:v2.12.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
 		googleapis:google-api-go-client:v0.132.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
 		googleapis:google-cloud-go:compute/v1.20.1:googleapis_google_cloud_go_compute \
 		googleapis:google-cloud-go:iam/v1.1.0:googleapis_google_cloud_go_iam \
@@ -165,9 +161,6 @@ GH_TUPLE=	\
 		kylelemons:godebug:v1.1.0:kylelemons_godebug/vendor/github.com/kylelemons/godebug \
 		launchdarkly:ccache:v1.1.0:launchdarkly_ccache/vendor/github.com/launchdarkly/ccache \
 		launchdarkly:eventsource:v1.6.2:launchdarkly_eventsource/vendor/github.com/launchdarkly/eventsource \
-		launchdarkly:go-jsonstream:v3.0.0:launchdarkly_go_jsonstream_v3/vendor/github.com/launchdarkly/go-jsonstream/v3 \
-		launchdarkly:go-sdk-common:v3.0.1:launchdarkly_go_sdk_common_v3/vendor/github.com/launchdarkly/go-sdk-common/v3 \
-		launchdarkly:go-sdk-events:v2.0.1:launchdarkly_go_sdk_events_v2/vendor/github.com/launchdarkly/go-sdk-events/v2 \
 		launchdarkly:go-semver:v1.0.2:launchdarkly_go_semver/vendor/github.com/launchdarkly/go-semver \
 		launchdarkly:go-server-sdk-evaluation:v2.0.2:launchdarkly_go_server_sdk_evaluation_v2/vendor/github.com/launchdarkly/go-server-sdk-evaluation/v2 \
 		launchdarkly:go-server-sdk:v6.1.0:launchdarkly_go_server_sdk_v6/vendor/github.com/launchdarkly/go-server-sdk/v6 \
@@ -182,7 +175,6 @@ GH_TUPLE=	\
 		mattn:go-runewidth:v0.0.14:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
 		mattn:go-sqlite3:v1.14.17:mattn_go_sqlite3/vendor/github.com/mattn/go-sqlite3 \
 		matttproud:golang_protobuf_extensions:v1.0.4:matttproud_golang_protobuf_extensions/vendor/github.com/matttproud/golang_protobuf_extensions \
-		mholt:archiver:v4.0.0-alpha.8:mholt_archiver_v4/vendor/github.com/mholt/archiver/v4 \
 		microcosm-cc:bluemonday:v1.0.23:microcosm_cc_bluemonday/vendor/github.com/microcosm-cc/bluemonday \
 		minio:asm2plan9s:cdd76441f9d8:minio_asm2plan9s/vendor/github.com/minio/asm2plan9s \
 		minio:c2goasm:36a3d3bbc4f3:minio_c2goasm/vendor/github.com/minio/c2goasm \
@@ -196,7 +188,6 @@ GH_TUPLE=	\
 		muesli:cancelreader:v0.2.2:muesli_cancelreader/vendor/github.com/muesli/cancelreader \
 		muesli:reflow:v0.3.0:muesli_reflow/vendor/github.com/muesli/reflow \
 		muesli:termenv:v0.15.1:muesli_termenv/vendor/github.com/muesli/termenv \
-		nwaples:rardecode:v2.0.0-beta.2:nwaples_rardecode_v2/vendor/github.com/nwaples/rardecode/v2 \
 		olekukonko:tablewriter:v0.0.5:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
 		onsi:ginkgo:v1.16.5:onsi_ginkgo/vendor/github.com/onsi/ginkgo \
 		onsi:gomega:v1.23.0:onsi_gomega/vendor/github.com/onsi/gomega \
@@ -204,7 +195,6 @@ GH_TUPLE=	\
 		opencontainers:image-spec:v1.1.0-rc3:opencontainers_image_spec/vendor/github.com/opencontainers/image-spec \
 		patrickmn:go-cache:v2.1.0:patrickmn_go_cache/vendor/github.com/patrickmn/go-cache \
 		paulbellamy:ratecounter:v0.2.0:paulbellamy_ratecounter/vendor/github.com/paulbellamy/ratecounter \
-		pierrec:lz4:v4.1.17:pierrec_lz4_v4/vendor/github.com/pierrec/lz4/v4 \
 		pjbgf:sha1cd:v0.3.0:pjbgf_sha1cd/vendor/github.com/pjbgf/sha1cd \
 		pkg:browser:681adbf594b8:pkg_browser/vendor/github.com/pkg/browser \
 		pkg:diff:5b29258ca4f7:pkg_diff/vendor/github.com/pkg/diff \
@@ -244,6 +234,10 @@ GH_TUPLE=	\
 		yusufpapurcu:wmi:v1.2.2:yusufpapurcu_wmi/vendor/github.com/yusufpapurcu/wmi \
 		zeebo:xxh3:v1.0.2:zeebo_xxh3/vendor/github.com/zeebo/xxh3
 
+		# Errors found during processing:
+		#	tag v12.0.1 doesn't seem to exist in apache/arrow
+		#	tag v2.4.25 doesn't seem to exist in aws/aws-sdk-go-v2
+
 post-extract:
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute}/compute ${WRKSRC}/vendor/cloud.google.com/go/compute
@@ -277,7 +271,5 @@ post-extract:
 	@${RLN} ${WRKSRC}/vendor/github.com/apache/arrow/go/v12/go/arrow ${WRKSRC}/vendor/github.com/apache/arrow/go/v12/arrow
 	@${RLN} ${WRKSRC}/vendor/github.com/apache/arrow/go/v12/go/internal ${WRKSRC}/vendor/github.com/apache/arrow/go/v12/internal
 	@${RLN} ${WRKSRC}/vendor/github.com/apache/arrow/go/v12/go/parquet ${WRKSRC}/vendor/github.com/apache/arrow/go/v12/parquet
-	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/credentials
-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_credentials}/credentials ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/credentials
-	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/s3/manager
-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_manager}/feature/s3/manager ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/s3/manager
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_configsources}/internal/configsources ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources

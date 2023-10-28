@@ -54,21 +54,21 @@ GH_TUPLE=	\
 		golang:time:0e9765cccd65:golang_time/vendor/golang.org/x/time \
 		golang:xerrors:04be3eba64a2:golang_xerrors/vendor/golang.org/x/xerrors \
 		google:go-cmp:v0.5.9:google_go_cmp/vendor/github.com/google/go-cmp \
-		google:go-genproto:7f2fa6fef1f4:google_go_genproto/vendor/google.golang.org/genproto \
+		google:go-genproto:daa745c078e1:google_go_genproto/vendor/google.golang.org/genproto \
 		google:go-github:v35.3.0:google_go_github_v35/vendor/github.com/google/go-github/v35 \
 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
 		google:shlex:e7afc7fbc510:google_shlex/vendor/github.com/google/shlex \
 		google:uuid:v1.3.0:google_uuid/vendor/github.com/google/uuid \
 		googleapis:enterprise-certificate-proxy:v0.2.3:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
-		googleapis:gax-go:v2.7.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
-		googleapis:google-api-go-client:v0.110.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
-		googleapis:google-cloud-go:compute/v1.18.0:googleapis_google_cloud_go_compute \
+		googleapis:gax-go:v2.7.1:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
+		googleapis:google-api-go-client:v0.114.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+		googleapis:google-cloud-go:compute/v1.19.1:googleapis_google_cloud_go_compute \
 		googleapis:google-cloud-go:storage/v1.28.1:googleapis_google_cloud_go_storage \
 		googleapis:google-cloud-go:v0.110.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
-		googleapis:google-cloud-go:iam/v0.12.0:googleapis_google_cloud_go_iam \
+		googleapis:google-cloud-go:iam/v0.13.0:googleapis_google_cloud_go_iam \
 		googleapis:google-cloud-go:compute/metadata/v0.2.3:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata \
 		goware:prefixer:395022866408:goware_prefixer/vendor/github.com/goware/prefixer \
-		grpc:grpc-go:v1.55.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+		grpc:grpc-go:v1.56.3:grpc_grpc_go/vendor/google.golang.org/grpc \
 		gruntwork-io:go-commons:v0.17.1:gruntwork_io_go_commons/vendor/github.com/gruntwork-io/go-commons \
 		gruntwork-io:gruntwork-cli:v0.7.0:gruntwork_io_gruntwork_cli/vendor/github.com/gruntwork-io/gruntwork-cli \
 		gruntwork-io:terratest:v0.41.0:gruntwork_io_terratest/vendor/github.com/gruntwork-io/terratest \

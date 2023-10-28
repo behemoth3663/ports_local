@@ -1,19 +1,19 @@
---- Makefile.deps.orig	2023-09-08 08:28:12 UTC
+--- Makefile.deps.orig	2023-10-28 12:26:18 UTC
 +++ Makefile.deps
-@@ -62,9 +62,9 @@ GH_TUPLE=	\
- 		googleapis:google-api-go-client:v0.110.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
- 		googleapis:google-cloud-go:compute/v1.18.0:googleapis_google_cloud_go_compute \
+@@ -64,9 +64,9 @@ GH_TUPLE=	\
+ 		googleapis:google-api-go-client:v0.114.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+ 		googleapis:google-cloud-go:compute/v1.19.1:googleapis_google_cloud_go_compute \
  		googleapis:google-cloud-go:storage/v1.28.1:googleapis_google_cloud_go_storage \
 -		googleapis:google-cloud-go:v0.110.0:googleapis_google_cloud_go \
--		googleapis:google-cloud-go:v0.12.0:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go \
+-		googleapis:google-cloud-go:v0.13.0:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go \
 -		googleapis:google-cloud-go:v0.2.3:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata \
 +		googleapis:google-cloud-go:v0.110.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
-+		googleapis:google-cloud-go:iam/v0.12.0:googleapis_google_cloud_go_iam \
++		googleapis:google-cloud-go:iam/v0.13.0:googleapis_google_cloud_go_iam \
 +		googleapis:google-cloud-go:compute/metadata/v0.2.3:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata \
  		goware:prefixer:395022866408:goware_prefixer/vendor/github.com/goware/prefixer \
- 		grpc:grpc-go:v1.55.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+ 		grpc:grpc-go:v1.56.3:grpc_grpc_go/vendor/google.golang.org/grpc \
  		gruntwork-io:go-commons:v0.17.1:gruntwork_io_go_commons/vendor/github.com/gruntwork-io/go-commons \
-@@ -147,11 +147,12 @@ GH_TUPLE=	\
+@@ -150,7 +150,8 @@ GH_TUPLE=	\
  		zclconf:go-cty:v1.13.2:zclconf_go_cty/vendor/github.com/zclconf/go-cty
  
  post-extract:
@@ -23,7 +23,3 @@
  	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute
  	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute}/compute ${WRKSRC}/vendor/cloud.google.com/go/compute
  	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
- 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go/storage
- 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
- 	@${RLN} ${WRKSRC_azure_go_autorest_autorest}/autorest ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
- 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/adal
