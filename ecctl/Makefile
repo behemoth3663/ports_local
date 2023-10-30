@@ -1,5 +1,5 @@
 PORTNAME=	ecctl
-PORTVERSION=	1.10.0
+PORTVERSION=	1.11.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -30,8 +30,8 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 	-X 'main.commit=$$(${GIT_COMMIT})' \
 	-X 'main.built=${%FT%TZ:L:gmtime}'"
 
-post-post-extract: .PHONY
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
