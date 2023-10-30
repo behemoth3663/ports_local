@@ -1,6 +1,6 @@
 PORTNAME=	curlie
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.7.1
+DISTVERSION=	1.7.2
 CATEGORIES=	ftp net www
 
 MAINTAINER=	0mp@FreeBSD.org
@@ -32,9 +32,8 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 	-X 'main.commit=$$(${GIT_COMMIT})' \
 	-X 'main.date=${%FT%TZ:L:gmtime}'"
 
-post-post-extract: .PHONY
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
-
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
