@@ -1,5 +1,5 @@
 PORTNAME=	infracost
-PORTVERSION=	0.10.29
+PORTVERSION=	0.10.30
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -21,6 +21,9 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
 
 PLIST_FILES=	bin/${PORTNAME}
 
+M2T_OFFLINE=	true
+.export	M2T_OFFLINE
+
 _OPTIONS_extract=	600:pre-post-extract
 pre-post-extract: .PHONY
 	${FIND} ${WRKDIR} -maxdepth 1 -type d -name 'go-commons-*' | while read src; do \
@@ -28,12 +31,15 @@ pre-post-extract: .PHONY
 	done
 
 pre-deps: .PHONY .SILENT
-	${TAR} -C ${PATCHDIR} -cf ${.CURDIR}/${PORTNAME}.tar .
-	${RM} ${PATCHDIR}/*
+	FILES=$$(${FIND} ${PATCHDIR} -type f -name 'patch-*'); \
+	if [ -n "$${FILES}" ]; then \
+		${TAR} -C / -cf ${.CURDIR}/${PORTNAME}.tar $${FILES}; \
+		${RM} $${FILES}; \
+	fi
 
 pre-deps-all: .PHONY
 post-deps-all: .PHONY
-	${TAR} -C ${PATCHDIR} -xf ${.CURDIR}/${PORTNAME}.tar
+	${TAR} -C / -xf ${.CURDIR}/${PORTNAME}.tar
 	${RM} ${PATCH_COOKIE} ${.CURDIR}/${PORTNAME}.tar
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"

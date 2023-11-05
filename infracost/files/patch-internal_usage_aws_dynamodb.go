@@ -1,4 +1,4 @@
---- internal/usage/aws/dynamodb.go.orig	2023-07-21 14:54:00 UTC
+--- internal/usage/aws/dynamodb.go.orig	2023-10-27 15:17:36 UTC
 +++ internal/usage/aws/dynamodb.go
 @@ -45,7 +45,7 @@ func DynamoDBGetStorageBytes(ctx context.Context, regi
  	if err != nil {
