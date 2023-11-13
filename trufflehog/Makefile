@@ -1,5 +1,5 @@
 PORTNAME=	trufflehog
-PORTVERSION=	3.60.2
+PORTVERSION=	3.62.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -16,6 +16,9 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	trufflesecurity
 
 PLIST_FILES=	bin/${PORTNAME}
+
+M2T_OFFLINE=	true
+.export	M2T_OFFLINE
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/v3/pkg/version.BuildVersion=${DISTVERSIONPREFIX}${PORTVERSION}'"
