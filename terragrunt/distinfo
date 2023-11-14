@@ -1,6 +1,6 @@
-TIMESTAMP = 1699220855
-SHA256 (gruntwork-io-terragrunt-v0.53.2_GH0.tar.gz) = 44f2f71b1e0aeb2c6feb113c097e45c6a9e2d55318e994ec8817195e709f7019
-SIZE (gruntwork-io-terragrunt-v0.53.2_GH0.tar.gz) = 2374809
+TIMESTAMP = 1700004199
+SHA256 (gruntwork-io-terragrunt-v0.53.3_GH0.tar.gz) = d0512408e3823ffd51772c222140b01be62f9c0bcb616a31fa39ed626d2a6c01
+SIZE (gruntwork-io-terragrunt-v0.53.3_GH0.tar.gz) = 2375187
 SHA256 (Azure-azure-sdk-for-go-v63.3.0_GH0.tar.gz) = b1057afa207e927b947b06e17d8fd040f521b65a70be712eec6a85251034a9b2
 SIZE (Azure-azure-sdk-for-go-v63.3.0_GH0.tar.gz) = 55842144
 SHA256 (Azure-go-autorest-446f41b7d65b_GH0.tar.gz) = 883e2603529a907a3da25d5e2389ab6473a80e6d79daf0d9ffc6385494e0da0a
