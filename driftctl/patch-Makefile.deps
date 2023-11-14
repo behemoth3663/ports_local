@@ -1,0 +1,76 @@
+--- Makefile.deps.orig	2024-02-25 15:07:20 UTC
++++ Makefile.deps
+@@ -1,9 +1,15 @@ GH_TUPLE=	\
+ GH_TUPLE=	\
+-		Azure:azure-sdk-for-go:0942e4b2b973:azure_azure_sdk_for_go_azblob \
+-		Azure:azure-sdk-for-go:3e51649a3e16:azure_azure_sdk_for_go_armcompute \
+-		Azure:azure-sdk-for-go:4f2fa7298d85:azure_azure_sdk_for_go_internal \
+-		Azure:azure-sdk-for-go:7b426459db85:azure_azure_sdk_for_go_azcore \
+-		Azure:azure-sdk-for-go:f80f698679bf:azure_azure_sdk_for_go_azidentity \
++		Azure:azure-sdk-for-go:sdk/azidentity/v0.12.0:azure_azure_sdk_for_go_azidentity \
++		Azure:azure-sdk-for-go:sdk/resourcemanager/compute/armcompute/v0.2.0:azure_azure_sdk_for_go_armcompute \
++		Azure:azure-sdk-for-go:sdk/resourcemanager/containerregistry/armcontainerregistry/v0.2.0:azure_azure_sdk_for_go_armcontainerregistry \
++		Azure:azure-sdk-for-go:sdk/resourcemanager/network/armnetwork/v0.2.0:azure_azure_sdk_for_go_armnetwork \
++		Azure:azure-sdk-for-go:sdk/resourcemanager/postgresql/armpostgresql/v0.2.0:azure_azure_sdk_for_go_armpostgresql \
++		Azure:azure-sdk-for-go:sdk/resourcemanager/privatedns/armprivatedns/v0.2.0:azure_azure_sdk_for_go_armprivatedns \
++		Azure:azure-sdk-for-go:sdk/resourcemanager/resources/armresources/v0.2.0:azure_azure_sdk_for_go_armresources \
++		Azure:azure-sdk-for-go:sdk/resourcemanager/storage/armstorage/v0.2.0:azure_azure_sdk_for_go_armstorage \
++		Azure:azure-sdk-for-go:sdk/storage/azblob/v0.2.0:azure_azure_sdk_for_go_azblob \
++		Azure:azure-sdk-for-go:sdk/azcore/v0.20.0:azure_azure_sdk_for_go_azcore \
++		Azure:azure-sdk-for-go:sdk/internal/v0.8.1:azure_azure_sdk_for_go_internal \
+ 		Azure:azure-sdk-for-go:v59.0.0:azure_azure_sdk_for_go/vendor/github.com/Azure/azure-sdk-for-go \
+ 		Azure:go-autorest:autorest/v0.11.3:azure_go_autorest_autorest \
+ 		Azure:go-autorest:b3a0b30a7423:azure_go_autorest_date \
+@@ -66,9 +72,9 @@ GH_TUPLE=	\
+ 		googleapis:google-cloud-go:orgpolicy/v1.10.0:googleapis_google_cloud_go_orgpolicy \
+ 		googleapis:google-cloud-go:osconfig/v1.11.0:googleapis_google_cloud_go_osconfig \
+ 		googleapis:google-cloud-go:storage/v1.29.0:googleapis_google_cloud_go_storage \
+-		googleapis:google-cloud-go:v0.110.0:googleapis_google_cloud_go \
+-		googleapis:google-cloud-go:v0.13.0:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go \
+-		googleapis:google-cloud-go:v0.2.3:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata \
++		googleapis:google-cloud-go:v0.110.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
++		googleapis:google-cloud-go:iam/v0.13.0:googleapis_google_cloud_go_iam \
++		googleapis:google-cloud-go:compute/metadata/v0.2.3:googleapis_google_cloud_go_compute_metadata \
+ 		grpc:grpc-go:v1.56.3:grpc_grpc_go/vendor/google.golang.org/grpc \
+ 		hashicorp:errwrap:v1.0.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
+ 		hashicorp:go-checkpoint:v0.5.0:hashicorp_go_checkpoint/vendor/github.com/hashicorp/go-checkpoint \
+@@ -135,8 +141,8 @@ GH_TUPLE=	\
+ 		vmihailenco:tagparser:v0.1.1:vmihailenco_tagparser/vendor/github.com/vmihailenco/tagparser \
+ 		zclconf:go-cty-yaml:v1.0.2:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
+ 		zclconf:go-cty:v1.8.4:zclconf_go_cty/vendor/github.com/zclconf/go-cty
++
+ post-extract:
+-	@${RLN} ${WRKSRC_googleapis_google_cloud_go} ${WRKSRC}/vendor/cloud.google.com/go
+ 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/accesscontextmanager
+ 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_accesscontextmanager}/accesscontextmanager ${WRKSRC}/vendor/cloud.google.com/go/accesscontextmanager
+ 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/asset
+@@ -151,6 +157,10 @@ post-extract:
+ 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_osconfig}/osconfig ${WRKSRC}/vendor/cloud.google.com/go/osconfig
+ 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
+ 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go/storage
++	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/iam
++	@${RLN} ${WRKSRC_googleapis_google_cloud_go_iam}/iam ${WRKSRC}/vendor/cloud.google.com/go/iam
++	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
++	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
+ 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/azcore
+ 	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_azcore}/sdk/azcore ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/azcore
+ 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/azidentity
+@@ -161,6 +171,18 @@ post-extract:
+ 	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_armcompute}/sdk/resourcemanager/compute/armcompute ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/compute/armcompute
+ 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob
+ 	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_azblob}/sdk/storage/azblob ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/containerregistry/armcontainerregistry
++	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_armcontainerregistry}/sdk/resourcemanager/containerregistry/armcontainerregistry ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/containerregistry/armcontainerregistry
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/network/armnetwork
++	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_armnetwork}/sdk/resourcemanager/network/armnetwork ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/network/armnetwork
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/postgresql/armpostgresql
++	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_armpostgresql}/sdk/resourcemanager/postgresql/armpostgresql ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/postgresql/armpostgresql
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/privatedns/armprivatedns
++	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_armprivatedns}/sdk/resourcemanager/privatedns/armprivatedns ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/privatedns/armprivatedns
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources
++	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_armresources}/sdk/resourcemanager/resources/armresources ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/resources/armresources
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storage/armstorage
++	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_armstorage}/sdk/resourcemanager/storage/armstorage ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storage/armstorage
+ 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
+ 	@${RLN} ${WRKSRC_azure_go_autorest_autorest}/autorest ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
+ 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/adal
