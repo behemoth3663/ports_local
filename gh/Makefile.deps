@@ -44,7 +44,7 @@ GH_TUPLE=	\
 		hashicorp:errwrap:v1.0.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
 		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
 		hashicorp:go-version:v1.3.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
-		henvic:httpretty:v0.1.2:henvic_httpretty/vendor/github.com/henvic/httpretty \
+		henvic:httpretty:v0.1.3:henvic_httpretty/vendor/github.com/henvic/httpretty \
 		inconshreveable:mousetrap:v1.0.1:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
 		itchyny:gojq:v0.12.13:itchyny_gojq/vendor/github.com/itchyny/gojq \
 		itchyny:timefmt-go:v0.1.5:itchyny_timefmt_go/vendor/github.com/itchyny/timefmt-go \
