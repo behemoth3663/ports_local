@@ -1,5 +1,5 @@
 PORTNAME=	ratchet
-PORTVERSION=	0.4.0
+PORTVERSION=	0.5.1
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -29,10 +29,10 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal/version.Version=${PORTVERSION}' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal/version.Commit=$$(${GIT_COMMIT})'"
 
-post-post-extract: .PHONY .SILENT
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
+.sinclude "${.CURDIR}/Makefile.deps"
 
 GH_TUPLE:=	${GH_TUPLE:C|^moby:moby(:.*/docker-credential-helpers)|docker:docker-credential-helpers\1|}
 
