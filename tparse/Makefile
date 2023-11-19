@@ -1,5 +1,5 @@
 PORTNAME=	tparse
-PORTVERSION=	0.13.1
+PORTVERSION=	0.13.2
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local textproc
@@ -16,10 +16,10 @@ USES=		go:modules
 USE_GITHUB=	yes
 GH_ACCOUNT=	mfridman
 
+PLIST_FILES=	bin/${PORTNAME}
+
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 	-X 'main.version=${DISTVERSIONPREFIX}${PORTVERSION}'"
-
-PLIST_FILES=	bin/${PORTNAME}
 
 #Does not work:
 #	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/main.version=${PORTVERSION}'
