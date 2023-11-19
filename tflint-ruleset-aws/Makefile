@@ -1,5 +1,5 @@
 PORTNAME=	tflint-ruleset-aws
-PORTVERSION=	0.27.0
+PORTVERSION=	0.28.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -16,6 +16,8 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	terraform-linters
 
 PLIST_FILES=	bin/${PORTNAME}
+
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
