@@ -21,7 +21,7 @@ PLIST_FILES=	bin/${PORTNAME}
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 	-X 'main.VERSION=${DISTVERSIONPREFIX}${PORTVERSION}'"
 
-_OPTIONS_extract=	501:pre-post-extract
+_OPTIONS_extract=	600:pre-post-extract
 #Resolve the error:
 #mv: rename /usr/obj/usr/ports/local/cloud-nuke/work/gruntwork-cli-0.7.0 to /usr/obj/usr/ports/local/cloud-nuke/work/cloud-nuke-0.29.4/vendor/github.com/gruntwork-io/gruntwork-cli: No such file or directory
 #/usr/obj/usr/ports/local/cloud-nuke/work/gruntwork-cli-0.7.0 -> /usr/obj/usr/ports/local/cloud-nuke/work/go-commons-0.7.0
