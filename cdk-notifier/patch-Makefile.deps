@@ -1,14 +1,10 @@
---- Makefile.deps.orig	2023-11-13 20:01:01 UTC
+--- Makefile.deps.orig	2023-12-01 15:26:15 UTC
 +++ Makefile.deps
-@@ -39,10 +39,7 @@ GH_TUPLE=	\
+@@ -39,6 +39,7 @@ GH_TUPLE=	\
  		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
  		spf13:viper:v1.17.0:spf13_viper/vendor/github.com/spf13/viper \
  		stretchr:testify:v1.8.4:stretchr_testify/vendor/github.com/stretchr/testify \
 +		subosito:gotenv:v1.6.0:subosito_gotenv/vendor/github.com/subosito/gotenv \
  		uber-go:atomic:v1.9.0:uber_go_atomic/vendor/go.uber.org/atomic \
  		uber-go:multierr:v1.9.0:uber_go_multierr/vendor/go.uber.org/multierr \
- 		xanzy:go-gitlab:v0.93.2:xanzy_go_gitlab/vendor/github.com/xanzy/go-gitlab
--
--post-extract:
--	@${MKDIR} ${WRKSRC}/vendor/github.com/subosito
--	@${RLN} ${WRKSRC_fsnotify_fsnotify} ${WRKSRC}/vendor/github.com/subosito/gotenv
+ 		xanzy:go-gitlab:v0.94.0:xanzy_go_gitlab/vendor/github.com/xanzy/go-gitlab
