@@ -1,6 +1,4 @@
-#
-
-PORTNAME=	speedtest-go
+PORTNAME=	speedtest-go-server
 PORTVERSION=	1.1.5
 DISTVERSIONPREFIX=	v
 PORTREVISION=	1
@@ -8,6 +6,7 @@ CATEGORIES=	local net
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Go backend for LibreSpeed
+WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	LGPL3
 LICENSE_FILE=	${WRKSRC}/LICENSE
@@ -16,12 +15,14 @@ USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	librespeed
+GH_PROJECT=	speedtest-go
 
 PLIST_FILES=	bin/${PORTNAME}
 
-fetch-version: .PHONY get-version
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
+
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
-
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>

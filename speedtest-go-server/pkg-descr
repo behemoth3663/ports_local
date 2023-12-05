@@ -1,0 +1,2 @@
+This is a very lightweight speed test implemented in JavaScript, using
+XMLHttpRequest and Web Workers.
