@@ -1,16 +1,17 @@
 GH_TUPLE=	\
-		aws:aws-sdk-go:v1.44.319:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
-		aws:session-manager-plugin:dbfa0bfdb04b:aws_session_manager_plugin/vendor/github.com/aws/session-manager-plugin \
+		aws:aws-sdk-go:v1.48.13:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		aws:session-manager-plugin:c03513bb3463:aws_session_manager_plugin/vendor/github.com/aws/session-manager-plugin \
 		cihub:seelog:f561c5e57575:cihub_seelog/vendor/github.com/cihub/seelog \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		eiannone:keyboard:0d226195f203:eiannone_keyboard/vendor/github.com/eiannone/keyboard \
-		fsnotify:fsnotify:v1.6.0:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
+		fsnotify:fsnotify:v1.7.0:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
-		golang:crypto:v0.12.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:sync:v0.3.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.11.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.11.0:golang_term/vendor/golang.org/x/term \
-		gorilla:websocket:v1.5.0:gorilla_websocket/vendor/github.com/gorilla/websocket \
+		golang:crypto:v0.16.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:net:v0.17.0:golang_net/vendor/golang.org/x/net \
+		golang:sync:v0.5.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.15.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.15.0:golang_term/vendor/golang.org/x/term \
+		gorilla:websocket:v1.5.1:gorilla_websocket/vendor/github.com/gorilla/websocket \
 		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
 		myesui:uuid:v1.0.0:myesui_uuid/vendor/github.com/myesui/uuid \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \

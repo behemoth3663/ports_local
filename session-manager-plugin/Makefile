@@ -1,5 +1,5 @@
 PORTNAME=	session-manager-plugin
-PORTVERSION=	1.2.497.0
+PORTVERSION=	1.2.536.0
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -17,6 +17,8 @@ GH_ACCOUNT=	aws
 GO_TARGET=	./src/${PORTNAME} ./src/ssm-cli
 
 PLIST_FILES=	${GO_TARGET:C|.*/|bin/|}
+
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
 
 pre-deps: .PHONY .SILENT
 	cd ${WRKSRC} && \
@@ -39,6 +41,8 @@ post-patch: .PHONY .SILENT
 		-e 's|^([[:space:]]*const[[:space:]]+Version[[:space:]]*=[[:space:]]*)".*"[[:space:]]*$$|\1"${PORTVERSION}"|' \
 	${WRKSRC}/vendor/github.com/${GH_ACCOUNT}/${GH_PROJECT}/src/version/version.go; \
 	${CP} -a ${PATCHDIR}/go.mod ${PATCHDIR}/go.sum ${WRKSRC}
+
+post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
