@@ -1,7 +1,7 @@
 PORTNAME=	terraform-docs
 PORTVERSION=	0.16.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	16
+PORTREVISION=	17
 CATEGORIES=	local sysutils textproc
 
 MAINTAINER=	0xdutra@gmail.com
@@ -17,6 +17,8 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	terraform-docs
 
 PLIST_FILES=	bin/${PORTNAME}
+
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 

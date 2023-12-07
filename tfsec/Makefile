@@ -1,7 +1,7 @@
 PORTNAME=	tfsec
 PORTVERSION=	1.28.4
 DISTVERSIONPREFIX=	v
-#PORTREVISION=	8
+PORTREVISION=	1
 CATEGORIES=	local security
 
 MAINTAINER=	nulldutra@proton.me
@@ -18,7 +18,7 @@ GH_ACCOUNT=	aquasecurity
 
 GO_TARGET=	./cmd/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w \
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=${PORTVERSION}'"
 
 PLIST_FILES=	bin/${PORTNAME}

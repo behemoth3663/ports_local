@@ -1,6 +1,7 @@
 PORTNAME=	gosec
 PORTVERSION=	2.18.2
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local devel security
 
 MAINTAINER=	none@freebsd.org
