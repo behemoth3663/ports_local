@@ -14,27 +14,27 @@ GH_TUPLE=	\
 		bobheadxi:streamline:v1.2.1:bobheadxi_streamline/vendor/go.bobheadxi.dev/streamline \
 		chigopher:pathlib:v0.15.0:chigopher_pathlib/vendor/github.com/chigopher/pathlib \
 		cloudflare:circl:v1.3.3:cloudflare_circl/vendor/github.com/cloudflare/circl \
-		creachadair:jrpc2:v1.1.1:creachadair_jrpc2/vendor/github.com/creachadair/jrpc2 \
-		creachadair:mds:v0.1.0:creachadair_mds/vendor/github.com/creachadair/mds \
+		creachadair:jrpc2:v1.1.2:creachadair_jrpc2/vendor/github.com/creachadair/jrpc2 \
+		creachadair:mds:v0.3.0:creachadair_mds/vendor/github.com/creachadair/mds \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		djherbis:buffer:v1.2.0:djherbis_buffer/vendor/github.com/djherbis/buffer \
 		djherbis:nio:v3.0.1:djherbis_nio_v3/vendor/github.com/djherbis/nio/v3 \
 		fatih:color:v1.15.0:fatih_color/vendor/github.com/fatih/color \
-		felixge:httpsnoop:v1.0.3:felixge_httpsnoop/vendor/github.com/felixge/httpsnoop \
+		felixge:httpsnoop:v1.0.4:felixge_httpsnoop/vendor/github.com/felixge/httpsnoop \
 		fsnotify:fsnotify:v1.6.0:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
 		go-ini:ini:v1.67.0:go_ini_ini/vendor/gopkg.in/ini.v1 \
-		go-logr:logr:v1.2.4:go_logr_logr/vendor/github.com/go-logr/logr \
+		go-logr:logr:v1.3.0:go_logr_logr/vendor/github.com/go-logr/logr \
 		go-logr:stdr:v1.2.2:go_logr_stdr/vendor/github.com/go-logr/stdr \
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
-		golang:crypto:v0.14.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:mod:v0.13.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.17.0:golang_net/vendor/golang.org/x/net \
-		golang:sync:v0.4.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.13.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.13.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.13.0:golang_text/vendor/golang.org/x/text \
-		golang:tools:v0.14.0:golang_tools/vendor/golang.org/x/tools \
+		golang:crypto:v0.16.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:mod:v0.14.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.19.0:golang_net/vendor/golang.org/x/net \
+		golang:sync:v0.5.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.15.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.15.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.14.0:golang_text/vendor/golang.org/x/text \
+		golang:tools:v0.16.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:uuid:v1.3.0:google_uuid/vendor/github.com/google/uuid \
 		hashicorp:errwrap:v1.0.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
@@ -45,14 +45,14 @@ GH_TUPLE=	\
 		hashicorp:go-uuid:v1.0.3:hashicorp_go_uuid/vendor/github.com/hashicorp/go-uuid \
 		hashicorp:go-version:v1.6.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
 		hashicorp:golang-lru:v0.5.4:hashicorp_golang_lru/vendor/github.com/hashicorp/golang-lru \
-		hashicorp:hc-install:v0.6.1:hashicorp_hc_install/vendor/github.com/hashicorp/hc-install \
-		hashicorp:hcl-lang:c89603e93360:hashicorp_hcl_lang/vendor/github.com/hashicorp/hcl-lang \
+		hashicorp:hc-install:v0.6.2:hashicorp_hc_install/vendor/github.com/hashicorp/hc-install \
+		hashicorp:hcl-lang:255545969c6e:hashicorp_hcl_lang/vendor/github.com/hashicorp/hcl-lang \
 		hashicorp:hcl:v1.0.0:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
 		hashicorp:hcl:v2.19.1:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
 		hashicorp:terraform-exec:v0.19.0:hashicorp_terraform_exec/vendor/github.com/hashicorp/terraform-exec \
-		hashicorp:terraform-json:v0.17.1:hashicorp_terraform_json/vendor/github.com/hashicorp/terraform-json \
+		hashicorp:terraform-json:v0.18.0:hashicorp_terraform_json/vendor/github.com/hashicorp/terraform-json \
 		hashicorp:terraform-registry-address:v0.2.3:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
-		hashicorp:terraform-schema:8af5a0749d10:hashicorp_terraform_schema/vendor/github.com/hashicorp/terraform-schema \
+		hashicorp:terraform-schema:950222f8f237:hashicorp_terraform_schema/vendor/github.com/hashicorp/terraform-schema \
 		hashicorp:terraform-svchost:v0.1.1:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
 		huandu:xstrings:v1.4.0:huandu_xstrings/vendor/github.com/huandu/xstrings \
 		iancoleman:strcase:v0.2.0:iancoleman_strcase/vendor/github.com/iancoleman/strcase \
@@ -90,6 +90,6 @@ GH_TUPLE=	\
 		stretchr:objx:v0.5.0:stretchr_objx/vendor/github.com/stretchr/objx \
 		stretchr:testify:v1.8.4:stretchr_testify/vendor/github.com/stretchr/testify \
 		subosito:gotenv:v1.4.2:subosito_gotenv/vendor/github.com/subosito/gotenv \
-		vektra:mockery:v2.36.1:vektra_mockery_v2/vendor/github.com/vektra/mockery/v2 \
+		vektra:mockery:v2.38.0:vektra_mockery_v2/vendor/github.com/vektra/mockery/v2 \
 		zclconf:go-cty-debug:b22d67c1ba0b:zclconf_go_cty_debug/vendor/github.com/zclconf/go-cty-debug \
 		zclconf:go-cty:v1.14.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
