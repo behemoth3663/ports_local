@@ -1,0 +1,11 @@
+--- Makefile.deps.orig	2023-12-21 14:48:41 UTC
++++ Makefile.deps
+@@ -20,7 +20,7 @@ GH_TUPLE=	\
+ 		golang:text:v0.14.0:golang_text/vendor/golang.org/x/text \
+ 		golang:tools:v0.16.0:golang_tools/vendor/golang.org/x/tools \
+ 		google:go-cmp:v0.5.9:google_go_cmp/vendor/github.com/google/go-cmp \
+-		google:go-genproto:3a041ad873d4:google_go_genproto/vendor/google.golang.org/genproto/googleapis/rpc \
++		google:go-genproto:3a041ad873d4:google_go_genproto/vendor/google.golang.org/genproto \
+ 		google:uuid:v1.4.0:google_uuid/vendor/github.com/google/uuid \
+ 		grpc:grpc-go:v1.59.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+ 		hashicorp:go-hclog:v1.6.1:hashicorp_go_hclog/vendor/github.com/hashicorp/go-hclog \
