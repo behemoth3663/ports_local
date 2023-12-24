@@ -1,5 +1,5 @@
 PORTNAME=	get-next-version
-PORTVERSION=	2.6.0
+PORTVERSION=	2.6.1
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
 
