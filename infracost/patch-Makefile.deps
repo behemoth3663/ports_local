@@ -1,6 +1,6 @@
---- Makefile.deps.orig	2023-10-31 18:43:11 UTC
+--- Makefile.deps.orig	2023-12-24 17:13:54 UTC
 +++ Makefile.deps
-@@ -1,15 +1,16 @@
+@@ -1,15 +1,16 @@ GH_TUPLE=	\
  GH_TUPLE=	\
  		Azure:azure-sdk-for-go:v63.3.0:azure_azure_sdk_for_go/vendor/github.com/Azure/azure-sdk-for-go \
 -		Azure:go-autorest:v0.11.26:azure_go_autorest_autorest/vendor/github.com/Azure/go-autorest/autorest \
@@ -26,7 +26,7 @@
  		Masterminds:goutils:v1.1.1:masterminds_goutils/vendor/github.com/Masterminds/goutils \
  		Masterminds:semver:v1.5.0:masterminds_semver/vendor/github.com/Masterminds/semver \
  		Masterminds:semver:v3.2.1:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
-@@ -29,29 +30,29 @@ GH_TUPLE=	\
+@@ -30,29 +31,29 @@ GH_TUPLE=	\
  		apparentlymart:go-versions:v1.0.1:apparentlymart_go_versions/vendor/github.com/apparentlymart/go-versions \
  		armon:go-metrics:v0.3.10:armon_go_metrics/vendor/github.com/armon/go-metrics \
  		armon:go-radix:v1.0.0:armon_go_radix/vendor/github.com/armon/go-radix \
@@ -78,7 +78,7 @@
  		aws:aws-sdk-go:v1.44.122:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
  		aws:smithy-go:v1.14.2:aws_smithy_go/vendor/github.com/aws/smithy-go \
  		awslabs:goformation:v4.19.5:awslabs_goformation_v4/vendor/github.com/awslabs/goformation/v4 \
-@@ -67,6 +68,7 @@ GH_TUPLE=	\
+@@ -68,6 +69,7 @@ GH_TUPLE=	\
  		creack:pty:v1.1.11:creack_pty/vendor/github.com/creack/pty \
  		dave:dst:v0.27.2:dave_dst/vendor/github.com/dave/dst \
  		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
@@ -86,7 +86,7 @@
  		dimchansky:utfbom:v1.1.1:dimchansky_utfbom/vendor/github.com/dimchansky/utfbom \
  		dlclark:regexp2:v1.8.1:dlclark_regexp2/vendor/github.com/dlclark/regexp2 \
  		dustin:go-humanize:v1.0.1:dustin_go_humanize/vendor/github.com/dustin/go-humanize \
-@@ -108,12 +110,13 @@ GH_TUPLE=	\
+@@ -109,12 +111,13 @@ GH_TUPLE=	\
  		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
  		google:uuid:v1.3.0:google_uuid/vendor/github.com/google/uuid \
  		googleapis:enterprise-certificate-proxy:v0.2.3:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
@@ -103,8 +103,8 @@
  		gorilla:websocket:v1.4.2:gorilla_websocket/vendor/github.com/gorilla/websocket \
  		goware:prefixer:395022866408:goware_prefixer/vendor/github.com/goware/prefixer \
  		grpc:grpc-go:v1.56.3:grpc_grpc_go/vendor/google.golang.org/grpc \
-@@ -130,9 +133,9 @@ GH_TUPLE=	\
- 		hashicorp:go-retryablehttp:v0.7.2:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
+@@ -131,9 +134,9 @@ GH_TUPLE=	\
+ 		hashicorp:go-retryablehttp:v0.7.5:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
  		hashicorp:go-rootcerts:v1.0.2:hashicorp_go_rootcerts/vendor/github.com/hashicorp/go-rootcerts \
  		hashicorp:go-safetemp:v1.0.0:hashicorp_go_safetemp/vendor/github.com/hashicorp/go-safetemp \
 -		hashicorp:go-secure-stdlib:v0.1.2:hashicorp_go_secure_stdlib_mlock/vendor/github.com/hashicorp/go-secure-stdlib/mlock \
@@ -116,7 +116,7 @@
  		hashicorp:go-sockaddr:v1.0.2:hashicorp_go_sockaddr/vendor/github.com/hashicorp/go-sockaddr \
  		hashicorp:go-terraform-address:2cc4f0f34da8:hashicorp_go_terraform_address/vendor/github.com/hashicorp/go-terraform-address \
  		hashicorp:go-uuid:v1.0.3:hashicorp_go_uuid/vendor/github.com/hashicorp/go-uuid \
-@@ -146,8 +149,8 @@ GH_TUPLE=	\
+@@ -147,8 +150,8 @@ GH_TUPLE=	\
  		hashicorp:terraform-registry-address:v0.2.0:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
  		hashicorp:terraform-svchost:v0.1.0:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
  		hashicorp:terraform:v0.15.3:hashicorp_terraform/vendor/github.com/hashicorp/terraform \
@@ -126,7 +126,7 @@
  		hashicorp:yamux:0bc27b27de87:hashicorp_yamux/vendor/github.com/hashicorp/yamux \
  		howeyc:gopass:c8aef6fb66ef:howeyc_gopass/vendor/github.com/howeyc/gopass \
  		huandu:xstrings:v1.3.2:huandu_xstrings/vendor/github.com/huandu/xstrings \
-@@ -182,6 +185,7 @@ GH_TUPLE=	\
+@@ -183,6 +186,7 @@ GH_TUPLE=	\
  		modern-go:concurrent:bacd9c7ef1dd:modern_go_concurrent/vendor/github.com/modern-go/concurrent \
  		modern-go:reflect2:v1.0.2:modern_go_reflect2/vendor/github.com/modern-go/reflect2 \
  		mozilla-services:gopgagent:4d7ea76ff71a:mozilla_services_gopgagent/vendor/go.mozilla.org/gopgagent \
@@ -134,7 +134,7 @@
  		oklog:run:v1.1.0:oklog_run/vendor/github.com/oklog/run \
  		open-policy-agent:opa:v0.46.1:open_policy_agent_opa/vendor/github.com/open-policy-agent/opa \
  		otiai10:copy:v1.7.0:otiai10_copy/vendor/github.com/otiai10/copy \
-@@ -226,7 +230,7 @@ GH_TUPLE=	\
+@@ -228,7 +232,7 @@ GH_TUPLE=	\
  		urfave:cli:v2.25.5:urfave_cli_v2/vendor/github.com/urfave/cli/v2 \
  		vmihailenco:msgpack:v5.3.5:vmihailenco_msgpack_v5/vendor/github.com/vmihailenco/msgpack/v5 \
  		vmihailenco:tagparser:v2.0.0:vmihailenco_tagparser_v2/vendor/github.com/vmihailenco/tagparser/v2 \
@@ -143,7 +143,7 @@
  		xanzy:go-gitlab:v0.86.0:xanzy_go_gitlab/vendor/github.com/xanzy/go-gitlab \
  		xanzy:ssh-agent:v0.3.1:xanzy_ssh_agent/vendor/github.com/xanzy/ssh-agent \
  		xeipuuv:gojsonpointer:02993c407bfb:xeipuuv_gojsonpointer/vendor/github.com/xeipuuv/gojsonpointer \
-@@ -235,8 +239,3 @@ GH_TUPLE=	\
+@@ -237,8 +241,3 @@ GH_TUPLE=	\
  		yashtewari:glob-intersection:v0.1.0:yashtewari_glob_intersection/vendor/github.com/yashtewari/glob-intersection \
  		zclconf:go-cty-yaml:v1.0.3:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
  		zclconf:go-cty:v1.14.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty

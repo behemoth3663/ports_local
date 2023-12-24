@@ -1,10 +1,10 @@
---- internal/update/update.go.orig	2021-07-06 14:33:15 UTC
+--- internal/update/update.go.orig	2023-12-05 22:53:36 UTC
 +++ internal/update/update.go
 @@ -14,11 +14,8 @@ import (
  	"time"
  
  	"github.com/pkg/errors"
--	log "github.com/sirupsen/logrus"
+-	"github.com/rs/zerolog/log"
 -	"golang.org/x/mod/semver"
  
  	"github.com/infracost/infracost/internal/config"
@@ -12,7 +12,7 @@
  )
  
  type Info struct {
-@@ -27,66 +24,7 @@ type Info struct {
+@@ -27,66 +24,7 @@ func CheckForUpdate(ctx *config.RunContext) (*Info, er
  }
  
  func CheckForUpdate(ctx *config.RunContext) (*Info, error) {
@@ -23,7 +23,7 @@
 -	// Check cache for the latest version
 -	cachedLatestVersion, err := checkCachedLatestVersion(ctx)
 -	if err != nil {
--		log.Debugf("error getting cached latest version: %v", err)
+-		log.Debug().Msgf("error getting cached latest version: %v", err)
 -	}
 -
 -	// Nothing to do if the current version is the latest cached version
@@ -34,7 +34,7 @@
 -	isBrew, err := isBrewInstall()
 -	if err != nil {
 -		// don't fail if we can't detect brew, just fallback to other update method
--		log.Debugf("error checking if executable was installed via brew: %v", err)
+-		log.Debug().Msgf("error checking if executable was installed via brew: %v", err)
 -	}
 -
 -	var cmd string
@@ -64,7 +64,7 @@
 -	if latestVersion != cachedLatestVersion {
 -		err := setCachedLatestVersion(ctx, latestVersion)
 -		if err != nil {
--			log.Debugf("error saving cached latest version: %v", err)
+-			log.Debug().Msgf("error saving cached latest version: %v", err)
 -		}
 -	}
 -
