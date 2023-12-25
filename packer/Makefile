@@ -1,5 +1,5 @@
 PORTNAME=	packer
-PORTVERSION=	1.9.4
+PORTVERSION=	1.10.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -19,6 +19,16 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	hashicorp
 
 PLIST_FILES=	bin/${PORTNAME}
+
+
+GIT_COMMIT=	git ls-remote \
+		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
+		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
+		${SED} -rn 's/(.{7}).*/\1/p'
+
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=${PORTVERSION}' \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.GitCommit=$$(${GIT_COMMIT})'"
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
