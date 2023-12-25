@@ -57,7 +57,7 @@ GH_TUPLE=	\
 		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
 		golang-jwt:jwt:v4.5.0:golang_jwt_jwt_v4/vendor/github.com/golang-jwt/jwt/v4 \
 		golang:appengine:v1.6.7:golang_appengine/vendor/google.golang.org/appengine \
-		golang:crypto:v0.14.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.17.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:921286631fa9:golang_exp/vendor/golang.org/x/exp \
 		golang:groupcache:41bb18bfe9da:golang_groupcache/vendor/github.com/golang/groupcache \
 		golang:mod:v0.12.0:golang_mod/vendor/golang.org/x/mod \
@@ -66,9 +66,9 @@ GH_TUPLE=	\
 		golang:protobuf:v1.5.3:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:snappy:v0.0.4:golang_snappy/vendor/github.com/golang/snappy \
 		golang:sync:v0.4.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.13.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.13.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.13.0:golang_text/vendor/golang.org/x/text \
+		golang:sys:v0.15.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.15.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.14.0:golang_text/vendor/golang.org/x/text \
 		golang:time:0e9765cccd65:golang_time/vendor/golang.org/x/time \
 		golang:xerrors:04be3eba64a2:golang_xerrors/vendor/golang.org/x/xerrors \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
