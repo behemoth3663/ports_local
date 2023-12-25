@@ -1,15 +1,15 @@
---- Makefile.deps.orig	2023-11-13 13:21:02 UTC
+--- Makefile.deps.orig	2023-12-25 10:02:13 UTC
 +++ Makefile.deps
-@@ -35,7 +35,7 @@ GH_TUPLE=	\
- 		googleapis:google-cloud-go:iam/v1.1.1:googleapis_google_cloud_go_iam \
- 		googleapis:google-cloud-go:storage/v1.30.1:googleapis_google_cloud_go_storage \
- 		googleapis:google-cloud-go:v0.110.7:googleapis_google_cloud_go/vendor/cloud.google.com/go \
+@@ -37,7 +37,7 @@ GH_TUPLE=	\
+ 		googleapis:google-cloud-go:iam/v1.1.5:googleapis_google_cloud_go_iam \
+ 		googleapis:google-cloud-go:storage/v1.35.1:googleapis_google_cloud_go_storage \
+ 		googleapis:google-cloud-go:v0.110.10:googleapis_google_cloud_go/vendor/cloud.google.com/go \
 -		googleapis:google-cloud-go:v0.2.3:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata \
 +		googleapis:google-cloud-go:compute/metadata/v0.2.3:googleapis_google_cloud_go_compute_metadata \
- 		grpc:grpc-go:v1.59.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+ 		grpc:grpc-go:v1.60.1:grpc_grpc_go/vendor/google.golang.org/grpc \
  		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
  		hashicorp:go-getter:v1.7.2:hashicorp_go_getter/vendor/github.com/hashicorp/go-getter \
-@@ -82,6 +82,8 @@ GH_TUPLE=	\
+@@ -84,6 +84,8 @@ post-extract:
  post-extract:
  	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute
  	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute}/compute ${WRKSRC}/vendor/cloud.google.com/go/compute
