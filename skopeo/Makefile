@@ -1,5 +1,5 @@
 PORTNAME=	skopeo
-PORTVERSION=	1.13.3
+PORTVERSION=	1.14.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -17,6 +17,9 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	containers
 
 PLIST_FILES=	bin/${PORTNAME}
+
+#-extldflags '-static' causes link error
+GO_BUILDFLAGS+=	-ldflags="-s -w"
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
