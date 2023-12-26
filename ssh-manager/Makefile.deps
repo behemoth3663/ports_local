@@ -1,15 +1,10 @@
 GH_TUPLE=	\
-		aws:aws-sdk-go-v2:021db042fbb4:aws_aws_sdk_go_v2_imds \
-		aws:aws-sdk-go-v2:93c3f1871b86:aws_aws_sdk_go_v2_eventstream \
-		aws:aws-sdk-go-v2:a5d5009095c5:aws_aws_sdk_go_v2_configsources \
-		aws:aws-sdk-go-v2:config/v1.18.29:aws_aws_sdk_go_v2_config \
-		aws:aws-sdk-go-v2:credentials/v1.13.28:aws_aws_sdk_go_v2_credentials \
-		aws:aws-sdk-go-v2:v1.20.0:aws_aws_sdk_go_v2_sts/vendor/github.com/aws/aws-sdk-go-v2 \
-		aws:aws-sdk-go-v2:v1.21.2:aws_aws_sdk_go_v2 \
-		aws:smithy-go:v1.15.0:aws_smithy_go/vendor/github.com/aws/smithy-go \
+		aws:aws-sdk-go-v2:v1.16.13:aws_aws_sdk_go_v2_credentials \
+		aws:aws-sdk-go-v2:v1.16.9:aws_aws_sdk_go_v2_s3shared/vendor/github.com/aws/aws-sdk-go-v2 \
+		aws:aws-sdk-go-v2:v1.24.0:aws_aws_sdk_go_v2 \
+		aws:smithy-go:v1.19.0:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		census-instrumentation:opencensus-go:v0.23.0:census_instrumentation_opencensus_go/vendor/go.opencensus.io \
 		census-instrumentation:opencensus-proto:v0.3.0:census_instrumentation_opencensus_proto/vendor/github.com/census-instrumentation/opencensus-proto \
-		cespare:xxhash:v2.1.2:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
 		cncf:udpa:04548b0d99d4:cncf_udpa_go/vendor/github.com/cncf/udpa \
 		cncf:xds:d92e9ce0af51:cncf_xds_go/vendor/github.com/cncf/xds \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
@@ -50,7 +45,7 @@ GH_TUPLE=	\
 		sirupsen:logrus:v1.9.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
 		spf13:afero:v1.7.0:spf13_afero/vendor/github.com/spf13/afero \
 		spf13:cast:v1.4.1:spf13_cast/vendor/github.com/spf13/cast \
-		spf13:cobra:v1.7.0:spf13_cobra/vendor/github.com/spf13/cobra \
+		spf13:cobra:v1.8.0:spf13_cobra/vendor/github.com/spf13/cobra \
 		spf13:jwalterweatherman:v1.1.0:spf13_jwalterweatherman/vendor/github.com/spf13/jwalterweatherman \
 		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
 		spf13:viper:v1.10.1:spf13_viper/vendor/github.com/spf13/viper \
@@ -61,13 +56,5 @@ post-extract:
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go/storage
 	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2} ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2
-	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream
-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_eventstream}/aws/protocol/eventstream ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream
-	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/config
-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_config}/config ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/config
 	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/credentials
 	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_credentials}/credentials ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/credentials
-	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds
-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_imds}/feature/ec2/imds ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds
-	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources
-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_configsources}/internal/configsources ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources

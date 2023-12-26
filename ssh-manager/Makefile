@@ -1,6 +1,6 @@
 PORTNAME=	ssh-manager
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.3.1
+DISTVERSION=	1.4.1
 CATEGORIES=	local security
 
 MAINTAINER=	none@freebsd.org
@@ -10,15 +10,14 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=	go:modules
+USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	omegion
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal/info.Version=${DISTVERSIONPREFIX}${PORTVERSION}'"
+GO_BUILDFLAGS+=	-ldflags="-s -w -buildid=${PORTVERSION} -extldflags '-static'"
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
