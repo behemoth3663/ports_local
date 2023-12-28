@@ -23,7 +23,12 @@ JQ_GETVER_EXPR=	[.[].name | gsub("^[a-z]+";"") | \
 		select(test("^${PORTVERSION:C/[^.]+$/[0-9]+/:S/./\\\\./g}$$"; \
 		"n"))][0]
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+WITH_PIE?=	yes
+#WITH_RELRO: -static-relro is not implemented in external linker called from /usr/local/go*/pkg/tool/freebsd_amd64/link
+
+#https://stackoverflow.com/questions/64019336/go-compile-to-static-binary-with-pie
+#go build  -ldflags '-linkmode external -s -w -extldflags "--static-pie"' -buildmode=pie -tags 'osusergo,netgo,static_build' -o /hello hello.go
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static${WITH_PIE:D-pie}' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=${PORTVERSION}' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.VersionPrerelease='"
 
