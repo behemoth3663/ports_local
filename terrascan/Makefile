@@ -1,13 +1,12 @@
-#
-
 PORTNAME=	terrascan
-PORTVERSION=	1.7.0
+PORTVERSION=	1.18.11
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+#PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Compliance and security violations in terraform code
+WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
@@ -22,33 +21,15 @@ GH_ACCOUNT=	accurics
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags='-s -w -extldflags "-static"'
-
-_OPTIONS_extract=	701:post-post-extract
-
+_OPTIONS_extract=	750:post-post-extract
 post-post-extract: .PHONY
-#	find ${WRKSRC}/vendor/modernc.org/libc -name '*_linux*.go' -type f | while read src; do \
-#		dst=$$(echo "$${src}" | sed 's/_linux/_freebsd/'); \
-#		test -f "$${dst}" || ln -s "$${src}" "$${dst}"; \
-#	done
 	${MV} ${WRKSRC}/vendor/sigs.k8s.io/kustomize/api/api/* ${WRKSRC}/vendor/sigs.k8s.io/kustomize/api || :
 	${MV} ${WRKSRC}/vendor/sigs.k8s.io/kustomize/kyaml/kyaml/* ${WRKSRC}/vendor/sigs.k8s.io/kustomize/kyaml || :
 
-fetch-version: .PHONY get-version
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
 
-.-include "${.CURDIR}/Makefile.deps"
+pre-deps pre-deps-all post-deps-all: .PHONY
 
-#-		kubernetes-sigs:kustomize:v0.10.15:kubernetes_sigs_kustomize_1/vendor/sigs.k8s.io/kustomize/kyaml \
-#-		kubernetes-sigs:kustomize:v0.8.5:kubernetes_sigs_kustomize/vendor/sigs.k8s.io/kustomize/api \
-#+		kubernetes-sigs:kustomize:kyaml/v0.10.15:kubernetes_sigs_kustomize_1/vendor/sigs.k8s.io/kustomize/kyaml \
-#+		kubernetes-sigs:kustomize:api/v0.8.5:kubernetes_sigs_kustomize/vendor/sigs.k8s.io/kustomize/api \
-
-#pre-build: .PHONY
-#	cd ${WRKSRC} && ${GO_CMD} mod tidy -v && ${GO_CMD} mod download
-
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
-#.include <bsd.port.pre.mk>
-#GO_CMD=	${LOCALBASE}/go-1.16/bin/go
-#GO_BUILDFLAGS=	-tags=ooni,nomk,DISABLE_QUIC -ldflags '-s -w -extldflags "-static"'
-#GO_BUILDFLAGS:=	${GO_BUILDFLAGS:N-mod=vendor} -mod=mod
-#.include <bsd.port.post.mk>
