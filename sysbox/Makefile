@@ -1,5 +1,5 @@
 PORTNAME=	sysbox
-PORTVERSION=	0.17.1
+PORTVERSION=	0.18.0
 DISTVERSIONPREFIX=	release-
 CATEGORIES=	local sysutils
 
@@ -17,19 +17,19 @@ GH_ACCOUNT=	skx
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -X 'main.version=${PORTVERSION}'"
-
 JQ_GETVER_EXPR=	[.[].name | gsub("^[a-z]+-"; "") | select(test("^[0-9.]+$$"; "n"))][0]
-
-fetch-version: .PHONY get-version
 
 #post-extract: .PHONY
 #	${REINPLACE_CMD} -r \
-#		-e 's|^([[:space:]]*go[[:space:]]+).*$$|\11.18|' \
+#		-e 's|^([[:space:]]*go[[:space:]]+).*$$|\11.21|' \
 #	${WRKSRC}/go.mod
 #	cd ${WRKSRC} && ${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod tidy -v
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+	-X 'main.version=${PORTVERSION}'"
 
+pre-deps pre-deps-all post-deps-all: .PHONY
+
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
