@@ -34,7 +34,7 @@ GH_TUPLE=	\
 		census-instrumentation:opencensus-go:v0.24.0:census_instrumentation_opencensus_go/vendor/go.opencensus.io \
 		cespare:xxhash:v2.2.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
 		cloudflare:circl:v1.3.6:cloudflare_circl/vendor/github.com/cloudflare/circl \
-		cloudsoda:go-smb2:b0758ecc4c67:cloudsoda_go_smb2/vendor/github.com/cloudsoda/go-smb2 \
+		cloudsoda:go-smb2:f3ec8ae2c891:cloudsoda_go_smb2/vendor/github.com/cloudsoda/go-smb2 \
 		colinmarc:hdfs:v2.4.0:colinmarc_hdfs_v2/vendor/github.com/colinmarc/hdfs/v2 \
 		coreos:go-semver:v0.3.1:coreos_go_semver/vendor/github.com/coreos/go-semver \
 		coreos:go-systemd:d3cd4ed1dbcf:coreos_go_systemd/vendor/github.com/coreos/go-systemd \
@@ -57,7 +57,7 @@ GH_TUPLE=	\
 		go-git:go-billy:v5.5.0:go_git_go_billy_v5/vendor/github.com/go-git/go-billy/v5 \
 		go-ini:ini:v1.67.0:go_ini_ini/vendor/gopkg.in/ini.v1 \
 		go-ole:go-ole:v1.3.0:go_ole_go_ole/vendor/github.com/go-ole/go-ole \
-		go-resty:resty:v2.10.0:go_resty_resty_v2/vendor/github.com/go-resty/resty/v2 \
+		go-resty:resty:v2.11.0:go_resty_resty_v2/vendor/github.com/go-resty/resty/v2 \
 		go-validator:validator:v2.0.1:go_validator_validator/vendor/gopkg.in/validator.v2 \
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
@@ -66,7 +66,7 @@ GH_TUPLE=	\
 		golang-jwt:jwt:v4.5.0:golang_jwt_jwt_v4/vendor/github.com/golang-jwt/jwt/v4 \
 		golang-jwt:jwt:v5.0.0:golang_jwt_jwt_v5/vendor/github.com/golang-jwt/jwt/v5 \
 		golang:appengine:v1.6.8:golang_appengine/vendor/google.golang.org/appengine \
-		golang:crypto:v0.14.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.17.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:7918f672742d:golang_exp/vendor/golang.org/x/exp \
 		golang:groupcache:41bb18bfe9da:golang_groupcache/vendor/github.com/golang/groupcache \
 		golang:mobile:2b44d11868fe:golang_mobile/vendor/golang.org/x/mobile \
@@ -75,9 +75,9 @@ GH_TUPLE=	\
 		golang:oauth2:v0.13.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.3:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:sync:v0.4.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.13.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.13.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.13.0:golang_text/vendor/golang.org/x/text \
+		golang:sys:v0.15.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.15.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.14.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.3.0:golang_time/vendor/golang.org/x/time \
 		golang:tools:v0.14.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-genproto:49dd2c1f3d0b:google_go_genproto/vendor/google.golang.org/genproto \
