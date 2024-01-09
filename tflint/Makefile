@@ -1,12 +1,12 @@
 # Created by: Gabriel M. Dutra <0xdutra@gmail.com>
 
 PORTNAME=	tflint
-PORTVERSION=	0.50.0
+PORTVERSION=	0.50.1
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
 
-MAINTAINER=	0xdutra@gmail.com
+MAINTAINER=	nulldutra@proton.me
 COMMENT=	Terraform Linter
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
