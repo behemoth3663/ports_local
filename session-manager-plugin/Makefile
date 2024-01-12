@@ -1,5 +1,5 @@
 PORTNAME=	session-manager-plugin
-PORTVERSION=	1.2.536.0
+PORTVERSION=	1.2.553.0
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
