@@ -1,0 +1,173 @@
+--- Makefile.deps.orig	2023-11-13 12:38:47 UTC
++++ Makefile.deps
+@@ -1,16 +1,16 @@
+ GH_TUPLE=	\
+ 		99designs:go-keychain:8e49817e8af4:99designs_go_keychain/vendor/github.com/99designs/go-keychain \
+ 		99designs:keyring:v1.2.2:99designs_keyring/vendor/github.com/99designs/keyring \
+-		Azure:azure-sdk-for-go:v1.0.0:azure_azure_sdk_for_go_azblob/vendor/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob \
+-		Azure:azure-sdk-for-go:v1.1.2:azure_azure_sdk_for_go_internal/vendor/github.com/Azure/azure-sdk-for-go/sdk/internal \
+-		Azure:azure-sdk-for-go:v1.4.0:azure_azure_sdk_for_go_azcore/vendor/github.com/Azure/azure-sdk-for-go/sdk/azcore \
+-		Azure:go-autorest:v0.11.24:azure_go_autorest_autorest/vendor/github.com/Azure/go-autorest/autorest \
+-		Azure:go-autorest:v0.2.1:azure_go_autorest_logger/vendor/github.com/Azure/go-autorest/logger \
+-		Azure:go-autorest:v0.3.0:azure_go_autorest_date/vendor/github.com/Azure/go-autorest/autorest/date \
+-		Azure:go-autorest:v0.4.5:azure_go_autorest_cli/vendor/github.com/Azure/go-autorest/autorest/azure/cli \
+-		Azure:go-autorest:v0.5.12:azure_go_autorest_auth/vendor/github.com/Azure/go-autorest/autorest/azure/auth \
+-		Azure:go-autorest:v0.6.0:azure_go_autorest_tracing/vendor/github.com/Azure/go-autorest/tracing \
+-		Azure:go-autorest:v0.9.18:azure_go_autorest_adal/vendor/github.com/Azure/go-autorest/autorest/adal \
++		Azure:azure-sdk-for-go:425c0592f3ee:azure_azure_sdk_for_go_internal/vendor/github.com/Azure/azure-sdk-for-go \
++		Azure:azure-sdk-for-go:988beb5e7b63:azure_azure_sdk_for_go_azcore \
++		Azure:azure-sdk-for-go:ec928e0ed34d:azure_azure_sdk_for_go_azblob \
++		Azure:go-autorest:70a178d6ca59:azure_go_autorest_cli \
++		Azure:go-autorest:9038e4a609b1:azure_go_autorest_auth \
++		Azure:go-autorest:a46566dfcbdc:azure_go_autorest_adal \
++		Azure:go-autorest:autorest/v0.11.24:azure_go_autorest_autorest \
++		Azure:go-autorest:b3a0b30a7423:azure_go_autorest_date \
++		Azure:go-autorest:logger/v0.2.1:azure_go_autorest_logger \
++		Azure:go-autorest:tracing/v0.6.0:azure_go_autorest_tracing \
+ 		Azure:go-autorest:v14.2.0:azure_go_autorest/vendor/github.com/Azure/go-autorest \
+ 		Azure:go-ntlmssp:754e69321358:azure_go_ntlmssp/vendor/github.com/Azure/go-ntlmssp \
+ 		AzureAD:microsoft-authentication-library-for-go:v1.2.0:azuread_microsoft_authentication_library_for_go/vendor/github.com/AzureAD/microsoft-authentication-library-for-go \
+@@ -24,21 +24,13 @@ GH_TUPLE=	\
+ 		alecthomas:kingpin:v2.3.2:alecthomas_kingpin_v2/vendor/github.com/alecthomas/kingpin/v2 \
+ 		alecthomas:units:b94a6e3cc137:alecthomas_units/vendor/github.com/alecthomas/units \
+ 		andybalholm:brotli:v1.0.5:andybalholm_brotli/vendor/github.com/andybalholm/brotli \
+-		apache:arrow:v12.0.1:apache_arrow_v12/vendor/github.com/apache/arrow/go/v12 \
++		apache:arrow:go/v12.0.1:apache_arrow/vendor/github.com/apache/arrow/go/v12 \
+ 		apache:thrift:v0.16.0:apache_thrift/vendor/github.com/apache/thrift \
+ 		atotto:clipboard:v0.1.4:atotto_clipboard/vendor/github.com/atotto/clipboard \
+-		aws:aws-sdk-go-v2:v1.0.23:aws_aws_sdk_go_v2_v4a/vendor/github.com/aws/aws-sdk-go-v2/internal/v4a \
+-		aws:aws-sdk-go-v2:v1.1.26:aws_aws_sdk_go_v2_checksum/vendor/github.com/aws/aws-sdk-go-v2/service/internal/checksum \
+-		aws:aws-sdk-go-v2:v1.1.31:aws_aws_sdk_go_v2_configsources/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources \
+-		aws:aws-sdk-go-v2:v1.11.59:aws_aws_sdk_go_v2_manager/vendor/github.com/aws/aws-sdk-go-v2/feature/s3/manager \
+-		aws:aws-sdk-go-v2:v1.13.18:aws_aws_sdk_go_v2_credentials/vendor/github.com/aws/aws-sdk-go-v2/credentials \
+-		aws:aws-sdk-go-v2:v1.14.0:aws_aws_sdk_go_v2_s3shared/vendor/github.com/aws/aws-sdk-go-v2/service/internal/s3shared \
++		aws:aws-sdk-go-v2:390cf19a7507:aws_aws_sdk_go_v2_configsources \
++		aws:aws-sdk-go-v2:93c3f1871b86:aws_aws_sdk_go_v2_eventstream \
++		aws:aws-sdk-go-v2:v1.14.0:aws_aws_sdk_go_v2_s3shared \
+ 		aws:aws-sdk-go-v2:v1.17.7:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+-		aws:aws-sdk-go-v2:v1.31.0:aws_aws_sdk_go_v2_s3/vendor/github.com/aws/aws-sdk-go-v2/service/s3 \
+-		aws:aws-sdk-go-v2:v1.4.10:aws_aws_sdk_go_v2_eventstream/vendor/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream \
+-		aws:aws-sdk-go-v2:v1.9.11:aws_aws_sdk_go_v2_accept_encoding/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding \
+-		aws:aws-sdk-go-v2:v1.9.25:aws_aws_sdk_go_v2_presigned_url/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url \
+-		aws:aws-sdk-go-v2:v2.4.25:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 \
+ 		aws:aws-sdk-go:v1.46.6:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+ 		aws:smithy-go:v1.13.5:aws_smithy_go/vendor/github.com/aws/smithy-go \
+ 		aymanbagabas:go-osc52:v1.2.2:aymanbagabas_go_osc52/vendor/github.com/aymanbagabas/go-osc52 \
+@@ -60,7 +52,7 @@ GH_TUPLE=	\
+ 		cloudflare:circl:v1.3.3:cloudflare_circl/vendor/github.com/cloudflare/circl \
+ 		coinbase:waas-client-library-go:v1.0.8:coinbase_waas_client_library_go/vendor/github.com/coinbase/waas-client-library-go \
+ 		containerd:console:1ae8d489ac81:containerd_console/vendor/github.com/containerd/console \
+-		containerd:stargz-snapshotter:v0.14.3:containerd_stargz_snapshotter_estargz/vendor/github.com/containerd/stargz-snapshotter/estargz \
++		containerd:stargz-snapshotter:v0.14.3:containerd_stargz_snapshotter_estargz/vendor/github.com/containerd/stargz-snapshotter \
+ 		couchbase:gocb:v2.6.5:couchbase_gocb_v2/vendor/github.com/couchbase/gocb/v2 \
+ 		couchbase:gocbcore:v10.2.9:couchbase_gocbcore_v10/vendor/github.com/couchbase/gocbcore/v10 \
+ 		crewjam:rfc5424:v0.1.0:crewjam_rfc5424/vendor/github.com/crewjam/rfc5424 \
+@@ -72,12 +64,15 @@ GH_TUPLE=	\
+ 		dlclark:regexp2:v1.4.0:dlclark_regexp2/vendor/github.com/dlclark/regexp2 \
+ 		docker:cli:v24.0.0:docker_cli/vendor/github.com/docker/cli \
+ 		docker:distribution:v2.8.2:docker_distribution/vendor/github.com/docker/distribution \
++		docker:docker-credential-helpers:v0.8.0:docker_docker_credential_helpers \
+ 		dsnet:compress:v0.0.1:dsnet_compress/vendor/github.com/dsnet/compress \
+ 		dvsekhvalnov:jose2go:v1.5.0:dvsekhvalnov_jose2go/vendor/github.com/dvsekhvalnov/jose2go \
++		einride:aip-go:v0.60.0:einride_aip_go/vendor/go.einride.tech/aip \
+ 		emirpasic:gods:v1.18.1:emirpasic_gods/vendor/github.com/emirpasic/gods \
+ 		envoyproxy:protoc-gen-validate:v1.0.2:envoyproxy_protoc_gen_validate/vendor/github.com/envoyproxy/protoc-gen-validate \
+ 		fatih:color:v1.15.0:fatih_color/vendor/github.com/fatih/color \
+ 		felixge:fgprof:v0.9.3:felixge_fgprof/vendor/github.com/felixge/fgprof \
++		flyingmutant:rapid:v1.1.0:flyingmutant_rapid/vendor/pgregory.net/rapid \
+ 		form3tech-oss:jwt-go:v3.2.5:form3tech_oss_jwt_go/vendor/github.com/form3tech-oss/jwt-go \
+ 		gabriel-vasile:mimetype:v1.4.2:gabriel_vasile_mimetype/vendor/github.com/gabriel-vasile/mimetype \
+ 		getsentry:sentry-go:v0.25.0:getsentry_sentry_go/vendor/github.com/getsentry/sentry-go \
+@@ -122,8 +117,7 @@ GH_TUPLE=	\
+ 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
+ 		google:go-containerregistry:v0.16.1:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
+ 		google:go-genproto:d307bd883b97:google_go_genproto/vendor/google.golang.org/genproto \
+-		google:go-genproto:d307bd883b97:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api \
+-		google:go-genproto:e917dd12ba7a:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc \
++		google:go-genproto:e917dd12ba7a:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/rpc \
+ 		google:go-github:v42.0.0:google_go_github_v42/vendor/github.com/google/go-github/v42 \
+ 		google:go-github:v56.0.0:google_go_github_v56/vendor/github.com/google/go-github/v56 \
+ 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
+@@ -131,14 +125,15 @@ GH_TUPLE=	\
+ 		google:s2a-go:v0.1.7:google_s2a_go/vendor/github.com/google/s2a-go \
+ 		google:uuid:v1.4.0:google_uuid/vendor/github.com/google/uuid \
+ 		googleapis:enterprise-certificate-proxy:v0.3.1:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
+-		googleapis:gax-go:v2.12.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2 \
++		googleapis:gax-go:v2.12.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
+ 		googleapis:google-api-go-client:v0.148.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
++		googleapis:google-cloud-go:compute/v1.23.0:googleapis_google_cloud_go_compute \
++		googleapis:google-cloud-go:iam/v1.1.2:googleapis_google_cloud_go_iam \
++		googleapis:google-cloud-go:longrunning/v0.5.1:googleapis_google_cloud_go_longrunning \
++		googleapis:google-cloud-go:secretmanager/v1.11.3:googleapis_google_cloud_go_secretmanager \
++		googleapis:google-cloud-go:storage/v1.33.0:googleapis_google_cloud_go_storage \
+ 		googleapis:google-cloud-go:v0.110.8:googleapis_google_cloud_go/vendor/cloud.google.com/go \
+-		googleapis:google-cloud-go:v0.5.1:googleapis_google_cloud_go_longrunning/vendor/cloud.google.com/go/longrunning \
+-		googleapis:google-cloud-go:v1.1.2:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go/iam \
+-		googleapis:google-cloud-go:v1.11.3:googleapis_google_cloud_go_secretmanager/vendor/cloud.google.com/go/secretmanager \
+-		googleapis:google-cloud-go:v1.23.0:googleapis_google_cloud_go_compute/vendor/cloud.google.com/go/compute \
+-		googleapis:google-cloud-go:v1.33.0:googleapis_google_cloud_go_storage/vendor/cloud.google.com/go/storage \
++		googleapis:google-cloud-go:compute/metadata/v0.2.3:googleapis_google_cloud_go_compute_metadata \
+ 		gorilla:css:v1.0.0:gorilla_css/vendor/github.com/gorilla/css \
+ 		gregjones:httpcache:2bcd89a1743f:gregjones_httpcache/vendor/github.com/gregjones/httpcache \
+ 		grpc-ecosystem:grpc-gateway:v2.15.2:grpc_ecosystem_grpc_gateway_v2/vendor/github.com/grpc-ecosystem/grpc-gateway/v2 \
+@@ -153,6 +148,7 @@ GH_TUPLE=	\
+ 		hashicorp:go-retryablehttp:v0.7.4:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
+ 		hashicorp:golang-lru:v0.6.0:hashicorp_golang_lru/vendor/github.com/hashicorp/golang-lru \
+ 		hashicorp:golang-lru:v2.0.7:hashicorp_golang_lru_v2/vendor/github.com/hashicorp/golang-lru/v2 \
++		imdario:mergo:v1.0.0:imdario_mergo/vendor/dario.cat/mergo \
+ 		jbenet:go-context:d14ea06fba99:jbenet_go_context/vendor/github.com/jbenet/go-context \
+ 		jlaffaye:ftp:v0.2.0:jlaffaye_ftp/vendor/github.com/jlaffaye/ftp \
+ 		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
+@@ -249,8 +245,47 @@ GH_TUPLE=	\
+ 		yusufpapurcu:wmi:v1.2.2:yusufpapurcu_wmi/vendor/github.com/yusufpapurcu/wmi \
+ 		zeebo:xxh3:v1.0.2:zeebo_xxh3/vendor/github.com/zeebo/xxh3
+ 
+-		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
+-		#	::v0.2.3:group_name/vendor/cloud.google.com/go/compute/metadata (from cloud.google.com/go/compute/metadata@v0.2.3)
+-		#	::v0.60.0:group_name/vendor/go.einride.tech/aip (from go.einride.tech/aip@v0.60.0)
+-		#	::v1.0.0:group_name/vendor/dario.cat/mergo (from dario.cat/mergo@v1.0.0)
+-		#	::v1.1.0:group_name/vendor/pgregory.net/rapid (from pgregory.net/rapid@v1.1.0)
++post-extract:
++	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute
++	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute}/compute ${WRKSRC}/vendor/cloud.google.com/go/compute
++	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
++	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
++	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/iam
++	@${RLN} ${WRKSRC_googleapis_google_cloud_go_iam}/iam ${WRKSRC}/vendor/cloud.google.com/go/iam
++	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/longrunning
++	@${RLN} ${WRKSRC_googleapis_google_cloud_go_longrunning}/longrunning ${WRKSRC}/vendor/cloud.google.com/go/longrunning
++	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/secretmanager
++	@${RLN} ${WRKSRC_googleapis_google_cloud_go_secretmanager}/secretmanager ${WRKSRC}/vendor/cloud.google.com/go/secretmanager
++	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
++	@${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go/storage
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/azcore
++	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_azcore}/sdk/azcore ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/azcore
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob
++	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_azblob}/sdk/storage/azblob ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
++	@${RLN} ${WRKSRC_azure_go_autorest_autorest}/autorest ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/adal
++	@${RLN} ${WRKSRC_azure_go_autorest_adal}/autorest/adal ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/adal
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/azure/auth
++	@${RLN} ${WRKSRC_azure_go_autorest_auth}/autorest/azure/auth ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/azure/auth
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/azure/cli
++	@${RLN} ${WRKSRC_azure_go_autorest_cli}/autorest/azure/cli ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/azure/cli
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/date
++	@${RLN} ${WRKSRC_azure_go_autorest_date}/autorest/date ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/date
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/logger
++	@${RLN} ${WRKSRC_azure_go_autorest_logger}/logger ${WRKSRC}/vendor/github.com/Azure/go-autorest/logger
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/tracing
++	@${RLN} ${WRKSRC_azure_go_autorest_tracing}/tracing ${WRKSRC}/vendor/github.com/Azure/go-autorest/tracing
++	@${RLN} ${WRKSRC}/vendor/github.com/apache/arrow/go/v12/go/arrow ${WRKSRC}/vendor/github.com/apache/arrow/go/v12/arrow
++	@${RLN} ${WRKSRC}/vendor/github.com/apache/arrow/go/v12/go/internal ${WRKSRC}/vendor/github.com/apache/arrow/go/v12/internal
++	@${RLN} ${WRKSRC}/vendor/github.com/apache/arrow/go/v12/go/parquet ${WRKSRC}/vendor/github.com/apache/arrow/go/v12/parquet
++	@${RM} -r ${WRKSRC}/vendor/github.com/docker/docker-credential-helpers/client
++	@${RLN} ${WRKSRC_docker_docker_credential_helpers}/client ${WRKSRC}/vendor/github.com/docker/docker-credential-helpers/client
++	@${RM} -r ${WRKSRC}/vendor/github.com/docker/docker-credential-helpers/credentials
++	@${RLN} ${WRKSRC_docker_docker_credential_helpers}/credentials ${WRKSRC}/vendor/github.com/docker/docker-credential-helpers/credentials
++	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream
++	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_eventstream}/aws/protocol/eventstream ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream
++	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources
++	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_configsources}/internal/configsources ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources
++	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/s3shared
++	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_configsources}/service/internal/s3shared ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/s3shared
