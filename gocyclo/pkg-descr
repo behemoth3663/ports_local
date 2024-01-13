@@ -1,0 +1,4 @@
+Gocyclo calculates cyclomatic complexities of functions in Go source code.
+Cyclomatic complexity is a code quality metric which can be used to identify
+code that needs refactoring. It measures the number of linearly independent
+paths through a function's source code.
