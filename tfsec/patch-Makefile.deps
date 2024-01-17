@@ -1,16 +1,16 @@
---- Makefile.deps.orig	2023-09-11 10:48:54 UTC
+--- Makefile.deps.orig	2024-01-17 10:48:14 UTC
 +++ Makefile.deps
 @@ -51,14 +51,15 @@ GH_TUPLE=	\
- 		googleapis:google-api-go-client:v0.107.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
- 		googleapis:google-cloud-go:compute/v1.14.0:googleapis_google_cloud_go_compute \
- 		googleapis:google-cloud-go:storage/v1.27.0:googleapis_google_cloud_go_storage \
--		googleapis:google-cloud-go:v0.105.0:googleapis_google_cloud_go \
+ 		googleapis:google-api-go-client:v0.114.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+ 		googleapis:google-cloud-go:compute/v1.19.1:googleapis_google_cloud_go_compute \
+ 		googleapis:google-cloud-go:storage/v1.28.1:googleapis_google_cloud_go_storage \
+-		googleapis:google-cloud-go:v0.110.0:googleapis_google_cloud_go \
+-		googleapis:google-cloud-go:v0.13.0:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go \
 -		googleapis:google-cloud-go:v0.2.3:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata \
--		googleapis:google-cloud-go:v0.8.0:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go \
-+		googleapis:google-cloud-go:v0.105.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
++		googleapis:google-cloud-go:v0.110.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
++		googleapis:google-cloud-go:iam/v0.13.0:googleapis_google_cloud_go_iam \
 +		googleapis:google-cloud-go:compute/metadata/v0.2.3:googleapis_google_cloud_go_compute_metadata \
-+		googleapis:google-cloud-go:iam/v0.8.0:googleapis_google_cloud_go_iam \
- 		grpc:grpc-go:v1.52.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+ 		grpc:grpc-go:v1.56.3:grpc_grpc_go/vendor/google.golang.org/grpc \
  		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
  		hashicorp:go-getter:v1.7.0:hashicorp_go_getter/vendor/github.com/hashicorp/go-getter \
  		hashicorp:go-safetemp:v1.0.0:hashicorp_go_safetemp/vendor/github.com/hashicorp/go-safetemp \
@@ -18,7 +18,7 @@
 +		hashicorp:go-version:v1.6.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
  		hashicorp:hcl:v1.0.0:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
  		hashicorp:hcl:v2.14.1:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
- 		imdario:mergo:v0.3.13:imdario_mergo/vendor/github.com/imdario/mergo \
+ 		imdario:mergo:v1.0.0:imdario_mergo/vendor/dario.cat/mergo \
 @@ -74,6 +75,7 @@ GH_TUPLE=	\
  		liamg:gifwrap:v0.0.7:liamg_gifwrap/vendor/github.com/liamg/gifwrap \
  		liamg:iamgo:v0.0.9:liamg_iamgo/vendor/github.com/liamg/iamgo \
@@ -27,7 +27,7 @@
  		liamg:tml:v0.6.0:liamg_tml/vendor/github.com/liamg/tml \
  		lucasb-eyer:go-colorful:v1.2.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
  		magiconair:properties:v1.8.7:magiconair_properties/vendor/github.com/magiconair/properties \
-@@ -117,12 +119,11 @@ GH_TUPLE=	\
+@@ -117,12 +119,11 @@ post-extract:
  		zclconf:go-cty:v1.10.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
  
  post-extract:
