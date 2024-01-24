@@ -1,11 +1,11 @@
---- Makefile.deps.orig	2024-01-17 14:05:11 UTC
+--- Makefile.deps.orig	2024-01-24 10:08:01 UTC
 +++ Makefile.deps
 @@ -12,7 +12,7 @@ GH_TUPLE=	\
  		bgentry:speakeasy:v0.1.0:bgentry_speakeasy/vendor/github.com/bgentry/speakeasy \
  		bobheadxi:gobenchdata:v1.3.1:bobheadxi_gobenchdata/vendor/go.bobheadxi.dev/gobenchdata \
  		bobheadxi:streamline:v1.2.1:bobheadxi_streamline/vendor/go.bobheadxi.dev/streamline \
 -		chigopher:pathlib:v1.0.0:chigopher_pathlib/vendor/github.com/chigopher/pathlib \
-+		chigopher:pathlib:v0.15.0:chigopher_pathlib/vendor/github.com/chigopher/pathlib \
++		chigopher:pathlib:v1.0.1:chigopher_pathlib/vendor/github.com/chigopher/pathlib \
  		cloudflare:circl:v1.3.3:cloudflare_circl/vendor/github.com/cloudflare/circl \
  		creachadair:jrpc2:v1.1.2:creachadair_jrpc2/vendor/github.com/creachadair/jrpc2 \
  		creachadair:mds:v0.3.0:creachadair_mds/vendor/github.com/creachadair/mds \
@@ -16,22 +16,21 @@
 +		hashicorp:go-version:v1.6.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
  		hashicorp:golang-lru:v0.5.4:hashicorp_golang_lru/vendor/github.com/hashicorp/golang-lru \
  		hashicorp:hc-install:v0.6.2:hashicorp_hc_install/vendor/github.com/hashicorp/hc-install \
- 		hashicorp:hcl-lang:5e29e753cf66:hashicorp_hcl_lang/vendor/github.com/hashicorp/hcl-lang \
+ 		hashicorp:hcl-lang:f43c27231c10:hashicorp_hcl_lang/vendor/github.com/hashicorp/hcl-lang \
 @@ -73,9 +74,6 @@ GH_TUPLE=	\
  		mitchellh:mapstructure:v1.5.0:mitchellh_mapstructure/vendor/github.com/mitchellh/mapstructure \
  		mitchellh:reflectwalk:v1.0.2:mitchellh_reflectwalk/vendor/github.com/mitchellh/reflectwalk \
  		olekukonko:tablewriter:v0.0.5:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
--		open-telemetry:opentelemetry-go-contrib:v0.46.1:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/httptrace/otelhttptrace \
--		open-telemetry:opentelemetry-go-contrib:v0.46.1:open_telemetry_opentelemetry_go_contrib_1/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp \
--		open-telemetry:opentelemetry-go:v1.21.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
+-		open-telemetry:opentelemetry-go-contrib:v0.47.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/httptrace/otelhttptrace \
+-		open-telemetry:opentelemetry-go-contrib:v0.47.0:open_telemetry_opentelemetry_go_contrib_1/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp \
+-		open-telemetry:opentelemetry-go:v1.22.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
  		otiai10:copy:v1.14.0:otiai10_copy/vendor/github.com/otiai10/copy \
  		pelletier:go-toml:v2.0.6:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
  		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
-@@ -95,7 +93,3 @@ GH_TUPLE=	\
+@@ -95,6 +93,3 @@ GH_TUPLE=	\
  		vektra:mockery:v2.40.1:vektra_mockery_v2/vendor/github.com/vektra/mockery/v2 \
  		zclconf:go-cty-debug:b22d67c1ba0b:zclconf_go_cty_debug/vendor/github.com/zclconf/go-cty-debug \
  		zclconf:go-cty:v1.14.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
--
 -post-extract:
 -	@${MKDIR} ${WRKSRC}/vendor/github.com/hashicorp
 -	@${RLN} ${WRKSRC_fsnotify_fsnotify} ${WRKSRC}/vendor/github.com/hashicorp/go-version
