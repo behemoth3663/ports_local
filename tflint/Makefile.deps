@@ -8,18 +8,18 @@ GH_TUPLE=	\
 		bgentry:go-netrc:9fd32a8b3d3d:bgentry_go_netrc/vendor/github.com/bgentry/go-netrc \
 		bmatcuk:doublestar:v1.1.5:bmatcuk_doublestar/vendor/github.com/bmatcuk/doublestar \
 		census-instrumentation:opencensus-go:v0.24.0:census_instrumentation_opencensus_go/vendor/go.opencensus.io \
-		cloudflare:circl:v1.3.3:cloudflare_circl/vendor/github.com/cloudflare/circl \
+		cloudflare:circl:v1.3.7:cloudflare_circl/vendor/github.com/cloudflare/circl \
 		fatih:color:v1.16.0:fatih_color/vendor/github.com/fatih/color \
 		go-test:deep:v1.1.0:go_test_deep/vendor/github.com/go-test/deep \
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
 		golang:appengine:v1.6.8:golang_appengine/vendor/google.golang.org/appengine \
-		golang:crypto:v0.17.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.18.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:groupcache:41bb18bfe9da:golang_groupcache/vendor/github.com/golang/groupcache \
-		golang:net:v0.19.0:golang_net/vendor/golang.org/x/net \
-		golang:oauth2:v0.15.0:golang_oauth2/vendor/golang.org/x/oauth2 \
+		golang:net:v0.20.0:golang_net/vendor/golang.org/x/net \
+		golang:oauth2:v0.16.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.3:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:sync:v0.5.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.15.0:golang_sys/vendor/golang.org/x/sys \
+		golang:sys:v0.16.0:golang_sys/vendor/golang.org/x/sys \
 		golang:text:v0.14.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.5.0:golang_time/vendor/golang.org/x/time \
 		golang:xerrors:04be3eba64a2:golang_xerrors/vendor/golang.org/x/xerrors \
@@ -80,7 +80,6 @@ GH_TUPLE=	\
 		xeipuuv:gojsonschema:v1.2.0:xeipuuv_gojsonschema/vendor/github.com/xeipuuv/gojsonschema \
 		zclconf:go-cty-yaml:v1.0.3:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
 		zclconf:go-cty:v1.14.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
-
 post-extract:
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute}/compute ${WRKSRC}/vendor/cloud.google.com/go/compute
