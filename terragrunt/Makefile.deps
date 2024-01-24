@@ -25,7 +25,7 @@ GH_TUPLE=	\
 		asaskevich:govalidator:f61b66f89f4a:asaskevich_govalidator/vendor/github.com/asaskevich/govalidator \
 		atomicgo:cursor:v0.0.1:atomicgo_cursor/vendor/github.com/atomicgo/cursor \
 		atotto:clipboard:v0.1.4:atotto_clipboard/vendor/github.com/atotto/clipboard \
-		aws:aws-sdk-go:v1.49.17:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		aws:aws-sdk-go:v1.50.0:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
 		aymanbagabas:go-osc52:v2.0.1:aymanbagabas_go_osc52_v2/vendor/github.com/aymanbagabas/go-osc52/v2 \
 		aymerick:douceur:v0.2.0:aymerick_douceur/vendor/github.com/aymerick/douceur \
 		bgentry:go-netrc:9fd32a8b3d3d:bgentry_go_netrc/vendor/github.com/bgentry/go-netrc \
@@ -195,7 +195,6 @@ GH_TUPLE=	\
 		yuin:goldmark:v1.5.2:yuin_goldmark/vendor/github.com/yuin/goldmark \
 		zclconf:go-cty-yaml:v1.0.3:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
 		zclconf:go-cty:v1.13.2:zclconf_go_cty/vendor/github.com/zclconf/go-cty
-
 post-extract:
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute}/compute ${WRKSRC}/vendor/cloud.google.com/go/compute
