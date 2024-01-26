@@ -1,4 +1,4 @@
-TIMESTAMP = 1705828478
+TIMESTAMP = 1706296659
 SHA256 (rust/crates/addr2line-0.21.0.crate) = 8a30b2e23b9e17a9f90641c7ab1549cd9b44f296d3ccbf309d2863cfe398a0cb
 SIZE (rust/crates/addr2line-0.21.0.crate) = 40807
 SHA256 (rust/crates/adler-1.0.2.crate) = f26201604c87b1e01bd3d98f8d5d9a8fcbb815e8cedb41ffccbeb4bf593a35fe
@@ -479,5 +479,5 @@ SHA256 (erebe-fastwebsockets-ca6fe98d872c6f90c089125d95efc70c9ce5d778_GH0.tar.gz
 SIZE (erebe-fastwebsockets-ca6fe98d872c6f90c089125d95efc70c9ce5d778_GH0.tar.gz) = 55288
 SHA256 (erebe-fast-socks5-1912e35f8f5621827927096171d96c54816bf1ba_GH0.tar.gz) = 6b6c7fc7ab3f0a70048b2845606027a0c68c6fb6a115745cc9c6449ac2b58f4e
 SIZE (erebe-fast-socks5-1912e35f8f5621827927096171d96c54816bf1ba_GH0.tar.gz) = 27324
-SHA256 (erebe-wstunnel-v9.2.0_GH0.tar.gz) = 0d5654c274763d6dd8f167ed073e077289e040459de43e109ac616052e6fc64c
-SIZE (erebe-wstunnel-v9.2.0_GH0.tar.gz) = 101331
+SHA256 (erebe-wstunnel-v9.2.2_GH0.tar.gz) = 0ff3d7577127ca79e90ce973a19773753bdca545da2f749b86c0f230f14f009b
+SIZE (erebe-wstunnel-v9.2.2_GH0.tar.gz) = 102704
