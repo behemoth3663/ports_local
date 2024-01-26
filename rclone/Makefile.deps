@@ -33,7 +33,7 @@ GH_TUPLE=	\
 		calebcase:tmpfile:v1.0.3:calebcase_tmpfile/vendor/github.com/calebcase/tmpfile \
 		census-instrumentation:opencensus-go:v0.24.0:census_instrumentation_opencensus_go/vendor/go.opencensus.io \
 		cespare:xxhash:v2.2.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
-		cloudflare:circl:v1.3.6:cloudflare_circl/vendor/github.com/cloudflare/circl \
+		cloudflare:circl:v1.3.7:cloudflare_circl/vendor/github.com/cloudflare/circl \
 		cloudsoda:go-smb2:f3ec8ae2c891:cloudsoda_go_smb2/vendor/github.com/cloudsoda/go-smb2 \
 		colinmarc:hdfs:v2.4.0:colinmarc_hdfs_v2/vendor/github.com/colinmarc/hdfs/v2 \
 		coreos:go-semver:v0.3.1:coreos_go_semver/vendor/github.com/coreos/go-semver \
@@ -182,10 +182,8 @@ GH_TUPLE=	\
 		yusufpapurcu:wmi:v1.2.3:yusufpapurcu_wmi/vendor/github.com/yusufpapurcu/wmi \
 		zeebo:blake3:v0.2.3:zeebo_blake3/vendor/github.com/zeebo/blake3 \
 		zeebo:errs:v1.3.0:zeebo_errs/vendor/github.com/zeebo/errs
-
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
 		#	::v2.0.1:group_name/vendor/goftp.io/server/v2 (from gitea.com/goftp/server@v2.0.1)
-
 post-extract:
 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/azcore
 	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_azcore}/sdk/azcore ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/azcore
