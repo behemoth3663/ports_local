@@ -1,5 +1,5 @@
 PORTNAME=	infracost
-PORTVERSION=	0.10.31
+PORTVERSION=	0.10.32
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -21,8 +21,8 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
 
 PLIST_FILES=	bin/${PORTNAME}
 
-M2T_OFFLINE=	true
-.export	M2T_OFFLINE
+#M2T_OFFLINE=	true
+#.export	M2T_OFFLINE
 
 _OPTIONS_extract=	600:pre-post-extract
 pre-post-extract: .PHONY
