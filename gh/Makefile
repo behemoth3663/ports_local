@@ -1,5 +1,5 @@
 PORTNAME=	gh
-PORTVERSION=	2.42.1
+PORTVERSION=	2.43.1
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -13,7 +13,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 RUN_DEPENDS=	git:devel/git
 
-USES=		go:modules
+USES=		go:1.21,modules
 USE_GITHUB=	yes
 GH_ACCOUNT=	cli
 GH_PROJECT=	${GH_ACCOUNT}
@@ -23,9 +23,7 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/internal/build.Version=${PORTVERSION} \
 	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/internal/build.Date=${%FT%TZ:L:gmtime}"
 
-_DOCS=		README.md docs/gh-vs-hub.md docs/releasing.md \
-		docs/command-line-syntax.md docs/source.md \
-		docs/install_linux.md docs/project-layout.md docs/triage.md
+_DOCS=		README.md docs/[!README]*.md
 PORTDOCS=	${_DOCS:T}
 
 OPTIONS_DEFINE=		DOCS MANPAGES
@@ -45,7 +43,7 @@ post-install-DOCS-on:
 
 post-install-MANPAGES-on:
 	${INSTALL_MAN} ${WRKSRC}/docs/man/*.1 \
-		${STAGEDIR}${MAN1PREFIX}/man/man1
+		${STAGEDIR}${PREFIX}/share/man/man1
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
