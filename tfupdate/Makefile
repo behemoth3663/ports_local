@@ -1,5 +1,5 @@
 PORTNAME=	tfupdate
-PORTVERSION=	0.8.0
+PORTVERSION=	0.8.1
 DISTVERSIONPREFIX=	v
 #ORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -15,8 +15,6 @@ USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	minamijoyo
-
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
 
 PLIST_FILES=	bin/${PORTNAME}
 
