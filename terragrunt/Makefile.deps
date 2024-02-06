@@ -158,7 +158,7 @@ GH_TUPLE=	\
 		muesli:termenv:v0.15.2:muesli_termenv/vendor/github.com/muesli/termenv \
 		oklog:run:v1.1.0:oklog_run/vendor/github.com/oklog/run \
 		olekukonko:tablewriter:v0.0.5:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
-		opencontainers:runc:v1.1.9:opencontainers_runc/vendor/github.com/opencontainers/runc \
+		opencontainers:runc:v1.1.12:opencontainers_runc/vendor/github.com/opencontainers/runc \
 		owenrumney:go-sarif:v1.1.1:owenrumney_go_sarif/vendor/github.com/owenrumney/go-sarif \
 		pierrec:lz4:v2.6.1:pierrec_lz4/vendor/github.com/pierrec/lz4 \
 		pkg:browser:681adbf594b8:pkg_browser/vendor/github.com/pkg/browser \
