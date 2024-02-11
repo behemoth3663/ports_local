@@ -1,7 +1,7 @@
 GH_TUPLE=	\
 		agext:levenshtein:v1.2.2:agext_levenshtein/vendor/github.com/agext/levenshtein \
 		apparentlymart:go-textseg:v15.0.0:apparentlymart_go_textseg_v15/vendor/github.com/apparentlymart/go-textseg/v15 \
-		aws:aws-sdk-go:v1.49.16:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		aws:aws-sdk-go:v1.50.15:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
 		dave:dst:v0.27.3:dave_dst/vendor/github.com/dave/dst \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		fatih:color:v1.13.0:fatih_color/vendor/github.com/fatih/color \
@@ -10,9 +10,9 @@ GH_TUPLE=	\
 		golang:exp:47ecfdc1ba53:golang_exp/vendor/golang.org/x/exp \
 		golang:mock:v1.6.0:golang_mock/vendor/github.com/golang/mock \
 		golang:mod:v0.12.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.19.0:golang_net/vendor/golang.org/x/net \
+		golang:net:v0.20.0:golang_net/vendor/golang.org/x/net \
 		golang:protobuf:v1.5.3:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sys:v0.15.0:golang_sys/vendor/golang.org/x/sys \
+		golang:sys:v0.16.0:golang_sys/vendor/golang.org/x/sys \
 		golang:text:v0.14.0:golang_text/vendor/golang.org/x/text \
 		golang:tools:v0.11.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
@@ -26,7 +26,7 @@ GH_TUPLE=	\
 		hashicorp:go-plugin:v1.4.10:hashicorp_go_plugin/vendor/github.com/hashicorp/go-plugin \
 		hashicorp:go-version:v1.6.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
 		hashicorp:hcl:v2.19.1:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
-		hashicorp:terraform-json:v0.20.0:hashicorp_terraform_json/vendor/github.com/hashicorp/terraform-json \
+		hashicorp:terraform-json:v0.21.0:hashicorp_terraform_json/vendor/github.com/hashicorp/terraform-json \
 		hashicorp:yamux:2f1d1f20f75d:hashicorp_yamux/vendor/github.com/hashicorp/yamux \
 		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
 		kr:pretty:v0.2.1:kr_pretty/vendor/github.com/kr/pretty \
@@ -44,4 +44,4 @@ GH_TUPLE=	\
 		terraform-linters:tflint-plugin-sdk:v0.18.0:terraform_linters_tflint_plugin_sdk/vendor/github.com/terraform-linters/tflint-plugin-sdk \
 		vmihailenco:msgpack:v5.3.5:vmihailenco_msgpack_v5/vendor/github.com/vmihailenco/msgpack/v5 \
 		vmihailenco:tagparser:v2.0.0:vmihailenco_tagparser_v2/vendor/github.com/vmihailenco/tagparser/v2 \
-		zclconf:go-cty:v1.14.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+		zclconf:go-cty:v1.14.2:zclconf_go_cty/vendor/github.com/zclconf/go-cty
