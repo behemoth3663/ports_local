@@ -1,5 +1,5 @@
 PORTNAME=	gofumpt
-PORTVERSION=	0.5.0
+PORTVERSION=	0.6.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local devel
 
@@ -22,7 +22,8 @@ post-patch: .PHONY
 	${REINPLACE_CMD} 's| = "(devel)"| = "${DISTVERSIONPREFIX}${PORTVERSION}"|' \
 		${WRKSRC}/internal/version/version.go
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
+pre-deps pre-deps-all post-deps-all: .PHONY
 
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>

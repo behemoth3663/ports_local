@@ -1,10 +1,10 @@
 GH_TUPLE=	\
-		frankban:quicktest:v1.14.4:frankban_quicktest/vendor/github.com/frankban/quicktest \
-		golang:mod:v0.10.0:golang_mod/vendor/golang.org/x/mod \
-		golang:sync:v0.1.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.7.0:golang_sys/vendor/golang.org/x/sys \
-		golang:tools:v0.8.0:golang_tools/vendor/golang.org/x/tools \
-		google:go-cmp:v0.5.9:google_go_cmp/vendor/github.com/google/go-cmp \
+		frankban:quicktest:v1.14.6:frankban_quicktest/vendor/github.com/frankban/quicktest \
+		golang:mod:v0.14.0:golang_mod/vendor/golang.org/x/mod \
+		golang:sync:v0.6.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.16.0:golang_sys/vendor/golang.org/x/sys \
+		golang:tools:v0.17.0:golang_tools/vendor/golang.org/x/tools \
+		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		kr:pretty:v0.3.1:kr_pretty/vendor/github.com/kr/pretty \
 		kr:text:v0.2.0:kr_text/vendor/github.com/kr/text \
-		rogpeppe:go-internal:v1.10.0:rogpeppe_go_internal/vendor/github.com/rogpeppe/go-internal
+		rogpeppe:go-internal:v1.12.0:rogpeppe_go_internal/vendor/github.com/rogpeppe/go-internal
