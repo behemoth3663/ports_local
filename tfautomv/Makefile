@@ -1,5 +1,5 @@
 PORTNAME=	tfautomv
-PORTVERSION=	0.5.4
+PORTVERSION=	0.6.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -11,7 +11,7 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:modules
+USES=		go:1.22,modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	busser
