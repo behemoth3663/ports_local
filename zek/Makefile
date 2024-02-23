@@ -1,5 +1,5 @@
 PORTNAME=	zek
-PORTVERSION=	0.1.21
+PORTVERSION=	0.1.23
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local textproc
@@ -19,9 +19,10 @@ GH_ACCOUNT=	miku
 
 PLIST_FILES=	bin/${PORTNAME}
 
-post-post-extract: .PHONY
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
+
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
-
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
