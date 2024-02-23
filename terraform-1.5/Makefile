@@ -11,7 +11,7 @@ WWW=		https://terraform.io/
 LICENSE=	MPL20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:modules
+USES=		go:1.21,modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	hashicorp
@@ -23,7 +23,7 @@ JQ_GETVER_EXPR=	[.[].name | gsub("^[a-z]+";"") | \
 		select(test("^${PORTVERSION:C/[^.]+$/[0-9]+/:S/./\\\\./g}$$"; \
 		"n"))][0]
 
-WITH_PIE?=	yes
+#WITH_PIE?=	yes
 #WITH_RELRO: -static-relro is not implemented in external linker called from /usr/local/go*/pkg/tool/freebsd_amd64/link
 
 #https://stackoverflow.com/questions/64019336/go-compile-to-static-binary-with-pie
