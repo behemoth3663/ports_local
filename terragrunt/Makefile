@@ -1,6 +1,6 @@
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.55.8
+DISTVERSION=	0.55.9
 CATEGORIES=	local sysutils
 
 MAINTAINER=	0xdutra@gmail.com
@@ -10,7 +10,7 @@ WWW=		https://terragrunt.gruntwork.io/
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
-USES=		go:modules
+USES=		go:1.22,modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	gruntwork-io
