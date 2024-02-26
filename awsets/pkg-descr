@@ -1,4 +1,2 @@
 Utility for crawling an AWS account and exporting all its resources for further
 analysis.
-
-WWW: https://github.com/trek10inc/awsets

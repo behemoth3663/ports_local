@@ -1,5 +1,5 @@
 PORTNAME=	awsets
-PORTVERSION=	1.0.6
+PORTVERSION=	1.1.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -14,45 +14,60 @@ BUILD_DEPENDS=	git:devel/git
 
 USES=		go:modules
 
-WRKSRC_SUBDIR=	cmd/${PORTNAME}
+WRKSRC_SUBDIR=	./cmd/${PORTNAME}
+#GO_TARGET=	./cmd/${PORTNAME} -> main module (github.com/trek10inc/awsets) does not contain package github.com/trek10inc/awsets/cmd/awsets
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	trek10inc
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
+GIT_COMMIT=	git ls-remote \
+		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
+		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
+		${SED} -rn 's/(.{7}).*/\1/p'
 
-#post-patch: .PHONY
-#	cd ${WRKSRC} && \
-#		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod vendor && \
-#		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod tidy -v
-#	${CHMOD} -R u+w ${WRKDIR}/.gopath
+M2T_OFFLINE=	true
+.export	M2T_OFFLINE
 
-#	cd ${WRKSRC} && \
-#		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} get -u=patch && \
-#		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod vendor
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+	-X main.version=${PORTVERSION} \
+	-X main.commit=$$(${GIT_COMMIT}) \
+	-X main.date=${%FT%TZ:L:gmtime}"
 
-#	${MKDIR} ${WRKSRC}/vendor/github.com/${GH_ACCOUNT}/${PORTNAME}
-#	${FIND} ${WRKSRC}/../.. -maxdepth 1 \( \
-#		\( -type d -not -name '.*' -not -name cmd \) -or \
-#		\( -type f \( -name '*.go' -or -name 'go.*' \) \) \
-#	\) -exec ${RLN} {} ${WRKSRC}/vendor/github.com/${GH_ACCOUNT}/${PORTNAME} \;
+pre-deps: .PHONY
+	if [ -d '${MASTERDIR}/files_' ]; then \
+		${RM} -r ${MASTERDIR}/files; \
+	else \
+		${MV} ${MASTERDIR}/files ${MASTERDIR}/files_; \
+	fi
+	${RM} -r ${MASTERDIR}/files-${PORTVERSION}
+	${MKDIR} ${MASTERDIR}/files-${PORTVERSION}
 
-#-
-#	cd ${WRKSRC}/vendor/github.com/${GH_ACCOUNT}/${PORTNAME}/lister && \
-#	${REINPLACE_CMD} -r 's|MaxResults:[[:space:]]+aws\.|MaxResults: *aws.|' \
-#		ec2_dhcpoption.go ec2_flowlog.go ec2_instance.go ec2_internetgateway.go \
-#		ec2_launchtemplate.go ec2_natgateway.go ec2_networkacl.go \
-#		ec2_networkinterface.go ec2_routetable.go ec2_securitygroup.go \
-#		ec2_snapshot.go ec2_spotfleet.go ec2_subnet.go ec2_transitgateway.go \
-#		ec2_volume.go ec2_vpc.go ec2_vpcendpoint.go ec2_vpcendpointservice.go \
-#		ec2_vpcpeering.go && \
-#	${REINPLACE_CMD} -r 's|AllRegions:[[:space:]]+aws\.|AllRegions: *aws.|' ../main.go
+	cd ${WRKSRC} && \
+		${CP} -a go.mod go.mod.orig && \
+		${CP} -a go.sum go.sum.orig && \
+		${GO_CMD} get -u=patch && \
+		${GO_CMD} mod tidy && \
+		${SETENV} TZ=UTC ${DIFF} -udp go.mod.orig go.mod | \
+			${SED} -e '/^---/s|\.[0-9]* +0000$$| UTC|' -e '/^+++/s|\([[:blank:]][-0-9:.+]*\)*$$||' >${MASTERDIR}/files-${PORTVERSION}/patch-cmd_awsets_go.mod && \
+		${SETENV} TZ=UTC ${DIFF} -udp go.sum.orig go.sum | \
+			${SED} -e '/^---/s|\.[0-9]* +0000$$| UTC|' -e '/^+++/s|\([[:blank:]][-0-9:.+]*\)*$$||' >${MASTERDIR}/files-${PORTVERSION}/patch-cmd_awsets_go.sum
 
-post-post-extract: .PHONY
+	cd ${WRKSRC}/../.. && \
+		${CP} -a go.mod go.mod.orig && \
+		${CP} -a go.sum go.sum.orig && \
+		${GO_CMD} get -u=patch && \
+		${GO_CMD} mod tidy && \
+		${SETENV} TZ=UTC ${DIFF} -udp go.mod.orig go.mod | \
+			${SED}	-e 's|^---[[:space:]]*|&../../|' -e 's|^+++[[:space:]]*|&../../|' \
+				-e '/^---/s|\.[0-9]* +0000$$| UTC|' -e '/^+++/s|\([[:blank:]][-0-9:.+]*\)*$$||' >${MASTERDIR}/files-${PORTVERSION}/patch-go.mod && \
+		${SETENV} TZ=UTC ${DIFF} -udp go.sum.orig go.sum | \
+			${SED}	-e 's|^---[[:space:]]*|&../../|' -e 's|^+++[[:space:]]*|&../../|' \
+				-e '/^---/s|\.[0-9]* +0000$$| UTC|' -e '/^+++/s|\([[:blank:]][-0-9:.+]*\)*$$||' >${MASTERDIR}/files-${PORTVERSION}/patch-go.sum
+
+pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
-
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
