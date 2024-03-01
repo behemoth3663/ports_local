@@ -1,5 +1,5 @@
 PORTNAME=	terrascan
-PORTVERSION=	1.18.11
+PORTVERSION=	1.18.12
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -21,12 +21,15 @@ GH_ACCOUNT=	accurics
 
 PLIST_FILES=	bin/${PORTNAME}
 
+#M2T_OFFLINE=	true
+#.export	M2T_OFFLINE
+
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
+
 _OPTIONS_extract=	750:post-post-extract
 post-post-extract: .PHONY
 	${MV} ${WRKSRC}/vendor/sigs.k8s.io/kustomize/api/api/* ${WRKSRC}/vendor/sigs.k8s.io/kustomize/api || :
 	${MV} ${WRKSRC}/vendor/sigs.k8s.io/kustomize/kyaml/kyaml/* ${WRKSRC}/vendor/sigs.k8s.io/kustomize/kyaml || :
-
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
