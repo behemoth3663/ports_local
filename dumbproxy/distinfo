@@ -1,6 +1,6 @@
-TIMESTAMP = 1703439754
-SHA256 (Snawoot-dumbproxy-v1.11.2_GH0.tar.gz) = 7fa9a12bebdd97a295095752d2b7794c5da91890a4244bb345d0b616a49357f8
-SIZE (Snawoot-dumbproxy-v1.11.2_GH0.tar.gz) = 22478
+TIMESTAMP = 1709584786
+SHA256 (Snawoot-dumbproxy-v1.11.5_GH0.tar.gz) = db4e890a9891e35677cebea2bb96fbe170a32ea6092c27354f99f788954d84d8
+SIZE (Snawoot-dumbproxy-v1.11.5_GH0.tar.gz) = 22622
 SHA256 (GehirnInc-crypt-8cc1b52080c5_GH0.tar.gz) = cb2d55d38f2101e85b6a35ad8d5af6b847152579a3968999152cb5e93047abbd
 SIZE (GehirnInc-crypt-8cc1b52080c5_GH0.tar.gz) = 11452
 SHA256 (coreos-go-systemd-v22.5.0_GH0.tar.gz) = b56f4a5aa5cd8a5a2e8b323fb8e76b4a45c6ea6a319a42d9bb2851c54e97a3a1
