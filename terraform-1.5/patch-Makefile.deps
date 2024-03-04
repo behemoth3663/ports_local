@@ -1,34 +1,47 @@
---- Makefile.deps.orig	2023-07-13 16:34:17 UTC
+--- Makefile.deps.orig	2024-03-04 16:52:53 UTC
 +++ Makefile.deps
-@@ -83,9 +83,9 @@ GH_TUPLE=	\
- 		googleapis:google-cloud-go:compute/v1.15.1:googleapis_google_cloud_go_compute \
- 		googleapis:google-cloud-go:kms/v1.6.0:googleapis_google_cloud_go_kms \
- 		googleapis:google-cloud-go:storage/v1.28.0:googleapis_google_cloud_go_storage \
--		googleapis:google-cloud-go:v0.107.0:googleapis_google_cloud_go \
+@@ -38,7 +38,6 @@ GH_TUPLE=	\
+ 		bmatcuk:doublestar:v1.1.5:bmatcuk_doublestar/vendor/github.com/bmatcuk/doublestar \
+ 		bodgit:ntlmssp:3b6750ce6f5e:bodgit_ntlmssp/vendor/github.com/bodgit/ntlmssp \
+ 		bodgit:windows:v1.0.1:bodgit_windows/vendor/github.com/bodgit/windows \
+-		census-instrumentation:opencensus-go:v0.24.0:census_instrumentation_opencensus_go/vendor/go.opencensus.io \
+ 		chzyer:readline:2972be24d48e:chzyer_readline/vendor/github.com/chzyer/readline \
+ 		clbanning:mxj:v1.8.4:clbanning_mxj/vendor/github.com/clbanning/mxj \
+ 		coreos:go-systemd:d3cd4ed1dbcf:coreos_go_systemd/vendor/github.com/coreos/go-systemd \
+@@ -94,7 +93,7 @@ GH_TUPLE=	\
+ 		googleapis:google-cloud-go:kms/v1.15.7:googleapis_google_cloud_go_kms \
+ 		googleapis:google-cloud-go:storage/v1.38.0:googleapis_google_cloud_go_storage \
+ 		googleapis:google-cloud-go:v0.112.1:googleapis_google_cloud_go/vendor/cloud.google.com/go \
 -		googleapis:google-cloud-go:v0.2.3:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata \
--		googleapis:google-cloud-go:v0.8.0:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go \
-+		googleapis:google-cloud-go:v0.107.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
 +		googleapis:google-cloud-go:compute/metadata/v0.2.3:googleapis_google_cloud_go_compute_metadata \
-+		googleapis:google-cloud-go:iam/v0.8.0:googleapis_google_cloud_go_iam \
  		grpc:grpc-go:v1.1.0:grpc_grpc_go_1/vendor/google.golang.org/grpc/cmd/protoc-gen-go-grpc \
- 		grpc:grpc-go:v1.53.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+ 		grpc:grpc-go:v1.62.0:grpc_grpc_go/vendor/google.golang.org/grpc \
  		hashicorp:aws-sdk-go-base:v0.7.1:hashicorp_aws_sdk_go_base/vendor/github.com/hashicorp/aws-sdk-go-base \
-@@ -180,14 +180,13 @@ GH_TUPLE=	\
- 		zclconf:go-cty-yaml:v1.0.3:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
- 		zclconf:go-cty:v1.12.2:zclconf_go_cty/vendor/github.com/zclconf/go-cty
- 
--		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
--		#	::732eee02a75a:group_name/vendor/golang.org/x/exp/typeparams (from go.googlesource.com/exp@732eee02a75a)
--		#	::v0.1.0-deprecated:group_name/vendor/golang.org/x/tools/cmd/cover (from go.googlesource.com/tools@v0.1.0-deprecated)
--
+@@ -145,7 +144,7 @@ GH_TUPLE=	\
+ 		kubernetes:apimachinery:v0.23.17:kubernetes_apimachinery/vendor/k8s.io/apimachinery \
+ 		kubernetes:client-go:v0.23.17:kubernetes_client_go/vendor/k8s.io/client-go \
+ 		kubernetes:klog:v2.120.1:kubernetes_klog/vendor/k8s.io/klog/v2 \
+-		kubernetes:kube-openapi:70dd3763d340:kubernetes_kube_openapi/vendor/k8s.io/kube-openapi \
++		kubernetes:kube-openapi:e816edb12b65:kubernetes_kube_openapi/vendor/k8s.io/kube-openapi \
+ 		kubernetes:utils:e7106e64919e:kubernetes_utils/vendor/k8s.io/utils \
+ 		lib:pq:v1.10.9:lib_pq/vendor/github.com/lib/pq \
+ 		mailru:easyjson:v0.7.7:mailru_easyjson/vendor/github.com/mailru/easyjson \
+@@ -173,9 +172,6 @@ GH_TUPLE=	\
+ 		nishanths:exhaustive:v0.7.11:nishanths_exhaustive/vendor/github.com/nishanths/exhaustive \
+ 		nu7hatch:gouuid:179d4d0c4d8d:nu7hatch_gouuid/vendor/github.com/nu7hatch/gouuid \
+ 		oklog:run:v1.0.0:oklog_run/vendor/github.com/oklog/run \
+-		open-telemetry:opentelemetry-go-contrib:v0.48.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc \
+-		open-telemetry:opentelemetry-go-contrib:v0.48.0:open_telemetry_opentelemetry_go_contrib_1/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp \
+-		open-telemetry:opentelemetry-go:v1.23.1:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
+ 		packer-community:winrmcp:6e900dd2c68f:packer_community_winrmcp/vendor/github.com/packer-community/winrmcp \
+ 		pkg:browser:5ac0b6a4141c:pkg_browser/vendor/github.com/pkg/browser \
+ 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
+@@ -205,6 +201,8 @@ post-extract:
  post-extract:
--	@${RLN} ${WRKSRC_googleapis_google_cloud_go} ${WRKSRC}/vendor/cloud.google.com/go
  	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute
  	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute}/compute ${WRKSRC}/vendor/cloud.google.com/go/compute
 +	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
 +	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
-+	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/iam
-+	@${RLN} ${WRKSRC_googleapis_google_cloud_go_iam}/iam ${WRKSRC}/vendor/cloud.google.com/go/iam
+ 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/iam
+ 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_iam}/iam ${WRKSRC}/vendor/cloud.google.com/go/iam
  	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/kms
- 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_kms}/kms ${WRKSRC}/vendor/cloud.google.com/go/kms
- 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
