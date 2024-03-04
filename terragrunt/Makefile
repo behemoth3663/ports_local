@@ -1,6 +1,6 @@
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.55.10
+DISTVERSION=	0.55.11
 CATEGORIES=	local sysutils
 
 MAINTAINER=	0xdutra@gmail.com
@@ -26,8 +26,27 @@ pre-post-extract: .PHONY
 		${LN} -s "$${src}" "$${src%%go-commons-*}gruntwork-cli-$${src##*go-commons-}"; \
 	done
 
-pre-deps pre-deps-all post-deps-all: .PHONY
+pre-deps: .PHONY
+	if [ -d '${MASTERDIR}/files_' ]; then \
+		${RM} -r ${MASTERDIR}/files; \
+	else \
+		${MV} ${MASTERDIR}/files ${MASTERDIR}/files_; \
+	fi
+
+pre-deps-all: .PHONY
+
+post-deps-all: .PHONY
+	test ! -d '${MASTERDIR}/files_' || ${MV} ${MASTERDIR}/files_ ${MASTERDIR}/files
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
+
+#-		googleapis:google-cloud-go:v0.2.3:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata
+#+		googleapis:google-cloud-go:compute/metadata/v0.2.3:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata
+GH_TUPLE:=	${GH_TUPLE:C|^(googleapis:google-cloud-go):(.*/compute/metadata.*)|\1:compute/metadata/\2|1}
+
+#-		open-telemetry:opentelemetry-go:v1.23.1:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel
+#-		open-telemetry:opentelemetry-proto-go:v1.1.0:open_telemetry_opentelemetry_proto_go/vendor/go.opentelemetry.io/proto/otlp
+GH_TUPLE:=	${GH_TUPLE:Nopen-telemetry\:opentelemetry-*}
+
 .include <bsd.port.mk>
