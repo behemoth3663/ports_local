@@ -6,9 +6,11 @@ GH_TUPLE=	\
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		go-test:deep:v1.0.3:go_test_deep/vendor/github.com/go-test/deep \
 		golang:crypto:85d78b3ac167:golang_crypto/vendor/golang.org/x/crypto \
+		golang:mod:v0.8.0:golang_mod/vendor/golang.org/x/mod \
 		golang:sys:v0.5.0:golang_sys/vendor/golang.org/x/sys \
 		golang:term:7de9c90e9dd1:golang_term/vendor/golang.org/x/term \
 		golang:text:v0.11.0:golang_text/vendor/golang.org/x/text \
+		golang:tools:v0.6.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.3.1:google_go_cmp/vendor/github.com/google/go-cmp \
 		kr:pretty:v0.1.0:kr_pretty/vendor/github.com/kr/pretty \
 		kr:text:v0.1.0:kr_text/vendor/github.com/kr/text \
