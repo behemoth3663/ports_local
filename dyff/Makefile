@@ -1,6 +1,6 @@
 PORTNAME=	dyff
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.6.0
+DISTVERSION=	1.7.1
 CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
