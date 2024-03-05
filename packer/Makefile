@@ -1,5 +1,5 @@
 PORTNAME=	packer
-PORTVERSION=	1.10.0
+PORTVERSION=	1.10.1
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -13,13 +13,11 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		cpe go:modules
 CPE_VENDOR=	hashicorp
-#GO_MODULE=	github.com/hashicorp/packer
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	hashicorp
 
 PLIST_FILES=	bin/${PORTNAME}
-
 
 GIT_COMMIT=	git ls-remote \
 		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
@@ -30,7 +28,17 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=${PORTVERSION}' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.GitCommit=$$(${GIT_COMMIT})'"
 
-pre-deps pre-deps-all post-deps-all: .PHONY
+pre-deps: .PHONY
+	if [ -d '${MASTERDIR}/files_' ]; then \
+		${RM} -r ${MASTERDIR}/files; \
+	else \
+		${MV} ${MASTERDIR}/files ${MASTERDIR}/files_; \
+	fi
+
+pre-deps-all: .PHONY
+
+post-deps-all: .PHONY
+	test ! -d '${MASTERDIR}/files_' || ${MV} ${MASTERDIR}/files_ ${MASTERDIR}/files
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"

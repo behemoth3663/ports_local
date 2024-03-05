@@ -1,6 +1,6 @@
---- vendor/github.com/go-openapi/runtime/client/opentelemetry.go.orig	2023-04-18 04:03:52 UTC
+--- vendor/github.com/go-openapi/runtime/client/opentelemetry.go.orig	2023-12-09 18:15:16 UTC
 +++ vendor/github.com/go-openapi/runtime/client/opentelemetry.go
-@@ -2,30 +2,14 @@ import (
+@@ -2,18 +2,10 @@ import (
  
  import (
  	"fmt"
@@ -13,15 +13,15 @@
 -	"go.opentelemetry.io/otel/attribute"
 -	"go.opentelemetry.io/otel/codes"
 -	"go.opentelemetry.io/otel/propagation"
--	semconv "go.opentelemetry.io/otel/semconv/v1.12.0"
+-	semconv "go.opentelemetry.io/otel/semconv/v1.17.0"
+-	"go.opentelemetry.io/otel/semconv/v1.17.0/httpconv"
 -	"go.opentelemetry.io/otel/trace"
  )
  
--const (
--	instrumentationVersion = "1.0.0"
--	tracerName             = "go-openapi"
--)
--
+ const (
+@@ -22,11 +14,7 @@ type config struct {
+ )
+ 
  type config struct {
 -	Tracer            trace.Tracer
 -	Propagator        propagation.TextMapPropagator
@@ -31,7 +31,7 @@
  }
  
  type OpenTelemetryOpt interface {
-@@ -38,34 +22,6 @@ func (o optionFunc) apply(c *config) {
+@@ -39,34 +27,6 @@ func (o optionFunc) apply(c *config) {
  	o(c)
  }
  
@@ -66,7 +66,7 @@
  // WithSpanNameFormatter takes a function that will be called on every
  // request and the returned string will become the Span Name.
  func WithSpanNameFormatter(f func(op *runtime.ClientOperation) string) OpenTelemetryOpt {
-@@ -85,7 +41,6 @@ type openTelemetryTransport struct {
+@@ -86,7 +46,6 @@ type openTelemetryTransport struct {
  type openTelemetryTransport struct {
  	transport runtime.ClientTransport
  	host      string
@@ -74,7 +74,7 @@
  	config    *config
  }
  
-@@ -96,10 +51,7 @@ func newOpenTelemetryTransport(transport runtime.Clien
+@@ -97,10 +56,7 @@ func newOpenTelemetryTransport(transport runtime.Clien
  	}
  
  	defaultOpts := []OpenTelemetryOpt{
@@ -85,7 +85,7 @@
  	}
  
  	c := newConfig(append(defaultOpts, opts...)...)
-@@ -116,92 +68,25 @@ func (t *openTelemetryTransport) Submit(op *runtime.Cl
+@@ -117,89 +73,24 @@ func (t *openTelemetryTransport) Submit(op *runtime.Cl
  	params := op.Params
  	reader := op.Reader
  
@@ -104,8 +104,11 @@
  	op.Reader = runtime.ClientResponseReaderFunc(func(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 -		if span != nil {
 -			statusCode := response.Code()
--			span.SetAttributes(attribute.Int(string(semconv.HTTPStatusCodeKey), statusCode))
--			span.SetStatus(semconv.SpanStatusFromHTTPStatusCodeAndSpanKind(statusCode, trace.SpanKindClient))
+-			// NOTE: this is replaced by semconv.HTTPResponseStatusCode in semconv v1.21
+-			span.SetAttributes(semconv.HTTPStatusCode(statusCode))
+-			// NOTE: the conversion from HTTP status code to trace code is no longer available with
+-			// semconv v1.21
+-			span.SetStatus(httpconv.ServerStatus(statusCode))
 -		}
 -
  		return reader.ReadResponse(response, consumer)
@@ -116,7 +119,7 @@
 -		span.RecordError(err)
 -		span.SetStatus(codes.Error, err.Error())
 -	}
- 
+-
  	return submit, err
  }
  
@@ -158,24 +161,17 @@
 -}
 -
  func newConfig(opts ...OpenTelemetryOpt) *config {
--	c := &config{
+ 	c := &config{
 -		Propagator: otel.GetTextMapPropagator(),
--	}
-+	c := &config{}
+ 	}
  
  	for _, opt := range opts {
  		opt.apply(c)
- 	}
- 
+-	}
+-
 -	// Tracer is only initialized if manually specified. Otherwise, can be passed with the tracing context.
 -	if c.TracerProvider != nil {
 -		c.Tracer = newTracer(c.TracerProvider)
--	}
--
+ 	}
+ 
  	return c
--}
--
--// Version is the current release version of the go-runtime instrumentation.
--func version() string {
--	return instrumentationVersion
- }

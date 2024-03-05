@@ -1,13 +1,13 @@
---- Makefile.deps.orig	2023-12-25 22:09:27 UTC
+--- Makefile.deps.orig	2024-03-05 17:08:54 UTC
 +++ Makefile.deps
 @@ -61,6 +61,7 @@ GH_TUPLE=	\
- 		golang:net:v0.18.0:golang_net/vendor/golang.org/x/net \
- 		golang:oauth2:v0.14.0:golang_oauth2/vendor/golang.org/x/oauth2 \
+ 		golang:net:v0.19.0:golang_net/vendor/golang.org/x/net \
+ 		golang:oauth2:v0.15.0:golang_oauth2/vendor/golang.org/x/oauth2 \
  		golang:protobuf:v1.5.3:golang_protobuf/vendor/github.com/golang/protobuf \
 +		golang:snappy:v0.0.4:golang_snappy/vendor/github.com/golang/snappy \
  		golang:sync:v0.4.0:golang_sync/vendor/golang.org/x/sync \
- 		golang:sys:v0.14.0:golang_sys/vendor/golang.org/x/sys \
- 		golang:term:v0.14.0:golang_term/vendor/golang.org/x/term \
+ 		golang:sys:v0.15.0:golang_sys/vendor/golang.org/x/sys \
+ 		golang:term:v0.15.0:golang_term/vendor/golang.org/x/term \
 @@ -83,7 +84,7 @@ GH_TUPLE=	\
  		googleapis:google-cloud-go:iam/v1.1.2:googleapis_google_cloud_go_iam \
  		googleapis:google-cloud-go:storage/v1.30.1:googleapis_google_cloud_go_storage \
@@ -33,22 +33,23 @@
  		hashicorp:go-retryablehttp:v0.7.0:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
  		hashicorp:go-rootcerts:v1.0.2:hashicorp_go_rootcerts/vendor/github.com/hashicorp/go-rootcerts \
  		hashicorp:go-safetemp:v1.0.0:hashicorp_go_safetemp/vendor/github.com/hashicorp/go-safetemp \
-@@ -149,11 +151,11 @@ GH_TUPLE=	\
- 		mongodb:mongo-go-driver:v1.12.0:mongodb_mongo_go_driver/vendor/go.mongodb.org/mongo-driver \
+@@ -149,11 +151,10 @@ GH_TUPLE=	\
+ 		mongodb:mongo-go-driver:v1.13.1:mongodb_mongo_go_driver/vendor/go.mongodb.org/mongo-driver \
  		nu7hatch:gouuid:179d4d0c4d8d:nu7hatch_gouuid/vendor/github.com/nu7hatch/gouuid \
  		nywilken:go-cty:v1.13.3:nywilken_go_cty/vendor/github.com/zclconf/go-cty \
 +		oklog:run:v1.1.0:oklog_run/vendor/github.com/oklog/run \
  		oklog:ulid:v1.3.1:oklog_ulid/vendor/github.com/oklog/ulid \
--		open-telemetry:opentelemetry-go:v1.14.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
- 		opentracing:opentracing-go:v1.2.0:opentracing_opentracing_go/vendor/github.com/opentracing/opentracing-go \
- 		packer-community:winrmcp:c76d91c1e7db:packer_community_winrmcp/vendor/github.com/packer-community/winrmcp \
+-		open-telemetry:opentelemetry-go:v1.17.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
+-		opentracing:opentracing-go:v1.2.0:opentracing_opentracing_go/vendor/github.com/opentracing/opentracing-go \
+-		packer-community:winrmcp:c76d91c1e7db:packer_community_winrmcp/vendor/github.com/packer-community/winrmcp \
 -		pierrec:lz4:v4.1.18:pierrec_lz4_v4/vendor/github.com/pierrec/lz4/v4 \
++ 		packer-community:winrmcp:c76d91c1e7db:packer_community_winrmcp/vendor/github.com/packer-community/winrmcp \
 +		pierrec:lz4:v4.1.18:pierrec_lz4_v4/vendor/github.com/pierrec/lz4 \
+ 		pjbgf:sha1cd:v0.3.0:pjbgf_sha1cd/vendor/github.com/pjbgf/sha1cd \
  		pkg:sftp:v1.13.2:pkg_sftp/vendor/github.com/pkg/sftp \
  		pmezard:go-difflib:5d4384ee4fb2:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
- 		posener:complete:v1.2.3:posener_complete/vendor/github.com/posener/complete \
-@@ -167,9 +169,11 @@ GH_TUPLE=	\
- 		shopspring:decimal:v1.2.0:shopspring_decimal/vendor/github.com/shopspring/decimal \
+@@ -169,9 +170,11 @@ GH_TUPLE=	\
+ 		skeema:knownhosts:v1.2.1:skeema_knownhosts/vendor/github.com/skeema/knownhosts \
  		skratchdot:open-golang:eef842397966:skratchdot_open_golang/vendor/github.com/skratchdot/open-golang \
  		spf13:cast:v1.3.1:spf13_cast/vendor/github.com/spf13/cast \
 +		square:go-jose:v2.6.0:square_go_jose/vendor/gopkg.in/square/go-jose.v2 \
@@ -58,8 +59,8 @@
 +		uber-go:atomic:v1.11.0:uber_go_atomic/vendor/go.uber.org/atomic \
  		ugorji:go:v1.2.6:ugorji_go_codec/vendor/github.com/ugorji/go \
  		ulikunitz:xz:v0.5.10:ulikunitz_xz/vendor/github.com/ulikunitz/xz \
- 		xanzy:ssh-agent:v0.3.0:xanzy_ssh_agent/vendor/github.com/xanzy/ssh-agent \
-@@ -184,5 +188,12 @@ post-extract:
+ 		xanzy:ssh-agent:v0.3.3:xanzy_ssh_agent/vendor/github.com/xanzy/ssh-agent \
+@@ -185,5 +188,12 @@ post-extract:
  	@${RLN} ${WRKSRC_googleapis_google_cloud_go_iam}/iam ${WRKSRC}/vendor/cloud.google.com/go/iam
  	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
  	@${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go/storage
