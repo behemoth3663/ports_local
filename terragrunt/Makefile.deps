@@ -13,7 +13,7 @@ GH_TUPLE=	\
 		FiloSottile:age:v1.0.0:filosottile_age/vendor/filippo.io/age \
 		Masterminds:goutils:v1.1.1:masterminds_goutils/vendor/github.com/Masterminds/goutils \
 		Masterminds:semver:v3.2.1:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
-		Masterminds:sprig:v3.2.2:masterminds_sprig_v3/vendor/github.com/Masterminds/sprig/v3 \
+		Masterminds:sprig:v3.2.3:masterminds_sprig_v3/vendor/github.com/Masterminds/sprig/v3 \
 		ProtonMail:go-crypto:a94812496cf5:protonmail_go_crypto/vendor/github.com/ProtonMail/go-crypto \
 		agext:levenshtein:v1.2.3:agext_levenshtein/vendor/github.com/agext/levenshtein \
 		alecthomas:chroma:v0.10.0:alecthomas_chroma/vendor/github.com/alecthomas/chroma \
@@ -96,7 +96,7 @@ GH_TUPLE=	\
 		goware:prefixer:395022866408:goware_prefixer/vendor/github.com/goware/prefixer \
 		grpc-ecosystem:grpc-gateway:v2.19.0:grpc_ecosystem_grpc_gateway_v2/vendor/github.com/grpc-ecosystem/grpc-gateway/v2 \
 		grpc:grpc-go:v1.61.0:grpc_grpc_go/vendor/google.golang.org/grpc \
-		gruntwork-io:boilerplate:v0.5.7:gruntwork_io_boilerplate/vendor/github.com/gruntwork-io/boilerplate \
+		gruntwork-io:boilerplate:v0.5.11:gruntwork_io_boilerplate/vendor/github.com/gruntwork-io/boilerplate \
 		gruntwork-io:go-commons:v0.17.1:gruntwork_io_go_commons/vendor/github.com/gruntwork-io/go-commons \
 		gruntwork-io:gruntwork-cli:v0.7.0:gruntwork_io_gruntwork_cli/vendor/github.com/gruntwork-io/gruntwork-cli \
 		gruntwork-io:terratest:v0.41.0:gruntwork_io_terratest/vendor/github.com/gruntwork-io/terratest \
@@ -129,7 +129,7 @@ GH_TUPLE=	\
 		hashicorp:vault:v1.5.0:hashicorp_vault_api \
 		hashicorp:yamux:0bc27b27de87:hashicorp_yamux/vendor/github.com/hashicorp/yamux \
 		howeyc:gopass:c8aef6fb66ef:howeyc_gopass/vendor/github.com/howeyc/gopass \
-		huandu:xstrings:v1.3.2:huandu_xstrings/vendor/github.com/huandu/xstrings \
+		huandu:xstrings:v1.3.3:huandu_xstrings/vendor/github.com/huandu/xstrings \
 		imdario:mergo:v0.3.11:imdario_mergo/vendor/github.com/imdario/mergo \
 		inancgumus:screen:06e984b86ed3:inancgumus_screen/vendor/github.com/inancgumus/screen \
 		jessevdk:go-flags:v1.5.0:jessevdk_go_flags/vendor/github.com/jessevdk/go-flags \
@@ -195,7 +195,7 @@ GH_TUPLE=	\
 		uber-go:atomic:v1.9.0:uber_go_atomic/vendor/go.uber.org/atomic \
 		ulikunitz:xz:v0.5.11:ulikunitz_xz/vendor/github.com/ulikunitz/xz \
 		urfave:cli:v1.20.0:urfave_cli/vendor/gopkg.in/urfave/cli.v1 \
-		urfave:cli:v2.25.5:urfave_cli_v2/vendor/github.com/urfave/cli/v2 \
+		urfave:cli:v2.26.0:urfave_cli_v2/vendor/github.com/urfave/cli/v2 \
 		vmihailenco:msgpack:v5.3.5:vmihailenco_msgpack_v5/vendor/github.com/vmihailenco/msgpack/v5 \
 		vmihailenco:tagparser:v2.0.0:vmihailenco_tagparser_v2/vendor/github.com/vmihailenco/tagparser/v2 \
 		xo:terminfo:ca9a967f8778:xo_terminfo/vendor/github.com/xo/terminfo \
