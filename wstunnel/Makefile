@@ -1,6 +1,6 @@
 PORTNAME=	wstunnel
 DISTVERSIONPREFIX=	v
-DISTVERSION=	9.2.3
+DISTVERSION=	9.2.4
 CATEGORIES=	local security
 
 MAINTAINER=	none@freebsd.org
