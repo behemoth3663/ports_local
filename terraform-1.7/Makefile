@@ -1,5 +1,5 @@
 PORTNAME=	terraform
-PORTVERSION=	1.7.4
+PORTVERSION=	1.7.5
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -9,11 +9,11 @@ MAINTAINER= 	dutra@FreeBSD.org
 COMMENT=	Provides a common configuration to launch infrastructure
 WWW=		https://terraform.io/
 
+USES=		go:1.21,modules
+
 LICENSE_NAME=   Business Source License 1.1
 LICENSE_FILE=	${WRKSRC}/LICENSE
 LICENSE_PERMS=	dist-mirror pkg-mirror pkg-sell auto-accept
-
-USES=		go:1.21,modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	hashicorp
@@ -37,7 +37,10 @@ pre-extract: .PHONY .SILENT
 	test -n '${WRKSRC_grpc_grpc_go_1}' && ${LN} -s ${WRKDIR}/grpc-go-cmd-protoc-gen-go-grpc-v1.1.0 ${WRKSRC_grpc_grpc_go_1} || :
 
 post-patch: .PHONY .SILENT
-	${RM} ${WRKSRC}/telemetry.go ${WRKSRC}/internal/command/telemetry.go
+	${RM} \
+		${WRKSRC}/telemetry.go \
+		${WRKSRC}/internal/command/telemetry.go \
+		${WRKSRC}/vendor/github.com/hashicorp/aws-sdk-go-base/v2/logging/attributes.go
 
 post-install: .PHONY
 	${MV} ${STAGEDIR}${PREFIX}/bin/${PORTNAME} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION}
