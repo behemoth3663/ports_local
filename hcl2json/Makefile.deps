@@ -2,12 +2,15 @@ GH_TUPLE=	\
 		agext:levenshtein:v1.2.3:agext_levenshtein/vendor/github.com/agext/levenshtein \
 		apparentlymart:go-textseg:v15.0.0:apparentlymart_go_textseg_v15/vendor/github.com/apparentlymart/go-textseg/v15 \
 		go-test:deep:v1.0.7:go_test_deep/vendor/github.com/go-test/deep \
+		golang:mod:v0.8.0:golang_mod/vendor/golang.org/x/mod \
+		golang:sys:v0.5.0:golang_sys/vendor/golang.org/x/sys \
 		golang:text:v0.11.0:golang_text/vendor/golang.org/x/text \
+		golang:tools:v0.6.0:golang_tools/vendor/golang.org/x/tools \
 		golang:xerrors:5ec99f83aff1:golang_xerrors/vendor/golang.org/x/xerrors \
 		google:go-cmp:v0.5.5:google_go_cmp/vendor/github.com/google/go-cmp \
-		hashicorp:hcl:v2.19.1:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
+		hashicorp:hcl:v2.20.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
 		kr:pretty:v0.2.1:kr_pretty/vendor/github.com/kr/pretty \
 		kr:text:v0.2.0:kr_text/vendor/github.com/kr/text \
 		kylelemons:godebug:v1.1.0:kylelemons_godebug/vendor/github.com/kylelemons/godebug \
 		mitchellh:go-wordwrap:v1.0.1:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
-		zclconf:go-cty:v1.14.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+		zclconf:go-cty:v1.14.3:zclconf_go_cty/vendor/github.com/zclconf/go-cty
