@@ -1,6 +1,6 @@
-TIMESTAMP = 1708698820
-SHA256 (busser-tfautomv-v0.6.0_GH0.tar.gz) = e45cc34160e6ea89e41f07126174fcb5e01ec28263651dad1bf703343e9988f9
-SIZE (busser-tfautomv-v0.6.0_GH0.tar.gz) = 520681
+TIMESTAMP = 1710689699
+SHA256 (busser-tfautomv-v0.6.2_GH0.tar.gz) = d89e19c03c7cd1ea1714d091cea751289936b2d52e790fae3a26b23bc445313d
+SIZE (busser-tfautomv-v0.6.2_GH0.tar.gz) = 521170
 SHA256 (apparentlymart-go-textseg-v15.0.0_GH0.tar.gz) = d73ee2bce8c1a8e35b0355a8cb66d05cd65a07099b7edaf1e44edc51cf33210d
 SIZE (apparentlymart-go-textseg-v15.0.0_GH0.tar.gz) = 137290
 SHA256 (davecgh-go-spew-v1.1.1_GH0.tar.gz) = 7d82b9bb7291adbe7498fe946920ab3e7fc9e6cbfc3b2294693fad00bf0dd17e
