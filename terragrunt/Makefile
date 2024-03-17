@@ -1,6 +1,6 @@
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.55.15
+DISTVERSION=	0.55.16
 CATEGORIES=	local sysutils
 
 MAINTAINER=	0xdutra@gmail.com
@@ -26,17 +26,21 @@ pre-post-extract: .PHONY
 		${LN} -s "$${src}" "$${src%%go-commons-*}gruntwork-cli-$${src##*go-commons-}"; \
 	done
 
+post-patch: .PHONY
+	cd ${PATCHDIR} && dirs=$$(${FIND} . -mindepth 1 -maxdepth 1 -type d) && \
+		{ test -z "$${dirs}" || ${TAR} -cf- $${dirs} | ${TAR} -C ${WRKSRC} -xf-; }
+
 pre-deps: .PHONY
-	if [ -d '${MASTERDIR}/files_' ]; then \
-		${RM} -r ${MASTERDIR}/files; \
+	if [ -d '${PATCHDIR}_' ]; then \
+		${RM} -r -- ${PATCHDIR}; \
 	else \
-		${MV} ${MASTERDIR}/files ${MASTERDIR}/files_; \
+		${MV} ${PATCHDIR} ${PATCHDIR}_; \
 	fi
 
 pre-deps-all: .PHONY
 
 post-deps-all: .PHONY
-	test ! -d '${MASTERDIR}/files_' || ${MV} ${MASTERDIR}/files_ ${MASTERDIR}/files
+	test ! -d '${PATCHDIR}_' || ${MV} ${PATCHDIR}_ ${PATCHDIR}
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
