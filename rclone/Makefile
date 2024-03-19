@@ -28,7 +28,7 @@ _GITEA_TUPLE=	goftp:server:v2.0.1:vendor/goftp.io/server/v2
 #.endif
 
 PLIST_FILES=	bin/rclone \
-		man/man1/rclone.1.gz
+		share/man/man1/rclone.1.gz
 
 JQ_GETVER_EXPR=	.[0].name | gsub("[-a-z]"; "")
 
@@ -43,7 +43,7 @@ CMOUNT_LIB_DEPENDS=	libfuse.so:sysutils/fusefs-libs
 CMOUNT_VARS=		GO_BUILDFLAGS+="-tags cmount"
 
 post-install:
-	${INSTALL_MAN} ${WRKSRC}/rclone.1 ${STAGEDIR}${MANPREFIX}/man/man1
+	${INSTALL_MAN} ${WRKSRC}/rclone.1 ${STAGEDIR}${PREFIX}/share/man/man1
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
