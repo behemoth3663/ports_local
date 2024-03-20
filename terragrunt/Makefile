@@ -1,6 +1,6 @@
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.55.16
+DISTVERSION=	0.55.18
 CATEGORIES=	local sysutils
 
 MAINTAINER=	0xdutra@gmail.com
@@ -27,8 +27,10 @@ pre-post-extract: .PHONY
 	done
 
 post-patch: .PHONY
-	cd ${PATCHDIR} && dirs=$$(${FIND} . -mindepth 1 -maxdepth 1 -type d) && \
-		{ test -z "$${dirs}" || ${TAR} -cf- $${dirs} | ${TAR} -C ${WRKSRC} -xf-; }
+	if cd ${PATCHDIR}; then \
+		dirs=$$(${FIND} . -mindepth 1 -maxdepth 1 -type d); \
+		test -z "$${dirs}" || ${TAR} -cf- $${dirs} | ${TAR} -C ${WRKSRC} -xf-; \
+	fi
 
 pre-deps: .PHONY
 	if [ -d '${PATCHDIR}_' ]; then \

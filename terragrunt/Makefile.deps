@@ -38,7 +38,7 @@ GH_TUPLE=	\
 		charmbracelet:bubbletea:v0.24.2:charmbracelet_bubbletea/vendor/github.com/charmbracelet/bubbletea \
 		charmbracelet:glamour:v0.6.0:charmbracelet_glamour/vendor/github.com/charmbracelet/glamour \
 		charmbracelet:lipgloss:v0.9.1:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
-		cloudflare:circl:v1.3.3:cloudflare_circl/vendor/github.com/cloudflare/circl \
+		cloudflare:circl:v1.3.7:cloudflare_circl/vendor/github.com/cloudflare/circl \
 		containerd:console:1ae8d489ac81:containerd_console/vendor/github.com/containerd/console \
 		cpuguy83:go-md2man:v2.0.2:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
 		creack:pty:v1.1.17:creack_pty/vendor/github.com/creack/pty \
@@ -52,7 +52,7 @@ GH_TUPLE=	\
 		gitsight:go-vcsurl:v1.0.1:gitsight_go_vcsurl/vendor/github.com/gitsight/go-vcsurl \
 		go-errors:errors:v1.4.2:go_errors_errors/vendor/github.com/go-errors/errors \
 		go-ini:ini:v1.67.0:go_ini_ini/vendor/gopkg.in/ini.v1 \
-		go-jose:go-jose:v3.0.0:go_jose_go_jose_v3/vendor/github.com/go-jose/go-jose/v3 \
+		go-jose:go-jose:v3.0.3:go_jose_go_jose_v3/vendor/github.com/go-jose/go-jose/v3 \
 		go-logr:logr:v1.4.1:go_logr_logr/vendor/github.com/go-logr/logr \
 		go-logr:stdr:v1.2.2:go_logr_stdr/vendor/github.com/go-logr/stdr \
 		go-ozzo:ozzo-validation:v3.6.0:go_ozzo_ozzo_validation/vendor/github.com/go-ozzo/ozzo-validation \
@@ -61,7 +61,7 @@ GH_TUPLE=	\
 		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
 		golang-jwt:jwt:v5.0.0:golang_jwt_jwt_v5/vendor/github.com/golang-jwt/jwt/v5 \
 		golang:appengine:v1.6.8:golang_appengine/vendor/google.golang.org/appengine \
-		golang:crypto:v0.17.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.19.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:921286631fa9:golang_exp/vendor/golang.org/x/exp \
 		golang:groupcache:41bb18bfe9da:golang_groupcache/vendor/github.com/golang/groupcache \
 		golang:mod:v0.12.0:golang_mod/vendor/golang.org/x/mod \
@@ -69,8 +69,8 @@ GH_TUPLE=	\
 		golang:oauth2:v0.15.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.3:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:sync:v0.5.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.16.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.15.0:golang_term/vendor/golang.org/x/term \
+		golang:sys:v0.17.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.17.0:golang_term/vendor/golang.org/x/term \
 		golang:text:v0.14.0:golang_text/vendor/golang.org/x/text \
 		golang:time:579cf78fd858:golang_time/vendor/golang.org/x/time \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
@@ -169,7 +169,7 @@ GH_TUPLE=	\
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		posener:complete:v1.2.3:posener_complete/vendor/github.com/posener/complete \
 		pquerna:otp:468c2dd2b58d:pquerna_otp/vendor/github.com/pquerna/otp \
-		protocolbuffers:protobuf-go:v1.32.0:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
+		protocolbuffers:protobuf-go:v1.33.0:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		pterm:pterm:v0.12.41:pterm_pterm/vendor/github.com/pterm/pterm \
 		rivo:uniseg:v0.2.0:rivo_uniseg/vendor/github.com/rivo/uniseg \
 		russross:blackfriday:v2.1.0:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
@@ -197,7 +197,6 @@ GH_TUPLE=	\
 		zclconf:go-cty-yaml:v1.0.3:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
 		zclconf:go-cty:v1.13.2:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 		# Errors found during processing:
-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {}
 post-extract:
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute}/compute ${WRKSRC}/vendor/cloud.google.com/go/compute
