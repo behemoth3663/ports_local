@@ -2,7 +2,7 @@ GH_TUPLE=	\
 		AlecAivazis:survey:v2.3.7:alecaivazis_survey_v2/vendor/github.com/AlecAivazis/survey/v2 \
 		MakeNowJust:heredoc:v1.0.0:makenowjust_heredoc/vendor/github.com/MakeNowJust/heredoc \
 		alecthomas:chroma:v0.10.0:alecthomas_chroma/vendor/github.com/alecthomas/chroma \
-		alessio:shellescape:v1.4.1:alessio_shellescape/vendor/github.com/alessio/shellescape \
+		alessio:shellescape:v1.4.2:alessio_shellescape/vendor/github.com/alessio/shellescape \
 		aymanbagabas:go-osc52:v1.0.3:aymanbagabas_go_osc52/vendor/github.com/aymanbagabas/go-osc52 \
 		aymerick:douceur:v0.2.0:aymerick_douceur/vendor/github.com/aymerick/douceur \
 		briandowns:spinner:v1.18.1:briandowns_spinner/vendor/github.com/briandowns/spinner \
@@ -14,9 +14,9 @@ GH_TUPLE=	\
 		cli:oauth:v1.0.1:cli_oauth/vendor/github.com/cli/oauth \
 		cli:safeexec:v1.0.1:cli_safeexec/vendor/github.com/cli/safeexec \
 		cli:shurcooL-graphql:v0.0.4:cli_shurcool_graphql/vendor/github.com/cli/shurcooL-graphql \
-		cpuguy83:go-md2man:v2.0.3:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
+		cpuguy83:go-md2man:v2.0.4:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
 		creack:pty:v1.1.21:creack_pty/vendor/github.com/creack/pty \
-		danieljoos:wincred:v1.2.0:danieljoos_wincred/vendor/github.com/danieljoos/wincred \
+		danieljoos:wincred:v1.2.1:danieljoos_wincred/vendor/github.com/danieljoos/wincred \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		dlclark:regexp2:v1.4.0:dlclark_regexp2/vendor/github.com/dlclark/regexp2 \
 		fatih:color:v1.7.0:fatih_color/vendor/github.com/fatih/color \
@@ -30,7 +30,7 @@ GH_TUPLE=	\
 		golang:net:v0.17.0:golang_net/vendor/golang.org/x/net \
 		golang:protobuf:v1.5.3:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:sync:v0.1.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.15.0:golang_sys/vendor/golang.org/x/sys \
+		golang:sys:v0.18.0:golang_sys/vendor/golang.org/x/sys \
 		golang:term:v0.15.0:golang_term/vendor/golang.org/x/term \
 		golang:text:v0.14.0:golang_text/vendor/golang.org/x/text \
 		google:go-cmp:v0.5.9:google_go_cmp/vendor/github.com/google/go-cmp \
@@ -64,7 +64,7 @@ GH_TUPLE=	\
 		olekukonko:tablewriter:v0.0.5:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
 		opentracing:opentracing-go:v1.1.0:opentracing_opentracing_go/vendor/github.com/opentracing/opentracing-go \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
-		protocolbuffers:protobuf-go:v1.30.0:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
+		protocolbuffers:protobuf-go:v1.33.0:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		rivo:tview:c4a7e501810d:rivo_tview/vendor/github.com/rivo/tview \
 		rivo:uniseg:v0.4.4:rivo_uniseg/vendor/github.com/rivo/uniseg \
 		rodaine:table:v1.0.1:rodaine_table/vendor/github.com/rodaine/table \
@@ -78,4 +78,4 @@ GH_TUPLE=	\
 		thlib:go-timezone-local:ef149e42d28e:thlib_go_timezone_local/vendor/github.com/thlib/go-timezone-local \
 		yuin:goldmark-emoji:v1.0.1:yuin_goldmark_emoji/vendor/github.com/yuin/goldmark-emoji \
 		yuin:goldmark:v1.5.2:yuin_goldmark/vendor/github.com/yuin/goldmark \
-		zalando:go-keyring:v0.2.3:zalando_go_keyring/vendor/github.com/zalando/go-keyring
+		zalando:go-keyring:v0.2.4:zalando_go_keyring/vendor/github.com/zalando/go-keyring
