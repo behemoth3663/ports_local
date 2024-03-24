@@ -1,20 +1,28 @@
---- Makefile.deps.orig	2023-12-22 15:46:26 UTC
+--- Makefile.deps.orig	2024-03-24 09:04:24 UTC
 +++ Makefile.deps
-@@ -80,7 +80,7 @@ GH_TUPLE=	\
- 		golang:text:v0.13.0:golang_text/vendor/golang.org/x/text \
- 		golang:time:v0.3.0:golang_time/vendor/golang.org/x/time \
- 		golang:tools:v0.14.0:golang_tools/vendor/golang.org/x/tools \
--		google:go-genproto:49dd2c1f3d0b:google_go_genproto/vendor/google.golang.org/genproto/googleapis/rpc \
-+		google:go-genproto:49dd2c1f3d0b:google_go_genproto/vendor/google.golang.org/genproto \
- 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
+@@ -84,14 +84,14 @@ GH_TUPLE=	\
+ 		golang:text:v0.14.0:golang_text/vendor/golang.org/x/text \
+ 		golang:time:v0.5.0:golang_time/vendor/golang.org/x/time \
+ 		golang:tools:v0.17.0:golang_tools/vendor/golang.org/x/tools \
+-		google:go-genproto:35c7eff3a6b1:google_go_genproto/vendor/google.golang.org/genproto/googleapis/rpc \
++		google:go-genproto:35c7eff3a6b1:google_go_genproto/vendor/google.golang.org/genproto \
  		google:s2a-go:v0.1.7:google_s2a_go/vendor/github.com/google/s2a-go \
- 		google:uuid:v1.4.0:google_uuid/vendor/github.com/google/uuid \
-@@ -88,7 +88,7 @@ GH_TUPLE=	\
+ 		google:uuid:v1.5.0:google_uuid/vendor/github.com/google/uuid \
+ 		googleapis:enterprise-certificate-proxy:v0.3.2:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
  		googleapis:gax-go:v2.12.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
- 		googleapis:google-api-go-client:v0.148.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
- 		googleapis:google-cloud-go:compute/v1.23.2:googleapis_google_cloud_go_compute/vendor/cloud.google.com/go \
+ 		googleapis:google-api-go-client:v0.156.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+ 		googleapis:google-cloud-go:compute/v1.23.3:googleapis_google_cloud_go_compute/vendor/cloud.google.com/go \
 -		googleapis:google-cloud-go:v0.2.3:googleapis_google_cloud_go/vendor/cloud.google.com/go/compute/metadata \
 +		googleapis:google-cloud-go:compute/metadata/v0.2.3:googleapis_google_cloud_go/vendor/cloud.google.com/go/compute/metadata \
- 		grpc:grpc-go:v1.59.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+ 		grpc:grpc-go:v1.60.1:grpc_grpc_go/vendor/google.golang.org/grpc \
  		hanwen:go-fuse:v2.4.0:hanwen_go_fuse_v2/vendor/github.com/hanwen/go-fuse/v2 \
  		hashicorp:errwrap:v1.1.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
+@@ -134,8 +134,6 @@ GH_TUPLE=	\
+ 		modern-go:concurrent:bacd9c7ef1dd:modern_go_concurrent/vendor/github.com/modern-go/concurrent \
+ 		modern-go:reflect2:v1.0.2:modern_go_reflect2/vendor/github.com/modern-go/reflect2 \
+ 		ncw:swift:v2.0.2:ncw_swift_v2/vendor/github.com/ncw/swift/v2 \
+-		open-telemetry:opentelemetry-go-contrib:v0.46.1:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp \
+-		open-telemetry:opentelemetry-go:v1.21.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
+ 		oracle:oci-go-sdk:v65.55.1:oracle_oci_go_sdk_v65/vendor/github.com/oracle/oci-go-sdk/v65 \
+ 		patrickmn:go-cache:v2.1.0:patrickmn_go_cache/vendor/github.com/patrickmn/go-cache \
+ 		pengsrc:go-shared:1999055a4a14:pengsrc_go_shared/vendor/github.com/pengsrc/go-shared \

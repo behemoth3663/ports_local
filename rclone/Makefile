@@ -1,6 +1,6 @@
 PORTNAME=	rclone
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.65.2
+DISTVERSION=	1.66.0
 #PORTREVISION=	2
 CATEGORIES=	local net
 
@@ -62,5 +62,17 @@ post-post-extract: .PHONY .SILENT
 	@${MKDIR} ${WRKSRC}/${subdir:H}
 	@${RLN} ${WRKDIR}/${project} ${WRKSRC}/${subdir}
 .endfor
+
+pre-deps: .PHONY
+	if [ -d '${PATCHDIR}_' ]; then \
+		${RM} -r -- ${PATCHDIR}; \
+	else \
+		${MV} ${PATCHDIR} ${PATCHDIR}_; \
+	fi
+
+pre-deps-all: .PHONY
+
+post-deps-all: .PHONY
+	test ! -d '${PATCHDIR}_' || ${MV} ${PATCHDIR}_ ${PATCHDIR}
 
 .include <bsd.port.post.mk>
