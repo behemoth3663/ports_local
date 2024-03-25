@@ -1,6 +1,6 @@
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.55.18
+DISTVERSION=	0.55.19
 CATEGORIES=	local sysutils
 
 MAINTAINER=	0xdutra@gmail.com
@@ -26,10 +26,11 @@ pre-post-extract: .PHONY
 		${LN} -s "$${src}" "$${src%%go-commons-*}gruntwork-cli-$${src##*go-commons-}"; \
 	done
 
-post-patch: .PHONY
-	if cd ${PATCHDIR}; then \
-		dirs=$$(${FIND} . -mindepth 1 -maxdepth 1 -type d); \
-		test -z "$${dirs}" || ${TAR} -cf- $${dirs} | ${TAR} -C ${WRKSRC} -xf-; \
+post-patch: .PHONY .SILENT
+	if cd ${PATCHDIR} 2>/dev/null; then \
+		${FIND} . -mindepth 1 -maxdepth 1 -type d -print0 | \
+		${TAR} --null --files-from - -cf- | \
+		${TAR} -C ${WRKSRC} -xf-; \
 	fi
 
 pre-deps: .PHONY

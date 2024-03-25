@@ -1,4 +1,4 @@
---- Makefile.deps.orig	2024-03-13 17:04:23 UTC
+--- Makefile.deps.orig	2024-03-25 12:00:44 UTC
 +++ Makefile.deps
 @@ -20,9 +20,9 @@ GH_TUPLE=	\
  		asaskevich:govalidator:f61b66f89f4a:asaskevich_govalidator/vendor/github.com/asaskevich/govalidator \
@@ -22,17 +22,7 @@
  		hashicorp:vault:v1.4.2:hashicorp_vault/vendor/github.com/hashicorp/vault \
  		hashicorp:yamux:0bc27b27de87:hashicorp_yamux/vendor/github.com/hashicorp/yamux \
  		huandu:xstrings:v1.3.3:huandu_xstrings/vendor/github.com/huandu/xstrings \
-@@ -197,8 +197,7 @@ GH_TUPLE=	\
- 		zclconf:go-cty-yaml:v1.0.3:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
- 		zclconf:go-cty:v1.13.2:zclconf_go_cty/vendor/github.com/zclconf/go-cty
- 		# Errors found during processing:
--		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
--}
-+		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {}
- post-extract:
- 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute
- 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute}/compute ${WRKSRC}/vendor/cloud.google.com/go/compute
-@@ -216,9 +215,6 @@ post-extract:
+@@ -214,9 +214,6 @@ post-extract:
  	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_internal}/sdk/internal ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/internal
  	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/internal
  	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_internal_1}/sdk/security/keyvault/internal ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/internal
