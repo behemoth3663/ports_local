@@ -1,9 +1,9 @@
 GH_TUPLE=	\
 		atomicgo:cursor:v0.1.1:atomicgo_cursor/vendor/atomicgo.dev/cursor \
 		atomicgo:keyboard:v0.2.8:atomicgo_keyboard/vendor/atomicgo.dev/keyboard \
-		aws:aws-sdk-go-v2:v1.18.1:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
-		aws:aws-sdk-go:v1.44.304:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
-		aws:smithy-go:v1.13.5:aws_smithy_go/vendor/github.com/aws/smithy-go \
+		aws:aws-sdk-go-v2:v1.24.0:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+		aws:aws-sdk-go:v1.49.13:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		aws:smithy-go:v1.19.0:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		charmbracelet:lipgloss:v0.6.0:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
 		containerd:console:v1.0.3:containerd_console/vendor/github.com/containerd/console \
 		cpuguy83:go-md2man:v2.0.2:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
@@ -12,7 +12,6 @@ GH_TUPLE=	\
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
 		golang:exp:f9659909a136:golang_exp/vendor/golang.org/x/exp \
-		golang:net:v0.17.0:golang_net/vendor/golang.org/x/net \
 		golang:sys:v0.13.0:golang_sys/vendor/golang.org/x/sys \
 		golang:term:v0.13.0:golang_term/vendor/golang.org/x/term \
 		golang:text:v0.13.0:golang_text/vendor/golang.org/x/text \
