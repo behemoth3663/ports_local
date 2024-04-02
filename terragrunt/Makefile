@@ -1,6 +1,6 @@
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.55.20
+DISTVERSION=	0.55.21
 CATEGORIES=	local sysutils
 
 MAINTAINER=	0xdutra@gmail.com
@@ -26,12 +26,15 @@ pre-post-extract: .PHONY
 		${LN} -s "$${src}" "$${src%%go-commons-*}gruntwork-cli-$${src##*go-commons-}"; \
 	done
 
-post-patch: .PHONY .SILENT
-	if cd ${PATCHDIR} 2>/dev/null; then \
-		${FIND} . -mindepth 1 -maxdepth 1 -type d -print0 | \
-		${TAR} --null --files-from - -cf- | \
-		${TAR} -C ${WRKSRC} -xf-; \
-	fi
+#-		open-telemetry:opentelemetry-go:v1.23.1:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel
+#-		open-telemetry:opentelemetry-proto-go:v1.1.0:open_telemetry_opentelemetry_proto_go/vendor/go.opentelemetry.io/proto/otlp
+#GH_TUPLE:=	${GH_TUPLE:Nopen-telemetry\:opentelemetry-*}
+#post-patch: .PHONY .SILENT
+#	if cd ${PATCHDIR} 2>/dev/null; then \
+#		${FIND} . -mindepth 1 -maxdepth 1 -type d -print0 | \
+#		${TAR} --null --files-from - -cf- | \
+#		${TAR} -C ${WRKSRC} -xf-; \
+#	fi
 
 pre-deps: .PHONY
 	if [ -d '${PATCHDIR}_' ]; then \
@@ -51,9 +54,5 @@ post-deps-all: .PHONY
 #-		googleapis:google-cloud-go:v0.2.3:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata
 #+		googleapis:google-cloud-go:compute/metadata/v0.2.3:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata
 GH_TUPLE:=	${GH_TUPLE:C|^(googleapis:google-cloud-go):(.*/compute/metadata.*)|\1:compute/metadata/\2|1}
-
-#-		open-telemetry:opentelemetry-go:v1.23.1:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel
-#-		open-telemetry:opentelemetry-proto-go:v1.1.0:open_telemetry_opentelemetry_proto_go/vendor/go.opentelemetry.io/proto/otlp
-GH_TUPLE:=	${GH_TUPLE:Nopen-telemetry\:opentelemetry-*}
 
 .include <bsd.port.mk>

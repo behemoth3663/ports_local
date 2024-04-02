@@ -161,7 +161,7 @@ GH_TUPLE=	\
 		open-telemetry:opentelemetry-go:v1.22.0:open_telemetry_opentelemetry_go_3/vendor/go.opentelemetry.io/otel/exporters/stdout/stdouttrace \
 		open-telemetry:opentelemetry-go:v1.23.0:open_telemetry_opentelemetry_go_1/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace \
 		open-telemetry:opentelemetry-go:v1.23.1:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
-		open-telemetry:opentelemetry-proto-go:v1.1.0:open_telemetry_opentelemetry_proto_go/vendor/go.opentelemetry.io/proto/otlp \
+		open-telemetry:opentelemetry-proto-go:otlp/v1.1.0:open_telemetry_opentelemetry_proto_go \
 		opencontainers:runc:v1.1.12:opencontainers_runc/vendor/github.com/opencontainers/runc \
 		owenrumney:go-sarif:v1.1.1:owenrumney_go_sarif/vendor/github.com/owenrumney/go-sarif \
 		pkg:browser:681adbf594b8:pkg_browser/vendor/github.com/pkg/browser \
@@ -203,6 +203,8 @@ GH_TUPLE=	\
 #}
 		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
 #}
+		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+#}
 post-extract:
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute}/compute ${WRKSRC}/vendor/cloud.google.com/go/compute
@@ -224,3 +226,5 @@ post-extract:
 	@${RLN} ${WRKSRC_hashicorp_go_secure_stdlib_parseutil}/parseutil ${WRKSRC}/vendor/github.com/hashicorp/go-secure-stdlib/parseutil
 	@${RM} -r ${WRKSRC}/vendor/github.com/hashicorp/vault/api
 	@${RLN} ${WRKSRC_hashicorp_vault_api}/api ${WRKSRC}/vendor/github.com/hashicorp/vault/api
+	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/proto
+	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_proto_go}/otlp ${WRKSRC}/vendor/go.opentelemetry.io/proto

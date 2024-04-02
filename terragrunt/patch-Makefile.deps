@@ -1,4 +1,4 @@
---- Makefile.deps.orig	2024-03-25 12:00:44 UTC
+--- Makefile.deps.orig	2024-04-02 19:52:32 UTC
 +++ Makefile.deps
 @@ -20,9 +20,9 @@ GH_TUPLE=	\
  		asaskevich:govalidator:f61b66f89f4a:asaskevich_govalidator/vendor/github.com/asaskevich/govalidator \
@@ -22,7 +22,16 @@
  		hashicorp:vault:v1.4.2:hashicorp_vault/vendor/github.com/hashicorp/vault \
  		hashicorp:yamux:0bc27b27de87:hashicorp_yamux/vendor/github.com/hashicorp/yamux \
  		huandu:xstrings:v1.3.3:huandu_xstrings/vendor/github.com/huandu/xstrings \
-@@ -214,9 +214,6 @@ post-extract:
+@@ -161,7 +161,7 @@ GH_TUPLE=	\
+ 		open-telemetry:opentelemetry-go:v1.22.0:open_telemetry_opentelemetry_go_3/vendor/go.opentelemetry.io/otel/exporters/stdout/stdouttrace \
+ 		open-telemetry:opentelemetry-go:v1.23.0:open_telemetry_opentelemetry_go_1/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace \
+ 		open-telemetry:opentelemetry-go:v1.23.1:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
+-		open-telemetry:opentelemetry-proto-go:v1.1.0:open_telemetry_opentelemetry_proto_go/vendor/go.opentelemetry.io/proto/otlp \
++		open-telemetry:opentelemetry-proto-go:otlp/v1.1.0:open_telemetry_opentelemetry_proto_go \
+ 		opencontainers:runc:v1.1.12:opencontainers_runc/vendor/github.com/opencontainers/runc \
+ 		owenrumney:go-sarif:v1.1.1:owenrumney_go_sarif/vendor/github.com/owenrumney/go-sarif \
+ 		pkg:browser:681adbf594b8:pkg_browser/vendor/github.com/pkg/browser \
+@@ -222,10 +222,9 @@ post-extract:
  	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_internal}/sdk/internal ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/internal
  	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/internal
  	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_internal_1}/sdk/security/keyvault/internal ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/internal
@@ -32,3 +41,6 @@
  	@${RM} -r ${WRKSRC}/vendor/github.com/hashicorp/go-secure-stdlib/parseutil
  	@${RLN} ${WRKSRC_hashicorp_go_secure_stdlib_parseutil}/parseutil ${WRKSRC}/vendor/github.com/hashicorp/go-secure-stdlib/parseutil
  	@${RM} -r ${WRKSRC}/vendor/github.com/hashicorp/vault/api
+ 	@${RLN} ${WRKSRC_hashicorp_vault_api}/api ${WRKSRC}/vendor/github.com/hashicorp/vault/api
++	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/proto
++	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_proto_go}/otlp ${WRKSRC}/vendor/go.opentelemetry.io/proto
