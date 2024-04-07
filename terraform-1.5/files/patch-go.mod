@@ -6,8 +6,8 @@
  require (
 -	cloud.google.com/go/kms v1.6.0
 -	cloud.google.com/go/storage v1.28.0
-+	cloud.google.com/go/kms v1.15.7
-+	cloud.google.com/go/storage v1.38.0
++	cloud.google.com/go/kms v1.15.8
++	cloud.google.com/go/storage v1.39.1
  	github.com/Azure/azure-sdk-for-go v59.2.0+incompatible
 -	github.com/Azure/go-autorest/autorest v0.11.24
 +	github.com/Azure/go-autorest/autorest v0.11.29
@@ -97,9 +97,9 @@
 -	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sts v1.0.588
 -	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tag v1.0.233
 -	github.com/tencentyun/cos-go-sdk-v5 v0.7.29
-+	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common v1.0.867
-+	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sts v1.0.867
-+	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tag v1.0.867
++	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common v1.0.893
++	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sts v1.0.893
++	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tag v1.0.893
 +	github.com/tencentyun/cos-go-sdk-v5 v0.7.47
  	github.com/tombuildsstuff/giovanni v0.15.1
 -	github.com/xanzy/ssh-agent v0.3.1
@@ -117,21 +117,21 @@
 -	golang.org/x/term v0.5.0
 -	golang.org/x/text v0.8.0
 -	golang.org/x/tools v0.6.0
-+	golang.org/x/crypto v0.20.0
++	golang.org/x/crypto v0.22.0
 +	golang.org/x/mod v0.15.0
-+	golang.org/x/net v0.21.0
-+	golang.org/x/oauth2 v0.17.0
-+	golang.org/x/sys v0.17.0
-+	golang.org/x/term v0.17.0
++	golang.org/x/net v0.22.0
++	golang.org/x/oauth2 v0.18.0
++	golang.org/x/sys v0.19.0
++	golang.org/x/term v0.19.0
 +	golang.org/x/text v0.14.0
 +	golang.org/x/tools v0.18.0
  	golang.org/x/tools/cmd/cover v0.1.0-deprecated
 -	google.golang.org/api v0.103.0
 -	google.golang.org/genproto v0.0.0-20230110181048-76db0878b65f
 -	google.golang.org/grpc v1.53.0
-+	google.golang.org/api v0.166.0
-+	google.golang.org/genproto v0.0.0-20240304161311-37d4d3c04a78
-+	google.golang.org/grpc v1.62.0
++	google.golang.org/api v0.170.0
++	google.golang.org/genproto v0.0.0-20240401170217-c3f982113cda
++	google.golang.org/grpc v1.62.2
  	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.1.0
 -	google.golang.org/protobuf v1.28.1
 -	honnef.co/go/tools v0.4.2
@@ -139,22 +139,22 @@
 -	k8s.io/apimachinery v0.23.4
 -	k8s.io/client-go v0.23.4
 -	k8s.io/utils v0.0.0-20211116205334-6203023598ed
-+	google.golang.org/protobuf v1.32.0
++	google.golang.org/protobuf v1.33.0
 +	honnef.co/go/tools v0.4.7
 +	k8s.io/api v0.23.17
 +	k8s.io/apimachinery v0.23.17
 +	k8s.io/client-go v0.23.17
-+	k8s.io/utils v0.0.0-20240102154912-e7106e64919e
++	k8s.io/utils v0.0.0-20240310230437-4693a0247e57
  )
  
  require (
 -	cloud.google.com/go v0.107.0 // indirect
 -	cloud.google.com/go/compute v1.15.1 // indirect
-+	cloud.google.com/go v0.112.1 // indirect
-+	cloud.google.com/go/compute v1.24.0 // indirect
++	cloud.google.com/go v0.112.2 // indirect
++	cloud.google.com/go/compute v1.25.1 // indirect
  	cloud.google.com/go/compute/metadata v0.2.3 // indirect
 -	cloud.google.com/go/iam v0.8.0 // indirect
-+	cloud.google.com/go/iam v1.1.6 // indirect
++	cloud.google.com/go/iam v1.1.7 // indirect
  	github.com/Azure/go-autorest v14.2.0+incompatible // indirect
 -	github.com/Azure/go-autorest/autorest/adal v0.9.18 // indirect
 -	github.com/Azure/go-autorest/autorest/azure/cli v0.4.4 // indirect
@@ -185,7 +185,7 @@
  	github.com/baiyubin/aliyun-sts-go-sdk v0.0.0-20180326062324-cfa1a18b161f // indirect
  	github.com/bgentry/go-netrc v0.0.0-20140422174119-9fd32a8b3d3d // indirect
 -	github.com/coreos/go-systemd v0.0.0-20181012123002-c6f51f82210d // indirect
-+	github.com/bodgit/ntlmssp v0.0.0-20240304093140-3b6750ce6f5e // indirect
++	github.com/bodgit/ntlmssp v0.0.0-20240405225621-bc7a66a52237 // indirect
 +	github.com/bodgit/windows v1.0.1 // indirect
 +	github.com/clbanning/mxj v1.8.4 // indirect
 +	github.com/coreos/go-systemd v0.0.0-20191104093116-d3cd4ed1dbcf // indirect
@@ -207,7 +207,7 @@
 +	github.com/golang-jwt/jwt/v4 v4.5.0 // indirect
  	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 -	github.com/golang/protobuf v1.5.2 // indirect
-+	github.com/golang/protobuf v1.5.3 // indirect
++	github.com/golang/protobuf v1.5.4 // indirect
 +	github.com/google/gnostic-models v0.6.8 // indirect
  	github.com/google/go-querystring v1.1.0 // indirect
  	github.com/google/gofuzz v1.1.0 // indirect
@@ -215,7 +215,7 @@
 -	github.com/googleapis/gax-go/v2 v2.7.0 // indirect
 +	github.com/google/s2a-go v0.1.7 // indirect
 +	github.com/googleapis/enterprise-certificate-proxy v0.3.2 // indirect
-+	github.com/googleapis/gax-go/v2 v2.12.2 // indirect
++	github.com/googleapis/gax-go/v2 v2.12.3 // indirect
  	github.com/googleapis/gnostic v0.5.5 // indirect
  	github.com/hashicorp/go-immutable-radix v1.0.0 // indirect
  	github.com/hashicorp/go-msgpack v0.5.4 // indirect
@@ -262,7 +262,7 @@
 -	github.com/vmihailenco/msgpack/v4 v4.3.12 // indirect
 -	github.com/vmihailenco/tagparser v0.1.1 // indirect
 +	github.com/tidwall/transform v0.0.0-20201103190739-32f242e2dbde // indirect
-+	github.com/ulikunitz/xz v0.5.11 // indirect
++	github.com/ulikunitz/xz v0.5.12 // indirect
 +	github.com/vmihailenco/msgpack/v5 v5.3.6 // indirect
 +	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
  	go.opencensus.io v0.24.0 // indirect
@@ -271,17 +271,17 @@
 -	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2 // indirect
 -	google.golang.org/appengine v1.6.7 // indirect
 -	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
-+	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.48.0 // indirect
-+	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.48.0 // indirect
-+	go.opentelemetry.io/otel v1.23.1 // indirect
-+	go.opentelemetry.io/otel/metric v1.23.1 // indirect
-+	go.opentelemetry.io/otel/trace v1.23.1 // indirect
-+	golang.org/x/exp/typeparams v0.0.0-20240222234643-814bf88cf225 // indirect
++	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.49.0 // indirect
++	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.49.0 // indirect
++	go.opentelemetry.io/otel v1.24.0 // indirect
++	go.opentelemetry.io/otel/metric v1.24.0 // indirect
++	go.opentelemetry.io/otel/trace v1.24.0 // indirect
++	golang.org/x/exp/typeparams v0.0.0-20240404231335-c0f41cb1a7a0 // indirect
 +	golang.org/x/sync v0.6.0 // indirect
 +	golang.org/x/time v0.5.0 // indirect
 +	google.golang.org/appengine v1.6.8 // indirect
-+	google.golang.org/genproto/googleapis/api v0.0.0-20240304161311-37d4d3c04a78 // indirect
-+	google.golang.org/genproto/googleapis/rpc v0.0.0-20240304161311-37d4d3c04a78 // indirect
++	google.golang.org/genproto/googleapis/api v0.0.0-20240401170217-c3f982113cda // indirect
++	google.golang.org/genproto/googleapis/rpc v0.0.0-20240401170217-c3f982113cda // indirect
  	gopkg.in/inf.v0 v0.9.1 // indirect
 -	gopkg.in/ini.v1 v1.66.2 // indirect
 +	gopkg.in/ini.v1 v1.66.6 // indirect
@@ -292,7 +292,7 @@
 -	sigs.k8s.io/json v0.0.0-20211020170558-c049b76a60c6 // indirect
 -	sigs.k8s.io/structured-merge-diff/v4 v4.2.1 // indirect
 +	k8s.io/klog/v2 v2.120.1 // indirect
-+	k8s.io/kube-openapi v0.0.0-20240228011516-70dd3763d340 // indirect
++	k8s.io/kube-openapi v0.0.0-20240403164606-bc84c2ddaf99 // indirect
 +	sigs.k8s.io/json v0.0.0-20221116044647-bc3834ca7abd // indirect
 +	sigs.k8s.io/structured-merge-diff/v4 v4.2.3 // indirect
  	sigs.k8s.io/yaml v1.2.0 // indirect
@@ -301,4 +301,4 @@
 -go 1.18
 +go 1.21
 +
-+toolchain go1.21.7
++toolchain go1.22.2
