@@ -1,6 +1,5 @@
 GH_TUPLE=	\
 		agext:levenshtein:v1.2.1:agext_levenshtein/vendor/github.com/agext/levenshtein \
-		apparentlymart:go-dump:23540a00eaa3:apparentlymart_go_dump/vendor/github.com/apparentlymart/go-dump \
 		apparentlymart:go-textseg:v13.0.0:apparentlymart_go_textseg_v13/vendor/github.com/apparentlymart/go-textseg/v13 \
 		apparentlymart:go-textseg:v15.0.0:apparentlymart_go_textseg_v15/vendor/github.com/apparentlymart/go-textseg/v15 \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
@@ -11,14 +10,8 @@ GH_TUPLE=	\
 		golang:term:7de9c90e9dd1:golang_term/vendor/golang.org/x/term \
 		golang:text:v0.11.0:golang_text/vendor/golang.org/x/text \
 		golang:tools:v0.6.0:golang_tools/vendor/golang.org/x/tools \
-		google:go-cmp:v0.3.1:google_go_cmp/vendor/github.com/google/go-cmp \
-		kr:pretty:v0.1.0:kr_pretty/vendor/github.com/kr/pretty \
-		kr:text:v0.1.0:kr_text/vendor/github.com/kr/text \
-		kylelemons:godebug:d65d576e9348:kylelemons_godebug/vendor/github.com/kylelemons/godebug \
+		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		mitchellh:go-wordwrap:ad45545899c7:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
-		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
-		sergi:go-diff:v1.0.0:sergi_go_diff/vendor/github.com/sergi/go-diff \
 		spf13:pflag:v1.0.2:spf13_pflag/vendor/github.com/spf13/pflag \
-		stretchr:testify:v1.2.2:stretchr_testify/vendor/github.com/stretchr/testify \
 		zclconf:go-cty-debug:b22d67c1ba0b:zclconf_go_cty_debug/vendor/github.com/zclconf/go-cty-debug \
 		zclconf:go-cty:v1.13.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
