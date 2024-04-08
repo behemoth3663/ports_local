@@ -1,6 +1,6 @@
 PORTNAME=	go-binsize-treemap
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.2.0
+DISTVERSION=	0.2.3
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -17,11 +17,10 @@ GH_ACCOUNT=	nikolaydubina
 
 PLIST_FILES=	bin/${PORTNAME}
 
-#GO_BUILDFLAGS+=	-ldflags="-s -w -X 'main.Version=${DISTVERSIONPREFIX}${PORTVERSION}'"
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
 
-fetch-version: .PHONY get-version
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
-
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>

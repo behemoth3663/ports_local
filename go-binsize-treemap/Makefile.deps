@@ -1,2 +1,2 @@
 GH_TUPLE=	lucasb-eyer:go-colorful:v1.2.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
-		nikolaydubina:treemap:v1.2.0:nikolaydubina_treemap/vendor/github.com/nikolaydubina/treemap
+		nikolaydubina:treemap:v1.2.5:nikolaydubina_treemap/vendor/github.com/nikolaydubina/treemap

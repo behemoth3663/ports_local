@@ -1,7 +1,7 @@
-TIMESTAMP = 1685890564
-SHA256 (nikolaydubina-go-binsize-treemap-v0.2.0_GH0.tar.gz) = 04fc8f929f01d7356a080237e0f801da9c85d95d302498edbbb75e86a451052e
-SIZE (nikolaydubina-go-binsize-treemap-v0.2.0_GH0.tar.gz) = 8137563
+TIMESTAMP = 1712596858
+SHA256 (nikolaydubina-go-binsize-treemap-v0.2.3_GH0.tar.gz) = b369980df8a34916141b4777b4f0c7efdc5727c58e12aa13ddfc8012352ac2f4
+SIZE (nikolaydubina-go-binsize-treemap-v0.2.3_GH0.tar.gz) = 8139006
 SHA256 (lucasb-eyer-go-colorful-v1.2.0_GH0.tar.gz) = b3ee835cc398287452377266313edcc231043bae4168f8d2706e5d34ce1ce755
 SIZE (lucasb-eyer-go-colorful-v1.2.0_GH0.tar.gz) = 970830
-SHA256 (nikolaydubina-treemap-v1.2.0_GH0.tar.gz) = e31c300ba61d60c20046538006c02c021e3dcc20b04d3ab779bca0736a5761d8
-SIZE (nikolaydubina-treemap-v1.2.0_GH0.tar.gz) = 1441860
+SHA256 (nikolaydubina-treemap-v1.2.5_GH0.tar.gz) = 403eed0ffb57cb760c4743a1c177d7bc9ca5c96df40f4ca9d9e73a7e853e1f60
+SIZE (nikolaydubina-treemap-v1.2.5_GH0.tar.gz) = 1436627
