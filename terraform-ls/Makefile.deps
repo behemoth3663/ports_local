@@ -73,9 +73,6 @@ GH_TUPLE=	\
 		mitchellh:mapstructure:v1.5.0:mitchellh_mapstructure/vendor/github.com/mitchellh/mapstructure \
 		mitchellh:reflectwalk:v1.0.2:mitchellh_reflectwalk/vendor/github.com/mitchellh/reflectwalk \
 		olekukonko:tablewriter:v0.0.5:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
-		open-telemetry:opentelemetry-go-contrib:instrumentation/net/http/httptrace/otelhttptrace/v0.50.0:open_telemetry_opentelemetry_go_contrib \
-		open-telemetry:opentelemetry-go-contrib:instrumentation/net/http/otelhttp/v0.50.0:open_telemetry_opentelemetry_go_contrib_1 \
-		open-telemetry:opentelemetry-go:v1.25.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
 		otiai10:copy:v1.14.0:otiai10_copy/vendor/github.com/otiai10/copy \
 		pelletier:go-toml:v2.0.6:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
@@ -95,9 +92,3 @@ GH_TUPLE=	\
 		vektra:mockery:v2.42.2:vektra_mockery_v2/vendor/github.com/vektra/mockery/v2 \
 		zclconf:go-cty-debug:b22d67c1ba0b:zclconf_go_cty_debug/vendor/github.com/zclconf/go-cty-debug \
 		zclconf:go-cty:v1.14.4:zclconf_go_cty/vendor/github.com/zclconf/go-cty
-post-extract:
-	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/httptrace
-	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/httptrace/otelhttptrace
-	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib}/instrumentation/net/http/httptrace/otelhttptrace ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/httptrace/otelhttptrace
-	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp
-	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib_1}/instrumentation/net/http/otelhttp ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp

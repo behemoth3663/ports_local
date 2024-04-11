@@ -17,25 +17,20 @@
  		hashicorp:golang-lru:v0.5.4:hashicorp_golang_lru/vendor/github.com/hashicorp/golang-lru \
  		hashicorp:hc-install:v0.6.4:hashicorp_hc_install/vendor/github.com/hashicorp/hc-install \
  		hashicorp:hcl-lang:d90dc4d98974:hashicorp_hcl_lang/vendor/github.com/hashicorp/hcl-lang \
-@@ -72,8 +73,8 @@ GH_TUPLE=	\
+@@ -72,9 +73,6 @@ GH_TUPLE=	\
  		mitchellh:mapstructure:v1.5.0:mitchellh_mapstructure/vendor/github.com/mitchellh/mapstructure \
  		mitchellh:reflectwalk:v1.0.2:mitchellh_reflectwalk/vendor/github.com/mitchellh/reflectwalk \
  		olekukonko:tablewriter:v0.0.5:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
 -		open-telemetry:opentelemetry-go-contrib:v0.50.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/httptrace/otelhttptrace \
 -		open-telemetry:opentelemetry-go-contrib:v0.50.0:open_telemetry_opentelemetry_go_contrib_1/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp \
-+		open-telemetry:opentelemetry-go-contrib:instrumentation/net/http/httptrace/otelhttptrace/v0.50.0:open_telemetry_opentelemetry_go_contrib \
-+		open-telemetry:opentelemetry-go-contrib:instrumentation/net/http/otelhttp/v0.50.0:open_telemetry_opentelemetry_go_contrib_1 \
- 		open-telemetry:opentelemetry-go:v1.25.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
+-		open-telemetry:opentelemetry-go:v1.25.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
  		otiai10:copy:v1.14.0:otiai10_copy/vendor/github.com/otiai10/copy \
  		pelletier:go-toml:v2.0.6:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
-@@ -95,5 +96,8 @@ post-extract:
+ 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
+@@ -94,6 +92,3 @@ GH_TUPLE=	\
+ 		vektra:mockery:v2.42.2:vektra_mockery_v2/vendor/github.com/vektra/mockery/v2 \
  		zclconf:go-cty-debug:b22d67c1ba0b:zclconf_go_cty_debug/vendor/github.com/zclconf/go-cty-debug \
  		zclconf:go-cty:v1.14.4:zclconf_go_cty/vendor/github.com/zclconf/go-cty
- post-extract:
+-post-extract:
 -	@${MKDIR} ${WRKSRC}/vendor/github.com/hashicorp
 -	@${RLN} ${WRKSRC_fsnotify_fsnotify} ${WRKSRC}/vendor/github.com/hashicorp/go-version
-+	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/httptrace
-+	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/httptrace/otelhttptrace
-+	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib}/instrumentation/net/http/httptrace/otelhttptrace ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/httptrace/otelhttptrace
-+	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp
-+	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib_1}/instrumentation/net/http/otelhttp ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp
