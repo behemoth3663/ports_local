@@ -1,19 +1,23 @@
 GH_TUPLE=	\
+		BurntSushi:toml:v1.2.1:burntsushi_toml/vendor/github.com/BurntSushi/toml \
 		Kunde21:markdownfmt:v3.1.0:kunde21_markdownfmt_v3/vendor/github.com/Kunde21/markdownfmt/v3 \
 		Masterminds:goutils:v1.1.1:masterminds_goutils/vendor/github.com/Masterminds/goutils \
 		Masterminds:semver:v3.2.0:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
 		Masterminds:sprig:v3.2.3:masterminds_sprig_v3/vendor/github.com/Masterminds/sprig/v3 \
-		ProtonMail:go-crypto:3c4c8a2d2371:protonmail_go_crypto/vendor/github.com/ProtonMail/go-crypto \
+		ProtonMail:go-crypto:v1.1.0-alpha.2:protonmail_go_crypto/vendor/github.com/ProtonMail/go-crypto \
+		abhinav:goldmark-frontmatter:v0.2.0:abhinav_goldmark_frontmatter/vendor/go.abhg.dev/goldmark/frontmatter \
 		apparentlymart:go-textseg:v15.0.0:apparentlymart_go_textseg_v15/vendor/github.com/apparentlymart/go-textseg/v15 \
 		armon:go-radix:v1.0.0:armon_go_radix/vendor/github.com/armon/go-radix \
 		bgentry:speakeasy:v0.1.0:bgentry_speakeasy/vendor/github.com/bgentry/speakeasy \
+		bmatcuk:doublestar:v4.6.1:bmatcuk_doublestar_v4/vendor/github.com/bmatcuk/doublestar/v4 \
 		cloudflare:circl:v1.3.7:cloudflare_circl/vendor/github.com/cloudflare/circl \
 		fatih:color:v1.16.0:fatih_color/vendor/github.com/fatih/color \
 		go-yaml:yaml:v2.3.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
-		golang:crypto:v0.17.0:golang_crypto/vendor/golang.org/x/crypto \
+		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
+		golang:crypto:v0.21.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:97b1e661b5df:golang_exp/vendor/golang.org/x/exp \
-		golang:mod:v0.14.0:golang_mod/vendor/golang.org/x/mod \
-		golang:sys:v0.15.0:golang_sys/vendor/golang.org/x/sys \
+		golang:mod:v0.16.0:golang_mod/vendor/golang.org/x/mod \
+		golang:sys:v0.18.0:golang_sys/vendor/golang.org/x/sys \
 		golang:text:v0.14.0:golang_text/vendor/golang.org/x/text \
 		golang:tools:v0.13.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
@@ -25,7 +29,7 @@ GH_TUPLE=	\
 		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
 		hashicorp:go-uuid:v1.0.3:hashicorp_go_uuid/vendor/github.com/hashicorp/go-uuid \
 		hashicorp:go-version:v1.6.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
-		hashicorp:hc-install:v0.6.2:hashicorp_hc_install/vendor/github.com/hashicorp/hc-install \
+		hashicorp:hc-install:v0.6.4:hashicorp_hc_install/vendor/github.com/hashicorp/hc-install \
 		hashicorp:terraform-exec:v0.20.0:hashicorp_terraform_exec/vendor/github.com/hashicorp/terraform-exec \
 		hashicorp:terraform-json:v0.21.0:hashicorp_terraform_json/vendor/github.com/hashicorp/terraform-json \
 		huandu:xstrings:v1.3.3:huandu_xstrings/vendor/github.com/huandu/xstrings \
@@ -37,9 +41,8 @@ GH_TUPLE=	\
 		mitchellh:reflectwalk:v1.0.2:mitchellh_reflectwalk/vendor/github.com/mitchellh/reflectwalk \
 		posener:complete:v1.2.3:posener_complete/vendor/github.com/posener/complete \
 		rogpeppe:go-internal:v1.12.0:rogpeppe_go_internal/vendor/github.com/rogpeppe/go-internal \
-		russross:blackfriday:v1.6.0:russross_blackfriday/vendor/github.com/russross/blackfriday \
 		shopspring:decimal:v1.3.1:shopspring_decimal/vendor/github.com/shopspring/decimal \
 		spf13:cast:v1.5.0:spf13_cast/vendor/github.com/spf13/cast \
 		yuin:goldmark-meta:v1.1.0:yuin_goldmark_meta/vendor/github.com/yuin/goldmark-meta \
-		yuin:goldmark:v1.6.0:yuin_goldmark/vendor/github.com/yuin/goldmark \
-		zclconf:go-cty:v1.14.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+		yuin:goldmark:v1.7.0:yuin_goldmark/vendor/github.com/yuin/goldmark \
+		zclconf:go-cty:v1.14.4:zclconf_go_cty/vendor/github.com/zclconf/go-cty
