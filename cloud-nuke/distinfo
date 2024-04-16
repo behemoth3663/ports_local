@@ -1,6 +1,6 @@
-TIMESTAMP = 1711399168
-SHA256 (gruntwork-io-cloud-nuke-v0.34.0_GH0.tar.gz) = 5b76a3394281dbb81125f8160fde24c0447b2218425a6a07c95884f29b4130fd
-SIZE (gruntwork-io-cloud-nuke-v0.34.0_GH0.tar.gz) = 168104
+TIMESTAMP = 1713258177
+SHA256 (gruntwork-io-cloud-nuke-v0.35.0_GH0.tar.gz) = cc3176e7736218fed14e28e23e4e9b673f3847bb433f72ef503b2b93f45f6e0b
+SIZE (gruntwork-io-cloud-nuke-v0.35.0_GH0.tar.gz) = 180169
 SHA256 (atomicgo-cursor-v0.1.1_GH0.tar.gz) = 28e9f97bcf0b8672a4b62ff8720e4f226075634e0f09437571406124802e26ec
 SIZE (atomicgo-cursor-v0.1.1_GH0.tar.gz) = 7289
 SHA256 (atomicgo-keyboard-v0.2.8_GH0.tar.gz) = 5c59db1a525aaa0ef099c1824a704b9ce84e7474b012bf43b00e8d9878b8fde4
