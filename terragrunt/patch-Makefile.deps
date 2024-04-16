@@ -1,4 +1,4 @@
---- Makefile.deps.orig	2024-04-14 10:11:51 UTC
+--- Makefile.deps.orig	2024-04-16 08:35:38 UTC
 +++ Makefile.deps
 @@ -21,9 +21,9 @@ GH_TUPLE=	\
  		asaskevich:govalidator:f61b66f89f4a:asaskevich_govalidator/vendor/github.com/asaskevich/govalidator \
@@ -31,7 +31,7 @@
  		opencontainers:image-spec:v1.1.0-rc3:opencontainers_image_spec/vendor/github.com/opencontainers/image-spec \
  		opencontainers:runc:v1.1.12:opencontainers_runc/vendor/github.com/opencontainers/runc \
  		owenrumney:go-sarif:v1.1.1:owenrumney_go_sarif/vendor/github.com/owenrumney/go-sarif \
-@@ -234,10 +234,9 @@ post-extract:
+@@ -236,10 +236,9 @@ post-extract:
  	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_internal}/sdk/internal ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/internal
  	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/internal
  	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_internal_1}/sdk/security/keyvault/internal ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/internal

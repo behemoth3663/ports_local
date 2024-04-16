@@ -217,6 +217,8 @@ GH_TUPLE=	\
 #}
 		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
 #}
+		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+#}
 post-extract:
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute}/compute ${WRKSRC}/vendor/cloud.google.com/go/compute
