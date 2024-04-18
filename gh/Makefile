@@ -1,5 +1,5 @@
 PORTNAME=	gh
-PORTVERSION=	2.47.0
+PORTVERSION=	2.48.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -49,4 +49,9 @@ pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
+
+#-		moby:moby:v0.7.0:moby_moby_1/vendor/github.com/docker/docker-credential-helpers \
+#+		docker:docker-credential-helpers:v0.7.0:docker_docker_credential_helpers/vendor/github.com/docker/docker-credential-helpers \
+GH_TUPLE:=	${GH_TUPLE:S|^moby:moby:|docker:docker-credential-helpers:|1}
+
 .include <bsd.port.mk>
