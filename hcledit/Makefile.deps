@@ -5,13 +5,16 @@ GH_TUPLE=	\
 		fsnotify:fsnotify:v1.4.7:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
 		go-check:check:41f04d3bba15:go_check_check/vendor/gopkg.in/check.v1 \
 		go-yaml:yaml:v2.2.7:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
+		golang:mod:v0.8.0:golang_mod/vendor/golang.org/x/mod \
 		golang:sys:v0.5.0:golang_sys/vendor/golang.org/x/sys \
 		golang:text:v0.11.0:golang_text/vendor/golang.org/x/text \
-		google:go-cmp:v0.3.1:google_go_cmp/vendor/github.com/google/go-cmp \
+		golang:tools:v0.6.0:golang_tools/vendor/golang.org/x/tools \
+		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		hashicorp:hcl:v1.0.0:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
-		hashicorp:hcl:v2.18.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
+		hashicorp:hcl:v2.20.1:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
 		hashicorp:logutils:v1.0.0:hashicorp_logutils/vendor/github.com/hashicorp/logutils \
 		inconshreveable:mousetrap:v1.0.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
+		kr:pretty:v0.3.1:kr_pretty/vendor/github.com/kr/pretty \
 		magiconair:properties:v1.8.0:magiconair_properties/vendor/github.com/magiconair/properties \
 		mitchellh:go-wordwrap:ad45545899c7:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
 		mitchellh:mapstructure:v1.1.2:mitchellh_mapstructure/vendor/github.com/mitchellh/mapstructure \
