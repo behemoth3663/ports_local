@@ -18,7 +18,7 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	carvel-dev
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
-	-X 'github.com/vmware-tanzu/carvel-imgpkg/pkg/imgpkg/cmd.Version=${DISTVERSIONPREFIX}${PORTVERSION}'"
+	-X 'carvel.dev/imgpkg/pkg/imgpkg/cmd.Version=${DISTVERSIONPREFIX}${PORTVERSION}'"
 
 PLIST_FILES=	bin/${PORTNAME}
 
