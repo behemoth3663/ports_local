@@ -1,0 +1,9 @@
+TIMESTAMP = 1713619402
+SHA256 (josharian-impl-v1.3.0_GH0.tar.gz) = 838b01f1b3529998baa40736895f38b52e2a778308b31bd0876a5f68b45f9a6e
+SIZE (josharian-impl-v1.3.0_GH0.tar.gz) = 13282
+SHA256 (golang-mod-v0.14.0_GH0.tar.gz) = 39b576b1491cd8a092a9df5e4029b23608887e4670e7a2211c07ea786944953c
+SIZE (golang-mod-v0.14.0_GH0.tar.gz) = 122036
+SHA256 (golang-sys-v0.16.0_GH0.tar.gz) = 9c17b728aa75f4fc4743c3f5c0dccdc3b7f9ac7c12b3124b666672cc571f657e
+SIZE (golang-sys-v0.16.0_GH0.tar.gz) = 1444155
+SHA256 (golang-tools-v0.17.0_GH0.tar.gz) = cfa2b81b912142f1c923e3afb4c18618b3d28b0fa053abc3e67b75965c2e71c7
+SIZE (golang-tools-v0.17.0_GH0.tar.gz) = 3640573
