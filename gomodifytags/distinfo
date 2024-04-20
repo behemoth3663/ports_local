@@ -1,0 +1,9 @@
+TIMESTAMP = 1713618368
+SHA256 (fatih-gomodifytags-v1.16.0_GH0.tar.gz) = 276526aede6e42c3d540cdaa5fe67cbd276837acfea5d9f5ca19c3a8d16a82ed
+SIZE (fatih-gomodifytags-v1.16.0_GH0.tar.gz) = 21305
+SHA256 (fatih-camelcase-v1.0.0_GH0.tar.gz) = c131a14b89faa54c71c0d4af47f53839a5deb6db3ac4c22faf90d9e9873f16fc
+SIZE (fatih-camelcase-v1.0.0_GH0.tar.gz) = 2989
+SHA256 (fatih-structtag-v1.2.0_GH0.tar.gz) = f39a7edcb38f70f8b12f8b4f18b386d508c6a5b7f6fbddcee52d299b795fdaab
+SIZE (fatih-structtag-v1.2.0_GH0.tar.gz) = 5702
+SHA256 (golang-tools-6c1c5e93cdc1_GH0.tar.gz) = a7ac1908eb4ef6c45a0dc03622ed995126e6e9f4d70405e889543e17fa72bdc7
+SIZE (golang-tools-6c1c5e93cdc1_GH0.tar.gz) = 2322930
