@@ -1,0 +1,13 @@
+--- Makefile.deps.orig	2024-04-20 13:57:32 UTC
++++ Makefile.deps
+@@ -2,6 +2,10 @@ GH_TUPLE=	\
+ 		BurntSushi:toml:v1.2.1:burntsushi_toml/vendor/github.com/BurntSushi/toml \
+ 		golang:mod:v0.12.0:golang_mod/vendor/golang.org/x/mod \
+ 		golang:sys:v0.11.0:golang_sys/vendor/golang.org/x/sys \
++		golang:exp:fe59bbe:golang_exp \
+ 		golang:tools:2191a27a6dc5:golang_tools/vendor/golang.org/x/tools
+ 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
+ 		#	::732eee02a75a:group_name/vendor/golang.org/x/exp/typeparams (from go.googlesource.com/exp@732eee02a75a)
++post-extract:
++	@${MKDIR} ${WRKSRC}/vendor/golang.org/x/exp
++	@${RLN} ${WRKSRC_golang_exp}/typeparams ${WRKSRC}/vendor/golang.org/x/exp/typeparams
