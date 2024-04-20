@@ -1,0 +1,9 @@
+TIMESTAMP = 1713619929
+SHA256 (haya14busa-goplay-v1.0.0_GH0.tar.gz) = b304f3ca7355f097bea66224389489c88351cb0c0eade9a6a5a8fed0299dc1cf
+SIZE (haya14busa-goplay-v1.0.0_GH0.tar.gz) = 6707
+SHA256 (golang-net-v0.24.0_GH0.tar.gz) = 6fbc9f6ddc538c67affd1248d68ca85f69e0abe916181b1cd81323093afa96b9
+SIZE (golang-net-v0.24.0_GH0.tar.gz) = 1509016
+SHA256 (golang-tools-v0.20.0_GH0.tar.gz) = 0582c331c678881debc5e7109e503a709fe0a627468dc3c36f526adb351c0452
+SIZE (golang-tools-v0.20.0_GH0.tar.gz) = 3779878
+SHA256 (skratchdot-open-golang-eef842397966_GH0.tar.gz) = 2f4768d8cbe725d4ceafc8d34fd9e765aa98a94bfeec30202129634e340899a5
+SIZE (skratchdot-open-golang-eef842397966_GH0.tar.gz) = 7070
