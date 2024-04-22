@@ -1,0 +1,32 @@
+GH_TUPLE=	\
+		agext:levenshtein:v1.2.3:agext_levenshtein/vendor/github.com/agext/levenshtein \
+		apparentlymart:go-textseg:v15.0.0:apparentlymart_go_textseg_v15/vendor/github.com/apparentlymart/go-textseg/v15 \
+		containerd:stargz-snapshotter:v0.15.1:containerd_stargz_snapshotter_estargz/vendor/github.com/containerd/stargz-snapshotter \
+		docker:cli:v24.0.7:docker_cli/vendor/github.com/docker/cli \
+		docker:distribution:v2.8.3:docker_distribution/vendor/github.com/docker/distribution \
+		golang:sync:v0.6.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.16.0:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.14.0:golang_text/vendor/golang.org/x/text \
+		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
+		google:go-containerregistry:v0.17.0:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
+		hashicorp:go-version:v1.6.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
+		hashicorp:hcl:v1.0.0:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
+		hashicorp:hcl:v2.19.1:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
+		hashicorp:terraform-config-inspect:a34142ec2a72:hashicorp_terraform_config_inspect/vendor/github.com/hashicorp/terraform-config-inspect \
+		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
+		klauspost:compress:v1.17.4:klauspost_compress/vendor/github.com/klauspost/compress \
+		mattn:go-colorable:v0.1.13:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
+		mattn:go-isatty:v0.0.20:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
+		mitchellh:go-homedir:v1.1.0:mitchellh_go_homedir/vendor/github.com/mitchellh/go-homedir \
+		mitchellh:go-wordwrap:v1.0.1:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
+		moby:moby:v0.8.0:moby_moby_1/vendor/github.com/docker/docker-credential-helpers \
+		moby:moby:v24.0.7:moby_moby/vendor/github.com/docker/docker \
+		opencontainers:go-digest:v1.0.0:opencontainers_go_digest/vendor/github.com/opencontainers/go-digest \
+		opencontainers:image-spec:v1.1.0-rc5:opencontainers_image_spec/vendor/github.com/opencontainers/image-spec \
+		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
+		rs:zerolog:v1.31.0:rs_zerolog/vendor/github.com/rs/zerolog \
+		sirupsen:logrus:v1.9.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
+		spf13:cobra:v1.8.0:spf13_cobra/vendor/github.com/spf13/cobra \
+		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
+		vbatts:tar-split:v0.11.5:vbatts_tar_split/vendor/github.com/vbatts/tar-split \
+		zclconf:go-cty:v1.14.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
