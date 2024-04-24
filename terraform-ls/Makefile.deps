@@ -52,7 +52,7 @@ GH_TUPLE=	\
 		hashicorp:terraform-exec:v0.20.0:hashicorp_terraform_exec/vendor/github.com/hashicorp/terraform-exec \
 		hashicorp:terraform-json:v0.21.0:hashicorp_terraform_json/vendor/github.com/hashicorp/terraform-json \
 		hashicorp:terraform-registry-address:v0.2.3:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
-		hashicorp:terraform-schema:72025f55ec83:hashicorp_terraform_schema/vendor/github.com/hashicorp/terraform-schema \
+		hashicorp:terraform-schema:bc8eee862f1a:hashicorp_terraform_schema/vendor/github.com/hashicorp/terraform-schema \
 		hashicorp:terraform-svchost:v0.1.1:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
 		huandu:xstrings:v1.4.0:huandu_xstrings/vendor/github.com/huandu/xstrings \
 		iancoleman:strcase:v0.2.0:iancoleman_strcase/vendor/github.com/iancoleman/strcase \
