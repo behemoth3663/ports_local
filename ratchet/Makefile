@@ -1,5 +1,5 @@
 PORTNAME=	ratchet
-PORTVERSION=	0.5.1
+PORTVERSION=	0.9.2
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -26,8 +26,8 @@ GIT_COMMIT=	git ls-remote \
 		${SED} -rn 's/(.{7}).*/\1/p'
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal/version.Version=${PORTVERSION}' \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal/version.Commit=$$(${GIT_COMMIT})'"
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal/version.version=${PORTVERSION}' \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal/version.commit=$$(${GIT_COMMIT})'"
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 

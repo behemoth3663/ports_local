@@ -1,28 +1,22 @@
 GH_TUPLE=	\
 		braydonk:yaml:v0.7.0:braydonk_yaml/vendor/github.com/braydonk/yaml \
 		containerd:stargz-snapshotter:v0.15.1:containerd_stargz_snapshotter_estargz/vendor/github.com/containerd/stargz-snapshotter \
-		docker:cli:v24.0.7:docker_cli/vendor/github.com/docker/cli \
+		docker:cli:v26.0.2:docker_cli/vendor/github.com/docker/cli \
 		docker:distribution:v2.8.3:docker_distribution/vendor/github.com/docker/distribution \
-		golang:appengine:v1.6.8:golang_appengine/vendor/google.golang.org/appengine \
-		golang:oauth2:v0.14.0:golang_oauth2/vendor/golang.org/x/oauth2 \
-		golang:protobuf:v1.5.3:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sync:v0.5.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.14.0:golang_sys/vendor/golang.org/x/sys \
+		golang:oauth2:v0.19.0:golang_oauth2/vendor/golang.org/x/oauth2 \
+		golang:sync:v0.7.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.19.0:golang_sys/vendor/golang.org/x/sys \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
-		google:go-containerregistry:v0.16.1:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
-		google:go-github:v56.0.0:google_go_github_v56/vendor/github.com/google/go-github/v56 \
+		google:go-containerregistry:v0.19.1:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
+		google:go-github:v58.0.0:google_go_github_v58/vendor/github.com/google/go-github/v58 \
 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
-		hashicorp:errwrap:v1.1.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
-		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
-		hexops:gotextdiff:v1.0.3:hexops_gotextdiff/vendor/github.com/hexops/gotextdiff \
-		klauspost:compress:v1.17.3:klauspost_compress/vendor/github.com/klauspost/compress \
+		klauspost:compress:v1.17.8:klauspost_compress/vendor/github.com/klauspost/compress \
 		kr:pretty:v0.3.1:kr_pretty/vendor/github.com/kr/pretty \
 		mitchellh:go-homedir:v1.1.0:mitchellh_go_homedir/vendor/github.com/mitchellh/go-homedir \
-		moby:moby:v0.8.0:moby_moby_1/vendor/github.com/docker/docker-credential-helpers \
-		moby:moby:v24.0.7:moby_moby/vendor/github.com/docker/docker \
+		moby:moby:v0.8.1:moby_moby_1/vendor/github.com/docker/docker-credential-helpers \
+		moby:moby:v26.0.2:moby_moby/vendor/github.com/docker/docker \
 		opencontainers:go-digest:v1.0.0:opencontainers_go_digest/vendor/github.com/opencontainers/go-digest \
-		opencontainers:image-spec:v1.1.0-rc5:opencontainers_image_spec/vendor/github.com/opencontainers/image-spec \
+		opencontainers:image-spec:v1.1.0:opencontainers_image_spec/vendor/github.com/opencontainers/image-spec \
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
-		protocolbuffers:protobuf-go:v1.31.0:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		sirupsen:logrus:v1.9.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
 		vbatts:tar-split:v0.11.5:vbatts_tar_split/vendor/github.com/vbatts/tar-split
