@@ -1,6 +1,15 @@
---- Makefile.deps.orig	2023-07-28 13:31:00 UTC
+--- Makefile.deps.orig	2024-04-26 16:49:11 UTC
 +++ Makefile.deps
-@@ -155,7 +155,7 @@ GH_TUPLE=	\
+@@ -82,7 +82,7 @@ GH_TUPLE=	\
+ 		googleapis:google-cloud-go:iam/v1.1.5:googleapis_google_cloud_go_iam \
+ 		googleapis:google-cloud-go:pubsub/v1.33.0:googleapis_google_cloud_go_pubsub \
+ 		googleapis:google-cloud-go:v0.111.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
+-		googleapis:google-cloud-go:v0.2.3:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata \
++		googleapis:google-cloud-go:compute/metadata/v0.2.3:googleapis_google_cloud_go_compute_metadata \
+ 		graph-gophers:graphql-go:v1.4.0:graph_gophers_graphql_go/vendor/github.com/graph-gophers/graphql-go \
+ 		grpc:grpc-go:v1.60.1:grpc_grpc_go/vendor/google.golang.org/grpc \
+ 		gsterjov:go-libsecret:a6f4afe4910c:gsterjov_go_libsecret/vendor/github.com/gsterjov/go-libsecret \
+@@ -162,7 +162,7 @@ GH_TUPLE=	\
  		tidwall:pretty:v1.2.0:tidwall_pretty/vendor/github.com/tidwall/pretty \
  		uber-go:atomic:v1.7.0:uber_go_atomic/vendor/go.uber.org/atomic \
  		uber-go:multierr:v1.1.0:uber_go_multierr/vendor/go.uber.org/multierr \
@@ -9,3 +18,12 @@
  		uber-go:zap:v1.10.0:uber_go_zap/vendor/go.uber.org/zap \
  		v2pro:quokka:382cb39c6ee6:v2pro_quokka/vendor/github.com/v2pro/quokka \
  		v2pro:wombat:a56dbdcddef2:v2pro_wombat/vendor/github.com/v2pro/wombat \
+@@ -176,6 +176,8 @@ post-extract:
+ post-extract:
+ 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute
+ 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute}/compute ${WRKSRC}/vendor/cloud.google.com/go/compute
++	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
++	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
+ 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/iam
+ 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_iam}/iam ${WRKSRC}/vendor/cloud.google.com/go/iam
+ 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/pubsub

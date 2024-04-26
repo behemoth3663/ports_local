@@ -1,5 +1,5 @@
 PORTNAME=	plumber
-PORTVERSION=	2.5.2
+PORTVERSION=	2.6.1
 DISTVERSIONPREFIX=	v
 #ORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -32,15 +32,14 @@ pre-post-extract: .PHONY .SILENT
 		done; \
 	done
 
-post-post-extract: .PHONY
-
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
-
 #-		uber-go:thriftrw:v1.29.2:uber_go_thriftrw/vendor/go.uber.org/thriftrw \
 #+		thriftrw:thriftrw-go:v1.29.2:uber_go_thriftrw/vendor/go.uber.org/thriftrw \
 #It works, but:
 #FATAL: /usr/ports/local/plumber/distinfo: has no SIZE record for uber-go-thriftrw-v1.29.2_GH0.tar.gz.
 #GH_TUPLE:=	${GH_TUPLE:S/uber-go:thriftrw:/thriftrw:thriftrw-go:/}
 
+pre-deps pre-deps-all post-deps-all: .PHONY
+
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
