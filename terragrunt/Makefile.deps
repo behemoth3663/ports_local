@@ -21,6 +21,7 @@ GH_TUPLE=	\
 		asaskevich:govalidator:f61b66f89f4a:asaskevich_govalidator/vendor/github.com/asaskevich/govalidator \
 		atomicgo:cursor:v0.0.1:atomicgo_cursor/vendor/github.com/atomicgo/cursor \
 		atotto:clipboard:v0.1.4:atotto_clipboard/vendor/github.com/atotto/clipboard \
+		aws:aws-sdk-go-v2:credentials/v1.13.42:aws_aws_sdk_go_v2_credentials/vendor/github.com/aws/aws-sdk-go-v2/credentials \
 		aws:aws-sdk-go-v2:service/ssooidc/v1.17.2:aws_aws_sdk_go_v2_ssooidc/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc \
 		aws:aws-sdk-go-v2:v1.21.1:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
 		aws:aws-sdk-go-v2:service/sts/v1.23.1:aws_aws_sdk_go_v2_sts/vendor/github.com/aws/aws-sdk-go-v2/service/sts \
