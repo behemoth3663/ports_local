@@ -158,8 +158,10 @@ CARGO_CRATES=	addr2line-0.21.0 \
 		serde-1.0.197 \
 		serde_derive-1.0.197 \
 		serde_json-1.0.115 \
+		serde_regex-1.1.0 \
 		serde_with-1.14.0 \
 		serde_with_macros-1.5.2 \
+		serde_yaml-0.9.34+deprecated \
 		sha1-0.10.6 \
 		sha2-0.10.8 \
 		sharded-slab-0.1.7 \
@@ -201,6 +203,7 @@ CARGO_CRATES=	addr2line-0.21.0 \
 		unicode-bidi-0.3.15 \
 		unicode-ident-1.0.12 \
 		unicode-normalization-0.1.23 \
+		unsafe-libyaml-0.2.11 \
 		untrusted-0.9.0 \
 		url-2.5.0 \
 		urlencoding-2.1.3 \
