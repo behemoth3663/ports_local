@@ -1,27 +1,34 @@
---- Makefile.deps.orig	2024-01-26 19:26:39 UTC
+--- Makefile.deps.orig	2024-04-29 08:07:06 UTC
 +++ Makefile.deps
-@@ -1,11 +1,8 @@ GH_TUPLE=	\
+@@ -1,14 +1,9 @@ GH_TUPLE=	\
  GH_TUPLE=	\
--		aws:aws-sdk-go-v2:v1.16.10:aws_aws_sdk_go_v2_s3shared \
--		aws:aws-sdk-go-v2:v1.16.16:aws_aws_sdk_go_v2_credentials \
- 		aws:aws-sdk-go-v2:v1.24.1:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
- 		aws:smithy-go:v1.19.0:aws_smithy_go/vendor/github.com/aws/smithy-go \
+-		aws:aws-sdk-go-v2:v1.11.2:aws_aws_sdk_go_v2_accept_encoding \
+-		aws:aws-sdk-go-v2:v1.16.1:aws_aws_sdk_go_v2_imds \
+-		aws:aws-sdk-go-v2:v1.17.5:aws_aws_sdk_go_v2_s3shared \
+-		aws:aws-sdk-go-v2:v1.23.4:aws_aws_sdk_go_v2_ssooidc \
+-		aws:aws-sdk-go-v2:v1.26.1:aws_aws_sdk_go_v2 \
+-		aws:aws-sdk-go-v2:v1.8.0:aws_aws_sdk_go_v2_ini/vendor/github.com/aws/aws-sdk-go-v2 \
++		aws:aws-sdk-go-v2:0fde27cdffe0:aws_aws_sdk_go_v2_eventstream \
++		aws:aws-sdk-go-v2:v1.26.1:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+ 		aws:smithy-go:v1.20.2:aws_smithy_go/vendor/github.com/aws/smithy-go \
  		census-instrumentation:opencensus-go:v0.23.0:census_instrumentation_opencensus_go/vendor/go.opencensus.io \
  		census-instrumentation:opencensus-proto:v0.3.0:census_instrumentation_opencensus_proto/vendor/github.com/census-instrumentation/opencensus-proto \
 -		cespare:xxhash:v2.1.2:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
  		cncf:udpa:04548b0d99d4:cncf_udpa_go/vendor/github.com/cncf/udpa \
  		cncf:xds:d92e9ce0af51:cncf_xds_go/vendor/github.com/cncf/xds \
  		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
-@@ -52,11 +49,7 @@ GH_TUPLE=	\
- 		spf13:viper:v1.10.1:spf13_viper/vendor/github.com/spf13/viper \
- 		stretchr:testify:v1.8.4:stretchr_testify/vendor/github.com/stretchr/testify \
- 		subosito:gotenv:v1.2.0:subosito_gotenv/vendor/github.com/subosito/gotenv
--		# Errors found during processing:
-+
+@@ -59,12 +54,5 @@ post-extract:
  post-extract:
  	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
  	@${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go/storage
--	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/credentials
--	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_credentials}/credentials ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/credentials
+-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2} ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2
+-	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds
+-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_imds}/feature/ec2/imds ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds
+-	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding
+-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_accept_encoding}/service/internal/accept-encoding ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding
 -	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/s3shared
 -	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_s3shared}/service/internal/s3shared ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/s3shared
+-	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc
+-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_ssooidc}/service/ssooidc ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc
++	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream
++	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_eventstream}/aws/protocol/eventstream ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream
