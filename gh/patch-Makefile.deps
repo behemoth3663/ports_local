@@ -1,0 +1,22 @@
+--- Makefile.deps.orig	2024-05-01 15:16:41 UTC
++++ Makefile.deps
+@@ -63,8 +63,8 @@ GH_TUPLE=	\
+ 		google:certificate-transparency-go:v1.1.8:google_certificate_transparency_go/vendor/github.com/google/certificate-transparency-go \
+ 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
+ 		google:go-containerregistry:v0.19.1:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
+-		google:go-genproto:94a12d6c2237:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/rpc \
+-		google:go-genproto:c811ad7063a7:google_go_genproto/vendor/google.golang.org/genproto/googleapis/api \
++		google:go-genproto:94a12d6c2237:google_go_genproto_rpc \
++		google:go-genproto:c811ad7063a7:google_go_genproto_api \
+ 		google:shlex:e7afc7fbc510:google_shlex/vendor/github.com/google/shlex \
+ 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
+ 		gorilla:css:v1.0.0:gorilla_css/vendor/github.com/gorilla/css \
+@@ -154,3 +154,8 @@ GH_TUPLE=	\
+ 		yuin:goldmark-emoji:v1.0.2:yuin_goldmark_emoji/vendor/github.com/yuin/goldmark-emoji \
+ 		yuin:goldmark:v1.5.4:yuin_goldmark/vendor/github.com/yuin/goldmark \
+ 		zalando:go-keyring:v0.2.4:zalando_go_keyring/vendor/github.com/zalando/go-keyring
++
++post-extract: .PHONY
++	@${MKDIR} ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
++	@${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/rpc
++	@${RLN} ${WRKSRC_google_go_genproto_api}/googleapis/api ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/api
