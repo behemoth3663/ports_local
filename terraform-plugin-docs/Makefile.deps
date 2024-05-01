@@ -44,5 +44,5 @@ GH_TUPLE=	\
 		shopspring:decimal:v1.3.1:shopspring_decimal/vendor/github.com/shopspring/decimal \
 		spf13:cast:v1.5.0:spf13_cast/vendor/github.com/spf13/cast \
 		yuin:goldmark-meta:v1.1.0:yuin_goldmark_meta/vendor/github.com/yuin/goldmark-meta \
-		yuin:goldmark:v1.7.0:yuin_goldmark/vendor/github.com/yuin/goldmark \
+		yuin:goldmark:v1.7.1:yuin_goldmark/vendor/github.com/yuin/goldmark \
 		zclconf:go-cty:v1.14.4:zclconf_go_cty/vendor/github.com/zclconf/go-cty
