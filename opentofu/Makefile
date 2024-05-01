@@ -1,7 +1,7 @@
 PORTNAME=	opentofu
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.6.2
-PORTREVISION=	2
+DISTVERSION=	1.7.0
+#PORTREVISION=	2
 CATEGORIES=	local sysutils
 
 MAINTAINER=	bofh@FreeBSD.org
@@ -29,14 +29,15 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 pre-extract: .PHONY .SILENT
 	test -n '${WRKSRC_grpc_grpc_go_1}' && ${LN} -s ${WRKDIR}/grpc-go-cmd-protoc-gen-go-grpc-v1.1.0 ${WRKSRC_grpc_grpc_go_1} || :
 
-post-patch: .PHONY .SILENT
-	${RM} ${WRKSRC}/cmd/tofu/telemetry.go ${WRKSRC}/internal/command/telemetry.go ${WRKSRC}/vendor/github.com/hashicorp/aws-sdk-go-base/v2/logging/attributes.go
+#post-patch: .PHONY .SILENT
+#	${RM} ${WRKSRC}/cmd/tofu/telemetry.go ${WRKSRC}/internal/command/telemetry.go ${WRKSRC}/vendor/github.com/hashicorp/aws-sdk-go-base/v2/logging/attributes.go
 
 #post-install: .PHONY
 #	${MV} ${STAGEDIR}${PREFIX}/bin/${PORTNAME} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION}
 #	${INSTALL} -l rs ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}${PKGNAMESUFFIX}
 
 pre-deps: .PHONY
+.if 0
 	if [ -d '${MASTERDIR}/files_' ]; then \
 		${RM} -r ${MASTERDIR}/files; \
 	else \
@@ -54,6 +55,7 @@ pre-deps: .PHONY
 			${SED} -e '/^---/s|\.[0-9]* +0000$$| UTC|' -e '/^+++/s|\([[:blank:]][-0-9:.+]*\)*$$||' >${MASTERDIR}/files-${PORTVERSION}/patch-go.mod && \
 		${SETENV} TZ=UTC ${DIFF} -udp go.sum.orig go.sum | \
 			${SED} -e '/^---/s|\.[0-9]* +0000$$| UTC|' -e '/^+++/s|\([[:blank:]][-0-9:.+]*\)*$$||' >${MASTERDIR}/files-${PORTVERSION}/patch-go.sum
+.endif
 
 pre-deps-all post-deps-all: .PHONY
 
