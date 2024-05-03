@@ -48,7 +48,6 @@ GH_TUPLE=	\
 		docker:go-units:v0.5.0:docker_go_units/vendor/github.com/docker/go-units \
 		fatih:color:v1.15.0:fatih_color/vendor/github.com/fatih/color \
 		fatih:structs:v1.1.0:fatih_structs/vendor/github.com/fatih/structs \
-		genelet:determined:v1.10.2:genelet_determined/vendor/github.com/genelet/determined \
 		getsops:gopgagent:4d7ea76ff71a:getsops_gopgagent/vendor/github.com/getsops/gopgagent \
 		getsops:sops:v3.8.1:getsops_sops_v3/vendor/github.com/getsops/sops/v3 \
 		gitsight:go-vcsurl:v1.0.1:gitsight_go_vcsurl/vendor/github.com/gitsight/go-vcsurl \
