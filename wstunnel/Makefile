@@ -1,6 +1,6 @@
 PORTNAME=	wstunnel
 DISTVERSIONPREFIX=	v
-DISTVERSION=	9.4.0
+DISTVERSION=	9.4.1
 CATEGORIES=	local security
 
 MAINTAINER=	none@freebsd.org
@@ -23,7 +23,6 @@ post-install: .PHONY
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
 
 #https://www.freebsd.org/doc/en_US.ISO8859-1/books/porters-handbook/building.html#using-cargo
-#rm -f Makefile.deps && make makesum
-#make cargo-crates | grep -Ev '^=' >Makefile.deps && make makesum
+#rm -f Makefile.deps && make makesum && make cargo-crates | grep -Ev '^=' >Makefile.deps && make makesum
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
