@@ -1,9 +1,9 @@
 # Created by: Gabriel M. Dutra <0xdutra@gmail.com>
 
 PORTNAME=	tflint
-PORTVERSION=	0.50.3
+PORTVERSION=	0.51.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	2
+#PORTREVISION=	2
 CATEGORIES=	local sysutils
 
 MAINTAINER=	nulldutra@proton.me
