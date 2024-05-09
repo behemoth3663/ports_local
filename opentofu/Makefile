@@ -1,6 +1,6 @@
 PORTNAME=	opentofu
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.7.0
+DISTVERSION=	1.7.1
 #PORTREVISION=	2
 CATEGORIES=	local sysutils
 
@@ -11,7 +11,7 @@ WWW=		https://opentofu.org/
 LICENSE=	MPL20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:1.21,modules
+USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	opentofu
