@@ -1,6 +1,6 @@
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.58.2
+DISTVERSION=	0.58.3
 CATEGORIES=	local sysutils
 
 MAINTAINER=	0xdutra@gmail.com
@@ -22,6 +22,7 @@ PLIST_FILES=	bin/${PORTNAME}
 
 _OPTIONS_extract=	600:pre-post-extract
 pre-post-extract: .PHONY
+	${RM} ${WRKSRC}/terraform/getproviders/lock_test.go
 	${FIND} ${WRKDIR} -maxdepth 1 -type d -name 'go-commons-*' | while read src; do \
 		${LN} -s "$${src}" "$${src%%go-commons-*}gruntwork-cli-$${src##*go-commons-}"; \
 	done
