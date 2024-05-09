@@ -1,18 +1,17 @@
-#
-
 PORTNAME=	amazon-ssm-agent
-PORTVERSION=	3.1.1856.0
-PORTREVISION=	1
+PORTVERSION=	3.3.418.0
+#PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	cperciva@FreeBSD.org
 COMMENT=	Amazon Simple Systems Manager Agent
-WWW=		https://github.com/aws/amazon-ssm-agent
+WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 RUN_DEPENDS=	${LOCALBASE}/share/certs/ca-root-nss.crt:security/ca_root_nss
+RUN_DEPENDS+=	${LOCALBASE}/usr/local/sbin/dmidecode:sysutils/dmidecode
 
 USES=		go:modules
 
@@ -40,7 +39,7 @@ PLIST_FILES=	etc/amazon/ssm/amazon-ssm-agent.json.template	\
 
 USE_RC_SUBR=	amazon-ssm-agent
 
-EXTRA_PATCHES+=	${FILESDIR}/2fce6aca986ea92277f4726c7acae915d15054ed.patch:-p1
+#EXTRA_PATCHES+=	${FILESDIR}/2fce6aca986ea92277f4726c7acae915d15054ed.patch:-p1
 
 post-patch: .PHONY
 	${REINPLACE_CMD} -r -e \
@@ -52,7 +51,10 @@ post-install: .PHONY
 	${INSTALL_DATA} ${WRKSRC}/amazon-ssm-agent.json.template ${STAGEDIR}${PREFIX}/etc/amazon/ssm
 	${INSTALL_DATA} ${WRKSRC}/seelog_unix.xml ${STAGEDIR}${PREFIX}/etc/amazon/ssm/seelog_unix.xml.template
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
 
+pre-deps pre-deps-all post-deps-all: .PHONY
+
+.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
