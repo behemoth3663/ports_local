@@ -33,14 +33,14 @@ GH_TUPLE=	\
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
 		golang:appengine:v1.6.7:golang_appengine/vendor/google.golang.org/appengine \
-		golang:crypto:v0.18.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.21.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:mod:v0.14.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.20.0:golang_net/vendor/golang.org/x/net \
+		golang:net:v0.23.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.8.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.3:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:sync:v0.7.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.19.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.16.0:golang_term/vendor/golang.org/x/term \
+		golang:term:v0.18.0:golang_term/vendor/golang.org/x/term \
 		golang:text:v0.14.0:golang_text/vendor/golang.org/x/text \
 		golang:tools:v0.17.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-containerregistry:v0.19.1:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
@@ -69,6 +69,8 @@ GH_TUPLE=	\
 		vbatts:tar-split:v0.11.3:vbatts_tar_split/vendor/github.com/vbatts/tar-split \
 		vito:go-interact:v1.0.1:vito_go_interact/vendor/github.com/vito/go-interact
 		# Errors found during processing:
+		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+#}
 post-extract:
 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
 	@${RLN} ${WRKSRC_azure_go_autorest_autorest}/autorest ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
