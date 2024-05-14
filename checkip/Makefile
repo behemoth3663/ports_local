@@ -1,5 +1,5 @@
 PORTNAME=	checkip
-PORTVERSION=	0.46.1
+PORTVERSION=	0.46.2
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local net
 
@@ -19,9 +19,10 @@ GO_TARGET=	./cmd/${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME}
 
-fetch-version: .PHONY get-version
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
+
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
-
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
