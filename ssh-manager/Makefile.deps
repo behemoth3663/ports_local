@@ -1,5 +1,4 @@
 GH_TUPLE=	\
-		aws:aws-sdk-go-v2:0fde27cdffe0:aws_aws_sdk_go_v2_eventstream \
 		aws:aws-sdk-go-v2:v1.26.1:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
 		aws:smithy-go:v1.20.2:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		census-instrumentation:opencensus-go:v0.23.0:census_instrumentation_opencensus_go/vendor/go.opencensus.io \
@@ -53,10 +52,6 @@ GH_TUPLE=	\
 		# Errors found during processing:
 		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
 #}
-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
-#}
 post-extract:
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go/storage
-	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream
-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_eventstream}/aws/protocol/eventstream ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream
