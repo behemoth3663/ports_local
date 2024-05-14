@@ -116,7 +116,7 @@ GH_TUPLE=	\
 		pelletier:go-toml:v2.1.0:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
 		pmezard:go-difflib:5d4384ee4fb2:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
-		protocolbuffers:protobuf-go:v1.33.0:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
+		protocolbuffers:protobuf-go:v1.34.1:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		rivo:tview:c4a7e501810d:rivo_tview/vendor/github.com/rivo/tview \
 		rivo:uniseg:v0.4.7:rivo_uniseg/vendor/github.com/rivo/uniseg \
 		rodaine:table:v1.0.1:rodaine_table/vendor/github.com/rodaine/table \
@@ -128,7 +128,7 @@ GH_TUPLE=	\
 		shibumi:go-pathspec:v1.3.0:shibumi_go_pathspec/vendor/github.com/shibumi/go-pathspec \
 		shurcooL:githubv4:599ae7bbf278:shurcool_githubv4/vendor/github.com/shurcooL/githubv4 \
 		shurcooL:graphql:ed46e5a46466:shurcool_graphql/vendor/github.com/shurcooL/graphql \
-		sigstore:protobuf-specs:v0.3.1:sigstore_protobuf_specs/vendor/github.com/sigstore/protobuf-specs \
+		sigstore:protobuf-specs:v0.3.2:sigstore_protobuf_specs/vendor/github.com/sigstore/protobuf-specs \
 		sigstore:rekor:v1.3.6:sigstore_rekor/vendor/github.com/sigstore/rekor \
 		sigstore:sigstore-go:v0.3.0:sigstore_sigstore_go/vendor/github.com/sigstore/sigstore-go \
 		sigstore:sigstore:v1.8.3:sigstore_sigstore/vendor/github.com/sigstore/sigstore \
