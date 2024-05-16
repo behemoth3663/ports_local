@@ -11,15 +11,6 @@
  		aws:aws-sdk-go:v1.50.0:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
  		aws:smithy-go:v1.15.0:aws_smithy_go/vendor/github.com/aws/smithy-go \
  		aymanbagabas:go-osc52:v2.0.1:aymanbagabas_go_osc52_v2/vendor/github.com/aymanbagabas/go-osc52/v2 \
-@@ -129,7 +127,7 @@ GH_TUPLE=	\
- 		hashicorp:terraform-registry-address:v0.2.0:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
- 		hashicorp:terraform-svchost:v0.0.1:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
- 		hashicorp:terraform:v0.15.3:hashicorp_terraform/vendor/github.com/hashicorp/terraform \
--		hashicorp:vault:v1.10.0:hashicorp_vault_api \
-+		hashicorp:vault:api/v1.10.0:hashicorp_vault_api \
- 		hashicorp:vault:v1.4.2:hashicorp_vault/vendor/github.com/hashicorp/vault \
- 		hashicorp:yamux:0bc27b27de87:hashicorp_yamux/vendor/github.com/hashicorp/yamux \
- 		huandu:xstrings:v1.3.3:huandu_xstrings/vendor/github.com/huandu/xstrings \
 @@ -171,7 +169,7 @@ GH_TUPLE=	\
  		open-telemetry:opentelemetry-go:v1.22.0:open_telemetry_opentelemetry_go_3/vendor/go.opentelemetry.io/otel/exporters/stdout/stdouttrace \
  		open-telemetry:opentelemetry-go:v1.23.0:open_telemetry_opentelemetry_go_1/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace \
