@@ -1,13 +1,13 @@
 PORTNAME=	wstunnel
 DISTVERSIONPREFIX=	v
-DISTVERSION=	9.5.0
+DISTVERSION=	9.5.1
 CATEGORIES=	local security
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Tunnel traffic over websocket protocol
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
-LICENSE=	NONE
+LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		cargo # ssl
