@@ -1,7 +1,7 @@
 PORTNAME=	havener
-PORTVERSION=	2.0.8
+PORTVERSION=	2.1.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+#PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -22,14 +22,14 @@ PLIST_FILES=	bin/${PORTNAME}
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static -X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal/cmd.version=${PORTVERSION}'"
 
-fetch-version: .PHONY get-version
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
+.sinclude "${.CURDIR}/Makefile.deps"
 
-#-		kubernetes-sigs:kustomize:v0.8.11:kubernetes_sigs_kustomize/vendor/sigs.k8s.io/kustomize/api \
-#+		kubernetes-sigs:kustomize:api/v0.8.11:kubernetes_sigs_kustomize/vendor/sigs.k8s.io/kustomize \
-#Not working well for unknown reason - when failed use patch- instead
-GH_TUPLE:=	${GH_TUPLE:C|(kubernetes-sigs:kustomize:)(.*)/([^/]+)\$|\1\3/\2|}
+# Commented out due to using hash (not suffix/version) that is working
+#-		kubernetes-sigs:kustomize:v0.8.11:kubernetes_sigs_kustomize/vendor/sigs.k8s.io/kustomize/api
+#+		kubernetes-sigs:kustomize:api/v0.8.11:kubernetes_sigs_kustomize/vendor/sigs.k8s.io/kustomize/api
+#GH_TUPLE:=	${GH_TUPLE:C|(kubernetes-sigs:kustomize:)(.*)/([^/]+)\$|\1\3/\2/\3|}
 
 .include <bsd.port.mk>
