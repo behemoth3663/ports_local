@@ -1,5 +1,5 @@
 PORTNAME=	tfproviderlint
-PORTVERSION=	0.29.0
+PORTVERSION=	0.30.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -37,9 +37,8 @@ post-install:
 	${MV} ${STAGEDIR}${PREFIX}/bin/${GO_TARGET:T} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
 .endif
 
-post-post-extract: .PHONY
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
-
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
