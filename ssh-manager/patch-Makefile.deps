@@ -1,11 +1,12 @@
---- Makefile.deps.orig	2024-05-20 11:46:42 UTC
+--- Makefile.deps.orig	2024-05-28 16:42:18 UTC
 +++ Makefile.deps
-@@ -1,12 +1,8 @@ GH_TUPLE=	\
+@@ -1,13 +1,8 @@ GH_TUPLE=	\
  GH_TUPLE=	\
--		aws:aws-sdk-go-v2:v1.11.2:aws_aws_sdk_go_v2_accept_encoding/vendor/github.com/aws/aws-sdk-go-v2 \
+-		aws:aws-sdk-go-v2:v1.11.2:aws_aws_sdk_go_v2_accept_encoding \
 -		aws:aws-sdk-go-v2:v1.16.3:aws_aws_sdk_go_v2_imds \
 -		aws:aws-sdk-go-v2:v1.17.7:aws_aws_sdk_go_v2_s3shared \
 -		aws:aws-sdk-go-v2:v1.27.0:aws_aws_sdk_go_v2 \
+-		aws:aws-sdk-go-v2:v1.8.0:aws_aws_sdk_go_v2_ini/vendor/github.com/aws/aws-sdk-go-v2 \
 +		aws:aws-sdk-go-v2:v1.27.0:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
  		aws:smithy-go:v1.20.2:aws_smithy_go/vendor/github.com/aws/smithy-go \
  		census-instrumentation:opencensus-go:v0.23.0:census_instrumentation_opencensus_go/vendor/go.opencensus.io \
@@ -14,12 +15,14 @@
  		cncf:udpa:04548b0d99d4:cncf_udpa_go/vendor/github.com/cncf/udpa \
  		cncf:xds:d92e9ce0af51:cncf_xds_go/vendor/github.com/cncf/xds \
  		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
-@@ -62,8 +58,3 @@ post-extract:
+@@ -60,10 +55,3 @@ post-extract:
  post-extract:
  	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
  	@${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go/storage
 -	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2} ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2
 -	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds
 -	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_imds}/feature/ec2/imds ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds
+-	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding
+-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_accept_encoding}/service/internal/accept-encoding ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding
 -	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/s3shared
 -	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_s3shared}/service/internal/s3shared ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/s3shared
