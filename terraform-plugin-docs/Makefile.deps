@@ -16,9 +16,9 @@ GH_TUPLE=	\
 		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
 		golang:crypto:v0.21.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:97b1e661b5df:golang_exp/vendor/golang.org/x/exp \
-		golang:mod:v0.16.0:golang_mod/vendor/golang.org/x/mod \
+		golang:mod:v0.17.0:golang_mod/vendor/golang.org/x/mod \
 		golang:sys:v0.18.0:golang_sys/vendor/golang.org/x/sys \
-		golang:text:v0.14.0:golang_text/vendor/golang.org/x/text \
+		golang:text:v0.15.0:golang_text/vendor/golang.org/x/text \
 		golang:tools:v0.13.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:uuid:v1.3.0:google_uuid/vendor/github.com/google/uuid \
@@ -28,10 +28,10 @@ GH_TUPLE=	\
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
 		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
 		hashicorp:go-uuid:v1.0.3:hashicorp_go_uuid/vendor/github.com/hashicorp/go-uuid \
-		hashicorp:go-version:v1.6.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
-		hashicorp:hc-install:v0.6.4:hashicorp_hc_install/vendor/github.com/hashicorp/hc-install \
-		hashicorp:terraform-exec:v0.20.0:hashicorp_terraform_exec/vendor/github.com/hashicorp/terraform-exec \
-		hashicorp:terraform-json:v0.21.0:hashicorp_terraform_json/vendor/github.com/hashicorp/terraform-json \
+		hashicorp:go-version:v1.7.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
+		hashicorp:hc-install:v0.7.0:hashicorp_hc_install/vendor/github.com/hashicorp/hc-install \
+		hashicorp:terraform-exec:v0.21.0:hashicorp_terraform_exec/vendor/github.com/hashicorp/terraform-exec \
+		hashicorp:terraform-json:v0.22.1:hashicorp_terraform_json/vendor/github.com/hashicorp/terraform-json \
 		huandu:xstrings:v1.3.3:huandu_xstrings/vendor/github.com/huandu/xstrings \
 		imdario:mergo:v0.3.15:imdario_mergo/vendor/github.com/imdario/mergo \
 		mattn:go-colorable:v0.1.13:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
