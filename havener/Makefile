@@ -1,5 +1,5 @@
 PORTNAME=	havener
-PORTVERSION=	2.1.0
+PORTVERSION=	2.2.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -20,7 +20,8 @@ GO_TARGET=	./cmd/${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static -X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal/cmd.version=${PORTVERSION}'"
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal/cmd.version=${PORTVERSION}'"
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
@@ -30,6 +31,6 @@ pre-deps pre-deps-all post-deps-all: .PHONY
 # Commented out due to using hash (not suffix/version) that is working
 #-		kubernetes-sigs:kustomize:v0.8.11:kubernetes_sigs_kustomize/vendor/sigs.k8s.io/kustomize/api
 #+		kubernetes-sigs:kustomize:api/v0.8.11:kubernetes_sigs_kustomize/vendor/sigs.k8s.io/kustomize/api
-#GH_TUPLE:=	${GH_TUPLE:C|(kubernetes-sigs:kustomize:)(.*)/([^/]+)\$|\1\3/\2/\3|}
+#GH_TUPLE:=	${GH_TUPLE:C|^(kubernetes-sigs:kustomize:)([^:]+)(:.*/vendor/sigs\\.k8s\\.io/kustomize)/([^[:space:]]+)|\1\4/\2\3|}
 
 .include <bsd.port.mk>
