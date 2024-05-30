@@ -31,7 +31,7 @@ GH_TUPLE=	\
 		docker:distribution:v2.8.2:docker_distribution/vendor/github.com/docker/distribution \
 		fatih:color:v1.14.1:fatih_color/vendor/github.com/fatih/color \
 		fsnotify:fsnotify:v1.7.0:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
-		gabriel-vasile:mimetype:v1.4.3:gabriel_vasile_mimetype/vendor/github.com/gabriel-vasile/mimetype \
+		gabriel-vasile:mimetype:v1.4.4:gabriel_vasile_mimetype/vendor/github.com/gabriel-vasile/mimetype \
 		gdamore:encoding:v1.0.0:gdamore_encoding/vendor/github.com/gdamore/encoding \
 		gdamore:tcell:v2.5.4:gdamore_tcell_v2/vendor/github.com/gdamore/tcell/v2 \
 		go-chi:chi:v4.1.2:go_chi_chi/vendor/github.com/go-chi/chi \
@@ -51,15 +51,15 @@ GH_TUPLE=	\
 		go-openapi:validate:v0.24.0:go_openapi_validate/vendor/github.com/go-openapi/validate \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
 		godbus:dbus:v5.1.0:godbus_dbus_v5/vendor/github.com/godbus/dbus/v5 \
-		golang:crypto:v0.22.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.23.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:7918f672742d:golang_exp/vendor/golang.org/x/exp \
 		golang:mod:v0.17.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.23.0:golang_net/vendor/golang.org/x/net \
+		golang:net:v0.25.0:golang_net/vendor/golang.org/x/net \
 		golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:sync:v0.6.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.19.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.19.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.14.0:golang_text/vendor/golang.org/x/text \
+		golang:sys:v0.20.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.20.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.15.0:golang_text/vendor/golang.org/x/text \
 		google:certificate-transparency-go:v1.1.8:google_certificate_transparency_go/vendor/github.com/google/certificate-transparency-go \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-containerregistry:v0.19.1:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
