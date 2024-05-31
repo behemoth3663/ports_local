@@ -1,7 +1,7 @@
 PORTNAME=	terraform
 PORTVERSION=	1.5.7
 DISTVERSIONPREFIX=	v
-PORTREVISION=	20240510
+PORTREVISION=	20240531
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX?=	-${PORTVERSION:R}
 
@@ -70,5 +70,15 @@ post-deps-all: .PHONY
 # XXX: Work around ports framework inability to regenerate GH_TUPLE for Go
 # modules for modules with embedded slashes in version numbers.
 GH_TUPLE:=	${GH_TUPLE:S|v1.1.0:grpc_grpc_go_1|cmd%2Fprotoc-gen-go-grpc%2Fv1.1.0:grpc_grpc_go_1/|1}
+
+#-census-instrumentation:opencensus-go:v0.24.0:census_instrumentation_opencensus_go/vendor/go.opencensus.io
+#-open-telemetry:opentelemetry-go-contrib:v0.49.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc
+#-open-telemetry:opentelemetry-go-contrib:v0.49.0:open_telemetry_opentelemetry_go_contrib_1/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp
+#-open-telemetry:opentelemetry-go:v1.24.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel
+GH_TUPLE:=	${GH_TUPLE:Ncensus-instrumentation\:opencensus-go\:*:Nopen-telemetry\:opentelemetry-go*}
+
+#-kubernetes:kube-openapi:f0e62f92d13f:kubernetes_kube_openapi/vendor/k8s.io/kube-openapi
+#+kubernetes:kube-openapi:e816edb12b65:kubernetes_kube_openapi/vendor/k8s.io/kube-openapi
+GH_TUPLE:=	${GH_TUPLE:C|^(kubernetes:kube-openapi:)[^:]+|\1e816edb12b65|1}
 
 .include <bsd.port.mk>

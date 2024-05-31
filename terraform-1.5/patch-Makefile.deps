@@ -1,53 +1,22 @@
---- Makefile.deps.orig	2024-05-09 20:51:41 UTC
+--- Makefile.deps.orig	2024-05-31 10:27:49 UTC
 +++ Makefile.deps
-@@ -38,7 +38,6 @@ GH_TUPLE=	\
- 		bmatcuk:doublestar:v1.1.5:bmatcuk_doublestar/vendor/github.com/bmatcuk/doublestar \
- 		bodgit:ntlmssp:31973bb52d9b:bodgit_ntlmssp/vendor/github.com/bodgit/ntlmssp \
- 		bodgit:windows:v1.0.1:bodgit_windows/vendor/github.com/bodgit/windows \
--		census-instrumentation:opencensus-go:v0.24.0:census_instrumentation_opencensus_go/vendor/go.opencensus.io \
- 		chzyer:readline:2972be24d48e:chzyer_readline/vendor/github.com/chzyer/readline \
- 		clbanning:mxj:v1.8.4:clbanning_mxj/vendor/github.com/clbanning/mxj \
- 		coreos:go-systemd:d3cd4ed1dbcf:coreos_go_systemd/vendor/github.com/coreos/go-systemd \
-@@ -92,9 +91,9 @@ GH_TUPLE=	\
- 		googleapis:google-cloud-go:kms/v1.15.9:googleapis_google_cloud_go_kms \
- 		googleapis:google-cloud-go:storage/v1.39.1:googleapis_google_cloud_go_storage \
- 		googleapis:google-cloud-go:v0.112.2:googleapis_google_cloud_go/vendor/cloud.google.com/go \
+@@ -94,8 +94,8 @@ GH_TUPLE=	\
+ 		googleapis:google-cloud-go:longrunning/v0.5.7:googleapis_google_cloud_go_longrunning \
+ 		googleapis:google-cloud-go:storage/v1.40.0:googleapis_google_cloud_go_storage \
+ 		googleapis:google-cloud-go:v0.114.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
 -		googleapis:google-cloud-go:v0.2.2:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/auth/oauth2adapt \
 -		googleapis:google-cloud-go:v0.3.0:googleapis_google_cloud_go_2/vendor/cloud.google.com/go/compute/metadata \
--		googleapis:google-cloud-go:v0.3.0:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth \
 +		googleapis:google-cloud-go:auth/oauth2adapt/v0.2.2:googleapis_google_cloud_go_auth_oauth2adapt \
 +		googleapis:google-cloud-go:compute/metadata/v0.3.0:googleapis_google_cloud_go_compute_metadata \
-+		googleapis:google-cloud-go:auth/v0.3.0:googleapis_google_cloud_go_auth \
  		grpc:grpc-go:v1.1.0:grpc_grpc_go_1/vendor/google.golang.org/grpc/cmd/protoc-gen-go-grpc \
- 		grpc:grpc-go:v1.63.2:grpc_grpc_go/vendor/google.golang.org/grpc \
+ 		grpc:grpc-go:v1.64.0:grpc_grpc_go/vendor/google.golang.org/grpc \
  		hashicorp:aws-sdk-go-base:v0.7.1:hashicorp_aws_sdk_go_base/vendor/github.com/hashicorp/aws-sdk-go-base \
-@@ -145,7 +144,7 @@ GH_TUPLE=	\
- 		kubernetes:apimachinery:v0.23.17:kubernetes_apimachinery/vendor/k8s.io/apimachinery \
- 		kubernetes:client-go:v0.23.17:kubernetes_client_go/vendor/k8s.io/client-go \
- 		kubernetes:klog:v2.120.1:kubernetes_klog/vendor/k8s.io/klog/v2 \
--		kubernetes:kube-openapi:f0e62f92d13f:kubernetes_kube_openapi/vendor/k8s.io/kube-openapi \
-+		kubernetes:kube-openapi:e816edb12b65:kubernetes_kube_openapi/vendor/k8s.io/kube-openapi \
- 		kubernetes:utils:fe8a2dddb1d0:kubernetes_utils/vendor/k8s.io/utils \
- 		lib:pq:v1.10.9:lib_pq/vendor/github.com/lib/pq \
- 		mailru:easyjson:v0.7.7:mailru_easyjson/vendor/github.com/mailru/easyjson \
-@@ -173,9 +172,6 @@ GH_TUPLE=	\
- 		nishanths:exhaustive:v0.7.11:nishanths_exhaustive/vendor/github.com/nishanths/exhaustive \
- 		nu7hatch:gouuid:179d4d0c4d8d:nu7hatch_gouuid/vendor/github.com/nu7hatch/gouuid \
- 		oklog:run:v1.0.0:oklog_run/vendor/github.com/oklog/run \
--		open-telemetry:opentelemetry-go-contrib:v0.49.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc \
--		open-telemetry:opentelemetry-go-contrib:v0.49.0:open_telemetry_opentelemetry_go_contrib_1/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp \
--		open-telemetry:opentelemetry-go:v1.24.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
- 		packer-community:winrmcp:6e900dd2c68f:packer_community_winrmcp/vendor/github.com/packer-community/winrmcp \
- 		pkg:browser:5ac0b6a4141c:pkg_browser/vendor/github.com/pkg/browser \
- 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
-@@ -209,6 +205,12 @@ post-extract:
- 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_kms}/kms ${WRKSRC}/vendor/cloud.google.com/go/kms
+@@ -214,6 +214,10 @@ post-extract:
+ 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_longrunning}/longrunning ${WRKSRC}/vendor/cloud.google.com/go/longrunning
  	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
  	@${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go/storage
 +	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
 +	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
-+	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/auth
-+	@${RLN} ${WRKSRC_googleapis_google_cloud_go_auth}/auth ${WRKSRC}/vendor/cloud.google.com/go/auth
 +	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/auth/oauth2adapt
 +	@${RLN} ${WRKSRC_googleapis_google_cloud_go_auth_oauth2adapt}/auth/oauth2adapt ${WRKSRC}/vendor/cloud.google.com/go/auth/oauth2adapt
  	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest

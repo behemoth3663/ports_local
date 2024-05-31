@@ -1,10 +1,10 @@
 GH_TUPLE=	\
 		Azure:azure-sdk-for-go:v59.2.0:azure_azure_sdk_for_go/vendor/github.com/Azure/azure-sdk-for-go \
 		Azure:go-autorest:446f41b7d65b:azure_go_autorest_validation \
-		Azure:go-autorest:553a90ae65a6:azure_go_autorest_adal \
 		Azure:go-autorest:711dde1b1be6:azure_go_autorest_cli \
 		Azure:go-autorest:autorest/v0.11.29:azure_go_autorest_autorest \
 		Azure:go-autorest:b3a0b30a7423:azure_go_autorest_date \
+		Azure:go-autorest:f7ea664c9cff:azure_go_autorest_adal \
 		Azure:go-autorest:logger/v0.2.1:azure_go_autorest_logger \
 		Azure:go-autorest:tracing/v0.6.0:azure_go_autorest_tracing \
 		Azure:go-autorest:v14.2.0:azure_go_autorest/vendor/github.com/Azure/go-autorest \
@@ -14,7 +14,7 @@ GH_TUPLE=	\
 		Masterminds:goutils:v1.1.1:masterminds_goutils/vendor/github.com/Masterminds/goutils \
 		Masterminds:semver:v3.2.1:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
 		Masterminds:sprig:v3.2.3:masterminds_sprig_v3/vendor/github.com/Masterminds/sprig/v3 \
-		Microsoft:go-winio:v0.5.2:microsoft_go_winio/vendor/github.com/Microsoft/go-winio \
+		Microsoft:go-winio:v0.5.3:microsoft_go_winio/vendor/github.com/Microsoft/go-winio \
 		Netflix:go-expect:73e0943537d2:netflix_go_expect/vendor/github.com/Netflix/go-expect \
 		agext:levenshtein:v1.2.3:agext_levenshtein/vendor/github.com/agext/levenshtein \
 		aliyun:alibaba-cloud-sdk-go:v1.61.1843:aliyun_alibaba_cloud_sdk_go/vendor/github.com/aliyun/alibaba-cloud-sdk-go \
@@ -38,6 +38,7 @@ GH_TUPLE=	\
 		bmatcuk:doublestar:v1.1.5:bmatcuk_doublestar/vendor/github.com/bmatcuk/doublestar \
 		bodgit:ntlmssp:31973bb52d9b:bodgit_ntlmssp/vendor/github.com/bodgit/ntlmssp \
 		bodgit:windows:v1.0.1:bodgit_windows/vendor/github.com/bodgit/windows \
+		census-instrumentation:opencensus-go:v0.24.0:census_instrumentation_opencensus_go/vendor/go.opencensus.io \
 		chzyer:readline:2972be24d48e:chzyer_readline/vendor/github.com/chzyer/readline \
 		clbanning:mxj:v1.8.4:clbanning_mxj/vendor/github.com/clbanning/mxj \
 		coreos:go-systemd:d3cd4ed1dbcf:coreos_go_systemd/vendor/github.com/coreos/go-systemd \
@@ -52,7 +53,7 @@ GH_TUPLE=	\
 		felixge:httpsnoop:v1.0.4:felixge_httpsnoop/vendor/github.com/felixge/httpsnoop \
 		go-inf:inf:v0.9.1:go_inf_inf/vendor/gopkg.in/inf.v0 \
 		go-ini:ini:v1.66.6:go_ini_ini/vendor/gopkg.in/ini.v1 \
-		go-logr:logr:v1.4.1:go_logr_logr/vendor/github.com/go-logr/logr \
+		go-logr:logr:v1.4.2:go_logr_logr/vendor/github.com/go-logr/logr \
 		go-logr:stdr:v1.2.2:go_logr_stdr/vendor/github.com/go-logr/stdr \
 		go-openapi:jsonpointer:v0.20.3:go_openapi_jsonpointer/vendor/github.com/go-openapi/jsonpointer \
 		go-openapi:jsonreference:v0.20.5:go_openapi_jsonreference/vendor/github.com/go-openapi/jsonreference \
@@ -63,22 +64,22 @@ GH_TUPLE=	\
 		gofrs:uuid:v4.4.0:gofrs_uuid/vendor/github.com/gofrs/uuid \
 		gogo:protobuf:v1.3.2:gogo_protobuf/vendor/github.com/gogo/protobuf \
 		golang-jwt:jwt:v4.5.0:golang_jwt_jwt_v4/vendor/github.com/golang-jwt/jwt/v4 \
-		golang:crypto:v0.22.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.23.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:groupcache:41bb18bfe9da:golang_groupcache/vendor/github.com/golang/groupcache \
 		golang:mock:v1.6.0:golang_mock/vendor/github.com/golang/mock \
 		golang:mod:v0.17.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.24.0:golang_net/vendor/golang.org/x/net \
-		golang:oauth2:v0.19.0:golang_oauth2/vendor/golang.org/x/oauth2 \
+		golang:net:v0.25.0:golang_net/vendor/golang.org/x/net \
+		golang:oauth2:v0.20.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:sync:v0.7.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.20.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.19.0:golang_term/vendor/golang.org/x/term \
+		golang:term:v0.20.0:golang_term/vendor/golang.org/x/term \
 		golang:text:v0.15.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.5.0:golang_time/vendor/golang.org/x/time \
 		golang:tools:v0.20.0:golang_tools/vendor/golang.org/x/tools \
 		google:gnostic-models:v0.6.8:google_gnostic_models/vendor/github.com/google/gnostic-models \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
-		google:go-genproto:62759503f434:google_go_genproto/vendor/google.golang.org/genproto \
+		google:go-genproto:531527333157:google_go_genproto/vendor/google.golang.org/genproto \
 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
 		google:gofuzz:v1.1.0:google_gofuzz/vendor/github.com/google/gofuzz \
 		google:s2a-go:v0.1.7:google_s2a_go/vendor/github.com/google/s2a-go \
@@ -86,16 +87,17 @@ GH_TUPLE=	\
 		googleapis:enterprise-certificate-proxy:v0.3.2:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
 		googleapis:gax-go:v2.12.4:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
 		googleapis:gnostic:v0.5.5:googleapis_gnostic/vendor/github.com/googleapis/gnostic \
-		googleapis:google-api-go-client:v0.177.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+		googleapis:google-api-go-client:v0.180.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+		googleapis:google-cloud-go:auth/v0.4.2:googleapis_google_cloud_go_auth \
 		googleapis:google-cloud-go:iam/v1.1.8:googleapis_google_cloud_go_iam \
-		googleapis:google-cloud-go:kms/v1.15.9:googleapis_google_cloud_go_kms \
-		googleapis:google-cloud-go:storage/v1.39.1:googleapis_google_cloud_go_storage \
-		googleapis:google-cloud-go:v0.112.2:googleapis_google_cloud_go/vendor/cloud.google.com/go \
+		googleapis:google-cloud-go:kms/v1.17.1:googleapis_google_cloud_go_kms \
+		googleapis:google-cloud-go:longrunning/v0.5.7:googleapis_google_cloud_go_longrunning \
+		googleapis:google-cloud-go:storage/v1.40.0:googleapis_google_cloud_go_storage \
+		googleapis:google-cloud-go:v0.114.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
 		googleapis:google-cloud-go:auth/oauth2adapt/v0.2.2:googleapis_google_cloud_go_auth_oauth2adapt \
 		googleapis:google-cloud-go:compute/metadata/v0.3.0:googleapis_google_cloud_go_compute_metadata \
-		googleapis:google-cloud-go:auth/v0.3.0:googleapis_google_cloud_go_auth \
 		grpc:grpc-go:v1.1.0:grpc_grpc_go_1/vendor/google.golang.org/grpc/cmd/protoc-gen-go-grpc \
-		grpc:grpc-go:v1.63.2:grpc_grpc_go/vendor/google.golang.org/grpc \
+		grpc:grpc-go:v1.64.0:grpc_grpc_go/vendor/google.golang.org/grpc \
 		hashicorp:aws-sdk-go-base:v0.7.1:hashicorp_aws_sdk_go_base/vendor/github.com/hashicorp/aws-sdk-go-base \
 		hashicorp:consul:v0.8.0:hashicorp_consul_sdk/vendor/github.com/hashicorp/consul/sdk \
 		hashicorp:consul:v1.9.1:hashicorp_consul_api/vendor/github.com/hashicorp/consul \
@@ -109,7 +111,7 @@ GH_TUPLE=	\
 		hashicorp:go-msgpack:v0.5.4:hashicorp_go_msgpack/vendor/github.com/hashicorp/go-msgpack \
 		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
 		hashicorp:go-plugin:v1.4.10:hashicorp_go_plugin/vendor/github.com/hashicorp/go-plugin \
-		hashicorp:go-retryablehttp:v0.7.6:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
+		hashicorp:go-retryablehttp:v0.7.7:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
 		hashicorp:go-rootcerts:v1.0.2:hashicorp_go_rootcerts/vendor/github.com/hashicorp/go-rootcerts \
 		hashicorp:go-safetemp:v1.0.0:hashicorp_go_safetemp/vendor/github.com/hashicorp/go-safetemp \
 		hashicorp:go-slug:v0.11.1:hashicorp_go_slug/vendor/github.com/hashicorp/go-slug \
@@ -144,7 +146,7 @@ GH_TUPLE=	\
 		kubernetes:apimachinery:v0.23.17:kubernetes_apimachinery/vendor/k8s.io/apimachinery \
 		kubernetes:client-go:v0.23.17:kubernetes_client_go/vendor/k8s.io/client-go \
 		kubernetes:klog:v2.120.1:kubernetes_klog/vendor/k8s.io/klog/v2 \
-		kubernetes:kube-openapi:e816edb12b65:kubernetes_kube_openapi/vendor/k8s.io/kube-openapi \
+		kubernetes:kube-openapi:835d969ad83a:kubernetes_kube_openapi/vendor/k8s.io/kube-openapi \
 		kubernetes:utils:fe8a2dddb1d0:kubernetes_utils/vendor/k8s.io/utils \
 		lib:pq:v1.10.9:lib_pq/vendor/github.com/lib/pq \
 		mailru:easyjson:v0.7.7:mailru_easyjson/vendor/github.com/mailru/easyjson \
@@ -172,6 +174,9 @@ GH_TUPLE=	\
 		nishanths:exhaustive:v0.7.11:nishanths_exhaustive/vendor/github.com/nishanths/exhaustive \
 		nu7hatch:gouuid:179d4d0c4d8d:nu7hatch_gouuid/vendor/github.com/nu7hatch/gouuid \
 		oklog:run:v1.0.0:oklog_run/vendor/github.com/oklog/run \
+		open-telemetry:opentelemetry-go-contrib:v0.49.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc \
+		open-telemetry:opentelemetry-go-contrib:v0.49.0:open_telemetry_opentelemetry_go_contrib_1/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp \
+		open-telemetry:opentelemetry-go:v1.24.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
 		packer-community:winrmcp:6e900dd2c68f:packer_community_winrmcp/vendor/github.com/packer-community/winrmcp \
 		pkg:browser:5ac0b6a4141c:pkg_browser/vendor/github.com/pkg/browser \
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
@@ -183,8 +188,8 @@ GH_TUPLE=	\
 		spf13:afero:v1.2.2:spf13_afero/vendor/github.com/spf13/afero \
 		spf13:cast:v1.5.1:spf13_cast/vendor/github.com/spf13/cast \
 		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
-		tencentcloud:tencentcloud-sdk-go:v1.0.916:tencentcloud_tencentcloud_sdk_go_common/vendor/github.com/tencentcloud/tencentcloud-sdk-go \
-		tencentyun:cos-go-sdk-v5:v0.7.47:tencentyun_cos_go_sdk_v5/vendor/github.com/tencentyun/cos-go-sdk-v5 \
+		tencentcloud:tencentcloud-sdk-go:v1.0.933:tencentcloud_tencentcloud_sdk_go_common/vendor/github.com/tencentcloud/tencentcloud-sdk-go \
+		tencentyun:cos-go-sdk-v5:v0.7.48:tencentyun_cos_go_sdk_v5/vendor/github.com/tencentyun/cos-go-sdk-v5 \
 		tidwall:transform:32f242e2dbde:tidwall_transform/vendor/github.com/tidwall/transform \
 		tombuildsstuff:giovanni:v0.15.1:tombuildsstuff_giovanni/vendor/github.com/tombuildsstuff/giovanni \
 		ulikunitz:xz:v0.5.12:ulikunitz_xz/vendor/github.com/ulikunitz/xz \
@@ -196,19 +201,21 @@ GH_TUPLE=	\
 		zclconf:go-cty-yaml:v1.0.3:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
 		zclconf:go-cty:v1.13.3:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
-		#	::9bf2ced13842:group_name/vendor/golang.org/x/exp/typeparams (from go.googlesource.com/exp@9bf2ced13842)
+		#	::404ba88c7ed0:group_name/vendor/golang.org/x/exp/typeparams (from go.googlesource.com/exp@404ba88c7ed0)
 		#	::v0.1.0-deprecated:group_name/vendor/golang.org/x/tools/cmd/cover (from go.googlesource.com/tools@v0.1.0-deprecated)
 post-extract:
+	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/auth
+	@${RLN} ${WRKSRC_googleapis_google_cloud_go_auth}/auth ${WRKSRC}/vendor/cloud.google.com/go/auth
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/iam
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_iam}/iam ${WRKSRC}/vendor/cloud.google.com/go/iam
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/kms
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_kms}/kms ${WRKSRC}/vendor/cloud.google.com/go/kms
+	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/longrunning
+	@${RLN} ${WRKSRC_googleapis_google_cloud_go_longrunning}/longrunning ${WRKSRC}/vendor/cloud.google.com/go/longrunning
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go/storage
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
-	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/auth
-	@${RLN} ${WRKSRC_googleapis_google_cloud_go_auth}/auth ${WRKSRC}/vendor/cloud.google.com/go/auth
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/auth/oauth2adapt
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_auth_oauth2adapt}/auth/oauth2adapt ${WRKSRC}/vendor/cloud.google.com/go/auth/oauth2adapt
 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
