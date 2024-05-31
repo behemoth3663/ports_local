@@ -1,5 +1,5 @@
 PORTNAME=	terraform-docs
-PORTVERSION=	0.17.0
+PORTVERSION=	0.18.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	17
 CATEGORIES=	local sysutils textproc
@@ -11,7 +11,7 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=	go:modules
+USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	terraform-docs
@@ -24,4 +24,9 @@ pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
+
+#-		google:go-genproto:3a041ad873d4:google_go_genproto/vendor/google.golang.org/genproto/googleapis/rpc
+#+		google:go-genproto:3a041ad873d4:google_go_genproto/vendor/google.golang.org/genproto
+GH_TUPLE:=	${GH_TUPLE:S|/googleapis/rpc$||}
+
 .include <bsd.port.mk>
