@@ -1,6 +1,6 @@
-TIMESTAMP = 1716914139
-SHA256 (hashicorp-terraform-plugin-docs-v0.19.3_GH0.tar.gz) = b00208b34e6fbe13863e4919641323343e632dc94d462bf42a01706aeaf77158
-SIZE (hashicorp-terraform-plugin-docs-v0.19.3_GH0.tar.gz) = 159346
+TIMESTAMP = 1717593473
+SHA256 (hashicorp-terraform-plugin-docs-v0.19.4_GH0.tar.gz) = 224bb149521891686b496f00b9b8d2a6236a52ed7bdd9f9eeb66a1426f9cdcba
+SIZE (hashicorp-terraform-plugin-docs-v0.19.4_GH0.tar.gz) = 159529
 SHA256 (BurntSushi-toml-v1.2.1_GH0.tar.gz) = a11c32390eba5e34cc0d54e2993b9a444c8d59933ff1bd6a2b541fc5462d6f91
 SIZE (BurntSushi-toml-v1.2.1_GH0.tar.gz) = 96971
 SHA256 (Kunde21-markdownfmt-v3.1.0_GH0.tar.gz) = affd202c85285f300bce785fee077a5e03e5c631073551a408d1a83125f4e893
