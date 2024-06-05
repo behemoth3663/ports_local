@@ -230,9 +230,6 @@ GH_TUPLE=	\
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
 		#	::732eee02a75a:group_name/vendor/golang.org/x/exp/typeparams (from go.googlesource.com/exp@732eee02a75a)
 		# Errors found during processing:
-		#	apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/contents/service/ssooidc?ref=v1.20.3: 403, body: {
-#  "documentation_url": "https://docs.github.com/free-pro-team@latest/rest/overview/rate-limits-for-the-rest-api#about-secondary-rate-limits",
-#}
 post-extract:
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
