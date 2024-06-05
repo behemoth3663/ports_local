@@ -1,13 +1,13 @@
---- Makefile.deps.orig	2024-03-05 17:08:54 UTC
+--- Makefile.deps.orig	2024-06-05 09:42:57 UTC
 +++ Makefile.deps
 @@ -61,6 +61,7 @@ GH_TUPLE=	\
- 		golang:net:v0.19.0:golang_net/vendor/golang.org/x/net \
+ 		golang:net:v0.24.0:golang_net/vendor/golang.org/x/net \
  		golang:oauth2:v0.15.0:golang_oauth2/vendor/golang.org/x/oauth2 \
  		golang:protobuf:v1.5.3:golang_protobuf/vendor/github.com/golang/protobuf \
 +		golang:snappy:v0.0.4:golang_snappy/vendor/github.com/golang/snappy \
  		golang:sync:v0.4.0:golang_sync/vendor/golang.org/x/sync \
- 		golang:sys:v0.15.0:golang_sys/vendor/golang.org/x/sys \
- 		golang:term:v0.15.0:golang_term/vendor/golang.org/x/term \
+ 		golang:sys:v0.19.0:golang_sys/vendor/golang.org/x/sys \
+ 		golang:term:v0.19.0:golang_term/vendor/golang.org/x/term \
 @@ -83,7 +84,7 @@ GH_TUPLE=	\
  		googleapis:google-cloud-go:iam/v1.1.2:googleapis_google_cloud_go_iam \
  		googleapis:google-cloud-go:storage/v1.30.1:googleapis_google_cloud_go_storage \
@@ -22,14 +22,14 @@
  		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
  		hashicorp:go-cty-funcs:2721b1e36840:hashicorp_go_cty_funcs/vendor/github.com/hashicorp/go-cty-funcs \
 -		hashicorp:go-getter:v2.2.1:hashicorp_go_getter_v2/vendor/github.com/hashicorp/go-getter/gcs/v2 \
--		hashicorp:go-getter:v2.2.1:hashicorp_go_getter_v2_1/vendor/github.com/hashicorp/go-getter/s3/v2 \
+-		hashicorp:go-getter:v2.2.2:hashicorp_go_getter_v2_1/vendor/github.com/hashicorp/go-getter/s3/v2 \
 +		hashicorp:go-getter:v2.2.1:hashicorp_go_getter_v2 \
-+		hashicorp:go-getter:v2.2.1:hashicorp_go_getter_v2_1 \
- 		hashicorp:go-getter:v2.2.1:hashicorp_go_getter_v2_2/vendor/github.com/hashicorp/go-getter/v2 \
++		hashicorp:go-getter:v2.2.2:hashicorp_go_getter_v2_1 \
+ 		hashicorp:go-getter:v2.2.2:hashicorp_go_getter_v2_2/vendor/github.com/hashicorp/go-getter/v2 \
  		hashicorp:go-hclog:v1.5.0:hashicorp_go_hclog/vendor/github.com/hashicorp/go-hclog \
  		hashicorp:go-immutable-radix:v1.3.1:hashicorp_go_immutable_radix/vendor/github.com/hashicorp/go-immutable-radix \
  		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
-+		hashicorp:go-plugin:v1.6.0:hashicorp_go_plugin/vendor/github.com/hashicorp/go-plugin \
++		hashicorp:go-plugin:v1.6.1:hashicorp_go_plugin/vendor/github.com/hashicorp/go-plugin \
  		hashicorp:go-retryablehttp:v0.7.0:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
  		hashicorp:go-rootcerts:v1.0.2:hashicorp_go_rootcerts/vendor/github.com/hashicorp/go-rootcerts \
  		hashicorp:go-safetemp:v1.0.0:hashicorp_go_safetemp/vendor/github.com/hashicorp/go-safetemp \

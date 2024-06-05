@@ -94,12 +94,12 @@ GH_TUPLE=	\
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
 		hashicorp:go-cty-funcs:2721b1e36840:hashicorp_go_cty_funcs/vendor/github.com/hashicorp/go-cty-funcs \
 		hashicorp:go-getter:v2.2.1:hashicorp_go_getter_v2 \
-		hashicorp:go-getter:v2.2.1:hashicorp_go_getter_v2_1 \
-		hashicorp:go-getter:v2.2.1:hashicorp_go_getter_v2_2/vendor/github.com/hashicorp/go-getter/v2 \
+		hashicorp:go-getter:v2.2.2:hashicorp_go_getter_v2_1 \
+		hashicorp:go-getter:v2.2.2:hashicorp_go_getter_v2_2/vendor/github.com/hashicorp/go-getter/v2 \
 		hashicorp:go-hclog:v1.5.0:hashicorp_go_hclog/vendor/github.com/hashicorp/go-hclog \
 		hashicorp:go-immutable-radix:v1.3.1:hashicorp_go_immutable_radix/vendor/github.com/hashicorp/go-immutable-radix \
 		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
-		hashicorp:go-plugin:v1.6.0:hashicorp_go_plugin/vendor/github.com/hashicorp/go-plugin \
+		hashicorp:go-plugin:v1.6.1:hashicorp_go_plugin/vendor/github.com/hashicorp/go-plugin \
 		hashicorp:go-retryablehttp:v0.7.0:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
 		hashicorp:go-rootcerts:v1.0.2:hashicorp_go_rootcerts/vendor/github.com/hashicorp/go-rootcerts \
 		hashicorp:go-safetemp:v1.0.0:hashicorp_go_safetemp/vendor/github.com/hashicorp/go-safetemp \
@@ -111,9 +111,9 @@ GH_TUPLE=	\
 		hashicorp:golang-lru:v0.5.4:hashicorp_golang_lru/vendor/github.com/hashicorp/golang-lru \
 		hashicorp:hcl:v1.0.0:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
 		hashicorp:hcl:v2.19.1:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
-		hashicorp:hcp-sdk-go:v0.91.0:hashicorp_hcp_sdk_go/vendor/github.com/hashicorp/hcp-sdk-go \
+		hashicorp:hcp-sdk-go:v0.96.0:hashicorp_hcp_sdk_go/vendor/github.com/hashicorp/hcp-sdk-go \
 		hashicorp:packer-plugin-amazon:v1.2.1:hashicorp_packer_plugin_amazon/vendor/github.com/hashicorp/packer-plugin-amazon \
-		hashicorp:packer-plugin-sdk:v0.5.2:hashicorp_packer_plugin_sdk/vendor/github.com/hashicorp/packer-plugin-sdk \
+		hashicorp:packer-plugin-sdk:v0.5.3:hashicorp_packer_plugin_sdk/vendor/github.com/hashicorp/packer-plugin-sdk \
 		hashicorp:serf:v0.10.1:hashicorp_serf/vendor/github.com/hashicorp/serf \
 		hashicorp:vault:v1.10.0:hashicorp_vault_api/vendor/github.com/hashicorp/vault \
 		hashicorp:yamux:v0.1.1:hashicorp_yamux/vendor/github.com/hashicorp/yamux \
