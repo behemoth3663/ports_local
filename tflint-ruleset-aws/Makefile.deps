@@ -1,7 +1,7 @@
 GH_TUPLE=	\
 		agext:levenshtein:v1.2.2:agext_levenshtein/vendor/github.com/agext/levenshtein \
 		apparentlymart:go-textseg:v15.0.0:apparentlymart_go_textseg_v15/vendor/github.com/apparentlymart/go-textseg/v15 \
-		aws:aws-sdk-go:v1.52.1:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		aws:aws-sdk-go:v1.53.19:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
 		dave:dst:v0.27.3:dave_dst/vendor/github.com/dave/dst \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		fatih:color:v1.13.0:fatih_color/vendor/github.com/fatih/color \
@@ -10,14 +10,14 @@ GH_TUPLE=	\
 		golang:exp:47ecfdc1ba53:golang_exp/vendor/golang.org/x/exp \
 		golang:mock:v1.6.0:golang_mock/vendor/github.com/golang/mock \
 		golang:mod:v0.17.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.24.0:golang_net/vendor/golang.org/x/net \
+		golang:net:v0.26.0:golang_net/vendor/golang.org/x/net \
 		golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:sync:v0.7.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.19.0:golang_sys/vendor/golang.org/x/sys \
-		golang:text:v0.14.0:golang_text/vendor/golang.org/x/text \
-		golang:tools:v0.20.0:golang_tools/vendor/golang.org/x/tools \
+		golang:sys:v0.21.0:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.16.0:golang_text/vendor/golang.org/x/text \
+		golang:tools:e35e4ccd0d2d:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
-		google:go-genproto:6ceb2ff114de:google_go_genproto/vendor/google.golang.org/genproto \
+		google:go-genproto:6ceb2ff114de:google_go_genproto/vendor/google.golang.org/genproto/googleapis/rpc \
 		grpc:grpc-go:v1.63.2:grpc_grpc_go/vendor/google.golang.org/grpc \
 		hashicorp:aws-sdk-go-base:v1.1.0:hashicorp_aws_sdk_go_base/vendor/github.com/hashicorp/aws-sdk-go-base \
 		hashicorp:errwrap:v1.0.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
@@ -27,7 +27,7 @@ GH_TUPLE=	\
 		hashicorp:go-plugin:v1.6.0:hashicorp_go_plugin/vendor/github.com/hashicorp/go-plugin \
 		hashicorp:go-version:v1.6.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
 		hashicorp:hcl:v2.20.1:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
-		hashicorp:terraform-json:v0.21.0:hashicorp_terraform_json/vendor/github.com/hashicorp/terraform-json \
+		hashicorp:terraform-json:v0.22.1:hashicorp_terraform_json/vendor/github.com/hashicorp/terraform-json \
 		hashicorp:yamux:v0.1.1:hashicorp_yamux/vendor/github.com/hashicorp/yamux \
 		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
 		mattn:go-colorable:v0.1.12:mattn_go_colorable/vendor/github.com/mattn/go-colorable \

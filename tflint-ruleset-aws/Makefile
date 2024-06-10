@@ -1,5 +1,5 @@
 PORTNAME=	tflint-ruleset-aws
-PORTVERSION=	0.31.0
+PORTVERSION=	0.32.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -23,4 +23,9 @@ pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
+
+#-google:go-genproto:6ceb2ff114de:google_go_genproto/vendor/google.golang.org/genproto/googleapis/rpc
+#+google:go-genproto:6ceb2ff114de:google_go_genproto/vendor/google.golang.org/genproto
+GH_TUPLE:=	${GH_TUPLE:S|/googleapis/rpc$||}
+
 .include <bsd.port.mk>
