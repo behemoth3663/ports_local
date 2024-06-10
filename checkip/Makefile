@@ -1,5 +1,5 @@
 PORTNAME=	checkip
-PORTVERSION=	0.46.4
+PORTVERSION=	0.47.4
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local net
 
@@ -14,8 +14,6 @@ USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	jreisinger
-
-GO_TARGET=	./cmd/${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME}
 

@@ -1,6 +1,6 @@
-TIMESTAMP = 1717802535
-SHA256 (jreisinger-checkip-v0.46.4_GH0.tar.gz) = da05098fbef4ccab4453ae62a5589cf893a48422e55dc8e717d9cd919afe5b30
-SIZE (jreisinger-checkip-v0.46.4_GH0.tar.gz) = 30985
+TIMESTAMP = 1718008390
+SHA256 (jreisinger-checkip-v0.47.4_GH0.tar.gz) = e5008671b470fb16628ee111a40a67125eb937f77e573357f7b742e444d0d5c3
+SIZE (jreisinger-checkip-v0.47.4_GH0.tar.gz) = 33628
 SHA256 (davecgh-go-spew-v1.1.0_GH0.tar.gz) = 1f7e0bd2db0341925b5f2ee5834e99380f4c2b1bd36cf0fa62d7717899d39d62
 SIZE (davecgh-go-spew-v1.1.0_GH0.tar.gz) = 42337
 SHA256 (go-ping-ping-v1.1.0_GH0.tar.gz) = c0978cdedb6815844dde0dd38858a2135850ac7412731abe29d86d5cc225e9f5
