@@ -1,12 +1,12 @@
 GH_TUPLE=	\
 		AlecAivazis:survey:v2.3.4:alecaivazis_survey_v2/vendor/github.com/AlecAivazis/survey/v2 \
 		Azure:azure-sdk-for-go:29fe1c0613fc:azure_azure_sdk_for_go_azkeys/vendor/github.com/Azure/azure-sdk-for-go \
-		Azure:azure-sdk-for-go:35ad235ae1db:azure_azure_sdk_for_go_azidentity \
-		Azure:azure-sdk-for-go:42def9729bc1:azure_azure_sdk_for_go_azcore \
-		Azure:azure-sdk-for-go:616b812426f6:azure_azure_sdk_for_go_internal \
+		Azure:azure-sdk-for-go:48d39a82091b:azure_azure_sdk_for_go_azidentity \
+		Azure:azure-sdk-for-go:76e5495a4d1c:azure_azure_sdk_for_go_azcore \
+		Azure:azure-sdk-for-go:e14a52008cf2:azure_azure_sdk_for_go_internal \
 		Azure:azure-sdk-for-go:ea9085fb0691:azure_azure_sdk_for_go_internal_1 \
 		Azure:go-ansiterm:d185dfc1b5a1:azure_go_ansiterm/vendor/github.com/Azure/go-ansiterm \
-		AzureAD:microsoft-authentication-library-for-go:v1.1.1:azuread_microsoft_authentication_library_for_go/vendor/github.com/AzureAD/microsoft-authentication-library-for-go \
+		AzureAD:microsoft-authentication-library-for-go:v1.2.2:azuread_microsoft_authentication_library_for_go/vendor/github.com/AzureAD/microsoft-authentication-library-for-go \
 		FiloSottile:age:v1.1.1:filosottile_age/vendor/filippo.io/age \
 		Masterminds:goutils:v1.1.1:masterminds_goutils/vendor/github.com/Masterminds/goutils \
 		Masterminds:semver:v3.2.1:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
@@ -62,19 +62,19 @@ GH_TUPLE=	\
 		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
 		gofrs:flock:v0.8.1:gofrs_flock/vendor/github.com/gofrs/flock \
 		golang-jwt:jwt:v3.2.2:golang_jwt_jwt/vendor/github.com/golang-jwt/jwt \
-		golang-jwt:jwt:v5.0.0:golang_jwt_jwt_v5/vendor/github.com/golang-jwt/jwt/v5 \
+		golang-jwt:jwt:v5.2.1:golang_jwt_jwt_v5/vendor/github.com/golang-jwt/jwt/v5 \
 		golang:appengine:v1.6.8:golang_appengine/vendor/google.golang.org/appengine \
-		golang:crypto:v0.21.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.24.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:7918f672742d:golang_exp/vendor/golang.org/x/exp \
 		golang:groupcache:41bb18bfe9da:golang_groupcache/vendor/github.com/golang/groupcache \
-		golang:mod:v0.13.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.23.0:golang_net/vendor/golang.org/x/net \
+		golang:mod:v0.17.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.26.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.15.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.3:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sync:v0.5.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.18.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.18.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.14.0:golang_text/vendor/golang.org/x/text \
+		golang:sync:v0.7.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.21.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.21.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.16.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.5.0:golang_time/vendor/golang.org/x/time \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-genproto:50ed04b92917:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api \
@@ -85,7 +85,7 @@ GH_TUPLE=	\
 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
 		google:s2a-go:v0.1.7:google_s2a_go/vendor/github.com/google/s2a-go \
 		google:shlex:e7afc7fbc510:google_shlex/vendor/github.com/google/shlex \
-		google:uuid:v1.5.0:google_uuid/vendor/github.com/google/uuid \
+		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
 		googleapis:enterprise-certificate-proxy:v0.3.2:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
 		googleapis:gax-go:v2.12.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
 		googleapis:google-api-go-client:v0.149.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
@@ -172,7 +172,7 @@ GH_TUPLE=	\
 		opencontainers:image-spec:v1.1.0-rc3:opencontainers_image_spec/vendor/github.com/opencontainers/image-spec \
 		opencontainers:runc:v1.1.12:opencontainers_runc/vendor/github.com/opencontainers/runc \
 		owenrumney:go-sarif:v1.1.1:owenrumney_go_sarif/vendor/github.com/owenrumney/go-sarif \
-		pkg:browser:681adbf594b8:pkg_browser/vendor/github.com/pkg/browser \
+		pkg:browser:5ac0b6a4141c:pkg_browser/vendor/github.com/pkg/browser \
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		posener:complete:v1.2.3:posener_complete/vendor/github.com/posener/complete \
@@ -180,7 +180,7 @@ GH_TUPLE=	\
 		protocolbuffers:protobuf-go:v1.33.0:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		pterm:pterm:v0.12.41:pterm_pterm/vendor/github.com/pterm/pterm \
 		rivo:uniseg:v0.2.0:rivo_uniseg/vendor/github.com/rivo/uniseg \
-		rogpeppe:go-internal:v1.11.0:rogpeppe_go_internal/vendor/github.com/rogpeppe/go-internal \
+		rogpeppe:go-internal:v1.12.0:rogpeppe_go_internal/vendor/github.com/rogpeppe/go-internal \
 		russross:blackfriday:v2.1.0:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
 		ryanuber:go-glob:v1.0.0:ryanuber_go_glob/vendor/github.com/ryanuber/go-glob \
 		sahilm:fuzzy:v0.1.0:sahilm_fuzzy/vendor/github.com/sahilm/fuzzy \
@@ -210,6 +210,16 @@ GH_TUPLE=	\
 		zclconf:go-cty-yaml:v1.0.3:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
 		zclconf:go-cty:v1.14.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 		# Errors found during processing:
+		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+#}
+		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+#}
+		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+#}
+		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+#}
+		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+#}
 post-extract:
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute}/compute ${WRKSRC}/vendor/cloud.google.com/go/compute
