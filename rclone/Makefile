@@ -1,7 +1,7 @@
 PORTNAME=	rclone
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.66.0
-PORTREVISION=	4
+DISTVERSION=	1.67.0
+#PORTREVISION=	4
 CATEGORIES=	local net
 
 MAINTAINER=	tremere@cainites.net
@@ -49,6 +49,21 @@ pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
+
+#-google:go-genproto:35c7eff3a6b1:google_go_genproto/vendor/google.golang.org/genproto/googleapis/rpc \
+#+google:go-genproto:35c7eff3a6b1:google_go_genproto/vendor/google.golang.org/genproto
+GH_TUPLE:=	${GH_TUPLE:S|/googleapis/rpc$||1}
+
+#-googleapis:google-cloud-go:                 v0.2.3:googleapis_google_cloud_go/vendor/cloud.google.com/go/compute/metadata
+#+googleapis:google-cloud-go:compute/metadata/v0.2.3:googleapis_google_cloud_go/vendor/cloud.google.com/go
+#+googleapis:google-cloud-go:compute/metadata/v0.2.3:googleapis_google_cloud_go/vendor/cloud.google.com/go/compute/metadata
+GH_TUPLE:=	${GH_TUPLE:C|^(googleapis:google-cloud-go):(.*)/(compute/metadata)$|\1:\3/\2|1}
+
+#-open-telemetry:opentelemetry-go-contrib:v0.46.1:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp \
+#-open-telemetry:opentelemetry-go:v1.21.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel
+#GH_TUPLE:=	${GH_TUPLE:Nopen-telemetry\:opentelemetry-go*}
+GH_TUPLE:=	${GH_TUPLE:Ncensus-instrumentation\:opencensus-go\:*:Nopen-telemetry\:opentelemetry-go*}
+
 .include <bsd.port.pre.mk>
 
 .for account project tag subdir in ${_GITEA_TUPLE:S/:/ /g}
