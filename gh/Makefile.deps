@@ -68,7 +68,7 @@ GH_TUPLE=	\
 		google:shlex:e7afc7fbc510:google_shlex/vendor/github.com/google/shlex \
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
 		gorilla:css:v1.0.0:gorilla_css/vendor/github.com/gorilla/css \
-		gorilla:websocket:v1.5.1:gorilla_websocket/vendor/github.com/gorilla/websocket \
+		gorilla:websocket:v1.5.2:gorilla_websocket/vendor/github.com/gorilla/websocket \
 		grpc:grpc-go:v1.62.2:grpc_grpc_go/vendor/google.golang.org/grpc \
 		h2non:gock:v1.1.2:h2non_gock/vendor/gopkg.in/h2non/gock.v1 \
 		h2non:parth:b4df798d6542:h2non_parth/vendor/github.com/h2non/parth \
@@ -116,7 +116,7 @@ GH_TUPLE=	\
 		pelletier:go-toml:v2.1.0:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
 		pmezard:go-difflib:5d4384ee4fb2:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
-		protocolbuffers:protobuf-go:v1.34.1:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
+		protocolbuffers:protobuf-go:v1.34.2:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		rivo:tview:c4a7e501810d:rivo_tview/vendor/github.com/rivo/tview \
 		rivo:uniseg:v0.4.7:rivo_uniseg/vendor/github.com/rivo/uniseg \
 		rodaine:table:v1.0.1:rodaine_table/vendor/github.com/rodaine/table \
@@ -153,7 +153,7 @@ GH_TUPLE=	\
 		vbatts:tar-split:v0.11.3:vbatts_tar_split/vendor/github.com/vbatts/tar-split \
 		yuin:goldmark-emoji:v1.0.2:yuin_goldmark_emoji/vendor/github.com/yuin/goldmark-emoji \
 		yuin:goldmark:v1.5.4:yuin_goldmark/vendor/github.com/yuin/goldmark \
-		zalando:go-keyring:v0.2.4:zalando_go_keyring/vendor/github.com/zalando/go-keyring
+		zalando:go-keyring:v0.2.5:zalando_go_keyring/vendor/github.com/zalando/go-keyring
 
 post-extract: .PHONY
 	@${MKDIR} ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
