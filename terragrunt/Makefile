@@ -1,6 +1,6 @@
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.59.3
+DISTVERSION=	0.59.4
 CATEGORIES=	local sysutils
 
 MAINTAINER=	0xdutra@gmail.com
@@ -52,12 +52,12 @@ post-deps-all: .PHONY
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 
-#-		googleapis:google-cloud-go:v0.2.3:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata
-#+		googleapis:google-cloud-go:compute/metadata/v0.2.3:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata
+#-googleapis:google-cloud-go:v0.2.3:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata
+#+googleapis:google-cloud-go:compute/metadata/v0.2.3:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata
 GH_TUPLE:=	${GH_TUPLE:C|^(googleapis:google-cloud-go):(.*/compute/metadata.*)|\1:compute/metadata/\2|1}
 
-#-       hashicorp:vault:v1.10.0:hashicorp_vault_api
-#+       hashicorp:vault:api/v1.10.0:hashicorp_vault_api
+#-hashicorp:vault:v1.10.0:hashicorp_vault_api
+#+hashicorp:vault:api/v1.10.0:hashicorp_vault_api
 GH_TUPLE:=	${GH_TUPLE:S|^hashicorp:vault:|hashicorp:vault:api/|1}
 
 .include <bsd.port.mk>
