@@ -1,6 +1,6 @@
 PORTNAME=	rage
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.9.2
+DISTVERSION=	0.10.0
 CATEGORIES=	local security
 
 MAINTAINER=	none@freebsd.org
@@ -15,8 +15,8 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	str4d
 
 #error: found a virtual manifest at `/usr/obj/usr/ports/local/rage/work/rage-0.9.2/Cargo.toml` instead of a package manifest
-CARGO_CARGOTOML=${WRKSRC}/${PORTNAME}/Cargo.toml
-CARGO_INSTALL_PATH=${PORTNAME}
+CARGO_CARGOTOML=	${WRKSRC}/${PORTNAME}/Cargo.toml
+CARGO_INSTALL_PATH=	${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME}
 
