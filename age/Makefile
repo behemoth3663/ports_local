@@ -1,8 +1,8 @@
 PORTNAME=	age
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.1.1
-PORTREVISION=	7
-CATEGORIES=	security
+DISTVERSION=	1.2.0
+#PORTREVISION=	1
+CATEGORIES=	local security
 
 MAINTAINER=	dmgk@FreeBSD.org
 COMMENT=	Simple, modern and secure file encryption tool
@@ -25,11 +25,11 @@ GO_BUILDFLAGS+=	-ldflags="-s -w  -extldflags '-static' \
 
 PLIST_FILES=	bin/age \
 		bin/age-keygen \
-		man/man1/age-keygen.1.gz \
-		man/man1/age.1.gz
+		share/man/man1/age-keygen.1.gz \
+		share/man/man1/age.1.gz
 
 post-install:
-	${INSTALL_MAN} ${WRKSRC}/doc/*.1 ${STAGEDIR}${PREFIX}/man/man1/
+	${INSTALL_MAN} ${WRKSRC}/doc/*.1 ${STAGEDIR}${PREFIX}/share/man/man1/
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
