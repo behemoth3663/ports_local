@@ -13,5 +13,5 @@ GH_TUPLE=	\
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		mitchellh:go-wordwrap:ad45545899c7:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
 		spf13:pflag:v1.0.2:spf13_pflag/vendor/github.com/spf13/pflag \
-		zclconf:go-cty-debug:b22d67c1ba0b:zclconf_go_cty_debug/vendor/github.com/zclconf/go-cty-debug \
+		zclconf:go-cty-debug:0d6042c53940:zclconf_go_cty_debug/vendor/github.com/zclconf/go-cty-debug \
 		zclconf:go-cty:v1.13.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
