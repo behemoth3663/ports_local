@@ -1,5 +1,5 @@
 PORTNAME=	helm
-PORTVERSION=	3.10.2
+PORTVERSION=	3.15.2
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -51,7 +51,14 @@ post-install-ZSH-on:
 	@${MKDIR} ${STAGEDIR}${PREFIX}/share/zsh/site-functions
 	${STAGEDIR}${PREFIX}/bin/helm completion zsh > ${STAGEDIR}${PREFIX}/share/zsh/site-functions/_helm
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+_OPTIONS_extract=	750:post-post-extract
+post-post-extract: .PHONY
+	@test ! -e ${WRKSRC_etcd_io_etcd}/api || \
+		${RLN} ${WRKSRC_etcd_io_etcd}/api ${WRKSRC}/vendor/go.etcd.io/etcd/api/v3
+
+pre-deps pre-deps-all post-deps-all: .PHONY
+
+.include "/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 
 #-kubernetes-sigs:kustomize:v0.12.1:kubernetes_sigs_kustomize/vendor/sigs.k8s.io/kustomize/api
@@ -67,10 +74,5 @@ GH_TUPLE:=	${GH_TUPLE:C|^moby:moby(:.*/docker-credential-helpers)|docker:docker-
 #-etcd-io:etcd:v3.5.4:etcd_io_etcd/vendor/go.etcd.io/etcd/api/v3
 #+etcd-io:etcd:v3.5.4:etcd_io_etcd/vendor/go.etcd.io/etcd
 GH_TUPLE:=	${GH_TUPLE:C|^(etcd-io:etcd:.*)/api/v3|\1|}
-
-_OPTIONS_extract=	750:post-post-extract
-post-post-extract: .PHONY
-	@test ! -e ${WRKSRC_etcd_io_etcd}/api || \
-		${RLN} ${WRKSRC_etcd_io_etcd}/api ${WRKSRC}/vendor/go.etcd.io/etcd/api/v3
 
 .include <bsd.port.mk>
