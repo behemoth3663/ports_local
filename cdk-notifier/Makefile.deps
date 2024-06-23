@@ -1,19 +1,16 @@
 GH_TUPLE=	\
-		ProtonMail:go-crypto:7d5c6f04bbb8:protonmail_go_crypto/vendor/github.com/ProtonMail/go-crypto \
 		acarl005:stripansi:5a71ef0e047d:acarl005_stripansi/vendor/github.com/acarl005/stripansi \
-		cloudflare:circl:v1.3.3:cloudflare_circl/vendor/github.com/cloudflare/circl \
 		davecgh:go-spew:d8f796af33cc:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		fsnotify:fsnotify:v1.7.0:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
 		go-check:check:8fa46927fb4f:go_check_check/vendor/gopkg.in/check.v1 \
 		go-ini:ini:v1.67.0:go_ini_ini/vendor/gopkg.in/ini.v1 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
-		golang:crypto:v0.21.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:921286631fa9:golang_exp/vendor/golang.org/x/exp \
-		golang:oauth2:v0.19.0:golang_oauth2/vendor/golang.org/x/oauth2 \
+		golang:oauth2:v0.20.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:sys:v0.18.0:golang_sys/vendor/golang.org/x/sys \
 		golang:text:v0.14.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.5.0:golang_time/vendor/golang.org/x/time \
-		google:go-github:v53.2.0:google_go_github_v53/vendor/github.com/google/go-github/v53 \
+		google:go-github:v62.0.0:google_go_github_v62/vendor/github.com/google/go-github/v62 \
 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
 		hashicorp:go-retryablehttp:v0.7.2:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
@@ -38,4 +35,4 @@ GH_TUPLE=	\
 		subosito:gotenv:v1.6.0:subosito_gotenv/vendor/github.com/subosito/gotenv \
 		uber-go:atomic:v1.9.0:uber_go_atomic/vendor/go.uber.org/atomic \
 		uber-go:multierr:v1.9.0:uber_go_multierr/vendor/go.uber.org/multierr \
-		xanzy:go-gitlab:v0.103.0:xanzy_go_gitlab/vendor/github.com/xanzy/go-gitlab
+		xanzy:go-gitlab:v0.105.0:xanzy_go_gitlab/vendor/github.com/xanzy/go-gitlab
