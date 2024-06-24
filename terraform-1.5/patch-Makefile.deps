@@ -1,9 +1,9 @@
---- Makefile.deps.orig	2024-05-31 10:27:49 UTC
+--- Makefile.deps.orig	2024-06-24 09:43:43 UTC
 +++ Makefile.deps
 @@ -94,8 +94,8 @@ GH_TUPLE=	\
  		googleapis:google-cloud-go:longrunning/v0.5.7:googleapis_google_cloud_go_longrunning \
- 		googleapis:google-cloud-go:storage/v1.40.0:googleapis_google_cloud_go_storage \
- 		googleapis:google-cloud-go:v0.114.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
+ 		googleapis:google-cloud-go:storage/v1.41.0:googleapis_google_cloud_go_storage \
+ 		googleapis:google-cloud-go:v0.115.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
 -		googleapis:google-cloud-go:v0.2.2:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/auth/oauth2adapt \
 -		googleapis:google-cloud-go:v0.3.0:googleapis_google_cloud_go_2/vendor/cloud.google.com/go/compute/metadata \
 +		googleapis:google-cloud-go:auth/oauth2adapt/v0.2.2:googleapis_google_cloud_go_auth_oauth2adapt \

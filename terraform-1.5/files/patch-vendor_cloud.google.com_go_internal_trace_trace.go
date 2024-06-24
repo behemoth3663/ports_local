@@ -17,28 +17,28 @@
  	"google.golang.org/api/googleapi"
  	"google.golang.org/genproto/googleapis/rpc/code"
  	"google.golang.org/grpc/status"
-@@ -72,16 +66,14 @@ func IsOpenCensusTracingEnabled() bool {
- // GOOGLE_API_GO_EXPERIMENTAL_TELEMETRY_PLATFORM_TRACING is NOT set to the
- // case-insensitive value "opentelemetry".
+@@ -85,16 +79,14 @@ func IsOpenCensusTracingEnabled() bool {
+ // GOOGLE_API_GO_EXPERIMENTAL_TELEMETRY_PLATFORM_TRACING is set to the
+ // case-insensitive value "opencensus".
  func IsOpenCensusTracingEnabled() bool {
--	return !IsOpenTelemetryTracingEnabled()
+-	openCensusTracingEnabledMu.RLock()
+-	defer openCensusTracingEnabledMu.RUnlock()
+-	return openCensusTracingEnabled
 +	return false
  }
  
  // IsOpenTelemetryTracingEnabled returns true if the environment variable
- // GOOGLE_API_GO_EXPERIMENTAL_TELEMETRY_PLATFORM_TRACING is set to the
- // case-insensitive value "opentelemetry".
+ // GOOGLE_API_GO_EXPERIMENTAL_TELEMETRY_PLATFORM_TRACING is NOT set to the
+ // case-insensitive value "opencensus".
  func IsOpenTelemetryTracingEnabled() bool {
--	openTelemetryTracingEnabledMu.RLock()
--	defer openTelemetryTracingEnabledMu.RUnlock()
--	return openTelemetryTracingEnabled
+-	return !IsOpenCensusTracingEnabled()
 +	return false
  }
  
  // StartSpan adds a span to the trace with the given name. If IsOpenCensusTracingEnabled
-@@ -93,11 +85,6 @@ func StartSpan(ctx context.Context, name string) conte
- // switch to "opentelemetry" and explicitly setting the environment variable to
- // "opencensus" will be required to continue using OpenCensus tracing.
+@@ -109,11 +101,6 @@ func StartSpan(ctx context.Context, name string) conte
+ // The default experimental tracing support for OpenCensus is now deprecated in
+ // the Google Cloud client libraries for Go.
  func StartSpan(ctx context.Context, name string) context.Context {
 -	if IsOpenTelemetryTracingEnabled() {
 -		ctx, _ = otel.GetTracerProvider().Tracer(OpenTelemetryTracerName).Start(ctx, name)
@@ -48,9 +48,9 @@
  	return ctx
  }
  
-@@ -110,34 +97,8 @@ func EndSpan(ctx context.Context, err error) {
- // switch to "opentelemetry" and explicitly setting the environment variable to
- // "opencensus" will be required to continue using OpenCensus tracing.
+@@ -129,34 +116,8 @@ func EndSpan(ctx context.Context, err error) {
+ // The default experimental tracing support for OpenCensus is now deprecated in
+ // the Google Cloud client libraries for Go.
  func EndSpan(ctx context.Context, err error) {
 -	if IsOpenTelemetryTracingEnabled() {
 -		span := ottrace.SpanFromContext(ctx)
@@ -83,9 +83,9 @@
  // toOpenTelemetryStatus converts an error to an equivalent OpenTelemetry status description.
  func toOpenTelemetryStatusDescription(err error) string {
  	var err2 *googleapi.Error
-@@ -196,58 +157,4 @@ func TracePrintf(ctx context.Context, attrMap map[stri
- // switch to "opentelemetry" and explicitly setting the environment variable to
- // "opencensus" will be required to continue using OpenCensus tracing.
+@@ -218,58 +179,4 @@ func TracePrintf(ctx context.Context, attrMap map[stri
+ // The default experimental tracing support for OpenCensus is now deprecated in
+ // the Google Cloud client libraries for Go.
  func TracePrintf(ctx context.Context, attrMap map[string]interface{}, format string, args ...interface{}) {
 -	if IsOpenTelemetryTracingEnabled() {
 -		attrs := otAttrs(attrMap)
