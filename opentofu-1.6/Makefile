@@ -20,6 +20,10 @@ GH_ACCOUNT=	opentofu
 PLIST_FILES=	bin/tofu${PKGNAMESUFFIX} \
 		bin/tofu-${PORTVERSION}
 
+JQ_GETVER_EXPR=	[.[].name | gsub("^[a-z]+";"") | \
+		select(test("^${PORTVERSION:C/[^.]+$/[0-9]+/:S/./\\\\./g}$$"; \
+		"n"))][0]
+
 GO_TARGET=	./cmd/tofu
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
