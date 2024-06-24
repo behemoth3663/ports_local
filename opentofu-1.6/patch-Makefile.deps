@@ -1,9 +1,9 @@
---- Makefile.deps.orig	2024-06-24 08:20:16 UTC
+--- Makefile.deps.orig	2024-06-24 09:21:14 UTC
 +++ Makefile.deps
 @@ -34,12 +34,7 @@ GH_TUPLE=	\
  		armon:go-metrics:f0300d1749da:armon_go_metrics/vendor/github.com/armon/go-metrics \
  		armon:go-radix:v1.0.0:armon_go_radix/vendor/github.com/armon/go-radix \
- 		asaskevich:govalidator:7a23bdc65eef:asaskevich_govalidator/vendor/github.com/asaskevich/govalidator \
+ 		asaskevich:govalidator:a9d515a09cc2:asaskevich_govalidator/vendor/github.com/asaskevich/govalidator \
 -		aws:aws-sdk-go-v2:v1.16.5:aws_aws_sdk_go_v2_s3shared \
 -		aws:aws-sdk-go-v2:v1.16.6:aws_aws_sdk_go_v2_credentials \
 -		aws:aws-sdk-go-v2:v1.17.5:aws_aws_sdk_go_v2_sso \
@@ -14,7 +14,15 @@
  		aws:aws-sdk-go:v1.44.122:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
  		aws:smithy-go:v1.17.0:aws_smithy_go/vendor/github.com/aws/smithy-go \
  		bgentry:go-netrc:9fd32a8b3d3d:bgentry_go_netrc/vendor/github.com/bgentry/go-netrc \
-@@ -108,11 +103,11 @@ GH_TUPLE=	\
+@@ -84,6 +79,7 @@ GH_TUPLE=	\
+ 		golang:mod:v0.18.0:golang_mod/vendor/golang.org/x/mod \
+ 		golang:net:v0.26.0:golang_net/vendor/golang.org/x/net \
+ 		golang:oauth2:v0.11.0:golang_oauth2/vendor/golang.org/x/oauth2 \
++		golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf \
+ 		golang:sync:v0.7.0:golang_sync/vendor/golang.org/x/sync \
+ 		golang:sys:v0.21.0:golang_sys/vendor/golang.org/x/sys \
+ 		golang:term:v0.21.0:golang_term/vendor/golang.org/x/term \
+@@ -108,11 +104,11 @@ GH_TUPLE=	\
  		googleapis:google-cloud-go:kms/v1.15.0:googleapis_google_cloud_go_kms \
  		googleapis:google-cloud-go:storage/v1.30.1:googleapis_google_cloud_go_storage \
  		googleapis:google-cloud-go:v0.110.7:googleapis_google_cloud_go/vendor/cloud.google.com/go \
@@ -27,8 +35,8 @@
 +		hashicorp:aws-sdk-go-base:v2.0.0-beta.43:hashicorp_aws_sdk_go_base_v2/vendor/github.com/hashicorp/aws-sdk-go-base/v2 \
  		hashicorp:consul:v0.8.0:hashicorp_consul_sdk/vendor/github.com/hashicorp/consul/sdk \
  		hashicorp:consul:v1.13.0:hashicorp_consul_api/vendor/github.com/hashicorp/consul \
- 		hashicorp:copywrite:v0.16.3:hashicorp_copywrite/vendor/github.com/hashicorp/copywrite \
-@@ -194,10 +189,10 @@ GH_TUPLE=	\
+ 		hashicorp:copywrite:v0.16.6:hashicorp_copywrite/vendor/github.com/hashicorp/copywrite \
+@@ -194,10 +190,10 @@ GH_TUPLE=	\
  		nu7hatch:gouuid:179d4d0c4d8d:nu7hatch_gouuid/vendor/github.com/nu7hatch/gouuid \
  		oklog:run:v1.0.0:oklog_run/vendor/github.com/oklog/run \
  		oklog:ulid:v1.3.1:oklog_ulid/vendor/github.com/oklog/ulid \
@@ -42,8 +50,8 @@
  		opentofu:registry-address:f1e51167f633:opentofu_registry_address/vendor/github.com/opentofu/registry-address \
  		packer-community:winrmcp:c76d91c1e7db:packer_community_winrmcp/vendor/github.com/packer-community/winrmcp \
  		pkg:browser:0426ae3fba23:pkg_browser/vendor/github.com/pkg/browser \
-@@ -230,6 +225,8 @@ post-extract:
- 		#	::732eee02a75a:group_name/vendor/golang.org/x/exp/typeparams (from go.googlesource.com/exp@732eee02a75a)
+@@ -230,6 +226,8 @@ post-extract:
+ 		#	::7f521ea00fb8:group_name/vendor/golang.org/x/exp/typeparams (from go.googlesource.com/exp@7f521ea00fb8)
  		# Errors found during processing:
  post-extract:
 +	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
@@ -51,7 +59,7 @@
  	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute
  	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute}/compute ${WRKSRC}/vendor/cloud.google.com/go/compute
  	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/iam
-@@ -252,14 +249,11 @@ post-extract:
+@@ -252,16 +250,11 @@ post-extract:
  	@${RLN} ${WRKSRC_azure_go_autorest_logger}/logger ${WRKSRC}/vendor/github.com/Azure/go-autorest/logger
  	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/tracing
  	@${RLN} ${WRKSRC_azure_go_autorest_tracing}/tracing ${WRKSRC}/vendor/github.com/Azure/go-autorest/tracing
@@ -64,11 +72,13 @@
 -	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_sso}/service/sso ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sso
 -	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc
 -	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_ssooidc}/service/ssooidc ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc
- 	@${RM} -r ${WRKSRC}/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common
- 	@${RLN} ${WRKSRC_tencentcloud_tencentcloud_sdk_go_common}/tencentcloud/common ${WRKSRC}/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common
+-	@${MKDIR} ${WRKSRC}/vendor/github.com/golang
+-	@${RLN} ${WRKSRC_fsnotify_fsnotify} ${WRKSRC}/vendor/github.com/golang/protobuf
 +	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/exporters
 +	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib}/exporters/autoexport ${WRKSRC}/vendor/go.opentelemetry.io/contrib/exporters/autoexport
 +	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2
 +	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib_1}/instrumentation/github.com/aws/aws-sdk-go-v2/otelaws ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2/otelaws
 +	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/proto
 +	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_proto_go}/otlp ${WRKSRC}/vendor/go.opentelemetry.io/proto/otlp
+ 	@${RM} -r ${WRKSRC}/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common
+ 	@${RLN} ${WRKSRC_tencentcloud_tencentcloud_sdk_go_common}/tencentcloud/common ${WRKSRC}/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common
