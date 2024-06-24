@@ -1,0 +1,74 @@
+--- Makefile.deps.orig	2024-06-24 08:20:16 UTC
++++ Makefile.deps
+@@ -34,12 +34,7 @@ GH_TUPLE=	\
+ 		armon:go-metrics:f0300d1749da:armon_go_metrics/vendor/github.com/armon/go-metrics \
+ 		armon:go-radix:v1.0.0:armon_go_radix/vendor/github.com/armon/go-radix \
+ 		asaskevich:govalidator:7a23bdc65eef:asaskevich_govalidator/vendor/github.com/asaskevich/govalidator \
+-		aws:aws-sdk-go-v2:v1.16.5:aws_aws_sdk_go_v2_s3shared \
+-		aws:aws-sdk-go-v2:v1.16.6:aws_aws_sdk_go_v2_credentials \
+-		aws:aws-sdk-go-v2:v1.17.5:aws_aws_sdk_go_v2_sso \
+-		aws:aws-sdk-go-v2:v1.20.3:aws_aws_sdk_go_v2_ssooidc \
+-		aws:aws-sdk-go-v2:v1.23.2:aws_aws_sdk_go_v2 \
+-		aws:aws-sdk-go-v2:v1.7.1:aws_aws_sdk_go_v2_ini/vendor/github.com/aws/aws-sdk-go-v2 \
++		aws:aws-sdk-go-v2:v1.23.2:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+ 		aws:aws-sdk-go:v1.44.122:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+ 		aws:smithy-go:v1.17.0:aws_smithy_go/vendor/github.com/aws/smithy-go \
+ 		bgentry:go-netrc:9fd32a8b3d3d:bgentry_go_netrc/vendor/github.com/bgentry/go-netrc \
+@@ -108,11 +103,11 @@ GH_TUPLE=	\
+ 		googleapis:google-cloud-go:kms/v1.15.0:googleapis_google_cloud_go_kms \
+ 		googleapis:google-cloud-go:storage/v1.30.1:googleapis_google_cloud_go_storage \
+ 		googleapis:google-cloud-go:v0.110.7:googleapis_google_cloud_go/vendor/cloud.google.com/go \
+-		googleapis:google-cloud-go:v0.2.3:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata \
++		googleapis:google-cloud-go:compute/metadata/v0.2.3:googleapis_google_cloud_go_compute_metadata \
+ 		grpc-ecosystem:grpc-gateway:v2.16.0:grpc_ecosystem_grpc_gateway_v2/vendor/github.com/grpc-ecosystem/grpc-gateway/v2 \
+ 		grpc:grpc-go:v1.1.0:grpc_grpc_go_1/vendor/google.golang.org/grpc/cmd/protoc-gen-go-grpc \
+ 		grpc:grpc-go:v1.59.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+-		hashicorp:aws-sdk-go-base:v2.0.0-beta.43:hashicorp_aws_sdk_go_base_v2/vendor/github.com/hashicorp/aws-sdk-go-base \
++		hashicorp:aws-sdk-go-base:v2.0.0-beta.43:hashicorp_aws_sdk_go_base_v2/vendor/github.com/hashicorp/aws-sdk-go-base/v2 \
+ 		hashicorp:consul:v0.8.0:hashicorp_consul_sdk/vendor/github.com/hashicorp/consul/sdk \
+ 		hashicorp:consul:v1.13.0:hashicorp_consul_api/vendor/github.com/hashicorp/consul \
+ 		hashicorp:copywrite:v0.16.3:hashicorp_copywrite/vendor/github.com/hashicorp/copywrite \
+@@ -194,10 +189,10 @@ GH_TUPLE=	\
+ 		nu7hatch:gouuid:179d4d0c4d8d:nu7hatch_gouuid/vendor/github.com/nu7hatch/gouuid \
+ 		oklog:run:v1.0.0:oklog_run/vendor/github.com/oklog/run \
+ 		oklog:ulid:v1.3.1:oklog_ulid/vendor/github.com/oklog/ulid \
+-		open-telemetry:opentelemetry-go-contrib:9a582bd098a2:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/exporters/autoexport \
+-		open-telemetry:opentelemetry-go-contrib:v0.46.1:open_telemetry_opentelemetry_go_contrib_1/vendor/go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2/otelaws \
++		open-telemetry:opentelemetry-go-contrib:9a582bd098a2:open_telemetry_opentelemetry_go_contrib \
++		open-telemetry:opentelemetry-go-contrib:instrumentation/github.com/aws/aws-sdk-go-v2/otelaws/v0.46.1:open_telemetry_opentelemetry_go_contrib_1 \
+ 		open-telemetry:opentelemetry-go:v1.21.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
+-		open-telemetry:opentelemetry-proto-go:v1.0.0:open_telemetry_opentelemetry_proto_go/vendor/go.opentelemetry.io/proto/otlp \
++		open-telemetry:opentelemetry-proto-go:v1.0.0:open_telemetry_opentelemetry_proto_go \
+ 		opentofu:registry-address:f1e51167f633:opentofu_registry_address/vendor/github.com/opentofu/registry-address \
+ 		packer-community:winrmcp:c76d91c1e7db:packer_community_winrmcp/vendor/github.com/packer-community/winrmcp \
+ 		pkg:browser:0426ae3fba23:pkg_browser/vendor/github.com/pkg/browser \
+@@ -230,6 +225,8 @@ post-extract:
+ 		#	::732eee02a75a:group_name/vendor/golang.org/x/exp/typeparams (from go.googlesource.com/exp@732eee02a75a)
+ 		# Errors found during processing:
+ post-extract:
++	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
++	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
+ 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute
+ 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute}/compute ${WRKSRC}/vendor/cloud.google.com/go/compute
+ 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/iam
+@@ -252,14 +249,11 @@ post-extract:
+ 	@${RLN} ${WRKSRC_azure_go_autorest_logger}/logger ${WRKSRC}/vendor/github.com/Azure/go-autorest/logger
+ 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/tracing
+ 	@${RLN} ${WRKSRC_azure_go_autorest_tracing}/tracing ${WRKSRC}/vendor/github.com/Azure/go-autorest/tracing
+-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2} ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2
+-	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/credentials
+-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_credentials}/credentials ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/credentials
+-	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/s3shared
+-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_s3shared}/service/internal/s3shared ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/s3shared
+-	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sso
+-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_sso}/service/sso ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sso
+-	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc
+-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_ssooidc}/service/ssooidc ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc
+ 	@${RM} -r ${WRKSRC}/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common
+ 	@${RLN} ${WRKSRC_tencentcloud_tencentcloud_sdk_go_common}/tencentcloud/common ${WRKSRC}/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common
++	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/exporters
++	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib}/exporters/autoexport ${WRKSRC}/vendor/go.opentelemetry.io/contrib/exporters/autoexport
++	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2
++	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib_1}/instrumentation/github.com/aws/aws-sdk-go-v2/otelaws ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2/otelaws
++	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/proto
++	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_proto_go}/otlp ${WRKSRC}/vendor/go.opentelemetry.io/proto/otlp

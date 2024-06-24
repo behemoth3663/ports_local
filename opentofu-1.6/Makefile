@@ -1,8 +1,9 @@
 PORTNAME=	opentofu
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.7.2
-PORTREVISION=	1
+DISTVERSION=	1.6.2
+#PORTREVISION=	2
 CATEGORIES=	local sysutils
+PKGNAMESUFFIX?=	-${PORTVERSION:R}
 
 MAINTAINER=	bofh@FreeBSD.org
 COMMENT=	Tool for building, changing, and versioning infrastructure
@@ -16,7 +17,8 @@ USES=		go:modules
 USE_GITHUB=	yes
 GH_ACCOUNT=	opentofu
 
-PLIST_FILES=	bin/tofu
+PLIST_FILES=	bin/tofu${PKGNAMESUFFIX} \
+		bin/tofu-${PORTVERSION}
 
 GO_TARGET=	./cmd/tofu
 
@@ -32,9 +34,9 @@ pre-extract: .PHONY .SILENT
 #post-patch: .PHONY .SILENT
 #	${RM} ${WRKSRC}/cmd/tofu/telemetry.go ${WRKSRC}/internal/command/telemetry.go ${WRKSRC}/vendor/github.com/hashicorp/aws-sdk-go-base/v2/logging/attributes.go
 
-#post-install: .PHONY
-#	${MV} ${STAGEDIR}${PREFIX}/bin/${PORTNAME} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION}
-#	${INSTALL} -l rs ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}${PKGNAMESUFFIX}
+post-install: .PHONY
+	${MV} ${STAGEDIR}${PREFIX}/bin/tofu ${STAGEDIR}${PREFIX}/bin/tofu-${PORTVERSION}
+	${INSTALL} -l rs ${STAGEDIR}${PREFIX}/bin/tofu-${PORTVERSION} ${STAGEDIR}${PREFIX}/bin/tofu${PKGNAMESUFFIX}
 
 pre-deps: .PHONY
 .if 0
