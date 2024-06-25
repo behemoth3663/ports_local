@@ -62,13 +62,13 @@ GH_TUPLE=	\
 		golang:text:v0.15.0:golang_text/vendor/golang.org/x/text \
 		google:certificate-transparency-go:v1.1.8:google_certificate_transparency_go/vendor/github.com/google/certificate-transparency-go \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
-		google:go-containerregistry:v0.19.1:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
-		google:go-genproto:94a12d6c2237:google_go_genproto_rpc \
-		google:go-genproto:c811ad7063a7:google_go_genproto_api \
+		google:go-containerregistry:v0.19.2:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
+		google:go-genproto:94a12d6c2237:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/rpc \
+		google:go-genproto:c811ad7063a7:google_go_genproto/vendor/google.golang.org/genproto/googleapis/api \
 		google:shlex:e7afc7fbc510:google_shlex/vendor/github.com/google/shlex \
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
 		gorilla:css:v1.0.0:gorilla_css/vendor/github.com/gorilla/css \
-		gorilla:websocket:v1.5.2:gorilla_websocket/vendor/github.com/gorilla/websocket \
+		gorilla:websocket:v1.5.3:gorilla_websocket/vendor/github.com/gorilla/websocket \
 		grpc:grpc-go:v1.62.2:grpc_grpc_go/vendor/google.golang.org/grpc \
 		h2non:gock:v1.1.2:h2non_gock/vendor/gopkg.in/h2non/gock.v1 \
 		h2non:parth:b4df798d6542:h2non_parth/vendor/github.com/h2non/parth \
@@ -137,7 +137,7 @@ GH_TUPLE=	\
 		sourcegraph:conc:v0.3.0:sourcegraph_conc/vendor/github.com/sourcegraph/conc \
 		spf13:afero:v1.11.0:spf13_afero/vendor/github.com/spf13/afero \
 		spf13:cast:v1.6.0:spf13_cast/vendor/github.com/spf13/cast \
-		spf13:cobra:v1.8.0:spf13_cobra/vendor/github.com/spf13/cobra \
+		spf13:cobra:v1.8.1:spf13_cobra/vendor/github.com/spf13/cobra \
 		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
 		spf13:viper:v1.18.2:spf13_viper/vendor/github.com/spf13/viper \
 		stretchr:objx:v0.5.2:stretchr_objx/vendor/github.com/stretchr/objx \
@@ -154,8 +154,3 @@ GH_TUPLE=	\
 		yuin:goldmark-emoji:v1.0.2:yuin_goldmark_emoji/vendor/github.com/yuin/goldmark-emoji \
 		yuin:goldmark:v1.5.4:yuin_goldmark/vendor/github.com/yuin/goldmark \
 		zalando:go-keyring:v0.2.5:zalando_go_keyring/vendor/github.com/zalando/go-keyring
-
-post-extract: .PHONY
-	@${MKDIR} ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
-	@${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/rpc
-	@${RLN} ${WRKSRC_google_go_genproto_api}/googleapis/api ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/api

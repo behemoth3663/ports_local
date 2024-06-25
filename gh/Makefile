@@ -1,5 +1,5 @@
 PORTNAME=	gh
-PORTVERSION=	2.51.0
+PORTVERSION=	2.52.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -50,8 +50,19 @@ pre-deps pre-deps-all post-deps-all: .PHONY
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 
-#-		moby:moby:v0.7.0:moby_moby_1/vendor/github.com/docker/docker-credential-helpers
-#+		docker:docker-credential-helpers:v0.7.0:docker_docker_credential_helpers/vendor/github.com/docker/docker-credential-helpers
+#-moby:moby:v0.7.0:moby_moby_1/vendor/github.com/docker/docker-credential-helpers
+#+docker:docker-credential-helpers:v0.7.0:docker_docker_credential_helpers/vendor/github.com/docker/docker-credential-helpers
 GH_TUPLE:=	${GH_TUPLE:C|^moby:moby(:.*/docker-credential-helpers)$|docker:docker-credential-helpers\1|}
+
+#-google:go-genproto:94a12d6c2237:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/rpc
+#+google:go-genproto:94a12d6c2237:google_go_genproto_rpc
+#-google:go-genproto:c811ad7063a7:google_go_genproto/vendor/google.golang.org/genproto/googleapis/api
+#+google:go-genproto:c811ad7063a7:google_go_genproto_api
+GH_TUPLE:=	${GH_TUPLE:C|(:google_go_genproto).*/|\1_|}
+
+post-extract: .PHONY
+	@${MKDIR} ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
+	@${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/rpc
+	@${RLN} ${WRKSRC_google_go_genproto_api}/googleapis/api ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/api
 
 .include <bsd.port.mk>
