@@ -1,5 +1,5 @@
 GH_TUPLE=	\
-		aws:aws-sdk-go-v2:v1.27.0:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+		aws:aws-sdk-go-v2:v1.30.0:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
 		aws:smithy-go:v1.20.2:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		census-instrumentation:opencensus-go:v0.23.0:census_instrumentation_opencensus_go/vendor/go.opencensus.io \
 		census-instrumentation:opencensus-proto:v0.3.0:census_instrumentation_opencensus_proto/vendor/github.com/census-instrumentation/opencensus-proto \
@@ -43,7 +43,7 @@ GH_TUPLE=	\
 		sirupsen:logrus:v1.9.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
 		spf13:afero:v1.7.0:spf13_afero/vendor/github.com/spf13/afero \
 		spf13:cast:v1.4.1:spf13_cast/vendor/github.com/spf13/cast \
-		spf13:cobra:v1.8.0:spf13_cobra/vendor/github.com/spf13/cobra \
+		spf13:cobra:v1.8.1:spf13_cobra/vendor/github.com/spf13/cobra \
 		spf13:jwalterweatherman:v1.1.0:spf13_jwalterweatherman/vendor/github.com/spf13/jwalterweatherman \
 		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
 		spf13:viper:v1.10.1:spf13_viper/vendor/github.com/spf13/viper \
