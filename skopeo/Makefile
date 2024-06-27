@@ -1,5 +1,5 @@
 PORTNAME=	skopeo
-PORTVERSION=	1.14.0
+PORTVERSION=	1.15.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -18,11 +18,20 @@ GH_ACCOUNT=	containers
 
 PLIST_FILES=	bin/${PORTNAME}
 
-#-extldflags '-static' causes link error
+#-extldflags '-static' causes ld: error: unable to find library -lgpgme
 GO_BUILDFLAGS+=	-ldflags="-s -w"
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
+
+#-open-telemetry:opentelemetry-go-contrib:v0.45.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp
+#+open-telemetry:opentelemetry-go-contrib:instrumentation/net/http/otelhttp/v0.45.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp
+GH_TUPLE:=	${GH_TUPLE:C|^(open-telemetry:opentelemetry-go-contrib:)(.*/)(instrumentation/net/http/otelhttp)$|\1\3/\2\3|1}
+
+#-open-telemetry:opentelemetry-proto-go:v1.0.0:open_telemetry_opentelemetry_proto_go/vendor/go.opentelemetry.io/proto/otlp
+#+open-telemetry:opentelemetry-proto-go:otlp/v1.0.0:open_telemetry_opentelemetry_proto_go/vendor/go.opentelemetry.io/proto/otlp
+GH_TUPLE:=	${GH_TUPLE:C|^(open-telemetry:opentelemetry-proto-go:)(.*/)(otlp)$|\1\3/\2\3|1}
+
 .include <bsd.port.mk>
