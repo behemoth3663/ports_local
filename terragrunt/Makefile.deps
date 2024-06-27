@@ -47,7 +47,7 @@ GH_TUPLE=	\
 		dlclark:regexp2:v1.4.0:dlclark_regexp2/vendor/github.com/dlclark/regexp2 \
 		docker:cli:v24.0.0:docker_cli/vendor/github.com/docker/cli \
 		docker:go-units:v0.5.0:docker_go_units/vendor/github.com/docker/go-units \
-		fatih:color:v1.15.0:fatih_color/vendor/github.com/fatih/color \
+		fatih:color:v1.16.0:fatih_color/vendor/github.com/fatih/color \
 		fatih:structs:v1.1.0:fatih_structs/vendor/github.com/fatih/structs \
 		getsops:gopgagent:4d7ea76ff71a:getsops_gopgagent/vendor/github.com/getsops/gopgagent \
 		getsops:sops:v3.8.1:getsops_sops_v3/vendor/github.com/getsops/sops/v3 \
@@ -107,12 +107,12 @@ GH_TUPLE=	\
 		gruntwork-io:terratest:v0.41.0:gruntwork_io_terratest/vendor/github.com/gruntwork-io/terratest \
 		hashicorp:errwrap:v1.1.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
-		hashicorp:go-getter:v1.7.4:hashicorp_go_getter/vendor/github.com/hashicorp/go-getter \
+		hashicorp:go-getter:v1.7.5:hashicorp_go_getter/vendor/github.com/hashicorp/go-getter \
 		hashicorp:go-getter:v2.2.1:hashicorp_go_getter_v2/vendor/github.com/hashicorp/go-getter/v2 \
-		hashicorp:go-hclog:v1.5.0:hashicorp_go_hclog/vendor/github.com/hashicorp/go-hclog \
+		hashicorp:go-hclog:v1.6.3:hashicorp_go_hclog/vendor/github.com/hashicorp/go-hclog \
 		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
 		hashicorp:go-plugin:v1.4.10:hashicorp_go_plugin/vendor/github.com/hashicorp/go-plugin \
-		hashicorp:go-retryablehttp:v0.7.1:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
+		hashicorp:go-retryablehttp:v0.7.7:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
 		hashicorp:go-rootcerts:v1.0.2:hashicorp_go_rootcerts/vendor/github.com/hashicorp/go-rootcerts \
 		hashicorp:go-safetemp:v1.0.0:hashicorp_go_safetemp/vendor/github.com/hashicorp/go-safetemp \
 		hashicorp:go-secure-stdlib:parseutil/v0.1.6:hashicorp_go_secure_stdlib_parseutil \
@@ -211,6 +211,8 @@ GH_TUPLE=	\
 		zclconf:go-cty-yaml:v1.0.3:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
 		zclconf:go-cty:v1.14.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 		# Errors found during processing:
+		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
+#}
 		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
 #}
 post-extract:
