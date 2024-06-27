@@ -1,0 +1,3 @@
+Wstunnel uses the websocket protocol which is compatible with http in order
+to bypass firewalls and proxies. Wstunnel allows you to tunnel whatever
+traffic you want and access whatever resources/site you need.
