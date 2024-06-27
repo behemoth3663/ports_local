@@ -4,7 +4,7 @@ GH_TUPLE=	\
 		Masterminds:sprig:v3.2.3:masterminds_sprig_v3/vendor/github.com/Masterminds/sprig/v3 \
 		ProtonMail:go-crypto:v1.1.0-alpha.2:protonmail_go_crypto/vendor/github.com/ProtonMail/go-crypto \
 		agext:levenshtein:v1.2.2:agext_levenshtein/vendor/github.com/agext/levenshtein \
-		algolia:algoliasearch-client-go:v3.31.1:algolia_algoliasearch_client_go_v3/vendor/github.com/algolia/algoliasearch-client-go/v3 \
+		algolia:algoliasearch-client-go:v3.31.2:algolia_algoliasearch_client_go_v3/vendor/github.com/algolia/algoliasearch-client-go/v3 \
 		antonmedv:expr:v1.10.5:antonmedv_expr/vendor/github.com/antonmedv/expr \
 		apparentlymart:go-textseg:v1.0.0:apparentlymart_go_textseg/vendor/github.com/apparentlymart/go-textseg \
 		apparentlymart:go-textseg:v15.0.0:apparentlymart_go_textseg_v15/vendor/github.com/apparentlymart/go-textseg/v15 \
@@ -48,11 +48,11 @@ GH_TUPLE=	\
 		hashicorp:hc-install:v0.7.0:hashicorp_hc_install/vendor/github.com/hashicorp/hc-install \
 		hashicorp:hcl-lang:0e930f47b31b:hashicorp_hcl_lang/vendor/github.com/hashicorp/hcl-lang \
 		hashicorp:hcl:v1.0.0:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
-		hashicorp:hcl:v2.20.1:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
+		hashicorp:hcl:v2.21.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
 		hashicorp:terraform-exec:v0.21.0:hashicorp_terraform_exec/vendor/github.com/hashicorp/terraform-exec \
 		hashicorp:terraform-json:v0.22.1:hashicorp_terraform_json/vendor/github.com/hashicorp/terraform-json \
 		hashicorp:terraform-registry-address:v0.2.3:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
-		hashicorp:terraform-schema:661c6794495e:hashicorp_terraform_schema/vendor/github.com/hashicorp/terraform-schema \
+		hashicorp:terraform-schema:d94934b4af36:hashicorp_terraform_schema/vendor/github.com/hashicorp/terraform-schema \
 		hashicorp:terraform-svchost:v0.1.1:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
 		huandu:xstrings:v1.4.0:huandu_xstrings/vendor/github.com/huandu/xstrings \
 		iancoleman:strcase:v0.2.0:iancoleman_strcase/vendor/github.com/iancoleman/strcase \
@@ -93,5 +93,5 @@ GH_TUPLE=	\
 		stretchr:testify:v1.9.0:stretchr_testify/vendor/github.com/stretchr/testify \
 		subosito:gotenv:v1.4.2:subosito_gotenv/vendor/github.com/subosito/gotenv \
 		vektra:mockery:v2.43.2:vektra_mockery_v2/vendor/github.com/vektra/mockery/v2 \
-		zclconf:go-cty-debug:b22d67c1ba0b:zclconf_go_cty_debug/vendor/github.com/zclconf/go-cty-debug \
+		zclconf:go-cty-debug:0d6042c53940:zclconf_go_cty_debug/vendor/github.com/zclconf/go-cty-debug \
 		zclconf:go-cty:v1.14.4:zclconf_go_cty/vendor/github.com/zclconf/go-cty
