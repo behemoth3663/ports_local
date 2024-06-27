@@ -154,9 +154,9 @@ GH_TUPLE=	\
 		spaolacci:murmur3:v1.1.0:spaolacci_murmur3/vendor/github.com/spaolacci/murmur3 \
 		streadway:amqp:v1.0.0:streadway_amqp/vendor/github.com/streadway/amqp \
 		streamdal:pgoutput:v0.3.3:streamdal_pgoutput/vendor/github.com/streamdal/pgoutput \
-		streamdal:streamdal:92190ae2ee7b:streamdal_streamdal_protos/vendor/github.com/streamdal/streamdal \
-		streamdal:streamdal:d49b56e809d3:streamdal_streamdal_go \
-		tetratelabs:wazero:v1.6.0:tetratelabs_wazero/vendor/github.com/tetratelabs/wazero \
+		streamdal:streamdal:7332862adfcb:streamdal_streamdal_protos/vendor/github.com/streamdal/streamdal \
+		streamdal:streamdal:e71de02ed0d5:streamdal_streamdal_go \
+		tetratelabs:wazero:v1.7.3:tetratelabs_wazero/vendor/github.com/tetratelabs/wazero \
 		tidwall:gjson:v1.9.3:tidwall_gjson/vendor/github.com/tidwall/gjson \
 		tidwall:match:v1.1.1:tidwall_match/vendor/github.com/tidwall/match \
 		tidwall:pretty:v1.2.0:tidwall_pretty/vendor/github.com/tidwall/pretty \
