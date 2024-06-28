@@ -1,7 +1,5 @@
-#
-
 PORTNAME=	kind
-PORTVERSION=	0.17.0
+PORTVERSION=	0.23.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -19,9 +17,10 @@ GH_ACCOUNT=	kubernetes-sigs
 
 PLIST_FILES=	bin/${PORTNAME}
 
-fetch-version: .PHONY get-version
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
+
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
-
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>

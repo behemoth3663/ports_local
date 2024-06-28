@@ -7,6 +7,7 @@ GH_TUPLE=	\
 		golang:sys:0f9fa26af87c:golang_sys/vendor/golang.org/x/sys \
 		google:safetext:b49f7bc46da2:google_safetext/vendor/github.com/google/safetext \
 		inconshreveable:mousetrap:v1.0.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
+		kr:text:v0.2.0:kr_text/vendor/github.com/kr/text \
 		kubernetes-sigs:yaml:v1.3.0:kubernetes_sigs_yaml/vendor/sigs.k8s.io/yaml \
 		mattn:go-isatty:v0.0.14:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
 		pelletier:go-toml:v1.9.4:pelletier_go_toml/vendor/github.com/pelletier/go-toml \
