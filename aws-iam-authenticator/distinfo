@@ -1,8 +1,8 @@
-TIMESTAMP = 1715712576
-SHA256 (kubernetes-sigs-aws-iam-authenticator-v0.6.20_GH0.tar.gz) = 8ae791d92aa2ccb21844bc4487d7ea041d1e0673e98ea63caa29fb4642c18839
-SIZE (kubernetes-sigs-aws-iam-authenticator-v0.6.20_GH0.tar.gz) = 191615
-SHA256 (aws-aws-sdk-go-v1.44.332_GH0.tar.gz) = a25d21a5e1e471812d999eae594768bbc42fa6fad5f3e1af84b08b19889e7525
-SIZE (aws-aws-sdk-go-v1.44.332_GH0.tar.gz) = 29227487
+TIMESTAMP = 1719780492
+SHA256 (kubernetes-sigs-aws-iam-authenticator-v0.6.21_GH0.tar.gz) = 0358a392f49fba10301815b41f97abe99ab9c0e26f4c1a93aca2051241575303
+SIZE (kubernetes-sigs-aws-iam-authenticator-v0.6.21_GH0.tar.gz) = 191363
+SHA256 (aws-aws-sdk-go-v1.54.6_GH0.tar.gz) = f902de812c9e693da3ab903d3c85e53665f24a57c024c44cf745f483490bd004
+SIZE (aws-aws-sdk-go-v1.54.6_GH0.tar.gz) = 33036935
 SHA256 (beorn7-perks-v1.0.1_GH0.tar.gz) = 98db84bb0224a26094e6adba91b7ee7a1a7ace28cb648d818f8e779e6a19f825
 SIZE (beorn7-perks-v1.0.1_GH0.tar.gz) = 10867
 SHA256 (blang-semver-v4.0.0_GH0.tar.gz) = 873e979323df6060cb4f843bc920f07fa59c05002359bf5d4a3311c8911f6640

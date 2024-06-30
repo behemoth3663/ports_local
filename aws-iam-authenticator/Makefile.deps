@@ -1,5 +1,5 @@
 GH_TUPLE=	\
-		aws:aws-sdk-go:v1.44.332:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		aws:aws-sdk-go:v1.54.6:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
 		beorn7:perks:v1.0.1:beorn7_perks/vendor/github.com/beorn7/perks \
 		blang:semver:v4.0.0:blang_semver_v4/vendor/github.com/blang/semver \
 		cespare:xxhash:v2.2.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
