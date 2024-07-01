@@ -1,10 +1,10 @@
-TIMESTAMP = 1719419202
-SHA256 (omegion-ssh-manager-v1.12.3_GH0.tar.gz) = 4c7b7f874e71ef73b9e05978200675c7845ba02ada0d2c1349dce95073b50934
-SIZE (omegion-ssh-manager-v1.12.3_GH0.tar.gz) = 55897
-SHA256 (aws-aws-sdk-go-v2-v1.30.0_GH0.tar.gz) = da53dee278f9315af4bd6675b3234a7d38d76fbbcc377a4dbe0129f42e6a0fc3
-SIZE (aws-aws-sdk-go-v2-v1.30.0_GH0.tar.gz) = 46631692
-SHA256 (aws-smithy-go-v1.20.2_GH0.tar.gz) = c820eccd3fac30f58c88f998f13335898e789912952263ba26dc5bc9643fc61c
-SIZE (aws-smithy-go-v1.20.2_GH0.tar.gz) = 416390
+TIMESTAMP = 1719851399
+SHA256 (omegion-ssh-manager-v1.12.4_GH0.tar.gz) = 79b738aaa175a332ad8bfcfd188a0d3f4025681c0944d3ad073bb0b85d9a4574
+SIZE (omegion-ssh-manager-v1.12.4_GH0.tar.gz) = 57437
+SHA256 (aws-aws-sdk-go-v2-v1.30.1_GH0.tar.gz) = 3b55f2bc1fd3876032f56c67960ae5c788daa71740dd5065232fac9f77306b68
+SIZE (aws-aws-sdk-go-v2-v1.30.1_GH0.tar.gz) = 46764286
+SHA256 (aws-smithy-go-v1.20.3_GH0.tar.gz) = 7a409cd74ffb0d15eaef12922bab143698ebdbd743e390c8fb48cee44165407f
+SIZE (aws-smithy-go-v1.20.3_GH0.tar.gz) = 420879
 SHA256 (census-instrumentation-opencensus-go-v0.23.0_GH0.tar.gz) = cc9dc0234de1baacf1855cf19615b381ca2f2adb83a2871e7a9b8b74e46818cf
 SIZE (census-instrumentation-opencensus-go-v0.23.0_GH0.tar.gz) = 176498
 SHA256 (census-instrumentation-opencensus-proto-v0.3.0_GH0.tar.gz) = b7e13f0b4259e80c3070b583c2f39e53153085a6918718b1c710caf7037572b0

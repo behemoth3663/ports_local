@@ -1,30 +1,27 @@
---- Makefile.deps.orig	2024-06-26 16:18:23 UTC
+--- Makefile.deps.orig	2024-07-01 16:27:18 UTC
 +++ Makefile.deps
-@@ -1,14 +1,8 @@ GH_TUPLE=	\
+@@ -1,13 +1,8 @@ GH_TUPLE=	\
  GH_TUPLE=	\
--		aws:aws-sdk-go-v2:v1.11.2:aws_aws_sdk_go_v2_accept_encoding \
--		aws:aws-sdk-go-v2:v1.16.8:aws_aws_sdk_go_v2_imds \
--		aws:aws-sdk-go-v2:v1.21.1:aws_aws_sdk_go_v2_sso \
--		aws:aws-sdk-go-v2:v1.25.1:aws_aws_sdk_go_v2_ssooidc \
--		aws:aws-sdk-go-v2:v1.30.0:aws_aws_sdk_go_v2 \
+-		aws:aws-sdk-go-v2:v1.16.9:aws_aws_sdk_go_v2_imds \
+-		aws:aws-sdk-go-v2:v1.22.1:aws_aws_sdk_go_v2_sso \
+-		aws:aws-sdk-go-v2:v1.26.1:aws_aws_sdk_go_v2_ssooidc \
+-		aws:aws-sdk-go-v2:v1.30.1:aws_aws_sdk_go_v2 \
 -		aws:aws-sdk-go-v2:v1.8.0:aws_aws_sdk_go_v2_ini/vendor/github.com/aws/aws-sdk-go-v2 \
-+		aws:aws-sdk-go-v2:v1.30.0:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
- 		aws:smithy-go:v1.20.2:aws_smithy_go/vendor/github.com/aws/smithy-go \
++		aws:aws-sdk-go-v2:v1.30.1:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+ 		aws:smithy-go:v1.20.3:aws_smithy_go/vendor/github.com/aws/smithy-go \
  		census-instrumentation:opencensus-go:v0.23.0:census_instrumentation_opencensus_go/vendor/go.opencensus.io \
  		census-instrumentation:opencensus-proto:v0.3.0:census_instrumentation_opencensus_proto/vendor/github.com/census-instrumentation/opencensus-proto \
 -		cespare:xxhash:v2.1.2:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
  		cncf:udpa:04548b0d99d4:cncf_udpa_go/vendor/github.com/cncf/udpa \
  		cncf:xds:d92e9ce0af51:cncf_xds_go/vendor/github.com/cncf/xds \
  		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
-@@ -61,12 +55,3 @@ post-extract:
+@@ -62,10 +57,3 @@ post-extract:
  post-extract:
  	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
  	@${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go/storage
 -	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2} ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2
 -	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds
 -	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_imds}/feature/ec2/imds ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds
--	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding
--	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_accept_encoding}/service/internal/accept-encoding ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding
 -	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sso
 -	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_sso}/service/sso ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sso
 -	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc
