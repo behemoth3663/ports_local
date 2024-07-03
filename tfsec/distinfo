@@ -1,6 +1,6 @@
-TIMESTAMP = 1719560651
-SHA256 (aquasecurity-tfsec-v1.28.9_GH0.tar.gz) = 03d61e1419440bcb989c1a2afce3ed32c449bd8b6ea9811532be41c95d676514
-SIZE (aquasecurity-tfsec-v1.28.9_GH0.tar.gz) = 6544283
+TIMESTAMP = 1719987722
+SHA256 (aquasecurity-tfsec-v1.28.10_GH0.tar.gz) = 7eb194c8e489f198126a3e322e8b4a43226a50e544c43b6aefb6f6c4ae836e21
+SIZE (aquasecurity-tfsec-v1.28.10_GH0.tar.gz) = 6544318
 SHA256 (AlecAivazis-survey-v2.3.6_GH0.tar.gz) = 625a234986f6a91a09ca25e88b907d29af1ea1df7601c38b1b79937571f209ee
 SIZE (AlecAivazis-survey-v2.3.6_GH0.tar.gz) = 1466064
 SHA256 (Masterminds-semver-v1.5.0_GH0.tar.gz) = c9140eddfb03dc862f826e7761561260b9a840afa7519cc0919e89a43b5be5ba
