@@ -1,10 +1,10 @@
 module session-manager-plugin
 
-go 1.22.4
+go 1.22.5
 
 require (
-	github.com/aws/aws-sdk-go v1.54.6
-	github.com/aws/session-manager-plugin v0.0.0-20240530222249-fd06e151e356
+	github.com/aws/aws-sdk-go v1.54.13
+	github.com/aws/session-manager-plugin v0.0.0-20240702185740-6384c679ead7
 	github.com/cihub/seelog v0.0.0-20170130134532-f561c5e57575
 	github.com/eiannone/keyboard v0.0.0-20220611211555-0d226195f203
 	github.com/fsnotify/fsnotify v1.7.0

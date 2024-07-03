@@ -1,6 +1,6 @@
 GH_TUPLE=	\
-		aws:aws-sdk-go:v1.54.6:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
-		aws:session-manager-plugin:fd06e151e356:aws_session_manager_plugin/vendor/github.com/aws/session-manager-plugin \
+		aws:aws-sdk-go:v1.54.13:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		aws:session-manager-plugin:6384c679ead7:aws_session_manager_plugin/vendor/github.com/aws/session-manager-plugin \
 		cihub:seelog:f561c5e57575:cihub_seelog/vendor/github.com/cihub/seelog \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		eiannone:keyboard:0d226195f203:eiannone_keyboard/vendor/github.com/eiannone/keyboard \
