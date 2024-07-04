@@ -1,0 +1,13 @@
+TIMESTAMP = 1720077522
+SHA256 (google-yamlfmt-v0.13.0_GH0.tar.gz) = 79117ece08bd4175a88a1ec9fed703a10d1573750fe73c6e212d9c62b96e2369
+SIZE (google-yamlfmt-v0.13.0_GH0.tar.gz) = 43334
+SHA256 (bmatcuk-doublestar-v4.6.0_GH0.tar.gz) = 13186faa3a6d5dffb0fe46d522a53587b827947f0129c7086cc9d726b9ec95ff
+SIZE (bmatcuk-doublestar-v4.6.0_GH0.tar.gz) = 26642
+SHA256 (braydonk-yaml-v0.7.0_GH0.tar.gz) = 581790f9b87b2cab9147e1d408a4aca27aeb337966d2d7256cb3e3668f300a81
+SIZE (braydonk-yaml-v0.7.0_GH0.tar.gz) = 94297
+SHA256 (google-go-cmp-v0.5.9_GH0.tar.gz) = 41a074c2fcfc72f813736f8ca8e3116e260a6b79af407d9da0d4c5e4c3f61acf
+SIZE (google-go-cmp-v0.5.9_GH0.tar.gz) = 104427
+SHA256 (mitchellh-mapstructure-v1.5.0_GH0.tar.gz) = 81106cbac93000812c194b4a2069dd32913ec18819b1e99e8436595ce4939413
+SIZE (mitchellh-mapstructure-v1.5.0_GH0.tar.gz) = 30123
+SHA256 (sabhiram-go-gitignore-525f6e181f06_GH0.tar.gz) = 25e92ba6f537237bf7889fc86328f01c5a2f14ef92d1050a7bd921b14c76353e
+SIZE (sabhiram-go-gitignore-525f6e181f06_GH0.tar.gz) = 8886
