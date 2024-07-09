@@ -1,10 +1,10 @@
---- Makefile.deps.orig	2024-06-27 18:02:37 UTC
+--- Makefile.deps.orig	2024-07-09 19:13:19 UTC
 +++ Makefile.deps
 @@ -22,12 +22,9 @@ GH_TUPLE=	\
  		asaskevich:govalidator:f61b66f89f4a:asaskevich_govalidator/vendor/github.com/asaskevich/govalidator \
  		atomicgo:cursor:v0.0.1:atomicgo_cursor/vendor/github.com/atomicgo/cursor \
  		atotto:clipboard:v0.1.4:atotto_clipboard/vendor/github.com/atotto/clipboard \
--		aws:aws-sdk-go-v2:e155bb72a2ec:aws_aws_sdk_go_v2_imds \
+-		aws:aws-sdk-go-v2:e155bb72a2ec:aws_aws_sdk_go_v2_sso \
 -		aws:aws-sdk-go-v2:v1.17.2:aws_aws_sdk_go_v2_ssooidc/vendor/github.com/aws/aws-sdk-go-v2 \
 -		aws:aws-sdk-go-v2:v1.21.1:aws_aws_sdk_go_v2 \
 -		aws:aws-sdk-go-v2:v1.23.1:aws_aws_sdk_go_v2_sts \
@@ -24,13 +24,13 @@
  		opencontainers:image-spec:v1.1.0-rc3:opencontainers_image_spec/vendor/github.com/opencontainers/image-spec \
  		opencontainers:runc:v1.1.12:opencontainers_runc/vendor/github.com/opencontainers/runc \
  		owenrumney:go-sarif:v1.1.1:owenrumney_go_sarif/vendor/github.com/owenrumney/go-sarif \
-@@ -235,12 +232,9 @@ post-extract:
+@@ -231,12 +228,9 @@ post-extract:
  	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_internal}/sdk/internal ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/internal
  	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/internal
  	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_internal_1}/sdk/security/keyvault/internal ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/internal
 -	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2} ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2
--	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds
--	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_imds}/feature/ec2/imds ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds
+-	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sso
+-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_sso}/service/sso ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sso
 -	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sts
 -	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_sts}/service/sts ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sts
  	@${RM} -r ${WRKSRC}/vendor/github.com/hashicorp/go-secure-stdlib/parseutil
