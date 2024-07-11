@@ -72,20 +72,20 @@ GH_TUPLE=	\
 		gogo:protobuf:v1.3.2:gogo_protobuf/vendor/github.com/gogo/protobuf \
 		golang-jwt:jwt:v4.5.0:golang_jwt_jwt_v4/vendor/github.com/golang-jwt/jwt/v4 \
 		golang:appengine:v1.6.8:golang_appengine/vendor/google.golang.org/appengine \
-		golang:crypto:v0.24.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:exp:7f521ea00fb8:golang_exp/vendor/golang.org/x/exp \
+		golang:crypto:v0.25.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:exp:46b078467d37:golang_exp/vendor/golang.org/x/exp \
 		golang:groupcache:41bb18bfe9da:golang_groupcache/vendor/github.com/golang/groupcache \
 		golang:mock:v1.6.0:golang_mock/vendor/github.com/golang/mock \
-		golang:mod:v0.18.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.26.0:golang_net/vendor/golang.org/x/net \
+		golang:mod:v0.19.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.27.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.11.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:sync:v0.7.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.21.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.21.0:golang_term/vendor/golang.org/x/term \
+		golang:sys:v0.22.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.22.0:golang_term/vendor/golang.org/x/term \
 		golang:text:v0.16.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.3.0:golang_time/vendor/golang.org/x/time \
-		golang:tools:v0.22.0:golang_tools/vendor/golang.org/x/tools \
+		golang:tools:v0.23.0:golang_tools/vendor/golang.org/x/tools \
 		golang:xerrors:04be3eba64a2:golang_xerrors/vendor/golang.org/x/xerrors \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-genproto:b8732ec3820d:google_go_genproto/vendor/google.golang.org/genproto \
@@ -212,7 +212,7 @@ GH_TUPLE=	\
 		tencentcloud:tencentcloud-sdk-go:v1.0.588:tencentcloud_tencentcloud_sdk_go_common \
 		tencentyun:cos-go-sdk-v5:v0.7.29:tencentyun_cos_go_sdk_v5/vendor/github.com/tencentyun/cos-go-sdk-v5 \
 		thanhpk:randstr:v1.0.6:thanhpk_randstr/vendor/github.com/thanhpk/randstr \
-		thlib:go-timezone-local:v0.0.2:thlib_go_timezone_local/vendor/github.com/thlib/go-timezone-local \
+		thlib:go-timezone-local:v0.0.3:thlib_go_timezone_local/vendor/github.com/thlib/go-timezone-local \
 		tombuildsstuff:giovanni:v0.15.1:tombuildsstuff_giovanni/vendor/github.com/tombuildsstuff/giovanni \
 		ulikunitz:xz:v0.5.10:ulikunitz_xz/vendor/github.com/ulikunitz/xz \
 		vmihailenco:msgpack:v5.3.5:vmihailenco_msgpack_v5/vendor/github.com/vmihailenco/msgpack/v5 \
@@ -223,7 +223,7 @@ GH_TUPLE=	\
 		zclconf:go-cty-yaml:v1.0.3:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
 		zclconf:go-cty:v1.14.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
-		#	::7f521ea00fb8:group_name/vendor/golang.org/x/exp/typeparams (from go.googlesource.com/exp@7f521ea00fb8)
+		#	::46b078467d37:group_name/vendor/golang.org/x/exp/typeparams (from go.googlesource.com/exp@46b078467d37)
 		# Errors found during processing:
 post-extract:
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
