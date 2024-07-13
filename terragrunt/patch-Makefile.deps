@@ -1,10 +1,9 @@
---- Makefile.deps.orig	2024-07-09 19:13:19 UTC
+--- Makefile.deps.orig	2024-07-14 11:17:08 UTC
 +++ Makefile.deps
-@@ -22,12 +22,9 @@ GH_TUPLE=	\
+@@ -22,11 +22,9 @@ GH_TUPLE=	\
  		asaskevich:govalidator:f61b66f89f4a:asaskevich_govalidator/vendor/github.com/asaskevich/govalidator \
  		atomicgo:cursor:v0.0.1:atomicgo_cursor/vendor/github.com/atomicgo/cursor \
  		atotto:clipboard:v0.1.4:atotto_clipboard/vendor/github.com/atotto/clipboard \
--		aws:aws-sdk-go-v2:e155bb72a2ec:aws_aws_sdk_go_v2_sso \
 -		aws:aws-sdk-go-v2:v1.17.2:aws_aws_sdk_go_v2_ssooidc/vendor/github.com/aws/aws-sdk-go-v2 \
 -		aws:aws-sdk-go-v2:v1.21.1:aws_aws_sdk_go_v2 \
 -		aws:aws-sdk-go-v2:v1.23.1:aws_aws_sdk_go_v2_sts \
@@ -15,22 +14,31 @@
  		aymanbagabas:go-osc52:v2.0.1:aymanbagabas_go_osc52_v2/vendor/github.com/aymanbagabas/go-osc52/v2 \
  		aymerick:douceur:v0.2.0:aymerick_douceur/vendor/github.com/aymerick/douceur \
  		bgentry:go-netrc:9fd32a8b3d3d:bgentry_go_netrc/vendor/github.com/bgentry/go-netrc \
-@@ -172,7 +169,7 @@ GH_TUPLE=	\
- 		open-telemetry:opentelemetry-go:v1.22.0:open_telemetry_opentelemetry_go_3/vendor/go.opentelemetry.io/otel/exporters/stdout/stdouttrace \
- 		open-telemetry:opentelemetry-go:v1.23.0:open_telemetry_opentelemetry_go_1/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace \
- 		open-telemetry:opentelemetry-go:v1.23.1:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
+@@ -169,8 +167,8 @@ GH_TUPLE=	\
+ 		muesli:termenv:v0.15.2:muesli_termenv/vendor/github.com/muesli/termenv \
+ 		oklog:run:v1.1.0:oklog_run/vendor/github.com/oklog/run \
+ 		olekukonko:tablewriter:v0.0.5:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
+-		open-telemetry:opentelemetry-go-contrib:v0.49.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc \
+-		open-telemetry:opentelemetry-go-contrib:v0.49.0:open_telemetry_opentelemetry_go_contrib_1/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp \
++		open-telemetry:opentelemetry-go-contrib:instrumentation/google.golang.org/grpc/otelgrpc/v0.49.0:open_telemetry_opentelemetry_go_contrib \
++		open-telemetry:opentelemetry-go-contrib:instrumentation/net/http/otelhttp/v0.49.0:open_telemetry_opentelemetry_go_contrib_1 \
+ 		open-telemetry:opentelemetry-go:v1.22.0:open_telemetry_opentelemetry_go_4/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp \
+ 		open-telemetry:opentelemetry-go:v1.22.0:open_telemetry_opentelemetry_go_6/vendor/go.opentelemetry.io/otel/exporters/stdout/stdouttrace \
+ 		open-telemetry:opentelemetry-go:v1.23.0:open_telemetry_opentelemetry_go_3/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace \
+@@ -179,7 +177,7 @@ GH_TUPLE=	\
+ 		open-telemetry:opentelemetry-go:v1.23.1:open_telemetry_opentelemetry_go_5/vendor/go.opentelemetry.io/otel/exporters/stdout/stdoutmetric \
+ 		open-telemetry:opentelemetry-go:v1.23.1:open_telemetry_opentelemetry_go_7/vendor/go.opentelemetry.io/otel/sdk \
+ 		open-telemetry:opentelemetry-go:v1.24.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
 -		open-telemetry:opentelemetry-proto-go:v1.1.0:open_telemetry_opentelemetry_proto_go/vendor/go.opentelemetry.io/proto/otlp \
 +		open-telemetry:opentelemetry-proto-go:otlp/v1.1.0:open_telemetry_opentelemetry_proto_go \
  		opencontainers:image-spec:v1.1.0-rc3:opencontainers_image_spec/vendor/github.com/opencontainers/image-spec \
  		opencontainers:runc:v1.1.12:opencontainers_runc/vendor/github.com/opencontainers/runc \
  		owenrumney:go-sarif:v1.1.1:owenrumney_go_sarif/vendor/github.com/owenrumney/go-sarif \
-@@ -231,12 +228,9 @@ post-extract:
+@@ -238,10 +236,13 @@ post-extract:
  	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_internal}/sdk/internal ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/internal
  	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/internal
  	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_internal_1}/sdk/security/keyvault/internal ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/internal
 -	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2} ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2
--	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sso
--	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_sso}/service/sso ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sso
 -	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sts
 -	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_sts}/service/sts ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sts
  	@${RM} -r ${WRKSRC}/vendor/github.com/hashicorp/go-secure-stdlib/parseutil
@@ -39,3 +47,7 @@
  	@${RLN} ${WRKSRC_hashicorp_vault_api}/api ${WRKSRC}/vendor/github.com/hashicorp/vault/api
 +	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/proto
 +	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_proto_go}/otlp ${WRKSRC}/vendor/go.opentelemetry.io/proto
++	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc
++	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib}/instrumentation/google.golang.org/grpc/otelgrpc ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc
++	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/net/http
++	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib_1}/instrumentation/net/http/otelhttp ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp
