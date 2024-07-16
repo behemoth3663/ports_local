@@ -1,9 +1,9 @@
 --- internal/walker/walker.go.orig	2023-10-12 15:35:06 UTC
 +++ internal/walker/walker.go
-@@ -15,10 +15,6 @@ import (
+@@ -14,10 +14,6 @@ import (
+ 
  	"github.com/hashicorp/terraform-ls/internal/document"
- 	"github.com/hashicorp/terraform-ls/internal/job"
- 	"github.com/hashicorp/terraform-ls/internal/terraform/ast"
+ 	"github.com/hashicorp/terraform-ls/internal/eventbus"
 -	"go.opentelemetry.io/otel"
 -	"go.opentelemetry.io/otel/attribute"
 -	"go.opentelemetry.io/otel/codes"
@@ -11,7 +11,7 @@
  )
  
  var (
-@@ -111,7 +107,7 @@ func (w *Walker) StartWalking(ctx context.Context) err
+@@ -100,7 +96,7 @@ func (w *Walker) StartWalking(ctx context.Context) err
  
  	go func() {
  		for {
@@ -20,7 +20,7 @@
  			if err != nil {
  				if errors.Is(err, context.Canceled) {
  					return
-@@ -121,35 +117,17 @@ func (w *Walker) StartWalking(ctx context.Context) err
+@@ -110,35 +106,17 @@ func (w *Walker) StartWalking(ctx context.Context) err
  				return
  			}
  
@@ -55,3 +55,4 @@
 -				span.End()
  				continue
  			}
+ 
