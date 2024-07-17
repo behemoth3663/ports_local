@@ -1,6 +1,6 @@
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.62.1
+DISTVERSION=	0.62.3
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
 
@@ -39,16 +39,16 @@ pre-post-extract: .PHONY
 #	fi
 
 pre-deps: .PHONY
-	if [ -d '${PATCHDIR}_' ]; then \
-		${RM} -r -- ${PATCHDIR}; \
-	else \
-		${MV} ${PATCHDIR} ${PATCHDIR}_; \
-	fi
+#	if [ -d '${PATCHDIR}_' ]; then \
+#		${RM} -r -- ${PATCHDIR}; \
+#	else \
+#		${MV} ${PATCHDIR} ${PATCHDIR}_; \
+#	fi
 
 pre-deps-all: .PHONY
 
 post-deps-all: .PHONY
-	test ! -d '${PATCHDIR}_' || ${MV} ${PATCHDIR}_ ${PATCHDIR}
+#	test ! -d '${PATCHDIR}_' || ${MV} ${PATCHDIR}_ ${PATCHDIR}
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
