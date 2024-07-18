@@ -1,6 +1,6 @@
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.62.3
+DISTVERSION=	0.63.0
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
 
@@ -28,27 +28,7 @@ pre-post-extract: .PHONY
 		${LN} -s "$${src}" "$${src%%go-commons-*}gruntwork-cli-$${src##*go-commons-}"; \
 	done
 
-#-		open-telemetry:opentelemetry-go:v1.23.1:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel
-#-		open-telemetry:opentelemetry-proto-go:v1.1.0:open_telemetry_opentelemetry_proto_go/vendor/go.opentelemetry.io/proto/otlp
-#GH_TUPLE:=	${GH_TUPLE:Nopen-telemetry\:opentelemetry-*}
-#post-patch: .PHONY .SILENT
-#	if cd ${PATCHDIR} 2>/dev/null; then \
-#		${FIND} . -mindepth 1 -maxdepth 1 -type d -print0 | \
-#		${TAR} --null --files-from - -cf- | \
-#		${TAR} -C ${WRKSRC} -xf-; \
-#	fi
-
-pre-deps: .PHONY
-#	if [ -d '${PATCHDIR}_' ]; then \
-#		${RM} -r -- ${PATCHDIR}; \
-#	else \
-#		${MV} ${PATCHDIR} ${PATCHDIR}_; \
-#	fi
-
-pre-deps-all: .PHONY
-
-post-deps-all: .PHONY
-#	test ! -d '${PATCHDIR}_' || ${MV} ${PATCHDIR}_ ${PATCHDIR}
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
