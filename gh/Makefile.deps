@@ -29,7 +29,7 @@ GH_TUPLE=	\
 		dlclark:regexp2:v1.4.0:dlclark_regexp2/vendor/github.com/dlclark/regexp2 \
 		docker:cli:v24.0.0:docker_cli/vendor/github.com/docker/cli \
 		docker:distribution:v2.8.2:docker_distribution/vendor/github.com/docker/distribution \
-		fatih:color:v1.14.1:fatih_color/vendor/github.com/fatih/color \
+		fatih:color:v1.16.0:fatih_color/vendor/github.com/fatih/color \
 		fsnotify:fsnotify:v1.7.0:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
 		gabriel-vasile:mimetype:v1.4.4:gabriel_vasile_mimetype/vendor/github.com/gabriel-vasile/mimetype \
 		gdamore:encoding:v1.0.0:gdamore_encoding/vendor/github.com/gdamore/encoding \
@@ -75,7 +75,7 @@ GH_TUPLE=	\
 		hashicorp:errwrap:v1.1.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
 		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
-		hashicorp:go-retryablehttp:v0.7.5:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
+		hashicorp:go-retryablehttp:v0.7.7:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
 		hashicorp:go-version:v1.3.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
 		hashicorp:hcl:v1.0.0:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
 		henvic:httpretty:v0.1.3:henvic_httpretty/vendor/github.com/henvic/httpretty \
@@ -126,7 +126,7 @@ GH_TUPLE=	\
 		sassoftware:relic:v7.2.1:sassoftware_relic/vendor/github.com/sassoftware/relic \
 		secure-systems-lab:go-securesystemslib:v0.8.0:secure_systems_lab_go_securesystemslib/vendor/github.com/secure-systems-lab/go-securesystemslib \
 		shibumi:go-pathspec:v1.3.0:shibumi_go_pathspec/vendor/github.com/shibumi/go-pathspec \
-		shurcooL:githubv4:599ae7bbf278:shurcool_githubv4/vendor/github.com/shurcooL/githubv4 \
+		shurcooL:githubv4:18a1ae0e79dc:shurcool_githubv4/vendor/github.com/shurcooL/githubv4 \
 		shurcooL:graphql:ed46e5a46466:shurcool_graphql/vendor/github.com/shurcooL/graphql \
 		sigstore:protobuf-specs:v0.3.2:sigstore_protobuf_specs/vendor/github.com/sigstore/protobuf-specs \
 		sigstore:rekor:v1.3.6:sigstore_rekor/vendor/github.com/sigstore/rekor \

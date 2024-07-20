@@ -1,5 +1,5 @@
 PORTNAME=	gh
-PORTVERSION=	2.52.0
+PORTVERSION=	2.53.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -62,7 +62,7 @@ GH_TUPLE:=	${GH_TUPLE:C|(:google_go_genproto).*/|\1_|}
 
 post-extract: .PHONY
 	@${MKDIR} ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
-	@${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/rpc
-	@${RLN} ${WRKSRC_google_go_genproto_api}/googleapis/api ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/api
+	@test -z '${WRKSRC_google_go_genproto_rpc}' || ${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/rpc
+	@test -z '${WRKSRC_google_go_genproto_api}' || ${RLN} ${WRKSRC_google_go_genproto_api}/googleapis/api ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/api
 
 .include <bsd.port.mk>
