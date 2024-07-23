@@ -94,4 +94,4 @@ GH_TUPLE=	\
 		subosito:gotenv:v1.4.2:subosito_gotenv/vendor/github.com/subosito/gotenv \
 		vektra:mockery:v2.43.2:vektra_mockery_v2/vendor/github.com/vektra/mockery/v2 \
 		zclconf:go-cty-debug:0d6042c53940:zclconf_go_cty_debug/vendor/github.com/zclconf/go-cty-debug \
-		zclconf:go-cty:v1.14.4:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+		zclconf:go-cty:v1.15.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
