@@ -1,6 +1,6 @@
-TIMESTAMP = 1722168410
-SHA256 (tsenart-vegeta-v12.11.3_GH0.tar.gz) = 7106d7e81a03d32a58391b18921d69d54e710b9052b59fa4943c1b552500196f
-SIZE (tsenart-vegeta-v12.11.3_GH0.tar.gz) = 900031
+TIMESTAMP = 1722330442
+SHA256 (tsenart-vegeta-v12.12.0_GH0.tar.gz) = d756cbe93ccedab4519e27234640a7bcfb90efa24c63b21676b025faa62ba66e
+SIZE (tsenart-vegeta-v12.12.0_GH0.tar.gz) = 904728
 SHA256 (alecthomas-jsonschema-9eeeec9d044b_GH0.tar.gz) = d3c7bfe1af2a7d7d0a1c01544ba037e6f37505e27b5de721a6ace5297fb78ecb
 SIZE (alecthomas-jsonschema-9eeeec9d044b_GH0.tar.gz) = 18454
 SHA256 (beorn7-perks-v1.0.1_GH0.tar.gz) = 98db84bb0224a26094e6adba91b7ee7a1a7ace28cb648d818f8e779e6a19f825
