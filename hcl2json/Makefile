@@ -1,5 +1,5 @@
 PORTNAME=	hcl2json
-PORTVERSION=	0.6.3
+PORTVERSION=	0.6.4
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local textproc
 
@@ -21,6 +21,6 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' -X 'main.Version=${PORTVER
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.include "/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
