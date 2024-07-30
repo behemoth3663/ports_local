@@ -1,5 +1,5 @@
 PORTNAME=	terraform-ls
-PORTVERSION=	0.34.1
+PORTVERSION=	0.34.2
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local devel
 
@@ -10,7 +10,7 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 LICENSE=	MPL20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:1.22,modules
+USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	hashicorp
