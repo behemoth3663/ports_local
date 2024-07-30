@@ -1,0 +1,3 @@
+Golang command-line interface for JMESPath (pronounced "jaymz path"),
+an expression language for manipulating JSON, allowing users to declaratively
+specify how to extract elements from a JSON document.
