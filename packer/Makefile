@@ -1,5 +1,5 @@
 PORTNAME=	packer
-PORTVERSION=	1.11.1
+PORTVERSION=	1.11.2
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -40,6 +40,6 @@ pre-deps-all: .PHONY
 post-deps-all: .PHONY
 	test ! -d '${MASTERDIR}/files_' || ${MV} ${MASTERDIR}/files_ ${MASTERDIR}/files
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.include "/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>

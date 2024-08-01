@@ -1,6 +1,6 @@
-TIMESTAMP = 1720000294
-SHA256 (hashicorp-packer-v1.11.1_GH0.tar.gz) = 5173a05ea5508c3def0b154ad7ab6d092bac9ccd3536d7e85633197b7754cbb8
-SIZE (hashicorp-packer-v1.11.1_GH0.tar.gz) = 2351097
+TIMESTAMP = 1722503863
+SHA256 (hashicorp-packer-v1.11.2_GH0.tar.gz) = 8e795db6e3697fb261cfbaedf4033ea0dd326a9348cddd267183cfd83672169e
+SIZE (hashicorp-packer-v1.11.2_GH0.tar.gz) = 2355788
 SHA256 (Azure-go-ntlmssp-66371956d46c_GH0.tar.gz) = 24b46602ef1adae845ec6938550d14ce9a93b4f2171201af0a29da421b611139
 SIZE (Azure-go-ntlmssp-66371956d46c_GH0.tar.gz) = 8131
 SHA256 (ChrisTrenkamp-goxpath-97928f7e12b6_GH0.tar.gz) = a149c256979add27201eff0f084bdded3ffb3cfe2ebe49c4af1284752018bebc
