@@ -1,7 +1,7 @@
 PORTNAME=	s5cmd
 PORTVERSION=	2.2.2
 DISTVERSIONPREFIX=	v
-PORTREVISION=	7
+PORTREVISION=	8
 CATEGORIES=	local net
 
 MAINTAINER=	none@freebsd.org
@@ -31,6 +31,6 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.include "/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>

@@ -1,7 +1,7 @@
 PORTNAME=	gosec
 PORTVERSION=	2.20.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	2
+PORTREVISION=	3
 CATEGORIES=	local devel security
 
 MAINTAINER=	none@freebsd.org
@@ -35,6 +35,6 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.include "/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>

@@ -1,50 +1,127 @@
---- Makefile.deps.orig	2024-07-27 10:54:45 UTC
+--- Makefile.deps.orig	2024-08-09 14:04:06 UTC
 +++ Makefile.deps
-@@ -21,10 +21,7 @@ GH_TUPLE=	\
+@@ -1,11 +1,12 @@ GH_TUPLE=	\
+ GH_TUPLE=	\
+ 		AlecAivazis:survey:v2.3.4:alecaivazis_survey_v2/vendor/github.com/AlecAivazis/survey/v2 \
+-		Azure:azure-sdk-for-go:v1.0.1:azure_azure_sdk_for_go_internal_1/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/internal \
+-		Azure:azure-sdk-for-go:v1.1.0:azure_azure_sdk_for_go_azkeys/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azkeys \
+-		Azure:azure-sdk-for-go:v1.10.0:azure_azure_sdk_for_go_internal/vendor/github.com/Azure/azure-sdk-for-go/sdk/internal \
+-		Azure:azure-sdk-for-go:v1.13.0:azure_azure_sdk_for_go_azcore/vendor/github.com/Azure/azure-sdk-for-go/sdk/azcore \
+-		Azure:azure-sdk-for-go:v1.7.0:azure_azure_sdk_for_go_azidentity/vendor/github.com/Azure/azure-sdk-for-go/sdk/azidentity \
++		Azure:azure-sdk-for-go:sdk/security/keyvault/internal/v1.0.1:azure_azure_sdk_for_go_internal_1 \
++		Azure:azure-sdk-for-go:sdk/security/keyvault/azkeys/v1.1.0:azure_azure_sdk_for_go_azkeys \
++		Azure:azure-sdk-for-go:sdk/internal/v1.10.0:azure_azure_sdk_for_go_internal \
++		Azure:azure-sdk-for-go:sdk/azcore/v1.13.0:azure_azure_sdk_for_go_azcore/vendor/github.com/Azure/azure-sdk-for-go \
++		Azure:azure-sdk-for-go:sdk/azidentity/v1.7.0:azure_azure_sdk_for_go_azidentity \
+ 		AzureAD:microsoft-authentication-library-for-go:v1.2.2:azuread_microsoft_authentication_library_for_go/vendor/github.com/AzureAD/microsoft-authentication-library-for-go \
++		FiloSottile:age:v1.2.0:filosottile_age/vendor/filippo.io/age \
+ 		Masterminds:goutils:v1.1.1:masterminds_goutils/vendor/github.com/Masterminds/goutils \
+ 		Masterminds:semver:v3.2.1:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
+ 		Masterminds:sprig:v3.2.3:masterminds_sprig_v3/vendor/github.com/Masterminds/sprig/v3 \
+@@ -20,25 +21,7 @@ GH_TUPLE=	\
  		asaskevich:govalidator:f61b66f89f4a:asaskevich_govalidator/vendor/github.com/asaskevich/govalidator \
  		atomicgo:cursor:v0.0.1:atomicgo_cursor/vendor/github.com/atomicgo/cursor \
  		atotto:clipboard:v0.1.4:atotto_clipboard/vendor/github.com/atotto/clipboard \
--		aws:aws-sdk-go-v2:v1.16.11:aws_aws_sdk_go_v2_imds \
--		aws:aws-sdk-go-v2:v1.17.1:aws_aws_sdk_go_v2_manager \
--		aws:aws-sdk-go-v2:v1.30.3:aws_aws_sdk_go_v2 \
--		aws:aws-sdk-go-v2:v1.8.0:aws_aws_sdk_go_v2_ini/vendor/github.com/aws/aws-sdk-go-v2 \
-+		aws:aws-sdk-go-v2:v1.30.3:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+-		aws:aws-sdk-go-v2:v1.11.17:aws_aws_sdk_go_v2_presigned_url/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url \
+-		aws:aws-sdk-go-v2:v1.11.3:aws_aws_sdk_go_v2_accept_encoding/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding \
+-		aws:aws-sdk-go-v2:v1.16.11:aws_aws_sdk_go_v2_imds/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds \
+-		aws:aws-sdk-go-v2:v1.17.12:aws_aws_sdk_go_v2_s3shared/vendor/github.com/aws/aws-sdk-go-v2/service/internal/s3shared \
+-		aws:aws-sdk-go-v2:v1.17.1:aws_aws_sdk_go_v2_manager/vendor/github.com/aws/aws-sdk-go-v2/feature/s3/manager \
+-		aws:aws-sdk-go-v2:v1.17.27:aws_aws_sdk_go_v2_credentials/vendor/github.com/aws/aws-sdk-go-v2/credentials \
+-		aws:aws-sdk-go-v2:v1.22.4:aws_aws_sdk_go_v2_sso/vendor/github.com/aws/aws-sdk-go-v2/service/sso \
+-		aws:aws-sdk-go-v2:v1.26.4:aws_aws_sdk_go_v2_ssooidc/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc \
+-		aws:aws-sdk-go-v2:v1.27.27:aws_aws_sdk_go_v2_config/vendor/github.com/aws/aws-sdk-go-v2/config \
+-		aws:aws-sdk-go-v2:v1.3.12:aws_aws_sdk_go_v2_v4a/vendor/github.com/aws/aws-sdk-go-v2/internal/v4a \
+-		aws:aws-sdk-go-v2:v1.3.14:aws_aws_sdk_go_v2_checksum/vendor/github.com/aws/aws-sdk-go-v2/service/internal/checksum \
+-		aws:aws-sdk-go-v2:v1.3.15:aws_aws_sdk_go_v2_configsources/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources \
+ 		aws:aws-sdk-go-v2:v1.30.3:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+-		aws:aws-sdk-go-v2:v1.30.3:aws_aws_sdk_go_v2_sts/vendor/github.com/aws/aws-sdk-go-v2/service/sts \
+-		aws:aws-sdk-go-v2:v1.35.3:aws_aws_sdk_go_v2_kms/vendor/github.com/aws/aws-sdk-go-v2/service/kms \
+-		aws:aws-sdk-go-v2:v1.56.1:aws_aws_sdk_go_v2_s3/vendor/github.com/aws/aws-sdk-go-v2/service/s3 \
+-		aws:aws-sdk-go-v2:v1.6.2:aws_aws_sdk_go_v2_eventstream/vendor/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream \
+-		aws:aws-sdk-go-v2:v1.8.0:aws_aws_sdk_go_v2_ini/vendor/github.com/aws/aws-sdk-go-v2/internal/ini \
+-		aws:aws-sdk-go-v2:v2.6.15:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 \
  		aws:aws-sdk-go:v1.50.0:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
  		aws:smithy-go:v1.20.3:aws_smithy_go/vendor/github.com/aws/smithy-go \
  		aymanbagabas:go-osc52:v2.0.1:aymanbagabas_go_osc52_v2/vendor/github.com/aymanbagabas/go-osc52/v2 \
-@@ -170,16 +167,10 @@ GH_TUPLE=	\
+@@ -94,8 +77,6 @@ GH_TUPLE=	\
+ 		golang:time:v0.5.0:golang_time/vendor/golang.org/x/time \
+ 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
+ 		google:go-genproto:e6d459c13d2a:google_go_genproto/vendor/google.golang.org/genproto \
+-		google:go-genproto:e6d459c13d2a:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api \
+-		google:go-genproto:e6d459c13d2a:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc \
+ 		google:go-github:v35.3.0:google_go_github_v35/vendor/github.com/google/go-github/v35 \
+ 		google:go-jsonnet:v0.18.0:google_go_jsonnet/vendor/github.com/google/go-jsonnet \
+ 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
+@@ -103,14 +84,10 @@ GH_TUPLE=	\
+ 		google:shlex:e7afc7fbc510:google_shlex/vendor/github.com/google/shlex \
+ 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
+ 		googleapis:enterprise-certificate-proxy:v0.3.2:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
+-		googleapis:gax-go:v2.13.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2 \
++		googleapis:gax-go:v2.13.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
+ 		googleapis:google-api-go-client:v0.189.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+ 		googleapis:google-cloud-go:v0.115.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
+-		googleapis:google-cloud-go:v0.5.11:googleapis_google_cloud_go_longrunning/vendor/cloud.google.com/go/longrunning \
+-		googleapis:google-cloud-go:v0.7.2:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth \
+-		googleapis:google-cloud-go:v1.1.12:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go/iam \
+-		googleapis:google-cloud-go:v1.18.4:googleapis_google_cloud_go_kms/vendor/cloud.google.com/go/kms \
+-		googleapis:google-cloud-go:v1.42.0:googleapis_google_cloud_go_storage/vendor/cloud.google.com/go/storage \
++		googleapis:google-cloud-go:auth/v0.7.2:googleapis_google_cloud_go_auth \
+ 		gookit:color:v1.5.0:gookit_color/vendor/github.com/gookit/color \
+ 		gorilla:css:v1.0.0:gorilla_css/vendor/github.com/gorilla/css \
+ 		goware:prefixer:395022866408:goware_prefixer/vendor/github.com/goware/prefixer \
+@@ -131,8 +108,8 @@ GH_TUPLE=	\
+ 		hashicorp:go-retryablehttp:v0.7.7:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
+ 		hashicorp:go-rootcerts:v1.0.2:hashicorp_go_rootcerts/vendor/github.com/hashicorp/go-rootcerts \
+ 		hashicorp:go-safetemp:v1.0.0:hashicorp_go_safetemp/vendor/github.com/hashicorp/go-safetemp \
+-		hashicorp:go-secure-stdlib:v0.1.2:hashicorp_go_secure_stdlib_strutil/vendor/github.com/hashicorp/go-secure-stdlib/strutil \
+-		hashicorp:go-secure-stdlib:v0.1.8:hashicorp_go_secure_stdlib_parseutil/vendor/github.com/hashicorp/go-secure-stdlib/parseutil \
++		hashicorp:go-secure-stdlib:strutil/v0.1.2:hashicorp_go_secure_stdlib_strutil/vendor/github.com/hashicorp/go-secure-stdlib \
++		hashicorp:go-secure-stdlib:parseutil/v0.1.8:hashicorp_go_secure_stdlib_parseutil \
+ 		hashicorp:go-sockaddr:v1.0.6:hashicorp_go_sockaddr/vendor/github.com/hashicorp/go-sockaddr \
+ 		hashicorp:go-uuid:v1.0.3:hashicorp_go_uuid/vendor/github.com/hashicorp/go-uuid \
+ 		hashicorp:go-version:v1.6.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
+@@ -143,7 +120,7 @@ GH_TUPLE=	\
+ 		hashicorp:terraform-registry-address:v0.2.0:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
+ 		hashicorp:terraform-svchost:v0.0.1:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
+ 		hashicorp:terraform:v0.15.3:hashicorp_terraform/vendor/github.com/hashicorp/terraform \
+-		hashicorp:vault:v1.14.0:hashicorp_vault_api/vendor/github.com/hashicorp/vault/api \
++		hashicorp:vault:api/v1.14.0:hashicorp_vault_api \
+ 		hashicorp:vault:v1.4.2:hashicorp_vault/vendor/github.com/hashicorp/vault \
+ 		hashicorp:yamux:v0.1.1:hashicorp_yamux/vendor/github.com/hashicorp/yamux \
+ 		huandu:go-clone:v1.6.0:huandu_go_clone/vendor/github.com/huandu/go-clone \
+@@ -186,6 +163,10 @@ GH_TUPLE=	\
  		nwaples:rardecode:v1.1.0:nwaples_rardecode/vendor/github.com/nwaples/rardecode \
  		oklog:run:v1.1.0:oklog_run/vendor/github.com/oklog/run \
  		olekukonko:tablewriter:v0.0.5:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
--		open-telemetry:opentelemetry-go-contrib:v0.53.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc \
--		open-telemetry:opentelemetry-go-contrib:v0.53.0:open_telemetry_opentelemetry_go_contrib_1/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp \
--		open-telemetry:opentelemetry-go:v1.22.0:open_telemetry_opentelemetry_go_4/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp \
--		open-telemetry:opentelemetry-go:v1.22.0:open_telemetry_opentelemetry_go_6/vendor/go.opentelemetry.io/otel/exporters/stdout/stdouttrace \
--		open-telemetry:opentelemetry-go:v1.23.0:open_telemetry_opentelemetry_go_3/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace \
--		open-telemetry:opentelemetry-go:v1.23.1:open_telemetry_opentelemetry_go_1/vendor/go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc \
--		open-telemetry:opentelemetry-go:v1.23.1:open_telemetry_opentelemetry_go_2/vendor/go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp \
--		open-telemetry:opentelemetry-go:v1.23.1:open_telemetry_opentelemetry_go_5/vendor/go.opentelemetry.io/otel/exporters/stdout/stdoutmetric \
 +		open-telemetry:opentelemetry-go-contrib:instrumentation/google.golang.org/grpc/otelgrpc/v0.53.0:open_telemetry_opentelemetry_go_contrib \
 +		open-telemetry:opentelemetry-go-contrib:instrumentation/net/http/otelhttp/v0.53.0:open_telemetry_opentelemetry_go_contrib_1 \
- 		open-telemetry:opentelemetry-go:v1.28.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
--		open-telemetry:opentelemetry-proto-go:v1.1.0:open_telemetry_opentelemetry_proto_go/vendor/go.opentelemetry.io/proto/otlp \
++		open-telemetry:opentelemetry-go:v1.28.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
 +		open-telemetry:opentelemetry-proto-go:otlp/v1.2.0:open_telemetry_opentelemetry_proto_go/vendor/go.opentelemetry.io/proto \
  		owenrumney:go-sarif:v1.1.1:owenrumney_go_sarif/vendor/github.com/owenrumney/go-sarif \
  		pierrec:lz4:v4.1.2:pierrec_lz4_v4/vendor/github.com/pierrec/lz4/v4 \
  		pkg:browser:5ac0b6a4141c:pkg_browser/vendor/github.com/pkg/browser \
-@@ -245,12 +236,11 @@ post-extract:
- 	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_internal}/sdk/internal ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/internal
- 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azkeys
- 	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_azkeys}/sdk/security/keyvault/azkeys ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azkeys
--	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2} ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2
--	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds
--	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_imds}/feature/ec2/imds ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds
--	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/s3/manager
--	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_manager}/feature/s3/manager ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/s3/manager
- 	@${RM} -r ${WRKSRC}/vendor/github.com/hashicorp/go-secure-stdlib/parseutil
- 	@${RLN} ${WRKSRC_hashicorp_go_secure_stdlib_parseutil}/parseutil ${WRKSRC}/vendor/github.com/hashicorp/go-secure-stdlib/parseutil
- 	@${RM} -r ${WRKSRC}/vendor/github.com/hashicorp/vault/api
- 	@${RLN} ${WRKSRC_hashicorp_vault_api}/api ${WRKSRC}/vendor/github.com/hashicorp/vault/api
+@@ -244,3 +225,24 @@ GH_TUPLE=	\
+ 		#	::v1.28.0:group_name/vendor/go.opentelemetry.io/otel/sdk (from go.opentelemetry.io/otel/sdk@v1.28.0)
+ 		#	::v1.28.0:group_name/vendor/go.opentelemetry.io/otel/sdk/metric (from go.opentelemetry.io/otel/sdk/metric@v1.28.0)
+ 		#	::v1.28.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.28.0)
++
++
++post-extract:
++	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/auth
++	@${RLN} ${WRKSRC_googleapis_google_cloud_go_auth}/auth ${WRKSRC}/vendor/cloud.google.com/go/auth
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/internal
++	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_internal_1}/sdk/security/keyvault/internal ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/internal
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azkeys
++	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_azkeys}/sdk/security/keyvault/azkeys ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azkeys
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/internal
++	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_internal}/sdk/internal ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/internal
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/azidentity
++	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_azidentity}/sdk/azidentity ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/azidentity
++	@${RM} -r ${WRKSRC}/vendor/github.com/hashicorp/go-secure-stdlib/parseutil
++	@${RLN} ${WRKSRC_hashicorp_go_secure_stdlib_parseutil}/parseutil ${WRKSRC}/vendor/github.com/hashicorp/go-secure-stdlib/parseutil
++	@${RM} -r ${WRKSRC}/vendor/github.com/hashicorp/vault/api
++	@${RLN} ${WRKSRC_hashicorp_vault_api}/api ${WRKSRC}/vendor/github.com/hashicorp/vault/api
 +	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc
 +	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib}/instrumentation/google.golang.org/grpc/otelgrpc ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc
 +	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/net/http

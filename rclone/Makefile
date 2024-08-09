@@ -1,7 +1,7 @@
 PORTNAME=	rclone
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.67.0
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	local net
 
 MAINTAINER=	tremere@cainites.net
@@ -47,7 +47,7 @@ post-install:
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.include "/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 
 #-google:go-genproto:35c7eff3a6b1:google_go_genproto/vendor/google.golang.org/genproto/googleapis/rpc \

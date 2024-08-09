@@ -1,6 +1,6 @@
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.64.5
+DISTVERSION=	0.66.3
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
 
@@ -21,6 +21,9 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 
 PLIST_FILES=	bin/${PORTNAME}
 
+M2T_OFFLINE=	true
+.export	M2T_OFFLINE
+
 _OPTIONS_extract=	600:pre-post-extract
 pre-post-extract: .PHONY
 	${RM} ${WRKSRC}/terraform/getproviders/lock_test.go
@@ -32,13 +35,4 @@ pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
-
-#-googleapis:google-cloud-go:v0.2.3:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata
-#+googleapis:google-cloud-go:compute/metadata/v0.2.3:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata
-GH_TUPLE:=	${GH_TUPLE:C,^(googleapis:google-cloud-go):(.*/)(compute/metadata|auth/oauth2adapt)(.*),\1:\3/\2\3\4,1}
-
-#-hashicorp:vault:v1.10.0:hashicorp_vault_api
-#+hashicorp:vault:api/v1.10.0:hashicorp_vault_api
-GH_TUPLE:=	${GH_TUPLE:S|^hashicorp:vault:|hashicorp:vault:api/|1}
-
 .include <bsd.port.mk>
