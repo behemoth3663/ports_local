@@ -1,5 +1,5 @@
 PORTNAME=	hcledit
-PORTVERSION=	0.2.11
+PORTVERSION=	0.2.13
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -21,6 +21,6 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.include "/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
