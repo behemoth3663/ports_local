@@ -2,10 +2,11 @@ GH_TUPLE=	\
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
 		golang-design:clipboard:v0.7.0:golang_design_clipboard/vendor/golang.design/x/clipboard \
-		golang:exp:ec7cb31e5a56:golang_exp/vendor/golang.org/x/exp \
-		golang:image:v0.6.0:golang_image/vendor/golang.org/x/image \
-		golang:mobile:e0f57694e12c:golang_mobile/vendor/golang.org/x/mobile \
-		golang:sys:v0.5.0:golang_sys/vendor/golang.org/x/sys \
-		icza:gox:23e1aaac139e:icza_gox/vendor/github.com/icza/gox \
+		golang:image:v0.18.0:golang_image/vendor/golang.org/x/image \
+		golang:mobile:d1f7d3436075:golang_mobile/vendor/golang.org/x/mobile \
+		golang:sys:v0.17.0:golang_sys/vendor/golang.org/x/sys \
+		icza:gox:adcb03233bb5:icza_gox/vendor/github.com/icza/gox \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
-		stretchr:testify:v1.8.4:stretchr_testify/vendor/github.com/stretchr/testify
+		stretchr:testify:v1.9.0:stretchr_testify/vendor/github.com/stretchr/testify
+		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
+		#	::d852ddb80c63:group_name/vendor/golang.org/x/exp/shiny (from go.googlesource.com/exp@d852ddb80c63)
