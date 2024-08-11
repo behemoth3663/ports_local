@@ -1,6 +1,6 @@
 PORTNAME=	dyff
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.8.1
+DISTVERSION=	1.9.0
 CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
@@ -24,6 +24,6 @@ PLIST_FILES=	bin/${PORTNAME}
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.include "/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>

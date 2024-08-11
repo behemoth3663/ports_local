@@ -1,10 +1,11 @@
 GH_TUPLE=	\
-		BurntSushi:toml:v1.3.2:burntsushi_toml/vendor/github.com/BurntSushi/toml \
+		BurntSushi:toml:v1.4.0:burntsushi_toml/vendor/github.com/BurntSushi/toml \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
-		go-logr:logr:v1.4.1:go_logr_logr/vendor/github.com/go-logr/logr \
+		go-logr:logr:v1.4.2:go_logr_logr/vendor/github.com/go-logr/logr \
 		go-task:slim-sprig:v3.0.0:go_task_slim_sprig_v3/vendor/github.com/go-task/slim-sprig/v3 \
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
+		golang:exp:8a7402abbf56:golang_exp/vendor/golang.org/x/exp \
 		golang:net:v0.27.0:golang_net/vendor/golang.org/x/net \
 		golang:sync:v0.7.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.22.0:golang_sys/vendor/golang.org/x/sys \
@@ -22,11 +23,11 @@ GH_TUPLE=	\
 		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
 		lucasb-eyer:go-colorful:v1.2.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
 		mattn:go-ciede2000:782e8c62fec3:mattn_go_ciede2000/vendor/github.com/mattn/go-ciede2000 \
-		mattn:go-isatty:v0.0.19:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
+		mattn:go-isatty:v0.0.20:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
 		mitchellh:go-ps:v1.0.0:mitchellh_go_ps/vendor/github.com/mitchellh/go-ps \
 		mitchellh:hashstructure:v1.1.0:mitchellh_hashstructure/vendor/github.com/mitchellh/hashstructure \
-		onsi:ginkgo:v2.19.0:onsi_ginkgo_v2/vendor/github.com/onsi/ginkgo/v2 \
-		onsi:gomega:v1.33.1:onsi_gomega/vendor/github.com/onsi/gomega \
+		onsi:ginkgo:v2.19.1:onsi_ginkgo_v2/vendor/github.com/onsi/ginkgo/v2 \
+		onsi:gomega:v1.34.1:onsi_gomega/vendor/github.com/onsi/gomega \
 		sergi:go-diff:5b0b94c5c0d3:sergi_go_diff/vendor/github.com/sergi/go-diff \
 		spf13:cobra:v1.8.1:spf13_cobra/vendor/github.com/spf13/cobra \
 		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
