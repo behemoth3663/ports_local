@@ -16,16 +16,16 @@ GH_TUPLE=	\
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
 		gogo:protobuf:v1.3.2:gogo_protobuf/vendor/github.com/gogo/protobuf \
-		golang:exp:9bf2ced13842:golang_exp/vendor/golang.org/x/exp \
-		golang:net:v0.25.0:golang_net/vendor/golang.org/x/net \
-		golang:oauth2:v0.20.0:golang_oauth2/vendor/golang.org/x/oauth2 \
+		golang:exp:8a7402abbf56:golang_exp/vendor/golang.org/x/exp \
+		golang:net:v0.27.0:golang_net/vendor/golang.org/x/net \
+		golang:oauth2:v0.21.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:sync:v0.7.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.20.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.20.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.15.0:golang_text/vendor/golang.org/x/text \
+		golang:sys:v0.22.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.22.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.16.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.5.0:golang_time/vendor/golang.org/x/time \
-		golang:tools:v0.21.0:golang_tools/vendor/golang.org/x/tools \
+		golang:tools:v0.23.0:golang_tools/vendor/golang.org/x/tools \
 		gonvenience:bunt:v1.3.5:gonvenience_bunt/vendor/github.com/gonvenience/bunt \
 		gonvenience:neat:v1.3.13:gonvenience_neat/vendor/github.com/gonvenience/neat \
 		gonvenience:term:v1.0.2:gonvenience_term/vendor/github.com/gonvenience/term \
