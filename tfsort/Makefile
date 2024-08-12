@@ -1,5 +1,5 @@
 PORTNAME=	tfsort
-PORTVERSION=	0.2.3
+PORTVERSION=	0.2.4
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -17,9 +17,8 @@ GH_ACCOUNT=	AlexNabokikh
 
 PLIST_FILES=	bin/${PORTNAME}
 
-fetch-version: .PHONY get-version
+pre-deps pre-deps-all post-deps-all: .PHONY
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
-
+.include "/etc/make.d/go-deps.mk"
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
