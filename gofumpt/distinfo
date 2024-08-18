@@ -1,8 +1,8 @@
-TIMESTAMP = 1708024932
-SHA256 (mvdan-gofumpt-v0.6.0_GH0.tar.gz) = 26a7c8dce1f153d250e7d36665cf7fab3776aee83248f94be4ebbad23fcaddc4
-SIZE (mvdan-gofumpt-v0.6.0_GH0.tar.gz) = 100704
-SHA256 (frankban-quicktest-v1.14.6_GH0.tar.gz) = c77b45b267ac5f5e03d00ab1b3f944d68c74e91601a1c8121e49040ff89d8b0a
-SIZE (frankban-quicktest-v1.14.6_GH0.tar.gz) = 40084
+TIMESTAMP = 1723990110
+SHA256 (mvdan-gofumpt-v0.7.0_GH0.tar.gz) = d994902b3cb7eeacb23ccb949185dd036a65b9fc316a11a8842f7aa60f5ef4ba
+SIZE (mvdan-gofumpt-v0.7.0_GH0.tar.gz) = 100321
+SHA256 (go-quicktest-qt-v1.101.0_GH0.tar.gz) = c31cbcd1abc4327f6d551f23e79915a691b7f3a2fafe4dbf59de8c5891c169a6
+SIZE (go-quicktest-qt-v1.101.0_GH0.tar.gz) = 27428
 SHA256 (golang-mod-v0.14.0_GH0.tar.gz) = 39b576b1491cd8a092a9df5e4029b23608887e4670e7a2211c07ea786944953c
 SIZE (golang-mod-v0.14.0_GH0.tar.gz) = 122036
 SHA256 (golang-sync-v0.6.0_GH0.tar.gz) = 23b8fca95397b2293e64e58d333633051ec942b46318ad8f630318e801658b67

@@ -1,5 +1,5 @@
 PORTNAME=	gofumpt
-PORTVERSION=	0.6.0
+PORTVERSION=	0.7.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local devel
 
@@ -17,6 +17,8 @@ GH_ACCOUNT=	mvdan
 
 PLIST_FILES=	bin/${PORTNAME}
 
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static"
+
 #const fallbackVersion = "(devel)" // to match the default from runtime/debug
 post-patch: .PHONY
 	${REINPLACE_CMD} 's| = "(devel)"| = "${DISTVERSIONPREFIX}${PORTVERSION}"|' \
@@ -24,6 +26,6 @@ post-patch: .PHONY
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.include "/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>

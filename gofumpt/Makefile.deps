@@ -1,5 +1,5 @@
 GH_TUPLE=	\
-		frankban:quicktest:v1.14.6:frankban_quicktest/vendor/github.com/frankban/quicktest \
+		go-quicktest:qt:v1.101.0:go_quicktest_qt/vendor/github.com/go-quicktest/qt \
 		golang:mod:v0.14.0:golang_mod/vendor/golang.org/x/mod \
 		golang:sync:v0.6.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.16.0:golang_sys/vendor/golang.org/x/sys \
