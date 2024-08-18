@@ -1,31 +1,41 @@
---- Makefile.deps.orig	2024-06-29 21:12:49 UTC
+--- Makefile.deps.orig	2024-08-18 14:03:05 UTC
 +++ Makefile.deps
-@@ -40,7 +40,7 @@ GH_TUPLE=	\
- 		googleapis:google-cloud-go:iam/v1.1.6:googleapis_google_cloud_go_iam \
- 		googleapis:google-cloud-go:storage/v1.36.0:googleapis_google_cloud_go_storage \
+@@ -27,19 +27,15 @@ GH_TUPLE=	\
+ 		golang:time:v0.5.0:golang_time/vendor/golang.org/x/time \
+ 		golang:tools:v0.23.0:golang_tools/vendor/golang.org/x/tools \
+ 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
+-		google:go-genproto:531527333157:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api \
+-		google:go-genproto:531527333157:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc \
+ 		google:go-genproto:6ceb2ff114de:google_go_genproto/vendor/google.golang.org/genproto \
+ 		google:go-github:v53.2.0:google_go_github_v53/vendor/github.com/google/go-github/v53 \
+ 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
+ 		google:s2a-go:v0.1.7:google_s2a_go/vendor/github.com/google/s2a-go \
+ 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
+ 		googleapis:enterprise-certificate-proxy:v0.3.2:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
+-		googleapis:gax-go:v2.12.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2 \
++		googleapis:gax-go:v2.12.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
+ 		googleapis:google-api-go-client:v0.162.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
  		googleapis:google-cloud-go:v0.112.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
--		googleapis:google-cloud-go:v0.3.0:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata \
-+		googleapis:google-cloud-go:compute/metadata/v0.3.0:googleapis_google_cloud_go_compute_metadata \
- 		grpc:grpc-go:v1.64.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+-		googleapis:google-cloud-go:v1.1.6:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go/iam \
+-		googleapis:google-cloud-go:v1.36.0:googleapis_google_cloud_go_storage/vendor/cloud.google.com/go/storage \
+ 		grpc:grpc-go:v1.65.0:grpc_grpc_go/vendor/google.golang.org/grpc \
  		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
  		hashicorp:go-getter:v1.7.5:hashicorp_go_getter/vendor/github.com/hashicorp/go-getter \
-@@ -64,8 +64,8 @@ GH_TUPLE=	\
+@@ -63,6 +59,9 @@ GH_TUPLE=	\
  		mitchellh:go-testing-interface:v1.14.1:mitchellh_go_testing_interface/vendor/github.com/mitchellh/go-testing-interface \
  		mitchellh:go-wordwrap:v1.0.0:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
  		oklog:run:v1.0.0:oklog_run/vendor/github.com/oklog/run \
--		open-telemetry:opentelemetry-go-contrib:v0.47.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc \
--		open-telemetry:opentelemetry-go-contrib:v0.47.0:open_telemetry_opentelemetry_go_contrib_1/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp \
 +		open-telemetry:opentelemetry-go-contrib:instrumentation/google.golang.org/grpc/otelgrpc/v0.47.0:open_telemetry_opentelemetry_go_contrib \
 +		open-telemetry:opentelemetry-go-contrib:instrumentation/net/http/otelhttp/v0.47.0:open_telemetry_opentelemetry_go_contrib_1 \
- 		open-telemetry:opentelemetry-go:v1.22.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
++		open-telemetry:opentelemetry-go:v1.22.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
  		owenrumney:go-sarif:v1.1.1:owenrumney_go_sarif/vendor/github.com/owenrumney/go-sarif \
- 		protocolbuffers:protobuf-go:v1.34.0:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
-@@ -88,3 +88,9 @@ post-extract:
- 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_iam}/iam ${WRKSRC}/vendor/cloud.google.com/go/iam
- 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
- 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go/storage
-+	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
-+	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
+ 		protocolbuffers:protobuf-go:v1.34.2:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
+ 		sourcegraph:go-lsp:219e11d77f5d:sourcegraph_go_lsp/vendor/github.com/sourcegraph/go-lsp \
+@@ -86,3 +85,8 @@ GH_TUPLE=	\
+ 		#	::v1.22.0:group_name/vendor/go.opentelemetry.io/otel (from go.opentelemetry.io/otel@v1.22.0)
+ 		#	::v1.22.0:group_name/vendor/go.opentelemetry.io/otel/metric (from go.opentelemetry.io/otel/metric@v1.22.0)
+ 		#	::v1.22.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.22.0)
++post-extract: .PHONY
 +	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc
 +	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib}/instrumentation/google.golang.org/grpc/otelgrpc ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc
 +	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/net/http

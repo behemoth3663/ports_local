@@ -25,6 +25,10 @@ GO_TARGET=	./cmd/tofu
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.dev=no"
 
+JQ_GETVER_EXPR=	[.[].name | gsub("^[a-z]+";"") | \
+		select(test("^${PORTVERSION:C/[^.]+$/[0-9]+/:S/./\\\\./g}$$"; \
+		"n"))][0]
+
 #M2T_OFFLINE=	true
 #.export	M2T_OFFLINE
 
