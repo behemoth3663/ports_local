@@ -1,6 +1,6 @@
-TIMESTAMP = 1724009564
-SHA256 (kubernetes-sigs-aws-iam-authenticator-v0.6.23_GH0.tar.gz) = a6b10788b10a9ab5cfb2163f0d98850987585b58ed9638e22f1b1b2ebfadd2ed
-SIZE (kubernetes-sigs-aws-iam-authenticator-v0.6.23_GH0.tar.gz) = 173431
+TIMESTAMP = 1724334156
+SHA256 (kubernetes-sigs-aws-iam-authenticator-v0.6.25_GH0.tar.gz) = 774e745d27f8ec9b3aea3a23939ec1647ef13c6c47f6ac1ae2d6ac7f5effc117
+SIZE (kubernetes-sigs-aws-iam-authenticator-v0.6.25_GH0.tar.gz) = 173431
 SHA256 (aws-aws-sdk-go-v1.54.6_GH0.tar.gz) = f902de812c9e693da3ab903d3c85e53665f24a57c024c44cf745f483490bd004
 SIZE (aws-aws-sdk-go-v1.54.6_GH0.tar.gz) = 33036935
 SHA256 (beorn7-perks-v1.0.1_GH0.tar.gz) = 98db84bb0224a26094e6adba91b7ee7a1a7ace28cb648d818f8e779e6a19f825
