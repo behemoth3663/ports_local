@@ -1,36 +1,40 @@
 GH_TUPLE=	\
-		BurntSushi:toml:v1.2.1:burntsushi_toml/vendor/github.com/BurntSushi/toml \
+		BurntSushi:toml:v1.4.0:burntsushi_toml/vendor/github.com/BurntSushi/toml \
 		Knetic:govaluate:v3.0.0:knetic_govaluate/vendor/github.com/Knetic/govaluate \
-		aws:aws-sdk-go:v1.40.54:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
-		cloudfoundry-community:vaultkv:v0.6.0:cloudfoundry_community_vaultkv/vendor/github.com/cloudfoundry-community/vaultkv \
+		aws:aws-sdk-go:v1.55.5:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		cloudfoundry-community:vaultkv:v0.7.0:cloudfoundry_community_vaultkv/vendor/github.com/cloudfoundry-community/vaultkv \
 		cppforlife:go-patch:v0.2.0:cppforlife_go_patch/vendor/github.com/cppforlife/go-patch \
 		geofffranks:simpleyaml:c9320f076de5:geofffranks_simpleyaml/vendor/github.com/geofffranks/simpleyaml \
 		geofffranks:yaml:9f2fe4b6f295:geofffranks_yaml/vendor/github.com/geofffranks/yaml \
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
-		golang:sync:v0.1.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.5.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.5.0:golang_term/vendor/golang.org/x/term \
-		gonvenience:bunt:v1.3.4:gonvenience_bunt/vendor/github.com/gonvenience/bunt \
-		gonvenience:neat:v1.3.11:gonvenience_neat/vendor/github.com/gonvenience/neat \
+		golang:sync:v0.8.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.23.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.22.0:golang_term/vendor/golang.org/x/term \
+		gonvenience:bunt:v1.3.5:gonvenience_bunt/vendor/github.com/gonvenience/bunt \
+		gonvenience:neat:v1.3.13:gonvenience_neat/vendor/github.com/gonvenience/neat \
 		gonvenience:term:v1.0.2:gonvenience_term/vendor/github.com/gonvenience/term \
 		gonvenience:text:v1.0.7:gonvenience_text/vendor/github.com/gonvenience/text \
-		gonvenience:wrap:v1.1.2:gonvenience_wrap/vendor/github.com/gonvenience/wrap \
+		gonvenience:wrap:v1.2.0:gonvenience_wrap/vendor/github.com/gonvenience/wrap \
 		gonvenience:ytbx:v1.4.4:gonvenience_ytbx/vendor/github.com/gonvenience/ytbx \
 		gopherjs:gopherjs:v1.17.2:gopherjs_gopherjs/vendor/github.com/gopherjs/gopherjs \
-		homeport:dyff:v1.5.6:homeport_dyff/vendor/github.com/homeport/dyff \
+		hashicorp:cap:v0.7.0:hashicorp_cap/vendor/github.com/hashicorp/cap \
+		hashicorp:errwrap:v1.1.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
+		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
+		hashicorp:go-secure-stdlib:base62/v0.1.2:hashicorp_go_secure_stdlib_base62/vendor/github.com/hashicorp/go-secure-stdlib \
+		hashicorp:go-uuid:v1.0.3:hashicorp_go_uuid/vendor/github.com/hashicorp/go-uuid \
+		homeport:dyff:v1.9.0:homeport_dyff/vendor/github.com/homeport/dyff \
 		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
 		jtolds:gls:v4.20.0:jtolds_gls/vendor/github.com/jtolds/gls \
 		lucasb-eyer:go-colorful:v1.2.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
 		mattn:go-ciede2000:782e8c62fec3:mattn_go_ciede2000/vendor/github.com/mattn/go-ciede2000 \
-		mattn:go-isatty:v0.0.16:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
+		mattn:go-isatty:v0.0.20:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
 		mitchellh:go-ps:v1.0.0:mitchellh_go_ps/vendor/github.com/mitchellh/go-ps \
 		mitchellh:hashstructure:v1.1.0:mitchellh_hashstructure/vendor/github.com/mitchellh/hashstructure \
-		sergi:go-diff:v1.2.0:sergi_go_diff/vendor/github.com/sergi/go-diff \
-		smartystreets:assertions:v1.13.0:smartystreets_assertions/vendor/github.com/smartystreets/assertions \
-		smartystreets:goconvey:v1.7.2:smartystreets_goconvey/vendor/github.com/smartystreets/goconvey \
+		sergi:go-diff:5b0b94c5c0d3:sergi_go_diff/vendor/github.com/sergi/go-diff \
+		smarty:assertions:v1.16.0:smarty_assertions/vendor/github.com/smarty/assertions \
+		smartystreets:goconvey:v1.8.1:smartystreets_goconvey/vendor/github.com/smartystreets/goconvey \
 		starkandwayne:goutils:896b8a6904be:starkandwayne_goutils/vendor/github.com/starkandwayne/goutils \
-		stretchr:testify:v1.8.1:stretchr_testify/vendor/github.com/stretchr/testify \
 		texttheater:golang-levenshtein:v1.0.1:texttheater_golang_levenshtein/vendor/github.com/texttheater/golang-levenshtein \
 		virtuald:go-ordered-json:b18e6e673d74:virtuald_go_ordered_json/vendor/github.com/virtuald/go-ordered-json \
 		voxelbrain:goptions:58cddc247ea2:voxelbrain_goptions/vendor/github.com/voxelbrain/goptions \
