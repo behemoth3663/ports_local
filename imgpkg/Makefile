@@ -1,5 +1,5 @@
 PORTNAME=	imgpkg
-PORTVERSION=	0.42.1
+PORTVERSION=	0.43.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -24,6 +24,6 @@ PLIST_FILES=	bin/${PORTNAME}
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.include "/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
