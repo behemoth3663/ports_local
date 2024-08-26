@@ -1,5 +1,5 @@
 PORTNAME=	hclfmt
-PORTVERSION=	2.21.0
+PORTVERSION=	2.22.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local textproc
 
@@ -31,6 +31,6 @@ post-post-extract: .PHONY
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.include "/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
