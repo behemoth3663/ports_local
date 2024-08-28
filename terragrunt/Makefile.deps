@@ -124,7 +124,6 @@ GH_TUPLE=	\
 		hashicorp:vault:v1.4.2:hashicorp_vault/vendor/github.com/hashicorp/vault \
 		hashicorp:yamux:v0.1.1:hashicorp_yamux/vendor/github.com/hashicorp/yamux \
 		huandu:go-clone:v1.6.0:huandu_go_clone/vendor/github.com/huandu/go-clone \
-		huandu:go-clone:v1.7.2:huandu_go_clone_generic/vendor/github.com/huandu/go-clone/generic \
 		huandu:xstrings:v1.3.3:huandu_xstrings/vendor/github.com/huandu/xstrings \
 		imdario:mergo:v0.3.12:imdario_mergo/vendor/github.com/imdario/mergo \
 		inancgumus:screen:06e984b86ed3:inancgumus_screen/vendor/github.com/inancgumus/screen \
@@ -176,6 +175,7 @@ GH_TUPLE=	\
 		pquerna:otp:468c2dd2b58d:pquerna_otp/vendor/github.com/pquerna/otp \
 		protocolbuffers:protobuf-go:v1.34.2:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		pterm:pterm:v0.12.41:pterm_pterm/vendor/github.com/pterm/pterm \
+		puzpuzpuz:xsync:v3.4.0:puzpuzpuz_xsync_v3/vendor/github.com/puzpuzpuz/xsync/v3 \
 		rivo:uniseg:v0.2.0:rivo_uniseg/vendor/github.com/rivo/uniseg \
 		rogpeppe:go-internal:v1.12.0:rogpeppe_go_internal/vendor/github.com/rogpeppe/go-internal \
 		russross:blackfriday:v2.1.0:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
@@ -225,7 +225,6 @@ GH_TUPLE=	\
 		#	::v1.28.0:group_name/vendor/go.opentelemetry.io/otel/sdk (from go.opentelemetry.io/otel/sdk@v1.28.0)
 		#	::v1.28.0:group_name/vendor/go.opentelemetry.io/otel/sdk/metric (from go.opentelemetry.io/otel/sdk/metric@v1.28.0)
 		#	::v1.28.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.28.0)
-
 
 post-extract:
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/auth

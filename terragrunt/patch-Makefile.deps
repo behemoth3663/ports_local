@@ -1,4 +1,4 @@
---- Makefile.deps.orig	2024-08-09 14:04:06 UTC
+--- Makefile.deps.orig	2024-08-28 09:44:13 UTC
 +++ Makefile.deps
 @@ -1,11 +1,12 @@ GH_TUPLE=	\
  GH_TUPLE=	\
@@ -90,7 +90,7 @@
  		hashicorp:vault:v1.4.2:hashicorp_vault/vendor/github.com/hashicorp/vault \
  		hashicorp:yamux:v0.1.1:hashicorp_yamux/vendor/github.com/hashicorp/yamux \
  		huandu:go-clone:v1.6.0:huandu_go_clone/vendor/github.com/huandu/go-clone \
-@@ -186,6 +163,10 @@ GH_TUPLE=	\
+@@ -185,6 +162,10 @@ GH_TUPLE=	\
  		nwaples:rardecode:v1.1.0:nwaples_rardecode/vendor/github.com/nwaples/rardecode \
  		oklog:run:v1.1.0:oklog_run/vendor/github.com/oklog/run \
  		olekukonko:tablewriter:v0.0.5:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
@@ -101,11 +101,10 @@
  		owenrumney:go-sarif:v1.1.1:owenrumney_go_sarif/vendor/github.com/owenrumney/go-sarif \
  		pierrec:lz4:v4.1.2:pierrec_lz4_v4/vendor/github.com/pierrec/lz4/v4 \
  		pkg:browser:5ac0b6a4141c:pkg_browser/vendor/github.com/pkg/browser \
-@@ -244,3 +225,24 @@ GH_TUPLE=	\
+@@ -244,3 +225,23 @@ GH_TUPLE=	\
  		#	::v1.28.0:group_name/vendor/go.opentelemetry.io/otel/sdk (from go.opentelemetry.io/otel/sdk@v1.28.0)
  		#	::v1.28.0:group_name/vendor/go.opentelemetry.io/otel/sdk/metric (from go.opentelemetry.io/otel/sdk/metric@v1.28.0)
  		#	::v1.28.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.28.0)
-+
 +
 +post-extract:
 +	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/auth
