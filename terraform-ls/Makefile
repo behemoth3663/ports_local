@@ -1,5 +1,5 @@
 PORTNAME=	terraform-ls
-PORTVERSION=	0.34.2
+PORTVERSION=	0.34.3
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local devel
 
@@ -31,7 +31,7 @@ pre-deps-all: .PHONY
 post-deps-all: .PHONY
 	test ! -d '${MASTERDIR}/files_' || ${MV} ${MASTERDIR}/files_ ${MASTERDIR}/files
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.include "/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 
 #-open-telemetry:opentelemetry-go-contrib:v0.50.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/httptrace/otelhttptrace
