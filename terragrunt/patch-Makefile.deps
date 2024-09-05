@@ -1,4 +1,4 @@
---- Makefile.deps.orig	2024-08-28 09:44:13 UTC
+--- Makefile.deps.orig	2024-09-05 16:47:57 UTC
 +++ Makefile.deps
 @@ -1,11 +1,12 @@ GH_TUPLE=	\
  GH_TUPLE=	\
@@ -41,32 +41,32 @@
 -		aws:aws-sdk-go-v2:v1.6.2:aws_aws_sdk_go_v2_eventstream/vendor/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream \
 -		aws:aws-sdk-go-v2:v1.8.0:aws_aws_sdk_go_v2_ini/vendor/github.com/aws/aws-sdk-go-v2/internal/ini \
 -		aws:aws-sdk-go-v2:v2.6.15:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 \
- 		aws:aws-sdk-go:v1.50.0:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+ 		aws:aws-sdk-go:v1.55.5:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
  		aws:smithy-go:v1.20.3:aws_smithy_go/vendor/github.com/aws/smithy-go \
  		aymanbagabas:go-osc52:v2.0.1:aymanbagabas_go_osc52_v2/vendor/github.com/aymanbagabas/go-osc52/v2 \
 @@ -94,8 +77,6 @@ GH_TUPLE=	\
- 		golang:time:v0.5.0:golang_time/vendor/golang.org/x/time \
+ 		golang:time:v0.6.0:golang_time/vendor/golang.org/x/time \
  		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
- 		google:go-genproto:e6d459c13d2a:google_go_genproto/vendor/google.golang.org/genproto \
--		google:go-genproto:e6d459c13d2a:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api \
--		google:go-genproto:e6d459c13d2a:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc \
+ 		google:go-genproto:7e3bb234dfed:google_go_genproto/vendor/google.golang.org/genproto \
+-		google:go-genproto:7e3bb234dfed:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api \
+-		google:go-genproto:7e3bb234dfed:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc \
  		google:go-github:v35.3.0:google_go_github_v35/vendor/github.com/google/go-github/v35 \
  		google:go-jsonnet:v0.18.0:google_go_jsonnet/vendor/github.com/google/go-jsonnet \
  		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
 @@ -103,14 +84,10 @@ GH_TUPLE=	\
  		google:shlex:e7afc7fbc510:google_shlex/vendor/github.com/google/shlex \
  		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
- 		googleapis:enterprise-certificate-proxy:v0.3.2:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
+ 		googleapis:enterprise-certificate-proxy:v0.3.3:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
 -		googleapis:gax-go:v2.13.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2 \
 +		googleapis:gax-go:v2.13.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
- 		googleapis:google-api-go-client:v0.189.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
- 		googleapis:google-cloud-go:v0.115.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
--		googleapis:google-cloud-go:v0.5.11:googleapis_google_cloud_go_longrunning/vendor/cloud.google.com/go/longrunning \
--		googleapis:google-cloud-go:v0.7.2:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth \
--		googleapis:google-cloud-go:v1.1.12:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go/iam \
--		googleapis:google-cloud-go:v1.18.4:googleapis_google_cloud_go_kms/vendor/cloud.google.com/go/kms \
--		googleapis:google-cloud-go:v1.42.0:googleapis_google_cloud_go_storage/vendor/cloud.google.com/go/storage \
-+		googleapis:google-cloud-go:auth/v0.7.2:googleapis_google_cloud_go_auth \
+ 		googleapis:google-api-go-client:v0.195.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+ 		googleapis:google-cloud-go:v0.115.1:googleapis_google_cloud_go/vendor/cloud.google.com/go \
+-		googleapis:google-cloud-go:v0.6.0:googleapis_google_cloud_go_longrunning/vendor/cloud.google.com/go/longrunning \
+-		googleapis:google-cloud-go:v0.9.1:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth \
+-		googleapis:google-cloud-go:v1.19.0:googleapis_google_cloud_go_kms/vendor/cloud.google.com/go/kms \
+-		googleapis:google-cloud-go:v1.2.0:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go/iam \
+-		googleapis:google-cloud-go:v1.43.0:googleapis_google_cloud_go_storage/vendor/cloud.google.com/go/storage \
++		googleapis:google-cloud-go:auth/v0.9.1:googleapis_google_cloud_go_auth \
  		gookit:color:v1.5.0:gookit_color/vendor/github.com/gookit/color \
  		gorilla:css:v1.0.0:gorilla_css/vendor/github.com/gorilla/css \
  		goware:prefixer:395022866408:goware_prefixer/vendor/github.com/goware/prefixer \
@@ -80,7 +80,7 @@
 +		hashicorp:go-secure-stdlib:parseutil/v0.1.8:hashicorp_go_secure_stdlib_parseutil \
  		hashicorp:go-sockaddr:v1.0.6:hashicorp_go_sockaddr/vendor/github.com/hashicorp/go-sockaddr \
  		hashicorp:go-uuid:v1.0.3:hashicorp_go_uuid/vendor/github.com/hashicorp/go-uuid \
- 		hashicorp:go-version:v1.6.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
+ 		hashicorp:go-version:v1.7.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
 @@ -143,7 +120,7 @@ GH_TUPLE=	\
  		hashicorp:terraform-registry-address:v0.2.0:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
  		hashicorp:terraform-svchost:v0.0.1:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
@@ -102,9 +102,9 @@
  		pierrec:lz4:v4.1.2:pierrec_lz4_v4/vendor/github.com/pierrec/lz4/v4 \
  		pkg:browser:5ac0b6a4141c:pkg_browser/vendor/github.com/pkg/browser \
 @@ -244,3 +225,23 @@ GH_TUPLE=	\
- 		#	::v1.28.0:group_name/vendor/go.opentelemetry.io/otel/sdk (from go.opentelemetry.io/otel/sdk@v1.28.0)
- 		#	::v1.28.0:group_name/vendor/go.opentelemetry.io/otel/sdk/metric (from go.opentelemetry.io/otel/sdk/metric@v1.28.0)
- 		#	::v1.28.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.28.0)
+ 		#	::v1.29.0:group_name/vendor/go.opentelemetry.io/otel (from go.opentelemetry.io/otel@v1.29.0)
+ 		#	::v1.29.0:group_name/vendor/go.opentelemetry.io/otel/metric (from go.opentelemetry.io/otel/metric@v1.29.0)
+ 		#	::v1.29.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.29.0)
 +
 +post-extract:
 +	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/auth
