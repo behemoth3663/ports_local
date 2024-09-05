@@ -1,7 +1,7 @@
 PORTNAME=	gosec
-PORTVERSION=	2.20.0
+PORTVERSION=	2.21.1
 DISTVERSIONPREFIX=	v
-PORTREVISION=	3
+#PORTREVISION=	3
 CATEGORIES=	local devel security
 
 MAINTAINER=	none@freebsd.org
@@ -30,7 +30,6 @@ GIT_COMMIT=	git ls-remote \
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 	-X 'main.GitTag=$$(${GIT_COMMIT})' \
 	-X 'main.Version=${PORTVERSION}' \
-	-X 'main.GitTag=$$(${GIT_COMMIT})' \
 	-X 'main.BuildDate=${%F %T:L:gmtime}'"
 
 pre-deps pre-deps-all post-deps-all: .PHONY
