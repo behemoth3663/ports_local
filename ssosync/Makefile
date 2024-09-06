@@ -1,5 +1,5 @@
 PORTNAME=	ssosync
-PORTVERSION=	2.2.6
+PORTVERSION=	2.2.7
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -33,6 +33,6 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.include "/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
