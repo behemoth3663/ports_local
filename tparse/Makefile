@@ -1,5 +1,5 @@
 PORTNAME=	tparse
-PORTVERSION=	0.14.0
+PORTVERSION=	0.15.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local textproc
@@ -21,17 +21,8 @@ PLIST_FILES=	bin/${PORTNAME}
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 	-X 'main.version=${DISTVERSIONPREFIX}${PORTVERSION}'"
 
-#Does not work:
-#	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/main.version=${PORTVERSION}'
-#	-X 'main.version=${DISTVERSIONPREFIX}${PORTVERSION}'
-#version = "(devel)"
-post-patch: .PHONY
-	${REINPLACE_CMD} -r \
-		-e 's|^([[:space:]]*version[[:space:]]*=[[:space:]]*)".*"[[:space:]]*$$|\1"${PORTVERSION}"|' \
-	${WRKSRC}/main.go
-
 pre-deps pre-deps-all post-deps-all: .PHONY
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.include "/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
