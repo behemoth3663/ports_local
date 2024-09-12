@@ -1,7 +1,33 @@
 GH_TUPLE=	\
 		agext:levenshtein:v1.2.2:agext_levenshtein/vendor/github.com/agext/levenshtein \
 		apparentlymart:go-textseg:v15.0.0:apparentlymart_go_textseg_v15/vendor/github.com/apparentlymart/go-textseg/v15 \
+		aws:aws-sdk-go-v2:v1.11.17:aws_aws_sdk_go_v2_presigned_url/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url \
+		aws:aws-sdk-go-v2:v1.11.3:aws_aws_sdk_go_v2_accept_encoding/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding \
+		aws:aws-sdk-go-v2:v1.16.6:aws_aws_sdk_go_v2_imds/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds \
+		aws:aws-sdk-go-v2:v1.17.10:aws_aws_sdk_go_v2_s3shared/vendor/github.com/aws/aws-sdk-go-v2/service/internal/s3shared \
+		aws:aws-sdk-go-v2:v1.17.19:aws_aws_sdk_go_v2_credentials/vendor/github.com/aws/aws-sdk-go-v2/credentials \
+		aws:aws-sdk-go-v2:v1.173.0:aws_aws_sdk_go_v2_ec2/vendor/github.com/aws/aws-sdk-go-v2/service/ec2 \
+		aws:aws-sdk-go-v2:v1.20.12:aws_aws_sdk_go_v2_sso/vendor/github.com/aws/aws-sdk-go-v2/service/sso \
+		aws:aws-sdk-go-v2:v1.24.6:aws_aws_sdk_go_v2_ssooidc/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc \
+		aws:aws-sdk-go-v2:v1.26.3:aws_aws_sdk_go_v2_elasticloadbalancing/vendor/github.com/aws/aws-sdk-go-v2/service/elasticloadbalancing \
+		aws:aws-sdk-go-v2:v1.27.19:aws_aws_sdk_go_v2_config/vendor/github.com/aws/aws-sdk-go-v2/config \
+		aws:aws-sdk-go-v2:v1.28.13:aws_aws_sdk_go_v2_sts/vendor/github.com/aws/aws-sdk-go-v2/service/sts \
+		aws:aws-sdk-go-v2:v1.3.10:aws_aws_sdk_go_v2_v4a/vendor/github.com/aws/aws-sdk-go-v2/internal/v4a \
+		aws:aws-sdk-go-v2:v1.3.12:aws_aws_sdk_go_v2_checksum/vendor/github.com/aws/aws-sdk-go-v2/service/internal/checksum \
+		aws:aws-sdk-go-v2:v1.3.15:aws_aws_sdk_go_v2_configsources/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources \
 		aws:aws-sdk-go-v2:v1.30.3:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+		aws:aws-sdk-go-v2:v1.32.7:aws_aws_sdk_go_v2_sqs/vendor/github.com/aws/aws-sdk-go-v2/service/sqs \
+		aws:aws-sdk-go-v2:v1.32.9:aws_aws_sdk_go_v2_dynamodb/vendor/github.com/aws/aws-sdk-go-v2/service/dynamodb \
+		aws:aws-sdk-go-v2:v1.34.0:aws_aws_sdk_go_v2_elasticloadbalancingv2/vendor/github.com/aws/aws-sdk-go-v2/service/elasticloadbalancingv2 \
+		aws:aws-sdk-go-v2:v1.34.3:aws_aws_sdk_go_v2_iam/vendor/github.com/aws/aws-sdk-go-v2/service/iam \
+		aws:aws-sdk-go-v2:v1.40.5:aws_aws_sdk_go_v2_elasticache/vendor/github.com/aws/aws-sdk-go-v2/service/elasticache \
+		aws:aws-sdk-go-v2:v1.44.3:aws_aws_sdk_go_v2_ecs/vendor/github.com/aws/aws-sdk-go-v2/service/ecs \
+		aws:aws-sdk-go-v2:v1.55.2:aws_aws_sdk_go_v2_s3/vendor/github.com/aws/aws-sdk-go-v2/service/s3 \
+		aws:aws-sdk-go-v2:v1.6.2:aws_aws_sdk_go_v2_eventstream/vendor/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream \
+		aws:aws-sdk-go-v2:v1.8.0:aws_aws_sdk_go_v2_ini/vendor/github.com/aws/aws-sdk-go-v2/internal/ini \
+		aws:aws-sdk-go-v2:v1.82.0:aws_aws_sdk_go_v2_rds/vendor/github.com/aws/aws-sdk-go-v2/service/rds \
+		aws:aws-sdk-go-v2:v1.9.11:aws_aws_sdk_go_v2_endpoint_discovery/vendor/github.com/aws/aws-sdk-go-v2/service/internal/endpoint-discovery \
+		aws:aws-sdk-go-v2:v2.6.15:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 \
 		aws:smithy-go:v1.20.3:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		dave:dst:v0.27.3:dave_dst/vendor/github.com/dave/dst \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
@@ -37,8 +63,6 @@ GH_TUPLE=	\
 		mitchellh:go-testing-interface:v1.14.1:mitchellh_go_testing_interface/vendor/github.com/mitchellh/go-testing-interface \
 		mitchellh:go-wordwrap:v1.0.0:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
 		oklog:run:v1.0.0:oklog_run/vendor/github.com/oklog/run \
-		open-telemetry:opentelemetry-go-contrib:instrumentation/github.com/aws/aws-sdk-go-v2/otelaws/v0.52.0:open_telemetry_opentelemetry_go_contrib \
-		open-telemetry:opentelemetry-go:v1.27.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		protocolbuffers:protobuf-go:v1.34.2:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		stretchr:testify:v1.9.0:stretchr_testify/vendor/github.com/stretchr/testify \
@@ -51,8 +75,3 @@ GH_TUPLE=	\
 		#	::v1.27.0:group_name/vendor/go.opentelemetry.io/otel (from go.opentelemetry.io/otel@v1.27.0)
 		#	::v1.27.0:group_name/vendor/go.opentelemetry.io/otel/metric (from go.opentelemetry.io/otel/metric@v1.27.0)
 		#	::v1.27.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.27.0)
-
-post-extract: .PHONY
-	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
-	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2
-	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib}/instrumentation/github.com/aws/aws-sdk-go-v2/otelaws ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2/otelaws
