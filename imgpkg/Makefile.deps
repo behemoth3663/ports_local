@@ -26,7 +26,7 @@ GH_TUPLE=	\
 		creack:pty:v1.1.11:creack_pty/vendor/github.com/creack/pty \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		dimchansky:utfbom:v1.1.0:dimchansky_utfbom/vendor/github.com/dimchansky/utfbom \
-		docker:cli:v25.0.5:docker_cli/vendor/github.com/docker/cli \
+		docker:cli:v25.0.6:docker_cli/vendor/github.com/docker/cli \
 		docker:distribution:v2.8.2:docker_distribution/vendor/github.com/docker/distribution \
 		fatih:color:v1.15.0:fatih_color/vendor/github.com/fatih/color \
 		form3tech-oss:jwt-go:v3.2.3:form3tech_oss_jwt_go/vendor/github.com/form3tech-oss/jwt-go \
@@ -55,7 +55,7 @@ GH_TUPLE=	\
 		maxbrunsfeld:counterfeiter:v6.8.1:maxbrunsfeld_counterfeiter_v6/vendor/github.com/maxbrunsfeld/counterfeiter/v6 \
 		mitchellh:go-homedir:v1.1.0:mitchellh_go_homedir/vendor/github.com/mitchellh/go-homedir \
 		moby:moby:v0.7.0:moby_moby_1/vendor/github.com/docker/docker-credential-helpers \
-		moby:moby:v25.0.5:moby_moby/vendor/github.com/docker/docker \
+		moby:moby:v25.0.6:moby_moby/vendor/github.com/docker/docker \
 		opencontainers:go-digest:v1.0.0:opencontainers_go_digest/vendor/github.com/opencontainers/go-digest \
 		opencontainers:image-spec:v1.1.0-rc3:opencontainers_image_spec/vendor/github.com/opencontainers/image-spec \
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
@@ -69,8 +69,6 @@ GH_TUPLE=	\
 		vbatts:tar-split:v0.11.3:vbatts_tar_split/vendor/github.com/vbatts/tar-split \
 		vito:go-interact:v1.0.1:vito_go_interact/vendor/github.com/vito/go-interact
 		# Errors found during processing:
-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
-#}
 post-extract:
 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
 	@${RLN} ${WRKSRC_azure_go_autorest_autorest}/autorest ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
