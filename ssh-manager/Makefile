@@ -1,6 +1,6 @@
 PORTNAME=	ssh-manager
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.12.7
+DISTVERSION=	1.18.0
 CATEGORIES=	local security
 
 MAINTAINER=	none@freebsd.org
@@ -10,7 +10,7 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:modules
+USES=		go:modules,1.23
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	omegion
@@ -21,6 +21,6 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -buildid=${PORTVERSION} -extldflags '-static'"
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.include "/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>

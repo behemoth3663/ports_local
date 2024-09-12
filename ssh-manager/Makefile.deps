@@ -32,7 +32,7 @@ GH_TUPLE=	\
 		grpc:grpc-go:v1.43.0:grpc_grpc_go/vendor/google.golang.org/grpc \
 		hashicorp:hcl:v1.0.0:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
 		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
-		kubernetes:utils:fe8a2dddb1d0:kubernetes_utils/vendor/k8s.io/utils \
+		kubernetes:utils:d4aae2beeffc:kubernetes_utils/vendor/k8s.io/utils \
 		magiconair:properties:v1.8.5:magiconair_properties/vendor/github.com/magiconair/properties \
 		mitchellh:mapstructure:v1.4.3:mitchellh_mapstructure/vendor/github.com/mitchellh/mapstructure \
 		omegion:cobra-commander:v0.11.0:omegion_cobra_commander/vendor/github.com/omegion/cobra-commander \
