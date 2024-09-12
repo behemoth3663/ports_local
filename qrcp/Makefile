@@ -1,6 +1,6 @@
 PORTNAME=	qrcp
-PORTVERSION=	0.11.1
-#PORTREVISION=	2
+PORTVERSION=	0.11.3
+#PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -10,7 +10,7 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:modules
+USES=		go:modules,1.23
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	claudiodangelis
@@ -23,6 +23,6 @@ PLIST_FILES=	bin/${PORTNAME}
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.include "/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
