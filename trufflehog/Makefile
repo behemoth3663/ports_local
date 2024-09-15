@@ -1,34 +1,26 @@
 PORTNAME=	trufflehog
-PORTVERSION=	3.63.8
+PORTVERSION=	3.82.2
 DISTVERSIONPREFIX=	v
+#PORTREVISION=	1
 CATEGORIES=	local sysutils
 
-MAINTAINER=	none@freebsd.org
+MAINTAINER=	yuri@FreeBSD.org
 COMMENT=	Find and verify credentials
-WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
+WWW=		https://trufflesecurity.com/
 
 LICENSE=	AGPLv3
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:modules
+BROKEN_armv7=	compilation fails see details here: https://github.com/golang/go/issues/65187
+BROKEN_i386=	compilation fails see details here: https://github.com/golang/go/issues/65187
 
-USE_GITHUB=	yes
-GH_ACCOUNT=	trufflesecurity
+USES=		go:modules,1.23
+
+GO_MODULE=	github.com/trufflesecurity/trufflehog/v3
+
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+	-X '${GO_MODULE}/pkg/version.BuildVersion=${DISTVERSIONPREFIX}${PORTVERSION}'"
 
 PLIST_FILES=	bin/${PORTNAME}
 
-#M2T_OFFLINE=	true
-#.export	M2T_OFFLINE
-
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/v3/pkg/version.BuildVersion=${DISTVERSIONPREFIX}${PORTVERSION}'"
-
-_OPTIONS_extract=	600:pre-post-extract
-pre-post-extract: .PHONY .SILENT
-	test -z '${WRKSRC_go_redis_redis}' || ${MV} ${WRKSRC_go_redis_redis:H}/go-${WRKSRC_go_redis_redis:T} ${WRKSRC_go_redis_redis}
-
-pre-deps pre-deps-all post-deps-all: .PHONY
-
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>

@@ -1,1 +1,2 @@
-Find leaked credentials.
+TruffleHog scans for sensitive keys in hidden content and version history from
+commonly used tools across your company.

@@ -20,7 +20,7 @@ GO_MODULE=	github.com/${PORTNAME}/${PORTNAME}
 GO_TARGET=	./cmd/${PORTNAME}
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
-		-X ${GO_MODULE}/internal/version.Version=v${PORTVERSION}"
+	-X ${GO_MODULE}/internal/version.Version=v${PORTVERSION}"
 
 PLIST_FILES=	bin/${PORTNAME}
 
