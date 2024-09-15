@@ -1,47 +1,27 @@
 PORTNAME=	infracost
-PORTVERSION=	0.10.31
+DISTVERSION=	0.10.39
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
 
-MAINTAINER=	none@freebsd.org
+MAINTAINER=	dutra@FreeBSD.org
 COMMENT=	Cloud cost estimates for Terraform
-WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
+WWW=		https://${GO_MODULE}
 
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:modules
+ONLY_FOR_ARCHS=	aarch64 amd64 powerpc64 powerpc64le riscv64
+ONLY_FOR_ARCHS_REASON=	Requires 64-bit processor
+
+USES=		go:modules,1.23
+
+GO_MODULE=	github.com/${PORTNAME}/${PORTNAME}
 GO_TARGET=	./cmd/${PORTNAME}
 
-USE_GITHUB=	yes
-GH_ACCOUNT=	infracost
-
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+		-X ${GO_MODULE}/internal/version.Version=v${PORTVERSION}"
 
 PLIST_FILES=	bin/${PORTNAME}
 
-M2T_OFFLINE=	true
-.export	M2T_OFFLINE
-
-_OPTIONS_extract=	600:pre-post-extract
-pre-post-extract: .PHONY
-	${FIND} ${WRKDIR} -maxdepth 1 -type d -name 'go-commons-*' | while read src; do \
-		${LN} -s "$${src}" "$${src%%go-commons-*}gruntwork-cli-$${src##*go-commons-}"; \
-	done
-
-pre-deps: .PHONY .SILENT
-	FILES=$$(${FIND} ${PATCHDIR} -type f -name 'patch-*'); \
-	if [ -n "$${FILES}" ]; then \
-		${TAR} -C / -cf ${.CURDIR}/${PORTNAME}.tar $${FILES}; \
-		${RM} $${FILES}; \
-	fi
-
-pre-deps-all: .PHONY
-post-deps-all: .PHONY
-	${TAR} -C / -xf ${.CURDIR}/${PORTNAME}.tar
-	${RM} ${PATCH_COOKIE} ${.CURDIR}/${PORTNAME}.tar
-
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
