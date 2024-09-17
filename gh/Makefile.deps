@@ -13,7 +13,7 @@ GH_TUPLE=	\
 		charmbracelet:lipgloss:d0be07ea6b9c:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
 		charmbracelet:x:ba2a9512b05f:charmbracelet_x_term/vendor/github.com/charmbracelet/x \
 		cli:browser:v1.3.0:cli_browser/vendor/github.com/cli/browser \
-		cli:go-gh:v2.9.0:cli_go_gh_v2/vendor/github.com/cli/go-gh/v2 \
+		cli:go-gh:v2.10.0:cli_go_gh_v2/vendor/github.com/cli/go-gh/v2 \
 		cli:oauth:v1.0.1:cli_oauth/vendor/github.com/cli/oauth \
 		cli:safeexec:v1.0.1:cli_safeexec/vendor/github.com/cli/safeexec \
 		cli:shurcooL-graphql:v0.0.4:cli_shurcool_graphql/vendor/github.com/cli/shurcooL-graphql \
@@ -51,14 +51,14 @@ GH_TUPLE=	\
 		go-openapi:validate:v0.24.0:go_openapi_validate/vendor/github.com/go-openapi/validate \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
 		godbus:dbus:v5.1.0:godbus_dbus_v5/vendor/github.com/godbus/dbus/v5 \
-		golang:crypto:v0.26.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.27.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:db7319d0e0e3:golang_exp/vendor/golang.org/x/exp \
 		golang:mod:v0.20.0:golang_mod/vendor/golang.org/x/mod \
 		golang:net:v0.27.0:golang_net/vendor/golang.org/x/net \
 		golang:sync:v0.8.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.23.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.23.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.17.0:golang_text/vendor/golang.org/x/text \
+		golang:sys:v0.25.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.24.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.18.0:golang_text/vendor/golang.org/x/text \
 		google:certificate-transparency-go:v1.2.1:google_certificate_transparency_go/vendor/github.com/google/certificate-transparency-go \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-containerregistry:v0.20.2:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
@@ -129,7 +129,7 @@ GH_TUPLE=	\
 		shurcooL:graphql:ed46e5a46466:shurcool_graphql/vendor/github.com/shurcooL/graphql \
 		sigstore:protobuf-specs:v0.3.2:sigstore_protobuf_specs/vendor/github.com/sigstore/protobuf-specs \
 		sigstore:rekor:v1.3.6:sigstore_rekor/vendor/github.com/sigstore/rekor \
-		sigstore:sigstore-go:v0.6.1:sigstore_sigstore_go/vendor/github.com/sigstore/sigstore-go \
+		sigstore:sigstore-go:v0.6.2:sigstore_sigstore_go/vendor/github.com/sigstore/sigstore-go \
 		sigstore:sigstore:v1.8.9:sigstore_sigstore/vendor/github.com/sigstore/sigstore \
 		sigstore:timestamp-authority:v1.2.2:sigstore_timestamp_authority/vendor/github.com/sigstore/timestamp-authority \
 		sirupsen:logrus:v1.9.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
