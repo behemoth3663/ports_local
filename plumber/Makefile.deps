@@ -78,11 +78,7 @@ GH_TUPLE=	\
 		googleapis:enterprise-certificate-proxy:v0.3.2:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
 		googleapis:gax-go:v2.12.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
 		googleapis:google-api-go-client:v0.149.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
-		googleapis:google-cloud-go:compute/v1.23.3:googleapis_google_cloud_go_compute \
-		googleapis:google-cloud-go:iam/v1.1.5:googleapis_google_cloud_go_iam \
-		googleapis:google-cloud-go:pubsub/v1.33.0:googleapis_google_cloud_go_pubsub \
 		googleapis:google-cloud-go:v0.111.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
-		googleapis:google-cloud-go:compute/metadata/v0.2.3:googleapis_google_cloud_go_compute_metadata \
 		graph-gophers:graphql-go:v1.4.0:graph_gophers_graphql_go/vendor/github.com/graph-gophers/graphql-go \
 		grpc:grpc-go:v1.60.1:grpc_grpc_go/vendor/google.golang.org/grpc \
 		gsterjov:go-libsecret:a6f4afe4910c:gsterjov_go_libsecret/vendor/github.com/gsterjov/go-libsecret \
@@ -127,7 +123,7 @@ GH_TUPLE=	\
 		nats-io:nkeys:v0.3.0:nats_io_nkeys/vendor/github.com/nats-io/nkeys \
 		nats-io:nuid:v1.0.1:nats_io_nuid/vendor/github.com/nats-io/nuid \
 		nats-io:stan.go:v0.10.2:nats_io_stan_go/vendor/github.com/nats-io/stan.go \
-		nhooyr:websocket:v1.8.7:nhooyr_websocket/vendor/nhooyr.io/websocket \
+		nhooyr:websocket:v1.8.7:nhooyr_websocket_old/vendor/nhooyr.io/websocket \
 		nsqio:go-nsq:v1.0.8:nsqio_go_nsq/vendor/github.com/nsqio/go-nsq \
 		nxadm:tail:v1.4.8:nxadm_tail/vendor/github.com/nxadm/tail \
 		olekukonko:tablewriter:v0.0.5:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
@@ -174,14 +170,6 @@ GH_TUPLE=	\
 		xtgo:uuid:a0b114877d4c:xtgo_uuid/vendor/github.com/xtgo/uuid \
 		youmark:pkcs8:1be2e3e5546d:youmark_pkcs8/vendor/github.com/youmark/pkcs8
 post-extract:
-	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute
-	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute}/compute ${WRKSRC}/vendor/cloud.google.com/go/compute
-	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
-	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
-	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/iam
-	@${RLN} ${WRKSRC_googleapis_google_cloud_go_iam}/iam ${WRKSRC}/vendor/cloud.google.com/go/iam
-	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/pubsub
-	@${RLN} ${WRKSRC_googleapis_google_cloud_go_pubsub}/pubsub ${WRKSRC}/vendor/cloud.google.com/go/pubsub
 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
 	@${RLN} ${WRKSRC_azure_go_autorest_autorest}/autorest ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/adal

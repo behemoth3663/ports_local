@@ -1,5 +1,5 @@
 PORTNAME=	plumber
-PORTVERSION=	2.7.0
+PORTVERSION=	2.7.1
 DISTVERSIONPREFIX=	v
 #ORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -11,13 +11,20 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:modules
+BUILD_DEPENDS=	git:devel/git
+
+USES=		go:modules,1.23
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	streamdal
 
+GIT_COMMIT=	git ls-remote \
+		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
+		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
+		${SED} -rn 's/(.{7}).*/\1/p'
+
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
-		-X github.com/batchcorp/${GH_PROJECT}/options.VERSION=${DISTVERSIONPREFIX}${PORTVERSION}"
+	-X 'github.com/streamdal/plumber/options.VERSION=${DISTVERSIONPREFIX}${PORTVERSION}-$$(${GIT_COMMIT})'"
 
 PLIST_FILES=	bin/${PORTNAME}
 
@@ -31,12 +38,6 @@ pre-post-extract: .PHONY .SILENT
 			${MV} -v "$${f}" "${WRKDIR}/$${2}-$${f#${WRKDIR}/$${1}-}"; \
 		done; \
 	done
-
-#-		uber-go:thriftrw:v1.29.2:uber_go_thriftrw/vendor/go.uber.org/thriftrw \
-#+		thriftrw:thriftrw-go:v1.29.2:uber_go_thriftrw/vendor/go.uber.org/thriftrw \
-#It works, but:
-#FATAL: /usr/ports/local/plumber/distinfo: has no SIZE record for uber-go-thriftrw-v1.29.2_GH0.tar.gz.
-#GH_TUPLE:=	${GH_TUPLE:S/uber-go:thriftrw:/thriftrw:thriftrw-go:/}
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
