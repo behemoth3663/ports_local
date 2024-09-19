@@ -1,17 +1,42 @@
---- Makefile.deps.orig	2024-05-31 10:14:03 UTC
+--- Makefile.deps.orig	2024-09-19 08:11:24 UTC
 +++ Makefile.deps
-@@ -26,6 +26,7 @@ GH_TUPLE=	\
- 		grpc:grpc-go:v1.64.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+@@ -26,12 +26,14 @@ GH_TUPLE=	\
+ 		grpc:grpc-go:v1.66.2:grpc_grpc_go/vendor/google.golang.org/grpc \
  		hashicorp:go-hclog:v1.6.3:hashicorp_go_hclog/vendor/github.com/hashicorp/go-hclog \
  		hashicorp:go-plugin:v1.6.1:hashicorp_go_plugin/vendor/github.com/hashicorp/go-plugin \
 +		hashicorp:go-version:v1.7.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
  		hashicorp:hcl:v1.0.0:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
- 		hashicorp:hcl:v2.20.1:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
+ 		hashicorp:hcl:v2.22.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
  		hashicorp:yamux:v0.1.1:hashicorp_yamux/vendor/github.com/hashicorp/yamux \
-@@ -63,6 +64,3 @@ GH_TUPLE=	\
- 		zclconf:go-cty:v1.14.4:zclconf_go_cty/vendor/github.com/zclconf/go-cty
- 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
- 		#	::a9213eeb770e:group_name/vendor/golang.org/x/exp/typeparams (from go.googlesource.com/exp@a9213eeb770e)
+ 		huandu:xstrings:v1.5.0:huandu_xstrings/vendor/github.com/huandu/xstrings \
+ 		iancoleman:orderedmap:v0.3.0:iancoleman_orderedmap/vendor/github.com/iancoleman/orderedmap \
+ 		imdario:mergo:v0.3.16:imdario_mergo/vendor/github.com/imdario/mergo \
++		imdario:mergo:v1.0.1:imdario_mergo/vendor/dario.cat/mergo \
+ 		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
+ 		magiconair:properties:v1.8.7:magiconair_properties/vendor/github.com/magiconair/properties \
+ 		mattn:go-colorable:v0.1.13:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
+@@ -42,6 +44,7 @@ GH_TUPLE=	\
+ 		mitchellh:go-wordwrap:v1.0.1:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
+ 		mitchellh:mapstructure:v1.5.0:mitchellh_mapstructure/vendor/github.com/mitchellh/mapstructure \
+ 		mitchellh:reflectwalk:v1.0.2:mitchellh_reflectwalk/vendor/github.com/mitchellh/reflectwalk \
++		mvdan:xurls:v2.5.0:mvdan_xurls/vendor/mvdan.cc/xurls/v2 \
+ 		oklog:run:v1.1.0:oklog_run/vendor/github.com/oklog/run \
+ 		pelletier:go-toml:v2.2.3:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
+ 		pmezard:go-difflib:5d4384ee4fb2:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
+@@ -51,6 +54,7 @@ GH_TUPLE=	\
+ 		shopspring:decimal:v1.4.0:shopspring_decimal/vendor/github.com/shopspring/decimal \
+ 		sourcegraph:conc:v0.3.0:sourcegraph_conc/vendor/github.com/sourcegraph/conc \
+ 		spf13:afero:v1.11.0:spf13_afero/vendor/github.com/spf13/afero \
++		spf13:cast:v1.7.0:spf13_cast/vendor/github.com/spf13/cast \
+ 		spf13:cobra:v1.8.1:spf13_cobra/vendor/github.com/spf13/cobra \
+ 		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
+ 		spf13:viper:v1.19.0:spf13_viper/vendor/github.com/spf13/viper \
+@@ -63,8 +67,3 @@ GH_TUPLE=	\
+ 		#	::a9213eeb770e:group_name/vendor/golang.org/x/exp/typeparams (from golang.org/x/exp/typeparams@a9213eeb770e)
+ 		#	::v1.0.1:group_name/vendor/dario.cat/mergo (from dario.cat/mergo@v1.0.1)
+ 		#	::v2.5.0:group_name/vendor/mvdan.cc/xurls/v2 (from mvdan.cc/xurls/v2@v2.5.0)
 -post-extract:
 -	@${MKDIR} ${WRKSRC}/vendor/github.com/hashicorp
 -	@${RLN} ${WRKSRC_fsnotify_fsnotify} ${WRKSRC}/vendor/github.com/hashicorp/go-version
+-	@${MKDIR} ${WRKSRC}/vendor/github.com/spf13
+-	@${RLN} ${WRKSRC_fsnotify_fsnotify} ${WRKSRC}/vendor/github.com/spf13/cast

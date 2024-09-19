@@ -1,8 +1,8 @@
 GH_TUPLE=	\
 		BurntSushi:toml:v1.4.0:burntsushi_toml/vendor/github.com/BurntSushi/toml \
 		Masterminds:goutils:v1.1.1:masterminds_goutils/vendor/github.com/Masterminds/goutils \
-		Masterminds:semver:v3.2.1:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
-		Masterminds:sprig:v3.2.3:masterminds_sprig_v3/vendor/github.com/Masterminds/sprig/v3 \
+		Masterminds:semver:v3.3.0:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
+		Masterminds:sprig:v3.3.0:masterminds_sprig_v3/vendor/github.com/Masterminds/sprig/v3 \
 		agext:levenshtein:v1.2.3:agext_levenshtein/vendor/github.com/agext/levenshtein \
 		apparentlymart:go-textseg:v15.0.0:apparentlymart_go_textseg_v15/vendor/github.com/apparentlymart/go-textseg/v15 \
 		davecgh:go-spew:d8f796af33cc:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
@@ -11,28 +11,29 @@ GH_TUPLE=	\
 		fsnotify:fsnotify:v1.7.0:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
 		go-ini:ini:v1.67.0:go_ini_ini/vendor/gopkg.in/ini.v1 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
-		golang:crypto:v0.23.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:exp:4c93da0ed11d:golang_exp/vendor/golang.org/x/exp \
-		golang:mod:v0.17.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.25.0:golang_net/vendor/golang.org/x/net \
+		golang:crypto:v0.27.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:exp:701f63a606c0:golang_exp/vendor/golang.org/x/exp \
+		golang:mod:v0.21.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.29.0:golang_net/vendor/golang.org/x/net \
 		golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sync:v0.7.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.20.0:golang_sys/vendor/golang.org/x/sys \
-		golang:text:v0.15.0:golang_text/vendor/golang.org/x/text \
-		golang:tools:v0.21.0:golang_tools/vendor/golang.org/x/tools \
+		golang:sync:v0.8.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.25.0:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.18.0:golang_text/vendor/golang.org/x/text \
+		golang:tools:v0.25.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
-		google:go-genproto:d264139d666e:google_go_genproto/vendor/google.golang.org/genproto/googleapis/rpc \
+		google:go-genproto:8af14fe29dc1:google_go_genproto/vendor/google.golang.org/genproto/googleapis/rpc \
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
-		grpc:grpc-go:v1.64.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+		grpc:grpc-go:v1.66.2:grpc_grpc_go/vendor/google.golang.org/grpc \
 		hashicorp:go-hclog:v1.6.3:hashicorp_go_hclog/vendor/github.com/hashicorp/go-hclog \
 		hashicorp:go-plugin:v1.6.1:hashicorp_go_plugin/vendor/github.com/hashicorp/go-plugin \
 		hashicorp:go-version:v1.7.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
 		hashicorp:hcl:v1.0.0:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
-		hashicorp:hcl:v2.20.1:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
+		hashicorp:hcl:v2.22.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
 		hashicorp:yamux:v0.1.1:hashicorp_yamux/vendor/github.com/hashicorp/yamux \
-		huandu:xstrings:v1.4.0:huandu_xstrings/vendor/github.com/huandu/xstrings \
+		huandu:xstrings:v1.5.0:huandu_xstrings/vendor/github.com/huandu/xstrings \
 		iancoleman:orderedmap:v0.3.0:iancoleman_orderedmap/vendor/github.com/iancoleman/orderedmap \
 		imdario:mergo:v0.3.16:imdario_mergo/vendor/github.com/imdario/mergo \
+		imdario:mergo:v1.0.1:imdario_mergo/vendor/dario.cat/mergo \
 		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
 		magiconair:properties:v1.8.7:magiconair_properties/vendor/github.com/magiconair/properties \
 		mattn:go-colorable:v0.1.13:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
@@ -45,22 +46,24 @@ GH_TUPLE=	\
 		mitchellh:reflectwalk:v1.0.2:mitchellh_reflectwalk/vendor/github.com/mitchellh/reflectwalk \
 		mvdan:xurls:v2.5.0:mvdan_xurls/vendor/mvdan.cc/xurls/v2 \
 		oklog:run:v1.1.0:oklog_run/vendor/github.com/oklog/run \
-		pelletier:go-toml:v2.2.2:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
+		pelletier:go-toml:v2.2.3:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
 		pmezard:go-difflib:5d4384ee4fb2:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
-		protocolbuffers:protobuf-go:v1.34.1:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
-		sagikazarmark:locafero:v0.4.0:sagikazarmark_locafero/vendor/github.com/sagikazarmark/locafero \
+		protocolbuffers:protobuf-go:v1.34.2:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
+		sagikazarmark:locafero:v0.6.0:sagikazarmark_locafero/vendor/github.com/sagikazarmark/locafero \
 		sagikazarmark:slog-shim:v0.1.0:sagikazarmark_slog_shim/vendor/github.com/sagikazarmark/slog-shim \
 		shopspring:decimal:v1.4.0:shopspring_decimal/vendor/github.com/shopspring/decimal \
 		sourcegraph:conc:v0.3.0:sourcegraph_conc/vendor/github.com/sourcegraph/conc \
 		spf13:afero:v1.11.0:spf13_afero/vendor/github.com/spf13/afero \
-		spf13:cast:v1.6.0:spf13_cast/vendor/github.com/spf13/cast \
-		spf13:cobra:v1.8.0:spf13_cobra/vendor/github.com/spf13/cobra \
+		spf13:cast:v1.7.0:spf13_cast/vendor/github.com/spf13/cast \
+		spf13:cobra:v1.8.1:spf13_cobra/vendor/github.com/spf13/cobra \
 		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
-		spf13:viper:v1.18.2:spf13_viper/vendor/github.com/spf13/viper \
+		spf13:viper:v1.19.0:spf13_viper/vendor/github.com/spf13/viper \
 		stretchr:testify:v1.9.0:stretchr_testify/vendor/github.com/stretchr/testify \
 		subosito:gotenv:v1.6.0:subosito_gotenv/vendor/github.com/subosito/gotenv \
 		terraform-docs:terraform-config-inspect:9c1f178932fa:terraform_docs_terraform_config_inspect/vendor/github.com/terraform-docs/terraform-config-inspect \
 		uber-go:multierr:v1.11.0:uber_go_multierr/vendor/go.uber.org/multierr \
-		zclconf:go-cty:v1.14.4:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+		zclconf:go-cty:v1.15.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
-		#	::a9213eeb770e:group_name/vendor/golang.org/x/exp/typeparams (from go.googlesource.com/exp@a9213eeb770e)
+		#	::a9213eeb770e:group_name/vendor/golang.org/x/exp/typeparams (from golang.org/x/exp/typeparams@a9213eeb770e)
+		#	::v1.0.1:group_name/vendor/dario.cat/mergo (from dario.cat/mergo@v1.0.1)
+		#	::v2.5.0:group_name/vendor/mvdan.cc/xurls/v2 (from mvdan.cc/xurls/v2@v2.5.0)
