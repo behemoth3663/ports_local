@@ -1,5 +1,5 @@
 PORTNAME=	gosec
-PORTVERSION=	2.21.2
+PORTVERSION=	2.21.3
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel security
@@ -13,7 +13,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
 BUILD_DEPENDS=	git:devel/git
 
-USES=		go:modules
+USES=		go:modules,1.23
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	securego
@@ -31,6 +31,9 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 	-X 'main.GitTag=$$(${GIT_COMMIT})' \
 	-X 'main.Version=${PORTVERSION}' \
 	-X 'main.BuildDate=${%F %T:L:gmtime}'"
+
+M2T_OFFLINE=	true
+.export	M2T_OFFLINE
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
