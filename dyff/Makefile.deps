@@ -6,12 +6,12 @@ GH_TUPLE=	\
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
 		golang:exp:8a7402abbf56:golang_exp/vendor/golang.org/x/exp \
-		golang:net:v0.27.0:golang_net/vendor/golang.org/x/net \
-		golang:sync:v0.7.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.22.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.22.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.16.0:golang_text/vendor/golang.org/x/text \
-		golang:tools:v0.23.0:golang_tools/vendor/golang.org/x/tools \
+		golang:net:v0.29.0:golang_net/vendor/golang.org/x/net \
+		golang:sync:v0.8.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.25.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.24.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.18.0:golang_text/vendor/golang.org/x/text \
+		golang:tools:v0.25.0:golang_tools/vendor/golang.org/x/tools \
 		gonvenience:bunt:v1.3.5:gonvenience_bunt/vendor/github.com/gonvenience/bunt \
 		gonvenience:neat:v1.3.13:gonvenience_neat/vendor/github.com/gonvenience/neat \
 		gonvenience:term:v1.0.2:gonvenience_term/vendor/github.com/gonvenience/term \
@@ -19,14 +19,14 @@ GH_TUPLE=	\
 		gonvenience:wrap:v1.2.0:gonvenience_wrap/vendor/github.com/gonvenience/wrap \
 		gonvenience:ytbx:v1.4.4:gonvenience_ytbx/vendor/github.com/gonvenience/ytbx \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
-		google:pprof:a892ee059fd6:google_pprof/vendor/github.com/google/pprof \
+		google:pprof:813a5fbdbec8:google_pprof/vendor/github.com/google/pprof \
 		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
 		lucasb-eyer:go-colorful:v1.2.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
 		mattn:go-ciede2000:782e8c62fec3:mattn_go_ciede2000/vendor/github.com/mattn/go-ciede2000 \
 		mattn:go-isatty:v0.0.20:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
 		mitchellh:go-ps:v1.0.0:mitchellh_go_ps/vendor/github.com/mitchellh/go-ps \
 		mitchellh:hashstructure:v1.1.0:mitchellh_hashstructure/vendor/github.com/mitchellh/hashstructure \
-		onsi:ginkgo:v2.19.1:onsi_ginkgo_v2/vendor/github.com/onsi/ginkgo/v2 \
+		onsi:ginkgo:v2.20.1:onsi_ginkgo_v2/vendor/github.com/onsi/ginkgo/v2 \
 		onsi:gomega:v1.34.1:onsi_gomega/vendor/github.com/onsi/gomega \
 		sergi:go-diff:5b0b94c5c0d3:sergi_go_diff/vendor/github.com/sergi/go-diff \
 		spf13:cobra:v1.8.1:spf13_cobra/vendor/github.com/spf13/cobra \
