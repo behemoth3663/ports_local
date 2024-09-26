@@ -1,4 +1,4 @@
---- Makefile.deps.orig	2024-09-05 16:47:57 UTC
+--- Makefile.deps.orig	2024-09-26 23:40:52 UTC
 +++ Makefile.deps
 @@ -1,11 +1,12 @@ GH_TUPLE=	\
  GH_TUPLE=	\
@@ -94,9 +94,9 @@
  		nwaples:rardecode:v1.1.0:nwaples_rardecode/vendor/github.com/nwaples/rardecode \
  		oklog:run:v1.1.0:oklog_run/vendor/github.com/oklog/run \
  		olekukonko:tablewriter:v0.0.5:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
-+		open-telemetry:opentelemetry-go-contrib:instrumentation/google.golang.org/grpc/otelgrpc/v0.53.0:open_telemetry_opentelemetry_go_contrib \
-+		open-telemetry:opentelemetry-go-contrib:instrumentation/net/http/otelhttp/v0.53.0:open_telemetry_opentelemetry_go_contrib_1 \
-+		open-telemetry:opentelemetry-go:v1.28.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
++		open-telemetry:opentelemetry-go-contrib:instrumentation/google.golang.org/grpc/otelgrpc/v0.54.0:open_telemetry_opentelemetry_go_contrib \
++		open-telemetry:opentelemetry-go-contrib:instrumentation/net/http/otelhttp/v0.54.0:open_telemetry_opentelemetry_go_contrib_1 \
++		open-telemetry:opentelemetry-go:v1.29.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
 +		open-telemetry:opentelemetry-proto-go:otlp/v1.2.0:open_telemetry_opentelemetry_proto_go/vendor/go.opentelemetry.io/proto \
  		owenrumney:go-sarif:v1.1.1:owenrumney_go_sarif/vendor/github.com/owenrumney/go-sarif \
  		pierrec:lz4:v4.1.2:pierrec_lz4_v4/vendor/github.com/pierrec/lz4/v4 \
