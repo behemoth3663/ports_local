@@ -1,4 +1,4 @@
---- Makefile.deps.orig	2024-09-19 09:48:39 UTC
+--- Makefile.deps.orig	2024-09-26 23:59:18 UTC
 +++ Makefile.deps
 @@ -21,24 +21,24 @@ GH_TUPLE=	\
  		golang:tools:v0.25.0:golang_tools/vendor/golang.org/x/tools \
@@ -14,13 +14,13 @@
  		googleapis:enterprise-certificate-proxy:v0.3.4:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
 -		googleapis:gax-go:v2.13.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2 \
 +		googleapis:gax-go:v2.13.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
- 		googleapis:google-api-go-client:v0.197.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+ 		googleapis:google-api-go-client:v0.198.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
  		googleapis:google-cloud-go:v0.115.1:googleapis_google_cloud_go/vendor/cloud.google.com/go \
 -		googleapis:google-cloud-go:v0.5.7:googleapis_google_cloud_go_longrunning/vendor/cloud.google.com/go/longrunning \
 -		googleapis:google-cloud-go:v0.8.0:googleapis_google_cloud_go_ai/vendor/cloud.google.com/go/ai \
--		googleapis:google-cloud-go:v0.9.3:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth \
+-		googleapis:google-cloud-go:v0.9.4:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth \
  		gookit:color:v1.5.4:gookit_color/vendor/github.com/gookit/color \
- 		grpc:grpc-go:v1.66.1:grpc_grpc_go/vendor/google.golang.org/grpc \
+ 		grpc:grpc-go:v1.66.2:grpc_grpc_go/vendor/google.golang.org/grpc \
  		lib:pq:v1.10.9:lib_pq/vendor/github.com/lib/pq \
  		mozilla:tls-observatory:7bc42856d2e5:mozilla_tls_observatory/vendor/github.com/mozilla/tls-observatory \
  		onsi:ginkgo:v2.20.2:onsi_ginkgo_v2/vendor/github.com/onsi/ginkgo/v2 \
