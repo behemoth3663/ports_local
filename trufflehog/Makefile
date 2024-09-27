@@ -1,5 +1,5 @@
 PORTNAME=	trufflehog
-PORTVERSION=	3.82.4
+PORTVERSION=	3.82.6
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -11,10 +11,7 @@ WWW=		https://trufflesecurity.com/
 LICENSE=	AGPLv3
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-BROKEN_armv7=	compilation fails see details here: https://github.com/golang/go/issues/65187
-BROKEN_i386=	compilation fails see details here: https://github.com/golang/go/issues/65187
-
-USES=		go:modules,1.23
+USES=		go:modules
 
 GO_MODULE=	github.com/trufflesecurity/trufflehog/v3
 
