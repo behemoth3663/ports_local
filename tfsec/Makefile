@@ -1,7 +1,7 @@
 PORTNAME=	tfsec
-PORTVERSION=	1.28.10
+PORTVERSION=	1.28.11
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+#PORTREVISION=	1
 CATEGORIES=	local security
 
 MAINTAINER=	nulldutra@proton.me
@@ -11,7 +11,7 @@ WWW=		https://aquasecurity.github.io/${PORTNAME}
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:modules
+USES=		go:modules,1.23
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	aquasecurity
