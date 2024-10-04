@@ -1,6 +1,6 @@
 PORTNAME=	wstunnel
 DISTVERSIONPREFIX=	v
-DISTVERSION=	10.1.2
+DISTVERSION=	10.1.3
 CATEGORIES=	local security
 
 MAINTAINER=	none@freebsd.org
@@ -24,10 +24,10 @@ post-install: .PHONY
 
 #https://www.freebsd.org/doc/en_US.ISO8859-1/books/porters-handbook/building.html#using-cargo
 deps: .PHONY
-	${RM} Makefile.deps
+	${RM} Makefile.crates
 	${MAKE} -C ${.CURDIR} makesum
-	set -o pipefail && ${MAKE} -C ${.CURDIR} cargo-crates | ${GREP} --extended-regexp --invert-match '^=' > Makefile.deps
+	set -o pipefail && ${MAKE} -C ${.CURDIR} cargo-crates | ${GREP} --extended-regexp --invert-match '^=' > Makefile.crates
 	${MAKE} -C ${.CURDIR} makesum
 
-.sinclude "${.CURDIR}/Makefile.deps"
+.sinclude "${.CURDIR}/Makefile.crates"
 .include <bsd.port.mk>
