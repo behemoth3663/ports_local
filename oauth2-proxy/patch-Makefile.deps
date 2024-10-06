@@ -1,28 +1,46 @@
---- Makefile.deps.orig	2024-05-29 12:22:11 UTC
+--- Makefile.deps.orig	2024-10-06 21:34:15 UTC
 +++ Makefile.deps
-@@ -35,14 +35,14 @@ GH_TUPLE=	\
- 		golang:sys:v0.16.0:golang_sys/vendor/golang.org/x/sys \
- 		golang:text:v0.14.0:golang_text/vendor/golang.org/x/text \
+@@ -35,7 +35,7 @@ GH_TUPLE=	\
+ 		golang:text:v0.18.0:golang_text/vendor/golang.org/x/text \
+ 		golang:tools:v0.25.0:golang_tools/vendor/golang.org/x/tools \
  		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
--		google:go-genproto:a9fa1716bcac:google_go_genproto/vendor/google.golang.org/genproto/googleapis/rpc \
-+		google:go-genproto:a9fa1716bcac:google_go_genproto/vendor/google.golang.org/genproto \
- 		google:s2a-go:v0.1.7:google_s2a_go/vendor/github.com/google/s2a-go \
+-		google:go-genproto:9d4c2d233b61:google_go_genproto/vendor/google.golang.org/genproto/googleapis/rpc \
++		google:go-genproto:9d4c2d233b61:google_go_genproto/vendor/google.golang.org/genproto \
+ 		google:pprof:a0b0bb1d4134:google_pprof/vendor/github.com/google/pprof \
+ 		google:s2a-go:v0.1.8:google_s2a_go/vendor/github.com/google/s2a-go \
  		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
- 		googleapis:enterprise-certificate-proxy:v0.3.2:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
- 		googleapis:gax-go:v2.12.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
- 		googleapis:google-api-go-client:v0.158.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
- 		googleapis:google-cloud-go:compute/v1.23.3:googleapis_google_cloud_go_compute/vendor/cloud.google.com/go \
--		googleapis:google-cloud-go:v0.2.3:googleapis_google_cloud_go/vendor/cloud.google.com/go/compute/metadata \
-+		googleapis:google-cloud-go:compute/metadata/v0.2.3:googleapis_google_cloud_go/vendor/cloud.google.com/go/compute/metadata \
+@@ -43,8 +43,8 @@ GH_TUPLE=	\
+ 		googleapis:gax-go:v2.13.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
+ 		googleapis:google-api-go-client:v0.198.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+ 		googleapis:google-cloud-go:auth/v0.9.4:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go \
+-		googleapis:google-cloud-go:v0.2.4:googleapis_google_cloud_go/vendor/cloud.google.com/go/auth/oauth2adapt \
+-		googleapis:google-cloud-go:v0.5.2:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata \
++		googleapis:google-cloud-go:auth/oauth2adapt/v0.2.4:googleapis_google_cloud_go/vendor/cloud.google.com/go/auth/oauth2adapt \
++		googleapis:google-cloud-go:compute/metadata/v0.5.2:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata \
  		gorilla:mux:v1.8.1:gorilla_mux/vendor/github.com/gorilla/mux \
- 		grpc:grpc-go:v1.60.1:grpc_grpc_go/vendor/google.golang.org/grpc \
+ 		grpc:grpc-go:v1.67.0:grpc_grpc_go/vendor/google.golang.org/grpc \
  		hashicorp:hcl:v1.0.0:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
-@@ -61,7 +61,7 @@ GH_TUPLE=	\
- 		ohler55:ojg:v1.21.0:ohler55_ojg/vendor/github.com/ohler55/ojg \
+@@ -66,7 +66,7 @@ GH_TUPLE=	\
  		onsi:ginkgo:v1.16.5:onsi_ginkgo/vendor/github.com/onsi/ginkgo \
- 		onsi:gomega:v1.30.0:onsi_gomega/vendor/github.com/onsi/gomega \
--		open-telemetry:opentelemetry-go-contrib:v0.47.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp \
-+		open-telemetry:opentelemetry-go-contrib:instrumentation/net/http/otelhttp/v0.47.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib \
- 		open-telemetry:opentelemetry-go:v1.22.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
- 		pelletier:go-toml:v2.1.1:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
- 		pierrec:lz4:v4.1.19:pierrec_lz4_v4/vendor/github.com/pierrec/lz4/v4 \
+ 		onsi:ginkgo:v2.20.2:onsi_ginkgo_v2/vendor/github.com/onsi/ginkgo/v2 \
+ 		onsi:gomega:v1.34.2:onsi_gomega/vendor/github.com/onsi/gomega \
+-		open-telemetry:opentelemetry-go-contrib:v0.55.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp \
++		open-telemetry:opentelemetry-go-contrib:instrumentation/net/http/otelhttp/v0.55.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib \
+ 		open-telemetry:opentelemetry-go:v1.30.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
+ 		pelletier:go-toml:v2.2.3:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
+ 		pierrec:lz4:v4.1.21:pierrec_lz4_v4/vendor/github.com/pierrec/lz4/v4 \
+@@ -81,6 +81,7 @@ GH_TUPLE=	\
+ 		sagikazarmark:slog-shim:v0.1.0:sagikazarmark_slog_shim/vendor/github.com/sagikazarmark/slog-shim \
+ 		sourcegraph:conc:v0.3.0:sourcegraph_conc/vendor/github.com/sourcegraph/conc \
+ 		spf13:afero:v1.11.0:spf13_afero/vendor/github.com/spf13/afero \
++		spf13:cast:v1.7.0:spf13_cast/vendor/github.com/spf13/cast \
+ 		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
+ 		spf13:viper:v1.19.0:spf13_viper/vendor/github.com/spf13/viper \
+ 		stretchr:testify:v1.9.0:stretchr_testify/vendor/github.com/stretchr/testify \
+@@ -89,6 +90,3 @@ GH_TUPLE=	\
+ 		vmihailenco:msgpack:v5.4.1:vmihailenco_msgpack_v5/vendor/github.com/vmihailenco/msgpack/v5 \
+ 		vmihailenco:tagparser:v2.0.0:vmihailenco_tagparser_v2/vendor/github.com/vmihailenco/tagparser/v2 \
+ 		yuin:gopher-lua:v1.1.1:yuin_gopher_lua/vendor/github.com/yuin/gopher-lua
+-post-extract:
+-	@${MKDIR} ${WRKSRC}/vendor/github.com/spf13
+-	@${RLN} ${WRKSRC_fsnotify_fsnotify} ${WRKSRC}/vendor/github.com/spf13/cast
