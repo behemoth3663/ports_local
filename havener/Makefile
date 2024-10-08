@@ -1,5 +1,5 @@
 PORTNAME=	havener
-PORTVERSION=	2.2.3
+PORTVERSION=	2.2.4
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -11,7 +11,7 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:modules,1.23
+USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	homeport
@@ -31,9 +31,9 @@ pre-deps-all post-deps-all: .PHONY
 .include "/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 
-# Commented out due to using hash (not suffix/version) that is working
+# Reasonable to use when version (not hash) is used
 #-		kubernetes-sigs:kustomize:v0.8.11:kubernetes_sigs_kustomize/vendor/sigs.k8s.io/kustomize/api
 #+		kubernetes-sigs:kustomize:api/v0.8.11:kubernetes_sigs_kustomize/vendor/sigs.k8s.io/kustomize/api
-#GH_TUPLE:=	${GH_TUPLE:C|^(kubernetes-sigs:kustomize:)([^:]+)(:.*/vendor/sigs\\.k8s\\.io/kustomize)/([^[:space:]]+)|\1\4/\2\3|}
+GH_TUPLE:=	${GH_TUPLE:C|^(kubernetes-sigs:kustomize:)([^:]+)(:.*/vendor/sigs\\.k8s\\.io/kustomize)/([^[:space:]]+)|\1\4/\2\3|}
 
 .include <bsd.port.mk>

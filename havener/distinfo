@@ -1,6 +1,6 @@
-TIMESTAMP = 1726945007
-SHA256 (homeport-havener-v2.2.3_GH0.tar.gz) = 8fa3d19428a34886bae83b1d6c9a4c7a1647e0c66c5c51adec0e248901c05705
-SIZE (homeport-havener-v2.2.3_GH0.tar.gz) = 10530603
+TIMESTAMP = 1728411540
+SHA256 (homeport-havener-v2.2.4_GH0.tar.gz) = 3b69777768f00f2f9ab8b0cdc59171059f6e2a6279e202a676557997a7913a4f
+SIZE (homeport-havener-v2.2.4_GH0.tar.gz) = 10530510
 SHA256 (blang-semver-v4.0.0_GH0.tar.gz) = 873e979323df6060cb4f843bc920f07fa59c05002359bf5d4a3311c8911f6640
 SIZE (blang-semver-v4.0.0_GH0.tar.gz) = 27777
 SHA256 (cpuguy83-go-md2man-v2.0.5_GH0.tar.gz) = 6bb799e8fff06d82ca4617190157338d336e2361aa6c5b1786f763a684ffc3f2
