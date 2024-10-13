@@ -1,5 +1,5 @@
 PORTNAME=	pike
-PORTVERSION=	0.3.23
+PORTVERSION=	0.3.24
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -11,7 +11,7 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:modules,1.23
+USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	jamesWoolfenden
@@ -20,9 +20,12 @@ PLIST_FILES=	bin/${PORTNAME}
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
 
+M2T_OFFLINE=	true
+.export	M2T_OFFLINE
+
 post-patch: .PHONY
 	${REINPLACE_CMD} -r \
-		-e 's|^([[:space:]]*const[[:space:]]+Version[[:space:]]*=[[:space:]]*)".*"[[:space:]]*$$|\1"${PORTVERSION}"|' \
+		-e 's|^(const Version).*$$|\1 = "${PORTVERSION}"|' \
 	${WRKSRC}/src/version.go
 
 pre-deps pre-deps-all post-deps-all: .PHONY

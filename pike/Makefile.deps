@@ -56,4 +56,5 @@ GH_TUPLE=	\
 		yudai:pp:v2.0.1:yudai_pp/vendor/github.com/yudai/pp \
 		zclconf:go-cty:v1.13.2:zclconf_go_cty_1/vendor/github.com/hashicorp/go-cty \
 		zclconf:go-cty:v1.15.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
-		# Errors found during processing:
+		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
+		#	::v1.0.1:group_name/vendor/dario.cat/mergo (from dario.cat/mergo@v1.0.1)
