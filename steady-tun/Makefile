@@ -1,5 +1,5 @@
 PORTNAME=	steady-tun
-PORTVERSION=	1.2.1
+PORTVERSION=	1.3.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local net
 
@@ -19,9 +19,15 @@ PLIST_FILES=	bin/${PORTNAME}
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static -X 'main.version=${PORTVERSION}'"
 
+pre-deps post-deps-all: .PHONY
+
+pre-deps-all: .PHONY
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
+
+_OPTIONS_extract+=	750:post-post-extract
 post-post-extract: .PHONY
+	test -f ${WRKSRC}/vendor/modules.txt || test ! -f ${PATCHDIR}/modules.txt || ${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
-
+.include "/etc/make.d/go-deps.mk"
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>

@@ -1,7 +1,9 @@
-TIMESTAMP = 1690662202
-SHA256 (Snawoot-steady-tun-v1.2.1_GH0.tar.gz) = 68703f3ebcb774d9d7574905a4fe9ad06272d15ff2b0fb17c4295efe448dcc63
-SIZE (Snawoot-steady-tun-v1.2.1_GH0.tar.gz) = 12340
-SHA256 (golang-sync-43a5402ce75a_GH0.tar.gz) = c9a58dbd06f5747ccf112cc29eb6f82ab2b8a3cd18908efa2d949a27d3924fc8
-SIZE (golang-sync-43a5402ce75a_GH0.tar.gz) = 17275
-SHA256 (huandu-skiplist-v1.1.0_GH0.tar.gz) = 00759e2d543af152ac26d5759715300e3bc1d11d340bfd986b60fb75b1bf6ff5
-SIZE (huandu-skiplist-v1.1.0_GH0.tar.gz) = 11804
+TIMESTAMP = 1728827419
+SHA256 (Snawoot-steady-tun-v1.3.0_GH0.tar.gz) = 636747a91f0a96df78df71f20b80a330e9c332b08f79de7cd53a55c6e064850a
+SIZE (Snawoot-steady-tun-v1.3.0_GH0.tar.gz) = 13477
+SHA256 (Vonage-gosrvlib-v1.101.5_GH0.tar.gz) = 7af573255f458f170c62cc3c5d6946bce1ce495dfc5ba8ab86951712bdd33b79
+SIZE (Vonage-gosrvlib-v1.101.5_GH0.tar.gz) = 386418
+SHA256 (golang-sync-v0.8.0_GH0.tar.gz) = 1872b89e8bf234d4c65edca0bf7c7fd6c414cf74a5a9e10463eb2483cf7b361f
+SIZE (golang-sync-v0.8.0_GH0.tar.gz) = 18181
+SHA256 (huandu-skiplist-v1.2.1_GH0.tar.gz) = b45e920ced158ff2fc46db7dab3f4cf39467ba48447ba2a3134925bf436e665e
+SIZE (huandu-skiplist-v1.2.1_GH0.tar.gz) = 12554
