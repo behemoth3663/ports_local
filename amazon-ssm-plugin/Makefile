@@ -1,5 +1,5 @@
 PORTNAME=	amazon-ssm-plugin
-PORTVERSION=	1.2.650.0
+PORTVERSION=	1.2.677.0
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
 
@@ -52,15 +52,20 @@ pre-deps: .PHONY .SILENT
 	cd ${WRKSRC} && \
 		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod init ${GO_PKGNAME} && \
 		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod tidy -v
-	${TAR} -C ${PATCHDIR} --exclude='go.mod' --exclude='go.sum' -Jcf ${TMPDIR}/${PORTNAME}.tar.xz .
+	${TAR}  --create --directory ${PATCHDIR} --exclude='go.mod' --exclude='go.sum' --xz --file ${TMPDIR}/${PORTNAME}.tar.xz .
 	${RM} ${PATCHDIR}/*
 	${CP} -a ${WRKSRC}/go.mod ${WRKSRC}/go.sum ${PATCHDIR}
 
 pre-deps-all: .PHONY
-	${TAR} -C ${PATCHDIR} -xf ${TMPDIR}/${PORTNAME}.tar.xz
+	${TAR} --extract --directory ${PATCHDIR} --file ${TMPDIR}/${PORTNAME}.tar.xz
 	${RM} ${PATCH_COOKIE} ${TMPDIR}/${PORTNAME}.tar.xz
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
 
 post-deps-all: .PHONY
+
+_OPTIONS_extract+=	750:post-post-extract
+post-post-extract: .PHONY
+	test -f ${WRKSRC}/vendor/modules.txt || test ! -f ${PATCHDIR}/modules.txt || ${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
