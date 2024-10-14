@@ -1,26 +1,26 @@
 GH_TUPLE=	\
 		agext:levenshtein:v1.2.2:agext_levenshtein/vendor/github.com/agext/levenshtein \
 		apparentlymart:go-textseg:v15.0.0:apparentlymart_go_textseg_v15/vendor/github.com/apparentlymart/go-textseg/v15 \
-		aws:aws-sdk-go-v2:v1.30.3:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
-		aws:smithy-go:v1.20.3:aws_smithy_go/vendor/github.com/aws/smithy-go \
+		aws:aws-sdk-go-v2:v1.32.2:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+		aws:smithy-go:v1.22.0:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		dave:dst:v0.27.3:dave_dst/vendor/github.com/dave/dst \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		fatih:color:v1.17.0:fatih_color/vendor/github.com/fatih/color \
-		go-logr:logr:v1.4.1:go_logr_logr/vendor/github.com/go-logr/logr \
+		go-logr:logr:v1.4.2:go_logr_logr/vendor/github.com/go-logr/logr \
 		go-logr:stdr:v1.2.2:go_logr_stdr/vendor/github.com/go-logr/stdr \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
 		golang:exp:47ecfdc1ba53:golang_exp/vendor/golang.org/x/exp \
 		golang:mod:v0.19.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.29.0:golang_net/vendor/golang.org/x/net \
+		golang:net:v0.30.0:golang_net/vendor/golang.org/x/net \
 		golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:sync:v0.8.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.25.0:golang_sys/vendor/golang.org/x/sys \
-		golang:text:v0.18.0:golang_text/vendor/golang.org/x/text \
+		golang:sys:v0.26.0:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.19.0:golang_text/vendor/golang.org/x/text \
 		golang:tools:v0.23.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-genproto:531527333157:google_go_genproto/vendor/google.golang.org/genproto/googleapis/rpc \
 		grpc:grpc-go:v1.65.0:grpc_grpc_go/vendor/google.golang.org/grpc \
-		hashicorp:aws-sdk-go-base:v2.0.0-beta.54:hashicorp_aws_sdk_go_base_v2/vendor/github.com/hashicorp/aws-sdk-go-base/v2 \
+		hashicorp:aws-sdk-go-base:v2.0.0-beta.58:hashicorp_aws_sdk_go_base_v2/vendor/github.com/hashicorp/aws-sdk-go-base/v2 \
 		hashicorp:errwrap:v1.1.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
 		hashicorp:go-hclog:v1.6.3:hashicorp_go_hclog/vendor/github.com/hashicorp/go-hclog \
 		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
@@ -37,8 +37,8 @@ GH_TUPLE=	\
 		mitchellh:go-testing-interface:v1.14.1:mitchellh_go_testing_interface/vendor/github.com/mitchellh/go-testing-interface \
 		mitchellh:go-wordwrap:v1.0.0:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
 		oklog:run:v1.0.0:oklog_run/vendor/github.com/oklog/run \
-		open-telemetry:opentelemetry-go-contrib:instrumentation/github.com/aws/aws-sdk-go-v2/otelaws/v0.52.0:open_telemetry_opentelemetry_go_contrib \
-		open-telemetry:opentelemetry-go:v1.27.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
+		open-telemetry:opentelemetry-go-contrib:instrumentation/github.com/aws/aws-sdk-go-v2/otelaws/v0.55.0:open_telemetry_opentelemetry_go_contrib \
+		open-telemetry:opentelemetry-go:v1.30.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		protocolbuffers:protobuf-go:v1.34.2:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		stretchr:testify:v1.9.0:stretchr_testify/vendor/github.com/stretchr/testify \
@@ -47,11 +47,10 @@ GH_TUPLE=	\
 		vmihailenco:tagparser:v2.0.0:vmihailenco_tagparser_v2/vendor/github.com/vmihailenco/tagparser/v2 \
 		zclconf:go-cty:v1.15.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
-		#	::v0.52.0:group_name/vendor/go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2/otelaws (from go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2/otelaws@v0.52.0)
-		#	::v1.27.0:group_name/vendor/go.opentelemetry.io/otel (from go.opentelemetry.io/otel@v1.27.0)
-		#	::v1.27.0:group_name/vendor/go.opentelemetry.io/otel/metric (from go.opentelemetry.io/otel/metric@v1.27.0)
-		#	::v1.27.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.27.0)
-
+		#	::v0.55.0:group_name/vendor/go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2/otelaws (from go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2/otelaws@v0.55.0)
+		#	::v1.30.0:group_name/vendor/go.opentelemetry.io/otel (from go.opentelemetry.io/otel@v1.30.0)
+		#	::v1.30.0:group_name/vendor/go.opentelemetry.io/otel/metric (from go.opentelemetry.io/otel/metric@v1.30.0)
+		#	::v1.30.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.30.0)
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2

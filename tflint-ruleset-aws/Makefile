@@ -1,5 +1,5 @@
 PORTNAME=	tflint-ruleset-aws
-PORTVERSION=	0.33.0
+PORTVERSION=	0.34.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -10,7 +10,7 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 LICENSE=	MPL20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:modules,1.23
+USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	terraform-linters
