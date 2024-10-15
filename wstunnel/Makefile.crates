@@ -1,4 +1,4 @@
-CARGO_CRATES=	addr2line-0.24.1 \
+CARGO_CRATES=	addr2line-0.24.2 \
 		adler2-2.0.0 \
 		ahash-0.8.11 \
 		aho-corasick-1.1.3 \
@@ -10,6 +10,7 @@ CARGO_CRATES=	addr2line-0.24.1 \
 		anstyle-query-1.1.1 \
 		anstyle-wincon-3.0.4 \
 		anyhow-1.0.89 \
+		arc-swap-1.7.1 \
 		asn1-rs-0.6.2 \
 		asn1-rs-derive-0.5.1 \
 		asn1-rs-impl-0.2.0 \
@@ -17,13 +18,13 @@ CARGO_CRATES=	addr2line-0.24.1 \
 		async-trait-0.1.83 \
 		atomic-waker-1.1.2 \
 		autocfg-1.4.0 \
-		aws-lc-rs-1.9.0 \
-		aws-lc-sys-0.21.2 \
+		aws-lc-rs-1.10.0 \
+		aws-lc-sys-0.22.0 \
 		backtrace-0.3.74 \
 		base64-0.21.7 \
 		base64-0.22.1 \
 		bb8-0.8.5 \
-		bindgen-0.69.4 \
+		bindgen-0.69.5 \
 		bitflags-1.3.2 \
 		bitflags-2.6.0 \
 		block-buffer-0.10.4 \
@@ -32,14 +33,14 @@ CARGO_CRATES=	addr2line-0.24.1 \
 		bumpalo-3.16.0 \
 		byteorder-1.5.0 \
 		bytes-1.7.2 \
-		cc-1.1.24 \
+		cc-1.1.30 \
 		cexpr-0.6.0 \
 		cfg-if-1.0.0 \
 		cfg_aliases-0.2.1 \
 		chrono-0.4.38 \
 		clang-sys-1.8.1 \
-		clap-4.5.19 \
-		clap_builder-4.5.19 \
+		clap-4.5.20 \
+		clap_builder-4.5.20 \
 		clap_derive-4.5.18 \
 		clap_lex-0.7.2 \
 		cmake-0.1.51 \
@@ -76,18 +77,18 @@ CARGO_CRATES=	addr2line-0.24.1 \
 		form_urlencoded-1.2.1 \
 		fs_extra-1.3.0 \
 		fsevent-sys-4.1.0 \
-		futures-0.3.30 \
-		futures-channel-0.3.30 \
-		futures-core-0.3.30 \
-		futures-executor-0.3.30 \
-		futures-io-0.3.30 \
-		futures-macro-0.3.30 \
-		futures-sink-0.3.30 \
-		futures-task-0.3.30 \
-		futures-util-0.3.30 \
+		futures-0.3.31 \
+		futures-channel-0.3.31 \
+		futures-core-0.3.31 \
+		futures-executor-0.3.31 \
+		futures-io-0.3.31 \
+		futures-macro-0.3.31 \
+		futures-sink-0.3.31 \
+		futures-task-0.3.31 \
+		futures-util-0.3.31 \
 		generic-array-0.14.7 \
 		getrandom-0.2.15 \
-		gimli-0.31.0 \
+		gimli-0.31.1 \
 		glob-0.3.1 \
 		h2-0.3.26 \
 		h2-0.4.6 \
@@ -121,12 +122,12 @@ CARGO_CRATES=	addr2line-0.24.1 \
 		inotify-0.9.6 \
 		inotify-sys-0.1.5 \
 		ipconfig-0.3.2 \
-		ipnet-2.10.0 \
+		ipnet-2.10.1 \
 		is_terminal_polyfill-1.70.1 \
 		itertools-0.12.1 \
 		itoa-1.0.11 \
 		jobserver-0.1.32 \
-		js-sys-0.3.70 \
+		js-sys-0.3.72 \
 		jsonwebtoken-9.3.0 \
 		kqueue-1.0.8 \
 		kqueue-sys-1.0.4 \
@@ -158,9 +159,9 @@ CARGO_CRATES=	addr2line-0.24.1 \
 		num-integer-0.1.46 \
 		num-traits-0.2.19 \
 		num_threads-0.1.7 \
-		object-0.36.4 \
+		object-0.36.5 \
 		oid-registry-0.7.1 \
-		once_cell-1.20.1 \
+		once_cell-1.20.2 \
 		openssl-probe-0.1.5 \
 		overload-0.1.1 \
 		parking-2.2.1 \
@@ -170,16 +171,15 @@ CARGO_CRATES=	addr2line-0.24.1 \
 		parse-display-derive-0.9.1 \
 		paste-1.0.15 \
 		percent-encoding-2.3.1 \
-		pin-project-1.1.5 \
-		pin-project-internal-1.1.5 \
+		pin-project-1.1.6 \
+		pin-project-internal-1.1.6 \
 		pin-project-lite-0.2.14 \
 		pin-utils-0.1.0 \
-		portable-atomic-1.9.0 \
 		powerfmt-0.2.0 \
 		ppp-2.2.0 \
 		ppv-lite86-0.2.20 \
 		prettyplease-0.2.22 \
-		proc-macro2-1.0.86 \
+		proc-macro2-1.0.87 \
 		quick-error-1.2.3 \
 		quote-1.0.37 \
 		rand-0.8.5 \
@@ -200,7 +200,7 @@ CARGO_CRATES=	addr2line-0.24.1 \
 		rusticata-macros-4.1.0 \
 		rustix-0.38.37 \
 		rustls-0.21.12 \
-		rustls-0.23.13 \
+		rustls-0.23.14 \
 		rustls-native-certs-0.6.3 \
 		rustls-native-certs-0.7.3 \
 		rustls-native-certs-0.8.0 \
@@ -211,7 +211,7 @@ CARGO_CRATES=	addr2line-0.24.1 \
 		rustls-webpki-0.102.8 \
 		ryu-1.0.18 \
 		same-file-1.0.6 \
-		schannel-0.1.24 \
+		schannel-0.1.26 \
 		scopeguard-1.2.0 \
 		sct-0.7.1 \
 		security-framework-2.11.1 \
@@ -222,8 +222,8 @@ CARGO_CRATES=	addr2line-0.24.1 \
 		serde_regex-1.1.0 \
 		serde_repr-0.1.19 \
 		serde_urlencoded-0.7.1 \
-		serde_with-3.10.0 \
-		serde_with_macros-3.10.0 \
+		serde_with-3.11.0 \
+		serde_with_macros-3.11.0 \
 		serde_yaml-0.9.34+deprecated \
 		sha1-0.10.6 \
 		sharded-slab-0.1.7 \
@@ -283,11 +283,11 @@ CARGO_CRATES=	addr2line-0.24.1 \
 		walkdir-2.5.0 \
 		want-0.3.1 \
 		wasi-0.11.0+wasi-snapshot-preview1 \
-		wasm-bindgen-0.2.93 \
-		wasm-bindgen-backend-0.2.93 \
-		wasm-bindgen-macro-0.2.93 \
-		wasm-bindgen-macro-support-0.2.93 \
-		wasm-bindgen-shared-0.2.93 \
+		wasm-bindgen-0.2.95 \
+		wasm-bindgen-backend-0.2.95 \
+		wasm-bindgen-macro-0.2.95 \
+		wasm-bindgen-macro-support-0.2.95 \
+		wasm-bindgen-shared-0.2.95 \
 		which-4.4.2 \
 		widestring-1.1.0 \
 		winapi-0.3.9 \
