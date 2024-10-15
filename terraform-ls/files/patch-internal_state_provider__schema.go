@@ -1,17 +1,17 @@
---- internal/features/modules/jobs/schema.go	2024-07-15 12:26:25 UTC
-+++ internal/features/modules/jobs/schema.go.orig
-@@ -29,10 +29,6 @@ import (
+--- internal/state/provider_schema.go.orig	2024-10-11 13:19:56 UTC
++++ internal/state/provider_schema.go
+@@ -20,10 +20,6 @@ import (
+ 	"github.com/hashicorp/terraform-ls/internal/schemas"
+ 	tfaddr "github.com/hashicorp/terraform-registry-address"
  	tfschema "github.com/hashicorp/terraform-schema/schema"
- 	"github.com/zclconf/go-cty/cty"
- 	ctyjson "github.com/zclconf/go-cty/cty/json"
 -	"go.opentelemetry.io/otel"
 -	"go.opentelemetry.io/otel/attribute"
 -	"go.opentelemetry.io/otel/codes"
 -	"go.opentelemetry.io/otel/trace"
  )
  
- const tracerName = "github.com/hashicorp/terraform-ls/internal/terraform/module"
-@@ -110,17 +106,8 @@ func preloadSchemaForProviderAddr(ctx context.Context,
+ type ProviderSchema struct {
+@@ -522,17 +518,8 @@ func PreloadSchemaForProviderAddr(ctx context.Context,
  			originalAddr.ForDisplay(), pAddr.ForDisplay())
  	}
  
@@ -29,7 +29,7 @@
  		if errors.Is(err, schemas.SchemaNotAvailable{Addr: pAddr}) {
  			logger.Printf("preloaded schema not available for %s", pAddr)
  			return nil
-@@ -128,34 +115,16 @@ func preloadSchemaForProviderAddr(ctx context.Context,
+@@ -540,34 +527,16 @@ func PreloadSchemaForProviderAddr(ctx context.Context,
  		return err
  	}
  
@@ -64,7 +64,7 @@
  
  	ps, ok := jsonSchemas.Schemas[pAddr.String()]
  	if !ok {
-@@ -165,16 +134,8 @@ func preloadSchemaForProviderAddr(ctx context.Context,
+@@ -577,16 +546,8 @@ func PreloadSchemaForProviderAddr(ctx context.Context,
  	pSchema := tfschema.ProviderSchemaFromJson(ps, pAddr)
  	pSchema.SetProviderVersion(pAddr, pSchemaFile.Version)
  
@@ -78,10 +78,10 @@
 -		span.RecordError(err)
 -		span.SetStatus(codes.Error, "loading schema into mem-db failed")
 -		span.End()
- 		existsError := &globalState.AlreadyExistsError{}
+ 		existsError := &AlreadyExistsError{}
  		if errors.As(err, &existsError) {
  			// This accounts for a possible race condition
-@@ -185,12 +146,9 @@ func preloadSchemaForProviderAddr(ctx context.Context,
+@@ -597,12 +558,9 @@ func PreloadSchemaForProviderAddr(ctx context.Context,
  		}
  		return err
  	}
