@@ -1,32 +1,38 @@
 GH_TUPLE=	\
 		atotto:clipboard:v0.1.4:atotto_clipboard/vendor/github.com/atotto/clipboard \
-		aws:aws-sdk-go:v1.44.59:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		aws:aws-sdk-go-v2:v1.32.2:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+		aws:smithy-go:v1.22.0:aws_smithy_go/vendor/github.com/aws/smithy-go \
+		aymanbagabas:go-osc52:v2.0.1:aymanbagabas_go_osc52_v2/vendor/github.com/aymanbagabas/go-osc52/v2 \
 		blang:semver:v4.0.0:blang_semver_v4/vendor/github.com/blang/semver \
-		charmbracelet:bubbles:v0.13.0:charmbracelet_bubbles/vendor/github.com/charmbracelet/bubbles \
-		charmbracelet:bubbletea:v0.21.0:charmbracelet_bubbletea/vendor/github.com/charmbracelet/bubbletea \
-		charmbracelet:lipgloss:v0.5.0:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
-		containerd:console:v1.0.3:containerd_console/vendor/github.com/containerd/console \
-		evertras:bubble-table:v0.14.4:evertras_bubble_table/vendor/github.com/evertras/bubble-table \
-		go-ini:ini:v1.57.0:go_ini_ini/vendor/gopkg.in/ini.v1 \
-		golang:sys:3681064d5158:golang_sys/vendor/golang.org/x/sys \
-		golang:term:03fcf44c2211:golang_term/vendor/golang.org/x/term \
-		imdario:mergo:v0.3.11:imdario_mergo/vendor/github.com/imdario/mergo \
-		inconshreveable:mousetrap:v1.0.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
-		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
+		charmbracelet:bubbles:v0.20.0:charmbracelet_bubbles/vendor/github.com/charmbracelet/bubbles \
+		charmbracelet:bubbletea:v1.1.1:charmbracelet_bubbletea/vendor/github.com/charmbracelet/bubbletea \
+		charmbracelet:lipgloss:v0.13.0:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
+		charmbracelet:x:ansi/v0.2.3:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x \
+		charmbracelet:x:term/v0.2.0:charmbracelet_x_term \
+		erikgeiser:coninput:1c3628e74d0f:erikgeiser_coninput/vendor/github.com/erikgeiser/coninput \
+		evertras:bubble-table:v0.17.0:evertras_bubble_table/vendor/github.com/evertras/bubble-table \
+		golang:sync:v0.8.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.24.0:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.16.0:golang_text/vendor/golang.org/x/text \
+		imdario:mergo:v1.0.1:imdario_mergo/vendor/dario.cat/mergo \
+		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
 		lucasb-eyer:go-colorful:v1.2.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
-		mattn:go-isatty:v0.0.14:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
-		mattn:go-runewidth:v0.0.13:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
+		mattn:go-isatty:v0.0.20:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
+		mattn:go-localereader:v0.0.1:mattn_go_localereader/vendor/github.com/mattn/go-localereader \
+		mattn:go-runewidth:v0.0.16:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
 		mitchellh:go-homedir:v1.1.0:mitchellh_go_homedir/vendor/github.com/mitchellh/go-homedir \
-		muesli:ansi:2e021307bc4b:muesli_ansi/vendor/github.com/muesli/ansi \
-		muesli:cancelreader:v0.2.0:muesli_cancelreader/vendor/github.com/muesli/cancelreader \
+		muesli:ansi:276c6243b2f6:muesli_ansi/vendor/github.com/muesli/ansi \
+		muesli:cancelreader:v0.2.2:muesli_cancelreader/vendor/github.com/muesli/cancelreader \
 		muesli:reflow:v0.3.0:muesli_reflow/vendor/github.com/muesli/reflow \
-		muesli:termenv:44cd13922739:muesli_termenv/vendor/github.com/muesli/termenv \
+		muesli:termenv:v0.15.2:muesli_termenv/vendor/github.com/muesli/termenv \
 		oliveagle:jsonpath:2e52cf6e6852:oliveagle_jsonpath/vendor/github.com/oliveagle/jsonpath \
 		patrickmn:go-cache:v2.1.0:patrickmn_go_cache/vendor/github.com/patrickmn/go-cache \
-		rivo:uniseg:v0.2.0:rivo_uniseg/vendor/github.com/rivo/uniseg \
-		sahilm:fuzzy:v0.1.0:sahilm_fuzzy/vendor/github.com/sahilm/fuzzy \
-		smartystreets:goconvey:v1.6.4:smartystreets_goconvey/vendor/github.com/smartystreets/goconvey \
-		spf13:cobra:v0.0.7:spf13_cobra/vendor/github.com/spf13/cobra \
-		spf13:pflag:v1.0.3:spf13_pflag/vendor/github.com/spf13/pflag \
-		uber-go:atomic:v1.4.0:uber_go_atomic/vendor/go.uber.org/atomic \
-		uber-go:multierr:v1.1.0:uber_go_multierr/vendor/go.uber.org/multierr
+		rivo:uniseg:v0.4.7:rivo_uniseg/vendor/github.com/rivo/uniseg \
+		sahilm:fuzzy:v0.1.1:sahilm_fuzzy/vendor/github.com/sahilm/fuzzy \
+		spf13:cobra:v1.8.1:spf13_cobra/vendor/github.com/spf13/cobra \
+		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
+		uber-go:multierr:v1.11.0:uber_go_multierr/vendor/go.uber.org/multierr
+		# Errors found during processing:
+post-extract:
+	@${RM} -r ${WRKSRC}/vendor/github.com/charmbracelet/x/term
+	@${RLN} ${WRKSRC_charmbracelet_x_term}/term ${WRKSRC}/vendor/github.com/charmbracelet/x/term
