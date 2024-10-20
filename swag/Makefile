@@ -1,5 +1,5 @@
 PORTNAME=	swag
-PORTVERSION=	1.16.3
+PORTVERSION=	1.16.4
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -21,6 +21,6 @@ PLIST_FILES=	bin/${PORTNAME}
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.include "/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
