@@ -1,6 +1,6 @@
---- src/bin/bat/main.rs.orig	2023-03-26 13:03:26.858196000 +0200
-+++ src/bin/bat/main.rs	2023-03-26 13:03:44.520025000 +0200
-@@ -246,7 +246,6 @@
+--- src/bin/bat/main.rs.orig	2023-10-11 17:14:12 UTC
++++ src/bin/bat/main.rs
+@@ -246,7 +246,6 @@ fn invoke_bugreport(app: &App, cache_dir: &Path) {
  
      let mut report = bugreport!()
          .info(SoftwareVersion::default())
