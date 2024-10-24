@@ -33,10 +33,13 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
 
-pre-build: .PHONY
-	cd ${WRKSRC} && \
-		${SETENV} ${MAKE_ENV} ${GO_ENV} ${GO_CMD} generate && \
-		${SETENV} ${MAKE_ENV} ${GO_ENV} ${GO_CMD} mod vendor
+#pre-build: .PHONY
+#	cd ${WRKSRC} && \
+#		${SETENV} ${MAKE_ENV} ${GO_ENV} ${GO_CMD} generate && \
+#		${SETENV} ${MAKE_ENV} ${GO_ENV} ${GO_CMD} mod vendor
+#	${RM} -r ${WRKSRC}/vendor/go.opencensus.io ${WRKSRC}/vendor/go.opentelemetry.io 
+#	${RM} ${WRKSRC}/telemetry.go \
+#	${WRKSRC}/vendor/github.com/hashicorp/aws-sdk-go-base/v2/logging/attributes.go
 
 pre-extract: .PHONY .SILENT
 	test -z '${WRKSRC_grpc_grpc_go_1}' || ${LN} -s ${WRKDIR}/grpc-go-cmd-protoc-gen-go-grpc-v1.1.0 ${WRKSRC_grpc_grpc_go_1}

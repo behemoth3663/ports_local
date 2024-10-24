@@ -191,11 +191,6 @@ GH_TUPLE=	\
 		nu7hatch:gouuid:179d4d0c4d8d:nu7hatch_gouuid/vendor/github.com/nu7hatch/gouuid \
 		oklog:run:v1.0.0:oklog_run/vendor/github.com/oklog/run \
 		oklog:ulid:v1.3.1:oklog_ulid/vendor/github.com/oklog/ulid \
-		open-telemetry:opentelemetry-go-contrib:instrumentation/github.com/aws/aws-sdk-go-v2/otelaws/v0.46.1:open_telemetry_opentelemetry_go_contrib_otelaws \
-		open-telemetry:opentelemetry-go-contrib:instrumentation/google.golang.org/grpc/otelgrpc/v0.46.0:open_telemetry_opentelemetry_go_contrib_otelgrpc \
-		open-telemetry:opentelemetry-go-contrib:exporters/autoexport/v0.45.0:open_telemetry_opentelemetry_go_contrib_autoexport \
-		open-telemetry:opentelemetry-go:v1.24.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
-		open-telemetry:opentelemetry-proto-go:otlp/v1.0.0:open_telemetry_opentelemetry_proto_go/vendor/go.opentelemetry.io/proto \
 		packer-community:winrmcp:6e900dd2c68f:packer_community_winrmcp/vendor/github.com/packer-community/winrmcp \
 		pkg:browser:5ac0b6a4141c:pkg_browser/vendor/github.com/pkg/browser \
 		posener:complete:v1.2.3:posener_complete/vendor/github.com/posener/complete \
@@ -260,9 +255,3 @@ post-extract:
 	@${RLN} ${WRKSRC_azure_go_autorest_adal}/autorest/adal ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/adal
 	@${RM} -r ${WRKSRC}/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common
 	@${RLN} ${WRKSRC_tencentcloud_tencentcloud_sdk_go_common}/tencentcloud/common ${WRKSRC}/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common
-	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/exporters
-	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib_autoexport}/exporters/autoexport ${WRKSRC}/vendor/go.opentelemetry.io/contrib/exporters
-	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2
-	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib_otelaws}/instrumentation/github.com/aws/aws-sdk-go-v2/otelaws ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2
-	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc
-	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib_otelgrpc}/instrumentation/google.golang.org/grpc/otelgrpc ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc
