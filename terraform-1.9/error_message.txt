@@ -1,11 +1,18 @@
-(cd /usr/obj/usr/ports/local/terraform-1.9/work/terraform-1.9.8;  for t in terraform; do  out=$(/usr/bin/basename $(echo ${t} |  /usr/bin/sed -Ee 's/^[^:]*:([^:]+).*$/\1/' -e 's/^\.$/terraform/'));  pkg=$(echo ${t} |  /usr/bin/sed -Ee 's/^([^:]*).*$/\1/' -e 's/^terraform$/./');  echo "===>  Building ${out} from ${pkg}";  /usr/bin/env -i HOME=/usr/obj/usr/ports/local/terraform-1.9/work  MACHINE_ARCH=amd64  PWD="${PWD}"  __MAKE_CONF=/nonexistent OSVERSION=1401000 PATH=/usr/obj/usr/ports/local/terraform-1.9/work/.bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin TERM=xterm TMPDIR=/tmp XDG_DATA_HOME=/usr/obj/usr/ports/local/terraform-1.9/work  XDG_CONFIG_HOME=/usr/obj/usr/ports/local/terraform-1.9/work  XDG_CACHE_HOME=/usr/obj/usr/ports/local/terraform-1.9/work/.cache  HOME=/usr/obj/usr/ports/local/terraform-1.9/work TMPDIR="/tmp" PATH=/usr/obj/usr/ports/local/terraform-1.9/work/.bin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin PKG_CONFIG_LIBDIR=/usr/obj/usr/ports/local/terraform-1.9/work/.pkgconfig:/usr/local/libdata/pkgconfig:/usr/local/share/pkgconfig:/usr/libdata/pkgconfig MK_DEBUG_FILES=no MK_KERNEL_SYMBOLS=no SHELL=/rescue/sh NO_LINT=YES PREFIX=/usr/local  LOCALBASE=/usr/local  CC="cc" CFLAGS="-O2 -pipe  -fstack-protector-strong -fno-strict-aliasing "  CPP="cpp" CPPFLAGS=""  LDFLAGS=" -fstack-protector-strong " LIBS=""  CXX="c++" CXXFLAGS="-O2 -pipe -fstack-protector-strong -fno-strict-aliasing  " BSD_INSTALL_PROGRAM="install  -s -m 555"  BSD_INSTALL_LIB="install  -s -m 0644"  BSD_INSTALL_SCRIPT="install  -m 555"  BSD_INSTALL_DATA="install  -m 0644"  BSD_INSTALL_MAN="install  -m 444" CGO_ENABLED=1  CGO_CFLAGS="-I/usr/local/include"  CGO_LDFLAGS="-L/usr/local/lib"  GOAMD64=  GOARM=  GOTMPDIR="/usr/obj/usr/ports/local/terraform-1.9/work" GOPATH="/usr/ports/distfiles/go/local_terraform-1.9"  GOBIN="/usr/obj/usr/ports/local/terraform-1.9/work/bin"  GO111MODULE=on  GOFLAGS=-modcacherw  GOSUMDB=sum.golang.org GO_NO_VENDOR_CHECKS=1 GOMAXPROCS=8 GOPROXY=off /usr/local/bin/go123 build -ldflags="-s -w -extldflags -static  -X 'github.com/hashicorp/terraform/version.Version=1.9.8'  -X 'github.com/hashicorp/terraform/version.dev=no'  -X 'github.com/hashicorp/terraform/version.VersionPrerelease='" -buildmode=exe -v -trimpath -buildvcs=false -mod=vendor  -o /usr/obj/usr/ports/local/terraform-1.9/work/bin/${out}  ${pkg};  done)
 ===>  Building terraform from .
-vendor/github.com/hashicorp/aws-sdk-go-base/v2/logging/http.go:22:2: cannot find module providing package go.opentelemetry.io/otel/attribute: import lookup disabled by -mod=vendor
-vendor/github.com/hashicorp/aws-sdk-go-base/v2/logging/http.go:23:2: cannot find module providing package go.opentelemetry.io/otel/semconv/v1.17.0/httpconv: import lookup disabled by -mod=vendor
-vendor/github.com/hashicorp/aws-sdk-go-base/v2/logging/http.go:24:2: cannot find module providing package go.opentelemetry.io/otel/semconv/v1.4.0: import lookup disabled by -mod=vendor
-vendor/github.com/hashicorp/aws-sdk-go-base/v2/logger.go:28:2: cannot find module providing package go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2/otelaws: import lookup disabled by -mod=vendor
-vendor/github.com/hashicorp/aws-sdk-go-base/v2/logger.go:31:2: cannot find module providing package go.opentelemetry.io/otel/semconv/v1.20.0: import lookup disabled by -mod=vendor
-internal/command/telemetry.go:7:2: cannot find module providing package go.opentelemetry.io/otel: import lookup disabled by -mod=vendor
-internal/command/init.go:20:2: cannot find module providing package go.opentelemetry.io/otel/codes: import lookup disabled by -mod=vendor
-internal/command/init.go:21:2: cannot find module providing package go.opentelemetry.io/otel/trace: import lookup disabled by -mod=vendor
-internal/rpcapi/grpc_testing.go:11:2: cannot find module providing package go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc: import lookup disabled by -mod=vendor
+github.com/hashicorp/terraform/internal/promising
+# github.com/hashicorp/terraform/internal/promising
+internal/promising/once.go:17:12: undefined: PromiseGet
+internal/promising/once.go:18:12: undefined: PromiseID
+internal/promising/once.go:86:31: undefined: PromiseID
+internal/promising/promise_resolver.go:14:5: undefined: promise
+internal/promising/promise_resolver.go:29:42: undefined: PromiseID
+internal/promising/promise_resolver.go:34:41: undefined: promise
+internal/promising/promise_resolver.go:51:13: undefined: promise
+internal/promising/task.go:14:29: undefined: promise
+internal/promising/ptr_set.go:21:26: undefined: promise
+internal/promising/errors.go:29:11: undefined: ErrSelfDependent
+internal/promising/promise_resolver.go:34:41: too many errors
+*** Error code 1
+
+Stop.
+make: stopped in /usr/ports/local/terraform-1.9

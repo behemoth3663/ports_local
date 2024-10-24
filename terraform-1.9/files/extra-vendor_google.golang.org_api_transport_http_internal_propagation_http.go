@@ -1,16 +1,28 @@
 --- vendor/google.golang.org/api/transport/http/internal/propagation/http.go.orig	2024-10-23 22:05:40 UTC
 +++ vendor/google.golang.org/api/transport/http/internal/propagation/http.go
-@@ -16,9 +16,6 @@ import (
- 	"net/http"
- 	"strconv"
- 	"strings"
+@@ -9,79 +9,11 @@ package propagation
+ // by Google Cloud products.
+ package propagation
+ 
+-import (
+-	"encoding/binary"
+-	"encoding/hex"
+-	"fmt"
+-	"net/http"
+-	"strconv"
+-	"strings"
 -
 -	"go.opencensus.io/trace"
 -	"go.opencensus.io/trace/propagation"
+-)
+-
+ const (
+ 	httpHeaderMaxSize = 200
+ 	httpHeader        = `X-Cloud-Trace-Context`
  )
  
- const (
-@@ -31,57 +28,3 @@ type HTTPFormat struct{}
+-var _ propagation.HTTPFormat = (*HTTPFormat)(nil)
+-
  // HTTPFormat implements propagation.HTTPFormat to propagate
  // traces in HTTP headers for Google Cloud Platform and Stackdriver Trace.
  type HTTPFormat struct{}

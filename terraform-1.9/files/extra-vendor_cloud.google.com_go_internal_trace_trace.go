@@ -1,14 +1,17 @@
 --- vendor/cloud.google.com/go/internal/trace/trace.go.orig	2024-10-23 22:05:39 UTC
 +++ vendor/cloud.google.com/go/internal/trace/trace.go
-@@ -18,7 +18,6 @@ import (
+@@ -16,43 +16,19 @@ import (
+ 
+ import (
  	"context"
- 	"fmt"
+-	"fmt"
  
 -	"go.opencensus.io/trace"
- 	"golang.org/x/xerrors"
- 	"google.golang.org/api/googleapi"
+-	"golang.org/x/xerrors"
+-	"google.golang.org/api/googleapi"
  	"google.golang.org/genproto/googleapis/rpc/code"
-@@ -27,32 +26,13 @@ func StartSpan(ctx context.Context, name string) conte
+-	"google.golang.org/grpc/status"
+ )
  
  // StartSpan adds a span to the trace with the given name.
  func StartSpan(ctx context.Context, name string) context.Context {
@@ -41,7 +44,7 @@
  // TODO(deklerk): switch to using OpenCensus function when it becomes available.
  // Reference: https://github.com/googleapis/googleapis/blob/26b634d2724ac5dd30ae0b0cbfb01f07f2e4050e/google/rpc/code.proto
  func httpStatusCodeToOCCode(httpStatusCode int) int32 {
-@@ -90,22 +70,4 @@ func TracePrintf(ctx context.Context, attrMap map[stri
+@@ -90,22 +66,4 @@ func TracePrintf(ctx context.Context, attrMap map[stri
  // incurred from using trace.FromContext(ctx) yet we could avoid
  // throwing away the work done by ctx, span := trace.StartSpan.
  func TracePrintf(ctx context.Context, attrMap map[string]interface{}, format string, args ...interface{}) {
