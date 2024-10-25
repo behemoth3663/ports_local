@@ -14,6 +14,7 @@ GH_TUPLE=	\
 		charmbracelet:x:ba2a9512b05f:charmbracelet_x_term/vendor/github.com/charmbracelet/x \
 		cli:browser:v1.3.0:cli_browser/vendor/github.com/cli/browser \
 		cli:go-gh:v2.11.0:cli_go_gh_v2/vendor/github.com/cli/go-gh/v2 \
+		cli:go-internal:fa3c22e38b9b:cli_go_internal/vendor/github.com/rogpeppe/go-internal \
 		cli:oauth:v1.1.1:cli_oauth/vendor/github.com/cli/oauth \
 		cli:safeexec:v1.0.1:cli_safeexec/vendor/github.com/cli/safeexec \
 		cli:shurcooL-graphql:v0.0.4:cli_shurcool_graphql/vendor/github.com/cli/shurcooL-graphql \
@@ -31,7 +32,7 @@ GH_TUPLE=	\
 		docker:distribution:v2.8.2:docker_distribution/vendor/github.com/docker/distribution \
 		fatih:color:v1.16.0:fatih_color/vendor/github.com/fatih/color \
 		fsnotify:fsnotify:v1.7.0:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
-		gabriel-vasile:mimetype:v1.4.5:gabriel_vasile_mimetype/vendor/github.com/gabriel-vasile/mimetype \
+		gabriel-vasile:mimetype:v1.4.6:gabriel_vasile_mimetype/vendor/github.com/gabriel-vasile/mimetype \
 		gdamore:encoding:v1.0.0:gdamore_encoding/vendor/github.com/gdamore/encoding \
 		gdamore:tcell:v2.5.4:gdamore_tcell_v2/vendor/github.com/gdamore/tcell/v2 \
 		go-chi:chi:v4.1.2:go_chi_chi/vendor/github.com/go-chi/chi \
@@ -51,15 +52,15 @@ GH_TUPLE=	\
 		go-openapi:validate:v0.24.0:go_openapi_validate/vendor/github.com/go-openapi/validate \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
 		godbus:dbus:v5.1.0:godbus_dbus_v5/vendor/github.com/godbus/dbus/v5 \
-		golang:crypto:v0.27.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.28.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:db7319d0e0e3:golang_exp/vendor/golang.org/x/exp \
-		golang:mod:v0.20.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.27.0:golang_net/vendor/golang.org/x/net \
+		golang:mod:v0.21.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.30.0:golang_net/vendor/golang.org/x/net \
 		golang:sync:v0.8.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.26.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.24.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.18.0:golang_text/vendor/golang.org/x/text \
-		golang:tools:v0.22.0:golang_tools/vendor/golang.org/x/tools \
+		golang:term:v0.25.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.19.0:golang_text/vendor/golang.org/x/text \
+		golang:tools:v0.26.0:golang_tools/vendor/golang.org/x/tools \
 		google:certificate-transparency-go:v1.2.1:google_certificate_transparency_go/vendor/github.com/google/certificate-transparency-go \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-containerregistry:v0.20.2:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
@@ -120,7 +121,6 @@ GH_TUPLE=	\
 		rivo:tview:c4a7e501810d:rivo_tview/vendor/github.com/rivo/tview \
 		rivo:uniseg:v0.4.7:rivo_uniseg/vendor/github.com/rivo/uniseg \
 		rodaine:table:v1.0.1:rodaine_table/vendor/github.com/rodaine/table \
-		rogpeppe:go-internal:v1.13.1:rogpeppe_go_internal/vendor/github.com/rogpeppe/go-internal \
 		russross:blackfriday:v2.1.0:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
 		sagikazarmark:locafero:v0.4.0:sagikazarmark_locafero/vendor/github.com/sagikazarmark/locafero \
 		sagikazarmark:slog-shim:v0.1.0:sagikazarmark_slog_shim/vendor/github.com/sagikazarmark/slog-shim \
