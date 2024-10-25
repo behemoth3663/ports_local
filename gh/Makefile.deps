@@ -14,7 +14,7 @@ GH_TUPLE=	\
 		charmbracelet:x:ba2a9512b05f:charmbracelet_x_term/vendor/github.com/charmbracelet/x \
 		cli:browser:v1.3.0:cli_browser/vendor/github.com/cli/browser \
 		cli:go-gh:v2.11.0:cli_go_gh_v2/vendor/github.com/cli/go-gh/v2 \
-		cli:go-internal:fa3c22e38b9b:cli_go_internal/vendor/github.com/rogpeppe/go-internal \
+		cli:go-internal:6c48bcd5ce24:cli_go_internal/vendor/github.com/cli/go-internal \
 		cli:oauth:v1.1.1:cli_oauth/vendor/github.com/cli/oauth \
 		cli:safeexec:v1.0.1:cli_safeexec/vendor/github.com/cli/safeexec \
 		cli:shurcooL-graphql:v0.0.4:cli_shurcool_graphql/vendor/github.com/cli/shurcooL-graphql \
