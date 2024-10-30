@@ -4,12 +4,12 @@ GH_TUPLE=	\
 		benbjohnson:clock:v1.3.0:benbjohnson_clock/vendor/github.com/benbjohnson/clock \
 		beorn7:perks:v1.0.1:beorn7_perks/vendor/github.com/beorn7/perks \
 		cespare:xxhash:v2.3.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
-		cpuguy83:go-md2man:v2.0.4:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
+		cpuguy83:go-md2man:v2.0.5:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
 		davecgh:go-spew:d8f796af33cc:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		dennwc:varint:v1.0.0:dennwc_varint/vendor/github.com/dennwc/varint \
 		edsrzf:mmap-go:v1.1.0:edsrzf_mmap_go/vendor/github.com/edsrzf/mmap-go \
 		facette:natsort:2cd4dd1e2dcb:facette_natsort/vendor/github.com/facette/natsort \
-		fatih:color:v1.17.0:fatih_color/vendor/github.com/fatih/color \
+		fatih:color:v1.18.0:fatih_color/vendor/github.com/fatih/color \
 		gkampitakis:ciinfo:v0.3.0:gkampitakis_ciinfo/vendor/github.com/gkampitakis/ciinfo \
 		gkampitakis:go-diff:v1.3.2:gkampitakis_go_diff/vendor/github.com/gkampitakis/go-diff \
 		gkampitakis:go-snaps:v0.5.7:gkampitakis_go_snaps/vendor/github.com/gkampitakis/go-snaps \
@@ -20,13 +20,13 @@ GH_TUPLE=	\
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
 		gogo:protobuf:v1.3.2:gogo_protobuf/vendor/github.com/gogo/protobuf \
 		golang:exp:8a7402abbf56:golang_exp/vendor/golang.org/x/exp \
-		golang:mod:v0.19.0:golang_mod/vendor/golang.org/x/mod \
+		golang:mod:v0.20.0:golang_mod/vendor/golang.org/x/mod \
 		golang:oauth2:v0.23.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:sync:v0.8.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.25.0:golang_sys/vendor/golang.org/x/sys \
 		golang:text:v0.18.0:golang_text/vendor/golang.org/x/text \
-		golang:time:v0.5.0:golang_time/vendor/golang.org/x/time \
-		golang:tools:v0.23.0:golang_tools/vendor/golang.org/x/tools \
+		golang:time:v0.6.0:golang_time/vendor/golang.org/x/time \
+		golang:tools:v0.24.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-github:v63.0.0:google_go_github_v63/vendor/github.com/google/go-github/v63 \
 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
@@ -35,7 +35,7 @@ GH_TUPLE=	\
 		hashicorp:go-retryablehttp:v0.7.7:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
 		hashicorp:hcl:v2.22.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
 		json-iterator:go:v1.1.12:json_iterator_go/vendor/github.com/json-iterator/go \
-		klauspost:compress:v1.17.10:klauspost_compress/vendor/github.com/klauspost/compress \
+		klauspost:compress:v1.17.11:klauspost_compress/vendor/github.com/klauspost/compress \
 		kr:pretty:v0.3.1:kr_pretty/vendor/github.com/kr/pretty \
 		kr:text:v0.2.0:kr_text/vendor/github.com/kr/text \
 		kylelemons:godebug:v1.1.0:kylelemons_godebug/vendor/github.com/kylelemons/godebug \
@@ -47,13 +47,13 @@ GH_TUPLE=	\
 		modern-go:reflect2:v1.0.2:modern_go_reflect2/vendor/github.com/modern-go/reflect2 \
 		munnerz:goautoneg:a7dc8b61c822:munnerz_goautoneg/vendor/github.com/munnerz/goautoneg \
 		neilotoole:slogt:v1.1.0:neilotoole_slogt/vendor/github.com/neilotoole/slogt \
-		open-telemetry:opentelemetry-go:v1.28.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
+		open-telemetry:opentelemetry-go:v1.29.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
 		pmezard:go-difflib:5d4384ee4fb2:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
-		prometheus:client_golang:v1.20.4:prometheus_client_golang/vendor/github.com/prometheus/client_golang \
+		prometheus:client_golang:v1.20.5:prometheus_client_golang/vendor/github.com/prometheus/client_golang \
 		prometheus:client_model:v0.6.1:prometheus_client_model/vendor/github.com/prometheus/client_model \
-		prometheus:common:v0.60.0:prometheus_common/vendor/github.com/prometheus/common \
+		prometheus:common:v0.60.1:prometheus_common/vendor/github.com/prometheus/common \
 		prometheus:procfs:v0.15.1:prometheus_procfs/vendor/github.com/prometheus/procfs \
-		prometheus:prometheus:v0.54.1:prometheus_prometheus/vendor/github.com/prometheus/prometheus \
+		prometheus:prometheus:v0.55.0:prometheus_prometheus/vendor/github.com/prometheus/prometheus \
 		protocolbuffers:protobuf-go:v1.34.2:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		prymitive:current:v0.1.1:prymitive_current/vendor/github.com/prymitive/current \
 		rogpeppe:go-internal:v1.13.1:rogpeppe_go_internal/vendor/github.com/rogpeppe/go-internal \
@@ -66,7 +66,7 @@ GH_TUPLE=	\
 		uber-go:atomic:v1.11.0:uber_go_atomic/vendor/go.uber.org/atomic \
 		uber-go:automaxprocs:v1.6.0:uber_go_automaxprocs/vendor/go.uber.org/automaxprocs \
 		uber-go:ratelimit:v0.3.1:uber_go_ratelimit/vendor/go.uber.org/ratelimit \
-		urfave:cli:v2.27.4:urfave_cli_v2/vendor/github.com/urfave/cli/v2 \
-		xanzy:go-gitlab:v0.109.0:xanzy_go_gitlab/vendor/github.com/xanzy/go-gitlab \
+		urfave:cli:v2.27.5:urfave_cli_v2/vendor/github.com/urfave/cli/v2 \
+		xanzy:go-gitlab:v0.112.0:xanzy_go_gitlab/vendor/github.com/xanzy/go-gitlab \
 		xrash:smetrics:686a1a2994c1:xrash_smetrics/vendor/github.com/xrash/smetrics \
 		zclconf:go-cty:v1.15.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
