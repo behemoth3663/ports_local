@@ -1,5 +1,5 @@
 PORTNAME=	trivy
-PORTVERSION=	0.56.2
+PORTVERSION=	0.57.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local security
@@ -11,7 +11,7 @@ WWW=		https://${GO_MODULE}
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:modules,1.23
+USES=		go:modules
 
 GO_MODULE=	github.com/aquasecurity/trivy
 GO_TARGET=	./cmd/${PORTNAME}
