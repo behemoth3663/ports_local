@@ -3,4 +3,5 @@ GH_TUPLE=	\
 		braydonk:yaml:v0.7.0:braydonk_yaml/vendor/github.com/braydonk/yaml \
 		google:go-cmp:v0.5.9:google_go_cmp/vendor/github.com/google/go-cmp \
 		mitchellh:mapstructure:v1.5.0:mitchellh_mapstructure/vendor/github.com/mitchellh/mapstructure \
-		sabhiram:go-gitignore:525f6e181f06:sabhiram_go_gitignore/vendor/github.com/sabhiram/go-gitignore
+		sabhiram:go-gitignore:525f6e181f06:sabhiram_go_gitignore/vendor/github.com/sabhiram/go-gitignore \
+		santhosh-tekuri:jsonschema:v4.0.0:santhosh_tekuri_jsonschema_v4/vendor/github.com/santhosh-tekuri/jsonschema/v4
