@@ -1,6 +1,6 @@
-TIMESTAMP = 1730293419
-SHA256 (cloudflare-pint-v0.67.1_GH0.tar.gz) = 13dfd2f05540a82ba5cdd344d9df237a318c055a9e25f29c25da316731a4cd54
-SIZE (cloudflare-pint-v0.67.1_GH0.tar.gz) = 376483
+TIMESTAMP = 1730636186
+SHA256 (cloudflare-pint-v0.67.3_GH0.tar.gz) = e6dd4702e06fced6513e360f85829c05ee263ecd4976bd99570f20ac4f549fb6
+SIZE (cloudflare-pint-v0.67.3_GH0.tar.gz) = 379947
 SHA256 (agext-levenshtein-v1.2.1_GH0.tar.gz) = c6e4bc2db1f0d9bc57fd3f1887567d527f6df1bcfbb079d1d1c4eab17f320b50
 SIZE (agext-levenshtein-v1.2.1_GH0.tar.gz) = 12728
 SHA256 (apparentlymart-go-textseg-v15.0.0_GH0.tar.gz) = d73ee2bce8c1a8e35b0355a8cb66d05cd65a07099b7edaf1e44edc51cf33210d
