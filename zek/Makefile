@@ -1,5 +1,5 @@
 PORTNAME=	zek
-PORTVERSION=	0.1.25
+PORTVERSION=	0.1.26
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local textproc
@@ -23,8 +23,7 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
 
 #const Version = "0.1.23"
 post-patch: .PHONY
-	${REINPLACE_CMD} -r 's|^(const Version = ").*|\1${PORTVERSION}"|' \
-		${WRKSRC}/version.go 
+	${REINPLACE_CMD} -r 's|^(const Version = ").*|\1${PORTVERSION}"|' ${WRKSRC}/version.go
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
