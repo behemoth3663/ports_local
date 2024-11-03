@@ -1,6 +1,6 @@
 PORTNAME=	rage
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.10.0
+DISTVERSION=	0.11.0
 CATEGORIES=	local security
 
 MAINTAINER=	none@freebsd.org
@@ -24,7 +24,11 @@ post-install: .PHONY
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
 
 #https://www.freebsd.org/doc/en_US.ISO8859-1/books/porters-handbook/building.html#using-cargo
-#rm -f Makefile.deps && make makesum
-#make cargo-crates | grep -Ev '^=' >Makefile.deps && make makesum
-.sinclude "${.CURDIR}/Makefile.deps"
+deps: .PHONY
+	${RM} Makefile.crates
+	${MAKE} -C ${.CURDIR} makesum
+	set -o pipefail && ${MAKE} -C ${.CURDIR} cargo-crates | ${GREP} --extended-regexp --invert-match '^=' > Makefile.crates
+	${MAKE} -C ${.CURDIR} makesum
+
+.sinclude "${.CURDIR}/Makefile.crates"
 .include <bsd.port.mk>
