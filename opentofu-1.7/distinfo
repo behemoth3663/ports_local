@@ -1,6 +1,6 @@
-TIMESTAMP = 1729700658
-SHA256 (opentofu-opentofu-v1.7.4_GH0.tar.gz) = 11d83b23f368a3d551e0d605a7434b116bb6fc27ab985d3ce69706a42dfb3c73
-SIZE (opentofu-opentofu-v1.7.4_GH0.tar.gz) = 3892330
+TIMESTAMP = 1730800005
+SHA256 (opentofu-opentofu-v1.7.5_GH0.tar.gz) = 7e8af19a25be9e632401dac9ecbf8e9b38cc97f5ff602fdf1c4e61a312beaf0c
+SIZE (opentofu-opentofu-v1.7.5_GH0.tar.gz) = 3892015
 SHA256 (AlecAivazis-survey-v2.3.6_GH0.tar.gz) = 625a234986f6a91a09ca25e88b907d29af1ea1df7601c38b1b79937571f209ee
 SIZE (AlecAivazis-survey-v2.3.6_GH0.tar.gz) = 1466064
 SHA256 (Azure-azure-sdk-for-go-v59.2.0_GH0.tar.gz) = b65114ed30d5860465479d848ed0399a318eb8391ae8b1e139dcefc687fd0ae4
