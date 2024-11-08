@@ -20,7 +20,7 @@ GH_TUPLE=	\
 		cli:shurcooL-graphql:v0.0.4:cli_shurcool_graphql/vendor/github.com/cli/shurcooL-graphql \
 		containerd:stargz-snapshotter:v0.14.3:containerd_stargz_snapshotter_estargz/vendor/github.com/containerd/stargz-snapshotter \
 		cpuguy83:go-md2man:v2.0.5:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
-		creack:pty:v1.1.23:creack_pty/vendor/github.com/creack/pty \
+		creack:pty:v1.1.24:creack_pty/vendor/github.com/creack/pty \
 		cyberphone:json-canonicalization:57a0ce2678a7:cyberphone_json_canonicalization/vendor/github.com/cyberphone/json-canonicalization \
 		danieljoos:wincred:v1.2.1:danieljoos_wincred/vendor/github.com/danieljoos/wincred \
 		davecgh:go-spew:d8f796af33cc:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
