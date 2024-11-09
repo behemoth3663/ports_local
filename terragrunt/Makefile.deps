@@ -105,7 +105,7 @@ GH_TUPLE=	\
 		gookit:color:v1.5.4:gookit_color/vendor/github.com/gookit/color \
 		gorilla:css:v1.0.0:gorilla_css/vendor/github.com/gorilla/css \
 		goware:prefixer:395022866408:goware_prefixer/vendor/github.com/goware/prefixer \
-		grpc-ecosystem:grpc-gateway:v2.19.0:grpc_ecosystem_grpc_gateway_v2/vendor/github.com/grpc-ecosystem/grpc-gateway/v2 \
+		grpc-ecosystem:grpc-gateway:v2.22.0:grpc_ecosystem_grpc_gateway_v2/vendor/github.com/grpc-ecosystem/grpc-gateway/v2 \
 		grpc:grpc-go:ad81c20503be:grpc_grpc_go_1/vendor/google.golang.org/grpc/stats/opentelemetry \
 		grpc:grpc-go:v1.67.1:grpc_grpc_go/vendor/google.golang.org/grpc \
 		gruntwork-io:boilerplate:v0.5.19:gruntwork_io_boilerplate/vendor/github.com/gruntwork-io/boilerplate \
@@ -179,10 +179,10 @@ GH_TUPLE=	\
 		open-telemetry:opentelemetry-go-contrib:instrumentation/net/http/otelhttp/v0.56.0:open_telemetry_opentelemetry_go_contrib_otelhttp \
 		open-telemetry:opentelemetry-go-contrib:detectors/gcp/v1.31.0:open_telemetry_opentelemetry_go_contrib_detectors_gcp \
 		open-telemetry:opentelemetry-go:v1.31.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
-		open-telemetry:opentelemetry-go:exporters/otlp/otlptrace/v1.23.0:open_telemetry_opentelemetry_go_otlptrace \
+		open-telemetry:opentelemetry-go:exporters/otlp/otlptrace/v1.31.0:open_telemetry_opentelemetry_go_otlptrace \
 		open-telemetry:opentelemetry-go:exporters/otlp/otlpmetric/otlpmetrichttp/v1.23.1:open_telemetry_opentelemetry_go_otlpmetrichttp \
 		open-telemetry:opentelemetry-go:exporters/otlp/otlpmetric/otlpmetricgrpc/v1.23.1:open_telemetry_opentelemetry_go_otlpmetricgrpc \
-		open-telemetry:opentelemetry-proto-go:otlp/v1.2.0:open_telemetry_opentelemetry_proto_go/vendor/go.opentelemetry.io/proto \
+		open-telemetry:opentelemetry-proto-go:otlp/v1.3.1:open_telemetry_opentelemetry_proto_go/vendor/go.opentelemetry.io/proto \
 		owenrumney:go-sarif:v1.1.1:owenrumney_go_sarif/vendor/github.com/owenrumney/go-sarif \
 		pierrec:lz4:v4.1.2:pierrec_lz4_v4/vendor/github.com/pierrec/lz4/v4 \
 		pkg:browser:5ac0b6a4141c:pkg_browser/vendor/github.com/pkg/browser \
@@ -195,7 +195,6 @@ GH_TUPLE=	\
 		pterm:pterm:v0.12.79:pterm_pterm/vendor/github.com/pterm/pterm \
 		puzpuzpuz:xsync:v3.4.0:puzpuzpuz_xsync_v3/vendor/github.com/puzpuzpuz/xsync/v3 \
 		rivo:uniseg:v0.4.7:rivo_uniseg/vendor/github.com/rivo/uniseg \
-		rogpeppe:go-internal:v1.12.0:rogpeppe_go_internal/vendor/github.com/rogpeppe/go-internal \
 		russross:blackfriday:v2.1.0:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
 		ryanuber:go-glob:v1.0.0:ryanuber_go_glob/vendor/github.com/ryanuber/go-glob \
 		sahilm:fuzzy:v0.1.0:sahilm_fuzzy/vendor/github.com/sahilm/fuzzy \
@@ -234,17 +233,17 @@ GH_TUPLE=	\
 		#	::v0.56.0:group_name/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc (from go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc@v0.56.0)
 		#	::v0.56.0:group_name/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp (from go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp@v0.56.0)
 		#	::v1.0.1:group_name/vendor/dario.cat/mergo (from dario.cat/mergo@v1.0.1)
-		#	::v1.1.0:group_name/vendor/go.opentelemetry.io/proto/otlp (from go.opentelemetry.io/proto/otlp@v1.1.0)
 		#	::v1.2.0:group_name/vendor/filippo.io/age (from filippo.io/age@v1.2.0)
 		#	::v1.22.0:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp (from go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp@v1.22.0)
 		#	::v1.22.0:group_name/vendor/go.opentelemetry.io/otel/exporters/stdout/stdouttrace (from go.opentelemetry.io/otel/exporters/stdout/stdouttrace@v1.22.0)
-		#	::v1.23.0:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace (from go.opentelemetry.io/otel/exporters/otlp/otlptrace@v1.23.0)
-		#	::v1.23.0:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc (from go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc@v1.23.0)
 		#	::v1.23.1:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc (from go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc@v1.23.1)
 		#	::v1.23.1:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp (from go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp@v1.23.1)
 		#	::v1.23.1:group_name/vendor/go.opentelemetry.io/otel/exporters/stdout/stdoutmetric (from go.opentelemetry.io/otel/exporters/stdout/stdoutmetric@v1.23.1)
+		#	::v1.3.1:group_name/vendor/go.opentelemetry.io/proto/otlp (from go.opentelemetry.io/proto/otlp@v1.3.1)
 		#	::v1.31.0:group_name/vendor/go.opentelemetry.io/contrib/detectors/gcp (from go.opentelemetry.io/contrib/detectors/gcp@v1.31.0)
 		#	::v1.31.0:group_name/vendor/go.opentelemetry.io/otel (from go.opentelemetry.io/otel@v1.31.0)
+		#	::v1.31.0:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace (from go.opentelemetry.io/otel/exporters/otlp/otlptrace@v1.31.0)
+		#	::v1.31.0:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc (from go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc@v1.31.0)
 		#	::v1.31.0:group_name/vendor/go.opentelemetry.io/otel/metric (from go.opentelemetry.io/otel/metric@v1.31.0)
 		#	::v1.31.0:group_name/vendor/go.opentelemetry.io/otel/sdk (from go.opentelemetry.io/otel/sdk@v1.31.0)
 		#	::v1.31.0:group_name/vendor/go.opentelemetry.io/otel/sdk/metric (from go.opentelemetry.io/otel/sdk/metric@v1.31.0)
