@@ -27,7 +27,7 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 OPTIONS_DEFINE=	CMOUNT
 
 CMOUNT_DESC=		Enable cmount command (depends on fusefs-libs)
-CMOUNT_LIB_DEPENDS=	libfuse.so:sysutils/fusefs-libs
+CMOUNT_LIB_DEPENDS=	libfuse.so:filesystems/fusefs-libs
 CMOUNT_VARS=		GO_BUILDFLAGS+="-tags cmount"
 
 post-install:

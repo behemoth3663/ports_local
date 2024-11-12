@@ -1,30 +1,30 @@
---- Makefile.deps.orig	2024-10-13 12:10:38 UTC
+--- Makefile.deps.orig	2024-11-12 20:46:44 UTC
 +++ Makefile.deps
 @@ -4,19 +4,7 @@ GH_TUPLE=	\
- 		ProtonMail:go-crypto:v1.1.0-alpha.5-proton:protonmail_go_crypto/vendor/github.com/ProtonMail/go-crypto \
+ 		ProtonMail:go-crypto:v1.1.0-beta.0-proton:protonmail_go_crypto/vendor/github.com/ProtonMail/go-crypto \
  		agext:levenshtein:v1.2.3:agext_levenshtein/vendor/github.com/agext/levenshtein \
  		apparentlymart:go-textseg:v15.0.0:apparentlymart_go_textseg_v15/vendor/github.com/apparentlymart/go-textseg/v15 \
--		aws:aws-sdk-go-v2:v1.11.19:aws_aws_sdk_go_v2_presigned_url/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url \
--		aws:aws-sdk-go-v2:v1.11.4:aws_aws_sdk_go_v2_accept_encoding/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding \
--		aws:aws-sdk-go-v2:v1.16.13:aws_aws_sdk_go_v2_imds/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds \
--		aws:aws-sdk-go-v2:v1.17.33:aws_aws_sdk_go_v2_credentials/vendor/github.com/aws/aws-sdk-go-v2/credentials \
--		aws:aws-sdk-go-v2:v1.22.8:aws_aws_sdk_go_v2_sso/vendor/github.com/aws/aws-sdk-go-v2/service/sso \
--		aws:aws-sdk-go-v2:v1.26.8:aws_aws_sdk_go_v2_ssooidc/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc \
--		aws:aws-sdk-go-v2:v1.27.35:aws_aws_sdk_go_v2_config/vendor/github.com/aws/aws-sdk-go-v2/config \
--		aws:aws-sdk-go-v2:v1.3.17:aws_aws_sdk_go_v2_configsources/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources \
- 		aws:aws-sdk-go-v2:v1.30.5:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
--		aws:aws-sdk-go-v2:v1.30.8:aws_aws_sdk_go_v2_sts/vendor/github.com/aws/aws-sdk-go-v2/service/sts \
--		aws:aws-sdk-go-v2:v1.35.3:aws_aws_sdk_go_v2_iam/vendor/github.com/aws/aws-sdk-go-v2/service/iam \
+-		aws:aws-sdk-go-v2:v1.12.0:aws_aws_sdk_go_v2_accept_encoding/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding \
+-		aws:aws-sdk-go-v2:v1.12.3:aws_aws_sdk_go_v2_presigned_url/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url \
+-		aws:aws-sdk-go-v2:v1.16.18:aws_aws_sdk_go_v2_imds/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds \
+-		aws:aws-sdk-go-v2:v1.17.42:aws_aws_sdk_go_v2_credentials/vendor/github.com/aws/aws-sdk-go-v2/credentials \
+-		aws:aws-sdk-go-v2:v1.24.3:aws_aws_sdk_go_v2_sso/vendor/github.com/aws/aws-sdk-go-v2/service/sso \
+-		aws:aws-sdk-go-v2:v1.28.1:aws_aws_sdk_go_v2_config/vendor/github.com/aws/aws-sdk-go-v2/config \
+-		aws:aws-sdk-go-v2:v1.28.3:aws_aws_sdk_go_v2_ssooidc/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc \
+-		aws:aws-sdk-go-v2:v1.3.22:aws_aws_sdk_go_v2_configsources/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources \
+ 		aws:aws-sdk-go-v2:v1.32.3:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+-		aws:aws-sdk-go-v2:v1.32.3:aws_aws_sdk_go_v2_sts/vendor/github.com/aws/aws-sdk-go-v2/service/sts \
+-		aws:aws-sdk-go-v2:v1.37.3:aws_aws_sdk_go_v2_iam/vendor/github.com/aws/aws-sdk-go-v2/service/iam \
 -		aws:aws-sdk-go-v2:v1.8.1:aws_aws_sdk_go_v2_ini/vendor/github.com/aws/aws-sdk-go-v2/internal/ini \
--		aws:aws-sdk-go-v2:v2.6.17:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 \
+-		aws:aws-sdk-go-v2:v2.6.22:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 \
  		aws:aws-sdk-go:v1.55.5:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
- 		aws:smithy-go:v1.21.0:aws_smithy_go/vendor/github.com/aws/smithy-go \
- 		cloudflare:circl:v1.4.0:cloudflare_circl/vendor/github.com/cloudflare/circl \
+ 		aws:smithy-go:v1.22.0:aws_smithy_go/vendor/github.com/aws/smithy-go \
+ 		cloudflare:circl:v1.5.0:cloudflare_circl/vendor/github.com/cloudflare/circl \
 @@ -46,6 +34,7 @@ GH_TUPLE=	\
  		hashicorp:hcl:v2.22.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
  		hashicorp:terraform-exec:v0.21.0:hashicorp_terraform_exec/vendor/github.com/hashicorp/terraform-exec \
- 		hashicorp:terraform-json:v0.22.1:hashicorp_terraform_json/vendor/github.com/hashicorp/terraform-json \
+ 		hashicorp:terraform-json:v0.23.0:hashicorp_terraform_json/vendor/github.com/hashicorp/terraform-json \
 +		imdario:mergo:v1.0.1:imdario_mergo/vendor/dario.cat/mergo \
- 		jameswoolfenden:identity:v0.0.3:jameswoolfenden_identity/vendor/github.com/jameswoolfenden/identity \
+ 		jameswoolfenden:identity:v0.0.5:jameswoolfenden_identity/vendor/github.com/jameswoolfenden/identity \
  		jbenet:go-context:d14ea06fba99:jbenet_go_context/vendor/github.com/jbenet/go-context \
  		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \

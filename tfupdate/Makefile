@@ -11,7 +11,7 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:modules,1.22
+USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	minamijoyo
