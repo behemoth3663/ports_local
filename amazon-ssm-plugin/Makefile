@@ -1,5 +1,5 @@
 PORTNAME=	amazon-ssm-plugin
-PORTVERSION=	1.2.677.0
+PORTVERSION=	1.2.688.0
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
 
@@ -52,7 +52,7 @@ pre-deps: .PHONY .SILENT
 	cd ${WRKSRC} && \
 		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod init ${GO_PKGNAME} && \
 		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod tidy -v
-	${TAR}  --create --directory ${PATCHDIR} --exclude='go.mod' --exclude='go.sum' --xz --file ${TMPDIR}/${PORTNAME}.tar.xz .
+	${TAR} --create --directory ${PATCHDIR} --exclude='go.mod' --exclude='go.sum' --xz --file ${TMPDIR}/${PORTNAME}.tar.xz .
 	${RM} ${PATCHDIR}/*
 	${CP} -a ${WRKSRC}/go.mod ${WRKSRC}/go.sum ${PATCHDIR}
 
