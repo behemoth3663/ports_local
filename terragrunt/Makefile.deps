@@ -14,7 +14,7 @@ GH_TUPLE=	\
 		NYTimes:gziphandler:v1.1.1:nytimes_gziphandler/vendor/github.com/NYTimes/gziphandler \
 		ProtonMail:go-crypto:v1.1.0-beta.0-proton:protonmail_go_crypto/vendor/github.com/ProtonMail/go-crypto \
 		agext:levenshtein:v1.2.3:agext_levenshtein/vendor/github.com/agext/levenshtein \
-		alecthomas:chroma:v0.10.0:alecthomas_chroma/vendor/github.com/alecthomas/chroma \
+		alecthomas:chroma:v2.14.0:alecthomas_chroma_v2/vendor/github.com/alecthomas/chroma/v2 \
 		andybalholm:brotli:v1.0.1:andybalholm_brotli/vendor/github.com/andybalholm/brotli \
 		apparentlymart:go-cidr:v1.1.0:apparentlymart_go_cidr/vendor/github.com/apparentlymart/go-cidr \
 		apparentlymart:go-textseg:v15.0.0:apparentlymart_go_textseg_v15/vendor/github.com/apparentlymart/go-textseg/v15 \
@@ -40,8 +40,9 @@ GH_TUPLE=	\
 		cespare:xxhash:v2.3.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
 		charmbracelet:bubbles:v0.16.1:charmbracelet_bubbles/vendor/github.com/charmbracelet/bubbles \
 		charmbracelet:bubbletea:v0.24.2:charmbracelet_bubbletea/vendor/github.com/charmbracelet/bubbletea \
-		charmbracelet:glamour:v0.6.0:charmbracelet_glamour/vendor/github.com/charmbracelet/glamour \
-		charmbracelet:lipgloss:v0.9.1:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
+		charmbracelet:glamour:v0.8.0:charmbracelet_glamour/vendor/github.com/charmbracelet/glamour \
+		charmbracelet:lipgloss:v0.12.1:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
+		charmbracelet:x:ansi/v0.1.4:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x \
 		cloudflare:circl:v1.3.9:cloudflare_circl/vendor/github.com/cloudflare/circl \
 		cncf:xds:b4127c9b8d78:cncf_xds_go/vendor/github.com/cncf/xds \
 		containerd:console:v1.0.4:containerd_console/vendor/github.com/containerd/console \
@@ -49,7 +50,7 @@ GH_TUPLE=	\
 		creack:pty:v1.1.17:creack_pty/vendor/github.com/creack/pty \
 		darccio:mergo:v1.0.1:darccio_mergo/vendor/dario.cat/mergo \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
-		dlclark:regexp2:v1.4.0:dlclark_regexp2/vendor/github.com/dlclark/regexp2 \
+		dlclark:regexp2:v1.11.0:dlclark_regexp2/vendor/github.com/dlclark/regexp2 \
 		dsnet:compress:f66993602bf5:dsnet_compress/vendor/github.com/dsnet/compress \
 		envoyproxy:go-control-plane:v0.13.0:envoyproxy_go_control_plane/vendor/github.com/envoyproxy/go-control-plane \
 		envoyproxy:protoc-gen-validate:v1.1.0:envoyproxy_protoc_gen_validate/vendor/github.com/envoyproxy/protoc-gen-validate \
@@ -103,7 +104,7 @@ GH_TUPLE=	\
 		googleapis:google-cloud-go:auth/v0.10.0:googleapis_google_cloud_go_auth \
 		googleapis:google-cloud-go:v0.116.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
 		gookit:color:v1.5.4:gookit_color/vendor/github.com/gookit/color \
-		gorilla:css:v1.0.0:gorilla_css/vendor/github.com/gorilla/css \
+		gorilla:css:v1.0.1:gorilla_css/vendor/github.com/gorilla/css \
 		goware:prefixer:395022866408:goware_prefixer/vendor/github.com/goware/prefixer \
 		grpc-ecosystem:grpc-gateway:v2.22.0:grpc_ecosystem_grpc_gateway_v2/vendor/github.com/grpc-ecosystem/grpc-gateway/v2 \
 		grpc:grpc-go:ad81c20503be:grpc_grpc_go_1/vendor/google.golang.org/grpc/stats/opentelemetry \
@@ -159,7 +160,7 @@ GH_TUPLE=	\
 		mattn:go-zglob:v0.0.6:mattn_go_zglob/vendor/github.com/mattn/go-zglob \
 		mgutz:ansi:d51e80ef957d:mgutz_ansi/vendor/github.com/mgutz/ansi \
 		mholt:archiver:v3.5.1:mholt_archiver_v3/vendor/github.com/mholt/archiver/v3 \
-		microcosm-cc:bluemonday:v1.0.21:microcosm_cc_bluemonday/vendor/github.com/microcosm-cc/bluemonday \
+		microcosm-cc:bluemonday:v1.0.27:microcosm_cc_bluemonday/vendor/github.com/microcosm-cc/bluemonday \
 		mitchellh:colorstring:d06e56a500db:mitchellh_colorstring/vendor/github.com/mitchellh/colorstring \
 		mitchellh:copystructure:v1.2.0:mitchellh_copystructure/vendor/github.com/mitchellh/copystructure \
 		mitchellh:go-homedir:v1.1.0:mitchellh_go_homedir/vendor/github.com/mitchellh/go-homedir \
@@ -171,10 +172,9 @@ GH_TUPLE=	\
 		muesli:ansi:2e021307bc4b:muesli_ansi/vendor/github.com/muesli/ansi \
 		muesli:cancelreader:v0.2.2:muesli_cancelreader/vendor/github.com/muesli/cancelreader \
 		muesli:reflow:v0.3.0:muesli_reflow/vendor/github.com/muesli/reflow \
-		muesli:termenv:v0.15.2:muesli_termenv/vendor/github.com/muesli/termenv \
+		muesli:termenv:98d742f6907a:muesli_termenv/vendor/github.com/muesli/termenv \
 		nwaples:rardecode:v1.1.0:nwaples_rardecode/vendor/github.com/nwaples/rardecode \
 		oklog:run:v1.1.0:oklog_run/vendor/github.com/oklog/run \
-		olekukonko:tablewriter:v0.0.5:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
 		open-telemetry:opentelemetry-go-contrib:instrumentation/google.golang.org/grpc/otelgrpc/v0.56.0:open_telemetry_opentelemetry_go_contrib \
 		open-telemetry:opentelemetry-go-contrib:instrumentation/net/http/otelhttp/v0.56.0:open_telemetry_opentelemetry_go_contrib_otelhttp \
 		open-telemetry:opentelemetry-go-contrib:detectors/gcp/v1.31.0:open_telemetry_opentelemetry_go_contrib_detectors_gcp \
@@ -219,8 +219,8 @@ GH_TUPLE=	\
 		xi2:xz:48954b6210f8:xi2_xz/vendor/github.com/xi2/xz \
 		xo:terminfo:abceb7e1c41e:xo_terminfo/vendor/github.com/xo/terminfo \
 		xrash:smetrics:686a1a2994c1:xrash_smetrics/vendor/github.com/xrash/smetrics \
-		yuin:goldmark-emoji:v1.0.1:yuin_goldmark_emoji/vendor/github.com/yuin/goldmark-emoji \
-		yuin:goldmark:v1.5.2:yuin_goldmark/vendor/github.com/yuin/goldmark \
+		yuin:goldmark-emoji:v1.0.3:yuin_goldmark_emoji/vendor/github.com/yuin/goldmark-emoji \
+		yuin:goldmark:v1.7.4:yuin_goldmark/vendor/github.com/yuin/goldmark \
 		zclconf:go-cty-yaml:v1.0.3:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
 		zclconf:go-cty:v1.14.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
@@ -236,12 +236,12 @@ GH_TUPLE=	\
 		#	::v1.2.0:group_name/vendor/filippo.io/age (from filippo.io/age@v1.2.0)
 		#	::v1.22.0:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp (from go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp@v1.22.0)
 		#	::v1.22.0:group_name/vendor/go.opentelemetry.io/otel/exporters/stdout/stdouttrace (from go.opentelemetry.io/otel/exporters/stdout/stdouttrace@v1.22.0)
-		#	::v1.23.1:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc (from go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc@v1.23.1)
 		#	::v1.23.1:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp (from go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp@v1.23.1)
 		#	::v1.23.1:group_name/vendor/go.opentelemetry.io/otel/exporters/stdout/stdoutmetric (from go.opentelemetry.io/otel/exporters/stdout/stdoutmetric@v1.23.1)
 		#	::v1.3.1:group_name/vendor/go.opentelemetry.io/proto/otlp (from go.opentelemetry.io/proto/otlp@v1.3.1)
 		#	::v1.31.0:group_name/vendor/go.opentelemetry.io/contrib/detectors/gcp (from go.opentelemetry.io/contrib/detectors/gcp@v1.31.0)
 		#	::v1.31.0:group_name/vendor/go.opentelemetry.io/otel (from go.opentelemetry.io/otel@v1.31.0)
+		#	::v1.31.0:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc (from go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc@v1.31.0)
 		#	::v1.31.0:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace (from go.opentelemetry.io/otel/exporters/otlp/otlptrace@v1.31.0)
 		#	::v1.31.0:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc (from go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc@v1.31.0)
 		#	::v1.31.0:group_name/vendor/go.opentelemetry.io/otel/metric (from go.opentelemetry.io/otel/metric@v1.31.0)
