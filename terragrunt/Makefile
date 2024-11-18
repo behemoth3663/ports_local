@@ -1,6 +1,6 @@
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.68.14
+DISTVERSION=	0.68.15
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
 
@@ -30,10 +30,6 @@ pre-post-extract: .PHONY
 	${FIND} ${WRKDIR} -maxdepth 1 -type d -name 'go-commons-*' | while read src; do \
 		${LN} -s "$${src}" "$${src%%go-commons-*}gruntwork-cli-$${src##*go-commons-}"; \
 	done
-
-_OPTIONS_extract+=	750:post-post-extract
-post-post-extract: .PHONY
-	test -f ${WRKSRC}/vendor/modules.txt || test ! -f ${PATCHDIR}/modules.txt || ${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 
 pre-deps post-deps-all: .PHONY
 pre-deps-all: .PHONY

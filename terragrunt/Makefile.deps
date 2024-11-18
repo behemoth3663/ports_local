@@ -82,16 +82,16 @@ GH_TUPLE=	\
 		golang:oauth2:v0.23.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:snappy:v0.0.4:golang_snappy/vendor/github.com/golang/snappy \
-		golang:sync:v0.8.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sync:v0.9.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.27.0:golang_sys/vendor/golang.org/x/sys \
 		golang:term:v0.26.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.19.0:golang_text/vendor/golang.org/x/text \
+		golang:text:v0.20.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.7.0:golang_time/vendor/golang.org/x/time \
 		golang:tools:v0.26.0:golang_tools/vendor/golang.org/x/tools \
 		google:cel-spec:v0.16.2:google_cel_spec/vendor/cel.dev/expr \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
-		google:go-genproto:5fefd90f89a9:google_go_genproto_1 \
 		google:go-genproto:796eee8c2d53:google_go_genproto/vendor/google.golang.org/genproto \
+		google:go-genproto:dd2ea8efbc28:google_go_genproto_1 \
 		google:go-github:v35.3.0:google_go_github_v35/vendor/github.com/google/go-github/v35 \
 		google:go-jsonnet:v0.20.0:google_go_jsonnet/vendor/github.com/google/go-jsonnet \
 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
@@ -106,9 +106,9 @@ GH_TUPLE=	\
 		gookit:color:v1.5.4:gookit_color/vendor/github.com/gookit/color \
 		gorilla:css:v1.0.1:gorilla_css/vendor/github.com/gorilla/css \
 		goware:prefixer:395022866408:goware_prefixer/vendor/github.com/goware/prefixer \
-		grpc-ecosystem:grpc-gateway:v2.22.0:grpc_ecosystem_grpc_gateway_v2/vendor/github.com/grpc-ecosystem/grpc-gateway/v2 \
+		grpc-ecosystem:grpc-gateway:v2.23.0:grpc_ecosystem_grpc_gateway_v2/vendor/github.com/grpc-ecosystem/grpc-gateway/v2 \
 		grpc:grpc-go:ad81c20503be:grpc_grpc_go_1/vendor/google.golang.org/grpc/stats/opentelemetry \
-		grpc:grpc-go:v1.67.1:grpc_grpc_go/vendor/google.golang.org/grpc \
+		grpc:grpc-go:v1.68.0:grpc_grpc_go/vendor/google.golang.org/grpc \
 		gruntwork-io:boilerplate:v0.5.19:gruntwork_io_boilerplate/vendor/github.com/gruntwork-io/boilerplate \
 		gruntwork-io:go-commons:v0.17.2:gruntwork_io_go_commons/vendor/github.com/gruntwork-io/go-commons \
 		gruntwork-io:terragrunt-engine-go:v0.0.4:gruntwork_io_terragrunt_engine_go/vendor/github.com/gruntwork-io/terragrunt-engine-go \
@@ -119,7 +119,7 @@ GH_TUPLE=	\
 		hashicorp:go-getter:v2.2.3:hashicorp_go_getter_v2/vendor/github.com/hashicorp/go-getter/v2 \
 		hashicorp:go-hclog:v1.6.3:hashicorp_go_hclog/vendor/github.com/hashicorp/go-hclog \
 		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
-		hashicorp:go-plugin:v1.6.1:hashicorp_go_plugin/vendor/github.com/hashicorp/go-plugin \
+		hashicorp:go-plugin:v1.6.2:hashicorp_go_plugin/vendor/github.com/hashicorp/go-plugin \
 		hashicorp:go-retryablehttp:v0.7.7:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
 		hashicorp:go-rootcerts:v1.0.2:hashicorp_go_rootcerts/vendor/github.com/hashicorp/go-rootcerts \
 		hashicorp:go-safetemp:v1.0.0:hashicorp_go_safetemp/vendor/github.com/hashicorp/go-safetemp \
@@ -129,11 +129,11 @@ GH_TUPLE=	\
 		hashicorp:go-uuid:v1.0.3:hashicorp_go_uuid/vendor/github.com/hashicorp/go-uuid \
 		hashicorp:go-version:v1.7.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
 		hashicorp:hcl:v1.0.1-vault-5:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
-		hashicorp:hcl:v2.22.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
+		hashicorp:hcl:v2.23.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
 		hashicorp:logutils:v1.0.0:hashicorp_logutils/vendor/github.com/hashicorp/logutils \
 		hashicorp:terraform-config-inspect:9a80970d6b34:hashicorp_terraform_config_inspect/vendor/github.com/hashicorp/terraform-config-inspect \
 		hashicorp:terraform-registry-address:v0.2.0:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
-		hashicorp:terraform-svchost:v0.0.1:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
+		hashicorp:terraform-svchost:v0.1.1:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
 		hashicorp:terraform:v0.15.3:hashicorp_terraform/vendor/github.com/hashicorp/terraform \
 		hashicorp:vault:api/v1.14.0:hashicorp_vault/vendor/github.com/hashicorp/vault \
 		hashicorp:yamux:v0.1.2:hashicorp_yamux/vendor/github.com/hashicorp/yamux \
@@ -235,13 +235,13 @@ GH_TUPLE=	\
 		#	::v1.0.1:group_name/vendor/dario.cat/mergo (from dario.cat/mergo@v1.0.1)
 		#	::v1.2.0:group_name/vendor/filippo.io/age (from filippo.io/age@v1.2.0)
 		#	::v1.22.0:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp (from go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp@v1.22.0)
-		#	::v1.23.1:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp (from go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp@v1.23.1)
 		#	::v1.3.1:group_name/vendor/go.opentelemetry.io/proto/otlp (from go.opentelemetry.io/proto/otlp@v1.3.1)
 		#	::v1.31.0:group_name/vendor/go.opentelemetry.io/contrib/detectors/gcp (from go.opentelemetry.io/contrib/detectors/gcp@v1.31.0)
 		#	::v1.31.0:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc (from go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc@v1.31.0)
 		#	::v1.31.0:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace (from go.opentelemetry.io/otel/exporters/otlp/otlptrace@v1.31.0)
 		#	::v1.31.0:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc (from go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc@v1.31.0)
 		#	::v1.32.0:group_name/vendor/go.opentelemetry.io/otel (from go.opentelemetry.io/otel@v1.32.0)
+		#	::v1.32.0:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp (from go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp@v1.32.0)
 		#	::v1.32.0:group_name/vendor/go.opentelemetry.io/otel/exporters/stdout/stdoutmetric (from go.opentelemetry.io/otel/exporters/stdout/stdoutmetric@v1.32.0)
 		#	::v1.32.0:group_name/vendor/go.opentelemetry.io/otel/exporters/stdout/stdouttrace (from go.opentelemetry.io/otel/exporters/stdout/stdouttrace@v1.32.0)
 		#	::v1.32.0:group_name/vendor/go.opentelemetry.io/otel/metric (from go.opentelemetry.io/otel/metric@v1.32.0)
@@ -249,6 +249,7 @@ GH_TUPLE=	\
 		#	::v1.32.0:group_name/vendor/go.opentelemetry.io/otel/sdk/metric (from go.opentelemetry.io/otel/sdk/metric@v1.32.0)
 		#	::v1.32.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.32.0)
 post-extract:
+	test -f ${WRKSRC}/vendor/modules.txt || test ! -f ${PATCHDIR}/modules.txt || ${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/auth
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_auth}/auth ${WRKSRC}/vendor/cloud.google.com/go/auth
 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/internal
@@ -263,6 +264,8 @@ post-extract:
 	@${RLN} ${WRKSRC_hashicorp_go_secure_stdlib_parseutil}/parseutil ${WRKSRC}/vendor/github.com/hashicorp/go-secure-stdlib/parseutil
 	@${RM} -r ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/api
 	@${RLN} ${WRKSRC_google_go_genproto_1}/googleapis/api ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
+	@${RM} -r ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/rpc
+	@${RLN} ${WRKSRC_google_go_genproto_1}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
 	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc
 	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib}/instrumentation/google.golang.org/grpc/otelgrpc ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc
 	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/net/http

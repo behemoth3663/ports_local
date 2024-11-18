@@ -1,4 +1,4 @@
---- Makefile.deps.orig	2024-11-12 22:43:32 UTC
+--- Makefile.deps.orig	2024-11-18 22:46:14 UTC
 +++ Makefile.deps
 @@ -1,14 +1,13 @@ GH_TUPLE=	\
  GH_TUPLE=	\
@@ -69,15 +69,15 @@
  		dlclark:regexp2:v1.11.0:dlclark_regexp2/vendor/github.com/dlclark/regexp2 \
  		dsnet:compress:f66993602bf5:dsnet_compress/vendor/github.com/dsnet/compress \
 @@ -103,10 +88,10 @@ GH_TUPLE=	\
- 		golang:text:v0.19.0:golang_text/vendor/golang.org/x/text \
+ 		golang:text:v0.20.0:golang_text/vendor/golang.org/x/text \
  		golang:time:v0.7.0:golang_time/vendor/golang.org/x/time \
  		golang:tools:v0.26.0:golang_tools/vendor/golang.org/x/tools \
 +		google:cel-spec:v0.16.2:google_cel_spec/vendor/cel.dev/expr \
  		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
--		google:go-genproto:5fefd90f89a9:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api \
-+		google:go-genproto:5fefd90f89a9:google_go_genproto_1 \
  		google:go-genproto:796eee8c2d53:google_go_genproto/vendor/google.golang.org/genproto \
--		google:go-genproto:796eee8c2d53:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc \
+-		google:go-genproto:dd2ea8efbc28:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api \
+-		google:go-genproto:dd2ea8efbc28:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc \
++		google:go-genproto:dd2ea8efbc28:google_go_genproto_1 \
  		google:go-github:v35.3.0:google_go_github_v35/vendor/github.com/google/go-github/v35 \
  		google:go-jsonnet:v0.20.0:google_go_jsonnet/vendor/github.com/google/go-jsonnet \
  		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
@@ -112,7 +112,7 @@
  		hashicorp:go-version:v1.7.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
 @@ -155,8 +135,7 @@ GH_TUPLE=	\
  		hashicorp:terraform-registry-address:v0.2.0:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
- 		hashicorp:terraform-svchost:v0.0.1:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
+ 		hashicorp:terraform-svchost:v0.1.1:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
  		hashicorp:terraform:v0.15.3:hashicorp_terraform/vendor/github.com/hashicorp/terraform \
 -		hashicorp:vault:v1.14.0:hashicorp_vault_api/vendor/github.com/hashicorp/vault/api \
 -		hashicorp:vault:v1.4.2:hashicorp_vault/vendor/github.com/hashicorp/vault \
@@ -135,11 +135,12 @@
  		owenrumney:go-sarif:v1.1.1:owenrumney_go_sarif/vendor/github.com/owenrumney/go-sarif \
  		pierrec:lz4:v4.1.2:pierrec_lz4_v4/vendor/github.com/pierrec/lz4/v4 \
  		pkg:browser:5ac0b6a4141c:pkg_browser/vendor/github.com/pkg/browser \
-@@ -261,3 +248,30 @@ GH_TUPLE=	\
+@@ -261,3 +248,33 @@ GH_TUPLE=	\
  		#	::v1.32.0:group_name/vendor/go.opentelemetry.io/otel/sdk (from go.opentelemetry.io/otel/sdk@v1.32.0)
  		#	::v1.32.0:group_name/vendor/go.opentelemetry.io/otel/sdk/metric (from go.opentelemetry.io/otel/sdk/metric@v1.32.0)
  		#	::v1.32.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.32.0)
 +post-extract:
++	test -f ${WRKSRC}/vendor/modules.txt || test ! -f ${PATCHDIR}/modules.txt || ${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 +	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/auth
 +	@${RLN} ${WRKSRC_googleapis_google_cloud_go_auth}/auth ${WRKSRC}/vendor/cloud.google.com/go/auth
 +	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/internal
@@ -154,6 +155,8 @@
 +	@${RLN} ${WRKSRC_hashicorp_go_secure_stdlib_parseutil}/parseutil ${WRKSRC}/vendor/github.com/hashicorp/go-secure-stdlib/parseutil
 +	@${RM} -r ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/api
 +	@${RLN} ${WRKSRC_google_go_genproto_1}/googleapis/api ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
++	@${RM} -r ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/rpc
++	@${RLN} ${WRKSRC_google_go_genproto_1}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
 +	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc
 +	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib}/instrumentation/google.golang.org/grpc/otelgrpc ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc
 +	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/net/http
