@@ -1,11 +1,13 @@
 GH_TUPLE=	\
+		aws:aws-sdk-go-v2:v1.30.4:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
 		aws:aws-sdk-go:v1.54.6:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		aws:smithy-go:v1.20.4:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		beorn7:perks:v1.0.1:beorn7_perks/vendor/github.com/beorn7/perks \
 		blang:semver:v4.0.0:blang_semver_v4/vendor/github.com/blang/semver \
 		cespare:xxhash:v2.3.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
 		chzyer:readline:2972be24d48e:chzyer_readline/vendor/github.com/chzyer/readline \
 		davecgh:go-spew:d8f796af33cc:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
-		emicklei:go-restful:v3.11.0:emicklei_go_restful_v3/vendor/github.com/emicklei/go-restful/v3 \
+		emicklei:go-restful:v3.11.3:emicklei_go_restful_v3/vendor/github.com/emicklei/go-restful/v3 \
 		evanphx:json-patch:v4.12.0:evanphx_json_patch/vendor/gopkg.in/evanphx/json-patch.v4 \
 		fsnotify:fsnotify:v1.7.0:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
 		fxamacker:cbor:v2.7.0:fxamacker_cbor_v2/vendor/github.com/fxamacker/cbor/v2 \
@@ -68,8 +70,8 @@ GH_TUPLE=	\
 		prometheus:procfs:v0.15.1:prometheus_procfs/vendor/github.com/prometheus/procfs \
 		protocolbuffers:protobuf-go:v1.34.2:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		sirupsen:logrus:v1.9.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
-		spf13:afero:v1.1.2:spf13_afero/vendor/github.com/spf13/afero \
-		spf13:cast:v1.3.0:spf13_cast/vendor/github.com/spf13/cast \
+		spf13:afero:v1.11.0:spf13_afero/vendor/github.com/spf13/afero \
+		spf13:cast:v1.6.0:spf13_cast/vendor/github.com/spf13/cast \
 		spf13:cobra:v1.8.1:spf13_cobra/vendor/github.com/spf13/cobra \
 		spf13:jwalterweatherman:v1.0.0:spf13_jwalterweatherman/vendor/github.com/spf13/jwalterweatherman \
 		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
