@@ -132,7 +132,6 @@ GH_TUPLE=	\
 		pierrec:lz4:v2.6.1:pierrec_lz4/vendor/github.com/pierrec/lz4 \
 		pierrec:lz4:v4.1.17:pierrec_lz4_v4/vendor/github.com/pierrec/lz4/v4 \
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
-		posthog:posthog-go:0b0bbf0f9c0f:posthog_posthog_go/vendor/github.com/posthog/posthog-go \
 		prometheus:client_golang:v1.11.1:prometheus_client_golang/vendor/github.com/prometheus/client_golang \
 		prometheus:client_model:v0.2.0:prometheus_client_model/vendor/github.com/prometheus/client_model \
 		prometheus:common:v0.26.0:prometheus_common/vendor/github.com/prometheus/common \
@@ -150,8 +149,8 @@ GH_TUPLE=	\
 		spaolacci:murmur3:v1.1.0:spaolacci_murmur3/vendor/github.com/spaolacci/murmur3 \
 		streadway:amqp:v1.0.0:streadway_amqp/vendor/github.com/streadway/amqp \
 		streamdal:pgoutput:v0.3.3:streamdal_pgoutput/vendor/github.com/streamdal/pgoutput \
-		streamdal:streamdal:7332862adfcb:streamdal_streamdal_protos/vendor/github.com/streamdal/streamdal \
-		streamdal:streamdal:e71de02ed0d5:streamdal_streamdal_go \
+		streamdal:streamdal:4d66283eca12:streamdal_streamdal_go/vendor/github.com/streamdal/streamdal \
+		streamdal:streamdal:df4cd0e705e9:streamdal_streamdal_protos \
 		tetratelabs:wazero:v1.7.3:tetratelabs_wazero/vendor/github.com/tetratelabs/wazero \
 		tidwall:gjson:v1.9.3:tidwall_gjson/vendor/github.com/tidwall/gjson \
 		tidwall:match:v1.1.1:tidwall_match/vendor/github.com/tidwall/match \
@@ -167,7 +166,6 @@ GH_TUPLE=	\
 		xdg-go:stringprep:v1.0.4:xdg_go_stringprep/vendor/github.com/xdg-go/stringprep \
 		xdg:scram:7eeb5667e42c:xdg_scram/vendor/github.com/xdg/scram \
 		xdg:stringprep:v1.0.0:xdg_stringprep/vendor/github.com/xdg/stringprep \
-		xtgo:uuid:a0b114877d4c:xtgo_uuid/vendor/github.com/xtgo/uuid \
 		youmark:pkcs8:1be2e3e5546d:youmark_pkcs8/vendor/github.com/youmark/pkcs8
 post-extract:
 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
@@ -182,5 +180,5 @@ post-extract:
 	@${RLN} ${WRKSRC_azure_go_autorest_logger}/logger ${WRKSRC}/vendor/github.com/Azure/go-autorest/logger
 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/tracing
 	@${RLN} ${WRKSRC_azure_go_autorest_tracing}/tracing ${WRKSRC}/vendor/github.com/Azure/go-autorest/tracing
-	@${RM} -r ${WRKSRC}/vendor/github.com/streamdal/streamdal/sdks/go
-	@${RLN} ${WRKSRC_streamdal_streamdal_go}/sdks/go ${WRKSRC}/vendor/github.com/streamdal/streamdal/sdks/go
+	@${RM} -r ${WRKSRC}/vendor/github.com/streamdal/streamdal/libs/protos
+	@${RLN} ${WRKSRC_streamdal_streamdal_protos}/libs/protos ${WRKSRC}/vendor/github.com/streamdal/streamdal/libs/protos

@@ -1,5 +1,5 @@
 PORTNAME=	plumber
-PORTVERSION=	2.7.1
+PORTVERSION=	2.8.0
 DISTVERSIONPREFIX=	v
 #ORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -13,7 +13,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 BUILD_DEPENDS=	git:devel/git
 
-USES=		go:modules,1.23
+USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	streamdal
@@ -30,8 +30,8 @@ PLIST_FILES=	bin/${PORTNAME}
 
 _OPTIONS_extract+=	600:pre-post-extract
 pre-post-extract: .PHONY .SILENT
-	# ${MV} ${WRKDIR}/plz.codegen-a56dbdcddef2 ${WRKDIR}/wombat-a56dbdcddef2
-	# ${MV} ${WRKDIR}/go-redis-8.11.4 ${WRKDIR}/redis-8.11.4
+#	${MV} ${WRKDIR}/plz.codegen-a56dbdcddef2 ${WRKDIR}/wombat-a56dbdcddef2
+#	${MV} ${WRKDIR}/go-redis-8.11.4 ${WRKDIR}/redis-8.11.4
 	for i in plz.codegen:wombat go-redis:redis; do \
 		IFS=':'; set -- $${i}; unset IFS; \
 		${FIND} ${WRKDIR} -maxdepth 1 -type d -name "$${1}-*" | while read -r f; do \
@@ -41,6 +41,6 @@ pre-post-extract: .PHONY .SILENT
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
