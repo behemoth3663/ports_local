@@ -1,5 +1,5 @@
 PORTNAME=	tfvar
-PORTVERSION=	0.9.0
+PORTVERSION=	0.10.0
 DISTVERSIONPREFIX=	v
 #ORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -11,7 +11,7 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:modules,1.23
+USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	shihanng
@@ -21,8 +21,7 @@ PLIST_FILES=	bin/${PORTNAME}
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 	-X main.version=${DISTVERSIONPREFIX}${PORTVERSION}"
 
-_OPTIONS_extract+=	750:post-post-extract
-post-post-extract: .PHONY
+post-extract: .PHONY
 	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 
 pre-deps post-deps-all: .PHONY
