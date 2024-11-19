@@ -92,7 +92,7 @@ GH_TUPLE=	\
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-genproto:796eee8c2d53:google_go_genproto/vendor/google.golang.org/genproto \
 		google:go-genproto:dd2ea8efbc28:google_go_genproto_1 \
-		google:go-github:v35.3.0:google_go_github_v35/vendor/github.com/google/go-github/v35 \
+		google:go-github:v53.2.0:google_go_github_v53/vendor/github.com/google/go-github/v53 \
 		google:go-jsonnet:v0.20.0:google_go_jsonnet/vendor/github.com/google/go-jsonnet \
 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
 		google:s2a-go:v0.1.8:google_s2a_go/vendor/github.com/google/s2a-go \
@@ -132,7 +132,7 @@ GH_TUPLE=	\
 		hashicorp:hcl:v2.23.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
 		hashicorp:logutils:v1.0.0:hashicorp_logutils/vendor/github.com/hashicorp/logutils \
 		hashicorp:terraform-config-inspect:9a80970d6b34:hashicorp_terraform_config_inspect/vendor/github.com/hashicorp/terraform-config-inspect \
-		hashicorp:terraform-registry-address:v0.2.0:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
+		hashicorp:terraform-registry-address:v0.2.2:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
 		hashicorp:terraform-svchost:v0.1.1:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
 		hashicorp:terraform:v0.15.3:hashicorp_terraform/vendor/github.com/hashicorp/terraform \
 		hashicorp:vault:api/v1.14.0:hashicorp_vault/vendor/github.com/hashicorp/vault \
@@ -180,7 +180,7 @@ GH_TUPLE=	\
 		open-telemetry:opentelemetry-go-contrib:detectors/gcp/v1.31.0:open_telemetry_opentelemetry_go_contrib_detectors_gcp \
 		open-telemetry:opentelemetry-go:v1.32.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
 		open-telemetry:opentelemetry-go:exporters/otlp/otlptrace/v1.31.0:open_telemetry_opentelemetry_go_otlptrace \
-		open-telemetry:opentelemetry-go:exporters/otlp/otlpmetric/otlpmetrichttp/v1.23.1:open_telemetry_opentelemetry_go_otlpmetrichttp \
+		open-telemetry:opentelemetry-go:exporters/otlp/otlpmetric/otlpmetrichttp/v1.32.0:open_telemetry_opentelemetry_go_otlpmetrichttp \
 		open-telemetry:opentelemetry-go:exporters/otlp/otlpmetric/otlpmetricgrpc/v1.31.0:open_telemetry_opentelemetry_go_otlpmetricgrpc \
 		open-telemetry:opentelemetry-proto-go:otlp/v1.3.1:open_telemetry_opentelemetry_proto_go/vendor/go.opentelemetry.io/proto \
 		owenrumney:go-sarif:v1.1.1:owenrumney_go_sarif/vendor/github.com/owenrumney/go-sarif \
@@ -202,13 +202,13 @@ GH_TUPLE=	\
 		sirupsen:logrus:v1.9.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
 		sourcegraph:go-lsp:219e11d77f5d:sourcegraph_go_lsp/vendor/github.com/sourcegraph/go-lsp \
 		sourcegraph:jsonrpc2:v0.2.0:sourcegraph_jsonrpc2/vendor/github.com/sourcegraph/jsonrpc2 \
-		spf13:afero:v1.10.0:spf13_afero/vendor/github.com/spf13/afero \
+		spf13:afero:v1.11.0:spf13_afero/vendor/github.com/spf13/afero \
 		spf13:cast:v1.7.0:spf13_cast/vendor/github.com/spf13/cast \
 		stretchr:objx:v0.5.2:stretchr_objx/vendor/github.com/stretchr/objx \
 		stretchr:testify:v1.9.0:stretchr_testify/vendor/github.com/stretchr/testify \
-		terraform-linters:tflint-plugin-sdk:v0.17.0:terraform_linters_tflint_plugin_sdk/vendor/github.com/terraform-linters/tflint-plugin-sdk \
-		terraform-linters:tflint-ruleset-terraform:v0.4.0:terraform_linters_tflint_ruleset_terraform/vendor/github.com/terraform-linters/tflint-ruleset-terraform \
-		terraform-linters:tflint:v0.47.0:terraform_linters_tflint/vendor/github.com/terraform-linters/tflint \
+		terraform-linters:tflint-plugin-sdk:v0.18.0:terraform_linters_tflint_plugin_sdk/vendor/github.com/terraform-linters/tflint-plugin-sdk \
+		terraform-linters:tflint-ruleset-terraform:v0.5.0:terraform_linters_tflint_ruleset_terraform/vendor/github.com/terraform-linters/tflint-ruleset-terraform \
+		terraform-linters:tflint:v0.50.3:terraform_linters_tflint/vendor/github.com/terraform-linters/tflint \
 		ulikunitz:xz:v0.5.12:ulikunitz_xz/vendor/github.com/ulikunitz/xz \
 		urfave:cli:v1.22.15:urfave_cli/vendor/github.com/urfave/cli \
 		urfave:cli:v2.27.5:urfave_cli_v2/vendor/github.com/urfave/cli/v2 \
@@ -222,7 +222,7 @@ GH_TUPLE=	\
 		yuin:goldmark-emoji:v1.0.3:yuin_goldmark_emoji/vendor/github.com/yuin/goldmark-emoji \
 		yuin:goldmark:v1.7.4:yuin_goldmark/vendor/github.com/yuin/goldmark \
 		zclconf:go-cty-yaml:v1.0.3:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
-		zclconf:go-cty:v1.14.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+		zclconf:go-cty:v1.14.2:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
 		#	::v0.1.0:group_name/vendor/atomicgo.dev/schedule (from atomicgo.dev/schedule@v0.1.0)
 		#	::v0.16.2:group_name/vendor/cel.dev/expr (from cel.dev/expr@v0.16.2)

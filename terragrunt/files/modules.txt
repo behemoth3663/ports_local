@@ -686,9 +686,9 @@ github.com/google/go-cmp/cmp/internal/diff
 github.com/google/go-cmp/cmp/internal/flags
 github.com/google/go-cmp/cmp/internal/function
 github.com/google/go-cmp/cmp/internal/value
-# github.com/google/go-github/v35 v35.3.0
-## explicit; go 1.16
-github.com/google/go-github/v35/github
+# github.com/google/go-github/v53 v53.2.0
+## explicit; go 1.17
+github.com/google/go-github/v53/github
 # github.com/google/go-jsonnet v0.20.0
 ## explicit; go 1.17
 github.com/google/go-jsonnet
@@ -867,7 +867,7 @@ github.com/hashicorp/hcl/v2/json
 # github.com/hashicorp/logutils v1.0.0
 ## explicit
 github.com/hashicorp/logutils
-# github.com/hashicorp/terraform v0.15.3
+# github.com/hashicorp/terraform v0.15.3 => github.com/hashicorp/terraform v0.15.3
 ## explicit; go 1.14
 github.com/hashicorp/terraform/addrs
 github.com/hashicorp/terraform/command/cliconfig
@@ -889,7 +889,7 @@ github.com/hashicorp/terraform/version
 # github.com/hashicorp/terraform-config-inspect v0.0.0-20210318070130-9a80970d6b34
 ## explicit; go 1.13
 github.com/hashicorp/terraform-config-inspect/tfconfig
-# github.com/hashicorp/terraform-registry-address v0.2.0
+# github.com/hashicorp/terraform-registry-address v0.2.2
 ## explicit; go 1.19
 github.com/hashicorp/terraform-registry-address
 # github.com/hashicorp/terraform-svchost v0.1.1
@@ -1105,8 +1105,8 @@ github.com/sourcegraph/go-lsp
 # github.com/sourcegraph/jsonrpc2 v0.2.0
 ## explicit; go 1.12
 github.com/sourcegraph/jsonrpc2
-# github.com/spf13/afero v1.10.0
-## explicit; go 1.16
+# github.com/spf13/afero v1.11.0
+## explicit; go 1.19
 github.com/spf13/afero
 github.com/spf13/afero/internal/common
 github.com/spf13/afero/mem
@@ -1119,8 +1119,8 @@ github.com/spf13/cast
 ## explicit; go 1.17
 github.com/stretchr/testify/assert
 github.com/stretchr/testify/require
-# github.com/terraform-linters/tflint v0.47.0
-## explicit; go 1.20
+# github.com/terraform-linters/tflint v0.50.3 => github.com/terraform-linters/tflint v0.50.3
+## explicit; go 1.21.1
 github.com/terraform-linters/tflint/cmd
 github.com/terraform-linters/tflint/formatter
 github.com/terraform-linters/tflint/langserver
@@ -1133,25 +1133,27 @@ github.com/terraform-linters/tflint/terraform/lang/funcs
 github.com/terraform-linters/tflint/terraform/tfdiags
 github.com/terraform-linters/tflint/terraform/tfhcl
 github.com/terraform-linters/tflint/tflint
-# github.com/terraform-linters/tflint-plugin-sdk v0.17.0
+# github.com/terraform-linters/tflint-plugin-sdk v0.18.0
 ## explicit; go 1.20
 github.com/terraform-linters/tflint-plugin-sdk/hclext
 github.com/terraform-linters/tflint-plugin-sdk/internal
 github.com/terraform-linters/tflint-plugin-sdk/logger
 github.com/terraform-linters/tflint-plugin-sdk/plugin
-github.com/terraform-linters/tflint-plugin-sdk/plugin/fromproto
 github.com/terraform-linters/tflint-plugin-sdk/plugin/host2plugin
-github.com/terraform-linters/tflint-plugin-sdk/plugin/interceptor
+github.com/terraform-linters/tflint-plugin-sdk/plugin/internal/fromproto
+github.com/terraform-linters/tflint-plugin-sdk/plugin/internal/host2plugin
+github.com/terraform-linters/tflint-plugin-sdk/plugin/internal/interceptor
+github.com/terraform-linters/tflint-plugin-sdk/plugin/internal/plugin2host
+github.com/terraform-linters/tflint-plugin-sdk/plugin/internal/proto
+github.com/terraform-linters/tflint-plugin-sdk/plugin/internal/toproto
 github.com/terraform-linters/tflint-plugin-sdk/plugin/plugin2host
-github.com/terraform-linters/tflint-plugin-sdk/plugin/proto
-github.com/terraform-linters/tflint-plugin-sdk/plugin/toproto
 github.com/terraform-linters/tflint-plugin-sdk/terraform
 github.com/terraform-linters/tflint-plugin-sdk/terraform/addrs
 github.com/terraform-linters/tflint-plugin-sdk/terraform/lang
 github.com/terraform-linters/tflint-plugin-sdk/terraform/lang/marks
 github.com/terraform-linters/tflint-plugin-sdk/tflint
-# github.com/terraform-linters/tflint-ruleset-terraform v0.4.0
-## explicit; go 1.20
+# github.com/terraform-linters/tflint-ruleset-terraform v0.5.0
+## explicit; go 1.21.1
 github.com/terraform-linters/tflint-ruleset-terraform/project
 github.com/terraform-linters/tflint-ruleset-terraform/rules
 github.com/terraform-linters/tflint-ruleset-terraform/terraform
@@ -1207,7 +1209,7 @@ github.com/yuin/goldmark/util
 github.com/yuin/goldmark-emoji
 github.com/yuin/goldmark-emoji/ast
 github.com/yuin/goldmark-emoji/definition
-# github.com/zclconf/go-cty v1.14.1
+# github.com/zclconf/go-cty v1.14.2
 ## explicit; go 1.18
 github.com/zclconf/go-cty/cty
 github.com/zclconf/go-cty/cty/convert
@@ -1709,4 +1711,6 @@ gopkg.in/yaml.v3
 ## explicit; go 1.12
 sigs.k8s.io/yaml
 sigs.k8s.io/yaml/goyaml.v2
+# github.com/hashicorp/terraform => github.com/hashicorp/terraform v0.15.3
 # github.com/hashicorp/vault => github.com/hashicorp/vault v1.4.2
+# github.com/terraform-linters/tflint => github.com/terraform-linters/tflint v0.50.3
