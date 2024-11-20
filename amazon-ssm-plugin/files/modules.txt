@@ -45,7 +45,7 @@ github.com/aws/aws-sdk-go/service/sso/ssoiface
 github.com/aws/aws-sdk-go/service/ssooidc
 github.com/aws/aws-sdk-go/service/sts
 github.com/aws/aws-sdk-go/service/sts/stsiface
-# github.com/aws/session-manager-plugin v0.0.0-20241106213520-80869bb97a01
+# github.com/aws/session-manager-plugin v0.0.0-20241119210807-82dc72922492
 ## explicit
 github.com/aws/session-manager-plugin/src/communicator
 github.com/aws/session-manager-plugin/src/communicator/mocks
@@ -107,7 +107,7 @@ github.com/stretchr/testify/mock
 # github.com/twinj/uuid v1.0.0
 ## explicit
 github.com/twinj/uuid
-# github.com/xtaci/smux v1.5.31
+# github.com/xtaci/smux v1.5.32
 ## explicit; go 1.13
 github.com/xtaci/smux
 # golang.org/x/crypto v0.29.0

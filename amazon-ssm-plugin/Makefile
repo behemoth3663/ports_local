@@ -1,5 +1,5 @@
 PORTNAME=	amazon-ssm-plugin
-PORTVERSION=	1.2.688.0
+PORTVERSION=	1.2.694.0
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
 
@@ -67,7 +67,7 @@ _OPTIONS_extract+=	750:post-post-extract
 post-post-extract: .PHONY
 	test -f ${WRKSRC}/vendor/modules.txt || test ! -f ${PATCHDIR}/modules.txt || ${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 
 #-twinj:uuid:v1.0.0:twinj_uuid

@@ -4,14 +4,14 @@ go 1.23.3
 
 require (
 	github.com/aws/aws-sdk-go v1.55.5
-	github.com/aws/session-manager-plugin v0.0.0-20241106213520-80869bb97a01
+	github.com/aws/session-manager-plugin v0.0.0-20241119210807-82dc72922492
 	github.com/cihub/seelog v0.0.0-20170130134532-f561c5e57575
 	github.com/eiannone/keyboard v0.0.0-20220611211555-0d226195f203
 	github.com/fsnotify/fsnotify v1.8.0
 	github.com/gorilla/websocket v1.5.3
 	github.com/stretchr/testify v1.9.0
 	github.com/twinj/uuid v1.0.0
-	github.com/xtaci/smux v1.5.31
+	github.com/xtaci/smux v1.5.32
 	golang.org/x/crypto v0.29.0
 	golang.org/x/sync v0.9.0
 	golang.org/x/sys v0.27.0
