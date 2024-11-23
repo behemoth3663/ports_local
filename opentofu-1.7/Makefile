@@ -1,7 +1,7 @@
 PORTNAME=	opentofu
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.7.5
-#PORTREVISION=	2
+DISTVERSION=	1.7.6
+#PORTREVISION=	1
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX?=	-${PORTVERSION:R}
 
@@ -44,7 +44,7 @@ post-install: .PHONY
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
-.include "/etc/make.d/go-deps.mk"
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 
 # XXX: Work around ports framework inability to regenerate GH_TUPLE for Go
