@@ -1,5 +1,5 @@
 PORTNAME=	sysbox
-PORTVERSION=	0.18.0
+PORTVERSION=	0.19.0
 DISTVERSIONPREFIX=	release-
 CATEGORIES=	local sysutils
 
@@ -19,17 +19,21 @@ PLIST_FILES=	bin/${PORTNAME}
 
 JQ_GETVER_EXPR=	[.[].name | gsub("^[a-z]+-"; "") | select(test("^[0-9.]+$$"; "n"))][0]
 
-#post-extract: .PHONY
-#	${REINPLACE_CMD} -r \
-#		-e 's|^([[:space:]]*go[[:space:]]+).*$$|\11.21|' \
-#	${WRKSRC}/go.mod
-#	cd ${WRKSRC} && ${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod tidy -v
-
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
 	-X 'main.version=${PORTVERSION}'"
 
-pre-deps pre-deps-all post-deps-all: .PHONY
+post-extract: .PHONY
+	test -f ${WRKSRC}/vendor/modules.txt || test ! -f ${PATCHDIR}/modules.txt || ${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+pre-deps post-deps-all: .PHONY
+pre-deps-all: .PHONY
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
+
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
+
+#-google:go-genproto:e639e219e697:google_go_genproto/vendor/google.golang.org/genproto/googleapis/rpc
+#+google:go-genproto:782d3b101e98:google_go_genproto/vendor/google.golang.org/genproto
+GH_TUPLE:=	${GH_TUPLE:S|/googleapis/rpc$||}
+
 .include <bsd.port.mk>
