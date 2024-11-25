@@ -1,6 +1,6 @@
 PORTNAME=	ssh-manager
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.28.0
+DISTVERSION=	1.29.0
 CATEGORIES=	local security
 
 MAINTAINER=	none@freebsd.org
@@ -10,7 +10,7 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:modules,1.23
+USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	omegion
@@ -27,6 +27,6 @@ post-patch: .PHONY
 		's/log\.Infoln(version)/version.Version = "${DISTVERSIONPREFIX}${PORTVERSION}"; version.Time = "${%FT%TZ:L:gmtime}"; &/' \
 	${WRKSRC}/cmd/version.go
 
-.include "/etc/make.d/go-deps.mk"
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
