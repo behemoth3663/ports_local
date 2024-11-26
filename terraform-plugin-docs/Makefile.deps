@@ -18,7 +18,7 @@ GH_TUPLE=	\
 		golang:exp:97b1e661b5df:golang_exp/vendor/golang.org/x/exp \
 		golang:mod:v0.21.0:golang_mod/vendor/golang.org/x/mod \
 		golang:sys:v0.21.0:golang_sys/vendor/golang.org/x/sys \
-		golang:text:v0.19.0:golang_text/vendor/golang.org/x/text \
+		golang:text:v0.20.0:golang_text/vendor/golang.org/x/text \
 		golang:tools:v0.22.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:uuid:v1.3.0:google_uuid/vendor/github.com/google/uuid \
