@@ -1,5 +1,5 @@
 PORTNAME=	gh
-PORTVERSION=	2.62.0
+PORTVERSION=	2.63.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -13,7 +13,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 RUN_DEPENDS=	git:devel/git
 
-USES=		go:modules,1.23
+USES=		go:modules
 USE_GITHUB=	yes
 GH_ACCOUNT=	cli
 GH_PROJECT=	${GH_ACCOUNT}
@@ -47,7 +47,7 @@ post-install-MANPAGES-on:
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
-.include "/etc/make.d/go-deps.mk"
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 
 #-moby:moby:v0.7.0:moby_moby_1/vendor/github.com/docker/docker-credential-helpers
