@@ -1,6 +1,6 @@
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.69.2
+DISTVERSION=	0.69.3
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
 
@@ -37,4 +37,18 @@ pre-deps-all: .PHONY
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
+
+#-		aws:aws-sdk-go-v2:v1.3.15:aws_aws_sdk_go_v2_configsources/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources
+# 		aws:aws-sdk-go-v2:v1.30.3:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2
+#-		aws:aws-sdk-go-v2:v1.30.3:aws_aws_sdk_go_v2_sts/vendor/github.com/aws/aws-sdk-go-v2/service/sts
+GH_TUPLE:=	${GH_TUPLE:Naws*aws_aws_sdk_go_v2_*/vendor/github.com/aws/aws-sdk-go-v2/*}
+
+#-		googleapis:gax-go:v2.13.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2
+#+		googleapis:gax-go:v2.13.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go
+GH_TUPLE:=	${GH_TUPLE:S|/gax-go/v2|/gax-go|}
+
+GH_TUPLE+=	atomicgo:cursor:v0.2.0:atomicgo_cursor/vendor/atomicgo.dev/cursor
+GH_TUPLE+=	atomicgo:keyboard:v0.2.9:atomicgo_keyboard/vendor/atomicgo.dev/keyboard
+GH_TUPLE+=	atomicgo:schedule:v0.1.0:atomicgo_schedule/vendor/atomicgo.dev/schedule
+
 .include <bsd.port.mk>
