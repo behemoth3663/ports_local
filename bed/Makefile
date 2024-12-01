@@ -1,5 +1,5 @@
 PORTNAME=	bed
-PORTVERSION=	0.2.7
+PORTVERSION=	0.2.8
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local editors
 
@@ -19,9 +19,14 @@ PLIST_FILES=	bin/${PORTNAME}
 
 GO_TARGET=	./cmd/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static"
 
-pre-deps pre-deps-all post-deps-all: .PHONY
+post-extract: .PHONY
+	test -f ${WRKSRC}/vendor/modules.txt || test ! -f ${PATCHDIR}/modules.txt || ${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+
+pre-deps post-deps-all: .PHONY
+pre-deps-all: .PHONY
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
