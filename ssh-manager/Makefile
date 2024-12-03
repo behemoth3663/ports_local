@@ -1,6 +1,6 @@
 PORTNAME=	ssh-manager
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.29.0
+DISTVERSION=	1.30.0
 CATEGORIES=	local security
 
 MAINTAINER=	none@freebsd.org
@@ -18,14 +18,14 @@ GH_ACCOUNT=	omegion
 PLIST_FILES=	bin/${PORTNAME}
 
 # looks like -buildid=${PORTVERSION} is not working
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
-
-pre-deps pre-deps-all post-deps-all: .PHONY
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static"
 
 post-patch: .PHONY
 	${REINPLACE_CMD} \
 		's/log\.Infoln(version)/version.Version = "${DISTVERSIONPREFIX}${PORTVERSION}"; version.Time = "${%FT%TZ:L:gmtime}"; &/' \
 	${WRKSRC}/cmd/version.go
+
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
