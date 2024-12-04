@@ -1,5 +1,5 @@
 PORTNAME=	trivy
-PORTVERSION=	0.57.1
+PORTVERSION=	0.58.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local security
@@ -16,7 +16,7 @@ USES=		go:modules
 GO_MODULE=	github.com/aquasecurity/trivy
 GO_TARGET=	./cmd/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X '${GO_MODULE}/pkg/version/app.ver=${PORTVERSION}'"
 
 PLIST_FILES=	bin/${PORTNAME}
