@@ -6,7 +6,6 @@ GH_TUPLE=	\
 		Azure:azure-sdk-for-go:sdk/azcore/v1.13.0:azure_azure_sdk_for_go_azcore/vendor/github.com/Azure/azure-sdk-for-go \
 		Azure:azure-sdk-for-go:sdk/azidentity/v1.7.0:azure_azure_sdk_for_go_azidentity \
 		AzureAD:microsoft-authentication-library-for-go:v1.2.2:azuread_microsoft_authentication_library_for_go/vendor/github.com/AzureAD/microsoft-authentication-library-for-go \
-		FiloSottile:age:v1.2.0:filosottile_age/vendor/filippo.io/age \
 		GoogleCloudPlatform:opentelemetry-operations-go:v0.48.2:googlecloudplatform_opentelemetry_operations_go_metric/vendor/github.com/GoogleCloudPlatform/opentelemetry-operations-go \
 		Masterminds:goutils:v1.1.1:masterminds_goutils/vendor/github.com/Masterminds/goutils \
 		Masterminds:semver:v3.3.0:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
@@ -63,7 +62,6 @@ GH_TUPLE=	\
 		containerd:console:v1.0.4:containerd_console/vendor/github.com/containerd/console \
 		cpuguy83:go-md2man:v2.0.5:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
 		creack:pty:v1.1.17:creack_pty/vendor/github.com/creack/pty \
-		darccio:mergo:v1.0.1:darccio_mergo/vendor/dario.cat/mergo \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		dlclark:regexp2:v1.11.0:dlclark_regexp2/vendor/github.com/dlclark/regexp2 \
 		dsnet:compress:f66993602bf5:dsnet_compress/vendor/github.com/dsnet/compress \
@@ -103,7 +101,6 @@ GH_TUPLE=	\
 		golang:text:v0.20.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.7.0:golang_time/vendor/golang.org/x/time \
 		golang:tools:v0.26.0:golang_tools/vendor/golang.org/x/tools \
-		google:cel-spec:v0.16.2:google_cel_spec/vendor/cel.dev/expr \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-genproto:796eee8c2d53:google_go_genproto/vendor/google.golang.org/genproto \
 		google:go-genproto:dd2ea8efbc28:google_go_genproto_1 \
@@ -193,7 +190,6 @@ GH_TUPLE=	\
 		open-telemetry:opentelemetry-go-contrib:instrumentation/google.golang.org/grpc/otelgrpc/v0.56.0:open_telemetry_opentelemetry_go_contrib \
 		open-telemetry:opentelemetry-go-contrib:instrumentation/net/http/otelhttp/v0.56.0:open_telemetry_opentelemetry_go_contrib_otelhttp \
 		open-telemetry:opentelemetry-go-contrib:detectors/gcp/v1.31.0:open_telemetry_opentelemetry_go_contrib_detectors_gcp \
-		open-telemetry:opentelemetry-go:v1.32.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
 		open-telemetry:opentelemetry-go:exporters/otlp/otlptrace/v1.32.0:open_telemetry_opentelemetry_go_otlptrace \
 		open-telemetry:opentelemetry-go:exporters/otlp/otlpmetric/otlpmetrichttp/v1.32.0:open_telemetry_opentelemetry_go_otlpmetrichttp \
 		open-telemetry:opentelemetry-go:exporters/otlp/otlpmetric/otlpmetricgrpc/v1.32.0:open_telemetry_opentelemetry_go_otlpmetricgrpc \

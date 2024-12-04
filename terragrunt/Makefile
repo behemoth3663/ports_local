@@ -1,6 +1,6 @@
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.69.6
+DISTVERSION=	0.69.7
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
 
@@ -34,6 +34,19 @@ pre-post-extract: .PHONY
 pre-deps post-deps-all: .PHONY
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
+	${RM} ${.CURDIR}/generated.deps.mk
+	( make -C ${.CURDIR} make-from-deps GHT_ACNT=FiloSottile GHT_PROJ=age GHT_PATH=filippo.io/age )
+	( make -C ${.CURDIR} make-from-deps GHT_ACNT=darccio GHT_PROJ=mergo GHT_PATH=dario.cat/mergo )
+	( make -C ${.CURDIR} make-from-deps GHT_ACNT=google GHT_PROJ=cel-spec GHT_PATH=cel.dev/expr )
+	( make -C ${.CURDIR} make-from-deps GHT_ACNT=atomicgo GHT_PROJ=cursor GHT_PATH=atomicgo.dev/cursor )
+	( make -C ${.CURDIR} make-from-deps GHT_ACNT=atomicgo GHT_PROJ=keyboard GHT_PATH=atomicgo.dev/keyboard )
+	( make -C ${.CURDIR} make-from-deps GHT_ACNT=atomicgo GHT_PROJ=schedule GHT_PATH=atomicgo.dev/schedule )
+	( make -C ${.CURDIR} make-from-deps GHT_ACNT=open-telemetry GHT_PROJ=opentelemetry-go GHT_PATH=go.opentelemetry.io/otel )
+
+make-from-deps: .PHONY
+	@${SED} -rn \
+		's|^[[:space:]]*#[[:space:]]*::(v[0-9.]+):.*/(vendor/${GHT_PATH})[[:space:]].*$$|GH_TUPLE+=${GHT_ACNT}:${GHT_PROJ}:\1:${GHT_ACNT:tl:S/-/_/}_${GHT_PROJ:tl:S/-/_/}/\2|p' \
+	${.CURDIR}/Makefile.deps >>${.CURDIR}/generated.deps.mk
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
@@ -55,8 +68,6 @@ GH_TUPLE:=	${GH_TUPLE:S|/xds/go|/xds|}
 #+		charmbracelet:x:ansi/v0.1.4:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x
 GH_TUPLE:=	${GH_TUPLE:C|([^:]+):([^:]+):([^:]+)(.*/charmbracelet/x)/(.*)|\1:\2:\5/\3\4|}
 
-GH_TUPLE+=	atomicgo:cursor:v0.2.0:atomicgo_cursor/vendor/atomicgo.dev/cursor
-GH_TUPLE+=	atomicgo:keyboard:v0.2.9:atomicgo_keyboard/vendor/atomicgo.dev/keyboard
-GH_TUPLE+=	atomicgo:schedule:v0.1.0:atomicgo_schedule/vendor/atomicgo.dev/schedule
+.sinclude "${.CURDIR}/generated.deps.mk"
 
 .include <bsd.port.mk>
