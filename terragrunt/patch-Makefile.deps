@@ -1,4 +1,4 @@
---- Makefile.deps.orig	2024-11-28 23:37:27 UTC
+--- Makefile.deps.orig	2024-12-04 10:29:06 UTC
 +++ Makefile.deps
 @@ -1,14 +1,13 @@ GH_TUPLE=	\
  GH_TUPLE=	\
@@ -22,15 +22,7 @@
  		Masterminds:goutils:v1.1.1:masterminds_goutils/vendor/github.com/Masterminds/goutils \
  		Masterminds:semver:v3.3.0:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
  		Masterminds:sprig:v3.3.0:masterminds_sprig_v3/vendor/github.com/Masterminds/sprig/v3 \
-@@ -58,12 +57,13 @@ GH_TUPLE=	\
- 		charmbracelet:bubbletea:v0.24.2:charmbracelet_bubbletea/vendor/github.com/charmbracelet/bubbletea \
- 		charmbracelet:glamour:v0.8.0:charmbracelet_glamour/vendor/github.com/charmbracelet/glamour \
- 		charmbracelet:lipgloss:v0.12.1:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
--		charmbracelet:x:v0.1.4:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x/ansi \
-+		charmbracelet:x:ansi/v0.1.4:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x \
- 		cloudflare:circl:v1.3.9:cloudflare_circl/vendor/github.com/cloudflare/circl \
--		cncf:xds:b4127c9b8d78:cncf_xds_go/vendor/github.com/cncf/xds/go \
-+		cncf:xds:b4127c9b8d78:cncf_xds_go/vendor/github.com/cncf/xds \
+@@ -64,6 +63,7 @@ GH_TUPLE=	\
  		containerd:console:v1.0.4:containerd_console/vendor/github.com/containerd/console \
  		cpuguy83:go-md2man:v2.0.5:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
  		creack:pty:v1.1.17:creack_pty/vendor/github.com/creack/pty \
@@ -95,9 +87,9 @@
 +		open-telemetry:opentelemetry-go-contrib:instrumentation/net/http/otelhttp/v0.56.0:open_telemetry_opentelemetry_go_contrib_otelhttp \
 +		open-telemetry:opentelemetry-go-contrib:detectors/gcp/v1.31.0:open_telemetry_opentelemetry_go_contrib_detectors_gcp \
 +		open-telemetry:opentelemetry-go:v1.32.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
-+		open-telemetry:opentelemetry-go:exporters/otlp/otlptrace/v1.31.0:open_telemetry_opentelemetry_go_otlptrace \
++		open-telemetry:opentelemetry-go:exporters/otlp/otlptrace/v1.32.0:open_telemetry_opentelemetry_go_otlptrace \
 +		open-telemetry:opentelemetry-go:exporters/otlp/otlpmetric/otlpmetrichttp/v1.32.0:open_telemetry_opentelemetry_go_otlpmetrichttp \
-+		open-telemetry:opentelemetry-go:exporters/otlp/otlpmetric/otlpmetricgrpc/v1.31.0:open_telemetry_opentelemetry_go_otlpmetricgrpc \
++		open-telemetry:opentelemetry-go:exporters/otlp/otlpmetric/otlpmetricgrpc/v1.32.0:open_telemetry_opentelemetry_go_otlpmetricgrpc \
 +		open-telemetry:opentelemetry-proto-go:otlp/v1.3.1:open_telemetry_opentelemetry_proto_go/vendor/go.opentelemetry.io/proto \
  		owenrumney:go-sarif:v1.1.1:owenrumney_go_sarif/vendor/github.com/owenrumney/go-sarif \
  		pierrec:lz4:v4.1.2:pierrec_lz4_v4/vendor/github.com/pierrec/lz4/v4 \
