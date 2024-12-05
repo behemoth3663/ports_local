@@ -1,0 +1,6 @@
+Language Server and Debug Protocol Adapter for Perl. It implements the
+Language Server Protocol which provides syntax-checking, symbol search, etc.
+Perl to various editors, for example Visual Studio Code or Atom. It also
+implements the Debug Adapter Protocol, which allow debugging with various
+editors. Should work with any Editor/IDE that support the
+Language-Server-Protocol.

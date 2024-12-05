@@ -1,0 +1,17 @@
+%%SITE_PERL%%/Perl/LanguageServer.pm
+%%SITE_PERL%%/Perl/LanguageServer/DebuggerBridge.pm
+%%SITE_PERL%%/Perl/LanguageServer/DebuggerInterface.pm
+%%SITE_PERL%%/Perl/LanguageServer/DebuggerProcess.pm
+%%SITE_PERL%%/Perl/LanguageServer/DevTool.pm
+%%SITE_PERL%%/Perl/LanguageServer/IO.pm
+%%SITE_PERL%%/Perl/LanguageServer/Methods.pm
+%%SITE_PERL%%/Perl/LanguageServer/Methods/DebugAdapter.pm
+%%SITE_PERL%%/Perl/LanguageServer/Methods/DebugAdapterInterface.pm
+%%SITE_PERL%%/Perl/LanguageServer/Methods/textDocument.pm
+%%SITE_PERL%%/Perl/LanguageServer/Methods/workspace.pm
+%%SITE_PERL%%/Perl/LanguageServer/Parser.pm
+%%SITE_PERL%%/Perl/LanguageServer/Req.pm
+%%SITE_PERL%%/Perl/LanguageServer/SyntaxChecker.pm
+%%SITE_PERL%%/Perl/LanguageServer/Workspace.pm
+%%SITE_ARCH%%/auto/Perl/LanguageServer/.packlist
+%%PERL5_MAN3%%/Perl::LanguageServer.3.gz
