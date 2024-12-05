@@ -11,7 +11,6 @@ WWW=		https://metacpan.org/pod/Hash::SafeKeys
 LICENSE=	ART10 GPLv1+
 LICENSE_COMB=	dual
 
-BUILD_DEPENDS=	p5-ExtUtils-MakeMaker>=0:devel/p5-ExtUtils-MakeMaker
 TEST_DEPENDS=	p5-Test-Simple>=0.88:devel/p5-Test-Simple
 
 USES=		perl5

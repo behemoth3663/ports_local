@@ -12,9 +12,7 @@ LICENSE=	ART10 GPLv1+
 LICENSE_COMB=	dual
 
 BUILD_DEPENDS=	\
-	p5-ExtUtils-MakeMaker>=0:devel/p5-ExtUtils-MakeMaker \
 	p5-PathTools>=0:devel/p5-PathTools \
-	p5-File-Temp>=0:devel/p5-File-Temp \
 	p5-Scalar-List-Utils>=0:lang/p5-Scalar-List-Utils
 TEST_DEPENDS=	p5-Test-Simple>=0.88:devel/p5-Test-Simple
 

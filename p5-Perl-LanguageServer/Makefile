@@ -11,7 +11,6 @@ WWW=		https://metacpan.org/pod/Perl::LanguageServer
 LICENSE=	ART20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-BUILD_DEPENDS=	p5-ExtUtils-MakeMaker>=0:devel/p5-ExtUtils-MakeMaker
 RUN_DEPENDS=	\
 	p5-AnyEvent-AIO>=0:devel/p5-AnyEvent-AIO \
 	p5-AnyEvent>=0:devel/p5-AnyEvent \
@@ -28,7 +27,7 @@ RUN_DEPENDS=	\
 	p5-Scalar-List-Utils>=0:lang/p5-Scalar-List-Utils
 TEST_DEPENDS=	devel/p5-Test-Simple>=0:devel/p5-Test-Simple
 
-USES=		perl5
+USES=		perl5 dos2unix
 USE_PERL5=	configure
 
 NO_ARCH=	yes
