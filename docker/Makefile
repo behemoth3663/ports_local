@@ -28,7 +28,7 @@ GIT_COMMIT=	git ls-remote \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
 		${SED} -rn 's/(.{7}).*/\1/p'
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X 'github.com/docker/cli/cli/version.Version=${PORTVERSION}' \
 	-X 'github.com/docker/cli/cli/version.GitCommit=$$(${GIT_COMMIT})' \
 	-X 'github.com/docker/cli/cli/version.BuildTime=${%FT%TZ:L:gmtime}'"
