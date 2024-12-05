@@ -1,0 +1,26 @@
+PORTNAME=	Devel-OverrideGlobalRequire
+PORTVERSION=	0.001
+CATEGORIES=	devel perl5 local
+MASTER_SITES=	CPAN
+PKGNAMEPREFIX=	p5-
+
+MAINTAINER=	none@FreeBSD.org
+COMMENT=	Override CORE::GLOBAL::require safely
+WWW=		https://metacpan.org/pod/Devel::OverrideGlobalRequire
+
+LICENSE=	ART10 GPLv1+
+LICENSE_COMB=	dual
+
+BUILD_DEPENDS=	\
+	p5-ExtUtils-MakeMaker>=0:devel/p5-ExtUtils-MakeMaker \
+	p5-PathTools>=0:devel/p5-PathTools \
+	p5-File-Temp>=0:devel/p5-File-Temp \
+	p5-Scalar-List-Utils>=0:lang/p5-Scalar-List-Utils
+TEST_DEPENDS=	p5-Test-Simple>=0.88:devel/p5-Test-Simple
+
+USES=		perl5
+USE_PERL5=	configure
+
+NO_ARCH=	yes
+
+.include <bsd.port.mk>

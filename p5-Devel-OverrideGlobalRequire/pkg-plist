@@ -1,0 +1,3 @@
+%%SITE_PERL%%/Devel/OverrideGlobalRequire.pm
+%%SITE_ARCH%%/auto/Devel/OverrideGlobalRequire/.packlist
+%%PERL5_MAN3%%/Devel::OverrideGlobalRequire.3.gz
