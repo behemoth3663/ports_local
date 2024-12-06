@@ -72,7 +72,7 @@ GH_TUPLE=	\
 		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
 		gofrs:uuid:v4.0.0:gofrs_uuid/vendor/github.com/gofrs/uuid \
 		gogo:protobuf:v1.3.2:gogo_protobuf/vendor/github.com/gogo/protobuf \
-		golang-jwt:jwt:v4.4.2:golang_jwt_jwt_v4/vendor/github.com/golang-jwt/jwt/v4 \
+		golang-jwt:jwt:v4.5.1:golang_jwt_jwt_v4/vendor/github.com/golang-jwt/jwt/v4 \
 		golang:appengine:v1.6.8:golang_appengine/vendor/google.golang.org/appengine \
 		golang:crypto:v0.21.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:921286631fa9:golang_exp/vendor/golang.org/x/exp \
