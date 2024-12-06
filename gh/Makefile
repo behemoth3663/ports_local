@@ -19,7 +19,7 @@ GH_ACCOUNT=	cli
 GH_PROJECT=	${GH_ACCOUNT}
 
 GO_TARGET=	./cmd/${PORTNAME}
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/internal/build.Version=${PORTVERSION} \
 	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/internal/build.Date=${%FT%TZ:L:gmtime}"
 
