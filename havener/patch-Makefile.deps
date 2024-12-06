@@ -1,0 +1,16 @@
+--- Makefile.deps.orig	2024-12-06 13:34:51 UTC
++++ Makefile.deps
+@@ -87,12 +87,10 @@ GH_TUPLE=	\
+ 		sagikazarmark:slog-shim:v0.1.0:sagikazarmark_slog_shim/vendor/github.com/sagikazarmark/slog-shim \
+ 		sourcegraph:conc:v0.3.0:sourcegraph_conc/vendor/github.com/sourcegraph/conc \
+ 		spf13:afero:v1.11.0:spf13_afero/vendor/github.com/spf13/afero \
++		spf13:cast:v1.7.0:spf13_cast/vendor/github.com/spf13/cast \
+ 		spf13:cobra:v1.8.1:spf13_cobra/vendor/github.com/spf13/cobra \
+ 		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
+ 		spf13:viper:v1.19.0:spf13_viper/vendor/github.com/spf13/viper \
+ 		subosito:gotenv:v1.6.0:subosito_gotenv/vendor/github.com/subosito/gotenv \
+ 		uber-go:multierr:v1.11.0:uber_go_multierr/vendor/go.uber.org/multierr \
+ 		xlab:treeprint:v1.2.0:xlab_treeprint/vendor/github.com/xlab/treeprint
+-post-extract:
+-	@${MKDIR} ${WRKSRC}/vendor/github.com/spf13
+-	@${RLN} ${WRKSRC_fsnotify_fsnotify} ${WRKSRC}/vendor/github.com/spf13/cast

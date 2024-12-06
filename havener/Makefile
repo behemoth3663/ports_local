@@ -1,5 +1,5 @@
 PORTNAME=	havener
-PORTVERSION=	2.2.5
+PORTVERSION=	2.2.6
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -20,7 +20,7 @@ GO_TARGET=	./cmd/${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal/cmd.version=${PORTVERSION}'"
 
 pre-deps: .PHONY .SILENT
@@ -28,7 +28,7 @@ pre-deps: .PHONY .SILENT
 
 pre-deps-all post-deps-all: .PHONY
 
-.include "/etc/make.d/go-deps.mk"
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 
 # Reasonable to use when version (not hash) is used
