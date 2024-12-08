@@ -1,4 +1,3 @@
 %%SITE_ARCH%%/Hash/SafeKeys.pm
-%%SITE_ARCH%%/auto/Hash/SafeKeys/.packlist
 %%SITE_ARCH%%/auto/Hash/SafeKeys/SafeKeys.so
 %%PERL5_MAN3%%/Hash::SafeKeys.3.gz

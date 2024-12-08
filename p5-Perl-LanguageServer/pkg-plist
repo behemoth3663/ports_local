@@ -13,5 +13,4 @@
 %%SITE_PERL%%/Perl/LanguageServer/Req.pm
 %%SITE_PERL%%/Perl/LanguageServer/SyntaxChecker.pm
 %%SITE_PERL%%/Perl/LanguageServer/Workspace.pm
-%%SITE_ARCH%%/auto/Perl/LanguageServer/.packlist
 %%PERL5_MAN3%%/Perl::LanguageServer.3.gz

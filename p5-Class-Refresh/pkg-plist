@@ -1,3 +1,2 @@
 %%SITE_PERL%%/Class/Refresh.pm
-%%SITE_ARCH%%/auto/Class/Refresh/.packlist
 %%PERL5_MAN3%%/Class::Refresh.3.gz
