@@ -30,7 +30,6 @@ github.com/edsrzf/mmap-go
 github.com/facette/natsort
 # github.com/fatih/color v1.18.0
 ## explicit; go 1.17
-github.com/fatih/color
 # github.com/gkampitakis/ciinfo v0.3.0
 ## explicit; go 1.20
 github.com/gkampitakis/ciinfo
@@ -118,12 +117,6 @@ github.com/kylelemons/godebug/diff
 # github.com/maruel/natural v1.1.1
 ## explicit; go 1.21
 github.com/maruel/natural
-# github.com/mattn/go-colorable v0.1.13
-## explicit; go 1.15
-github.com/mattn/go-colorable
-# github.com/mattn/go-isatty v0.0.20
-## explicit; go 1.15
-github.com/mattn/go-isatty
 # github.com/mitchellh/go-wordwrap v0.0.0-20150314170334-ad45545899c7
 ## explicit
 github.com/mitchellh/go-wordwrap
@@ -169,7 +162,7 @@ github.com/prometheus/common/promslog
 github.com/prometheus/procfs
 github.com/prometheus/procfs/internal/fs
 github.com/prometheus/procfs/internal/util
-# github.com/prometheus/prometheus v0.300.0
+# github.com/prometheus/prometheus v0.300.1
 ## explicit; go 1.22.0
 github.com/prometheus/prometheus/model/exemplar
 github.com/prometheus/prometheus/model/histogram
