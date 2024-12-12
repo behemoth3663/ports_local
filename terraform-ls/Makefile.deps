@@ -27,7 +27,7 @@ GH_TUPLE=	\
 		go-logr:logr:v1.4.2:go_logr_logr/vendor/github.com/go-logr/logr \
 		go-logr:stdr:v1.2.2:go_logr_stdr/vendor/github.com/go-logr/stdr \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
-		golang:crypto:v0.30.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.31.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:mod:v0.22.0:golang_mod/vendor/golang.org/x/mod \
 		golang:net:v0.32.0:golang_net/vendor/golang.org/x/net \
 		golang:sync:v0.10.0:golang_sync/vendor/golang.org/x/sync \
@@ -54,7 +54,7 @@ GH_TUPLE=	\
 		hashicorp:terraform-exec:v0.21.0:hashicorp_terraform_exec/vendor/github.com/hashicorp/terraform-exec \
 		hashicorp:terraform-json:v0.23.0:hashicorp_terraform_json/vendor/github.com/hashicorp/terraform-json \
 		hashicorp:terraform-registry-address:v0.2.3:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
-		hashicorp:terraform-schema:1392f740c4fe:hashicorp_terraform_schema/vendor/github.com/hashicorp/terraform-schema \
+		hashicorp:terraform-schema:b4693e6bc465:hashicorp_terraform_schema/vendor/github.com/hashicorp/terraform-schema \
 		hashicorp:terraform-svchost:v0.1.1:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
 		huandu:xstrings:v1.4.0:huandu_xstrings/vendor/github.com/huandu/xstrings \
 		iancoleman:strcase:v0.2.0:iancoleman_strcase/vendor/github.com/iancoleman/strcase \
