@@ -1,5 +1,5 @@
 PORTNAME=	terraform-ls
-PORTVERSION=	0.36.0
+PORTVERSION=	0.36.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local devel
 
@@ -17,17 +17,16 @@ GH_ACCOUNT=	hashicorp
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static"
 
-_OPTIONS_extract+=	750:post-post-extract
-post-post-extract: .PHONY
+post-extract: .PHONY
 	test -f ${WRKSRC}/vendor/modules.txt || test ! -f ${PATCHDIR}/modules.txt || ${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 
 pre-deps post-deps-all: .PHONY
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
 
-.include "/etc/make.d/go-deps.mk"
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 
 #-open-telemetry:opentelemetry-go-contrib:v0.50.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/httptrace/otelhttptrace
