@@ -23,8 +23,7 @@ RUN_DEPENDS=	\
 	p5-IO-AIO>=0:devel/p5-IO-AIO \
 	p5-JSON>=0:converters/p5-JSON \
 	p5-Moose>=0:devel/p5-Moose \
-	p5-PadWalker>=0:devel/p5-PadWalker \
-	p5-Scalar-List-Utils>=0:lang/p5-Scalar-List-Utils
+	p5-PadWalker>=0:devel/p5-PadWalker
 TEST_DEPENDS=	devel/p5-Test-Simple>=0:devel/p5-Test-Simple
 
 USES=		perl5 dos2unix
@@ -32,4 +31,5 @@ USE_PERL5=	configure
 
 NO_ARCH=	yes
 
+.include "../Mk/${USES:Mperl*}.mk"
 .include <bsd.port.mk>
