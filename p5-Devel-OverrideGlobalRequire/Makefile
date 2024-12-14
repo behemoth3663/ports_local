@@ -11,12 +11,10 @@ WWW=		https://metacpan.org/pod/Devel::OverrideGlobalRequire
 LICENSE=	ART10 GPLv1+
 LICENSE_COMB=	dual
 
-BUILD_DEPENDS=	p5-PathTools>=0:devel/p5-PathTools
-TEST_DEPENDS=	p5-Test-Simple>=0.88:devel/p5-Test-Simple
-
 USES=		perl5
 USE_PERL5=	configure
 
 NO_ARCH=	yes
 
+.include "../Mk/${USES:Mperl*}.mk"
 .include <bsd.port.mk>

@@ -11,7 +11,6 @@ WWW=		https://metacpan.org/release/Class-Refresh
 LICENSE=	ART10 GPLv1+
 LICENSE_COMB=	dual
 
-BUILD_DEPENDS=	p5-PathTools>=0:devel/p5-PathTools
 RUN_DEPENDS=	\
 	p5-Class-Load>=0:devel/p5-Class-Load \
 	p5-Class-Unload>=0:devel/p5-Class-Unload \
@@ -19,12 +18,12 @@ RUN_DEPENDS=	\
 	p5-Try-Tiny>=0:lang/p5-Try-Tiny
 TEST_DEPENDS=	\
 	p5-Test-Fatal>=0:devel/p5-Test-Fatal \
-	p5-Test-Requires>=0:devel/p5-Test-Requires \
-	p5-Test-Simple>=0.88:devel/p5-Test-Simple
+	p5-Test-Requires>=0:devel/p5-Test-Requires
 
 USES=		perl5
 USE_PERL5=	configure
 
 NO_ARCH=	yes
 
+.include "../Mk/${USES:Mperl*}.mk"
 .include <bsd.port.mk>

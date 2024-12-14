@@ -19,4 +19,5 @@ USE_PERL5=	configure
 post-install:
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/${SITE_ARCH_REL}/auto/YAML/XS/LibYAML/LibYAML.so
 
+.include "../Mk/${USES:Mperl*}.mk"
 .include <bsd.port.mk>

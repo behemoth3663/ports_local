@@ -11,11 +11,10 @@ WWW=		https://metacpan.org/pod/Hash::SafeKeys
 LICENSE=	ART10 GPLv1+
 LICENSE_COMB=	dual
 
-TEST_DEPENDS=	p5-Test-Simple>=0.88:devel/p5-Test-Simple
-
 USES=		perl5
 USE_PERL5=	configure
 
 NO_ARCH=	yes
 
+.include "../Mk/${USES:Mperl*}.mk"
 .include <bsd.port.mk>
