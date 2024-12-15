@@ -15,7 +15,6 @@
   "Clone": "0.47",
   "Compiler::Lexer": "0.23",
   "Coro": 6.57,
-  "Cwd": "3.75",
   "Data::Dump": "1.25",
   "Data::OptList": "0.114",
   "Date::Parse": "2.33",
@@ -87,7 +86,6 @@
   "XML::SAX::Base": "1.09",
   "XML::SAX::Expat": "0.51",
   "XML::Simple": "2.25",
-  "YAML::LibYAML": "v0.902.0",
   "YAML::PP": "v0.38.0",
   "common::sense": 3.75,
   "libintl-perl": ""
