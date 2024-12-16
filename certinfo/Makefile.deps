@@ -5,8 +5,8 @@ GH_TUPLE=	\
 		golang:image:v0.20.0:golang_image/vendor/golang.org/x/image \
 		golang:mobile:c6794c95c70b:golang_mobile/vendor/golang.org/x/mobile \
 		golang:sys:v0.25.0:golang_sys/vendor/golang.org/x/sys \
-		icza:gox:7ada7ebfce63:icza_gox/vendor/github.com/icza/gox \
+		icza:gox:v0.2.0:icza_gox/vendor/github.com/icza/gox \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
-		stretchr:testify:v1.9.0:stretchr_testify/vendor/github.com/stretchr/testify
+		stretchr:testify:v1.10.0:stretchr_testify/vendor/github.com/stretchr/testify
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
 		#	::701f63a606c0:group_name/vendor/golang.org/x/exp/shiny (from go.googlesource.com/exp@701f63a606c0)

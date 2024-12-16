@@ -1,5 +1,5 @@
 PORTNAME=	certinfo
-PORTVERSION=	1.0.24
+PORTVERSION=	1.0.26
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local security
 
@@ -15,7 +15,8 @@ USES=		go:modules
 USE_GITHUB=	yes
 GH_ACCOUNT=	pete911
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -X 'main.Version=${DISTVERSIONPREFIX}${PORTVERSION}'"
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+	-X 'main.Version=${DISTVERSIONPREFIX}${PORTVERSION}'"
 
 PLIST_FILES=	bin/${PORTNAME}
 
@@ -29,6 +30,6 @@ pre-deps-all: .PHONY .SILENT
 
 pre-deps post-deps-all: .PHONY
 
-.include "/etc/make.d/go-deps.mk"
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
