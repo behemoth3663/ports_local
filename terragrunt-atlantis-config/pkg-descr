@@ -1,0 +1,11 @@
+This tool creates Atlantis YAML configurations for Terragrunt projects by:
+
+ - Finding all terragrunt.hcl in a repo
+ - Evaluating their dependency, terraform, locals, and other source blocks to
+   find their dependencies
+ - Creating a Directed Acyclic Graph of all dependencies
+ - Constructing and logging YAML in Atlantis' config spec that reflects the
+   graph
+
+This is especially useful for organizations that use monorepos for their
+Terragrunt config, and have thousands of lines of config.
