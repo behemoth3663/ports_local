@@ -1,7 +1,7 @@
 PORTNAME=	s5cmd
-PORTVERSION=	2.2.2
+PORTVERSION=	2.3.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	8
+#PORTREVISION=	8
 CATEGORIES=	local net
 
 MAINTAINER=	none@freebsd.org
@@ -25,12 +25,12 @@ GIT_COMMIT=	git ls-remote \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
 		${SED} -rn 's/(.{7}).*/\1/p'
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/version.Version=${DISTVERSIONPREFIX}${PORTVERSION}' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/version.GitCommit=$$(${GIT_COMMIT})'"
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
-.include "/etc/make.d/go-deps.mk"
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
