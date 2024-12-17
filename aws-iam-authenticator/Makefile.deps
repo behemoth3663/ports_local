@@ -14,47 +14,45 @@ GH_TUPLE=	\
 		go-inf:inf:v0.9.1:go_inf_inf/vendor/gopkg.in/inf.v0 \
 		go-ini:ini:v1.51.0:go_ini_ini/vendor/gopkg.in/ini.v1 \
 		go-logr:logr:v1.4.2:go_logr_logr/vendor/github.com/go-logr/logr \
-		go-openapi:jsonpointer:v0.20.2:go_openapi_jsonpointer/vendor/github.com/go-openapi/jsonpointer \
+		go-openapi:jsonpointer:v0.21.0:go_openapi_jsonpointer/vendor/github.com/go-openapi/jsonpointer \
 		go-openapi:jsonreference:v0.20.4:go_openapi_jsonreference/vendor/github.com/go-openapi/jsonreference \
-		go-openapi:swag:v0.22.7:go_openapi_swag/vendor/github.com/go-openapi/swag \
+		go-openapi:swag:v0.23.0:go_openapi_swag/vendor/github.com/go-openapi/swag \
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
 		gofrs:flock:v0.8.1:gofrs_flock/vendor/github.com/gofrs/flock \
 		gogo:protobuf:v1.3.2:gogo_protobuf/vendor/github.com/gogo/protobuf \
-		golang:groupcache:41bb18bfe9da:golang_groupcache/vendor/github.com/golang/groupcache \
-		golang:mod:v0.17.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.26.0:golang_net/vendor/golang.org/x/net \
-		golang:oauth2:v0.21.0:golang_oauth2/vendor/golang.org/x/oauth2 \
+		golang:mod:v0.21.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.30.0:golang_net/vendor/golang.org/x/net \
+		golang:oauth2:v0.23.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sync:v0.7.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.21.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.21.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.16.0:golang_text/vendor/golang.org/x/text \
-		golang:time:v0.5.0:golang_time/vendor/golang.org/x/time \
-		golang:tools:e35e4ccd0d2d:golang_tools/vendor/golang.org/x/tools \
+		golang:sync:v0.8.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.26.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.25.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.19.0:golang_text/vendor/golang.org/x/text \
+		golang:time:v0.7.0:golang_time/vendor/golang.org/x/time \
+		golang:tools:v0.26.0:golang_tools/vendor/golang.org/x/tools \
 		google:gnostic-models:v0.6.8:google_gnostic_models/vendor/github.com/google/gnostic-models \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:gofuzz:v1.2.0:google_gofuzz/vendor/github.com/google/gofuzz \
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
 		hashicorp:hcl:v1.0.0:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
-		imdario:mergo:v0.3.16:imdario_mergo/vendor/github.com/imdario/mergo \
 		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
 		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
 		josharian:intern:v1.0.0:josharian_intern/vendor/github.com/josharian/intern \
 		json-iterator:go:v1.1.12:json_iterator_go/vendor/github.com/json-iterator/go \
-		kubernetes-sigs:json:bc3834ca7abd:kubernetes_sigs_json/vendor/sigs.k8s.io/json \
-		kubernetes-sigs:structured-merge-diff:v4.4.1:kubernetes_sigs_structured_merge_diff/vendor/sigs.k8s.io/structured-merge-diff/v4 \
+		kubernetes-sigs:json:9aa6b5e7a4b3:kubernetes_sigs_json/vendor/sigs.k8s.io/json \
+		kubernetes-sigs:structured-merge-diff:v4.4.2:kubernetes_sigs_structured_merge_diff/vendor/sigs.k8s.io/structured-merge-diff/v4 \
 		kubernetes-sigs:yaml:v1.4.0:kubernetes_sigs_yaml/vendor/sigs.k8s.io/yaml \
-		kubernetes:api:v0.31.0:kubernetes_api/vendor/k8s.io/api \
-		kubernetes:apimachinery:v0.31.0:kubernetes_apimachinery/vendor/k8s.io/apimachinery \
-		kubernetes:client-go:v0.31.0:kubernetes_client_go/vendor/k8s.io/client-go \
-		kubernetes:code-generator:v0.31.0:kubernetes_code_generator/vendor/k8s.io/code-generator \
-		kubernetes:component-base:v0.31.0:kubernetes_component_base/vendor/k8s.io/component-base \
-		kubernetes:gengo:51d4e06bde70:kubernetes_gengo/vendor/k8s.io/gengo/v2 \
+		kubernetes:api:v0.32.0:kubernetes_api/vendor/k8s.io/api \
+		kubernetes:apimachinery:v0.32.0:kubernetes_apimachinery/vendor/k8s.io/apimachinery \
+		kubernetes:client-go:v0.32.0:kubernetes_client_go/vendor/k8s.io/client-go \
+		kubernetes:code-generator:v0.32.0:kubernetes_code_generator/vendor/k8s.io/code-generator \
+		kubernetes:component-base:v0.32.0:kubernetes_component_base/vendor/k8s.io/component-base \
+		kubernetes:gengo:2b36238f13e9:kubernetes_gengo/vendor/k8s.io/gengo/v2 \
 		kubernetes:klog:v2.130.1:kubernetes_klog/vendor/k8s.io/klog/v2 \
-		kubernetes:kube-openapi:70dd3763d340:kubernetes_kube_openapi/vendor/k8s.io/kube-openapi \
+		kubernetes:kube-openapi:32ad38e42d3f:kubernetes_kube_openapi/vendor/k8s.io/kube-openapi \
 		kubernetes:sample-controller:v0.26.1:kubernetes_sample_controller/vendor/k8s.io/sample-controller \
-		kubernetes:utils:18e509b52bc8:kubernetes_utils/vendor/k8s.io/utils \
+		kubernetes:utils:3ea5e8cea738:kubernetes_utils/vendor/k8s.io/utils \
 		magiconair:properties:v1.8.1:magiconair_properties/vendor/github.com/magiconair/properties \
 		mailru:easyjson:v0.7.7:mailru_easyjson/vendor/github.com/mailru/easyjson \
 		manifoldco:promptui:v0.9.0:manifoldco_promptui/vendor/github.com/manifoldco/promptui \
@@ -62,13 +60,14 @@ GH_TUPLE=	\
 		modern-go:concurrent:bacd9c7ef1dd:modern_go_concurrent/vendor/github.com/modern-go/concurrent \
 		modern-go:reflect2:v1.0.2:modern_go_reflect2/vendor/github.com/modern-go/reflect2 \
 		munnerz:goautoneg:a7dc8b61c822:munnerz_goautoneg/vendor/github.com/munnerz/goautoneg \
+		open-telemetry:opentelemetry-go:v1.28.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
 		pelletier:go-toml:v1.2.0:pelletier_go_toml/vendor/github.com/pelletier/go-toml \
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
 		prometheus:client_golang:v1.19.1:prometheus_client_golang/vendor/github.com/prometheus/client_golang \
 		prometheus:client_model:v0.6.1:prometheus_client_model/vendor/github.com/prometheus/client_model \
 		prometheus:common:v0.55.0:prometheus_common/vendor/github.com/prometheus/common \
 		prometheus:procfs:v0.15.1:prometheus_procfs/vendor/github.com/prometheus/procfs \
-		protocolbuffers:protobuf-go:v1.34.2:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
+		protocolbuffers:protobuf-go:v1.35.1:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		sirupsen:logrus:v1.9.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
 		spf13:afero:v1.11.0:spf13_afero/vendor/github.com/spf13/afero \
 		spf13:cast:v1.6.0:spf13_cast/vendor/github.com/spf13/cast \
