@@ -1,14 +1,9 @@
 GH_TUPLE=	\
 		atomicgo:cursor:v0.1.1:atomicgo_cursor/vendor/atomicgo.dev/cursor \
 		atomicgo:keyboard:v0.2.8:atomicgo_keyboard/vendor/atomicgo.dev/keyboard \
-		aws:aws-sdk-go-v2:v1.16.9:aws_aws_sdk_go_v2_imds \
-		aws:aws-sdk-go-v2:v1.22.1:aws_aws_sdk_go_v2_sso \
-		aws:aws-sdk-go-v2:v1.26.2:aws_aws_sdk_go_v2_ssooidc \
-		aws:aws-sdk-go-v2:v1.27.1:aws_aws_sdk_go_v2_amp \
-		aws:aws-sdk-go-v2:v1.30.1:aws_aws_sdk_go_v2 \
-		aws:aws-sdk-go-v2:v1.8.0:aws_aws_sdk_go_v2_ini/vendor/github.com/aws/aws-sdk-go-v2 \
+		aws:aws-sdk-go-v2:v1.32.6:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
 		aws:aws-sdk-go:v1.49.13:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
-		aws:smithy-go:v1.20.3:aws_smithy_go/vendor/github.com/aws/smithy-go \
+		aws:smithy-go:v1.22.1:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		charmbracelet:lipgloss:v0.6.0:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
 		containerd:console:v1.0.3:containerd_console/vendor/github.com/containerd/console \
 		cpuguy83:go-md2man:v2.0.2:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
@@ -44,17 +39,3 @@ GH_TUPLE=	\
 		xo:terminfo:ca9a967f8778:xo_terminfo/vendor/github.com/xo/terminfo \
 		xrash:smetrics:039620a65673:xrash_smetrics/vendor/github.com/xrash/smetrics
 		# Errors found during processing:
-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
-#}
-		#	error getting refs for aws/aws-sdk-go-v2: apis.get https://api.github.com/repos/aws/aws-sdk-go-v2/git/refs/tags: 502, body: {
-#}
-post-extract:
-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2} ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2
-	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds
-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_imds}/feature/ec2/imds ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds
-	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/amp
-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_amp}/service/amp ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/amp
-	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sso
-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_sso}/service/sso ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sso
-	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc
-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_ssooidc}/service/ssooidc ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc

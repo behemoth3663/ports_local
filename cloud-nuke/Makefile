@@ -1,5 +1,5 @@
 PORTNAME=	cloud-nuke
-PORTVERSION=	0.37.2
+PORTVERSION=	0.38.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -18,7 +18,7 @@ GH_ACCOUNT=	gruntwork-io
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X 'main.VERSION=${DISTVERSIONPREFIX}${PORTVERSION}'"
 
 _OPTIONS_extract=	600:pre-post-extract
@@ -33,6 +33,6 @@ pre-post-extract: .PHONY .SILENT
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
-.include "/etc/make.d/go-deps.mk"
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
