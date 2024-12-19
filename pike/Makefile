@@ -1,5 +1,5 @@
 PORTNAME=	pike
-PORTVERSION=	0.3.28
+PORTVERSION=	0.3.29
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -18,7 +18,7 @@ GH_ACCOUNT=	jamesWoolfenden
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static"
 
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
@@ -30,6 +30,6 @@ post-patch: .PHONY
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
-.include "/etc/make.d/go-deps.mk"
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
