@@ -54,9 +54,9 @@ GH_TUPLE=	\
 		charmbracelet:bubbles:v0.20.0:charmbracelet_bubbles/vendor/github.com/charmbracelet/bubbles \
 		charmbracelet:bubbletea:v1.1.0:charmbracelet_bubbletea/vendor/github.com/charmbracelet/bubbletea \
 		charmbracelet:glamour:v0.8.0:charmbracelet_glamour/vendor/github.com/charmbracelet/glamour \
-		charmbracelet:lipgloss:v0.13.0:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
+		charmbracelet:lipgloss:v1.0.0:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
 		charmbracelet:x:v0.2.0:charmbracelet_x_term/vendor/github.com/charmbracelet/x/term \
-		charmbracelet:x:v0.2.3:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x/ansi \
+		charmbracelet:x:v0.4.2:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x/ansi \
 		cloudflare:circl:v1.3.9:cloudflare_circl/vendor/github.com/cloudflare/circl \
 		cncf:xds:b4127c9b8d78:cncf_xds_go/vendor/github.com/cncf/xds/go \
 		containerd:console:v1.0.4:containerd_console/vendor/github.com/containerd/console \
@@ -91,8 +91,8 @@ GH_TUPLE=	\
 		golang:exp:f66d83c29e7c:golang_exp/vendor/golang.org/x/exp \
 		golang:groupcache:41bb18bfe9da:golang_groupcache/vendor/github.com/golang/groupcache \
 		golang:mod:v0.21.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.30.0:golang_net/vendor/golang.org/x/net \
-		golang:oauth2:v0.23.0:golang_oauth2/vendor/golang.org/x/oauth2 \
+		golang:net:v0.32.0:golang_net/vendor/golang.org/x/net \
+		golang:oauth2:v0.24.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:sync:v0.10.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.28.0:golang_sys/vendor/golang.org/x/sys \
@@ -102,7 +102,7 @@ GH_TUPLE=	\
 		golang:tools:v0.26.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-genproto:796eee8c2d53:google_go_genproto/vendor/google.golang.org/genproto \
-		google:go-genproto:dd2ea8efbc28:google_go_genproto_1 \
+		google:go-genproto:e6fa225c2576:google_go_genproto_1 \
 		google:go-github:v53.2.0:google_go_github_v53/vendor/github.com/google/go-github/v53 \
 		google:go-jsonnet:v0.20.0:google_go_jsonnet/vendor/github.com/google/go-jsonnet \
 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
@@ -117,9 +117,9 @@ GH_TUPLE=	\
 		gookit:color:v1.5.4:gookit_color/vendor/github.com/gookit/color \
 		gorilla:css:v1.0.1:gorilla_css/vendor/github.com/gorilla/css \
 		goware:prefixer:395022866408:goware_prefixer/vendor/github.com/goware/prefixer \
-		grpc-ecosystem:grpc-gateway:v2.23.0:grpc_ecosystem_grpc_gateway_v2/vendor/github.com/grpc-ecosystem/grpc-gateway/v2 \
+		grpc-ecosystem:grpc-gateway:v2.24.0:grpc_ecosystem_grpc_gateway_v2/vendor/github.com/grpc-ecosystem/grpc-gateway/v2 \
 		grpc:grpc-go:ad81c20503be:grpc_grpc_go_1/vendor/google.golang.org/grpc/stats/opentelemetry \
-		grpc:grpc-go:v1.68.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+		grpc:grpc-go:v1.68.1:grpc_grpc_go/vendor/google.golang.org/grpc \
 		gruntwork-io:boilerplate:v0.5.19:gruntwork_io_boilerplate/vendor/github.com/gruntwork-io/boilerplate \
 		gruntwork-io:go-commons:v0.17.2:gruntwork_io_go_commons/vendor/github.com/gruntwork-io/go-commons \
 		gruntwork-io:terragrunt-engine-go:v0.0.4:gruntwork_io_terragrunt_engine_go/vendor/github.com/gruntwork-io/terragrunt-engine-go \
@@ -186,10 +186,11 @@ GH_TUPLE=	\
 		open-telemetry:opentelemetry-go-contrib:instrumentation/google.golang.org/grpc/otelgrpc/v0.56.0:open_telemetry_opentelemetry_go_contrib \
 		open-telemetry:opentelemetry-go-contrib:instrumentation/net/http/otelhttp/v0.56.0:open_telemetry_opentelemetry_go_contrib_otelhttp \
 		open-telemetry:opentelemetry-go-contrib:detectors/gcp/v1.31.0:open_telemetry_opentelemetry_go_contrib_detectors_gcp \
-		open-telemetry:opentelemetry-go:exporters/otlp/otlptrace/v1.32.0:open_telemetry_opentelemetry_go_otlptrace \
-		open-telemetry:opentelemetry-go:exporters/otlp/otlpmetric/otlpmetrichttp/v1.32.0:open_telemetry_opentelemetry_go_otlpmetrichttp \
-		open-telemetry:opentelemetry-go:exporters/otlp/otlpmetric/otlpmetricgrpc/v1.32.0:open_telemetry_opentelemetry_go_otlpmetricgrpc \
-		open-telemetry:opentelemetry-proto-go:otlp/v1.3.1:open_telemetry_opentelemetry_proto_go/vendor/go.opentelemetry.io/proto \
+		open-telemetry:opentelemetry-go:exporters/otlp/otlptrace/v1.31.0:open_telemetry_opentelemetry_go_otlptrace \
+		open-telemetry:opentelemetry-go:exporters/otlp/otlpmetric/otlpmetrichttp/v1.33.0:open_telemetry_opentelemetry_go_otlpmetrichttp \
+		open-telemetry:opentelemetry-go:exporters/otlp/otlpmetric/otlpmetricgrpc/v1.33.0:open_telemetry_opentelemetry_go_otlpmetricgrpc \
+		open-telemetry:opentelemetry-go-instrumentation:sdk/v1.1.0:open_telemetry_opentelemetry_go_instrumentation/vendor/go.opentelemetry.io/auto \
+		open-telemetry:opentelemetry-proto-go:otlp/v1.4.0:open_telemetry_opentelemetry_proto_go/vendor/go.opentelemetry.io/proto \
 		owenrumney:go-sarif:v1.1.1:owenrumney_go_sarif/vendor/github.com/owenrumney/go-sarif \
 		pkg:browser:5ac0b6a4141c:pkg_browser/vendor/github.com/pkg/browser \
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
@@ -197,7 +198,7 @@ GH_TUPLE=	\
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		posener:complete:v1.2.3:posener_complete/vendor/github.com/posener/complete \
 		pquerna:otp:468c2dd2b58d:pquerna_otp/vendor/github.com/pquerna/otp \
-		protocolbuffers:protobuf-go:v1.35.1:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
+		protocolbuffers:protobuf-go:v1.35.2:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		pterm:pterm:v0.12.79:pterm_pterm/vendor/github.com/pterm/pterm \
 		puzpuzpuz:xsync:v3.4.0:puzpuzpuz_xsync_v3/vendor/github.com/puzpuzpuz/xsync/v3 \
 		rivo:uniseg:v0.4.7:rivo_uniseg/vendor/github.com/rivo/uniseg \
@@ -211,7 +212,7 @@ GH_TUPLE=	\
 		spf13:afero:v1.11.0:spf13_afero/vendor/github.com/spf13/afero \
 		spf13:cast:v1.7.0:spf13_cast/vendor/github.com/spf13/cast \
 		stretchr:objx:v0.5.2:stretchr_objx/vendor/github.com/stretchr/objx \
-		stretchr:testify:v1.9.0:stretchr_testify/vendor/github.com/stretchr/testify \
+		stretchr:testify:v1.10.0:stretchr_testify/vendor/github.com/stretchr/testify \
 		terraform-linters:tflint-plugin-sdk:v0.18.0:terraform_linters_tflint_plugin_sdk/vendor/github.com/terraform-linters/tflint-plugin-sdk \
 		terraform-linters:tflint-ruleset-terraform:v0.5.0:terraform_linters_tflint_ruleset_terraform/vendor/github.com/terraform-linters/tflint-ruleset-terraform \
 		terraform-linters:tflint:v0.50.3:terraform_linters_tflint/vendor/github.com/terraform-linters/tflint \
@@ -227,7 +228,7 @@ GH_TUPLE=	\
 		yuin:goldmark-emoji:v1.0.3:yuin_goldmark_emoji/vendor/github.com/yuin/goldmark-emoji \
 		yuin:goldmark:v1.7.4:yuin_goldmark/vendor/github.com/yuin/goldmark \
 		zclconf:go-cty-yaml:v1.0.3:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
-		zclconf:go-cty:v1.14.2:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+		zclconf:go-cty:v1.15.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
 		#	::v0.1.0:group_name/vendor/atomicgo.dev/schedule (from atomicgo.dev/schedule@v0.1.0)
 		#	::v0.16.2:group_name/vendor/cel.dev/expr (from cel.dev/expr@v0.16.2)
@@ -238,21 +239,22 @@ GH_TUPLE=	\
 		#	::v0.56.0:group_name/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc (from go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc@v0.56.0)
 		#	::v0.56.0:group_name/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp (from go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp@v0.56.0)
 		#	::v1.0.1:group_name/vendor/dario.cat/mergo (from dario.cat/mergo@v1.0.1)
-		#	::v1.2.0:group_name/vendor/filippo.io/age (from filippo.io/age@v1.2.0)
-		#	::v1.3.1:group_name/vendor/go.opentelemetry.io/proto/otlp (from go.opentelemetry.io/proto/otlp@v1.3.1)
+		#	::v1.1.0:group_name/vendor/go.opentelemetry.io/auto/sdk (from go.opentelemetry.io/auto/sdk@v1.1.0)
+		#	::v1.2.1:group_name/vendor/filippo.io/age (from filippo.io/age@v1.2.1)
 		#	::v1.31.0:group_name/vendor/go.opentelemetry.io/contrib/detectors/gcp (from go.opentelemetry.io/contrib/detectors/gcp@v1.31.0)
 		#	::v1.31.0:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc (from go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc@v1.31.0)
-		#	::v1.32.0:group_name/vendor/go.opentelemetry.io/otel (from go.opentelemetry.io/otel@v1.32.0)
-		#	::v1.32.0:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc (from go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc@v1.32.0)
-		#	::v1.32.0:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp (from go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp@v1.32.0)
 		#	::v1.32.0:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace (from go.opentelemetry.io/otel/exporters/otlp/otlptrace@v1.32.0)
 		#	::v1.32.0:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp (from go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp@v1.32.0)
-		#	::v1.32.0:group_name/vendor/go.opentelemetry.io/otel/exporters/stdout/stdoutmetric (from go.opentelemetry.io/otel/exporters/stdout/stdoutmetric@v1.32.0)
 		#	::v1.32.0:group_name/vendor/go.opentelemetry.io/otel/exporters/stdout/stdouttrace (from go.opentelemetry.io/otel/exporters/stdout/stdouttrace@v1.32.0)
-		#	::v1.32.0:group_name/vendor/go.opentelemetry.io/otel/metric (from go.opentelemetry.io/otel/metric@v1.32.0)
-		#	::v1.32.0:group_name/vendor/go.opentelemetry.io/otel/sdk (from go.opentelemetry.io/otel/sdk@v1.32.0)
-		#	::v1.32.0:group_name/vendor/go.opentelemetry.io/otel/sdk/metric (from go.opentelemetry.io/otel/sdk/metric@v1.32.0)
-		#	::v1.32.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.32.0)
+		#	::v1.33.0:group_name/vendor/go.opentelemetry.io/otel (from go.opentelemetry.io/otel@v1.33.0)
+		#	::v1.33.0:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc (from go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc@v1.33.0)
+		#	::v1.33.0:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp (from go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp@v1.33.0)
+		#	::v1.33.0:group_name/vendor/go.opentelemetry.io/otel/exporters/stdout/stdoutmetric (from go.opentelemetry.io/otel/exporters/stdout/stdoutmetric@v1.33.0)
+		#	::v1.33.0:group_name/vendor/go.opentelemetry.io/otel/metric (from go.opentelemetry.io/otel/metric@v1.33.0)
+		#	::v1.33.0:group_name/vendor/go.opentelemetry.io/otel/sdk (from go.opentelemetry.io/otel/sdk@v1.33.0)
+		#	::v1.33.0:group_name/vendor/go.opentelemetry.io/otel/sdk/metric (from go.opentelemetry.io/otel/sdk/metric@v1.33.0)
+		#	::v1.33.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.33.0)
+		#	::v1.4.0:group_name/vendor/go.opentelemetry.io/proto/otlp (from go.opentelemetry.io/proto/otlp@v1.4.0)
 post-extract:
 	test -f ${WRKSRC}/vendor/modules.txt || test ! -f ${PATCHDIR}/modules.txt || ${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/auth
