@@ -1,4 +1,4 @@
---- Makefile.deps.orig	2024-12-19 20:50:06 UTC
+--- Makefile.deps.orig	2024-12-20 22:21:38 UTC
 +++ Makefile.deps
 @@ -1,14 +1,12 @@ GH_TUPLE=	\
  GH_TUPLE=	\
@@ -77,7 +77,7 @@
 +		open-telemetry:opentelemetry-go:exporters/otlp/otlptrace/v1.31.0:open_telemetry_opentelemetry_go_otlptrace \
 +		open-telemetry:opentelemetry-go:exporters/otlp/otlpmetric/otlpmetrichttp/v1.33.0:open_telemetry_opentelemetry_go_otlpmetrichttp \
 +		open-telemetry:opentelemetry-go:exporters/otlp/otlpmetric/otlpmetricgrpc/v1.33.0:open_telemetry_opentelemetry_go_otlpmetricgrpc \
-+		open-telemetry:opentelemetry-go:sdk/v1.1.0:open_telemetry_opentelemetry_auto_go/vendor/go.opentelemetry.io/auto \
++		open-telemetry:opentelemetry-go-instrumentation:sdk/v1.1.0:open_telemetry_opentelemetry_go_instrumentation/vendor/go.opentelemetry.io/auto \
 +		open-telemetry:opentelemetry-proto-go:otlp/v1.4.0:open_telemetry_opentelemetry_proto_go/vendor/go.opentelemetry.io/proto \
  		owenrumney:go-sarif:v1.1.1:owenrumney_go_sarif/vendor/github.com/owenrumney/go-sarif \
  		pkg:browser:5ac0b6a4141c:pkg_browser/vendor/github.com/pkg/browser \
