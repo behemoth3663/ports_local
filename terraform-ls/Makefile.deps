@@ -29,7 +29,7 @@ GH_TUPLE=	\
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
 		golang:crypto:v0.31.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:mod:v0.22.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.32.0:golang_net/vendor/golang.org/x/net \
+		golang:net:v0.33.0:golang_net/vendor/golang.org/x/net \
 		golang:sync:v0.10.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.28.0:golang_sys/vendor/golang.org/x/sys \
 		golang:term:v0.27.0:golang_term/vendor/golang.org/x/term \
@@ -52,7 +52,7 @@ GH_TUPLE=	\
 		hashicorp:hcl:v1.0.0:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
 		hashicorp:hcl:v2.23.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
 		hashicorp:terraform-exec:v0.21.0:hashicorp_terraform_exec/vendor/github.com/hashicorp/terraform-exec \
-		hashicorp:terraform-json:v0.23.0:hashicorp_terraform_json/vendor/github.com/hashicorp/terraform-json \
+		hashicorp:terraform-json:v0.24.0:hashicorp_terraform_json/vendor/github.com/hashicorp/terraform-json \
 		hashicorp:terraform-registry-address:v0.2.3:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
 		hashicorp:terraform-schema:b4693e6bc465:hashicorp_terraform_schema/vendor/github.com/hashicorp/terraform-schema \
 		hashicorp:terraform-svchost:v0.1.1:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
@@ -61,7 +61,6 @@ GH_TUPLE=	\
 		imdario:mergo:v0.3.15:imdario_mergo/vendor/github.com/imdario/mergo \
 		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
 		jinzhu:copier:v0.3.5:jinzhu_copier/vendor/github.com/jinzhu/copier \
-		kr:pretty:v0.3.1:kr_pretty/vendor/github.com/kr/pretty \
 		magiconair:properties:v1.8.7:magiconair_properties/vendor/github.com/magiconair/properties \
 		mattn:go-colorable:v0.1.13:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
 		mattn:go-isatty:v0.0.20:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
@@ -75,9 +74,10 @@ GH_TUPLE=	\
 		mitchellh:mapstructure:v1.5.0:mitchellh_mapstructure/vendor/github.com/mitchellh/mapstructure \
 		mitchellh:reflectwalk:v1.0.2:mitchellh_reflectwalk/vendor/github.com/mitchellh/reflectwalk \
 		olekukonko:tablewriter:v0.0.5:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
-		open-telemetry:opentelemetry-go-contrib:v0.57.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/httptrace/otelhttptrace \
-		open-telemetry:opentelemetry-go-contrib:v0.57.0:open_telemetry_opentelemetry_go_contrib_1/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp \
-		open-telemetry:opentelemetry-go:v1.32.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
+		open-telemetry:opentelemetry-go-contrib:v0.58.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/httptrace/otelhttptrace \
+		open-telemetry:opentelemetry-go-contrib:v0.58.0:open_telemetry_opentelemetry_go_contrib_1/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp \
+		open-telemetry:opentelemetry-go-instrumentation:v1.1.0:open_telemetry_opentelemetry_go_instrumentation/vendor/go.opentelemetry.io/auto/sdk \
+		open-telemetry:opentelemetry-go:v1.33.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
 		otiai10:copy:v1.14.0:otiai10_copy/vendor/github.com/otiai10/copy \
 		pelletier:go-toml:v2.0.6:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
