@@ -1,5 +1,5 @@
 PORTNAME=	checkip
-PORTVERSION=	0.47.5
+PORTVERSION=	0.47.7
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local net
 
@@ -17,10 +17,10 @@ GH_ACCOUNT=	jreisinger
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static"
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
