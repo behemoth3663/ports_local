@@ -34,8 +34,11 @@ PLIST_FILES=	bin/${PORTNAME}
 
 post-extract: .PHONY
 	@test -d ${WRKSRC}/vendor/github.com && ${LN} -s ${WRKSRC}/src/github.com/${GH_ACCOUNT} ${WRKSRC}/vendor/github.com || :
+	@test -f ${WRKSRC}/vendor/modules.txt || test ! -f ${PATCHDIR}/modules.txt || ${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 
-pre-deps pre-deps-all post-deps-all: .PHONY
+pre-deps post-deps-all: .PHONY
+pre-deps-all: .PHONY
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
