@@ -2,11 +2,11 @@ GH_TUPLE=	\
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
 		golang-design:clipboard:v0.7.0:golang_design_clipboard/vendor/golang.design/x/clipboard \
-		golang:image:v0.20.0:golang_image/vendor/golang.org/x/image \
-		golang:mobile:c6794c95c70b:golang_mobile/vendor/golang.org/x/mobile \
-		golang:sys:v0.25.0:golang_sys/vendor/golang.org/x/sys \
+		golang:image:v0.23.0:golang_image/vendor/golang.org/x/image \
+		golang:mobile:a87c1cf6cf46:golang_mobile/vendor/golang.org/x/mobile \
+		golang:sys:v0.28.0:golang_sys/vendor/golang.org/x/sys \
 		icza:gox:v0.2.0:icza_gox/vendor/github.com/icza/gox \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		stretchr:testify:v1.10.0:stretchr_testify/vendor/github.com/stretchr/testify
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
-		#	::701f63a606c0:group_name/vendor/golang.org/x/exp/shiny (from go.googlesource.com/exp@701f63a606c0)
+		#	::b2144cdd0a67:group_name/vendor/golang.org/x/exp/shiny (from go.googlesource.com/exp@b2144cdd0a67)
