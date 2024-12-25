@@ -1,5 +1,5 @@
 PORTNAME=	plumber
-PORTVERSION=	2.8.0
+PORTVERSION=	2.9.0
 DISTVERSIONPREFIX=	v
 #ORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -23,7 +23,7 @@ GIT_COMMIT=	git ls-remote \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
 		${SED} -rn 's/(.{7}).*/\1/p'
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X 'github.com/streamdal/plumber/options.VERSION=${DISTVERSIONPREFIX}${PORTVERSION}-$$(${GIT_COMMIT})'"
 
 PLIST_FILES=	bin/${PORTNAME}

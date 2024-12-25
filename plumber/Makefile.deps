@@ -23,7 +23,7 @@ GH_TUPLE=	\
 		batchcorp:collector-schemas:v0.0.22:batchcorp_collector_schemas/vendor/github.com/batchcorp/collector-schemas \
 		batchcorp:kong:v0.2.17-batch-fix:batchcorp_kong/vendor/github.com/batchcorp/kong \
 		batchcorp:natty:v0.0.16:batchcorp_natty/vendor/github.com/batchcorp/natty \
-		batchcorp:plumber-schemas:v0.0.185:batchcorp_plumber_schemas/vendor/github.com/batchcorp/plumber-schemas \
+		batchcorp:plumber-schemas:v0.0.186:batchcorp_plumber_schemas/vendor/github.com/batchcorp/plumber-schemas \
 		batchcorp:plz:v0.9.2:batchcorp_plz/vendor/github.com/v2pro/plz \
 		batchcorp:rabbit:v0.1.17:batchcorp_rabbit/vendor/github.com/batchcorp/rabbit \
 		batchcorp:thrift-iterator:4c4a158fc6e9:batchcorp_thrift_iterator/vendor/github.com/batchcorp/thrift-iterator \
