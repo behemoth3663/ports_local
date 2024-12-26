@@ -1,6 +1,8 @@
 GH_TUPLE=	\
 		GehirnInc:crypt:8cc1b52080c5:gehirninc_crypt/vendor/github.com/GehirnInc/crypt \
+		cespare:xxhash:v2.2.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
 		coreos:go-systemd:v22.5.0:coreos_go_systemd_v22/vendor/github.com/coreos/go-systemd/v22 \
+		dgryski:go-rendezvous:9f7001d12a5f:dgryski_go_rendezvous/vendor/github.com/dgryski/go-rendezvous \
 		dlclark:regexp2:v1.11.4:dlclark_regexp2/vendor/github.com/dlclark/regexp2 \
 		dop251:goja:79f3a7efcdbd:dop251_goja/vendor/github.com/dop251/goja \
 		go-sourcemap:sourcemap:v2.1.4:go_sourcemap_sourcemap/vendor/github.com/go-sourcemap/sourcemap \
@@ -17,5 +19,6 @@ GH_TUPLE=	\
 		jellydator:ttlcache:v3.3.0:jellydator_ttlcache_v3/vendor/github.com/jellydator/ttlcache/v3 \
 		klauspost:cpuid:v2.2.9:klauspost_cpuid_v2/vendor/github.com/klauspost/cpuid/v2 \
 		libp2p:go-reuseport:v0.4.0:libp2p_go_reuseport/vendor/github.com/libp2p/go-reuseport \
+		redis:go-redis:v9.7.0:redis_go_redis_v9/vendor/github.com/redis/go-redis/v9 \
 		tg123:go-htpasswd:v1.2.3:tg123_go_htpasswd/vendor/github.com/tg123/go-htpasswd \
 		zeebo:xxh3:v1.0.2:zeebo_xxh3/vendor/github.com/zeebo/xxh3
