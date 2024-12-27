@@ -1,5 +1,6 @@
 PORTNAME=	qrcp
-PORTVERSION=	0.11.3
+PORTVERSION=	0.11.4
+DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
 
@@ -10,12 +11,12 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:modules,1.23
+USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	claudiodangelis
 
-GO_BUILDFLAGS+=-ldflags="-s -w -extldflags '-static' \
+GO_BUILDFLAGS+=-ldflags="-s -w -extldflags -static \
 	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.version=${PORTVERSION} \
 	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.date=${%FT%TZ:L:gmtime}'"
 
@@ -23,6 +24,6 @@ PLIST_FILES=	bin/${PORTNAME}
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
-.include "/etc/make.d/go-deps.mk"
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
