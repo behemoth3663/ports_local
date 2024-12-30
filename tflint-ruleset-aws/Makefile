@@ -1,5 +1,5 @@
 PORTNAME=	tflint-ruleset-aws
-PORTVERSION=	0.36.0
+PORTVERSION=	0.37.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -32,5 +32,10 @@ pre-deps-all: .PHONY
 #-google:go-genproto:6ceb2ff114de:google_go_genproto/vendor/google.golang.org/genproto/googleapis/rpc
 #+google:go-genproto:6ceb2ff114de:google_go_genproto/vendor/google.golang.org/genproto
 GH_TUPLE:=	${GH_TUPLE:S|/googleapis/rpc$||}
+
+#-		aws:aws-sdk-go-v2:v1.3.15:aws_aws_sdk_go_v2_configsources/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources
+# 		aws:aws-sdk-go-v2:v1.30.3:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2
+#-		aws:aws-sdk-go-v2:v1.30.3:aws_aws_sdk_go_v2_sts/vendor/github.com/aws/aws-sdk-go-v2/service/sts
+GH_TUPLE:=	${GH_TUPLE:Naws*aws_aws_sdk_go_v2_*/vendor/github.com/aws/aws-sdk-go-v2/*}
 
 .include <bsd.port.mk>
