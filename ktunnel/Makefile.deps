@@ -4,27 +4,26 @@ GH_TUPLE=	\
 		emicklei:go-restful:v3.9.0:emicklei_go_restful_v3/vendor/github.com/emicklei/go-restful/v3 \
 		evanphx:json-patch:v4.12.0:evanphx_json_patch/vendor/github.com/evanphx/json-patch \
 		go-inf:inf:v0.9.1:go_inf_inf/vendor/gopkg.in/inf.v0 \
-		go-logr:logr:v1.2.3:go_logr_logr/vendor/github.com/go-logr/logr \
+		go-logr:logr:v1.4.2:go_logr_logr/vendor/github.com/go-logr/logr \
 		go-openapi:jsonpointer:v0.19.6:go_openapi_jsonpointer/vendor/github.com/go-openapi/jsonpointer \
 		go-openapi:jsonreference:v0.20.1:go_openapi_jsonreference/vendor/github.com/go-openapi/jsonreference \
 		go-openapi:swag:v0.22.3:go_openapi_swag/vendor/github.com/go-openapi/swag \
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
 		gogo:protobuf:v1.3.2:gogo_protobuf/vendor/github.com/gogo/protobuf \
-		golang:appengine:v1.6.7:golang_appengine/vendor/google.golang.org/appengine \
-		golang:net:v0.8.0:golang_net/vendor/golang.org/x/net \
-		golang:oauth2:v0.4.0:golang_oauth2/vendor/golang.org/x/oauth2 \
-		golang:protobuf:v1.5.3:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sys:v0.6.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.6.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.9.0:golang_text/vendor/golang.org/x/text \
+		golang:net:v0.30.0:golang_net/vendor/golang.org/x/net \
+		golang:oauth2:v0.23.0:golang_oauth2/vendor/golang.org/x/oauth2 \
+		golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf \
+		golang:sys:v0.26.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.25.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.19.0:golang_text/vendor/golang.org/x/text \
 		golang:time:90d013bbcef8:golang_time/vendor/golang.org/x/time \
 		google:gnostic:v0.5.7-v3refs:google_gnostic/vendor/github.com/google/gnostic \
-		google:go-cmp:v0.5.9:google_go_cmp/vendor/github.com/google/go-cmp \
+		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-genproto:76db0878b65f:google_go_genproto/vendor/google.golang.org/genproto \
 		google:gofuzz:v1.2.0:google_gofuzz/vendor/github.com/google/gofuzz \
-		google:uuid:v1.3.0:google_uuid/vendor/github.com/google/uuid \
-		grpc:grpc-go:v1.54.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
+		grpc:grpc-go:v1.69.2:grpc_grpc_go/vendor/google.golang.org/grpc \
 		imdario:mergo:v0.3.6:imdario_mergo/vendor/github.com/imdario/mergo \
 		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
 		josharian:intern:v1.0.0:josharian_intern/vendor/github.com/josharian/intern \
@@ -44,7 +43,7 @@ GH_TUPLE=	\
 		modern-go:reflect2:v1.0.2:modern_go_reflect2/vendor/github.com/modern-go/reflect2 \
 		munnerz:goautoneg:a7dc8b61c822:munnerz_goautoneg/vendor/github.com/munnerz/goautoneg \
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
-		protocolbuffers:protobuf-go:v1.28.1:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
+		protocolbuffers:protobuf-go:v1.35.1:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		russross:blackfriday:v2.1.0:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
 		sirupsen:logrus:v1.9.0:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
 		spf13:cobra:v1.7.0:spf13_cobra/vendor/github.com/spf13/cobra \

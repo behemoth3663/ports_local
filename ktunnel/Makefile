@@ -1,5 +1,5 @@
 PORTNAME=	ktunnel
-PORTVERSION=	1.6.1
+PORTVERSION=	2.0.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local net
@@ -18,10 +18,10 @@ GH_ACCOUNT=	omrikiei
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static"
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
