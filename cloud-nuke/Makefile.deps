@@ -1,8 +1,7 @@
 GH_TUPLE=	\
 		atomicgo:cursor:v0.1.1:atomicgo_cursor/vendor/atomicgo.dev/cursor \
 		atomicgo:keyboard:v0.2.8:atomicgo_keyboard/vendor/atomicgo.dev/keyboard \
-		aws:aws-sdk-go-v2:v1.32.6:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
-		aws:aws-sdk-go:v1.49.13:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		aws:aws-sdk-go-v2:v1.32.7:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
 		aws:smithy-go:v1.22.1:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		charmbracelet:lipgloss:v0.6.0:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
 		containerd:console:v1.0.3:containerd_console/vendor/github.com/containerd/console \
