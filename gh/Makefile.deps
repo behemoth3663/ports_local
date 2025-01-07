@@ -13,7 +13,7 @@ GH_TUPLE=	\
 		charmbracelet:lipgloss:d0be07ea6b9c:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
 		charmbracelet:x:ba2a9512b05f:charmbracelet_x_term/vendor/github.com/charmbracelet/x \
 		cli:browser:v1.3.0:cli_browser/vendor/github.com/cli/browser \
-		cli:go-gh:v2.11.1:cli_go_gh_v2/vendor/github.com/cli/go-gh/v2 \
+		cli:go-gh:v2.11.2:cli_go_gh_v2/vendor/github.com/cli/go-gh/v2 \
 		cli:go-internal:6c48bcd5ce24:cli_go_internal/vendor/github.com/cli/go-internal \
 		cli:oauth:v1.1.1:cli_oauth/vendor/github.com/cli/oauth \
 		cli:safeexec:v1.0.1:cli_safeexec/vendor/github.com/cli/safeexec \
@@ -55,7 +55,7 @@ GH_TUPLE=	\
 		golang:crypto:v0.31.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:db7319d0e0e3:golang_exp/vendor/golang.org/x/exp \
 		golang:mod:v0.21.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.31.0:golang_net/vendor/golang.org/x/net \
+		golang:net:v0.33.0:golang_net/vendor/golang.org/x/net \
 		golang:sync:v0.10.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.28.0:golang_sys/vendor/golang.org/x/sys \
 		golang:term:v0.27.0:golang_term/vendor/golang.org/x/term \
