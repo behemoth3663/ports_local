@@ -25,12 +25,10 @@ GIT_COMMIT=	git ls-remote \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
 		${SED} -rn 's/(.{7}).*/\1/p'
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X 'main.version=${DISTVERSIONPREFIX}${PORTVERSION}' \
 	-X 'main.commit=$$(${GIT_COMMIT})' \
 	-X 'main.date=${%FT%TZ:L:gmtime}'"
-
-post-post-extract: .PHONY
 
 .include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
