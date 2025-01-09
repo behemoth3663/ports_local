@@ -1,5 +1,5 @@
 PORTNAME=	pint
-PORTVERSION=	0.69.1
+PORTVERSION=	0.70.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -17,6 +17,8 @@ GO_TARGET=	./cmd/${PORTNAME}
 USE_GITHUB=	yes
 GH_ACCOUNT=	cloudflare
 
+USE_GITLAB=	nodefault
+
 PLIST_FILES=	bin/${PORTNAME}
 
 GIT_COMMIT=	git ls-remote \
@@ -27,9 +29,6 @@ GIT_COMMIT=	git ls-remote \
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X 'main.version=${DISTVERSIONPREFIX}${PORTVERSION}' \
 	-X 'main.commit=$$(${GIT_COMMIT})'"
-
-post-extract: .PHONY
-	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 
 pre-deps post-deps-all: .PHONY
 pre-deps-all: .PHONY
