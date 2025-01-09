@@ -1,5 +1,5 @@
 PORTNAME=	gosec
-PORTVERSION=	2.21.4
+PORTVERSION=	2.22.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel security
@@ -27,7 +27,7 @@ GIT_COMMIT=	git ls-remote \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
 		${SED} -rn 's/(.{7}).*/\1/p'
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X 'main.GitTag=$$(${GIT_COMMIT})' \
 	-X 'main.Version=${PORTVERSION}' \
 	-X 'main.BuildDate=${%F %T:L:gmtime}'"
@@ -37,6 +37,6 @@ M2T_OFFLINE=	true
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
-.include "/etc/make.d/go-deps.mk"
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
