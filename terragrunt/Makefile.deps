@@ -32,7 +32,7 @@ GH_TUPLE=	\
 		aws:aws-sdk-go-v2:v1.3.14:aws_aws_sdk_go_v2_checksum/vendor/github.com/aws/aws-sdk-go-v2/service/internal/checksum \
 		aws:aws-sdk-go-v2:v1.3.15:aws_aws_sdk_go_v2_configsources/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources \
 		aws:aws-sdk-go-v2:v1.30.3:aws_aws_sdk_go_v2_sts/vendor/github.com/aws/aws-sdk-go-v2/service/sts \
-		aws:aws-sdk-go-v2:v1.32.5:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+		aws:aws-sdk-go-v2:v1.32.7:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
 		aws:aws-sdk-go-v2:v1.35.3:aws_aws_sdk_go_v2_kms/vendor/github.com/aws/aws-sdk-go-v2/service/kms \
 		aws:aws-sdk-go-v2:v1.56.1:aws_aws_sdk_go_v2_s3/vendor/github.com/aws/aws-sdk-go-v2/service/s3 \
 		aws:aws-sdk-go-v2:v1.6.2:aws_aws_sdk_go_v2_eventstream/vendor/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream \
@@ -94,8 +94,8 @@ GH_TUPLE=	\
 		golang:oauth2:v0.24.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:sync:v0.10.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.28.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.27.0:golang_term/vendor/golang.org/x/term \
+		golang:sys:v0.29.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.28.0:golang_term/vendor/golang.org/x/term \
 		golang:text:v0.21.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.8.0:golang_time/vendor/golang.org/x/time \
 		golang:tools:v0.26.0:golang_tools/vendor/golang.org/x/tools \
@@ -120,7 +120,7 @@ GH_TUPLE=	\
 		grpc-ecosystem:grpc-gateway:v2.24.0:grpc_ecosystem_grpc_gateway_v2/vendor/github.com/grpc-ecosystem/grpc-gateway/v2 \
 		grpc:grpc-go:ad81c20503be:grpc_grpc_go_1/vendor/google.golang.org/grpc/stats/opentelemetry \
 		grpc:grpc-go:v1.68.1:grpc_grpc_go/vendor/google.golang.org/grpc \
-		gruntwork-io:boilerplate:v0.5.19:gruntwork_io_boilerplate/vendor/github.com/gruntwork-io/boilerplate \
+		gruntwork-io:boilerplate:v0.6.0:gruntwork_io_boilerplate/vendor/github.com/gruntwork-io/boilerplate \
 		gruntwork-io:go-commons:v0.17.2:gruntwork_io_go_commons/vendor/github.com/gruntwork-io/go-commons \
 		gruntwork-io:terragrunt-engine-go:v0.0.4:gruntwork_io_terragrunt_engine_go/vendor/github.com/gruntwork-io/terragrunt-engine-go \
 		gruntwork-io:terratest:v0.47.2:gruntwork_io_terratest/vendor/github.com/gruntwork-io/terratest \
@@ -228,7 +228,7 @@ GH_TUPLE=	\
 		yuin:goldmark-emoji:v1.0.3:yuin_goldmark_emoji/vendor/github.com/yuin/goldmark-emoji \
 		yuin:goldmark:v1.7.4:yuin_goldmark/vendor/github.com/yuin/goldmark \
 		zclconf:go-cty-yaml:v1.0.3:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
-		zclconf:go-cty:v1.15.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+		zclconf:go-cty:v1.16.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
 		#	::v0.1.0:group_name/vendor/atomicgo.dev/schedule (from atomicgo.dev/schedule@v0.1.0)
 		#	::v0.16.2:group_name/vendor/cel.dev/expr (from cel.dev/expr@v0.16.2)
