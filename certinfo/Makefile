@@ -1,5 +1,5 @@
 PORTNAME=	certinfo
-PORTVERSION=	1.0.30
+PORTVERSION=	1.0.31
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local security
 
@@ -20,15 +20,7 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 
 PLIST_FILES=	bin/${PORTNAME}
 
-_OPTIONS_patch+=	750:pre-deps-all
-pre-deps-all: .PHONY .SILENT
-.for _i in c go
-	${SED} 's/linux/freebsd/' \
-		${WRKSRC}/vendor/golang.design/x/clipboard/clipboard_linux.${_i} > \
-		${WRKSRC}/vendor/golang.design/x/clipboard/clipboard_freebsd.${_i}
-.endfor
-
-pre-deps post-deps-all: .PHONY
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
