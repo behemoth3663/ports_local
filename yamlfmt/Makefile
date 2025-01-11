@@ -1,5 +1,5 @@
 PORTNAME=	yamlfmt
-PORTVERSION=	0.14.0
+PORTVERSION=	0.15.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local textproc
@@ -25,12 +25,12 @@ GIT_COMMIT=	git ls-remote \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
 		${SED} -rn 's/(.{7}).*/\1/p'
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X 'main.version=${DISTVERSIONPREFIX}${PORTVERSION}' \
 	-X 'main.commit=$$(${GIT_COMMIT})'"
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
-.include "/etc/make.d/go-deps.mk"
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
