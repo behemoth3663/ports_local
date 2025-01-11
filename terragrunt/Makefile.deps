@@ -285,8 +285,8 @@ post-extract: .PHONY
 	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/detectors
 	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib_detectors_gcp}/detectors/gcp ${WRKSRC}/vendor/go.opentelemetry.io/contrib/detectors
 	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace
-	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_otlptrace}/exporters/otlp/otlptrace ${WRKSRC}/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace
+	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_otlptrace}/exporters/otlp/otlptrace ${WRKSRC}/vendor/go.opentelemetry.io/otel/exporters/otlp
 	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp
-	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_otlpmetrichttp}/exporters/otlp/otlpmetric/otlpmetrichttp ${WRKSRC}/vendor/go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp
+	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_otlpmetrichttp}/exporters/otlp/otlpmetric/otlpmetrichttp ${WRKSRC}/vendor/go.opentelemetry.io/otel/exporters/otlp/otlpmetric
 	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc
-	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_otlpmetricgrpc}/exporters/otlp/otlpmetric/otlpmetricgrpc ${WRKSRC}/vendor/go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc
+	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_otlpmetricgrpc}/exporters/otlp/otlpmetric/otlpmetricgrpc ${WRKSRC}/vendor/go.opentelemetry.io/otel/exporters/otlp/otlpmetric
