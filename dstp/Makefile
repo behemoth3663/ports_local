@@ -1,13 +1,12 @@
-#
-
 PORTNAME=	dstp
-PORTVERSION=	0.4.0
+PORTVERSION=	0.4.23
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+#PORTREVISION=	1
 CATEGORIES=	local net
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Run common networking tests against site
+WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
@@ -21,7 +20,10 @@ GO_TARGET=	./cmd/${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME}
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static"
 
+pre-deps pre-deps-all post-deps-all: .PHONY
+
+.include "${}/etc/make.d/go-deps.mk"
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
