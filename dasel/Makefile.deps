@@ -1,0 +1,14 @@
+GH_TUPLE=	\
+		alecthomas:chroma:v2.13.0:alecthomas_chroma_v2/vendor/github.com/alecthomas/chroma/v2 \
+		clbanning:mxj:v2.7.0:clbanning_mxj_v2/vendor/github.com/clbanning/mxj/v2 \
+		cpuguy83:go-md2man:v2.0.3:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
+		dlclark:regexp2:v1.11.0:dlclark_regexp2/vendor/github.com/dlclark/regexp2 \
+		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
+		golang:net:v0.25.0:golang_net/vendor/golang.org/x/net \
+		golang:text:v0.15.0:golang_text/vendor/golang.org/x/text \
+		google:go-cmp:v0.5.9:google_go_cmp/vendor/github.com/google/go-cmp \
+		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
+		pelletier:go-toml:v2.2.2:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
+		russross:blackfriday:v2.1.0:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
+		spf13:cobra:v1.8.0:spf13_cobra/vendor/github.com/spf13/cobra \
+		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag
