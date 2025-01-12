@@ -33,11 +33,6 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
 
-pre-build: .PHONY
-	cd ${WRKSRC} && \
-		${SETENV} ${MAKE_ENV} ${GO_ENV} ${GO_CMD} generate && \
-		${SETENV} ${MAKE_ENV} ${GO_ENV} ${GO_CMD} mod vendor
-
 pre-extract: .PHONY .SILENT
 	test -z '${WRKSRC_grpc_grpc_go_1}' || ${LN} -s ${WRKDIR}/grpc-go-cmd-protoc-gen-go-grpc-v1.1.0 ${WRKSRC_grpc_grpc_go_1}
 
