@@ -34,8 +34,7 @@ M2T_OFFLINE=	true
 .export	M2T_OFFLINE
 
 #pre-build: .PHONY
-#	cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${GO_ENV} ${GO_CMD} generate
-#		${SETENV} ${MAKE_ENV} ${GO_ENV} ${GO_CMD} mod vendor
+#	cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${GO_ENV} ${GO_CMD} generate && ${SETENV} ${MAKE_ENV} ${GO_ENV} ${GO_CMD} mod vendor
 
 pre-extract: .PHONY .SILENT
 	test -z '${WRKSRC_grpc_grpc_go_1}' || ${LN} -s ${WRKDIR}/grpc-go-cmd-protoc-gen-go-grpc-v1.1.0 ${WRKSRC_grpc_grpc_go_1}
@@ -44,7 +43,7 @@ post-install: .PHONY
 	${MV} ${STAGEDIR}${PREFIX}/bin/${PORTNAME} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION}
 	${INSTALL} -l rs ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}${PKGNAMESUFFIX}
 
-pre-deps: .PHONY
+'pre-deps: .PHONY
 	if [ -d '${MASTERDIR}/files_' ]; then \
 		${RM} -r ${PATCHDIR}; \
 	else \
@@ -64,10 +63,9 @@ pre-deps: .PHONY
 			${SED} -e '/^---/s|\.[0-9]* +0000$$| UTC|' -e '/^+++/s|\([[:blank:]][-0-9:.+]*\)*$$||' >${PATCHDIR}-${PORTVERSION}/patch-go.sum
 
 pre-deps-all: .PHONY
-	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
 
-post-deps-all: .PHONY
-	test ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
+pre-deps post-deps-all: .PHONY
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"

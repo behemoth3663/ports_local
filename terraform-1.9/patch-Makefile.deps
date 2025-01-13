@@ -1,27 +1,5 @@
 --- Makefile.deps.orig	2025-01-13 17:24:27 UTC
 +++ Makefile.deps
-@@ -198,12 +198,15 @@ GH_TUPLE=	\
- 		kballard:go-shellquote:95032a82bc51:kballard_go_shellquote/vendor/github.com/kballard/go-shellquote \
- 		klauspost:compress:v1.15.15:klauspost_compress/vendor/github.com/klauspost/compress \
- 		knadh:koanf:v1.5.0:knadh_koanf/vendor/github.com/knadh/koanf \
--		kubernetes-sigs:yaml:v1.4.0:kubernetes_sigs_yaml/vendor/sigs.k8s.io/yaml \
--		kubernetes:api:v0.25.16:kubernetes_api/vendor/k8s.io/api \
--		kubernetes:apimachinery:v0.25.16:kubernetes_apimachinery/vendor/k8s.io/apimachinery \
--		kubernetes:client-go:v0.25.16:kubernetes_client_go/vendor/k8s.io/client-go \
--		kubernetes:kube-openapi:2c72e554b1e7:kubernetes_kube_openapi/vendor/k8s.io/kube-openapi \
--		kubernetes:utils:24370beab758:kubernetes_utils/vendor/k8s.io/utils \
-+		kubernetes-sigs:json:f223a00ba0e2:kubernetes_sigs_json/vendor/sigs.k8s.io/json \
-+		kubernetes-sigs:structured-merge-diff:v4.2.3:kubernetes_sigs_structured_merge_diff/vendor/sigs.k8s.io/structured-merge-diff/v4 \
-+		kubernetes-sigs:yaml:v1.2.0:kubernetes_sigs_yaml/vendor/sigs.k8s.io/yaml \
-+		kubernetes:api:v0.25.5:kubernetes_api/vendor/k8s.io/api \
-+		kubernetes:apimachinery:v0.25.5:kubernetes_apimachinery/vendor/k8s.io/apimachinery \
-+		kubernetes:client-go:v0.25.5:kubernetes_client_go/vendor/k8s.io/client-go \
-+		kubernetes:klog:v2.70.1:kubernetes_klog/vendor/k8s.io/klog/v2 \
-+		kubernetes:kube-openapi:67bda5d908f1:kubernetes_kube_openapi/vendor/k8s.io/kube-openapi \
-+		kubernetes:utils:ee6ede2d64ed:kubernetes_utils/vendor/k8s.io/utils \
- 		lib:pq:v1.10.9:lib_pq/vendor/github.com/lib/pq \
- 		lucasb-eyer:go-colorful:v1.2.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
- 		mailru:easyjson:v0.7.7:mailru_easyjson/vendor/github.com/mailru/easyjson \
 @@ -237,6 +240,12 @@ GH_TUPLE=	\
  		nu7hatch:gouuid:179d4d0c4d8d:nu7hatch_gouuid/vendor/github.com/nu7hatch/gouuid \
  		oklog:run:v1.0.0:oklog_run/vendor/github.com/oklog/run \

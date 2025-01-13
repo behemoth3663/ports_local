@@ -100,6 +100,7 @@ GH_TUPLE=	\
 		golang:crypto:v0.32.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:7588d65b2ba8:golang_exp/vendor/golang.org/x/exp \
 		golang:groupcache:2c02b8208cf8:golang_groupcache/vendor/github.com/golang/groupcache \
+		golang:protobuf:v1.5.3:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:mod:v0.22.0:golang_mod/vendor/golang.org/x/mod \
 		golang:net:v0.34.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.24.0:golang_oauth2/vendor/golang.org/x/oauth2 \
@@ -125,9 +126,9 @@ GH_TUPLE=	\
 		googleapis:gax-go:v2.14.1:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2 \
 		googleapis:google-api-go-client:v0.214.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
 		googleapis:google-cloud-go:v0.118.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
-		googleapis:google-cloud-go:v0.13.0:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth \
+		googleapis:google-cloud-go:auth/v0.13.0:googleapis_google_cloud_go_auth \
 		googleapis:google-cloud-go:v1.3.1:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go/iam \
-		googleapis:google-cloud-go:v1.43.0:googleapis_google_cloud_go_storage/vendor/cloud.google.com/go/storage \
+		googleapis:google-cloud-go:storage/v1.43.0:googleapis_google_cloud_go_storage \
 		grpc-ecosystem:grpc-gateway:v2.16.2:grpc_ecosystem_grpc_gateway_v2/vendor/github.com/grpc-ecosystem/grpc-gateway/v2 \
 		grpc:grpc-go:v1.1.0:grpc_grpc_go_1/vendor/google.golang.org/grpc/cmd/protoc-gen-go-grpc \
 		grpc:grpc-go:v1.67.3:grpc_grpc_go/vendor/google.golang.org/grpc \
@@ -198,15 +199,12 @@ GH_TUPLE=	\
 		kballard:go-shellquote:95032a82bc51:kballard_go_shellquote/vendor/github.com/kballard/go-shellquote \
 		klauspost:compress:v1.15.15:klauspost_compress/vendor/github.com/klauspost/compress \
 		knadh:koanf:v1.5.0:knadh_koanf/vendor/github.com/knadh/koanf \
-		kubernetes-sigs:json:f223a00ba0e2:kubernetes_sigs_json/vendor/sigs.k8s.io/json \
-		kubernetes-sigs:structured-merge-diff:v4.2.3:kubernetes_sigs_structured_merge_diff/vendor/sigs.k8s.io/structured-merge-diff/v4 \
-		kubernetes-sigs:yaml:v1.2.0:kubernetes_sigs_yaml/vendor/sigs.k8s.io/yaml \
-		kubernetes:api:v0.25.5:kubernetes_api/vendor/k8s.io/api \
-		kubernetes:apimachinery:v0.25.5:kubernetes_apimachinery/vendor/k8s.io/apimachinery \
-		kubernetes:client-go:v0.25.5:kubernetes_client_go/vendor/k8s.io/client-go \
-		kubernetes:klog:v2.70.1:kubernetes_klog/vendor/k8s.io/klog/v2 \
-		kubernetes:kube-openapi:67bda5d908f1:kubernetes_kube_openapi/vendor/k8s.io/kube-openapi \
-		kubernetes:utils:ee6ede2d64ed:kubernetes_utils/vendor/k8s.io/utils \
+		kubernetes-sigs:yaml:v1.4.0:kubernetes_sigs_yaml/vendor/sigs.k8s.io/yaml \
+		kubernetes:api:v0.25.16:kubernetes_api/vendor/k8s.io/api \
+		kubernetes:apimachinery:v0.25.16:kubernetes_apimachinery/vendor/k8s.io/apimachinery \
+		kubernetes:client-go:v0.25.16:kubernetes_client_go/vendor/k8s.io/client-go \
+		kubernetes:kube-openapi:2c72e554b1e7:kubernetes_kube_openapi/vendor/k8s.io/kube-openapi \
+		kubernetes:utils:24370beab758:kubernetes_utils/vendor/k8s.io/utils \
 		lib:pq:v1.10.9:lib_pq/vendor/github.com/lib/pq \
 		lucasb-eyer:go-colorful:v1.2.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
 		mailru:easyjson:v0.7.7:mailru_easyjson/vendor/github.com/mailru/easyjson \
@@ -308,21 +306,21 @@ post-extract:
 	@${CP} -r ${WRKSRC}/internal/backend/remote-state/s3 ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/s3
 	@${CP} -r ${WRKSRC}/internal/legacy ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal
 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
-	@${RLN} ${WRKSRC_azure_go_autorest_autorest}/autorest ${WRKSRC}/vendor/github.com/Azure/go-autorest
+	@${RLN} ${WRKSRC_azure_go_autorest_autorest}/autorest ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/logger
-	@${RLN} ${WRKSRC_azure_go_autorest_logger}/logger ${WRKSRC}/vendor/github.com/Azure/go-autorest
+	@${RLN} ${WRKSRC_azure_go_autorest_logger}/logger ${WRKSRC}/vendor/github.com/Azure/go-autorest/logger
 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/date
-	@${RLN} ${WRKSRC_azure_go_autorest_date}/autorest/date ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
+	@${RLN} ${WRKSRC_azure_go_autorest_date}/autorest/date ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/date
 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/validation
-	@${RLN} ${WRKSRC_azure_go_autorest_validation}/autorest/validation ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
+	@${RLN} ${WRKSRC_azure_go_autorest_validation}/autorest/validation ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/validation
 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/to
-	@${RLN} ${WRKSRC_azure_go_autorest_to}/autorest/to ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
+	@${RLN} ${WRKSRC_azure_go_autorest_to}/autorest/to ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/to
 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/azure/cli
-	@${RLN} ${WRKSRC_azure_go_autorest_cli}/autorest/azure/cli ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/azure
+	@${RLN} ${WRKSRC_azure_go_autorest_cli}/autorest/azure/cli ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/azure/cli
 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/tracing
-	@${RLN} ${WRKSRC_azure_go_autorest_tracing}/tracing ${WRKSRC}/vendor/github.com/Azure/go-autorest
+	@${RLN} ${WRKSRC_azure_go_autorest_tracing}/tracing ${WRKSRC}/vendor/github.com/Azure/go-autorest/tracing
 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/adal
-	@${RLN} ${WRKSRC_azure_go_autorest_adal}/autorest/adal ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
+	@${RLN} ${WRKSRC_azure_go_autorest_adal}/autorest/adal ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/adal
 	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/exporters
 	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib_autoexport}/exporters/autoexport ${WRKSRC}/vendor/go.opentelemetry.io/contrib/exporters
 	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace
@@ -331,3 +329,7 @@ post-extract:
 	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib_otelaws}/instrumentation/github.com/aws/aws-sdk-go-v2/otelaws ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2
 	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc
 	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib_otelgrpc}/instrumentation/google.golang.org/grpc/otelgrpc ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc
+	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
+	@${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go
+	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/auth
+	@${RLN} ${WRKSRC_googleapis_google_cloud_go_auth}/auth ${WRKSRC}/vendor/cloud.google.com/go
