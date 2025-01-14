@@ -1,5 +1,5 @@
 PORTNAME=	trivy
-PORTVERSION=	0.58.1
+PORTVERSION=	0.58.2
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local security
@@ -21,7 +21,7 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 
 PLIST_FILES=	bin/${PORTNAME}
 
-post-install:
+post-install: .PHONY
 	@${MKDIR} ${STAGEDIR}${DATADIR}
 	${INSTALL_DATA} ${WRKSRC}/contrib/*.tpl ${STAGEDIR}${DATADIR}/
 	${FIND} -s ${STAGEDIR}${DATADIR} -not -type d | ${SORT} | \
