@@ -19,6 +19,7 @@ GH_TUPLE=	\
 		jellydator:ttlcache:v3.3.0:jellydator_ttlcache_v3/vendor/github.com/jellydator/ttlcache/v3 \
 		klauspost:cpuid:v2.2.9:klauspost_cpuid_v2/vendor/github.com/klauspost/cpuid/v2 \
 		libp2p:go-reuseport:v0.4.0:libp2p_go_reuseport/vendor/github.com/libp2p/go-reuseport \
+		pires:go-proxyproto:v0.8.0:pires_go_proxyproto/vendor/github.com/pires/go-proxyproto \
 		redis:go-redis:v9.7.0:redis_go_redis_v9/vendor/github.com/redis/go-redis/v9 \
 		tg123:go-htpasswd:v1.2.3:tg123_go_htpasswd/vendor/github.com/tg123/go-htpasswd \
 		zeebo:xxh3:v1.0.2:zeebo_xxh3/vendor/github.com/zeebo/xxh3
