@@ -1,5 +1,5 @@
 PORTNAME=	oauth2-proxy
-PORTVERSION=	7.7.1
+PORTVERSION=	7.8.1
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	www
@@ -31,10 +31,8 @@ SUB_LIST+=	GROUP=${GROUP} \
 		RUN_DIR=${RUN_DIR} \
 		USER=${USER}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
-	-X 'main.VERSION=${DISTVERSIONPREFIX}${PORTVERSION}'"
-
-pre-deps pre-deps-all post-deps-all: .PHONY
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+	-X 'version.VERSION=${DISTVERSIONPREFIX}${PORTVERSION}'"
 
 post-install: .PHONY
 	${MKDIR} ${STAGEDIR}${LOG_DIR}
@@ -45,4 +43,19 @@ pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
+
+#-google:go-genproto:6ceb2ff114de:google_go_genproto/vendor/google.golang.org/genproto/googleapis/rpc
+#+google:go-genproto:6ceb2ff114de:google_go_genproto/vendor/google.golang.org/genproto
+GH_TUPLE:=	${GH_TUPLE:S|/googleapis/rpc$||}
+
+#-googleapis:google-cloud-go:v0.2.5:googleapis_google_cloud_go/vendor/cloud.google.com/go/auth/oauth2adapt
+#+googleapis:google-cloud-go:auth/oauth2adapt/v0.2.5:googleapis_google_cloud_go/vendor/cloud.google.com/go
+#-googleapis:google-cloud-go:v0.5.2:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata
+#+googleapis:google-cloud-go:compute/metadata/v0.5.2:googleapis_google_cloud_go_1/vendor/cloud.google.com/go
+GH_TUPLE:=	${GH_TUPLE:C|^(googleapis:google-cloud-go:)(.*/go)/(.*)$|\1\3/\2|}
+
+#-open-telemetry:opentelemetry-go-contrib:v0.55.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp
+#+open-telemetry:opentelemetry-go-contrib:instrumentation/net/http/otelhttp/v0.55.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib
+GH_TUPLE:=	${GH_TUPLE:C|^(open-telemetry:opentelemetry-go-contrib:)(.*/contrib)/(.*)$|\1\3/\2|}
+
 .include <bsd.port.mk>
