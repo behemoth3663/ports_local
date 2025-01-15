@@ -1,6 +1,6 @@
 PORTNAME=	rclone
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.68.2
+DISTVERSION=	1.69.0
 #PORTREVISION=	2
 CATEGORIES=	local net
 
@@ -13,7 +13,7 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 RUN_DEPENDS=	ca_root_nss>=0:security/ca_root_nss
 
-USES=		go:modules,1.23
+USES=		go:modules
 GO_MODULE=	github.com/${PORTNAME}/${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME} \
@@ -21,7 +21,7 @@ PLIST_FILES=	bin/${PORTNAME} \
 
 JQ_GETVER_EXPR=	.[0].name | gsub("[-a-z]"; "")
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X '${GO_MODULE}/fs.VersionSuffix='"
 
 OPTIONS_DEFINE=	CMOUNT
