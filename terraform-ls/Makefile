@@ -1,6 +1,7 @@
 PORTNAME=	terraform-ls
 PORTVERSION=	0.36.3
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local devel
 
 MAINTAINER=	none@freebsd.org
