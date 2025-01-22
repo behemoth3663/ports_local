@@ -661,7 +661,7 @@ github.com/hashicorp/go-rootcerts
 # github.com/hashicorp/go-safetemp v1.0.0
 ## explicit
 github.com/hashicorp/go-safetemp
-# github.com/hashicorp/go-slug v0.16.0
+# github.com/hashicorp/go-slug v0.16.3
 ## explicit; go 1.20
 github.com/hashicorp/go-slug
 github.com/hashicorp/go-slug/internal/ignorefiles
@@ -1013,7 +1013,7 @@ github.com/xanzy/ssh-agent
 # github.com/xlab/treeprint v0.0.0-20161029104018-1d6e34225557
 ## explicit
 github.com/xlab/treeprint
-# github.com/zclconf/go-cty v1.16.0
+# github.com/zclconf/go-cty v1.16.2
 ## explicit; go 1.18
 github.com/zclconf/go-cty/cty
 github.com/zclconf/go-cty/cty/convert

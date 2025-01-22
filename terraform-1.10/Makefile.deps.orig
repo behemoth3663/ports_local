@@ -148,7 +148,7 @@ GH_TUPLE=	\
 		hashicorp:go-retryablehttp:v0.7.7:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
 		hashicorp:go-rootcerts:v1.0.2:hashicorp_go_rootcerts/vendor/github.com/hashicorp/go-rootcerts \
 		hashicorp:go-safetemp:v1.0.0:hashicorp_go_safetemp/vendor/github.com/hashicorp/go-safetemp \
-		hashicorp:go-slug:v0.16.0:hashicorp_go_slug/vendor/github.com/hashicorp/go-slug \
+		hashicorp:go-slug:v0.16.3:hashicorp_go_slug/vendor/github.com/hashicorp/go-slug \
 		hashicorp:go-tfe:v1.70.0:hashicorp_go_tfe/vendor/github.com/hashicorp/go-tfe \
 		hashicorp:go-uuid:v1.0.3:hashicorp_go_uuid/vendor/github.com/hashicorp/go-uuid \
 		hashicorp:golang-lru:v0.5.1:hashicorp_golang_lru/vendor/github.com/hashicorp/golang-lru \
@@ -257,7 +257,7 @@ GH_TUPLE=	\
 		xlab:treeprint:1d6e34225557:xlab_treeprint/vendor/github.com/xlab/treeprint \
 		zclconf:go-cty-debug:0d6042c53940:zclconf_go_cty_debug/vendor/github.com/zclconf/go-cty-debug \
 		zclconf:go-cty-yaml:v1.1.0:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
-		zclconf:go-cty:v1.16.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+		zclconf:go-cty:v1.16.2:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
 		#	::2478ac86f678:group_name/vendor/golang.org/x/exp/typeparams (from golang.org/x/exp/typeparams@2478ac86f678)
 		#	::f223a00ba0e2:group_name/vendor/sigs.k8s.io/json (from sigs.k8s.io/json@f223a00ba0e2)
