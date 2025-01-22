@@ -1,5 +1,5 @@
 PORTNAME=	pike
-PORTVERSION=	0.3.33
+PORTVERSION=	0.3.34
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -28,7 +28,13 @@ post-patch: .PHONY
 		-e 's|^(const Version).*$$|\1 = "${PORTVERSION}"|' \
 	${WRKSRC}/src/version.go
 
-pre-deps pre-deps-all post-deps-all: .PHONY
+post-extract: .PHONY
+	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+
+pre-deps-all: .PHONY
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
+
+pre-deps post-deps-all: .PHONY
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
