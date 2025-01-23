@@ -1,21 +1,20 @@
 GH_TUPLE=	\
 		braydonk:yaml:v0.7.0:braydonk_yaml/vendor/github.com/braydonk/yaml \
-		containerd:stargz-snapshotter:v0.16.1:containerd_stargz_snapshotter_estargz/vendor/github.com/containerd/stargz-snapshotter \
-		docker:cli:v27.3.1:docker_cli/vendor/github.com/docker/cli \
+		containerd:stargz-snapshotter:v0.16.3:containerd_stargz_snapshotter_estargz/vendor/github.com/containerd/stargz-snapshotter \
+		docker:cli:v27.5.1:docker_cli/vendor/github.com/docker/cli \
 		docker:distribution:v2.8.3:docker_distribution/vendor/github.com/docker/distribution \
-		golang:oauth2:v0.24.0:golang_oauth2/vendor/golang.org/x/oauth2 \
-		golang:sync:v0.9.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.27.0:golang_sys/vendor/golang.org/x/sys \
+		golang:oauth2:v0.25.0:golang_oauth2/vendor/golang.org/x/oauth2 \
+		golang:sync:v0.10.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.29.0:golang_sys/vendor/golang.org/x/sys \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
-		google:go-containerregistry:v0.20.2:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
+		google:go-containerregistry:v0.20.3:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
 		google:go-github:v58.0.0:google_go_github_v58/vendor/github.com/google/go-github/v58 \
 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
 		klauspost:compress:v1.17.11:klauspost_compress/vendor/github.com/klauspost/compress \
-		kr:pretty:v0.3.1:kr_pretty/vendor/github.com/kr/pretty \
 		mitchellh:go-homedir:v1.1.0:mitchellh_go_homedir/vendor/github.com/mitchellh/go-homedir \
 		moby:moby:v0.8.2:moby_moby/vendor/github.com/docker/docker-credential-helpers \
 		opencontainers:go-digest:v1.0.0:opencontainers_go_digest/vendor/github.com/opencontainers/go-digest \
 		opencontainers:image-spec:v1.1.0:opencontainers_image_spec/vendor/github.com/opencontainers/image-spec \
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
 		sirupsen:logrus:v1.9.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
-		vbatts:tar-split:v0.11.6:vbatts_tar_split/vendor/github.com/vbatts/tar-split
+		vbatts:tar-split:v0.11.7:vbatts_tar_split/vendor/github.com/vbatts/tar-split
