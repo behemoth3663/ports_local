@@ -1,5 +1,5 @@
 PORTNAME=	pike
-PORTVERSION=	0.3.35
+PORTVERSION=	0.3.39
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -33,6 +33,13 @@ post-extract: .PHONY
 
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
+	${RM} ${.CURDIR}/generated.deps.mk
+	( make -C ${.CURDIR} make-from-deps GHT_ACNT=imdario GHT_PROJ=mergo GHT_PATH=dario.cat/mergo )
+
+make-from-deps: .PHONY
+	@${SED} -rn \
+		's|^[[:space:]]*#[[:space:]]*::(v[0-9.]+):.*/(vendor/${GHT_PATH})[[:space:]].*$$|GH_TUPLE+=${GHT_ACNT}:${GHT_PROJ}:\1:${GHT_ACNT:tl:S/-/_/}_${GHT_PROJ:tl:S/-/_/}/\2|p' \
+	${.CURDIR}/Makefile.deps >>${.CURDIR}/generated.deps.mk
 
 pre-deps post-deps-all: .PHONY
 
@@ -44,6 +51,5 @@ pre-deps post-deps-all: .PHONY
 #-		aws:aws-sdk-go-v2:v1.30.3:aws_aws_sdk_go_v2_sts/vendor/github.com/aws/aws-sdk-go-v2/service/sts
 GH_TUPLE:=	${GH_TUPLE:Naws*aws_aws_sdk_go_v2_*/vendor/github.com/aws/aws-sdk-go-v2/*}
 
-GH_TUPLE+=	imdario:mergo:v1.0.1:imdario_mergo/vendor/dario.cat/mergo
-
+.sinclude "${.CURDIR}/generated.deps.mk"
 .include <bsd.port.mk>
