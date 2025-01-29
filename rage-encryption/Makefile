@@ -1,7 +1,7 @@
 PORTNAME=	rage
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.11.1
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	local security
 PKGNAMESUFFIX=	-encryption
 
@@ -14,7 +14,7 @@ LICENSE_COMB=	dual
 LICENSE_FILE_APACHE20=	${WRKSRC}/LICENSE-APACHE
 LICENSE_FILE_MIT=	${WRKSRC}/LICENSE-MIT
 
-LIB_DEPENDS=	libfuse.so:filesystems/fusefs-libs \
+LIB_DEPENDS=	libfuse.so:filesystems/fusefs-libs3 \
 		libzstd.so:archivers/zstd
 
 USES=		cargo
