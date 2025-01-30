@@ -1,5 +1,5 @@
 PORTNAME=	packer
-PORTVERSION=	1.11.2
+PORTVERSION=	1.12.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -24,22 +24,22 @@ GIT_COMMIT=	git ls-remote \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
 		${SED} -rn 's/(.{7}).*/\1/p'
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=${PORTVERSION}' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.GitCommit=$$(${GIT_COMMIT})'"
 
 pre-deps: .PHONY
-	if [ -d '${MASTERDIR}/files_' ]; then \
-		${RM} -r ${MASTERDIR}/files; \
+	if [ -d '${PATCHDIR}_' ]; then \
+		${RM} -r ${PATCHDIR}; \
 	else \
-		${MV} ${MASTERDIR}/files ${MASTERDIR}/files_; \
+		${MV} ${PATCHDIR} ${PATCHDIR}_; \
 	fi
 
 pre-deps-all: .PHONY
 
 post-deps-all: .PHONY
-	test ! -d '${MASTERDIR}/files_' || ${MV} ${MASTERDIR}/files_ ${MASTERDIR}/files
+	test ! -d '${PATCHDIR}_' || ${MV} ${PATCHDIR}_ ${PATCHDIR}
 
-.include "/etc/make.d/go-deps.mk"
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
