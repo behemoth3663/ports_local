@@ -1,0 +1,17 @@
+--- Makefile.deps.orig	2025-01-30 21:51:17 UTC
++++ Makefile.deps
+@@ -133,6 +134,7 @@ GH_TUPLE=	\
+ 		sirupsen:logrus:v1.9.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
+ 		sourcegraph:conc:v0.3.0:sourcegraph_conc/vendor/github.com/sourcegraph/conc \
+ 		spf13:afero:v1.11.0:spf13_afero/vendor/github.com/spf13/afero \
++		spf13:cast:v1.7.0:spf13_cast/vendor/github.com/spf13/cast \
+ 		spf13:cobra:v1.8.1:spf13_cobra/vendor/github.com/spf13/cobra \
+ 		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
+ 		spf13:viper:v1.19.0:spf13_viper/vendor/github.com/spf13/viper \
+@@ -156,6 +158,3 @@ GH_TUPLE=	\
+ 		#	::v1.33.0:group_name/vendor/go.opentelemetry.io/otel/metric (from go.opentelemetry.io/otel/metric@v1.33.0)
+ 		#	::v1.33.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.33.0)
+ 		#	::v2.130.1:group_name/vendor/k8s.io/klog/v2 (from k8s.io/klog/v2@v2.130.1)
+-post-extract:
+-	@${MKDIR} ${WRKSRC}/vendor/github.com/spf13
+-	@${RLN} ${WRKSRC_fsnotify_fsnotify} ${WRKSRC}/vendor/github.com/spf13/cast
