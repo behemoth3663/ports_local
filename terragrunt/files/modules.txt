@@ -1,12 +1,12 @@
-# atomicgo.dev/cursor v0.2.0
+# atomicgo.dev/cursor v0.2.0 => github.com/atomicgo/cursor v0.2.0
 ## explicit; go 1.15
 atomicgo.dev/cursor
-# atomicgo.dev/keyboard v0.2.9
+# atomicgo.dev/keyboard v0.2.9 => github.com/atomicgo/keyboard v0.2.9
 ## explicit; go 1.15
 atomicgo.dev/keyboard
 atomicgo.dev/keyboard/internal
 atomicgo.dev/keyboard/keys
-# atomicgo.dev/schedule v0.1.0
+# atomicgo.dev/schedule v0.1.0 => github.com/atomicgo/schedule v0.1.0
 ## explicit; go 1.18
 atomicgo.dev/schedule
 # cel.dev/expr v0.19.1
@@ -297,7 +297,7 @@ github.com/aws/aws-sdk-go/service/sso/ssoiface
 github.com/aws/aws-sdk-go/service/ssooidc
 github.com/aws/aws-sdk-go/service/sts
 github.com/aws/aws-sdk-go/service/sts/stsiface
-# github.com/aws/aws-sdk-go-v2 v1.33.0
+# github.com/aws/aws-sdk-go-v2 v1.35.0
 ## explicit; go 1.21
 github.com/aws/aws-sdk-go-v2/aws
 github.com/aws/aws-sdk-go-v2/aws/arn
@@ -1047,7 +1047,7 @@ github.com/pquerna/otp/totp
 ## explicit; go 1.21
 github.com/pterm/pterm
 github.com/pterm/pterm/internal
-# github.com/puzpuzpuz/xsync/v3 v3.4.1
+# github.com/puzpuzpuz/xsync/v3 v3.5.0
 ## explicit; go 1.18
 github.com/puzpuzpuz/xsync/v3
 # github.com/rivo/uniseg v0.4.7
@@ -1664,6 +1664,9 @@ gopkg.in/yaml.v3
 ## explicit; go 1.12
 sigs.k8s.io/yaml
 sigs.k8s.io/yaml/goyaml.v2
+# atomicgo.dev/cursor => github.com/atomicgo/cursor v0.2.0
+# atomicgo.dev/keyboard => github.com/atomicgo/keyboard v0.2.9
+# atomicgo.dev/schedule => github.com/atomicgo/schedule v0.1.0
 # github.com/hashicorp/terraform => github.com/hashicorp/terraform v0.15.3
 # github.com/hashicorp/vault => github.com/hashicorp/vault v1.4.2
 # github.com/terraform-linters/tflint => github.com/terraform-linters/tflint v0.50.3
