@@ -154,21 +154,16 @@ GH_TUPLE=	\
 		zclconf:go-cty-debug:0d6042c53940:zclconf_go_cty_debug/vendor/github.com/zclconf/go-cty-debug \
 		zclconf:go-cty-yaml:v1.1.0:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
 		zclconf:go-cty:v1.16.2:zclconf_go_cty/vendor/github.com/zclconf/go-cty
-post-extract: .PHONY
-	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
-	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/auth
-	@${RLN} ${WRKSRC_googleapis_google_cloud_go_auth}/auth ${WRKSRC}/vendor/cloud.google.com/go
-	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
-	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute
-	@${RM} -r ${WRKSRC}/vendor/go.opencensus.io/trace/propagation
-	@${RM} -r ${WRKSRC}/vendor/go.opencensus.io/plugin
-	@${RM} -r ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/api
-	@${RLN} ${WRKSRC_google_go_genproto_api}/googleapis/api ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
-	@${RM} -r ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/rpc
-	@${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
-	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc
-	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib_otelgrpc}/instrumentation/google.golang.org/grpc/otelgrpc ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc
-	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/net/http
-	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib_otelhttp}/instrumentation/net/http/otelhttp ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/net/http
-	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/detectors
-	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib_detectors_gcp}/detectors/gcp ${WRKSRC}/vendor/go.opentelemetry.io/contrib/detectors
+post-extract:
+	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/iam
+	@${RLN} ${WRKSRC_googleapis_google_cloud_go_iam}/iam ${WRKSRC}/vendor/cloud.google.com/go/iam
+	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/monitoring
+	@${RLN} ${WRKSRC_googleapis_google_cloud_go_monitoring}/monitoring ${WRKSRC}/vendor/cloud.google.com/go/monitoring
+	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
+	@${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go/storage
+	@${RM} -r ${WRKSRC}/vendor/github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp
+	@${RLN} ${WRKSRC_googlecloudplatform_opentelemetry_operations_go_gcp}/detectors/gcp ${WRKSRC}/vendor/github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp
+	@${MKDIR} ${WRKSRC}/vendor/github.com/hashicorp
+	@${RLN} ${WRKSRC_fsnotify_fsnotify} ${WRKSRC}/vendor/github.com/hashicorp/go-version
+	@${MKDIR} ${WRKSRC}/vendor/github.com/spf13
+	@${RLN} ${WRKSRC_fsnotify_fsnotify} ${WRKSRC}/vendor/github.com/spf13/cast
