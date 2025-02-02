@@ -1,0 +1,7 @@
+protoc-gen-validate is a protoc plugin to generate polyglot message
+validators. While protocol buffers effectively guarantee the types of
+structured data, they cannot enforce semantic rules for values. This plugin
+adds support to protoc-generated code to validate such constraints.
+
+It is recommended that new and existing projects transition to using
+protovalidate - https://github.com/bufbuild/protovalidate
