@@ -1,1 +1,3 @@
-Command line tool that implement kubelet's API.
+Kubeletctl is a command line tool that implement kubelet's API.
+Part of kubelet's API is documented but most of it is not.
+This tool covers all the documented and undocumented APIs.

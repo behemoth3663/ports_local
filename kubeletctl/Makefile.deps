@@ -30,6 +30,7 @@ GH_TUPLE=	\
 		kubernetes:klog:v1.0.0:kubernetes_klog/vendor/k8s.io/klog \
 		kubernetes:utils:a9aa75ae1b89:kubernetes_utils/vendor/k8s.io/utils \
 		mattn:go-runewidth:v0.0.9:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
+		mitchellh:go-ps:v1.0.0:mitchellh_go_ps/vendor/github.com/mitchellh/go-ps \
 		mitchellh:mapstructure:v1.1.2:mitchellh_mapstructure/vendor/github.com/mitchellh/mapstructure \
 		modern-go:concurrent:bacd9c7ef1dd:modern_go_concurrent/vendor/github.com/modern-go/concurrent \
 		modern-go:reflect2:v1.0.1:modern_go_reflect2/vendor/github.com/modern-go/reflect2 \

@@ -1,5 +1,5 @@
 PORTNAME=	kubeletctl
-PORTVERSION=	1.12
+PORTVERSION=	1.13
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -17,10 +17,13 @@ GH_ACCOUNT=	cyberark
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static"
 
-pre-deps pre-deps-all post-deps-all: .PHONY
+pre-deps: .PHONY
+	cd ${WRKSRC} && ${GO_CMD} get && ${GO_CMD} mod tidy
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+pre-deps-all post-deps-all: .PHONY
+
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
