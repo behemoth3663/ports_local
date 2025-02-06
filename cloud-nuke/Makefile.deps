@@ -1,7 +1,71 @@
 GH_TUPLE=	\
-		atomicgo:cursor:v0.1.1:atomicgo_cursor/vendor/atomicgo.dev/cursor \
-		atomicgo:keyboard:v0.2.8:atomicgo_keyboard/vendor/atomicgo.dev/keyboard \
+		aws:aws-sdk-go-v2:v1.10.7:aws_aws_sdk_go_v2_endpoint_discovery/vendor/github.com/aws/aws-sdk-go-v2/service/internal/endpoint-discovery \
+		aws:aws-sdk-go-v2:v1.12.1:aws_aws_sdk_go_v2_accept_encoding/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding \
+		aws:aws-sdk-go-v2:v1.12.7:aws_aws_sdk_go_v2_presigned_url/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url \
+		aws:aws-sdk-go-v2:v1.12.9:aws_aws_sdk_go_v2_scheduler/vendor/github.com/aws/aws-sdk-go-v2/service/scheduler \
+		aws:aws-sdk-go-v2:v1.13.3:aws_aws_sdk_go_v2_vpclattice/vendor/github.com/aws/aws-sdk-go-v2/service/vpclattice \
+		aws:aws-sdk-go-v2:v1.16.22:aws_aws_sdk_go_v2_imds/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds \
+		aws:aws-sdk-go-v2:v1.169.1:aws_aws_sdk_go_v2_sagemaker/vendor/github.com/aws/aws-sdk-go-v2/service/sagemaker \
+		aws:aws-sdk-go-v2:v1.17.48:aws_aws_sdk_go_v2_credentials/vendor/github.com/aws/aws-sdk-go-v2/credentials \
+		aws:aws-sdk-go-v2:v1.18.7:aws_aws_sdk_go_v2_s3shared/vendor/github.com/aws/aws-sdk-go-v2/service/internal/s3shared \
+		aws:aws-sdk-go-v2:v1.198.1:aws_aws_sdk_go_v2_ec2/vendor/github.com/aws/aws-sdk-go-v2/service/ec2 \
+		aws:aws-sdk-go-v2:v1.24.8:aws_aws_sdk_go_v2_apigatewayv2/vendor/github.com/aws/aws-sdk-go-v2/service/apigatewayv2 \
+		aws:aws-sdk-go-v2:v1.24.8:aws_aws_sdk_go_v2_sso/vendor/github.com/aws/aws-sdk-go-v2/service/sso \
+		aws:aws-sdk-go-v2:v1.26.8:aws_aws_sdk_go_v2_grafana/vendor/github.com/aws/aws-sdk-go-v2/service/grafana \
+		aws:aws-sdk-go-v2:v1.28.2:aws_aws_sdk_go_v2_apigateway/vendor/github.com/aws/aws-sdk-go-v2/service/apigateway \
+		aws:aws-sdk-go-v2:v1.28.7:aws_aws_sdk_go_v2_config/vendor/github.com/aws/aws-sdk-go-v2/config \
+		aws:aws-sdk-go-v2:v1.28.7:aws_aws_sdk_go_v2_elasticloadbalancing/vendor/github.com/aws/aws-sdk-go-v2/service/elasticloadbalancing \
+		aws:aws-sdk-go-v2:v1.28.7:aws_aws_sdk_go_v2_ssooidc/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc \
+		aws:aws-sdk-go-v2:v1.28.8:aws_aws_sdk_go_v2_elasticbeanstalk/vendor/github.com/aws/aws-sdk-go-v2/service/elasticbeanstalk \
+		aws:aws-sdk-go-v2:v1.29.2:aws_aws_sdk_go_v2_ses/vendor/github.com/aws/aws-sdk-go-v2/service/ses \
+		aws:aws-sdk-go-v2:v1.29.8:aws_aws_sdk_go_v2_codedeploy/vendor/github.com/aws/aws-sdk-go-v2/service/codedeploy \
+		aws:aws-sdk-go-v2:v1.3.26:aws_aws_sdk_go_v2_configsources/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources \
+		aws:aws-sdk-go-v2:v1.3.26:aws_aws_sdk_go_v2_v4a/vendor/github.com/aws/aws-sdk-go-v2/internal/v4a \
+		aws:aws-sdk-go-v2:v1.30.5:aws_aws_sdk_go_v2_amp/vendor/github.com/aws/aws-sdk-go-v2/service/amp \
+		aws:aws-sdk-go-v2:v1.30.8:aws_aws_sdk_go_v2_acm/vendor/github.com/aws/aws-sdk-go-v2/service/acm \
 		aws:aws-sdk-go-v2:v1.32.7:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+		aws:aws-sdk-go-v2:v1.32.8:aws_aws_sdk_go_v2_apprunner/vendor/github.com/aws/aws-sdk-go-v2/service/apprunner \
+		aws:aws-sdk-go-v2:v1.32.8:aws_aws_sdk_go_v2_kinesis/vendor/github.com/aws/aws-sdk-go-v2/service/kinesis \
+		aws:aws-sdk-go-v2:v1.33.3:aws_aws_sdk_go_v2_sts/vendor/github.com/aws/aws-sdk-go-v2/service/sts \
+		aws:aws-sdk-go-v2:v1.33.8:aws_aws_sdk_go_v2_sns/vendor/github.com/aws/aws-sdk-go-v2/service/sns \
+		aws:aws-sdk-go-v2:v1.34.2:aws_aws_sdk_go_v2_efs/vendor/github.com/aws/aws-sdk-go-v2/service/efs \
+		aws:aws-sdk-go-v2:v1.34.8:aws_aws_sdk_go_v2_secretsmanager/vendor/github.com/aws/aws-sdk-go-v2/service/secretsmanager \
+		aws:aws-sdk-go-v2:v1.35.3:aws_aws_sdk_go_v2_firehose/vendor/github.com/aws/aws-sdk-go-v2/service/firehose \
+		aws:aws-sdk-go-v2:v1.36.1:aws_aws_sdk_go_v2_eventbridge/vendor/github.com/aws/aws-sdk-go-v2/service/eventbridge \
+		aws:aws-sdk-go-v2:v1.36.3:aws_aws_sdk_go_v2_accessanalyzer/vendor/github.com/aws/aws-sdk-go-v2/service/accessanalyzer \
+		aws:aws-sdk-go-v2:v1.36.8:aws_aws_sdk_go_v2_ecr/vendor/github.com/aws/aws-sdk-go-v2/service/ecr \
+		aws:aws-sdk-go-v2:v1.37.3:aws_aws_sdk_go_v2_sqs/vendor/github.com/aws/aws-sdk-go-v2/service/sqs \
+		aws:aws-sdk-go-v2:v1.37.8:aws_aws_sdk_go_v2_kms/vendor/github.com/aws/aws-sdk-go-v2/service/kms \
+		aws:aws-sdk-go-v2:v1.37.9:aws_aws_sdk_go_v2_acmpca/vendor/github.com/aws/aws-sdk-go-v2/service/acmpca \
+		aws:aws-sdk-go-v2:v1.38.1:aws_aws_sdk_go_v2_dynamodb/vendor/github.com/aws/aws-sdk-go-v2/service/dynamodb \
+		aws:aws-sdk-go-v2:v1.38.3:aws_aws_sdk_go_v2_iam/vendor/github.com/aws/aws-sdk-go-v2/service/iam \
+		aws:aws-sdk-go-v2:v1.38.9:aws_aws_sdk_go_v2_kafka/vendor/github.com/aws/aws-sdk-go-v2/service/kafka \
+		aws:aws-sdk-go-v2:v1.4.7:aws_aws_sdk_go_v2_checksum/vendor/github.com/aws/aws-sdk-go-v2/service/internal/checksum \
+		aws:aws-sdk-go-v2:v1.40.1:aws_aws_sdk_go_v2_backup/vendor/github.com/aws/aws-sdk-go-v2/service/backup \
+		aws:aws-sdk-go-v2:v1.43.2:aws_aws_sdk_go_v2_elasticloadbalancingv2/vendor/github.com/aws/aws-sdk-go-v2/service/elasticloadbalancingv2 \
+		aws:aws-sdk-go-v2:v1.43.4:aws_aws_sdk_go_v2_cloudwatch/vendor/github.com/aws/aws-sdk-go-v2/service/cloudwatch \
+		aws:aws-sdk-go-v2:v1.43.8:aws_aws_sdk_go_v2_macie2/vendor/github.com/aws/aws-sdk-go-v2/service/macie2 \
+		aws:aws-sdk-go-v2:v1.44.1:aws_aws_sdk_go_v2_datasync/vendor/github.com/aws/aws-sdk-go-v2/service/datasync \
+		aws:aws-sdk-go-v2:v1.44.2:aws_aws_sdk_go_v2_elasticache/vendor/github.com/aws/aws-sdk-go-v2/service/elasticache \
+		aws:aws-sdk-go-v2:v1.44.6:aws_aws_sdk_go_v2_networkfirewall/vendor/github.com/aws/aws-sdk-go-v2/service/networkfirewall \
+		aws:aws-sdk-go-v2:v1.45.1:aws_aws_sdk_go_v2_cloudwatchlogs/vendor/github.com/aws/aws-sdk-go-v2/service/cloudwatchlogs \
+		aws:aws-sdk-go-v2:v1.45.1:aws_aws_sdk_go_v2_opensearch/vendor/github.com/aws/aws-sdk-go-v2/service/opensearch \
+		aws:aws-sdk-go-v2:v1.46.4:aws_aws_sdk_go_v2_cloudtrail/vendor/github.com/aws/aws-sdk-go-v2/service/cloudtrail \
+		aws:aws-sdk-go-v2:v1.46.4:aws_aws_sdk_go_v2_route53/vendor/github.com/aws/aws-sdk-go-v2/service/route53 \
+		aws:aws-sdk-go-v2:v1.51.2:aws_aws_sdk_go_v2_autoscaling/vendor/github.com/aws/aws-sdk-go-v2/service/autoscaling \
+		aws:aws-sdk-go-v2:v1.51.2:aws_aws_sdk_go_v2_configservice/vendor/github.com/aws/aws-sdk-go-v2/service/configservice \
+		aws:aws-sdk-go-v2:v1.52.1:aws_aws_sdk_go_v2_s3control/vendor/github.com/aws/aws-sdk-go-v2/service/s3control \
+		aws:aws-sdk-go-v2:v1.52.2:aws_aws_sdk_go_v2_guardduty/vendor/github.com/aws/aws-sdk-go-v2/service/guardduty \
+		aws:aws-sdk-go-v2:v1.53.1:aws_aws_sdk_go_v2_ecs/vendor/github.com/aws/aws-sdk-go-v2/service/ecs \
+		aws:aws-sdk-go-v2:v1.53.1:aws_aws_sdk_go_v2_redshift/vendor/github.com/aws/aws-sdk-go-v2/service/redshift \
+		aws:aws-sdk-go-v2:v1.54.1:aws_aws_sdk_go_v2_eks/vendor/github.com/aws/aws-sdk-go-v2/service/eks \
+		aws:aws-sdk-go-v2:v1.55.1:aws_aws_sdk_go_v2_securityhub/vendor/github.com/aws/aws-sdk-go-v2/service/securityhub \
+		aws:aws-sdk-go-v2:v1.6.7:aws_aws_sdk_go_v2_eventstream/vendor/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream \
+		aws:aws-sdk-go-v2:v1.69.2:aws_aws_sdk_go_v2_lambda/vendor/github.com/aws/aws-sdk-go-v2/service/lambda \
+		aws:aws-sdk-go-v2:v1.71.1:aws_aws_sdk_go_v2_s3/vendor/github.com/aws/aws-sdk-go-v2/service/s3 \
+		aws:aws-sdk-go-v2:v1.8.1:aws_aws_sdk_go_v2_ini/vendor/github.com/aws/aws-sdk-go-v2/internal/ini \
+		aws:aws-sdk-go-v2:v1.93.1:aws_aws_sdk_go_v2_rds/vendor/github.com/aws/aws-sdk-go-v2/service/rds \
+		aws:aws-sdk-go-v2:v2.6.26:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 \
 		aws:smithy-go:v1.22.1:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		charmbracelet:lipgloss:v0.6.0:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
 		containerd:console:v1.0.3:containerd_console/vendor/github.com/containerd/console \
@@ -37,4 +101,6 @@ GH_TUPLE=	\
 		urfave:cli:v2.10.3:urfave_cli_v2/vendor/github.com/urfave/cli/v2 \
 		xo:terminfo:ca9a967f8778:xo_terminfo/vendor/github.com/xo/terminfo \
 		xrash:smetrics:039620a65673:xrash_smetrics/vendor/github.com/xrash/smetrics
-		# Errors found during processing:
+		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
+		#	::v0.1.1:group_name/vendor/atomicgo.dev/cursor (from atomicgo.dev/cursor@v0.1.1)
+		#	::v0.2.8:group_name/vendor/atomicgo.dev/keyboard (from atomicgo.dev/keyboard@v0.2.8)
