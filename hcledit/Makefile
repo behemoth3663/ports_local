@@ -1,5 +1,5 @@
 PORTNAME=	hcledit
-PORTVERSION=	0.2.15
+PORTVERSION=	0.2.16
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -17,10 +17,16 @@ GH_ACCOUNT=	minamijoyo
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static"
 
-pre-deps pre-deps-all post-deps-all: .PHONY
+post-extract: .PHONY
+	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 
-.include "/etc/make.d/go-deps.mk"
+pre-deps-all: .PHONY
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
+
+pre-deps post-deps-all: .PHONY
+
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
