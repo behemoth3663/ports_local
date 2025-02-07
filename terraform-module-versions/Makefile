@@ -1,5 +1,6 @@
 PORTNAME=	terraform-module-versions
-PORTVERSION=	3.2.0
+PORTVERSION=	3.3.4
+DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
 
