@@ -1,24 +1,24 @@
 GH_TUPLE=	\
-		aws:aws-sdk-go:v1.55.5:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
-		aws:session-manager-plugin:82dc72922492:aws_session_manager_plugin/vendor/github.com/aws/session-manager-plugin \
+		aws:aws-sdk-go:v1.55.6:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		aws:session-manager-plugin:b2b0bcd769d1:aws_session_manager_plugin/vendor/github.com/aws/session-manager-plugin \
 		cihub:seelog:f561c5e57575:cihub_seelog/vendor/github.com/cihub/seelog \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		eiannone:keyboard:0d226195f203:eiannone_keyboard/vendor/github.com/eiannone/keyboard \
 		fsnotify:fsnotify:v1.8.0:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
-		golang:crypto:v0.29.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:sync:v0.9.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.27.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.26.0:golang_term/vendor/golang.org/x/term \
+		golang:crypto:v0.32.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:sync:v0.11.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.30.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.28.0:golang_term/vendor/golang.org/x/term \
 		gorilla:websocket:v1.5.3:gorilla_websocket/vendor/github.com/gorilla/websocket \
 		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
 		myesui:uuid:v1.0.0:myesui_uuid/vendor/github.com/myesui/uuid \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		stretchr:objx:v0.5.2:stretchr_objx/vendor/github.com/stretchr/objx \
+		stretchr:testify:v1.10.0:stretchr_testify/vendor/github.com/stretchr/testify \
 		stretchr:testify:v1.2.2:stretchr_testify_1/vendor/gopkg.in/stretchr/testify.v1 \
-		stretchr:testify:v1.9.0:stretchr_testify/vendor/github.com/stretchr/testify \
 		twinj:uuid:v1.0.0:twinj_uuid \
-		xtaci:smux:v1.5.32:xtaci_smux/vendor/github.com/xtaci/smux
+		xtaci:smux:v1.5.33:xtaci_smux/vendor/github.com/xtaci/smux
 post-extract:
 	@${MKDIR} ${WRKSRC}/vendor/github.com/twinj
 	@${RLN} ${WRKSRC_myesui_uuid} ${WRKSRC}/vendor/github.com/twinj/uuid
