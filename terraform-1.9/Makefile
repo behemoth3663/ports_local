@@ -40,8 +40,6 @@ post-install: .PHONY
 	${MV} ${STAGEDIR}${PREFIX}/bin/${PORTNAME} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION}
 	${INSTALL} -l rs ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}${PKGNAMESUFFIX}
 
-
-
 pre-deps: .PHONY
 	if [ -d '${PATCHDIR}_' ]; then \
 		${RM} -r ${PATCHDIR}; \
@@ -82,6 +80,13 @@ make-from-deps: .PHONY
 # XXX: Work around ports framework inability to regenerate GH_TUPLE for Go
 # modules for modules with embedded slashes in version numbers.
 GH_TUPLE:=	${GH_TUPLE:S|v1.1.0:grpc_grpc_go_1|cmd%2Fprotoc-gen-go-grpc%2Fv1.1.0:grpc_grpc_go_1/|1}
+
+#-		GoogleCloudPlatform:opentelemetry-operations-go:v0.48.2:googlecloudplatform_opentelemetry_operations_go_resourcemapping/vendor/github.com/GoogleCloudPlatform/opentelemetry-operations-go/internal/resourcemapping
+#-		GoogleCloudPlatform:opentelemetry-operations-go:v1.24.2:googlecloudplatform_opentelemetry_operations_go_gcp            /vendor/github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp
+#-		GoogleCloudPlatform:opentelemetry-operations-go:v0.48.2:googlecloudplatform_opentelemetry_operations_go_metric/vendor/github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/metric
+#+		GoogleCloudPlatform:opentelemetry-operations-go:v0.48.2:googlecloudplatform_opentelemetry_operations_go_metric/vendor/github.com/GoogleCloudPlatform/opentelemetry-operations-go
+GH_TUPLE:=	${GH_TUPLE:C|/opentelemetry-operations-go/exporter/metric|/opentelemetry-operations-go|}
+GH_TUPLE:=	${GH_TUPLE:NGoogleCloudPlatform\:opentelemetry-operations-go\:*/opentelemetry-operations-go/*}
 
 # Azure:azure-sdk-for-go:v59.2.0:azure_azure_sdk_for_go/vendor/github.com/Azure/azure-sdk-for-go
 #-Azure:go-autorest:v0.11.27:azure_go_autorest_autorest/vendor/github.com/Azure/go-autorest/autorest
