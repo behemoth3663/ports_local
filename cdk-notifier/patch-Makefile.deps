@@ -1,0 +1,20 @@
+--- Makefile.deps.orig	2025-01-07 12:32:42 UTC
++++ Makefile.deps
+@@ -37,6 +37,7 @@ GH_TUPLE=	\
+ 		sirupsen:logrus:v1.9.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
+ 		sourcegraph:conc:v0.3.0:sourcegraph_conc/vendor/github.com/sourcegraph/conc \
+ 		spf13:afero:v1.11.0:spf13_afero/vendor/github.com/spf13/afero \
++		spf13:cast:v1.7.0:spf13_cast/vendor/github.com/spf13/cast \
+ 		spf13:cobra:v1.8.1:spf13_cobra/vendor/github.com/spf13/cobra \
+ 		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
+ 		spf13:viper:v1.19.0:spf13_viper/vendor/github.com/spf13/viper \
+@@ -46,6 +47,7 @@ GH_TUPLE=	\
+ 		uber-go:multierr:v1.9.0:uber_go_multierr/vendor/go.uber.org/multierr
+ 		# Errors found during processing:
+ 		#	error getting commit v0.118.0 for gitlab-org/api: not found
++GL_TUPLE=	\
++		gitlab-org-api:client-go:v0.118.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
+ post-extract:
+-	@${MKDIR} ${WRKSRC}/vendor/github.com/spf13
+-	@${RLN} ${WRKSRC_fsnotify_fsnotify} ${WRKSRC}/vendor/github.com/spf13/cast
++	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
