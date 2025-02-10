@@ -40,32 +40,29 @@ post-install: .PHONY
 	${MV} ${STAGEDIR}${PREFIX}/bin/${PORTNAME} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION}
 	${INSTALL} -l rs ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}${PKGNAMESUFFIX}
 
-
-
 pre-deps: .PHONY
 	if [ -d '${PATCHDIR}_' ]; then \
 		${RM} -r ${PATCHDIR}; \
 	else \
 		${MV} ${PATCHDIR} ${PATCHDIR}_; \
 	fi
-	${RM} -r ${PATCHDIR}-${PORTVERSION}
-	${MKDIR} ${PATCHDIR}-${PORTVERSION}
-
-	cd ${WRKSRC} && \
-		${CP} -a go.mod go.mod.orig && \
-		${CP} -a go.sum go.sum.orig && \
-		${GO_CMD} get -u=patch && \
-		${GO_CMD} mod tidy && \
-		${SETENV} TZ=UTC ${DIFF} -udp go.mod.orig go.mod | \
-			${SED} -e '/^---/s|\.[0-9]* +0000$$| UTC|' -e '/^+++/s|\([[:blank:]][-0-9:.+]*\)*$$||' >${PATCHDIR}-${PORTVERSION}/patch-go.mod && \
-		${SETENV} TZ=UTC ${DIFF} -udp go.sum.orig go.sum | \
-			${SED} -e '/^---/s|\.[0-9]* +0000$$| UTC|' -e '/^+++/s|\([[:blank:]][-0-9:.+]*\)*$$||' >${PATCHDIR}-${PORTVERSION}/patch-go.sum
+#	${RM} -r ${PATCHDIR}-${PORTVERSION}
+#	${MKDIR} ${PATCHDIR}-${PORTVERSION}
+#	cd ${WRKSRC} && \
+#		${CP} -a go.mod go.mod.orig && \
+#		${CP} -a go.sum go.sum.orig && \
+#		${GO_CMD} get -u=patch && \
+#		${GO_CMD} mod tidy && \
+#		${SETENV} TZ=UTC ${DIFF} -udp go.mod.orig go.mod | \
+#			${SED} -e '/^---/s|\.[0-9]* +0000$$| UTC|' -e '/^+++/s|\([[:blank:]][-0-9:.+]*\)*$$||' >${PATCHDIR}-${PORTVERSION}/patch-go.mod && \
+#		${SETENV} TZ=UTC ${DIFF} -udp go.sum.orig go.sum | \
+#			${SED} -e '/^---/s|\.[0-9]* +0000$$| UTC|' -e '/^+++/s|\([[:blank:]][-0-9:.+]*\)*$$||' >${PATCHDIR}-${PORTVERSION}/patch-go.sum
 
 post-deps-all: .PHONY
 	test ! -d '${PATCHDIR}_' || ${MV} ${PATCHDIR}_ ${PATCHDIR}
 
 pre-deps-all: .PHONY
-	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 	${RM} ${.CURDIR}/generated.deps.mk
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes-sigs GHT_PROJ=json GHT_PATH=sigs.k8s.io/json )
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes-sigs GHT_PROJ=structured-merge-diff GHT_PATH=sigs.k8s.io/structured-merge-diff/v4 )
@@ -175,19 +172,6 @@ GH_TUPLE:=	${GH_TUPLE:Nhashicorp\:terraform\:000000000000\:*}
 #-hashicorp:terraform::hashicorp_terraform_legacy_1/github.com/hashicorp/terraform/internal/legacy
 # hashicorp:yamux:v0.1.1:hashicorp_yamux/vendor/github.com/hashicorp/yamux
 GH_TUPLE:=	${GH_TUPLE:Nhashicorp\:terraform\:\:*}
-
-#+open-telemetry:opentelemetry-go-contrib:instrumentation/github.com/aws/aws-sdk-go-v2/otelaws/v0.55.0:open_telemetry_opentelemetry_go_contrib_otelaws
-#+open-telemetry:opentelemetry-go-contrib:instrumentation/google.golang.org/grpc/otelgrpc/v0.46.0:open_telemetry_opentelemetry_go_contrib_otelgrpc
-#+open-telemetry:opentelemetry-go-contrib:exporters/autoexport/v0.45.0:open_telemetry_opentelemetry_go_contrib_autoexport
-#+open-telemetry:opentelemetry-go:exporters/otlp/otlptrace/v1.19.0:open_telemetry_opentelemetry_go_otlptrace
-#+open-telemetry:opentelemetry-go:v1.30.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel
-#+open-telemetry:opentelemetry-proto-go:otlp/v1.0.0:open_telemetry_opentelemetry_proto_go/vendor/go.opentelemetry.io/proto
-GH_TUPLE+=	open-telemetry:opentelemetry-go-contrib:instrumentation/github.com/aws/aws-sdk-go-v2/otelaws/v0.46.1:open_telemetry_opentelemetry_go_contrib_otelaws
-GH_TUPLE+=	open-telemetry:opentelemetry-go-contrib:instrumentation/google.golang.org/grpc/otelgrpc/v0.46.0:open_telemetry_opentelemetry_go_contrib_otelgrpc
-GH_TUPLE+=	open-telemetry:opentelemetry-go-contrib:exporters/autoexport/v0.45.0:open_telemetry_opentelemetry_go_contrib_autoexport
-GH_TUPLE+=	open-telemetry:opentelemetry-go:exporters/otlp/otlptrace/v1.19.0:open_telemetry_opentelemetry_go_otlptrace
-GH_TUPLE+=	open-telemetry:opentelemetry-go:v1.24.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel
-GH_TUPLE+=	open-telemetry:opentelemetry-proto-go:otlp/v1.0.0:open_telemetry_opentelemetry_proto_go/vendor/go.opentelemetry.io/proto
 
 # spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag
 #-tencentcloud:tencentcloud-sdk-go:v1.0.233:tencentcloud_tencentcloud_sdk_go_tag/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tag
