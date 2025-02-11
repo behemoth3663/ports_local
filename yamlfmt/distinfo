@@ -1,10 +1,10 @@
-TIMESTAMP = 1736595026
-SHA256 (google-yamlfmt-v0.15.0_GH0.tar.gz) = e1c0461ece664516ddcb51a513e7cc4c955fe4e08f6d3193396bcffd16b9f798
-SIZE (google-yamlfmt-v0.15.0_GH0.tar.gz) = 55482
+TIMESTAMP = 1739265160
+SHA256 (google-yamlfmt-v0.16.0_GH0.tar.gz) = 989d9010e2498b4f97608b1c64798c700012840e739bc9001e42ddf3f25125a2
+SIZE (google-yamlfmt-v0.16.0_GH0.tar.gz) = 55697
 SHA256 (bmatcuk-doublestar-v4.7.1_GH0.tar.gz) = 09dea26a4d3f1e2d4e6801fdc777eb5863957430d75255ec69d98b4c97ad44ed
 SIZE (bmatcuk-doublestar-v4.7.1_GH0.tar.gz) = 27248
-SHA256 (braydonk-yaml-v0.7.0_GH0.tar.gz) = 581790f9b87b2cab9147e1d408a4aca27aeb337966d2d7256cb3e3668f300a81
-SIZE (braydonk-yaml-v0.7.0_GH0.tar.gz) = 94297
+SHA256 (braydonk-yaml-v0.9.0_GH0.tar.gz) = 5fdad5b7bb00b34ec5514cb882dd4b1528e86bc6e75ef765963841ed5c2064e0
+SIZE (braydonk-yaml-v0.9.0_GH0.tar.gz) = 96026
 SHA256 (golang-text-v0.14.0_GH0.tar.gz) = c80295e75bda599d17ccf74038139b0957b9915fae4e60d8b46f89454ef171a0
 SIZE (golang-text-v0.14.0_GH0.tar.gz) = 8974094
 SHA256 (google-go-cmp-v0.6.0_GH0.tar.gz) = d14f7d57b0f6d25771bee3d7d5d038f532539e71bfc934772b1c0467ab90fa86
