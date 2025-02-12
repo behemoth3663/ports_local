@@ -1,5 +1,5 @@
 PORTNAME=	staticcheck
-PORTVERSION=	0.5.1
+PORTVERSION=	0.6.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -21,10 +21,16 @@ GO_TARGET=	./cmd/${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w  -extldflags '-static'"
+GO_BUILDFLAGS+=	-ldflags="-s -w  -extldflags -static"
 
-pre-deps pre-deps-all post-deps-all: .PHONY
+post-extract: .PHONY
+	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 
-.include "/etc/make.d/go-deps.mk"
+pre-deps-all: .PHONY
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
+
+pre-deps post-deps-all: .PHONY
+
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
