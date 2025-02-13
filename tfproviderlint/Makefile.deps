@@ -1,5 +1,5 @@
 GH_TUPLE=	\
 		bflad:gopaniccheck:v0.1.0:bflad_gopaniccheck/vendor/github.com/bflad/gopaniccheck \
-		golang:mod:v0.17.0:golang_mod/vendor/golang.org/x/mod \
-		golang:sync:v0.7.0:golang_sync/vendor/golang.org/x/sync \
-		golang:tools:v0.21.0:golang_tools/vendor/golang.org/x/tools
+		golang:mod:v0.23.0:golang_mod/vendor/golang.org/x/mod \
+		golang:sync:v0.11.0:golang_sync/vendor/golang.org/x/sync \
+		golang:tools:v0.30.0:golang_tools/vendor/golang.org/x/tools

@@ -1,5 +1,5 @@
 PORTNAME=	tfproviderlint
-PORTVERSION=	0.30.0
+PORTVERSION=	0.31.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -27,7 +27,7 @@ GIT_COMMIT=	git ls-remote \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
 		${SED} -rn 's/(.{7}).*/\1/p'
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.GitCommit=$$(${GIT_COMMIT})' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=${PORTVERSION}' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.VersionPrerelease='"
@@ -39,6 +39,6 @@ post-install:
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
