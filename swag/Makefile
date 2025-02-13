@@ -17,10 +17,12 @@ GO_TARGET=	./cmd/${PORTNAME}
 USE_GITHUB=	yes
 GH_ACCOUNT=	swaggo
 
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static"
+
 PLIST_FILES=	bin/${PORTNAME}
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
-.include "/etc/make.d/go-deps.mk"
+.include "${}/etc/make.d/go-deps.mk"
 .-include "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>

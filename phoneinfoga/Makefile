@@ -1,5 +1,5 @@
 PORTNAME=	phoneinfoga
-PORTVERSION=	2.10.8
+PORTVERSION=	2.11.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local
 
@@ -26,7 +26,7 @@ GIT_COMMIT=	git ls-remote \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
 		${SED} -rn 's/(.{7}).*/\1/p'
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/build.Version=${DISTVERSIONPREFIX}${PORTVERSION}' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/build.Commit=$$(${GIT_COMMIT})'"
 
@@ -39,6 +39,6 @@ post-post-extract: .PHONY
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>

@@ -18,6 +18,8 @@ USES=		go:modules
 USE_GITHUB=	yes
 GH_ACCOUNT=	terraform-linters
 
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static"
+
 PLIST_FILES=	bin/${PORTNAME}
 
 #It is hard to make this working
