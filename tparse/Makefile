@@ -1,5 +1,5 @@
 PORTNAME=	tparse
-PORTVERSION=	0.16.0
+PORTVERSION=	0.17.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local textproc
@@ -11,18 +11,24 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:modules
+USES=		go:1.24,modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	mfridman
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X 'main.version=${DISTVERSIONPREFIX}${PORTVERSION}'"
 
-pre-deps pre-deps-all post-deps-all: .PHONY
+post-extract: .PHONY
+	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 
-.include "/etc/make.d/go-deps.mk"
+pre-deps-all: .PHONY
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
+
+pre-deps post-deps-all: .PHONY
+
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
