@@ -1,6 +1,6 @@
 PORTNAME=	rclone
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.69.0
+DISTVERSION=	1.69.1
 #PORTREVISION=	2
 CATEGORIES=	local net
 
@@ -13,7 +13,7 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 RUN_DEPENDS=	ca_root_nss>=0:security/ca_root_nss
 
-USES=		go:modules
+USES=		go:1.24,modules
 GO_MODULE=	github.com/${PORTNAME}/${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME} \
