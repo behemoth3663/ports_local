@@ -1,6 +1,6 @@
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.72.9
+DISTVERSION=	0.73.6
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
 
@@ -11,7 +11,7 @@ WWW=		https://terragrunt.gruntwork.io/
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
-USES=		go:modules
+USES=		go:1.24,modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	gruntwork-io
@@ -26,7 +26,8 @@ M2T_OFFLINE=	true
 
 _OPTIONS_extract=	600:pre-post-extract
 pre-post-extract: .PHONY
-	${RM} ${WRKSRC}/terraform/getproviders/lock_test.go
+#	github.com/gruntwork-io/terragrunt/tf/getproviders/mocks: no required module provides package github.com/gruntwork-io/terragrunt/tf/getproviders/mocks
+	${RM} ${WRKSRC}/tf/getproviders/lock_test.go
 	${FIND} ${WRKDIR} -maxdepth 1 -type d -name 'go-commons-*' | while read src; do \
 		${LN} -s "$${src}" "$${src%%go-commons-*}gruntwork-cli-$${src##*go-commons-}"; \
 	done
@@ -42,7 +43,7 @@ pre-deps-all: .PHONY
 
 make-from-deps: .PHONY
 	@${SED} -rn \
-		's|^[[:space:]]*#[[:space:]]*::(v[0-9.]+):.*/(vendor/${GHT_PATH})[[:space:]].*$$|GH_TUPLE+=${GHT_ACNT}:${GHT_PROJ}:\1:${GHT_ACNT:tl:S/-/_/}_${GHT_PROJ:tl:S/-/_/}/\2|p' \
+		's|^[[:space:]]*#[[:space:]]*::([v0-9.a-f]+):.*/(vendor/${GHT_PATH})[[:space:]].*$$|GH_TUPLE+=${GHT_ACNT}:${GHT_PROJ}:\1:${GHT_ACNT:tl:S/-/_/g}_${GHT_PROJ:tl:S/-/_/g}/\2|p' \
 	${.CURDIR}/Makefile.deps >>${.CURDIR}/generated.deps.mk
 
 .include "${}/etc/make.d/go-deps.mk"

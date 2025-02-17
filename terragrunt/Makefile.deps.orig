@@ -55,11 +55,11 @@ GH_TUPLE=	\
 		census-instrumentation:opencensus-proto:v0.4.1:census_instrumentation_opencensus_proto/vendor/github.com/census-instrumentation/opencensus-proto \
 		cespare:xxhash:v2.3.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
 		charmbracelet:bubbles:v0.20.0:charmbracelet_bubbles/vendor/github.com/charmbracelet/bubbles \
-		charmbracelet:bubbletea:v1.2.4:charmbracelet_bubbletea/vendor/github.com/charmbracelet/bubbletea \
+		charmbracelet:bubbletea:v1.3.3:charmbracelet_bubbletea/vendor/github.com/charmbracelet/bubbletea \
 		charmbracelet:glamour:v0.8.0:charmbracelet_glamour/vendor/github.com/charmbracelet/glamour \
 		charmbracelet:lipgloss:v1.0.0:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
 		charmbracelet:x:v0.2.1:charmbracelet_x_term/vendor/github.com/charmbracelet/x/term \
-		charmbracelet:x:v0.7.0:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x/ansi \
+		charmbracelet:x:v0.8.0:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x/ansi \
 		cloudflare:circl:v1.6.0:cloudflare_circl/vendor/github.com/cloudflare/circl \
 		cncf:xds:2f005788dc42:cncf_xds_go/vendor/github.com/cncf/xds/go \
 		containerd:console:v1.0.4:containerd_console/vendor/github.com/containerd/console \
@@ -91,7 +91,7 @@ GH_TUPLE=	\
 		golang-jwt:jwt:v5.2.1:golang_jwt_jwt_v5/vendor/github.com/golang-jwt/jwt/v5 \
 		golang:crypto:v0.32.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:7588d65b2ba8:golang_exp/vendor/golang.org/x/exp \
-		golang:mod:v0.22.0:golang_mod/vendor/golang.org/x/mod \
+		golang:mod:v0.23.0:golang_mod/vendor/golang.org/x/mod \
 		golang:net:v0.34.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.26.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf \
@@ -189,7 +189,7 @@ GH_TUPLE=	\
 		muesli:ansi:276c6243b2f6:muesli_ansi/vendor/github.com/muesli/ansi \
 		muesli:cancelreader:v0.2.2:muesli_cancelreader/vendor/github.com/muesli/cancelreader \
 		muesli:reflow:v0.3.0:muesli_reflow/vendor/github.com/muesli/reflow \
-		muesli:termenv:98d742f6907a:muesli_termenv/vendor/github.com/muesli/termenv \
+		muesli:termenv:8c990cd6cf4b:muesli_termenv/vendor/github.com/muesli/termenv \
 		oklog:run:v1.1.0:oklog_run/vendor/github.com/oklog/run \
 		owenrumney:go-sarif:v1.1.1:owenrumney_go_sarif/vendor/github.com/owenrumney/go-sarif \
 		pkg:browser:5ac0b6a4141c:pkg_browser/vendor/github.com/pkg/browser \
