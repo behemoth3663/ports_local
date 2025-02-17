@@ -1,20 +1,32 @@
 GH_TUPLE=	\
 		atotto:clipboard:v0.1.4:atotto_clipboard/vendor/github.com/atotto/clipboard \
-		aws:aws-sdk-go-v2:v1.32.2:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
-		aws:smithy-go:v1.22.0:aws_smithy_go/vendor/github.com/aws/smithy-go \
+		aws:aws-sdk-go-v2:v1.12.13:aws_aws_sdk_go_v2_presigned_url/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url \
+		aws:aws-sdk-go-v2:v1.12.2:aws_aws_sdk_go_v2_accept_encoding/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding \
+		aws:aws-sdk-go-v2:v1.16.28:aws_aws_sdk_go_v2_imds/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds \
+		aws:aws-sdk-go-v2:v1.17.59:aws_aws_sdk_go_v2_credentials/vendor/github.com/aws/aws-sdk-go-v2/credentials \
+		aws:aws-sdk-go-v2:v1.203.0:aws_aws_sdk_go_v2_ec2/vendor/github.com/aws/aws-sdk-go-v2/service/ec2 \
+		aws:aws-sdk-go-v2:v1.24.15:aws_aws_sdk_go_v2_sso/vendor/github.com/aws/aws-sdk-go-v2/service/sso \
+		aws:aws-sdk-go-v2:v1.28.14:aws_aws_sdk_go_v2_ssooidc/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc \
+		aws:aws-sdk-go-v2:v1.29.6:aws_aws_sdk_go_v2_config/vendor/github.com/aws/aws-sdk-go-v2/config \
+		aws:aws-sdk-go-v2:v1.3.32:aws_aws_sdk_go_v2_configsources/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources \
+		aws:aws-sdk-go-v2:v1.32.16:aws_aws_sdk_go_v2_pricing/vendor/github.com/aws/aws-sdk-go-v2/service/pricing \
+		aws:aws-sdk-go-v2:v1.33.14:aws_aws_sdk_go_v2_sts/vendor/github.com/aws/aws-sdk-go-v2/service/sts \
+		aws:aws-sdk-go-v2:v1.36.1:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+		aws:aws-sdk-go-v2:v1.8.2:aws_aws_sdk_go_v2_ini/vendor/github.com/aws/aws-sdk-go-v2/internal/ini \
+		aws:aws-sdk-go-v2:v2.6.32:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 \
+		aws:smithy-go:v1.22.2:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		aymanbagabas:go-osc52:v2.0.1:aymanbagabas_go_osc52_v2/vendor/github.com/aymanbagabas/go-osc52/v2 \
-		blang:semver:v4.0.0:blang_semver_v4/vendor/github.com/blang/semver \
+		blang:semver:v4.0.0:blang_semver_v4/vendor/github.com/blang/semver/v4 \
 		charmbracelet:bubbles:v0.20.0:charmbracelet_bubbles/vendor/github.com/charmbracelet/bubbles \
-		charmbracelet:bubbletea:v1.1.1:charmbracelet_bubbletea/vendor/github.com/charmbracelet/bubbletea \
-		charmbracelet:lipgloss:v0.13.0:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
-		charmbracelet:x:ansi/v0.2.3:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x \
-		charmbracelet:x:term/v0.2.0:charmbracelet_x_term \
+		charmbracelet:bubbletea:v1.3.3:charmbracelet_bubbletea/vendor/github.com/charmbracelet/bubbletea \
+		charmbracelet:lipgloss:v1.0.0:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
+		charmbracelet:x:v0.2.1:charmbracelet_x_term/vendor/github.com/charmbracelet/x/term \
+		charmbracelet:x:v0.8.0:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x/ansi \
 		erikgeiser:coninput:1c3628e74d0f:erikgeiser_coninput/vendor/github.com/erikgeiser/coninput \
-		evertras:bubble-table:v0.17.0:evertras_bubble_table/vendor/github.com/evertras/bubble-table \
-		golang:sync:v0.8.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.24.0:golang_sys/vendor/golang.org/x/sys \
-		golang:text:v0.16.0:golang_text/vendor/golang.org/x/text \
-		imdario:mergo:v1.0.1:imdario_mergo/vendor/dario.cat/mergo \
+		evertras:bubble-table:v0.17.1:evertras_bubble_table/vendor/github.com/evertras/bubble-table \
+		golang:sync:v0.11.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.30.0:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.22.0:golang_text/vendor/golang.org/x/text \
 		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
 		lucasb-eyer:go-colorful:v1.2.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
 		mattn:go-isatty:v0.0.20:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
@@ -29,10 +41,9 @@ GH_TUPLE=	\
 		patrickmn:go-cache:v2.1.0:patrickmn_go_cache/vendor/github.com/patrickmn/go-cache \
 		rivo:uniseg:v0.4.7:rivo_uniseg/vendor/github.com/rivo/uniseg \
 		sahilm:fuzzy:v0.1.1:sahilm_fuzzy/vendor/github.com/sahilm/fuzzy \
+		samber:lo:v1.47.0:samber_lo/vendor/github.com/samber/lo \
 		spf13:cobra:v1.8.1:spf13_cobra/vendor/github.com/spf13/cobra \
-		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
+		spf13:pflag:v1.0.6:spf13_pflag/vendor/github.com/spf13/pflag \
 		uber-go:multierr:v1.11.0:uber_go_multierr/vendor/go.uber.org/multierr
-		# Errors found during processing:
-post-extract:
-	@${RM} -r ${WRKSRC}/vendor/github.com/charmbracelet/x/term
-	@${RLN} ${WRKSRC_charmbracelet_x_term}/term ${WRKSRC}/vendor/github.com/charmbracelet/x/term
+		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
+		#	::v1.0.1:group_name/vendor/dario.cat/mergo (from dario.cat/mergo@v1.0.1)
