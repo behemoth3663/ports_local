@@ -1048,7 +1048,7 @@ github.com/pquerna/otp/totp
 ## explicit; go 1.21
 github.com/pterm/pterm
 github.com/pterm/pterm/internal
-# github.com/puzpuzpuz/xsync/v3 v3.5.0
+# github.com/puzpuzpuz/xsync/v3 v3.5.1
 ## explicit; go 1.18
 github.com/puzpuzpuz/xsync/v3
 # github.com/rivo/uniseg v0.4.7
