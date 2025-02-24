@@ -1,4 +1,4 @@
---- Makefile.deps.orig	2025-01-07 12:32:42 UTC
+--- Makefile.deps.orig	2025-02-24 17:31:24 UTC
 +++ Makefile.deps
 @@ -37,6 +37,7 @@ GH_TUPLE=	\
  		sirupsen:logrus:v1.9.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
@@ -11,9 +11,9 @@
 @@ -46,6 +47,7 @@ GH_TUPLE=	\
  		uber-go:multierr:v1.9.0:uber_go_multierr/vendor/go.uber.org/multierr
  		# Errors found during processing:
- 		#	error getting commit v0.118.0 for gitlab-org/api: not found
+		#	error getting commit v0.121.0 for gitlab-org/api: not found
 +GL_TUPLE=	\
-+		gitlab-org-api:client-go:v0.118.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
++		gitlab-org-api:client-go:v0.121.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
  post-extract:
 -	@${MKDIR} ${WRKSRC}/vendor/github.com/spf13
 -	@${RLN} ${WRKSRC_fsnotify_fsnotify} ${WRKSRC}/vendor/github.com/spf13/cast

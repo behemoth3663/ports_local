@@ -1,6 +1,6 @@
-TIMESTAMP = 1740222364
-SHA256 (karlderkaefer-cdk-notifier-v2.13.7_GH0.tar.gz) = bdb117476a9963fb9bef8cd150dbbc1ea408a78571ec33f7af9706fd51770395
-SIZE (karlderkaefer-cdk-notifier-v2.13.7_GH0.tar.gz) = 153901
+TIMESTAMP = 1740418411
+SHA256 (karlderkaefer-cdk-notifier-v2.14.0_GH0.tar.gz) = 4abf6752c66388624d22552c745f9d9c923bcdaed142c886b86833596a1636b1
+SIZE (karlderkaefer-cdk-notifier-v2.14.0_GH0.tar.gz) = 156293
 SHA256 (Masterminds-goutils-v1.1.1_GH0.tar.gz) = 6eed023c54f386a71f360e19d34f7a43e640ac44dfc39c22ad4afd7ae04aaa3d
 SIZE (Masterminds-goutils-v1.1.1_GH0.tar.gz) = 14847
 SHA256 (Masterminds-semver-v3.3.0_GH0.tar.gz) = 2116354903cca1549a5928b86ac789ba8c01a4be87dc3f16287ab4cb0910fdeb
