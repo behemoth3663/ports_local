@@ -28,7 +28,7 @@ GH_TUPLE=	\
 		golang:text:v0.21.0:golang_text/vendor/golang.org/x/text \
 		golang:tools:v0.25.0:golang_tools/vendor/golang.org/x/tools \
 		golang:xerrors:04be3eba64a2:golang_xerrors/vendor/golang.org/x/xerrors \
-		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
+		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-genproto:b8732ec3820d:google_go_genproto/vendor/google.golang.org/genproto \
 		google:s2a-go:v0.1.4:google_s2a_go/vendor/github.com/google/s2a-go \
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
