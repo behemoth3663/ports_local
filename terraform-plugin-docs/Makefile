@@ -1,5 +1,5 @@
 PORTNAME=	terraform-plugin-docs
-PORTVERSION=	0.20.1
+PORTVERSION=	0.21.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils textproc
 
@@ -10,7 +10,7 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 LICENSE=	MPL20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:modules
+USES=		go:1.24,modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	hashicorp
@@ -19,7 +19,7 @@ GO_TARGET=	./cmd/tfplugindocs
 
 PLIST_FILES=	bin/tfplugindocs
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static"
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
