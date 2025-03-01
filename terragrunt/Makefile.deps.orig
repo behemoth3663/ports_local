@@ -79,7 +79,7 @@ GH_TUPLE=	\
 		gitsight:go-vcsurl:v1.0.1:gitsight_go_vcsurl/vendor/github.com/gitsight/go-vcsurl \
 		go-errors:errors:v1.5.1:go_errors_errors/vendor/github.com/go-errors/errors \
 		go-ini:ini:v1.67.0:go_ini_ini/vendor/gopkg.in/ini.v1 \
-		go-jose:go-jose:v4.0.4:go_jose_go_jose_v4/vendor/github.com/go-jose/go-jose/v4 \
+		go-jose:go-jose:v4.0.5:go_jose_go_jose_v4/vendor/github.com/go-jose/go-jose/v4 \
 		go-logr:logr:v1.4.2:go_logr_logr/vendor/github.com/go-logr/logr \
 		go-logr:stdr:v1.2.2:go_logr_stdr/vendor/github.com/go-logr/stdr \
 		go-ozzo:ozzo-validation:v3.6.0:go_ozzo_ozzo_validation/vendor/github.com/go-ozzo/ozzo-validation \
