@@ -1,6 +1,6 @@
 PORTNAME=	curlie
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.7.2
+DISTVERSION=	1.8.1
 CATEGORIES=	ftp net www
 
 MAINTAINER=	0mp@FreeBSD.org
@@ -13,7 +13,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 RUN_DEPENDS=	curl:ftp/curl
 BUILD_DEPENDS=	git:devel/git
 
-USES=		go:modules
+USES=		go:1.24,modules
 USE_GITHUB=	yes
 GH_ACCOUNT=	rs
 
@@ -27,13 +27,18 @@ GIT_COMMIT=	git ls-remote \
 #commit  = "0000000"
 #version = "v0.0.0-LOCAL"
 #date    = "0000-00-00T00:00:00Z"
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X 'main.version=${DISTVERSIONPREFIX}${PORTVERSION}' \
 	-X 'main.commit=$$(${GIT_COMMIT})' \
 	-X 'main.date=${%FT%TZ:L:gmtime}'"
 
-pre-deps pre-deps-all post-deps-all: .PHONY
+post-extract: .PHONY
+	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+pre-deps post-deps-all: .PHONY
+pre-deps-all: .PHONY
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
+
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>

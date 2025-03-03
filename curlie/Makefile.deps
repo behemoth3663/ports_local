@@ -1,3 +1,2 @@
-GH_TUPLE=	golang:crypto:v0.1.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:sys:v0.1.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.1.0:golang_term/vendor/golang.org/x/term
+GH_TUPLE=	golang:sys:v0.30.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.29.0:golang_term/vendor/golang.org/x/term
