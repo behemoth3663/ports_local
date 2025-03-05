@@ -1,7 +1,7 @@
 PORTNAME=	infracost
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.10.40
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	local sysutils
 
 MAINTAINER=	dutra@FreeBSD.org
@@ -14,7 +14,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 ONLY_FOR_ARCHS=	aarch64 amd64 powerpc64 powerpc64le riscv64
 ONLY_FOR_ARCHS_REASON=	Requires 64-bit processor
 
-USES=		go:modules
+USES=		go:1.24,modules
 
 GO_MODULE=	github.com/${PORTNAME}/${PORTNAME}
 GO_TARGET=	./cmd/${PORTNAME}

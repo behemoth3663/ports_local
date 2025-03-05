@@ -1,7 +1,7 @@
 PORTNAME=	yamlfmt
 PORTVERSION=	0.16.0
 DISTVERSIONPREFIX=	v
-#PORTREVISION=	1
+PORTREVISION=	1
 CATEGORIES=	local textproc
 
 MAINTAINER=	meta@FreeBSD.org
@@ -11,7 +11,7 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:modules
+USES=		go:1.24,modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	google

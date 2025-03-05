@@ -1,7 +1,7 @@
 PORTNAME=	cloud-nuke
 PORTVERSION=	0.38.2
 DISTVERSIONPREFIX=	v
-#PORTREVISION=	2
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -11,7 +11,7 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
-USES=		go:modules
+USES=		go:1.24,modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	gruntwork-io

@@ -1,7 +1,7 @@
 PORTNAME=	s5cmd
 PORTVERSION=	2.3.0
 DISTVERSIONPREFIX=	v
-#PORTREVISION=	8
+PORTREVISION=	1
 CATEGORIES=	local net
 
 MAINTAINER=	none@freebsd.org
@@ -13,7 +13,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 BUILD_DEPENDS=	git:devel/git
 
-USES=		go:modules
+USES=		go:1.24,modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	peak

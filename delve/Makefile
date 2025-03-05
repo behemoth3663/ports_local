@@ -1,7 +1,7 @@
 PORTNAME=	delve
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.24.0
-#PORTREVISION=	6
+PORTREVISION=	1
 CATEGORIES=	local devel
 
 MAINTAINER=	dmitry.wagin@ya.ru
@@ -13,7 +13,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 ONLY_FOR_ARCHS=	amd64
 
-USES=		go:modules
+USES=		go:1.24,modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	go-delve

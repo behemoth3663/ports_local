@@ -1,7 +1,7 @@
 PORTNAME=	yj
 PORTVERSION=	5.1.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	21
+PORTREVISION=	22
 CATEGORIES=	local converters
 
 MAINTAINER=	ehaupt@FreeBSD.org
@@ -11,7 +11,7 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:modules
+USES=		go:1.24,modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	sclevine
@@ -20,10 +20,10 @@ CONFLICTS_INSTALL=	yj-bruceadams
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' -X 'main.Version=${PORTVERSION}'"
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static -X 'main.Version=${PORTVERSION}'"
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
-.include "/etc/make.d/go-deps.mk"
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
