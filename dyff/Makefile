@@ -1,6 +1,6 @@
 PORTNAME=	dyff
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.9.4
+DISTVERSION=	1.10.0
 CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
@@ -10,7 +10,7 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:modules,1.23
+USES=		go:1.24,modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	homeport
@@ -25,7 +25,12 @@ PLIST_FILES=	bin/${PORTNAME}
 pre-deps: .PHONY .SILENT
 	cd ${WRKSRC} && ${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod tidy -v
 
-pre-deps-all post-deps-all: .PHONY
+post-extract: .PHONY
+	test -f ${WRKSRC}/vendor/modules.txt || test ! -f ${PATCHDIR}/modules.txt || ${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+
+pre-deps post-deps-all: .PHONY
+pre-deps-all: .PHONY
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
