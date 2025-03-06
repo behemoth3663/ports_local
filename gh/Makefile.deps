@@ -37,7 +37,7 @@ GH_TUPLE=	\
 		gdamore:tcell:v2.5.4:gdamore_tcell_v2/vendor/github.com/gdamore/tcell/v2 \
 		go-chi:chi:v4.1.2:go_chi_chi/vendor/github.com/go-chi/chi \
 		go-ini:ini:v1.67.0:go_ini_ini/vendor/gopkg.in/ini.v1 \
-		go-jose:go-jose:v4.0.2:go_jose_go_jose_v4/vendor/github.com/go-jose/go-jose/v4 \
+		go-jose:go-jose:v4.0.5:go_jose_go_jose_v4/vendor/github.com/go-jose/go-jose/v4 \
 		go-logr:logr:v1.4.2:go_logr_logr/vendor/github.com/go-logr/logr \
 		go-logr:stdr:v1.2.2:go_logr_stdr/vendor/github.com/go-logr/stdr \
 		go-openapi:analysis:v0.23.0:go_openapi_analysis/vendor/github.com/go-openapi/analysis \
@@ -135,7 +135,7 @@ GH_TUPLE=	\
 		spf13:afero:v1.11.0:spf13_afero/vendor/github.com/spf13/afero \
 		spf13:cast:v1.7.0:spf13_cast/vendor/github.com/spf13/cast \
 		spf13:cobra:v1.8.1:spf13_cobra/vendor/github.com/spf13/cobra \
-		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
+		spf13:pflag:v1.0.6:spf13_pflag/vendor/github.com/spf13/pflag \
 		spf13:viper:v1.19.0:spf13_viper/vendor/github.com/spf13/viper \
 		stretchr:objx:v0.5.2:stretchr_objx/vendor/github.com/stretchr/objx \
 		stretchr:testify:v1.10.0:stretchr_testify/vendor/github.com/stretchr/testify \
