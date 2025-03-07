@@ -1,6 +1,6 @@
 PORTNAME=	dyff
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.10.0
+DISTVERSION=	1.10.1
 CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
@@ -22,11 +22,8 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 
 PLIST_FILES=	bin/${PORTNAME}
 
-pre-deps: .PHONY .SILENT
-	cd ${WRKSRC} && ${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod tidy -v
-
 post-extract: .PHONY
-	test -f ${WRKSRC}/vendor/modules.txt || test ! -f ${PATCHDIR}/modules.txt || ${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 
 pre-deps post-deps-all: .PHONY
 pre-deps-all: .PHONY
