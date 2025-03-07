@@ -1,7 +1,7 @@
 PORTNAME=	curlie
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.8.1
-CATEGORIES=	ftp net www
+DISTVERSION=	1.8.2
+CATEGORIES=	local ftp net www
 
 MAINTAINER=	0mp@FreeBSD.org
 COMMENT=	Frontend to cURL that adds the ease of use of HTTPie
