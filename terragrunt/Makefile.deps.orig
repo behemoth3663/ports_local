@@ -24,24 +24,40 @@ GH_TUPLE=	\
 		atomicgo:keyboard:v0.2.9:atomicgo_keyboard/vendor/atomicgo.dev/keyboard \
 		atomicgo:schedule:v0.1.0:atomicgo_schedule/vendor/atomicgo.dev/schedule \
 		atotto:clipboard:v0.1.4:atotto_clipboard/vendor/github.com/atotto/clipboard \
+		aws:aws-sdk-go-v2:v1.10.5:aws_aws_sdk_go_v2_endpoint_discovery/vendor/github.com/aws/aws-sdk-go-v2/service/internal/endpoint-discovery \
 		aws:aws-sdk-go-v2:v1.12.13:aws_aws_sdk_go_v2_presigned_url/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url \
 		aws:aws-sdk-go-v2:v1.12.2:aws_aws_sdk_go_v2_accept_encoding/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding \
 		aws:aws-sdk-go-v2:v1.16.28:aws_aws_sdk_go_v2_imds/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds \
 		aws:aws-sdk-go-v2:v1.17.53:aws_aws_sdk_go_v2_manager/vendor/github.com/aws/aws-sdk-go-v2/feature/s3/manager \
 		aws:aws-sdk-go-v2:v1.17.59:aws_aws_sdk_go_v2_credentials/vendor/github.com/aws/aws-sdk-go-v2/credentials \
 		aws:aws-sdk-go-v2:v1.18.9:aws_aws_sdk_go_v2_s3shared/vendor/github.com/aws/aws-sdk-go-v2/service/internal/s3shared \
+		aws:aws-sdk-go-v2:v1.193.0:aws_aws_sdk_go_v2_ec2/vendor/github.com/aws/aws-sdk-go-v2/service/ec2 \
 		aws:aws-sdk-go-v2:v1.24.15:aws_aws_sdk_go_v2_sso/vendor/github.com/aws/aws-sdk-go-v2/service/sso \
 		aws:aws-sdk-go-v2:v1.28.14:aws_aws_sdk_go_v2_ssooidc/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc \
 		aws:aws-sdk-go-v2:v1.29.6:aws_aws_sdk_go_v2_config/vendor/github.com/aws/aws-sdk-go-v2/config \
 		aws:aws-sdk-go-v2:v1.3.28:aws_aws_sdk_go_v2_v4a/vendor/github.com/aws/aws-sdk-go-v2/internal/v4a \
 		aws:aws-sdk-go-v2:v1.3.32:aws_aws_sdk_go_v2_configsources/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources \
+		aws:aws-sdk-go-v2:v1.30.6:aws_aws_sdk_go_v2_acm/vendor/github.com/aws/aws-sdk-go-v2/service/acm \
 		aws:aws-sdk-go-v2:v1.33.14:aws_aws_sdk_go_v2_sts/vendor/github.com/aws/aws-sdk-go-v2/service/sts \
+		aws:aws-sdk-go-v2:v1.33.6:aws_aws_sdk_go_v2_sns/vendor/github.com/aws/aws-sdk-go-v2/service/sns \
+		aws:aws-sdk-go-v2:v1.34.6:aws_aws_sdk_go_v2_secretsmanager/vendor/github.com/aws/aws-sdk-go-v2/service/secretsmanager \
 		aws:aws-sdk-go-v2:v1.36.3:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+		aws:aws-sdk-go-v2:v1.36.6:aws_aws_sdk_go_v2_ecr/vendor/github.com/aws/aws-sdk-go-v2/service/ecr \
 		aws:aws-sdk-go-v2:v1.37.18:aws_aws_sdk_go_v2_kms/vendor/github.com/aws/aws-sdk-go-v2/service/kms \
+		aws:aws-sdk-go-v2:v1.37.1:aws_aws_sdk_go_v2_dynamodb/vendor/github.com/aws/aws-sdk-go-v2/service/dynamodb \
+		aws:aws-sdk-go-v2:v1.37.1:aws_aws_sdk_go_v2_sqs/vendor/github.com/aws/aws-sdk-go-v2/service/sqs \
+		aws:aws-sdk-go-v2:v1.38.1:aws_aws_sdk_go_v2_iam/vendor/github.com/aws/aws-sdk-go-v2/service/iam \
+		aws:aws-sdk-go-v2:v1.44.0:aws_aws_sdk_go_v2_cloudwatchlogs/vendor/github.com/aws/aws-sdk-go-v2/service/cloudwatchlogs \
+		aws:aws-sdk-go-v2:v1.46.2:aws_aws_sdk_go_v2_route53/vendor/github.com/aws/aws-sdk-go-v2/service/route53 \
 		aws:aws-sdk-go-v2:v1.5.2:aws_aws_sdk_go_v2_checksum/vendor/github.com/aws/aws-sdk-go-v2/service/internal/checksum \
+		aws:aws-sdk-go-v2:v1.51.0:aws_aws_sdk_go_v2_autoscaling/vendor/github.com/aws/aws-sdk-go-v2/service/autoscaling \
+		aws:aws-sdk-go-v2:v1.52.0:aws_aws_sdk_go_v2_ecs/vendor/github.com/aws/aws-sdk-go-v2/service/ecs \
+		aws:aws-sdk-go-v2:v1.56.0:aws_aws_sdk_go_v2_ssm/vendor/github.com/aws/aws-sdk-go-v2/service/ssm \
 		aws:aws-sdk-go-v2:v1.6.7:aws_aws_sdk_go_v2_eventstream/vendor/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream \
+		aws:aws-sdk-go-v2:v1.69.0:aws_aws_sdk_go_v2_lambda/vendor/github.com/aws/aws-sdk-go-v2/service/lambda \
 		aws:aws-sdk-go-v2:v1.74.0:aws_aws_sdk_go_v2_s3/vendor/github.com/aws/aws-sdk-go-v2/service/s3 \
 		aws:aws-sdk-go-v2:v1.8.2:aws_aws_sdk_go_v2_ini/vendor/github.com/aws/aws-sdk-go-v2/internal/ini \
+		aws:aws-sdk-go-v2:v1.91.0:aws_aws_sdk_go_v2_rds/vendor/github.com/aws/aws-sdk-go-v2/service/rds \
 		aws:aws-sdk-go-v2:v2.6.32:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 \
 		aws:aws-sdk-go:v1.55.6:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
 		aws:smithy-go:v1.22.2:aws_smithy_go/vendor/github.com/aws/smithy-go \
@@ -87,7 +103,6 @@ GH_TUPLE=	\
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
 		gofrs:flock:v0.12.1:gofrs_flock/vendor/github.com/gofrs/flock \
-		gogo:protobuf:v1.3.2:gogo_protobuf/vendor/github.com/gogo/protobuf \
 		golang-jwt:jwt:v5.2.1:golang_jwt_jwt_v5/vendor/github.com/golang-jwt/jwt/v5 \
 		golang:crypto:v0.33.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:7588d65b2ba8:golang_exp/vendor/golang.org/x/exp \
@@ -129,7 +144,7 @@ GH_TUPLE=	\
 		gruntwork-io:boilerplate:v0.6.0:gruntwork_io_boilerplate/vendor/github.com/gruntwork-io/boilerplate \
 		gruntwork-io:go-commons:v0.17.2:gruntwork_io_go_commons/vendor/github.com/gruntwork-io/go-commons \
 		gruntwork-io:terragrunt-engine-go:v0.0.8:gruntwork_io_terragrunt_engine_go/vendor/github.com/gruntwork-io/terragrunt-engine-go \
-		gruntwork-io:terratest:v0.47.2:gruntwork_io_terratest/vendor/github.com/gruntwork-io/terratest \
+		gruntwork-io:terratest:v0.48.2:gruntwork_io_terratest/vendor/github.com/gruntwork-io/terratest \
 		hashicorp:errwrap:v1.1.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
 		hashicorp:go-getter:v1.7.8:hashicorp_go_getter/vendor/github.com/hashicorp/go-getter \
@@ -158,6 +173,10 @@ GH_TUPLE=	\
 		huandu:go-clone:v1.7.2:huandu_go_clone/vendor/github.com/huandu/go-clone \
 		huandu:xstrings:v1.5.0:huandu_xstrings/vendor/github.com/huandu/xstrings \
 		inancgumus:screen:06e984b86ed3:inancgumus_screen/vendor/github.com/inancgumus/screen \
+		jackc:pgpassfile:v1.0.0:jackc_pgpassfile/vendor/github.com/jackc/pgpassfile \
+		jackc:pgservicefile:5a60cdf6a761:jackc_pgservicefile/vendor/github.com/jackc/pgservicefile \
+		jackc:pgx:v5.7.1:jackc_pgx_v5/vendor/github.com/jackc/pgx/v5 \
+		jackc:puddle:v2.2.2:jackc_puddle_v2/vendor/github.com/jackc/puddle/v2 \
 		jessevdk:go-flags:v1.6.1:jessevdk_go_flags/vendor/github.com/jessevdk/go-flags \
 		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
 		jstemmer:go-junit-report:v1.0.0:jstemmer_go_junit_report/vendor/github.com/jstemmer/go-junit-report \
