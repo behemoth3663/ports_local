@@ -1,0 +1,77 @@
+--- Makefile.deps.orig	2025-03-11 14:08:16 UTC
++++ Makefile.deps
+@@ -280,41 +280,36 @@ post-extract:
+ 		#	::v2.70.1:group_name/vendor/k8s.io/klog/v2 (from k8s.io/klog/v2@v2.70.1)
+ 		#	::v4.2.3:group_name/vendor/sigs.k8s.io/structured-merge-diff/v4 (from sigs.k8s.io/structured-merge-diff/v4@v4.2.3)
+ post-extract:
+-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/azure
+-	@${RLN} ${WRKSRC_hashicorp_terraform_azure}/internal/backend/remote-state/azure ${WRKSRC}/internal/backend/remote-state/azure
+-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/azure
+-	@${RLN} ${WRKSRC_hashicorp_terraform_azure_1}/internal/backend/remote-state/azure ${WRKSRC}/internal/backend/remote-state/azure
+-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/consul
+-	@${RLN} ${WRKSRC_hashicorp_terraform_consul_1}/internal/backend/remote-state/consul ${WRKSRC}/internal/backend/remote-state/consul
+-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/consul
+-	@${RLN} ${WRKSRC_hashicorp_terraform_consul}/internal/backend/remote-state/consul ${WRKSRC}/internal/backend/remote-state/consul
+-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/cos
+-	@${RLN} ${WRKSRC_hashicorp_terraform_cos_1}/internal/backend/remote-state/cos ${WRKSRC}/internal/backend/remote-state/cos
+-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/cos
+-	@${RLN} ${WRKSRC_hashicorp_terraform_cos}/internal/backend/remote-state/cos ${WRKSRC}/internal/backend/remote-state/cos
+-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/gcs
+-	@${RLN} ${WRKSRC_hashicorp_terraform_gcs_1}/internal/backend/remote-state/gcs ${WRKSRC}/internal/backend/remote-state/gcs
+-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/gcs
+-	@${RLN} ${WRKSRC_hashicorp_terraform_gcs}/internal/backend/remote-state/gcs ${WRKSRC}/internal/backend/remote-state/gcs
+-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/kubernetes
+-	@${RLN} ${WRKSRC_hashicorp_terraform_kubernetes}/internal/backend/remote-state/kubernetes ${WRKSRC}/internal/backend/remote-state/kubernetes
+-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/kubernetes
+-	@${RLN} ${WRKSRC_hashicorp_terraform_kubernetes_1}/internal/backend/remote-state/kubernetes ${WRKSRC}/internal/backend/remote-state/kubernetes
+-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/oss
+-	@${RLN} ${WRKSRC_hashicorp_terraform_oss}/internal/backend/remote-state/oss ${WRKSRC}/internal/backend/remote-state/oss
+-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/oss
+-	@${RLN} ${WRKSRC_hashicorp_terraform_oss_1}/internal/backend/remote-state/oss ${WRKSRC}/internal/backend/remote-state/oss
+-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/pg
+-	@${RLN} ${WRKSRC_hashicorp_terraform_pg}/internal/backend/remote-state/pg ${WRKSRC}/internal/backend/remote-state/pg
+-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/pg
+-	@${RLN} ${WRKSRC_hashicorp_terraform_pg_1}/internal/backend/remote-state/pg ${WRKSRC}/internal/backend/remote-state/pg
+-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/s3
+-	@${RLN} ${WRKSRC_hashicorp_terraform_s3_1}/internal/backend/remote-state/s3 ${WRKSRC}/internal/backend/remote-state/s3
+-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/s3
+-	@${RLN} ${WRKSRC_hashicorp_terraform_s3}/internal/backend/remote-state/s3 ${WRKSRC}/internal/backend/remote-state/s3
+-	@${RM} -r ${WRKSRC}/internal/legacy
+-	@${RLN} ${WRKSRC_hashicorp_terraform_legacy}/internal/legacy ${WRKSRC}/internal/legacy
+-	@${RM} -r ${WRKSRC}/internal/legacy
+-	@${RLN} ${WRKSRC_hashicorp_terraform_legacy_1}/internal/legacy ${WRKSRC}/internal/legacy
+-	@${MKDIR} ${WRKSRC}/vendor/github.com/hashicorp
+-	@${RLN} ${WRKSRC_fsnotify_fsnotify} ${WRKSRC}/vendor/github.com/hashicorp/go-version
++	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
++	@${MKDIR} ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state
++	@${CP} -r ${WRKSRC}/internal/backend/remote-state/azure ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/azure
++	@${CP} -r ${WRKSRC}/internal/backend/remote-state/consul ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/consul
++	@${CP} -r ${WRKSRC}/internal/backend/remote-state/cos ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/cos
++	@${CP} -r ${WRKSRC}/internal/backend/remote-state/gcs ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/gcs
++	@${CP} -r ${WRKSRC}/internal/backend/remote-state/kubernetes ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes
++	@${CP} -r ${WRKSRC}/internal/backend/remote-state/oss ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/oss
++	@${CP} -r ${WRKSRC}/internal/backend/remote-state/pg ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/pg
++	@${CP} -r ${WRKSRC}/internal/backend/remote-state/s3 ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/s3
++	@${CP} -r ${WRKSRC}/internal/legacy ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
++	@${RLN} ${WRKSRC_azure_go_autorest_autorest}/autorest ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/logger
++	@${RLN} ${WRKSRC_azure_go_autorest_logger}/logger ${WRKSRC}/vendor/github.com/Azure/go-autorest/logger
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/date
++	@${RLN} ${WRKSRC_azure_go_autorest_date}/autorest/date ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/date
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/tracing
++	@${RLN} ${WRKSRC_azure_go_autorest_tracing}/tracing ${WRKSRC}/vendor/github.com/Azure/go-autorest/tracing
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/adal
++	@${RLN} ${WRKSRC_azure_go_autorest_adal}/autorest/adal ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/adal
++	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
++	@${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go
++	@${RM} -r ${WRKSRC}/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common
++	@${RLN} ${WRKSRC_tencentcloud_tencentcloud_sdk_go_common}/tencentcloud/common ${WRKSRC}/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common
++	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/exporters
++	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib_autoexport}/exporters/autoexport ${WRKSRC}/vendor/go.opentelemetry.io/contrib/exporters
++	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace
++	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_otlptrace}/exporters/otlp/otlptrace ${WRKSRC}/vendor/go.opentelemetry.io/otel/exporters/otlp
++	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2
++	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib_otelaws}/instrumentation/github.com/aws/aws-sdk-go-v2/otelaws ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2
++	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc
++	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib_otelgrpc}/instrumentation/google.golang.org/grpc/otelgrpc ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc
