@@ -281,16 +281,23 @@ GH_TUPLE=	\
 		#	::v4.2.3:group_name/vendor/sigs.k8s.io/structured-merge-diff/v4 (from sigs.k8s.io/structured-merge-diff/v4@v4.2.3)
 post-extract:
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+	@${RM} ${WRKSRC}/vendor/github.com/hashicorp/aws-sdk-go-base/v2/logging/attributes.go
+	@${RM} ${WRKSRC}/internal/command/telemetry.go
+	@${RM} ${WRKSRC}/internal/promising/telemetry.go
+	@${RM} ${WRKSRC}/internal/stacks/stackruntime/internal/stackeval/telemetry.go
+	@${RM} ${WRKSRC}/internal/stacks/stackruntime/telemetry.go
+	@${RM} ${WRKSRC}/internal/rpcapi/telemetry.go
+	@${RM} ${WRKSRC}/telemetry.go
 	@${MKDIR} ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state
-	@${CP} -r ${WRKSRC}/internal/backend/remote-state/azure ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/azure
-	@${CP} -r ${WRKSRC}/internal/backend/remote-state/consul ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/consul
-	@${CP} -r ${WRKSRC}/internal/backend/remote-state/cos ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/cos
-	@${CP} -r ${WRKSRC}/internal/backend/remote-state/gcs ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/gcs
-	@${CP} -r ${WRKSRC}/internal/backend/remote-state/kubernetes ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes
-	@${CP} -r ${WRKSRC}/internal/backend/remote-state/oss ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/oss
-	@${CP} -r ${WRKSRC}/internal/backend/remote-state/pg ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/pg
-	@${CP} -r ${WRKSRC}/internal/backend/remote-state/s3 ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/s3
-	@${CP} -r ${WRKSRC}/internal/legacy ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal
+	@${RLN} ${WRKSRC}/internal/backend/remote-state/azure ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/azure
+	@${RLN} ${WRKSRC}/internal/backend/remote-state/consul ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/consul
+	@${RLN} ${WRKSRC}/internal/backend/remote-state/cos ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/cos
+	@${RLN} ${WRKSRC}/internal/backend/remote-state/gcs ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/gcs
+	@${RLN} ${WRKSRC}/internal/backend/remote-state/kubernetes ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes
+	@${RLN} ${WRKSRC}/internal/backend/remote-state/oss ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/oss
+	@${RLN} ${WRKSRC}/internal/backend/remote-state/pg ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/pg
+	@${RLN} ${WRKSRC}/internal/backend/remote-state/s3 ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/s3
+	@${RLN} ${WRKSRC}/internal/legacy ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal
 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
 	@${RLN} ${WRKSRC_azure_go_autorest_autorest}/autorest ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/logger
@@ -305,11 +312,3 @@ post-extract:
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go
 	@${RM} -r ${WRKSRC}/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common
 	@${RLN} ${WRKSRC_tencentcloud_tencentcloud_sdk_go_common}/tencentcloud/common ${WRKSRC}/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common
-	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/exporters
-	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib_autoexport}/exporters/autoexport ${WRKSRC}/vendor/go.opentelemetry.io/contrib/exporters
-	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace
-	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_otlptrace}/exporters/otlp/otlptrace ${WRKSRC}/vendor/go.opentelemetry.io/otel/exporters/otlp
-	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2
-	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib_otelaws}/instrumentation/github.com/aws/aws-sdk-go-v2/otelaws ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2
-	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc
-	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib_otelgrpc}/instrumentation/google.golang.org/grpc/otelgrpc ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc

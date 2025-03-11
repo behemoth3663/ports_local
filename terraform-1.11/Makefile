@@ -111,6 +111,9 @@ GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+)/vendor/github.com/Azure/go-au
 # aws:aws-sdk-go:v1.44.122:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go
 GH_TUPLE:=	${GH_TUPLE:Naws*aws_aws_sdk_go_v2_*/vendor/github.com/aws/aws-sdk-go-v2/*}
 
+#-census-instrumentation:opencensus-go:v0.24.0:census_instrumentation_opencensus_go/vendor/go.opencensus.io
+GH_TUPLE:=	${GH_TUPLE:Ncensus-instrumentation\:opencensus-go\:*}
+
 # google:go-genproto:b8732ec3820d:google_go_genproto/vendor/google.golang.org/genproto
 #-google:go-genproto:b8732ec3820d:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api
 #-google:go-genproto:b8732ec3820d:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc
@@ -176,26 +179,6 @@ GH_TUPLE:=	${GH_TUPLE:N*/tencentcloud-sdk-go/*}
 
 #+hashicorp:go-version:v1.7.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version
 GH_TUPLE+=	hashicorp:go-version:v1.7.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version
-
-#+open-telemetry:opentelemetry-go-contrib:instrumentation/github.com/aws/aws-sdk-go-v2/otelaws/v0.55.0:open_telemetry_opentelemetry_go_contrib_otelaws
-#+open-telemetry:opentelemetry-go-contrib:instrumentation/google.golang.org/grpc/otelgrpc/v0.46.0:open_telemetry_opentelemetry_go_contrib_otelgrpc
-#+open-telemetry:opentelemetry-go-contrib:exporters/autoexport/v0.45.0:open_telemetry_opentelemetry_go_contrib_autoexport
-#+open-telemetry:opentelemetry-go:exporters/otlp/otlptrace/v1.19.0:open_telemetry_opentelemetry_go_otlptrace
-#+open-telemetry:opentelemetry-go:v1.30.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel
-#+open-telemetry:opentelemetry-proto-go:otlp/v1.0.0:open_telemetry_opentelemetry_proto_go/vendor/go.opentelemetry.io/proto
-#
-#::v0.55.0:group_name/vendor/go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2/otelaws (from go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2/otelaws@v0.55.0)
-#::v0.46.0:group_name/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc (from go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc@v0.46.0)
-#::v0.45.0:group_name/vendor/go.opentelemetry.io/contrib/exporters/autoexport (from go.opentelemetry.io/contrib/exporters/autoexport@v0.45.0)
-#::v1.19.0:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace (from go.opentelemetry.io/otel/exporters/otlp/otlptrace@v1.19.0)
-#::v1.30.0:group_name/vendor/go.opentelemetry.io/otel (from go.opentelemetry.io/otel@v1.30.0)
-#::v1.0.0:group_name/vendor/go.opentelemetry.io/proto/otlp (from go.opentelemetry.io/proto/otlp@v1.0.0)
-GH_TUPLE+=	open-telemetry:opentelemetry-go-contrib:instrumentation/github.com/aws/aws-sdk-go-v2/otelaws/v0.55.0:open_telemetry_opentelemetry_go_contrib_otelaws
-GH_TUPLE+=	open-telemetry:opentelemetry-go-contrib:instrumentation/google.golang.org/grpc/otelgrpc/v0.46.0:open_telemetry_opentelemetry_go_contrib_otelgrpc
-GH_TUPLE+=	open-telemetry:opentelemetry-go-contrib:exporters/autoexport/v0.45.0:open_telemetry_opentelemetry_go_contrib_autoexport
-GH_TUPLE+=	open-telemetry:opentelemetry-go:exporters/otlp/otlptrace/v1.19.0:open_telemetry_opentelemetry_go_otlptrace
-GH_TUPLE+=	open-telemetry:opentelemetry-go:v1.30.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel
-GH_TUPLE+=	open-telemetry:opentelemetry-proto-go:otlp/v1.0.0:open_telemetry_opentelemetry_proto_go/vendor/go.opentelemetry.io/proto
 
 .sinclude "${.CURDIR}/generated.deps.mk"
 .include <bsd.port.mk>
