@@ -210,14 +210,6 @@ GH_TUPLE=	\
 		muesli:reflow:v0.3.0:muesli_reflow/vendor/github.com/muesli/reflow \
 		muesli:termenv:8c990cd6cf4b:muesli_termenv/vendor/github.com/muesli/termenv \
 		oklog:run:v1.1.0:oklog_run/vendor/github.com/oklog/run \
-		open-telemetry:opentelemetry-go-contrib:instrumentation/google.golang.org/grpc/otelgrpc/v0.59.0:open_telemetry_opentelemetry_go_contrib \
-		open-telemetry:opentelemetry-go-contrib:instrumentation/net/http/otelhttp/v0.59.0:open_telemetry_opentelemetry_go_contrib_otelhttp \
-		open-telemetry:opentelemetry-go-contrib:detectors/gcp/v1.34.0:open_telemetry_opentelemetry_go_contrib_detectors_gcp \
-		open-telemetry:opentelemetry-go:exporters/otlp/otlptrace/v1.34.0:open_telemetry_opentelemetry_go_otlptrace \
-		open-telemetry:opentelemetry-go:exporters/otlp/otlpmetric/otlpmetrichttp/v1.34.0:open_telemetry_opentelemetry_go_otlpmetrichttp \
-		open-telemetry:opentelemetry-go:exporters/otlp/otlpmetric/otlpmetricgrpc/v1.34.0:open_telemetry_opentelemetry_go_otlpmetricgrpc \
-		open-telemetry:opentelemetry-go-instrumentation:sdk/v1.1.0:open_telemetry_opentelemetry_go_instrumentation/vendor/go.opentelemetry.io/auto \
-		open-telemetry:opentelemetry-proto-go:otlp/v1.5.0:open_telemetry_opentelemetry_proto_go/vendor/go.opentelemetry.io/proto \
 		owenrumney:go-sarif:v1.1.1:owenrumney_go_sarif/vendor/github.com/owenrumney/go-sarif \
 		pkg:browser:5ac0b6a4141c:pkg_browser/vendor/github.com/pkg/browser \
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
@@ -282,10 +274,16 @@ GH_TUPLE=	\
 		#	::v1.5.0:group_name/vendor/go.opentelemetry.io/proto/otlp (from go.opentelemetry.io/proto/otlp@v1.5.0)
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
-	@${RM} -r ${WRKSRC}/vendor/google.golang.org/grpc/stats/opentelemetry/grpc-go-*
-	@${RM} -r ${WRKSRC}/vendor/go.opencensus.io/plugin
-	@${RM} -r ${WRKSRC}/vendor/go.opencensus.io/trace/propagation
+	@${RM} -r ${WRKSRC}/telemetry/metrics*.go
+	@${RM} -r ${WRKSRC}/telemetry/traces*.go
+	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/internal/trace
+	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage/trace.go
+	@${RM} -r ${WRKSRC}/vendor/google.golang.org/grpc/stats/opentelemetry
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/auth
+	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage/grpc_metrics.go
+	@${RM} -r ${WRKSRC}/vendor/github.com/envoyproxy/go-control-plane/envoy/config/trace/v3/opencensus.pb.go
+	@${RM} -r ${WRKSRC}/vendor/github.com/envoyproxy/go-control-plane/envoy/config/trace/v3/opencensus.pb.validate.go
+	@${RM} -r ${WRKSRC}/vendor/github.com/envoyproxy/go-control-plane/envoy/config/trace/v3/trace.pb.go
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_auth}/auth ${WRKSRC}/vendor/cloud.google.com/go
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute
@@ -299,15 +297,3 @@ post-extract: .PHONY
 	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_azidentity}/sdk/azidentity ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/azidentity
 	@${RM} -r ${WRKSRC}/vendor/github.com/hashicorp/go-secure-stdlib/parseutil
 	@${RLN} ${WRKSRC_hashicorp_go_secure_stdlib_parseutil}/parseutil ${WRKSRC}/vendor/github.com/hashicorp/go-secure-stdlib/parseutil
-	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc
-	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib}/instrumentation/google.golang.org/grpc/otelgrpc ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc
-	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/net/http
-	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib_otelhttp}/instrumentation/net/http/otelhttp ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/net/http
-	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/detectors
-	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib_detectors_gcp}/detectors/gcp ${WRKSRC}/vendor/go.opentelemetry.io/contrib/detectors
-	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace
-	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_otlptrace}/exporters/otlp/otlptrace ${WRKSRC}/vendor/go.opentelemetry.io/otel/exporters/otlp
-	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp
-	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_otlpmetrichttp}/exporters/otlp/otlpmetric/otlpmetrichttp ${WRKSRC}/vendor/go.opentelemetry.io/otel/exporters/otlp/otlpmetric
-	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc
-	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_otlpmetricgrpc}/exporters/otlp/otlpmetric/otlpmetricgrpc ${WRKSRC}/vendor/go.opentelemetry.io/otel/exporters/otlp/otlpmetric
