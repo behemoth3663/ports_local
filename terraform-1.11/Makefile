@@ -1,5 +1,5 @@
 PORTNAME=	terraform
-PORTVERSION=	1.11.1
+PORTVERSION=	1.11.2
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -40,19 +40,23 @@ post-install: .PHONY
 	${MV} ${STAGEDIR}${PREFIX}/bin/${PORTNAME} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION}
 	${INSTALL} -l rs ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}${PKGNAMESUFFIX}
 
-pre-deps post-deps-all: .PHONY
+pre-deps: .PHONY
+	if [ -d '${PATCHDIR}_' ]; then \
+		${RM} -r ${PATCHDIR}; \
+	else \
+		${MV} ${PATCHDIR} ${PATCHDIR}_; \
+	fi
+
+post-deps-all: .PHONY
+	test ! -d '${PATCHDIR}_' || ${MV} ${PATCHDIR}_ ${PATCHDIR}
+
 pre-deps-all: .PHONY
-	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 	${RM} ${.CURDIR}/generated.deps.mk
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes-sigs GHT_PROJ=json GHT_PATH=sigs.k8s.io/json )
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes-sigs GHT_PROJ=structured-merge-diff GHT_PATH=sigs.k8s.io/structured-merge-diff/v4 )
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes GHT_PROJ=klog GHT_PATH=k8s.io/klog/v2 )
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=SSLMate GHT_PROJ=go-pkcs12 GHT_PATH=software.sslmate.com/src/go-pkcs12 )
-
-		#	::f223a00ba0e2:group_name/vendor/sigs.k8s.io/json (from sigs.k8s.io/json@f223a00ba0e2)
-		#	::v4.2.3:group_name/vendor/sigs.k8s.io/structured-merge-diff/v4 (from sigs.k8s.io/structured-merge-diff/v4@v4.2.3)
-		#	::v2.70.1:group_name/vendor/k8s.io/klog/v2 (from k8s.io/klog/v2@v2.70.1)
-		#	::v0.4.0:group_name/vendor/software.sslmate.com/src/go-pkcs12 (from software.sslmate.com/src/go-pkcs12@v0.4.0)
 
 make-from-deps: .PHONY
 	@${SED} -rn \
