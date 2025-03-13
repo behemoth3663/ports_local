@@ -22,6 +22,10 @@ M2T_OFFLINE=	true
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static"
 
+post-extract: .PHONY
+	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+	@${RM} ${WRKSRC}/vendor/github.com/hashicorp/aws-sdk-go-base/v2/logging/attributes.go
+
 pre-deps post-deps-all: .PHONY
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
