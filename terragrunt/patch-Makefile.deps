@@ -1,8 +1,8 @@
---- Makefile.deps.orig	2025-03-12 22:26:23 UTC
+--- Makefile.deps.orig	2025-03-14 21:53:15 UTC
 +++ Makefile.deps
-@@ -272,3 +272,28 @@ GH_TUPLE=	\
- 		#	::v1.34.0:group_name/vendor/go.opentelemetry.io/otel/sdk/metric (from go.opentelemetry.io/otel/sdk/metric@v1.34.0)
- 		#	::v1.34.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.34.0)
+@@ -271,3 +271,28 @@ GH_TUPLE=	\
+ 		#	::v1.35.0:group_name/vendor/go.opentelemetry.io/otel/sdk/metric (from go.opentelemetry.io/otel/sdk/metric@v1.35.0)
+ 		#	::v1.35.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.35.0)
  		#	::v1.5.0:group_name/vendor/go.opentelemetry.io/proto/otlp (from go.opentelemetry.io/proto/otlp@v1.5.0)
 +post-extract: .PHONY
 +	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor

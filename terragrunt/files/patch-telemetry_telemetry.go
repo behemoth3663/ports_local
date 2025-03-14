@@ -1,4 +1,4 @@
---- telemetry/telemetry.go.orig	2025-03-12 13:22:56 UTC
+--- telemetry/telemetry.go.orig	2025-03-14 14:32:54 UTC
 +++ telemetry/telemetry.go
 @@ -7,15 +7,6 @@ import (
  	"io"
@@ -67,7 +67,7 @@
  }
  
  // Telemetry - collect telemetry from function execution - metrics and traces.
- func Telemetry(ctx context.Context, opts *options.TerragruntOptions, name string, attrs map[string]interface{}, fn func(childCtx context.Context) error) error {
+ func Telemetry(ctx context.Context, opts *options.TerragruntOptions, name string, attrs map[string]any, fn func(childCtx context.Context) error) error {
 -	// wrap telemetry collection with trace and time metric
 -	return Trace(ctx, name, attrs, func(ctx context.Context) error {
 -		return Time(ctx, name, attrs, fn)
@@ -75,7 +75,7 @@
 -}
 -
 -// mapToAttributes - convert map to attributes to pass to span.SetAttributes.
--func mapToAttributes(data map[string]interface{}) []attribute.KeyValue {
+-func mapToAttributes(data map[string]any) []attribute.KeyValue {
 -	var attrs []attribute.KeyValue
 -
 -	for k, v := range data {
