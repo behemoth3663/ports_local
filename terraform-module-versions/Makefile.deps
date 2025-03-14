@@ -20,7 +20,7 @@ GH_TUPLE=	\
 		golang:crypto:v0.35.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:groupcache:2c02b8208cf8:golang_groupcache/vendor/github.com/golang/groupcache \
 		golang:mod:v0.21.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.35.0:golang_net/vendor/golang.org/x/net \
+		golang:net:v0.36.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.23.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:sync:v0.11.0:golang_sync/vendor/golang.org/x/sync \
