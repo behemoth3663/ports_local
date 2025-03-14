@@ -60,7 +60,8 @@ RARE_VARS=	GO_TARGET+=" \
 		./cmd/auth/authtest \
 		./cmd/benchcmp"
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -X 'github.com/main.version=${PORTVERSION}'"
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+	-X 'main.version=${PORTVERSION}'"
 
 PLIST_FILES=	${GO_TARGET:T:S,^,bin/,}
 

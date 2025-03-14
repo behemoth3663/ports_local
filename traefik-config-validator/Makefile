@@ -19,7 +19,7 @@ GH_ACCOUNT=	otto-de
 
 GO_TARGET=	./cmd/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -X 'github.com/main.version=${PORTVERSION}'"
+GO_BUILDFLAGS+=	-ldflags="-s -w -X 'main.version=${PORTVERSION}'"
 
 PLIST_FILES=	bin/${PORTNAME}
 
