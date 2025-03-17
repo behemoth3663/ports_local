@@ -24,7 +24,7 @@ GH_TUPLE=	\
 		golang:sync:v0.10.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.29.0:golang_sys/vendor/golang.org/x/sys \
 		golang:text:v0.21.0:golang_text/vendor/golang.org/x/text \
-		golang:time:v0.9.0:golang_time/vendor/golang.org/x/time \
+		golang:time:v0.10.0:golang_time/vendor/golang.org/x/time \
 		golang:tools:v0.29.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-github:v68.0.0:google_go_github_v68/vendor/github.com/google/go-github/v68 \
@@ -68,9 +68,9 @@ GH_TUPLE=	\
 		xrash:smetrics:686a1a2994c1:xrash_smetrics/vendor/github.com/xrash/smetrics \
 		zclconf:go-cty:v1.16.2:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 		# Errors found during processing:
-		#	error getting commit v0.124.0 for gitlab-org/api: not found
+		#	error getting commit v0.125.0 for gitlab-org/api: not found
 GL_TUPLE=	\
-		gitlab-org-api:client-go:v0.124.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
+		gitlab-org-api:client-go:v0.125.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
 post-extract: .PHONY
 	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 	${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/exporters
