@@ -68,9 +68,9 @@ GH_TUPLE=	\
 		xrash:smetrics:686a1a2994c1:xrash_smetrics/vendor/github.com/xrash/smetrics \
 		zclconf:go-cty:v1.16.2:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 		# Errors found during processing:
-		#	error getting commit v0.125.0 for gitlab-org/api: not found
+		#	error getting commit v0.126.0 for gitlab-org/api: not found
 GL_TUPLE=	\
-		gitlab-org-api:client-go:v0.125.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
+		gitlab-org-api:client-go:v0.126.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
 post-extract: .PHONY
 	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 	${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/exporters

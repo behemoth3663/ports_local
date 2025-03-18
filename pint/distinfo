@@ -1,6 +1,6 @@
-TIMESTAMP = 1742242944
-SHA256 (cloudflare-pint-v0.71.6_GH0.tar.gz) = d78e69c525ee21d41cca8f6629fd56f9d7f3a1ebdf919a6c729b4c89792a5b17
-SIZE (cloudflare-pint-v0.71.6_GH0.tar.gz) = 433087
+TIMESTAMP = 1742293709
+SHA256 (cloudflare-pint-v0.71.7_GH0.tar.gz) = 589fe428338de4604a434831895a4eb068c0c2cb8a09723a58b3c8915c5184b8
+SIZE (cloudflare-pint-v0.71.7_GH0.tar.gz) = 433902
 SHA256 (agext-levenshtein-v1.2.1_GH0.tar.gz) = c6e4bc2db1f0d9bc57fd3f1887567d527f6df1bcfbb079d1d1c4eab17f320b50
 SIZE (agext-levenshtein-v1.2.1_GH0.tar.gz) = 12728
 SHA256 (apparentlymart-go-textseg-v15.0.0_GH0.tar.gz) = d73ee2bce8c1a8e35b0355a8cb66d05cd65a07099b7edaf1e44edc51cf33210d
@@ -137,5 +137,5 @@ SHA256 (xrash-smetrics-686a1a2994c1_GH0.tar.gz) = 8bc1fb90f87d0e470ca57181d642bb
 SIZE (xrash-smetrics-686a1a2994c1_GH0.tar.gz) = 1823556
 SHA256 (zclconf-go-cty-v1.16.2_GH0.tar.gz) = eb6206c544a40313a4152bddfb435aeb087332916e29fd440852e064ee09120e
 SIZE (zclconf-go-cty-v1.16.2_GH0.tar.gz) = 250783
-SHA256 (client-go-v0.125.0.tar.bz2) = 3511c02681e82618de930cddfeba619c39bbac66d6d6f481851441adb460c4d4
-SIZE (client-go-v0.125.0.tar.bz2) = 318315
+SHA256 (client-go-v0.126.0.tar.bz2) = 1a0de84a09856d4c700ab42b426d7c427420a8610734848782edfc165d79f28d
+SIZE (client-go-v0.126.0.tar.bz2) = 422170

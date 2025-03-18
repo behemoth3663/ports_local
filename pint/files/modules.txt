@@ -252,7 +252,7 @@ github.com/zclconf/go-cty/cty/function/stdlib
 github.com/zclconf/go-cty/cty/gocty
 github.com/zclconf/go-cty/cty/json
 github.com/zclconf/go-cty/cty/set
-# gitlab.com/gitlab-org/api/client-go v0.125.0
+# gitlab.com/gitlab-org/api/client-go v0.126.0
 ## explicit; go 1.22
 gitlab.com/gitlab-org/api/client-go
 # go.opentelemetry.io/auto/sdk v1.1.0
