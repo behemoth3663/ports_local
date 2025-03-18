@@ -1,6 +1,6 @@
-TIMESTAMP = 1742035068
-SHA256 (golangci-golangci-lint-v1.64.7_GH0.tar.gz) = 1474ceb2e620f4c69e9a9c94942675a59be5d188fcec728c7ba15127133b2404
-SIZE (golangci-golangci-lint-v1.64.7_GH0.tar.gz) = 2070704
+TIMESTAMP = 1742294874
+SHA256 (golangci-golangci-lint-v1.64.8_GH0.tar.gz) = 30ee6e08bf87d7bc2dcc80b7708033e967eae795451d63a693614c905d42241b
+SIZE (golangci-golangci-lint-v1.64.8_GH0.tar.gz) = 2071177
 SHA256 (4meepo-tagalign-v1.4.2_GH0.tar.gz) = 80884ac9bd081ba54d3b27c32652e360c2c9dfa7a25ee51b134189b2a0b36d83
 SIZE (4meepo-tagalign-v1.4.2_GH0.tar.gz) = 12698
 SHA256 (Abirdcfly-dupword-v0.1.3_GH0.tar.gz) = caf3f34c24d57182886790f74aefbd008c554d4d7c217432016d6bb1596b0c85

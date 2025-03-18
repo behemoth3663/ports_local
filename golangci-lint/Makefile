@@ -1,5 +1,5 @@
 PORTNAME=	golangci-lint
-PORTVERSION=	1.64.7
+PORTVERSION=	1.64.8
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -13,7 +13,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 BUILD_DEPENDS=	git:devel/git
 
-USES=		go:1.24,modules
+USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	golangci
