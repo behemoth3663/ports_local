@@ -8,12 +8,12 @@ GH_TUPLE=	\
 		go-toolsmith:pkgload:v1.2.2:go_toolsmith_pkgload/vendor/github.com/go-toolsmith/pkgload \
 		go-toolsmith:strparse:v1.1.0:go_toolsmith_strparse/vendor/github.com/go-toolsmith/strparse \
 		go-toolsmith:typep:v1.1.0:go_toolsmith_typep/vendor/github.com/go-toolsmith/typep \
-		golang:mod:v0.23.0:golang_mod/vendor/golang.org/x/mod \
-		golang:sync:v0.11.0:golang_sync/vendor/golang.org/x/sync \
-		golang:tools:v0.30.0:golang_tools/vendor/golang.org/x/tools \
-		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
+		golang:mod:v0.24.0:golang_mod/vendor/golang.org/x/mod \
+		golang:sync:v0.12.0:golang_sync/vendor/golang.org/x/sync \
+		golang:tools:v0.31.0:golang_tools/vendor/golang.org/x/tools \
+		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		quasilyte:go-ruleguard:v0.3.22:quasilyte_go_ruleguard_dsl/vendor/github.com/quasilyte/go-ruleguard/dsl \
-		quasilyte:go-ruleguard:v0.4.2:quasilyte_go_ruleguard/vendor/github.com/quasilyte/go-ruleguard \
+		quasilyte:go-ruleguard:v0.4.4:quasilyte_go_ruleguard/vendor/github.com/quasilyte/go-ruleguard \
 		quasilyte:gogrep:v0.5.0:quasilyte_gogrep/vendor/github.com/quasilyte/gogrep \
 		quasilyte:regex:b3f0c404a727:quasilyte_regex_syntax/vendor/github.com/quasilyte/regex/syntax \
 		quasilyte:stdinfo:f7386bf02567:quasilyte_stdinfo/vendor/github.com/quasilyte/stdinfo

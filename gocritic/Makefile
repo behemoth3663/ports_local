@@ -1,7 +1,7 @@
 PORTNAME=	gocritic
-PORTVERSION=	0.12.0
+PORTVERSION=	0.13.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+#PORTREVISION=	1
 CATEGORIES=	local devel
 
 MAINTAINER=	fuz@FreeBSD.org
@@ -11,7 +11,7 @@ WWW=		https://go-critic.com/
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:1.24,modules
+USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	go-critic
@@ -30,11 +30,19 @@ M2T_OFFLINE=	true
 .export	M2T_OFFLINE
 
 post-extract: .PHONY
+	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 	@${RM} -r ${WRKSRC}/vendor/github.com/quasilyte/go-ruleguard/dsl
-	@${RLN} ${WRKSRC_quasilyte_go_ruleguard_dsl}/dsl ${WRKSRC}/vendor/github.com/quasilyte/go-ruleguard/dsl
+	@test -z '${WRKSRC_quasilyte_go_ruleguard_dsl}' || ${RLN} ${WRKSRC_quasilyte_go_ruleguard_dsl}/dsl ${WRKSRC}/vendor/github.com/quasilyte/go-ruleguard/dsl
+
+pre-deps: .PHONY
+	if [ -d '${PATCHDIR}_' ]; then \
+		${RM} -r ${PATCHDIR}; \
+	else \
+		${MV} ${PATCHDIR} ${PATCHDIR}_; \
+	fi
 
 pre-deps-all: .PHONY
-#	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 	${RM} ${.CURDIR}/generated.deps.mk
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=golang GHT_PROJ=exp GHT_PATH=golang.org/x/exp/typeparams )
 
@@ -43,7 +51,8 @@ make-from-deps: .PHONY
 		's|^[[:space:]]*#[[:space:]]*::([v0-9.a-f]+):.*/(vendor/${GHT_PATH})[[:space:]].*$$|GH_TUPLE+=${GHT_ACNT}:${GHT_PROJ}:\1:${GHT_ACNT:tl:S/-/_/g}_${GHT_PROJ:tl:S/-/_/g}/\2|p' \
 	${.CURDIR}/Makefile.deps >>${.CURDIR}/generated.deps.mk
 
-pre-deps post-deps-all: .PHONY
+post-deps-all: .PHONY
+	test -d '${PATCHDIR}_' && ${MV} ${PATCHDIR}_ ${PATCHDIR} || :
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
