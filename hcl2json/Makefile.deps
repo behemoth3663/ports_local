@@ -8,4 +8,4 @@ GH_TUPLE=	\
 		golang:tools:v0.28.0:golang_tools/vendor/golang.org/x/tools \
 		hashicorp:hcl:v2.23.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
 		mitchellh:go-wordwrap:v1.0.1:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
-		zclconf:go-cty:v1.15.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+		zclconf:go-cty:v1.16.2:zclconf_go_cty/vendor/github.com/zclconf/go-cty

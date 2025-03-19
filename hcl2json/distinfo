@@ -1,6 +1,6 @@
-TIMESTAMP = 1734800573
-SHA256 (tmccombs-hcl2json-v0.6.5_GH0.tar.gz) = 97d1a180b0226ea3863f7d5fa35899573310b3299abb0220e26e313fdc4f403a
-SIZE (tmccombs-hcl2json-v0.6.5_GH0.tar.gz) = 14326
+TIMESTAMP = 1742412904
+SHA256 (tmccombs-hcl2json-v0.6.6_GH0.tar.gz) = 5dd497f852e4c00b2e80c9f327b5650446d7eb794f8671563f39748dc847b9ba
+SIZE (tmccombs-hcl2json-v0.6.6_GH0.tar.gz) = 14404
 SHA256 (agext-levenshtein-v1.2.3_GH0.tar.gz) = ba59a69fcaea38ec40470cac08620dd2cca1980355d9b10e90e37b3b3ac2eb46
 SIZE (agext-levenshtein-v1.2.3_GH0.tar.gz) = 13227
 SHA256 (apparentlymart-go-textseg-v15.0.0_GH0.tar.gz) = d73ee2bce8c1a8e35b0355a8cb66d05cd65a07099b7edaf1e44edc51cf33210d
@@ -19,5 +19,5 @@ SHA256 (hashicorp-hcl-v2.23.0_GH0.tar.gz) = e68f7d34197c7755931370e7158ddb01275f
 SIZE (hashicorp-hcl-v2.23.0_GH0.tar.gz) = 442780
 SHA256 (mitchellh-go-wordwrap-v1.0.1_GH0.tar.gz) = 56dc8d3883c765d9791a3698a55c66935b2978ac60e0e3c7c8799b182dd22bb5
 SIZE (mitchellh-go-wordwrap-v1.0.1_GH0.tar.gz) = 2921
-SHA256 (zclconf-go-cty-v1.15.1_GH0.tar.gz) = 15e86c9d10c52f920e7f0ff1ab0b0ab2b966333ee98fc837b5ed15af3bd97344
-SIZE (zclconf-go-cty-v1.15.1_GH0.tar.gz) = 248436
+SHA256 (zclconf-go-cty-v1.16.2_GH0.tar.gz) = eb6206c544a40313a4152bddfb435aeb087332916e29fd440852e064ee09120e
+SIZE (zclconf-go-cty-v1.16.2_GH0.tar.gz) = 250783
