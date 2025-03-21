@@ -1,5 +1,5 @@
 PORTNAME=	imgpkg
-PORTVERSION=	0.110.4
+PORTVERSION=	0.44.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -21,6 +21,9 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X 'carvel.dev/imgpkg/pkg/imgpkg/cmd.Version=${DISTVERSIONPREFIX}${PORTVERSION}'"
 
 PLIST_FILES=	bin/${PORTNAME}
+
+M2T_OFFLINE=	true
+.export	M2T_OFFLINE
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
