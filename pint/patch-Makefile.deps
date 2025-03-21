@@ -1,4 +1,4 @@
---- Makefile.deps.orig	2025-03-11 20:30:20 UTC
+--- Makefile.deps.orig	2025-03-21 14:19:38 UTC
 +++ Makefile.deps
 @@ -44,7 +44,7 @@ GH_TUPLE=	\
  		modern-go:reflect2:v1.0.2:modern_go_reflect2/vendor/github.com/modern-go/reflect2 \
@@ -12,9 +12,9 @@
 @@ -69,3 +69,9 @@ GH_TUPLE=	\
  		zclconf:go-cty:v1.16.2:zclconf_go_cty/vendor/github.com/zclconf/go-cty
  		# Errors found during processing:
- 		#	error getting commit v0.124.0 for gitlab-org/api: not found
+ 		#	error getting commit v0.126.0 for gitlab-org/api: not found
 +GL_TUPLE=	\
-+		gitlab-org-api:client-go:v0.124.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
++		gitlab-org-api:client-go:v0.126.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
 +post-extract: .PHONY
 +	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 +	${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/exporters
