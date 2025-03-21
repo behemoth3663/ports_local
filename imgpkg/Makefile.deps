@@ -10,11 +10,11 @@ GH_TUPLE=	\
 		Azure:go-autorest:v14.2.0:azure_go_autorest/vendor/github.com/Azure/go-autorest \
 		VividCortex:ewma:v1.2.0:vividcortex_ewma/vendor/github.com/VividCortex/ewma \
 		aws:aws-sdk-go-v2:v1.7.1:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
-		aws:aws-sdk-go-v2:v1.8.1:aws_aws_sdk_go_v2_imds \
-		aws:aws-sdk-go-v2:v1.3.1:aws_aws_sdk_go_v2_credentials \
-		aws:aws-sdk-go-v2:v1.8.1:aws_aws_sdk_go_v2_config \
-		aws:aws-sdk-go-v2:v1.6.0:aws_aws_sdk_go_v2_sts \
-		aws:aws-sdk-go-v2:v1.2.1:aws_aws_sdk_go_v2_presigned_url \
+		aws:aws-sdk-go-v2:feature/ec2/imds/v1.8.1:aws_aws_sdk_go_v2_imds \
+		aws:aws-sdk-go-v2:credentials/v1.3.1:aws_aws_sdk_go_v2_credentials \
+		aws:aws-sdk-go-v2:config/v1.8.1:aws_aws_sdk_go_v2_config \
+		aws:aws-sdk-go-v2:service/sts/v1.6.0:aws_aws_sdk_go_v2_sts \
+		aws:aws-sdk-go-v2:service/internal/presigned-url/v1.2.1:aws_aws_sdk_go_v2_presigned_url \
 		aws:smithy-go:v1.6.0:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		awslabs:amazon-ecr-credential-helper:e6f29200ae04:awslabs_amazon_ecr_credential_helper_ecr_login/vendor/github.com/awslabs/amazon-ecr-credential-helper \
 		cheggaaa:pb:v3.1.5:cheggaaa_pb_v3/vendor/github.com/cheggaaa/pb \
