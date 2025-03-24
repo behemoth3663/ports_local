@@ -1,5 +1,5 @@
 PORTNAME=	golangci-lint
-PORTVERSION=	1.64.8
+PORTVERSION=	2.0.1
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -45,7 +45,12 @@ post-install-EXAMPLES-on:
 
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
-	@test -z '${WRKSRC_quasilyte_go_ruleguard}' || ${RLN} ${WRKSRC_quasilyte_go_ruleguard} ${WRKSRC}/vendor/github.com/quasilyte/go-ruleguard
+	@${RM} -r ${WRKSRC}/vendor/github.com/quasilyte/go-ruleguard/dsl
+	@test -z '${WRKSRC_quasilyte_go_ruleguard_dsl}' || ${RLN} ${WRKSRC_quasilyte_go_ruleguard_dsl}/dsl ${WRKSRC}/vendor/github.com/quasilyte/go-ruleguard
+	@${RM} -r ${WRKSRC}/vendor/github.com/charmbracelet/x/cellbuf
+	@test -z '${WRKSRC_charmbracelet_x_cellbuf}' || ${RLN} ${WRKSRC_charmbracelet_x_cellbuf}/cellbuf ${WRKSRC}/vendor/github.com/charmbracelet/x
+	@${RM} -r ${WRKSRC}/vendor/github.com/charmbracelet/x/term
+	@test -z '${WRKSRC_charmbracelet_x_term}' || ${RLN} ${WRKSRC_charmbracelet_x_term}/term ${WRKSRC}/vendor/github.com/charmbracelet/x
 
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
@@ -78,11 +83,21 @@ post-deps-all: .PHONY
 
 #-quasilyte:go-ruleguard:0fe6f58b47b1:quasilyte_go_ruleguard/vendor/github.com/quasilyte/go-ruleguard
 #+quasilyte:go-ruleguard:0fe6f58b47b1:quasilyte_go_ruleguard
-GH_TUPLE:=	${GH_TUPLE:S|/vendor/github.com/quasilyte/go-ruleguard$||1}
+#GH_TUPLE:=	${GH_TUPLE:S|/vendor/github.com/quasilyte/go-ruleguard$||1}
 
 #-quasilyte:go-ruleguard:    v0.3.22:quasilyte_go_ruleguard_dsl/vendor/github.com/quasilyte/go-ruleguard/dsl
 #+quasilyte:go-ruleguard:dsl/v0.3.22:quasilyte_go_ruleguard_dsl/vendor/github.com/quasilyte/go-ruleguard
-GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+/vendor/github.com/quasilyte/go-ruleguard)/(dsl)|\1\3/\2|}
+#GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+/vendor/github.com/quasilyte/go-ruleguard)/(dsl)|\1\3/\2|}
+GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+).*/quasilyte/go-ruleguard/(dsl)|\1\3/\2|1}
+
+#-		charmbracelet:x:     v0.1.4:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x/ansi
+#+		charmbracelet:x:ansi/v0.1.4:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x
+GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+):(.*/charmbracelet/x)/(ansi)|\1:\3/\2|1}
+
+#-charmbracelet:x:     v0.2.1:charmbracelet_x_term/vendor/github.com/charmbracelet/x/term
+#+charmbracelet:x:term/v0.2.1:charmbracelet_x_term
+GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+).*/charmbracelet/x/(term)|\1\3/\2|1}
+GH_TUPLE:=	${GH_TUPLE:S|/vendor/github.com/charmbracelet/x/cellbuf$||1}
 
 #-quasilyte:regex:b3f0c404a727:quasilyte_regex_syntax/vendor/github.com/quasilyte/regex/syntax
 #+quasilyte:regex:b3f0c404a727:quasilyte_regex_syntax/vendor/github.com/quasilyte/regex

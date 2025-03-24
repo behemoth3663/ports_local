@@ -1,14 +1,14 @@
 GH_TUPLE=	\
 		4meepo:tagalign:v1.4.2:4meepo_tagalign/vendor/github.com/4meepo/tagalign \
 		Abirdcfly:dupword:v0.1.3:abirdcfly_dupword/vendor/github.com/Abirdcfly/dupword \
-		Antonboom:errname:v1.0.0:antonboom_errname/vendor/github.com/Antonboom/errname \
-		Antonboom:nilnil:v1.0.1:antonboom_nilnil/vendor/github.com/Antonboom/nilnil \
-		Antonboom:testifylint:v1.5.2:antonboom_testifylint/vendor/github.com/Antonboom/testifylint \
-		BurntSushi:toml:a339e1f7089c:burntsushi_toml/vendor/github.com/BurntSushi/toml \
+		Antonboom:errname:v1.1.0:antonboom_errname/vendor/github.com/Antonboom/errname \
+		Antonboom:nilnil:v1.1.0:antonboom_nilnil/vendor/github.com/Antonboom/nilnil \
+		Antonboom:testifylint:v1.6.0:antonboom_testifylint/vendor/github.com/Antonboom/testifylint \
+		BurntSushi:toml:v1.5.0:burntsushi_toml/vendor/github.com/BurntSushi/toml \
 		Crocmagnon:fatcontext:v0.7.1:crocmagnon_fatcontext/vendor/github.com/Crocmagnon/fatcontext \
 		Djarvur:go-err113:aea10b59be24:djarvur_go_err113/vendor/github.com/Djarvur/go-err113 \
 		GaijinEntertainment:go-exhaustruct:v3.3.1:gaijinentertainment_go_exhaustruct_v3/vendor/github.com/GaijinEntertainment/go-exhaustruct/v3 \
-		Masterminds:semver:v3.3.0:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
+		Masterminds:semver:v3.3.1:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
 		OpenPeeDeeP:depguard:v2.2.1:openpeedeep_depguard_v2/vendor/github.com/OpenPeeDeeP/depguard/v2 \
 		alecthomas:go-check-sumtype:v0.3.1:alecthomas_go_check_sumtype/vendor/github.com/alecthomas/go-check-sumtype \
 		alexkohler:nakedret:v2.0.5:alexkohler_nakedret_v2/vendor/github.com/alexkohler/nakedret/v2 \
@@ -17,22 +17,29 @@ GH_TUPLE=	\
 		alingse:nilnesserr:v0.1.2:alingse_nilnesserr/vendor/github.com/alingse/nilnesserr \
 		ashanbrown:forbidigo:v1.6.0:ashanbrown_forbidigo/vendor/github.com/ashanbrown/forbidigo \
 		ashanbrown:makezero:v1.2.0:ashanbrown_makezero/vendor/github.com/ashanbrown/makezero \
+		aymanbagabas:go-osc52:v2.0.1:aymanbagabas_go_osc52_v2/vendor/github.com/aymanbagabas/go-osc52/v2 \
 		beorn7:perks:v1.0.1:beorn7_perks/vendor/github.com/beorn7/perks \
 		bkielbasa:cyclop:v1.2.3:bkielbasa_cyclop/vendor/github.com/bkielbasa/cyclop \
 		blizzy78:varnamelen:v0.8.0:blizzy78_varnamelen/vendor/github.com/blizzy78/varnamelen \
-		bombsimon:wsl:v4.5.0:bombsimon_wsl_v4/vendor/github.com/bombsimon/wsl/v4 \
-		breml:bidichk:v0.3.2:breml_bidichk/vendor/github.com/breml/bidichk \
-		breml:errchkjson:v0.4.0:breml_errchkjson/vendor/github.com/breml/errchkjson \
+		bombsimon:wsl:v4.6.0:bombsimon_wsl_v4/vendor/github.com/bombsimon/wsl/v4 \
+		breml:bidichk:v0.3.3:breml_bidichk/vendor/github.com/breml/bidichk \
+		breml:errchkjson:v0.4.1:breml_errchkjson/vendor/github.com/breml/errchkjson \
 		butuzov:ireturn:v0.3.1:butuzov_ireturn/vendor/github.com/butuzov/ireturn \
 		butuzov:mirror:v1.3.0:butuzov_mirror/vendor/github.com/butuzov/mirror \
-		catenacyber:perfsprint:v0.8.2:catenacyber_perfsprint/vendor/github.com/catenacyber/perfsprint \
+		catenacyber:perfsprint:v0.9.1:catenacyber_perfsprint/vendor/github.com/catenacyber/perfsprint \
 		ccojocar:zxcvbn-go:v1.0.2:ccojocar_zxcvbn_go/vendor/github.com/ccojocar/zxcvbn-go \
 		cespare:xxhash:v2.3.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
 		charithe:durationcheck:v0.0.10:charithe_durationcheck/vendor/github.com/charithe/durationcheck \
+		charmbracelet:colorprofile:f60798e515dc:charmbracelet_colorprofile/vendor/github.com/charmbracelet/colorprofile \
+		charmbracelet:lipgloss:v1.1.0:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
+		charmbracelet:x:2c3ea96c31dd:charmbracelet_x_cellbuf/vendor/github.com/charmbracelet/x/cellbuf \
+		charmbracelet:x:v0.2.1:charmbracelet_x_term/vendor/github.com/charmbracelet/x/term \
+		charmbracelet:x:v0.8.0:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x/ansi \
 		chavacava:garif:v0.1.0:chavacava_garif/vendor/github.com/chavacava/garif \
-		ckaznocha:intrange:v0.3.0:ckaznocha_intrange/vendor/github.com/ckaznocha/intrange \
+		ckaznocha:intrange:v0.3.1:ckaznocha_intrange/vendor/github.com/ckaznocha/intrange \
 		curioswitch:go-reassign:v0.3.0:curioswitch_go_reassign/vendor/github.com/curioswitch/go-reassign \
-		daixiang0:gci:v0.13.5:daixiang0_gci/vendor/github.com/daixiang0/gci \
+		daixiang0:gci:v0.13.6:daixiang0_gci/vendor/github.com/daixiang0/gci \
+		dave:dst:v0.27.3:dave_dst/vendor/github.com/dave/dst \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		denis-tingaikin:go-header:v0.5.0:denis_tingaikin_go_header/vendor/github.com/denis-tingaikin/go-header \
 		dominikh:go-tools:v0.6.1:dominikh_go_tools/vendor/honnef.co/go/tools \
@@ -43,8 +50,8 @@ GH_TUPLE=	\
 		firefart:nonamedreturns:v1.0.5:firefart_nonamedreturns/vendor/github.com/firefart/nonamedreturns \
 		fsnotify:fsnotify:v1.5.4:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
 		fzipp:gocyclo:v0.6.0:fzipp_gocyclo/vendor/github.com/fzipp/gocyclo \
-		ghostiam:protogetter:v0.3.9:ghostiam_protogetter/vendor/github.com/ghostiam/protogetter \
-		go-critic:go-critic:v0.12.0:go_critic_go_critic/vendor/github.com/go-critic/go-critic \
+		ghostiam:protogetter:v0.3.12:ghostiam_protogetter/vendor/github.com/ghostiam/protogetter \
+		go-critic:go-critic:v0.13.0:go_critic_go_critic/vendor/github.com/go-critic/go-critic \
 		go-ini:ini:v1.67.0:go_ini_ini/vendor/gopkg.in/ini.v1 \
 		go-ole:go-ole:v1.2.6:go_ole_go_ole/vendor/github.com/go-ole/go-ole \
 		go-toolsmith:astcast:v1.1.0:go_toolsmith_astcast/vendor/github.com/go-toolsmith/astcast \
@@ -65,11 +72,12 @@ GH_TUPLE=	\
 		golang:protobuf:v1.5.3:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:sync:v0.12.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.31.0:golang_sys/vendor/golang.org/x/sys \
-		golang:text:v0.22.0:golang_text/vendor/golang.org/x/text \
+		golang:text:v0.23.0:golang_text/vendor/golang.org/x/text \
 		golang:tools:v0.31.0:golang_tools/vendor/golang.org/x/tools \
 		golangci:dupl:f665c8d69b32:golangci_dupl/vendor/github.com/golangci/dupl \
 		golangci:go-printf-func-name:v0.1.0:golangci_go_printf_func_name/vendor/github.com/golangci/go-printf-func-name \
 		golangci:gofmt:d62b90e6713d:golangci_gofmt/vendor/github.com/golangci/gofmt \
+		golangci:golines:442fd0091d95:golangci_golines/vendor/github.com/golangci/golines \
 		golangci:misspell:v0.6.0:golangci_misspell/vendor/github.com/golangci/misspell \
 		golangci:plugin-module-register:v0.1.1:golangci_plugin_module_register/vendor/github.com/golangci/plugin-module-register \
 		golangci:revgrep:v0.8.0:golangci_revgrep/vendor/github.com/golangci/revgrep \
@@ -102,8 +110,9 @@ GH_TUPLE=	\
 		ldez:tagliatelle:v0.7.1:ldez_tagliatelle/vendor/github.com/ldez/tagliatelle \
 		ldez:usetesting:v0.4.2:ldez_usetesting/vendor/github.com/ldez/usetesting \
 		leonklingele:grouper:v1.1.2:leonklingele_grouper/vendor/github.com/leonklingele/grouper \
+		lucasb-eyer:go-colorful:v1.2.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
 		lufia:plan9stats:39d0f177ccd0:lufia_plan9stats/vendor/github.com/lufia/plan9stats \
-		macabu:inamedparam:v0.1.3:macabu_inamedparam/vendor/github.com/macabu/inamedparam \
+		macabu:inamedparam:v0.2.0:macabu_inamedparam/vendor/github.com/macabu/inamedparam \
 		magiconair:properties:v1.8.6:magiconair_properties/vendor/github.com/magiconair/properties \
 		maratori:testableexamples:v1.0.0:maratori_testableexamples/vendor/github.com/maratori/testableexamples \
 		maratori:testpackage:v1.1.1:maratori_testpackage/vendor/github.com/maratori/testpackage \
@@ -116,8 +125,9 @@ GH_TUPLE=	\
 		mitchellh:go-homedir:v1.1.0:mitchellh_go_homedir/vendor/github.com/mitchellh/go-homedir \
 		mitchellh:mapstructure:v1.5.0:mitchellh_mapstructure/vendor/github.com/mitchellh/mapstructure \
 		moricho:tparallel:v0.3.2:moricho_tparallel/vendor/github.com/moricho/tparallel \
+		muesli:termenv:v0.16.0:muesli_termenv/vendor/github.com/muesli/termenv \
 		mvdan:gofumpt:v0.7.0:mvdan_gofumpt/vendor/mvdan.cc/gofumpt \
-		mvdan:unparam:8a5130ca722f:mvdan_unparam/vendor/mvdan.cc/unparam \
+		mvdan:unparam:0df0534333a4:mvdan_unparam/vendor/mvdan.cc/unparam \
 		nakabonne:nestif:v0.3.1:nakabonne_nestif/vendor/github.com/nakabonne/nestif \
 		nishanths:exhaustive:v0.12.0:nishanths_exhaustive/vendor/github.com/nishanths/exhaustive \
 		nishanths:predeclared:v0.2.2:nishanths_predeclared/vendor/github.com/nishanths/predeclared \
@@ -133,15 +143,15 @@ GH_TUPLE=	\
 		prometheus:common:v0.32.1:prometheus_common/vendor/github.com/prometheus/common \
 		prometheus:procfs:v0.7.3:prometheus_procfs/vendor/github.com/prometheus/procfs \
 		protocolbuffers:protobuf-go:v1.36.5:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
-		quasilyte:go-ruleguard:0fe6f58b47b1:quasilyte_go_ruleguard/vendor/github.com/quasilyte/go-ruleguard \
 		quasilyte:go-ruleguard:v0.3.22:quasilyte_go_ruleguard_dsl/vendor/github.com/quasilyte/go-ruleguard/dsl \
+		quasilyte:go-ruleguard:v0.4.4:quasilyte_go_ruleguard/vendor/github.com/quasilyte/go-ruleguard \
 		quasilyte:gogrep:v0.5.0:quasilyte_gogrep/vendor/github.com/quasilyte/gogrep \
 		quasilyte:regex:b3f0c404a727:quasilyte_regex_syntax/vendor/github.com/quasilyte/regex/syntax \
 		quasilyte:stdinfo:f7386bf02567:quasilyte_stdinfo/vendor/github.com/quasilyte/stdinfo \
 		raeperd:recvcheck:v0.2.0:raeperd_recvcheck/vendor/github.com/raeperd/recvcheck \
 		rivo:uniseg:v0.4.7:rivo_uniseg/vendor/github.com/rivo/uniseg \
 		rogpeppe:go-internal:v1.14.1:rogpeppe_go_internal/vendor/github.com/rogpeppe/go-internal \
-		ryancurrah:gomodguard:v1.3.5:ryancurrah_gomodguard/vendor/github.com/ryancurrah/gomodguard \
+		ryancurrah:gomodguard:v1.4.1:ryancurrah_gomodguard/vendor/github.com/ryancurrah/gomodguard \
 		ryanrolds:sqlclosecheck:v0.5.1:ryanrolds_sqlclosecheck/vendor/github.com/ryanrolds/sqlclosecheck \
 		sanposhiho:wastedassign:v2.1.0:sanposhiho_wastedassign_v2/vendor/github.com/sanposhiho/wastedassign/v2 \
 		santhosh-tekuri:jsonschema:v6.0.1:santhosh_tekuri_jsonschema_v6/vendor/github.com/santhosh-tekuri/jsonschema/v6 \
@@ -151,7 +161,6 @@ GH_TUPLE=	\
 		shirou:gopsutil:v4.25.2:shirou_gopsutil_v4/vendor/github.com/shirou/gopsutil/v4 \
 		sirupsen:logrus:v1.9.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
 		sivchari:containedctx:v1.0.3:sivchari_containedctx/vendor/github.com/sivchari/containedctx \
-		sivchari:tenv:v1.12.1:sivchari_tenv/vendor/github.com/sivchari/tenv \
 		sonatard:noctx:v0.1.0:sonatard_noctx/vendor/github.com/sonatard/noctx \
 		sourcegraph:go-diff:v0.7.0:sourcegraph_go_diff/vendor/github.com/sourcegraph/go-diff \
 		spf13:afero:v1.12.0:spf13_afero/vendor/github.com/spf13/afero \
@@ -167,7 +176,7 @@ GH_TUPLE=	\
 		subosito:gotenv:v1.4.1:subosito_gotenv/vendor/github.com/subosito/gotenv \
 		tdakkota:asciicheck:v0.4.1:tdakkota_asciicheck/vendor/github.com/tdakkota/asciicheck \
 		tetafro:godot:v1.5.0:tetafro_godot/vendor/github.com/tetafro/godot \
-		timakin:bodyclose:ed6a65f985e3:timakin_bodyclose/vendor/github.com/timakin/bodyclose \
+		timakin:bodyclose:1db5c5ca4d67:timakin_bodyclose/vendor/github.com/timakin/bodyclose \
 		timonwong:loggercheck:v0.10.1:timonwong_loggercheck/vendor/github.com/timonwong/loggercheck \
 		tklauser:go-sysconf:v0.3.12:tklauser_go_sysconf/vendor/github.com/tklauser/go-sysconf \
 		tklauser:numcpus:v0.6.1:tklauser_numcpus/vendor/github.com/tklauser/numcpus \
@@ -183,7 +192,8 @@ GH_TUPLE=	\
 		uudashr:iface:v1.3.1:uudashr_iface/vendor/github.com/uudashr/iface \
 		valyala:bytebufferpool:v1.0.0:valyala_bytebufferpool/vendor/github.com/valyala/bytebufferpool \
 		valyala:quicktemplate:v1.8.0:valyala_quicktemplate/vendor/github.com/valyala/quicktemplate \
-		xen0n:gosmopolitan:v1.2.2:xen0n_gosmopolitan/vendor/github.com/xen0n/gosmopolitan \
+		xen0n:gosmopolitan:v1.3.0:xen0n_gosmopolitan/vendor/github.com/xen0n/gosmopolitan \
+		xo:terminfo:abceb7e1c41e:xo_terminfo/vendor/github.com/xo/terminfo \
 		yagipy:maintidx:v1.0.0:yagipy_maintidx/vendor/github.com/yagipy/maintidx \
 		yeya24:promlinter:v0.3.0:yeya24_promlinter/vendor/github.com/yeya24/promlinter \
 		ykadowak:zerologlint:v0.1.5:ykadowak_zerologlint/vendor/github.com/ykadowak/zerologlint \
