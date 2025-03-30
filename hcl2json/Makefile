@@ -1,5 +1,5 @@
 PORTNAME=	hcl2json
-PORTVERSION=	0.6.6
+PORTVERSION=	0.6.7
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local textproc
 
@@ -17,9 +17,16 @@ GH_ACCOUNT=	tmccombs
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static -X 'main.Version=${PORTVERSION}'"
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+	-X 'main.Version=${PORTVERSION}'"
 
-pre-deps pre-deps-all post-deps-all: .PHONY
+post-extract: .PHONY
+	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+
+pre-deps-all: .PHONY
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
+
+pre-deps post-deps-all: .PHONY
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
