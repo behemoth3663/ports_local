@@ -1,6 +1,6 @@
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.77.1
+DISTVERSION=	0.77.5
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
 
@@ -127,8 +127,8 @@ GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)(.*/hashicorp/vault)/(api)|\1\3/\2|1}
 GH_TUPLE:=	${GH_TUPLE:S|/xds/go|/xds|1}
 
 #-charmbracelet:x:     v0.1.4:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x/ansi
-#+charmbracelet:x:ansi/v0.1.4:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x
-GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)(.*/charmbracelet/x)/(.*)|\1\3/\2|}
+#+charmbracelet:x:ansi/v0.1.4:charmbracelet_x_ansi
+GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+).*/charmbracelet/x/(ansi\|cellbuf\|term)|\1\3/\2|}
 
 .sinclude "${.CURDIR}/generated.deps.mk"
 .include <bsd.port.mk>
