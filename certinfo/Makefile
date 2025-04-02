@@ -1,5 +1,5 @@
 PORTNAME=	certinfo
-PORTVERSION=	1.0.32
+PORTVERSION=	1.0.33
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local security
 
@@ -10,7 +10,7 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:1.24,modules
+USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	pete911

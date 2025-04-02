@@ -1,5 +1,5 @@
 PORTNAME=	pike
-PORTVERSION=	0.3.47
+PORTVERSION=	0.3.48
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -11,7 +11,7 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:1.24,modules
+USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	jamesWoolfenden
