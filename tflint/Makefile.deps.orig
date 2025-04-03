@@ -1,6 +1,7 @@
 GH_TUPLE=	\
-		GoogleCloudPlatform:opentelemetry-operations-go:d637680bde0c:googlecloudplatform_opentelemetry_operations_go_gcp \
-		GoogleCloudPlatform:opentelemetry-operations-go:v0.48.1:googlecloudplatform_opentelemetry_operations_go_metric/vendor/github.com/GoogleCloudPlatform/opentelemetry-operations-go \
+		GoogleCloudPlatform:opentelemetry-operations-go:v0.48.1:googlecloudplatform_opentelemetry_operations_go_metric/vendor/github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/metric \
+		GoogleCloudPlatform:opentelemetry-operations-go:v0.48.1:googlecloudplatform_opentelemetry_operations_go_resourcemapping/vendor/github.com/GoogleCloudPlatform/opentelemetry-operations-go/internal/resourcemapping \
+		GoogleCloudPlatform:opentelemetry-operations-go:v1.25.0:googlecloudplatform_opentelemetry_operations_go_gcp/vendor/github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp \
 		Masterminds:semver:v3.3.0:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
 		agext:levenshtein:v1.2.3:agext_levenshtein/vendor/github.com/agext/levenshtein \
 		apparentlymart:go-cidr:v1.1.0:apparentlymart_go_cidr/vendor/github.com/apparentlymart/go-cidr \
@@ -13,7 +14,7 @@ GH_TUPLE=	\
 		census-instrumentation:opencensus-go:v0.24.0:census_instrumentation_opencensus_go/vendor/go.opencensus.io \
 		census-instrumentation:opencensus-proto:v0.4.1:census_instrumentation_opencensus_proto/vendor/github.com/census-instrumentation/opencensus-proto \
 		cespare:xxhash:v2.3.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
-		cncf:xds:b4127c9b8d78:cncf_xds_go/vendor/github.com/cncf/xds \
+		cncf:xds:b4127c9b8d78:cncf_xds_go/vendor/github.com/cncf/xds/go \
 		cyberphone:json-canonicalization:57a0ce2678a7:cyberphone_json_canonicalization/vendor/github.com/cyberphone/json-canonicalization \
 		digitorus:pkcs7:3a137a874352:digitorus_pkcs7/vendor/github.com/digitorus/pkcs7 \
 		digitorus:timestamp:220c5c2851b7:digitorus_timestamp/vendor/github.com/digitorus/timestamp \
@@ -52,7 +53,6 @@ GH_TUPLE=	\
 		golang:text:v0.21.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.9.0:golang_time/vendor/golang.org/x/time \
 		golang:tools:v0.29.0:golang_tools/vendor/golang.org/x/tools \
-		google:cel-spec:v0.19.0:google_cel_spec/vendor/cel.dev/expr \
 		google:certificate-transparency-go:v1.3.1:google_certificate_transparency_go/vendor/github.com/google/certificate-transparency-go \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-containerregistry:v0.20.2:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
@@ -64,15 +64,13 @@ GH_TUPLE=	\
 		google:s2a-go:v0.1.8:google_s2a_go/vendor/github.com/google/s2a-go \
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
 		googleapis:enterprise-certificate-proxy:v0.3.4:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
-		googleapis:gax-go:v2.14.1:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
+		googleapis:gax-go:v2.14.1:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2 \
 		googleapis:google-api-go-client:v0.216.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
-		googleapis:google-cloud-go:iam/v1.2.2:googleapis_google_cloud_go_iam \
-		googleapis:google-cloud-go:monitoring/v1.21.2:googleapis_google_cloud_go_monitoring \
-		googleapis:google-cloud-go:storage/v1.49.0:googleapis_google_cloud_go_storage \
 		googleapis:google-cloud-go:v0.116.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
 		googleapis:google-cloud-go:v0.13.0:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth \
-		googleapis:google-cloud-go:v0.2.6:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/auth/oauth2adapt \
-		googleapis:google-cloud-go:v0.6.0:googleapis_google_cloud_go_2/vendor/cloud.google.com/go/compute/metadata \
+		googleapis:google-cloud-go:v1.2.2:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go/iam \
+		googleapis:google-cloud-go:v1.21.2:googleapis_google_cloud_go_monitoring/vendor/cloud.google.com/go/monitoring \
+		googleapis:google-cloud-go:v1.49.0:googleapis_google_cloud_go_storage/vendor/cloud.google.com/go/storage \
 		grpc:grpc-go:v1.70.0:grpc_grpc_go/vendor/google.golang.org/grpc \
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
 		hashicorp:go-getter:v1.7.6:hashicorp_go_getter/vendor/github.com/hashicorp/go-getter \
@@ -95,7 +93,6 @@ GH_TUPLE=	\
 		josharian:intern:v1.0.0:josharian_intern/vendor/github.com/josharian/intern \
 		jstemmer:go-junit-report:v1.0.0:jstemmer_go_junit_report/vendor/github.com/jstemmer/go-junit-report \
 		klauspost:compress:v1.17.11:klauspost_compress/vendor/github.com/klauspost/compress \
-		kubernetes:klog:v2.130.1:kubernetes_klog/vendor/k8s.io/klog/v2 \
 		letsencrypt:boulder:de9c06129bec:letsencrypt_boulder/vendor/github.com/letsencrypt/boulder \
 		magiconair:properties:v1.8.7:magiconair_properties/vendor/github.com/magiconair/properties \
 		mailru:easyjson:v0.7.7:mailru_easyjson/vendor/github.com/mailru/easyjson \
@@ -108,13 +105,9 @@ GH_TUPLE=	\
 		mongodb:mongo-go-driver:v1.14.0:mongodb_mongo_go_driver/vendor/go.mongodb.org/mongo-driver \
 		oklog:run:v1.0.0:oklog_run/vendor/github.com/oklog/run \
 		oklog:ulid:v1.3.1:oklog_ulid/vendor/github.com/oklog/ulid \
-		open-telemetry:opentelemetry-go-contrib:v0.54.0:open_telemetry_opentelemetry_go_contrib_1/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc \
-		open-telemetry:opentelemetry-go-contrib:v0.54.0:open_telemetry_opentelemetry_go_contrib_2/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp \
-		open-telemetry:opentelemetry-go-contrib:v1.32.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/detectors/gcp \
-		open-telemetry:opentelemetry-go:v1.32.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
 		opencontainers:go-digest:v1.0.0:opencontainers_go_digest/vendor/github.com/opencontainers/go-digest \
 		opentracing:opentracing-go:v1.2.0:opentracing_opentracing_go/vendor/github.com/opentracing/opentracing-go \
-		owenrumney:go-sarif:v2.3.3:owenrumney_go_sarif_v2/vendor/github.com/owenrumney/go-sarif \
+		owenrumney:go-sarif:v2.3.3:owenrumney_go_sarif_v2/vendor/github.com/owenrumney/go-sarif/v2 \
 		pelletier:go-toml:v2.2.2:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
 		planetscale:vtprotobuf:0393e58bdf10:planetscale_vtprotobuf/vendor/github.com/planetscale/vtprotobuf \
@@ -154,15 +147,20 @@ GH_TUPLE=	\
 		zclconf:go-cty-debug:0d6042c53940:zclconf_go_cty_debug/vendor/github.com/zclconf/go-cty-debug \
 		zclconf:go-cty-yaml:v1.1.0:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
 		zclconf:go-cty:v1.16.2:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
+		#	::v0.19.0:group_name/vendor/cel.dev/expr (from cel.dev/expr@v0.19.0)
+		#	::v0.2.6:group_name/vendor/cloud.google.com/go/auth/oauth2adapt (from cloud.google.com/go/auth/oauth2adapt@v0.2.6)
+		#	::v0.54.0:group_name/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc (from go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc@v0.54.0)
+		#	::v0.54.0:group_name/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp (from go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp@v0.54.0)
+		#	::v0.6.0:group_name/vendor/cloud.google.com/go/compute/metadata (from cloud.google.com/go/compute/metadata@v0.6.0)
+		#	::v1.32.0:group_name/vendor/go.opentelemetry.io/contrib/detectors/gcp (from go.opentelemetry.io/contrib/detectors/gcp@v1.32.0)
+		#	::v1.32.0:group_name/vendor/go.opentelemetry.io/otel (from go.opentelemetry.io/otel@v1.32.0)
+		#	::v1.32.0:group_name/vendor/go.opentelemetry.io/otel/metric (from go.opentelemetry.io/otel/metric@v1.32.0)
+		#	::v1.32.0:group_name/vendor/go.opentelemetry.io/otel/sdk (from go.opentelemetry.io/otel/sdk@v1.32.0)
+		#	::v1.32.0:group_name/vendor/go.opentelemetry.io/otel/sdk/metric (from go.opentelemetry.io/otel/sdk/metric@v1.32.0)
+		#	::v1.32.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.32.0)
+		#	::v2.130.1:group_name/vendor/k8s.io/klog/v2 (from k8s.io/klog/v2@v2.130.1)
 post-extract:
-	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/iam
-	@${RLN} ${WRKSRC_googleapis_google_cloud_go_iam}/iam ${WRKSRC}/vendor/cloud.google.com/go/iam
-	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/monitoring
-	@${RLN} ${WRKSRC_googleapis_google_cloud_go_monitoring}/monitoring ${WRKSRC}/vendor/cloud.google.com/go/monitoring
-	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
-	@${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go/storage
-	@${RM} -r ${WRKSRC}/vendor/github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp
-	@${RLN} ${WRKSRC_googlecloudplatform_opentelemetry_operations_go_gcp}/detectors/gcp ${WRKSRC}/vendor/github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp
 	@${MKDIR} ${WRKSRC}/vendor/github.com/hashicorp
 	@${RLN} ${WRKSRC_fsnotify_fsnotify} ${WRKSRC}/vendor/github.com/hashicorp/go-version
 	@${MKDIR} ${WRKSRC}/vendor/github.com/spf13
