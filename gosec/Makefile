@@ -1,5 +1,5 @@
 PORTNAME=	gosec
-PORTVERSION=	2.22.2
+PORTVERSION=	2.22.3
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel security
@@ -35,30 +35,27 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
 
-# disable if make deps and mv files files_
-post-extract: .PHONY
-	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
-	@${RM} -r ${WRKSRC}/vendor/github.com/googleapis/gax-go/v2/iterator
-	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/longrunning/autogen/auxiliary_go123.go
-	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/ai/generativelanguage/apiv1beta/auxiliary_go123.go
-	@${MKDIR} ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
-	@test -z '${WRKSRC_google_go_genproto_api}' || ${RLN} ${WRKSRC_google_go_genproto_api}/googleapis/api ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
-	@test -z '${WRKSRC_google_go_genproto_rpc}' || ${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
-	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/auth
-	@test -z '${WRKSRC_googleapis_google_cloud_go_auth}' || ${RLN} ${WRKSRC_googleapis_google_cloud_go_auth}/auth ${WRKSRC}/vendor/cloud.google.com/go/auth
-	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
-	@test -z '${WRKSRC_googleapis_google_cloud_go_compute_metadata}' || ${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute
-#	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc
-#	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib}/instrumentation/google.golang.org/grpc/otelgrpc ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc
-#	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/net/http
-#	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib_net_http_otelhttp}/instrumentation/net/http/otelhttp ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/net/http
-#	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/auto
-#	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_instrumentation_sdk}/sdk ${WRKSRC}/vendor/go.opentelemetry.io/auto
+post-extract: .PHONY .SILENT
+	${MKDIR} ${WRKSRC}/vendor/cloud.google.com/go
+	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+	${RM} ${WRKSRC}/vendor/cloud.google.com/go/longrunning/autogen/auxiliary_go123.go
+	${RM} ${WRKSRC}/vendor/cloud.google.com/go/ai/generativelanguage/apiv1beta/auxiliary_go123.go
+	${MKDIR} ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
+	test -z ${WRKSRC_google_go_genproto_api} || ${RLN} ${WRKSRC_google_go_genproto_api}/googleapis/api ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
+	test -z ${WRKSRC_google_go_genproto_rpc} || ${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
+	${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/auth
+	test -z ${WRKSRC_googleapis_google_cloud_go_auth} || ${RLN} ${WRKSRC_googleapis_google_cloud_go_auth}/auth ${WRKSRC}/vendor/cloud.google.com/go
+	${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
+	test -z ${WRKSRC_googleapis_google_cloud_go_compute_metadata} || ${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute
+
+pre-deps: .PHONY
+	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+
+post-deps-all: .PHONY
+	test -d ${PATCHDIR}_ && ${MV} ${PATCHDIR}_ ${PATCHDIR} || :
 
 pre-deps-all: .PHONY
-	@${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
-
-pre-deps post-deps-all: .PHONY
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
