@@ -12,7 +12,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 RUN_DEPENDS=	aws:devel/py-awscli@${PY_FLAVOR}
 
-USES=		go:1.24,modules python:env
+USES=		go:modules python:env
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static"
 GO_TARGET=	src/sessionmanagerplugin-main/main.go:${PREFIX}/bin/session-manager-plugin \

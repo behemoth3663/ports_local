@@ -13,7 +13,7 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 RUN_DEPENDS=	ca_root_nss>=0:security/ca_root_nss
 
-USES=		go:1.24,modules
+USES=		go:modules
 GO_MODULE=	github.com/${PORTNAME}/${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME} \

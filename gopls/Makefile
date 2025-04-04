@@ -11,7 +11,7 @@ WWW=		https://pkg.go.dev/golang.org/x/tools/gopls
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC:H}/LICENSE
 
-USES=		go:1.24,modules
+USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	golang

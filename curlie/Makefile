@@ -13,7 +13,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 RUN_DEPENDS=	curl:ftp/curl
 BUILD_DEPENDS=	git:devel/git
 
-USES=		go:1.24,modules
+USES=		go:modules
 USE_GITHUB=	yes
 GH_ACCOUNT=	rs
 

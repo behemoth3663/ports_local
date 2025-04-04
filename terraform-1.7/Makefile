@@ -9,7 +9,7 @@ MAINTAINER= 	dutra@FreeBSD.org
 COMMENT=	Provides a common configuration to launch infrastructure
 WWW=		https://terraform.io/
 
-USES=		go:1.21,modules
+USES=		go:modules
 
 LICENSE_NAME=   Business Source License 1.1
 LICENSE_FILE=	${WRKSRC}/LICENSE
