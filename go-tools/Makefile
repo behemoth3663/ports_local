@@ -1,7 +1,7 @@
 PORTNAME=	tools
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.31.0
-PORTREVISION=	1
+DISTVERSION=	0.32.0
+#PORTREVISION=	1
 PORTEPOCH=	1
 CATEGORIES=	local devel
 PKGNAMEPREFIX=	go-
@@ -18,8 +18,6 @@ USES=		go:modules
 USE_GITHUB=	yes
 GH_ACCOUNT=	golang
 GH_PROJECT=	${PORTNAME}
-
-#GO_MODULE=	golang.org/x/tools
 
 GO_TARGET=	./cmd/auth/cookieauth \
 		./cmd/auth/gitauth \
