@@ -1,5 +1,5 @@
 PORTNAME=	zek
-PORTVERSION=	0.1.26
+PORTVERSION=	0.1.28
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local textproc
@@ -19,14 +19,24 @@ GH_ACCOUNT=	miku
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static"
 
 #const Version = "0.1.23"
 post-patch: .PHONY
 	${REINPLACE_CMD} -r 's|^(const Version = ").*|\1${PORTVERSION}"|' ${WRKSRC}/version.go
 
-pre-deps pre-deps-all post-deps-all: .PHONY
+post-extract: .PHONY
+	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 
-.include "/etc/make.d/go-deps.mk"
+pre-deps: .PHONY
+	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+
+post-deps-all: .PHONY
+	test -d ${PATCHDIR}_ && ${MV} ${PATCHDIR}_ ${PATCHDIR} || :
+
+pre-deps-all: .PHONY
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
+
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
