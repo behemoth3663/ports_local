@@ -1,6 +1,6 @@
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.77.9
+DISTVERSION=	0.77.12
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
 
@@ -33,11 +33,7 @@ pre-post-extract: .PHONY
 	done
 
 pre-deps: .PHONY
-	if [ -d '${PATCHDIR}_' ]; then \
-		${RM} -r ${PATCHDIR}; \
-	else \
-		${MV} ${PATCHDIR} ${PATCHDIR}_; \
-	fi
+	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
 
 post-deps-all: .PHONY
 	test ! -d '${PATCHDIR}_' || ${MV} ${PATCHDIR}_ ${PATCHDIR}
