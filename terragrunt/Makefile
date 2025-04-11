@@ -1,6 +1,6 @@
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.77.12
+DISTVERSION=	0.77.13
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
 
@@ -44,6 +44,7 @@ pre-deps-all: .PHONY
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=FiloSottile GHT_PROJ=age GHT_PATH=filippo.io/age )
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=darccio GHT_PROJ=mergo GHT_PATH=dario.cat/mergo )
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=google GHT_PROJ=cel-spec GHT_PATH=cel.dev/expr )
+	( make -C ${.CURDIR} make-from-deps GHT_ACNT=FiloSottile GHT_PROJ=edwards25519 GHT_PATH=filippo.io/edwards25519 )
 
 make-from-deps: .PHONY
 	@${SED} -rn \
