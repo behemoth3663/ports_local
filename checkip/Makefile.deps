@@ -2,9 +2,9 @@ GH_TUPLE=	\
 		davecgh:go-spew:v1.1.0:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		go-ping:ping:v1.1.0:go_ping_ping/vendor/github.com/go-ping/ping \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
-		golang:net:v0.33.0:golang_net/vendor/golang.org/x/net \
+		golang:net:v0.36.0:golang_net/vendor/golang.org/x/net \
 		golang:sync:036812b2e83c:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.28.0:golang_sys/vendor/golang.org/x/sys \
+		golang:sys:v0.30.0:golang_sys/vendor/golang.org/x/sys \
 		google:uuid:v1.2.0:google_uuid/vendor/github.com/google/uuid \
 		oschwald:geoip2-golang:v1.5.0:oschwald_geoip2_golang/vendor/github.com/oschwald/geoip2-golang \
 		oschwald:maxminddb-golang:v1.8.0:oschwald_maxminddb_golang/vendor/github.com/oschwald/maxminddb-golang \

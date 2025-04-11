@@ -1,5 +1,5 @@
 PORTNAME=	checkip
-PORTVERSION=	0.48.0
+PORTVERSION=	0.48.4
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local net
 
@@ -19,7 +19,13 @@ PLIST_FILES=	bin/${PORTNAME}
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static"
 
-pre-deps pre-deps-all post-deps-all: .PHONY
+post-extract: .PHONY
+	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+
+pre-deps post-deps-all: .PHONY
+
+pre-deps-all: .PHONY
+	@${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
