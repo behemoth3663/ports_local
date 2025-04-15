@@ -1,5 +1,5 @@
 PORTNAME=	gh
-PORTVERSION=	2.69.0
+PORTVERSION=	2.70.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -50,15 +50,12 @@ post-install-MANPAGES-on:
 		${STAGEDIR}${PREFIX}/share/man/man1
 
 pre-deps: .PHONY
-	if [ -d '${PATCHDIR}_' ]; then \
-		${RM} -r ${PATCHDIR}; \
-	else \
-		${MV} ${PATCHDIR} ${PATCHDIR}_; \
-	fi
+	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
 
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 	${RM} ${.CURDIR}/generated.deps.mk
+	( make -C ${.CURDIR} make-from-deps GHT_ACNT=imdario GHT_PROJ=mergo GHT_PATH=dario.cat/mergo )
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes GHT_PROJ=klog GHT_PATH=k8s.io/klog/v2 )
 
 make-from-deps: .PHONY
@@ -67,7 +64,7 @@ make-from-deps: .PHONY
 	${.CURDIR}/Makefile.deps >>${.CURDIR}/generated.deps.mk
 
 post-deps-all: .PHONY
-	test -d '${PATCHDIR}_' && ${MV} ${PATCHDIR}_ ${PATCHDIR} || :
+	test -d ${PATCHDIR}_ && ${MV} ${PATCHDIR}_ ${PATCHDIR} || :
 
 post-extract: .PHONY
 	@${MKDIR} ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
@@ -78,6 +75,12 @@ post-extract: .PHONY
 	@${RM} ${WRKSRC}/vendor/github.com/go-openapi/runtime/client/opentelemetry_test.go
 	@${RM} ${WRKSRC}/vendor/github.com/go-openapi/runtime/client/opentracing.go
 	@${RM} ${WRKSRC}/vendor/github.com/go-openapi/runtime/client/opentracing_test.go
+	@${RM} -r ${WRKSRC}/vendor/github.com/charmbracelet/x/ansi
+	@test -z '${WRKSRC_charmbracelet_x_ansi}' || ${RLN} ${WRKSRC_charmbracelet_x_ansi}/ansi ${WRKSRC}/vendor/github.com/charmbracelet/x
+	@${RM} -r ${WRKSRC}/vendor/github.com/charmbracelet/x/cellbuf
+	@test -z '${WRKSRC_charmbracelet_x_cellbuf}' || ${RLN} ${WRKSRC_charmbracelet_x_cellbuf}/cellbuf ${WRKSRC}/vendor/github.com/charmbracelet/x
+	@${RM} -r ${WRKSRC}/vendor/github.com/charmbracelet/x/term
+	@test -z '${WRKSRC_charmbracelet_x_term}' || ${RLN} ${WRKSRC_charmbracelet_x_term}/term ${WRKSRC}/vendor/github.com/charmbracelet/x
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
@@ -92,9 +95,15 @@ GH_TUPLE:=	${GH_TUPLE:C|^moby:moby(:.*/docker-credential-helpers)$|docker:docker
 #+google:go-genproto:94a12d6c2237:google_go_genproto_rpc
 GH_TUPLE:=	${GH_TUPLE:C|(:google_go_genproto).*/|\1_|}
 
-#-		charmbracelet:x:     v0.1.4:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x/ansi
-#+		charmbracelet:x:ansi/v0.1.4:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x
-GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+):(.*/charmbracelet/x)/(.*)|\1:\3/\2|}
+# charmbracelet:x:v0.0.13:charmbracelet_x_cellbuf/vendor/github.com/charmbracelet/x/cellbuf
+# charmbracelet:x:v0.2.1:charmbracelet_x_term/vendor/github.com/charmbracelet/x/term
+#-charmbracelet:x:v0.8.0:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x/ansi
+#+charmbracelet:x:ansi/v0.8.0:charmbracelet_x_ansi
+GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+).*/charmbracelet/x/(ansi\|cellbuf\|term)|\1\3/\2|}
+
+#-charmbracelet:x:212f7b056ed0:charmbracelet_x_strings/vendor/github.com/charmbracelet/x/exp/strings
+#+charmbracelet:x:212f7b056ed0:charmbracelet_x_strings/vendor/github.com/charmbracelet/x
+GH_TUPLE:=	${GH_TUPLE:S|/charmbracelet/x/exp/strings|/charmbracelet/x|1}
 
 #-		containerd:stargz-snapshotter:v0.16.3:containerd_stargz_snapshotter_estargz/vendor/github.com/containerd/stargz-snapshotter/estargz
 #+		containerd:stargz-snapshotter:v0.16.3:containerd_stargz_snapshotter_estargz/vendor/github.com/containerd/stargz-snapshotter
