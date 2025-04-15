@@ -52,7 +52,7 @@ GH_TUPLE=	\
 		firefart:nonamedreturns:v1.0.6:firefart_nonamedreturns/vendor/github.com/firefart/nonamedreturns \
 		fsnotify:fsnotify:v1.5.4:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
 		fzipp:gocyclo:v0.6.0:fzipp_gocyclo/vendor/github.com/fzipp/gocyclo \
-		ghostiam:protogetter:v0.3.13:ghostiam_protogetter/vendor/github.com/ghostiam/protogetter \
+		ghostiam:protogetter:v0.3.15:ghostiam_protogetter/vendor/github.com/ghostiam/protogetter \
 		go-critic:go-critic:v0.13.0:go_critic_go_critic/vendor/github.com/go-critic/go-critic \
 		go-ini:ini:v1.67.0:go_ini_ini/vendor/gopkg.in/ini.v1 \
 		go-ole:go-ole:v1.2.6:go_ole_go_ole/vendor/github.com/go-ole/go-ole \
@@ -106,11 +106,11 @@ GH_TUPLE=	\
 		kulti:thelper:v0.6.3:kulti_thelper/vendor/github.com/kulti/thelper \
 		kunwardeep:paralleltest:v1.0.14:kunwardeep_paralleltest/vendor/github.com/kunwardeep/paralleltest \
 		lasiar:canonicalheader:v1.1.2:lasiar_canonicalheader/vendor/github.com/lasiar/canonicalheader \
-		ldez:exptostd:v0.4.2:ldez_exptostd/vendor/github.com/ldez/exptostd \
+		ldez:exptostd:v0.4.3:ldez_exptostd/vendor/github.com/ldez/exptostd \
 		ldez:gomoddirectives:v0.6.1:ldez_gomoddirectives/vendor/github.com/ldez/gomoddirectives \
 		ldez:grignotin:v0.9.0:ldez_grignotin/vendor/github.com/ldez/grignotin \
 		ldez:tagliatelle:v0.7.1:ldez_tagliatelle/vendor/github.com/ldez/tagliatelle \
-		ldez:usetesting:v0.4.2:ldez_usetesting/vendor/github.com/ldez/usetesting \
+		ldez:usetesting:v0.4.3:ldez_usetesting/vendor/github.com/ldez/usetesting \
 		leonklingele:grouper:v1.1.2:leonklingele_grouper/vendor/github.com/leonklingele/grouper \
 		lucasb-eyer:go-colorful:v1.2.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
 		lufia:plan9stats:39d0f177ccd0:lufia_plan9stats/vendor/github.com/lufia/plan9stats \
@@ -129,7 +129,7 @@ GH_TUPLE=	\
 		mitchellh:mapstructure:v1.5.0:mitchellh_mapstructure/vendor/github.com/mitchellh/mapstructure \
 		moricho:tparallel:v0.3.2:moricho_tparallel/vendor/github.com/moricho/tparallel \
 		muesli:termenv:v0.16.0:muesli_termenv/vendor/github.com/muesli/termenv \
-		mvdan:gofumpt:v0.7.0:mvdan_gofumpt/vendor/mvdan.cc/gofumpt \
+		mvdan:gofumpt:v0.8.0:mvdan_gofumpt/vendor/mvdan.cc/gofumpt \
 		mvdan:unparam:0df0534333a4:mvdan_unparam/vendor/mvdan.cc/unparam \
 		nakabonne:nestif:v0.3.1:nakabonne_nestif/vendor/github.com/nakabonne/nestif \
 		nishanths:exhaustive:v0.12.0:nishanths_exhaustive/vendor/github.com/nishanths/exhaustive \

@@ -208,7 +208,7 @@ github.com/fsnotify/fsnotify
 # github.com/fzipp/gocyclo v0.6.0
 ## explicit; go 1.18
 github.com/fzipp/gocyclo
-# github.com/ghostiam/protogetter v0.3.13
+# github.com/ghostiam/protogetter v0.3.15
 ## explicit; go 1.22.0
 github.com/ghostiam/protogetter
 # github.com/go-critic/go-critic v0.13.0
@@ -382,7 +382,7 @@ github.com/kunwardeep/paralleltest/pkg/paralleltest
 # github.com/lasiar/canonicalheader v1.1.2
 ## explicit; go 1.22.0
 github.com/lasiar/canonicalheader
-# github.com/ldez/exptostd v0.4.2
+# github.com/ldez/exptostd v0.4.3
 ## explicit; go 1.22.0
 github.com/ldez/exptostd
 # github.com/ldez/gomoddirectives v0.6.1
@@ -395,7 +395,7 @@ github.com/ldez/grignotin/gomod
 # github.com/ldez/tagliatelle v0.7.1
 ## explicit; go 1.22.0
 github.com/ldez/tagliatelle
-# github.com/ldez/usetesting v0.4.2
+# github.com/ldez/usetesting v0.4.3
 ## explicit; go 1.22.0
 github.com/ldez/usetesting
 # github.com/leonklingele/grouper v1.1.2
@@ -1140,8 +1140,8 @@ honnef.co/go/tools/stylecheck/st1021
 honnef.co/go/tools/stylecheck/st1022
 honnef.co/go/tools/stylecheck/st1023
 honnef.co/go/tools/unused
-# mvdan.cc/gofumpt v0.7.0
-## explicit; go 1.22
+# mvdan.cc/gofumpt v0.8.0
+## explicit; go 1.23.0
 mvdan.cc/gofumpt/format
 mvdan.cc/gofumpt/internal/govendor/go/doc/comment
 mvdan.cc/gofumpt/internal/govendor/go/format

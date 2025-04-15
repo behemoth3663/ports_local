@@ -1,5 +1,5 @@
 PORTNAME=	golangci-lint
-PORTVERSION=	2.1.1
+PORTVERSION=	2.1.2
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -56,11 +56,7 @@ M2T_OFFLINE=	true
 .export	M2T_OFFLINE
 
 pre-deps: .PHONY
-	if [ -d '${PATCHDIR}_' ]; then \
-		${RM} -r ${PATCHDIR}; \
-	else \
-		${MV} ${PATCHDIR} ${PATCHDIR}_; \
-	fi
+	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
 
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
@@ -76,7 +72,7 @@ make-from-deps: .PHONY
 	${.CURDIR}/Makefile.deps >>${.CURDIR}/generated.deps.mk
 
 post-deps-all: .PHONY
-	test -d '${PATCHDIR}_' && ${MV} ${PATCHDIR}_ ${PATCHDIR} || :
+	test -d ${PATCHDIR}_ && ${MV} ${PATCHDIR}_ ${PATCHDIR} || :
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
