@@ -4,7 +4,6 @@ GH_TUPLE=	\
 		benbjohnson:clock:v1.3.0:benbjohnson_clock/vendor/github.com/benbjohnson/clock \
 		beorn7:perks:v1.0.1:beorn7_perks/vendor/github.com/beorn7/perks \
 		cespare:xxhash:v2.3.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
-		cpuguy83:go-md2man:v2.0.5:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
 		davecgh:go-spew:d8f796af33cc:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		dennwc:varint:v1.0.0:dennwc_varint/vendor/github.com/dennwc/varint \
 		edsrzf:mmap-go:v1.2.0:edsrzf_mmap_go/vendor/github.com/edsrzf/mmap-go \
@@ -20,14 +19,14 @@ GH_TUPLE=	\
 		gogo:protobuf:v1.3.2:gogo_protobuf/vendor/github.com/gogo/protobuf \
 		golang:exp:8a7402abbf56:golang_exp/vendor/golang.org/x/exp \
 		golang:mod:v0.22.0:golang_mod/vendor/golang.org/x/mod \
-		golang:oauth2:v0.28.0:golang_oauth2/vendor/golang.org/x/oauth2 \
+		golang:oauth2:v0.29.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:sync:v0.10.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.29.0:golang_sys/vendor/golang.org/x/sys \
+		golang:sys:v0.30.0:golang_sys/vendor/golang.org/x/sys \
 		golang:text:v0.21.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.10.0:golang_time/vendor/golang.org/x/time \
 		golang:tools:v0.29.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
-		google:go-github:v68.0.0:google_go_github_v68/vendor/github.com/google/go-github/v68 \
+		google:go-github:v71.0.0:google_go_github_v71/vendor/github.com/google/go-github/v71 \
 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
 		grafana:regexp:a468a5bfb3bc:grafana_regexp/vendor/github.com/grafana/regexp \
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
@@ -47,15 +46,14 @@ GH_TUPLE=	\
 		open-telemetry:opentelemetry-go-instrumentation:sdk/v1.1.0:open_telemetry_opentelemetry_go_instrumentation/vendor/go.opentelemetry.io/auto \
 		open-telemetry:opentelemetry-go:v1.34.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
 		pmezard:go-difflib:5d4384ee4fb2:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
-		prometheus:client_golang:v1.21.1:prometheus_client_golang/vendor/github.com/prometheus/client_golang \
-		prometheus:client_model:v0.6.1:prometheus_client_model/vendor/github.com/prometheus/client_model \
+		prometheus:client_golang:v1.22.0:prometheus_client_golang/vendor/github.com/prometheus/client_golang \
+		prometheus:client_model:v0.6.2:prometheus_client_model/vendor/github.com/prometheus/client_model \
 		prometheus:common:v0.62.0:prometheus_common/vendor/github.com/prometheus/common \
 		prometheus:procfs:v0.15.1:prometheus_procfs/vendor/github.com/prometheus/procfs \
 		prometheus:prometheus:v0.302.1:prometheus_prometheus/vendor/github.com/prometheus/prometheus \
-		protocolbuffers:protobuf-go:v1.36.4:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
+		protocolbuffers:protobuf-go:v1.36.6:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		prymitive:current:v0.1.1:prymitive_current/vendor/github.com/prymitive/current \
 		rogpeppe:go-internal:v1.14.1:rogpeppe_go_internal/vendor/github.com/rogpeppe/go-internal \
-		russross:blackfriday:v2.1.0:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
 		stretchr:testify:v1.10.0:stretchr_testify/vendor/github.com/stretchr/testify \
 		tidwall:gjson:v1.18.0:tidwall_gjson/vendor/github.com/tidwall/gjson \
 		tidwall:match:v1.1.1:tidwall_match/vendor/github.com/tidwall/match \
@@ -64,13 +62,12 @@ GH_TUPLE=	\
 		uber-go:atomic:v1.11.0:uber_go_atomic/vendor/go.uber.org/atomic \
 		uber-go:automaxprocs:v1.6.0:uber_go_automaxprocs/vendor/go.uber.org/automaxprocs \
 		uber-go:ratelimit:v0.3.1:uber_go_ratelimit/vendor/go.uber.org/ratelimit \
-		urfave:cli:v2.27.6:urfave_cli_v2/vendor/github.com/urfave/cli/v2 \
-		xrash:smetrics:686a1a2994c1:xrash_smetrics/vendor/github.com/xrash/smetrics \
+		urfave:cli:v3.1.1:urfave_cli_v3/vendor/github.com/urfave/cli/v3 \
 		zclconf:go-cty:v1.16.2:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 		# Errors found during processing:
-		#	error getting commit v0.126.0 for gitlab-org/api: not found
+		#	error getting commit v0.127.0 for gitlab-org/api: not found
 GL_TUPLE=	\
-		gitlab-org-api:client-go:v0.126.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
+		gitlab-org-api:client-go:v0.127.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
 post-extract: .PHONY
 	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 	${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/exporters
