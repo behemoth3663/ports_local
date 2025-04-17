@@ -1,6 +1,6 @@
-TIMESTAMP = 1743273543
-SHA256 (sethvargo-ratchet-v0.11.1_GH0.tar.gz) = 38451e56b4a59268d67c2cb3cfdeb14f658d5ce4655b1d74256ca6e547fbf525
-SIZE (sethvargo-ratchet-v0.11.1_GH0.tar.gz) = 55590
+TIMESTAMP = 1744886915
+SHA256 (sethvargo-ratchet-v0.11.2_GH0.tar.gz) = 13a3d3cfa3bdaf18da337b9fdff9d40faad0a28bdae4f75f560be1de3684d026
+SIZE (sethvargo-ratchet-v0.11.2_GH0.tar.gz) = 55608
 SHA256 (braydonk-yaml-v0.9.0_GH0.tar.gz) = 5fdad5b7bb00b34ec5514cb882dd4b1528e86bc6e75ef765963841ed5c2064e0
 SIZE (braydonk-yaml-v0.9.0_GH0.tar.gz) = 96026
 SHA256 (containerd-stargz-snapshotter-v0.16.3_GH0.tar.gz) = 576f59d4375ac2cab24310d28e3ac98148c05dc6714649e1ec27e8d4fa8a9679
