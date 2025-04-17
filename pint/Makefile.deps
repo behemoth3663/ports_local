@@ -17,14 +17,13 @@ GH_TUPLE=	\
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
 		goccy:go-yaml:v1.15.13:goccy_go_yaml/vendor/github.com/goccy/go-yaml \
 		gogo:protobuf:v1.3.2:gogo_protobuf/vendor/github.com/gogo/protobuf \
-		golang:exp:8a7402abbf56:golang_exp/vendor/golang.org/x/exp \
-		golang:mod:v0.22.0:golang_mod/vendor/golang.org/x/mod \
+		golang:mod:v0.23.0:golang_mod/vendor/golang.org/x/mod \
 		golang:oauth2:v0.29.0:golang_oauth2/vendor/golang.org/x/oauth2 \
-		golang:sync:v0.10.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sync:v0.12.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.30.0:golang_sys/vendor/golang.org/x/sys \
-		golang:text:v0.21.0:golang_text/vendor/golang.org/x/text \
+		golang:text:v0.23.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.10.0:golang_time/vendor/golang.org/x/time \
-		golang:tools:v0.29.0:golang_tools/vendor/golang.org/x/tools \
+		golang:tools:v0.30.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-github:v71.0.0:google_go_github_v71/vendor/github.com/google/go-github/v71 \
 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
@@ -44,13 +43,13 @@ GH_TUPLE=	\
 		munnerz:goautoneg:a7dc8b61c822:munnerz_goautoneg/vendor/github.com/munnerz/goautoneg \
 		neilotoole:slogt:v1.1.0:neilotoole_slogt/vendor/github.com/neilotoole/slogt \
 		open-telemetry:opentelemetry-go-instrumentation:sdk/v1.1.0:open_telemetry_opentelemetry_go_instrumentation/vendor/go.opentelemetry.io/auto \
-		open-telemetry:opentelemetry-go:v1.34.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
+		open-telemetry:opentelemetry-go:v1.35.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
 		pmezard:go-difflib:5d4384ee4fb2:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		prometheus:client_golang:v1.22.0:prometheus_client_golang/vendor/github.com/prometheus/client_golang \
 		prometheus:client_model:v0.6.2:prometheus_client_model/vendor/github.com/prometheus/client_model \
 		prometheus:common:v0.62.0:prometheus_common/vendor/github.com/prometheus/common \
 		prometheus:procfs:v0.15.1:prometheus_procfs/vendor/github.com/prometheus/procfs \
-		prometheus:prometheus:v0.302.1:prometheus_prometheus/vendor/github.com/prometheus/prometheus \
+		prometheus:prometheus:v0.303.0:prometheus_prometheus/vendor/github.com/prometheus/prometheus \
 		protocolbuffers:protobuf-go:v1.36.6:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		prymitive:current:v0.1.1:prymitive_current/vendor/github.com/prymitive/current \
 		rogpeppe:go-internal:v1.14.1:rogpeppe_go_internal/vendor/github.com/rogpeppe/go-internal \
