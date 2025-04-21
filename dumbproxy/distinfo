@@ -1,6 +1,6 @@
-TIMESTAMP = 1744135731
-SHA256 (Snawoot-dumbproxy-v1.21.1_GH0.tar.gz) = d349c60a0237fb4bddd7fdb3b19d35da2530613ef29d8e66322bdca39b4b0302
-SIZE (Snawoot-dumbproxy-v1.21.1_GH0.tar.gz) = 41312
+TIMESTAMP = 1745250031
+SHA256 (Snawoot-dumbproxy-v1.22.0_GH0.tar.gz) = a0ac1041d8718f47e3a65e720f575eebf7faf7a527454cde7cc4373763f7832d
+SIZE (Snawoot-dumbproxy-v1.22.0_GH0.tar.gz) = 43300
 SHA256 (GehirnInc-crypt-8cc1b52080c5_GH0.tar.gz) = cb2d55d38f2101e85b6a35ad8d5af6b847152579a3968999152cb5e93047abbd
 SIZE (GehirnInc-crypt-8cc1b52080c5_GH0.tar.gz) = 11452
 SHA256 (cespare-xxhash-v2.3.0_GH0.tar.gz) = 0e3dda07b03a5f3733506218860ecb2d50c0f01f16299b5d60902ef5158cbde5
