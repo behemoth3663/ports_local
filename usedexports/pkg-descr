@@ -1,0 +1,1 @@
+Find exported variables (const, var, func, struct) in Go that could be unexported.
