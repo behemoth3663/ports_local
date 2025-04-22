@@ -61,7 +61,7 @@ GH_TUPLE=	\
 		uber-go:atomic:v1.11.0:uber_go_atomic/vendor/go.uber.org/atomic \
 		uber-go:automaxprocs:v1.6.0:uber_go_automaxprocs/vendor/go.uber.org/automaxprocs \
 		uber-go:ratelimit:v0.3.1:uber_go_ratelimit/vendor/go.uber.org/ratelimit \
-		urfave:cli:v3.1.1:urfave_cli_v3/vendor/github.com/urfave/cli/v3 \
+		urfave:cli:v3.2.0:urfave_cli_v3/vendor/github.com/urfave/cli/v3 \
 		zclconf:go-cty:v1.16.2:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 		# Errors found during processing:
 		#	error getting commit v0.127.0 for gitlab-org/api: not found
