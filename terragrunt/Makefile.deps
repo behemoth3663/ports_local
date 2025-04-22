@@ -69,7 +69,7 @@ GH_TUPLE=	\
 		boombuler:barcode:v1.0.1:boombuler_barcode/vendor/github.com/boombuler/barcode \
 		cenkalti:backoff:v4.3.0:cenkalti_backoff_v4/vendor/github.com/cenkalti/backoff/v4 \
 		cespare:xxhash:v2.3.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
-		charmbracelet:bubbles:v0.20.0:charmbracelet_bubbles/vendor/github.com/charmbracelet/bubbles \
+		charmbracelet:bubbles:v0.21.0:charmbracelet_bubbles/vendor/github.com/charmbracelet/bubbles \
 		charmbracelet:bubbletea:v1.3.4:charmbracelet_bubbletea/vendor/github.com/charmbracelet/bubbletea \
 		charmbracelet:colorprofile:v0.3.0:charmbracelet_colorprofile/vendor/github.com/charmbracelet/colorprofile \
 		charmbracelet:glamour:v0.8.0:charmbracelet_glamour/vendor/github.com/charmbracelet/glamour \
