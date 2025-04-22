@@ -1,0 +1,5 @@
+Go's support for vulnerability management includes tooling for analyzing your
+codebase and binaries to surface known vulnerabilities in your dependencies.
+This tooling is backed by the Go vulnerability database, which is curated by
+the Go security team. Go's tooling reduces noise in your results by only
+surfacing vulnerabilities in functions that your code is actually calling.

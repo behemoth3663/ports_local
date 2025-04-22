@@ -1,0 +1,9 @@
+GH_TUPLE=	\
+		golang:mod:v0.22.0:golang_mod/vendor/golang.org/x/mod \
+		golang:sync:v0.10.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.29.0:golang_sys/vendor/golang.org/x/sys \
+		golang:telemetry:39ace7a40ae7:golang_telemetry/vendor/golang.org/x/telemetry \
+		golang:tools:v0.29.0:golang_tools/vendor/golang.org/x/tools \
+		google:go-cmdtest:55ab3332a786:google_go_cmdtest/vendor/github.com/google/go-cmdtest \
+		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
+		google:renameio:v0.1.0:google_renameio/vendor/github.com/google/renameio

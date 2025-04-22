@@ -58,6 +58,7 @@ GH_TUPLE:=	${GH_TUPLE:NGoogleCloudPlatform\:*}
 GH_TUPLE:=	${GH_TUPLE:Ncensus-instrumentation\:*}
 GH_TUPLE:=	${GH_TUPLE:Nopen-telemetry\:*}
 GH_TUPLE:=	${GH_TUPLE:Nopentracing\:*}
+GH_TUPLE:=	${GH_TUPLE:Ngolang\:telemetry\:*}
 
 #-cncf:xds:b4127c9b8d78:cncf_xds_go/vendor/github.com/cncf/xds/go
 #+cncf:xds:b4127c9b8d78:cncf_xds_go/vendor/github.com/cncf/xds
