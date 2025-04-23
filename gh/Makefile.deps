@@ -86,7 +86,7 @@ GH_TUPLE=	\
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
 		gorilla:css:v1.0.1:gorilla_css/vendor/github.com/gorilla/css \
 		gorilla:websocket:v1.5.3:gorilla_websocket/vendor/github.com/gorilla/websocket \
-		grpc:grpc-go:v1.71.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+		grpc:grpc-go:v1.71.1:grpc_grpc_go/vendor/google.golang.org/grpc \
 		h2non:gock:v1.1.2:h2non_gock/vendor/gopkg.in/h2non/gock.v1 \
 		h2non:parth:b4df798d6542:h2non_parth/vendor/github.com/h2non/parth \
 		hashicorp:errwrap:v1.1.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
@@ -148,7 +148,7 @@ GH_TUPLE=	\
 		shurcooL:graphql:ed46e5a46466:shurcool_graphql/vendor/github.com/shurcooL/graphql \
 		sigstore:protobuf-specs:v0.4.1:sigstore_protobuf_specs/vendor/github.com/sigstore/protobuf-specs \
 		sigstore:rekor:v1.3.9:sigstore_rekor/vendor/github.com/sigstore/rekor \
-		sigstore:sigstore-go:v0.7.1:sigstore_sigstore_go/vendor/github.com/sigstore/sigstore-go \
+		sigstore:sigstore-go:v0.7.2:sigstore_sigstore_go/vendor/github.com/sigstore/sigstore-go \
 		sigstore:sigstore:v1.9.1:sigstore_sigstore/vendor/github.com/sigstore/sigstore \
 		sigstore:timestamp-authority:v1.2.5:sigstore_timestamp_authority/vendor/github.com/sigstore/timestamp-authority \
 		sirupsen:logrus:v1.9.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
