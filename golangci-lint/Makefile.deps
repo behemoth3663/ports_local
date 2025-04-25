@@ -5,7 +5,6 @@ GH_TUPLE=	\
 		Antonboom:nilnil:v1.1.0:antonboom_nilnil/vendor/github.com/Antonboom/nilnil \
 		Antonboom:testifylint:v1.6.1:antonboom_testifylint/vendor/github.com/Antonboom/testifylint \
 		BurntSushi:toml:v1.5.0:burntsushi_toml/vendor/github.com/BurntSushi/toml \
-		Crocmagnon:fatcontext:v0.7.2:crocmagnon_fatcontext/vendor/github.com/Crocmagnon/fatcontext \
 		Djarvur:go-err113:aea10b59be24:djarvur_go_err113/vendor/github.com/Djarvur/go-err113 \
 		GaijinEntertainment:go-exhaustruct:v3.3.1:gaijinentertainment_go_exhaustruct_v3/vendor/github.com/GaijinEntertainment/go-exhaustruct/v3 \
 		Masterminds:semver:v3.3.1:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
@@ -207,4 +206,5 @@ GL_TUPLE=	bosi:decorder:v0.4.2:bosi_decorder/vendor/gitlab.com/bosi/decorder
 		#	::v0.11.0:group_name/vendor/go-simpler.org/sloglint (from go-simpler.org/sloglint@v0.11.0)
 		#	::v0.13.0:group_name/vendor/go-simpler.org/musttag (from go-simpler.org/musttag@v0.13.0)
 		#	::v0.2.2:group_name/vendor/4d63.com/gochecknoglobals (from 4d63.com/gochecknoglobals@v0.2.2)
+		#	::v0.8.0:group_name/vendor/go.augendre.info/fatcontext (from go.augendre.info/fatcontext@v0.8.0)
 		#	::v1.3.0:group_name/vendor/4d63.com/gocheckcompilerdirectives (from 4d63.com/gocheckcompilerdirectives@v1.3.0)
