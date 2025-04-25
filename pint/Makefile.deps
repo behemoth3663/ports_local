@@ -3,6 +3,7 @@ GH_TUPLE=	\
 		apparentlymart:go-textseg:v15.0.0:apparentlymart_go_textseg_v15/vendor/github.com/apparentlymart/go-textseg/v15 \
 		benbjohnson:clock:v1.3.0:benbjohnson_clock/vendor/github.com/benbjohnson/clock \
 		beorn7:perks:v1.0.1:beorn7_perks/vendor/github.com/beorn7/perks \
+		bool64:shared:v0.1.5:bool64_shared/vendor/github.com/bool64/shared \
 		cespare:xxhash:v2.3.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
 		davecgh:go-spew:d8f796af33cc:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		dennwc:varint:v1.0.0:dennwc_varint/vendor/github.com/dennwc/varint \
@@ -31,6 +32,7 @@ GH_TUPLE=	\
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
 		hashicorp:go-retryablehttp:v0.7.7:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
 		hashicorp:hcl:v2.23.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
+		iancoleman:orderedmap:v0.2.0:iancoleman_orderedmap/vendor/github.com/iancoleman/orderedmap \
 		json-iterator:go:v1.1.12:json_iterator_go/vendor/github.com/json-iterator/go \
 		klauspost:compress:v1.18.0:klauspost_compress/vendor/github.com/klauspost/compress \
 		kr:pretty:v0.3.1:kr_pretty/vendor/github.com/kr/pretty \
@@ -42,6 +44,9 @@ GH_TUPLE=	\
 		modern-go:reflect2:v1.0.2:modern_go_reflect2/vendor/github.com/modern-go/reflect2 \
 		munnerz:goautoneg:a7dc8b61c822:munnerz_goautoneg/vendor/github.com/munnerz/goautoneg \
 		neilotoole:slogt:v1.1.0:neilotoole_slogt/vendor/github.com/neilotoole/slogt \
+		nhatthm:go-matcher:v2.0.0:nhatthm_go_matcher/vendor/go.nhat.io/matcher/v2 \
+		nhatthm:go-wait:v0.1.0:nhatthm_go_wait/vendor/go.nhat.io/wait \
+		nhatthm:httpmock:v0.11.0:nhatthm_httpmock/vendor/go.nhat.io/httpmock \
 		open-telemetry:opentelemetry-go-instrumentation:sdk/v1.1.0:open_telemetry_opentelemetry_go_instrumentation/vendor/go.opentelemetry.io/auto \
 		open-telemetry:opentelemetry-go:v1.35.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
 		pmezard:go-difflib:5d4384ee4fb2:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
@@ -53,7 +58,9 @@ GH_TUPLE=	\
 		protocolbuffers:protobuf-go:v1.36.6:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		prymitive:current:v0.1.1:prymitive_current/vendor/github.com/prymitive/current \
 		rogpeppe:go-internal:v1.14.1:rogpeppe_go_internal/vendor/github.com/rogpeppe/go-internal \
+		sergi:go-diff:v1.3.1:sergi_go_diff/vendor/github.com/sergi/go-diff \
 		stretchr:testify:v1.10.0:stretchr_testify/vendor/github.com/stretchr/testify \
+		swaggest:assertjson:v1.7.0:swaggest_assertjson/vendor/github.com/swaggest/assertjson \
 		tidwall:gjson:v1.18.0:tidwall_gjson/vendor/github.com/tidwall/gjson \
 		tidwall:match:v1.1.1:tidwall_match/vendor/github.com/tidwall/match \
 		tidwall:pretty:v1.2.1:tidwall_pretty/vendor/github.com/tidwall/pretty \
@@ -62,11 +69,13 @@ GH_TUPLE=	\
 		uber-go:automaxprocs:v1.6.0:uber_go_automaxprocs/vendor/go.uber.org/automaxprocs \
 		uber-go:ratelimit:v0.3.1:uber_go_ratelimit/vendor/go.uber.org/ratelimit \
 		urfave:cli:v3.2.0:urfave_cli_v3/vendor/github.com/urfave/cli/v3 \
+		yudai:gojsondiff:v1.0.0:yudai_gojsondiff/vendor/github.com/yudai/gojsondiff \
+		yudai:golcs:ecda9a501e82:yudai_golcs/vendor/github.com/yudai/golcs \
 		zclconf:go-cty:v1.16.2:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 		# Errors found during processing:
-		#	error getting commit v0.127.0 for gitlab-org/api: not found
+		#	error getting commit v0.128.0 for gitlab-org/api: not found
 GL_TUPLE=	\
-		gitlab-org-api:client-go:v0.127.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
+		gitlab-org-api:client-go:v0.128.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
 post-extract: .PHONY
 	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 	${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/exporters

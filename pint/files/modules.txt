@@ -10,6 +10,9 @@ github.com/benbjohnson/clock
 # github.com/beorn7/perks v1.0.1
 ## explicit; go 1.11
 github.com/beorn7/perks/quantile
+# github.com/bool64/shared v0.1.5
+## explicit; go 1.17
+github.com/bool64/shared
 # github.com/cespare/xxhash/v2 v2.3.0
 ## explicit; go 1.11
 github.com/cespare/xxhash/v2
@@ -97,6 +100,9 @@ github.com/hashicorp/hcl/v2/hclsimple
 github.com/hashicorp/hcl/v2/hclsyntax
 github.com/hashicorp/hcl/v2/hclwrite
 github.com/hashicorp/hcl/v2/json
+# github.com/iancoleman/orderedmap v0.2.0
+## explicit
+github.com/iancoleman/orderedmap
 # github.com/json-iterator/go v1.1.12
 ## explicit; go 1.12
 github.com/json-iterator/go
@@ -214,11 +220,17 @@ github.com/rogpeppe/go-internal/testenv
 github.com/rogpeppe/go-internal/testscript
 github.com/rogpeppe/go-internal/testscript/internal/pty
 github.com/rogpeppe/go-internal/txtar
+# github.com/sergi/go-diff v1.3.1
+## explicit; go 1.12
+github.com/sergi/go-diff/diffmatchpatch
 # github.com/stretchr/testify v1.10.0
 ## explicit; go 1.17
 github.com/stretchr/testify/assert
 github.com/stretchr/testify/assert/yaml
 github.com/stretchr/testify/require
+# github.com/swaggest/assertjson v1.7.0
+## explicit; go 1.17
+github.com/swaggest/assertjson
 # github.com/tidwall/gjson v1.18.0
 ## explicit; go 1.12
 github.com/tidwall/gjson
@@ -234,6 +246,13 @@ github.com/tidwall/sjson
 # github.com/urfave/cli/v3 v3.2.0
 ## explicit; go 1.22
 github.com/urfave/cli/v3
+# github.com/yudai/gojsondiff v1.0.0
+## explicit
+github.com/yudai/gojsondiff
+github.com/yudai/gojsondiff/formatter
+# github.com/yudai/golcs v0.0.0-20170316035057-ecda9a501e82
+## explicit
+github.com/yudai/golcs
 # github.com/zclconf/go-cty v1.16.2
 ## explicit; go 1.18
 github.com/zclconf/go-cty/cty
@@ -244,9 +263,24 @@ github.com/zclconf/go-cty/cty/function/stdlib
 github.com/zclconf/go-cty/cty/gocty
 github.com/zclconf/go-cty/cty/json
 github.com/zclconf/go-cty/cty/set
-# gitlab.com/gitlab-org/api/client-go v0.127.0
+# gitlab.com/gitlab-org/api/client-go v0.128.0
 ## explicit; go 1.22
 gitlab.com/gitlab-org/api/client-go
+# go.nhat.io/httpmock v0.11.0
+## explicit; go 1.18
+go.nhat.io/httpmock
+go.nhat.io/httpmock/format
+go.nhat.io/httpmock/matcher
+go.nhat.io/httpmock/must
+go.nhat.io/httpmock/planner
+go.nhat.io/httpmock/test
+go.nhat.io/httpmock/value
+# go.nhat.io/matcher/v2 v2.0.0
+## explicit; go 1.17
+go.nhat.io/matcher/v2
+# go.nhat.io/wait v0.1.0
+## explicit; go 1.17
+go.nhat.io/wait
 # go.opentelemetry.io/auto/sdk v1.1.0
 ## explicit; go 1.22.0
 go.opentelemetry.io/auto/sdk

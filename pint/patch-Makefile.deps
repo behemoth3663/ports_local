@@ -1,20 +1,20 @@
---- Makefile.deps.orig	2025-04-17 12:09:14 UTC
+--- Makefile.deps.orig	2025-04-25 18:50:40 UTC
 +++ Makefile.deps
-@@ -42,7 +42,7 @@ GH_TUPLE=	\
- 		modern-go:reflect2:v1.0.2:modern_go_reflect2/vendor/github.com/modern-go/reflect2 \
- 		munnerz:goautoneg:a7dc8b61c822:munnerz_goautoneg/vendor/github.com/munnerz/goautoneg \
- 		neilotoole:slogt:v1.1.0:neilotoole_slogt/vendor/github.com/neilotoole/slogt \
+@@ -47,7 +47,7 @@ GH_TUPLE=	\
+ 		nhatthm:go-matcher:v2.0.0:nhatthm_go_matcher/vendor/go.nhat.io/matcher/v2 \
+ 		nhatthm:go-wait:v0.1.0:nhatthm_go_wait/vendor/go.nhat.io/wait \
+ 		nhatthm:httpmock:v0.11.0:nhatthm_httpmock/vendor/go.nhat.io/httpmock \
 -		open-telemetry:opentelemetry-go-instrumentation:v1.1.0:open_telemetry_opentelemetry_go_instrumentation/vendor/go.opentelemetry.io/auto/sdk \
 +		open-telemetry:opentelemetry-go-instrumentation:sdk/v1.1.0:open_telemetry_opentelemetry_go_instrumentation/vendor/go.opentelemetry.io/auto \
  		open-telemetry:opentelemetry-go:v1.35.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
  		pmezard:go-difflib:5d4384ee4fb2:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
  		prometheus:client_golang:v1.22.0:prometheus_client_golang/vendor/github.com/prometheus/client_golang \
-@@ -65,3 +65,9 @@ GH_TUPLE=	\
+@@ -74,3 +74,9 @@ GH_TUPLE=	\
  		zclconf:go-cty:v1.16.2:zclconf_go_cty/vendor/github.com/zclconf/go-cty
  		# Errors found during processing:
- 		#	error getting commit v0.127.0 for gitlab-org/api: not found
+ 		#	error getting commit v0.128.0 for gitlab-org/api: not found
 +GL_TUPLE=	\
-+		gitlab-org-api:client-go:v0.127.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
++		gitlab-org-api:client-go:v0.128.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
 +post-extract: .PHONY
 +	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 +	${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/exporters
