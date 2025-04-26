@@ -1,4 +1,4 @@
---- vendor/github.com/hashicorp/aws-sdk-go-base/v2/logger.go.orig	2024-09-23 18:15:31 UTC
+--- vendor/github.com/hashicorp/aws-sdk-go-base/v2/logger.go.orig	2025-04-04 12:31:04 UTC
 +++ vendor/github.com/hashicorp/aws-sdk-go-base/v2/logger.go
 @@ -4,31 +4,20 @@ import (
  package awsbase
@@ -69,13 +69,13 @@
 -		awsSDKv2Attr(),
 -	}
 -
--	setters := map[string]otelaws.AttributeSetter{
--		dynamodb.ServiceID: otelaws.DynamoDBAttributeSetter,
--		s3.ServiceID:       s3AttributeSetter,
--		sqs.ServiceID:      otelaws.SQSAttributeSetter,
+-	setters := map[string]otelaws.AttributeBuilder{
+-		dynamodb.ServiceID: otelaws.DynamoDBAttributeBuilder,
+-		s3.ServiceID:       s3AttributeBuilder,
+-		sqs.ServiceID:      otelaws.SQSAttributeBuilder,
 -	}
 -	if setter, ok := setters[serviceID]; ok {
--		attributes = append(attributes, setter(ctx, in)...)
+-		attributes = append(attributes, setter(ctx, in, out)...)
 -	}
 -
 -	for _, attribute := range attributes {
@@ -153,7 +153,7 @@
 -
 -// May be contributed to go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2/otelaws
 -// See: https://github.com/open-telemetry/opentelemetry-go-contrib/issues/4321
--func s3AttributeSetter(ctx context.Context, in middleware.InitializeInput) []attribute.KeyValue {
+-func s3AttributeBuilder(ctx context.Context, in middleware.InitializeInput, out middleware.InitializeOutput) []attribute.KeyValue {
 -	s3Attributes := []attribute.KeyValue{}
 -
 -	switch v := in.Parameters.(type) {

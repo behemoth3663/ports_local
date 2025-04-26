@@ -1,5 +1,5 @@
 PORTNAME=	tflint-ruleset-aws
-PORTVERSION=	0.38.0
+PORTVERSION=	0.39.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -23,12 +23,18 @@ M2T_OFFLINE=	true
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static"
 
 post-extract: .PHONY
-	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+	@test ! -d ${WRKSRC}/vendor || ${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 	@${RM} ${WRKSRC}/vendor/github.com/hashicorp/aws-sdk-go-base/v2/logging/attributes.go
 
-pre-deps post-deps-all: .PHONY
+pre-deps: .PHONY
+	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+
 pre-deps-all: .PHONY
-	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
+	${RM} ${.CURDIR}/generated.deps.mk
+
+post-deps-all: .PHONY
+	test -d ${PATCHDIR}_ && ${MV} ${PATCHDIR}_ ${PATCHDIR} || :
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
