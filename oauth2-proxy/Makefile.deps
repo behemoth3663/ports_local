@@ -27,7 +27,7 @@ GH_TUPLE=	\
 		golang-jwt:jwt:v5.2.2:golang_jwt_jwt_v5/vendor/github.com/golang-jwt/jwt/v5 \
 		golang:crypto:v0.36.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:054e65f0b394:golang_exp/vendor/golang.org/x/exp \
-		golang:net:v0.37.0:golang_net/vendor/golang.org/x/net \
+		golang:net:v0.38.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.28.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:sync:v0.12.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.31.0:golang_sys/vendor/golang.org/x/sys \
