@@ -81,7 +81,7 @@ github.com/charmbracelet/colorprofile
 github.com/charmbracelet/glamour
 github.com/charmbracelet/glamour/ansi
 github.com/charmbracelet/glamour/styles
-# github.com/charmbracelet/huh v0.6.1-0.20250409210615-c5906631cbb5
+# github.com/charmbracelet/huh v0.7.0
 ## explicit; go 1.23.0
 github.com/charmbracelet/huh
 github.com/charmbracelet/huh/internal/accessibility

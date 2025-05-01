@@ -19,7 +19,7 @@ GH_TUPLE=	\
 		charmbracelet:bubbletea:v1.3.4:charmbracelet_bubbletea/vendor/github.com/charmbracelet/bubbletea \
 		charmbracelet:colorprofile:f60798e515dc:charmbracelet_colorprofile/vendor/github.com/charmbracelet/colorprofile \
 		charmbracelet:glamour:549f544650e3:charmbracelet_glamour/vendor/github.com/charmbracelet/glamour \
-		charmbracelet:huh:c5906631cbb5:charmbracelet_huh/vendor/github.com/charmbracelet/huh \
+		charmbracelet:huh:v0.7.0:charmbracelet_huh/vendor/github.com/charmbracelet/huh \
 		charmbracelet:lipgloss:166f707985bc:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
 		charmbracelet:x:212f7b056ed0:charmbracelet_x_strings/vendor/github.com/charmbracelet/x/exp/strings \
 		charmbracelet:x:v0.0.13:charmbracelet_x_cellbuf/vendor/github.com/charmbracelet/x/cellbuf \
