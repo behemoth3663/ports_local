@@ -1,5 +1,5 @@
 PORTNAME=	trivy
-PORTVERSION=	0.61.1
+PORTVERSION=	0.62.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	2
 CATEGORIES=	local security
@@ -13,7 +13,7 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 
-GO_MODULE=	github.com/aquasecurity/trivy
+GO_MODULE=	github.com/aquasecurity/${PORTNAME}
 GO_TARGET=	./cmd/${PORTNAME}
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
