@@ -1,5 +1,5 @@
 PORTNAME=	tfsec
-PORTVERSION=	1.28.13
+PORTVERSION=	1.28.14
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local security
@@ -23,7 +23,14 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 
 PLIST_FILES=	bin/${PORTNAME}
 
-pre-deps pre-deps-all post-deps-all: .PHONY
+pre-deps: .PHONY
+	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+
+pre-deps-all: .PHONY
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
+
+post-deps-all: .PHONY
+	test -d ${PATCHDIR}_ && ${MV} ${PATCHDIR}_ ${PATCHDIR} || :
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
