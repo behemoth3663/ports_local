@@ -29,6 +29,7 @@ GH_TUPLE=	\
 		go-git:go-billy:v5.6.0:go_git_go_billy_v5/vendor/github.com/go-git/go-billy/v5 \
 		go-git:go-git:v5.13.0:go_git_go_git_v5/vendor/github.com/go-git/go-git/v5 \
 		go-ini:ini:v1.67.0:go_ini_ini/vendor/github.com/go-ini/ini \
+		go-ini:ini:v1.67.0:go_ini_ini_1/vendor/gopkg.in/ini.v1 \
 		go-logr:logr:v1.4.2:go_logr_logr/vendor/github.com/go-logr/logr \
 		go-logr:stdr:v1.2.2:go_logr_stdr/vendor/github.com/go-logr/stdr \
 		go-warnings:warnings:v0.1.2:go_warnings_warnings/vendor/gopkg.in/warnings.v0 \
@@ -52,12 +53,11 @@ GH_TUPLE=	\
 		google:s2a-go:v0.1.7:google_s2a_go/vendor/github.com/google/s2a-go \
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
 		googleapis:enterprise-certificate-proxy:v0.3.2:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
-		googleapis:gax-go:v2.12.3:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
+		googleapis:gax-go:v2.12.3:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2 \
 		googleapis:google-api-go-client:v0.171.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
-		googleapis:google-cloud-go:iam/v1.1.6:googleapis_google_cloud_go_iam \
-		googleapis:google-cloud-go:storage/v1.38.0:googleapis_google_cloud_go_storage \
 		googleapis:google-cloud-go:v0.112.1:googleapis_google_cloud_go/vendor/cloud.google.com/go \
-		googleapis:google-cloud-go:compute/metadata/v0.3.0:googleapis_google_cloud_go_1 \
+		googleapis:google-cloud-go:v1.1.6:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go/iam \
+		googleapis:google-cloud-go:v1.38.0:googleapis_google_cloud_go_storage/vendor/cloud.google.com/go/storage \
 		gorilla:mux:v1.8.1:gorilla_mux/vendor/github.com/gorilla/mux \
 		grpc:grpc-go:v1.66.0:grpc_grpc_go/vendor/google.golang.org/grpc \
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
@@ -67,7 +67,6 @@ GH_TUPLE=	\
 		hashicorp:go-version:v1.6.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
 		hashicorp:hcl:v1.0.0:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
 		hashicorp:hcl:v2.14.1:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
-		imdario:mergo:v1.0.0:imdario_mergo/vendor/dario.cat/mergo \
 		inconshreveable:go-update:8152e7eb6ccf:inconshreveable_go_update/vendor/github.com/inconshreveable/go-update \
 		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
 		jbenet:go-context:d14ea06fba99:jbenet_go_context/vendor/github.com/jbenet/go-context \
@@ -95,10 +94,7 @@ GH_TUPLE=	\
 		munnerz:goautoneg:a7dc8b61c822:munnerz_goautoneg/vendor/github.com/munnerz/goautoneg \
 		olekukonko:tablewriter:v0.0.5:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
 		open-policy-agent:opa:v0.68.0:open_policy_agent_opa/vendor/github.com/open-policy-agent/opa \
-		open-telemetry:opentelemetry-go-contrib:instrumentation/google.golang.org/grpc/otelgrpc/v0.49.0:open_telemetry_opentelemetry_go_contrib \
-		open-telemetry:opentelemetry-go-contrib:instrumentation/net/http/otelhttp/v0.53.0:open_telemetry_opentelemetry_go_contrib_1 \
-		open-telemetry:opentelemetry-go:v1.28.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
-		owenrumney:go-sarif:v2.1.2:owenrumney_go_sarif_v2/vendor/github.com/owenrumney/go-sarif \
+		owenrumney:go-sarif:v2.1.2:owenrumney_go_sarif_v2/vendor/github.com/owenrumney/go-sarif/v2 \
 		owenrumney:squealer:v1.1.1:owenrumney_squealer/vendor/github.com/owenrumney/squealer \
 		pelletier:go-toml:v2.2.2:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
 		pjbgf:sha1cd:v0.3.0:pjbgf_sha1cd/vendor/github.com/pjbgf/sha1cd \
@@ -133,17 +129,12 @@ GH_TUPLE=	\
 		yashtewari:glob-intersection:v0.2.0:yashtewari_glob_intersection/vendor/github.com/yashtewari/glob-intersection \
 		zclconf:go-cty-yaml:v1.0.2:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
 		zclconf:go-cty:v1.10.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
-post-extract:
-	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
-	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/iam
-	@${RLN} ${WRKSRC_googleapis_google_cloud_go_iam}/iam ${WRKSRC}/vendor/cloud.google.com/go/iam
-	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
-	@${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go/storage
-	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
-	@${RLN} ${WRKSRC_googleapis_google_cloud_go_1}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
-	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc
-	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib}/instrumentation/google.golang.org/grpc/otelgrpc ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc
-	@${MKDIR} ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/net/http
-	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_contrib_1}/instrumentation/net/http/otelhttp ${WRKSRC}/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp
-	@${MKDIR} ${WRKSRC}/vendor/gopkg.in
-	@${RLN} ${WRKSRC_go_ini_ini} ${WRKSRC}/vendor/gopkg.in/ini.v1
+		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
+		#	::v0.3.0:group_name/vendor/cloud.google.com/go/compute/metadata (from cloud.google.com/go/compute/metadata@v0.3.0)
+		#	::v0.49.0:group_name/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc (from go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc@v0.49.0)
+		#	::v0.53.0:group_name/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp (from go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp@v0.53.0)
+		#	::v1.0.0:group_name/vendor/dario.cat/mergo (from dario.cat/mergo@v1.0.0)
+		#	::v1.28.0:group_name/vendor/go.opentelemetry.io/otel (from go.opentelemetry.io/otel@v1.28.0)
+		#	::v1.28.0:group_name/vendor/go.opentelemetry.io/otel/metric (from go.opentelemetry.io/otel/metric@v1.28.0)
+		#	::v1.28.0:group_name/vendor/go.opentelemetry.io/otel/sdk (from go.opentelemetry.io/otel/sdk@v1.28.0)
+		#	::v1.28.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.28.0)
