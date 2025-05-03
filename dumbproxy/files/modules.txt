@@ -119,6 +119,7 @@ golang.org/x/text/transform
 golang.org/x/text/unicode/bidi
 golang.org/x/text/unicode/norm
 golang.org/x/text/unicode/rangetable
-# golang.org/x/time v0.11.0
+# golang.org/x/time v0.11.0 => github.com/Snawoot/xtime v0.0.0-20250501122004-d1ce456948bb
 ## explicit; go 1.23.0
 golang.org/x/time/rate
+# golang.org/x/time => github.com/Snawoot/xtime v0.0.0-20250501122004-d1ce456948bb

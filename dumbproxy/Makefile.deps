@@ -1,5 +1,6 @@
 GH_TUPLE=	\
 		GehirnInc:crypt:8cc1b52080c5:gehirninc_crypt/vendor/github.com/GehirnInc/crypt \
+		Snawoot:xtime:d1ce456948bb:snawoot_xtime/vendor/golang.org/x/time \
 		cespare:xxhash:v2.3.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
 		coreos:go-systemd:v22.5.0:coreos_go_systemd_v22/vendor/github.com/coreos/go-systemd/v22 \
 		dgryski:go-rendezvous:9f7001d12a5f:dgryski_go_rendezvous/vendor/github.com/dgryski/go-rendezvous \
@@ -12,7 +13,6 @@ GH_TUPLE=	\
 		golang:sys:v0.32.0:golang_sys/vendor/golang.org/x/sys \
 		golang:term:v0.31.0:golang_term/vendor/golang.org/x/term \
 		golang:text:v0.24.0:golang_text/vendor/golang.org/x/text \
-		golang:time:v0.11.0:golang_time/vendor/golang.org/x/time \
 		google:pprof:27863c87afa6:google_pprof/vendor/github.com/google/pprof \
 		hashicorp:errwrap:v1.1.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
 		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
