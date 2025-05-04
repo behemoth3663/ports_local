@@ -9,7 +9,7 @@ GH_TUPLE=	\
 		GaijinEntertainment:go-exhaustruct:v3.3.1:gaijinentertainment_go_exhaustruct_v3/vendor/github.com/GaijinEntertainment/go-exhaustruct/v3 \
 		Masterminds:semver:v3.3.1:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
 		OpenPeeDeeP:depguard:v2.2.1:openpeedeep_depguard_v2/vendor/github.com/OpenPeeDeeP/depguard/v2 \
-		alecthomas:chroma:v2.16.0:alecthomas_chroma_v2/vendor/github.com/alecthomas/chroma/v2 \
+		alecthomas:chroma:v2.17.2:alecthomas_chroma_v2/vendor/github.com/alecthomas/chroma/v2 \
 		alecthomas:go-check-sumtype:v0.3.1:alecthomas_go_check_sumtype/vendor/github.com/alecthomas/go-check-sumtype \
 		alexkohler:nakedret:v2.0.6:alexkohler_nakedret_v2/vendor/github.com/alexkohler/nakedret/v2 \
 		alexkohler:prealloc:v1.0.0:alexkohler_prealloc/vendor/github.com/alexkohler/prealloc \
@@ -160,7 +160,7 @@ GH_TUPLE=	\
 		sashamelentyev:interfacebloat:v1.1.0:sashamelentyev_interfacebloat/vendor/github.com/sashamelentyev/interfacebloat \
 		sashamelentyev:usestdlibvars:v1.28.0:sashamelentyev_usestdlibvars/vendor/github.com/sashamelentyev/usestdlibvars \
 		securego:gosec:v2.22.3:securego_gosec_v2/vendor/github.com/securego/gosec/v2 \
-		shirou:gopsutil:v4.25.3:shirou_gopsutil_v4/vendor/github.com/shirou/gopsutil/v4 \
+		shirou:gopsutil:v4.25.4:shirou_gopsutil_v4/vendor/github.com/shirou/gopsutil/v4 \
 		sirupsen:logrus:v1.9.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
 		sivchari:containedctx:v1.0.3:sivchari_containedctx/vendor/github.com/sivchari/containedctx \
 		sonatard:noctx:v0.1.0:sonatard_noctx/vendor/github.com/sonatard/noctx \
@@ -177,7 +177,7 @@ GH_TUPLE=	\
 		stretchr:testify:v1.10.0:stretchr_testify/vendor/github.com/stretchr/testify \
 		subosito:gotenv:v1.4.1:subosito_gotenv/vendor/github.com/subosito/gotenv \
 		tdakkota:asciicheck:v0.4.1:tdakkota_asciicheck/vendor/github.com/tdakkota/asciicheck \
-		tetafro:godot:v1.5.0:tetafro_godot/vendor/github.com/tetafro/godot \
+		tetafro:godot:v1.5.1:tetafro_godot/vendor/github.com/tetafro/godot \
 		timakin:bodyclose:1db5c5ca4d67:timakin_bodyclose/vendor/github.com/timakin/bodyclose \
 		timonwong:loggercheck:v0.11.0:timonwong_loggercheck/vendor/github.com/timonwong/loggercheck \
 		tklauser:go-sysconf:v0.3.12:tklauser_go_sysconf/vendor/github.com/tklauser/go-sysconf \
@@ -204,7 +204,7 @@ GL_TUPLE=	bosi:decorder:v0.4.2:bosi_decorder/vendor/gitlab.com/bosi/decorder
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
 		#	::939b2ce775ac:group_name/vendor/golang.org/x/exp/typeparams (from golang.org/x/exp/typeparams@939b2ce775ac)
 		#	::v0.11.0:group_name/vendor/go-simpler.org/sloglint (from go-simpler.org/sloglint@v0.11.0)
-		#	::v0.13.0:group_name/vendor/go-simpler.org/musttag (from go-simpler.org/musttag@v0.13.0)
+		#	::v0.13.1:group_name/vendor/go-simpler.org/musttag (from go-simpler.org/musttag@v0.13.1)
 		#	::v0.2.2:group_name/vendor/4d63.com/gochecknoglobals (from 4d63.com/gochecknoglobals@v0.2.2)
 		#	::v0.8.0:group_name/vendor/go.augendre.info/fatcontext (from go.augendre.info/fatcontext@v0.8.0)
 		#	::v1.3.0:group_name/vendor/4d63.com/gocheckcompilerdirectives (from 4d63.com/gocheckcompilerdirectives@v1.3.0)
