@@ -1,10 +1,10 @@
 GH_TUPLE=	\
 		AlecAivazis:survey:v2.3.7:alecaivazis_survey_v2/vendor/github.com/AlecAivazis/survey/v2 \
 		Azure:azure-sdk-for-go:v1.1.1:azure_azure_sdk_for_go_internal_1/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/internal \
-		Azure:azure-sdk-for-go:v1.10.0:azure_azure_sdk_for_go_internal/vendor/github.com/Azure/azure-sdk-for-go/sdk/internal \
-		Azure:azure-sdk-for-go:v1.17.1:azure_azure_sdk_for_go_azcore/vendor/github.com/Azure/azure-sdk-for-go/sdk/azcore \
+		Azure:azure-sdk-for-go:v1.11.1:azure_azure_sdk_for_go_internal/vendor/github.com/Azure/azure-sdk-for-go/sdk/internal \
+		Azure:azure-sdk-for-go:v1.18.0:azure_azure_sdk_for_go_azcore/vendor/github.com/Azure/azure-sdk-for-go/sdk/azcore \
 		Azure:azure-sdk-for-go:v1.3.1:azure_azure_sdk_for_go_azkeys/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azkeys \
-		Azure:azure-sdk-for-go:v1.8.2:azure_azure_sdk_for_go_azidentity/vendor/github.com/Azure/azure-sdk-for-go/sdk/azidentity \
+		Azure:azure-sdk-for-go:v1.9.0:azure_azure_sdk_for_go_azidentity/vendor/github.com/Azure/azure-sdk-for-go/sdk/azidentity \
 		AzureAD:microsoft-authentication-library-for-go:v1.4.2:azuread_microsoft_authentication_library_for_go/vendor/github.com/AzureAD/microsoft-authentication-library-for-go \
 		GoogleCloudPlatform:opentelemetry-operations-go:v0.51.0:googlecloudplatform_opentelemetry_operations_go_metric/vendor/github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/metric \
 		GoogleCloudPlatform:opentelemetry-operations-go:v0.51.0:googlecloudplatform_opentelemetry_operations_go_resourcemapping/vendor/github.com/GoogleCloudPlatform/opentelemetry-operations-go/internal/resourcemapping \
@@ -28,17 +28,17 @@ GH_TUPLE=	\
 		aws:aws-sdk-go-v2:v1.12.15:aws_aws_sdk_go_v2_presigned_url/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url \
 		aws:aws-sdk-go-v2:v1.12.3:aws_aws_sdk_go_v2_accept_encoding/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding \
 		aws:aws-sdk-go-v2:v1.16.30:aws_aws_sdk_go_v2_imds/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds \
-		aws:aws-sdk-go-v2:v1.17.65:aws_aws_sdk_go_v2_credentials/vendor/github.com/aws/aws-sdk-go-v2/credentials \
-		aws:aws-sdk-go-v2:v1.17.69:aws_aws_sdk_go_v2_manager/vendor/github.com/aws/aws-sdk-go-v2/feature/s3/manager \
+		aws:aws-sdk-go-v2:v1.17.67:aws_aws_sdk_go_v2_credentials/vendor/github.com/aws/aws-sdk-go-v2/credentials \
+		aws:aws-sdk-go-v2:v1.17.72:aws_aws_sdk_go_v2_manager/vendor/github.com/aws/aws-sdk-go-v2/feature/s3/manager \
 		aws:aws-sdk-go-v2:v1.18.15:aws_aws_sdk_go_v2_s3shared/vendor/github.com/aws/aws-sdk-go-v2/service/internal/s3shared \
 		aws:aws-sdk-go-v2:v1.193.0:aws_aws_sdk_go_v2_ec2/vendor/github.com/aws/aws-sdk-go-v2/service/ec2 \
-		aws:aws-sdk-go-v2:v1.25.2:aws_aws_sdk_go_v2_sso/vendor/github.com/aws/aws-sdk-go-v2/service/sso \
-		aws:aws-sdk-go-v2:v1.29.12:aws_aws_sdk_go_v2_config/vendor/github.com/aws/aws-sdk-go-v2/config \
+		aws:aws-sdk-go-v2:v1.25.3:aws_aws_sdk_go_v2_sso/vendor/github.com/aws/aws-sdk-go-v2/service/sso \
+		aws:aws-sdk-go-v2:v1.29.14:aws_aws_sdk_go_v2_config/vendor/github.com/aws/aws-sdk-go-v2/config \
 		aws:aws-sdk-go-v2:v1.3.34:aws_aws_sdk_go_v2_configsources/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources \
 		aws:aws-sdk-go-v2:v1.3.34:aws_aws_sdk_go_v2_v4a/vendor/github.com/aws/aws-sdk-go-v2/internal/v4a \
-		aws:aws-sdk-go-v2:v1.30.0:aws_aws_sdk_go_v2_ssooidc/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc \
+		aws:aws-sdk-go-v2:v1.30.1:aws_aws_sdk_go_v2_ssooidc/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc \
 		aws:aws-sdk-go-v2:v1.30.6:aws_aws_sdk_go_v2_acm/vendor/github.com/aws/aws-sdk-go-v2/service/acm \
-		aws:aws-sdk-go-v2:v1.33.17:aws_aws_sdk_go_v2_sts/vendor/github.com/aws/aws-sdk-go-v2/service/sts \
+		aws:aws-sdk-go-v2:v1.33.19:aws_aws_sdk_go_v2_sts/vendor/github.com/aws/aws-sdk-go-v2/service/sts \
 		aws:aws-sdk-go-v2:v1.33.6:aws_aws_sdk_go_v2_sns/vendor/github.com/aws/aws-sdk-go-v2/service/sns \
 		aws:aws-sdk-go-v2:v1.34.6:aws_aws_sdk_go_v2_secretsmanager/vendor/github.com/aws/aws-sdk-go-v2/service/secretsmanager \
 		aws:aws-sdk-go-v2:v1.36.3:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
@@ -46,7 +46,7 @@ GH_TUPLE=	\
 		aws:aws-sdk-go-v2:v1.37.1:aws_aws_sdk_go_v2_dynamodb/vendor/github.com/aws/aws-sdk-go-v2/service/dynamodb \
 		aws:aws-sdk-go-v2:v1.37.1:aws_aws_sdk_go_v2_sqs/vendor/github.com/aws/aws-sdk-go-v2/service/sqs \
 		aws:aws-sdk-go-v2:v1.38.1:aws_aws_sdk_go_v2_iam/vendor/github.com/aws/aws-sdk-go-v2/service/iam \
-		aws:aws-sdk-go-v2:v1.38.1:aws_aws_sdk_go_v2_kms/vendor/github.com/aws/aws-sdk-go-v2/service/kms \
+		aws:aws-sdk-go-v2:v1.38.3:aws_aws_sdk_go_v2_kms/vendor/github.com/aws/aws-sdk-go-v2/service/kms \
 		aws:aws-sdk-go-v2:v1.44.0:aws_aws_sdk_go_v2_cloudwatchlogs/vendor/github.com/aws/aws-sdk-go-v2/service/cloudwatchlogs \
 		aws:aws-sdk-go-v2:v1.46.2:aws_aws_sdk_go_v2_route53/vendor/github.com/aws/aws-sdk-go-v2/service/route53 \
 		aws:aws-sdk-go-v2:v1.51.0:aws_aws_sdk_go_v2_autoscaling/vendor/github.com/aws/aws-sdk-go-v2/service/autoscaling \
@@ -92,7 +92,7 @@ GH_TUPLE=	\
 		felixge:httpsnoop:v1.0.4:felixge_httpsnoop/vendor/github.com/felixge/httpsnoop \
 		gabriel-vasile:mimetype:v1.4.8:gabriel_vasile_mimetype/vendor/github.com/gabriel-vasile/mimetype \
 		getsops:gopgagent:7044f28e491e:getsops_gopgagent/vendor/github.com/getsops/gopgagent \
-		getsops:sops:v3.10.1:getsops_sops_v3/vendor/github.com/getsops/sops/v3 \
+		getsops:sops:v3.10.2:getsops_sops_v3/vendor/github.com/getsops/sops/v3 \
 		gitsight:go-vcsurl:v1.0.1:gitsight_go_vcsurl/vendor/github.com/gitsight/go-vcsurl \
 		go-errors:errors:v1.5.1:go_errors_errors/vendor/github.com/go-errors/errors \
 		go-ini:ini:v1.67.0:go_ini_ini/vendor/gopkg.in/ini.v1 \
@@ -105,16 +105,16 @@ GH_TUPLE=	\
 		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
 		gofrs:flock:v0.12.1:gofrs_flock/vendor/github.com/gofrs/flock \
 		golang-jwt:jwt:v5.2.2:golang_jwt_jwt_v5/vendor/github.com/golang-jwt/jwt/v5 \
-		golang:crypto:v0.36.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.37.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:7588d65b2ba8:golang_exp/vendor/golang.org/x/exp \
 		golang:mod:v0.24.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.38.0:golang_net/vendor/golang.org/x/net \
+		golang:net:v0.39.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.29.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sync:v0.12.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sync:v0.13.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.32.0:golang_sys/vendor/golang.org/x/sys \
 		golang:term:v0.31.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.23.0:golang_text/vendor/golang.org/x/text \
+		golang:text:v0.24.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.11.0:golang_time/vendor/golang.org/x/time \
 		golang:tools:v0.29.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
@@ -258,7 +258,6 @@ GH_TUPLE=	\
 		#	::v1.1.0:group_name/vendor/filippo.io/edwards25519 (from filippo.io/edwards25519@v1.1.0)
 		#	::v1.1.0:group_name/vendor/go.opentelemetry.io/auto/sdk (from go.opentelemetry.io/auto/sdk@v1.1.0)
 		#	::v1.2.1:group_name/vendor/filippo.io/age (from filippo.io/age@v1.2.1)
-		#	::v1.34.0:group_name/vendor/go.opentelemetry.io/otel/exporters/stdout/stdouttrace (from go.opentelemetry.io/otel/exporters/stdout/stdouttrace@v1.34.0)
 		#	::v1.35.0:group_name/vendor/go.opentelemetry.io/contrib/detectors/gcp (from go.opentelemetry.io/contrib/detectors/gcp@v1.35.0)
 		#	::v1.35.0:group_name/vendor/go.opentelemetry.io/otel (from go.opentelemetry.io/otel@v1.35.0)
 		#	::v1.35.0:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc (from go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc@v1.35.0)
@@ -267,6 +266,7 @@ GH_TUPLE=	\
 		#	::v1.35.0:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc (from go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc@v1.35.0)
 		#	::v1.35.0:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp (from go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp@v1.35.0)
 		#	::v1.35.0:group_name/vendor/go.opentelemetry.io/otel/exporters/stdout/stdoutmetric (from go.opentelemetry.io/otel/exporters/stdout/stdoutmetric@v1.35.0)
+		#	::v1.35.0:group_name/vendor/go.opentelemetry.io/otel/exporters/stdout/stdouttrace (from go.opentelemetry.io/otel/exporters/stdout/stdouttrace@v1.35.0)
 		#	::v1.35.0:group_name/vendor/go.opentelemetry.io/otel/metric (from go.opentelemetry.io/otel/metric@v1.35.0)
 		#	::v1.35.0:group_name/vendor/go.opentelemetry.io/otel/sdk (from go.opentelemetry.io/otel/sdk@v1.35.0)
 		#	::v1.35.0:group_name/vendor/go.opentelemetry.io/otel/sdk/metric (from go.opentelemetry.io/otel/sdk/metric@v1.35.0)
