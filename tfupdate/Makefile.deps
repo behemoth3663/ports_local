@@ -29,7 +29,7 @@ GH_TUPLE=	\
 		kelseyhightower:envconfig:v1.4.0:kelseyhightower_envconfig/vendor/github.com/kelseyhightower/envconfig \
 		mattn:go-colorable:v0.0.9:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
 		mattn:go-isatty:v0.0.3:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
-		minamijoyo:terraform-config-inspect:3abe93bba59a:minamijoyo_terraform_config_inspect/vendor/github.com/hashicorp/terraform-config-inspect \
+		minamijoyo:terraform-config-inspect:6ad6eb27d3c9:minamijoyo_terraform_config_inspect/vendor/github.com/minamijoyo/terraform-config-inspect \
 		mitchellh:cli:v1.0.0:mitchellh_cli/vendor/github.com/mitchellh/cli \
 		mitchellh:go-wordwrap:v1.0.0:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \

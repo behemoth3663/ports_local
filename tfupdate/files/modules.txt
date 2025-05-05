@@ -65,9 +65,6 @@ github.com/hashicorp/hcl/v2/json
 # github.com/hashicorp/logutils v1.0.0
 ## explicit
 github.com/hashicorp/logutils
-# github.com/hashicorp/terraform-config-inspect v0.0.0-20230614215431-f32df32a01cd => github.com/minamijoyo/terraform-config-inspect v0.0.0-20250409132015-3abe93bba59a
-## explicit; go 1.18
-github.com/hashicorp/terraform-config-inspect/tfconfig
 # github.com/hashicorp/terraform-registry-address v0.2.0
 ## explicit; go 1.19
 github.com/hashicorp/terraform-registry-address
@@ -83,6 +80,9 @@ github.com/mattn/go-colorable
 # github.com/mattn/go-isatty v0.0.3
 ## explicit
 github.com/mattn/go-isatty
+# github.com/minamijoyo/terraform-config-inspect v0.0.0-20250505010908-6ad6eb27d3c9
+## explicit; go 1.18
+github.com/minamijoyo/terraform-config-inspect/tfconfig
 # github.com/mitchellh/cli v1.0.0
 ## explicit
 github.com/mitchellh/cli
@@ -212,4 +212,3 @@ google.golang.org/protobuf/reflect/protoregistry
 google.golang.org/protobuf/runtime/protoiface
 google.golang.org/protobuf/runtime/protoimpl
 google.golang.org/protobuf/types/descriptorpb
-# github.com/hashicorp/terraform-config-inspect => github.com/minamijoyo/terraform-config-inspect v0.0.0-20250409132015-3abe93bba59a
