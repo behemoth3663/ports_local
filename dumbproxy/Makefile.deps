@@ -1,5 +1,6 @@
 GH_TUPLE=	\
 		GehirnInc:crypt:8cc1b52080c5:gehirninc_crypt/vendor/github.com/GehirnInc/crypt \
+		Snawoot:uniqueslice:v0.1.1:snawoot_uniqueslice/vendor/github.com/Snawoot/uniqueslice \
 		Snawoot:xtime:d1ce456948bb:snawoot_xtime/vendor/golang.org/x/time \
 		cespare:xxhash:v2.3.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
 		coreos:go-systemd:v22.5.0:coreos_go_systemd_v22/vendor/github.com/coreos/go-systemd/v22 \
@@ -7,21 +8,21 @@ GH_TUPLE=	\
 		dlclark:regexp2:v1.11.5:dlclark_regexp2/vendor/github.com/dlclark/regexp2 \
 		dop251:goja:bcd7cc6bf64c:dop251_goja/vendor/github.com/dop251/goja \
 		go-sourcemap:sourcemap:v2.1.4:go_sourcemap_sourcemap/vendor/github.com/go-sourcemap/sourcemap \
-		golang:crypto:v0.37.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:net:v0.39.0:golang_net/vendor/golang.org/x/net \
-		golang:sync:v0.13.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.32.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.31.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.24.0:golang_text/vendor/golang.org/x/text \
-		google:pprof:27863c87afa6:google_pprof/vendor/github.com/google/pprof \
+		golang:crypto:v0.38.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:net:v0.40.0:golang_net/vendor/golang.org/x/net \
+		golang:sync:v0.14.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.33.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.32.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.25.0:golang_text/vendor/golang.org/x/text \
+		google:pprof:c0086092b71a:google_pprof/vendor/github.com/google/pprof \
 		hashicorp:errwrap:v1.1.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
 		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
 		jellydator:ttlcache:v3.3.0:jellydator_ttlcache_v3/vendor/github.com/jellydator/ttlcache/v3 \
 		klauspost:cpuid:v2.2.10:klauspost_cpuid_v2/vendor/github.com/klauspost/cpuid/v2 \
 		libp2p:go-reuseport:v0.4.0:libp2p_go_reuseport/vendor/github.com/libp2p/go-reuseport \
-		pires:go-proxyproto:v0.8.0:pires_go_proxyproto/vendor/github.com/pires/go-proxyproto \
-		redis:go-redis:v9.7.3:redis_go_redis_v9/vendor/github.com/redis/go-redis/v9 \
-		tg123:go-htpasswd:v1.2.3:tg123_go_htpasswd/vendor/github.com/tg123/go-htpasswd \
+		pires:go-proxyproto:v0.8.1:pires_go_proxyproto/vendor/github.com/pires/go-proxyproto \
+		redis:go-redis:v9.8.0:redis_go_redis_v9/vendor/github.com/redis/go-redis/v9 \
+		tg123:go-htpasswd:v1.2.4:tg123_go_htpasswd/vendor/github.com/tg123/go-htpasswd \
 		zeebo:xxh3:v1.0.2:zeebo_xxh3/vendor/github.com/zeebo/xxh3
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
-		#	::959f8f3db0fb:group_name/vendor/golang.org/x/crypto/x509roots/fallback (from go.googlesource.com/crypto@959f8f3db0fb)
+		#	::aae6e6107042:group_name/vendor/golang.org/x/crypto/x509roots/fallback (from go.googlesource.com/crypto@aae6e6107042)
