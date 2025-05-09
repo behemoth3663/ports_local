@@ -109,18 +109,18 @@ GH_TUPLE=	\
 		golang:exp:7588d65b2ba8:golang_exp/vendor/golang.org/x/exp \
 		golang:mod:v0.24.0:golang_mod/vendor/golang.org/x/mod \
 		golang:net:v0.39.0:golang_net/vendor/golang.org/x/net \
-		golang:oauth2:v0.29.0:golang_oauth2/vendor/golang.org/x/oauth2 \
+		golang:oauth2:v0.30.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sync:v0.13.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sync:v0.14.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.32.0:golang_sys/vendor/golang.org/x/sys \
 		golang:term:v0.31.0:golang_term/vendor/golang.org/x/term \
 		golang:text:v0.24.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.11.0:golang_time/vendor/golang.org/x/time \
 		golang:tools:v0.29.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
+		google:go-genproto:10db94c68c34:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc \
 		google:go-genproto:b45e905df463:google_go_genproto/vendor/google.golang.org/genproto \
 		google:go-genproto:b45e905df463:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api \
-		google:go-genproto:b45e905df463:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc \
 		google:go-github:v53.2.0:google_go_github_v53/vendor/github.com/google/go-github/v53 \
 		google:go-jsonnet:v0.20.0:google_go_jsonnet/vendor/github.com/google/go-jsonnet \
 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
@@ -129,9 +129,9 @@ GH_TUPLE=	\
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
 		googleapis:enterprise-certificate-proxy:v0.3.6:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
 		googleapis:gax-go:v2.14.1:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2 \
-		googleapis:google-api-go-client:v0.228.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+		googleapis:google-api-go-client:v0.232.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
 		googleapis:google-cloud-go:v0.120.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
-		googleapis:google-cloud-go:v0.15.0:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth \
+		googleapis:google-cloud-go:v0.16.1:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth \
 		googleapis:google-cloud-go:v0.6.6:googleapis_google_cloud_go_longrunning/vendor/cloud.google.com/go/longrunning \
 		googleapis:google-cloud-go:v1.21.1:googleapis_google_cloud_go_kms/vendor/cloud.google.com/go/kms \
 		googleapis:google-cloud-go:v1.24.1:googleapis_google_cloud_go_monitoring/vendor/cloud.google.com/go/monitoring \
@@ -141,10 +141,10 @@ GH_TUPLE=	\
 		gorilla:css:v1.0.1:gorilla_css/vendor/github.com/gorilla/css \
 		goware:prefixer:395022866408:goware_prefixer/vendor/github.com/goware/prefixer \
 		grpc-ecosystem:grpc-gateway:v2.26.3:grpc_ecosystem_grpc_gateway_v2/vendor/github.com/grpc-ecosystem/grpc-gateway/v2 \
-		grpc:grpc-go:v1.71.1:grpc_grpc_go/vendor/google.golang.org/grpc \
-		gruntwork-io:boilerplate:v0.6.0:gruntwork_io_boilerplate/vendor/github.com/gruntwork-io/boilerplate \
+		grpc:grpc-go:v1.72.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+		gruntwork-io:boilerplate:v0.6.1:gruntwork_io_boilerplate/vendor/github.com/gruntwork-io/boilerplate \
 		gruntwork-io:go-commons:v0.17.2:gruntwork_io_go_commons/vendor/github.com/gruntwork-io/go-commons \
-		gruntwork-io:terragrunt-engine-go:v0.0.13:gruntwork_io_terragrunt_engine_go/vendor/github.com/gruntwork-io/terragrunt-engine-go \
+		gruntwork-io:terragrunt-engine-go:v0.0.14:gruntwork_io_terragrunt_engine_go/vendor/github.com/gruntwork-io/terragrunt-engine-go \
 		gruntwork-io:terratest:v0.48.2:gruntwork_io_terratest/vendor/github.com/gruntwork-io/terratest \
 		hashicorp:errwrap:v1.1.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
@@ -230,6 +230,7 @@ GH_TUPLE=	\
 		sourcegraph:jsonrpc2:v0.2.0:sourcegraph_jsonrpc2/vendor/github.com/sourcegraph/jsonrpc2 \
 		spf13:afero:v1.12.0:spf13_afero/vendor/github.com/spf13/afero \
 		spf13:cast:v1.7.1:spf13_cast/vendor/github.com/spf13/cast \
+		spiffe:go-spiffe:v2.5.0:spiffe_go_spiffe_v2/vendor/github.com/spiffe/go-spiffe/v2 \
 		stretchr:objx:v0.5.2:stretchr_objx/vendor/github.com/stretchr/objx \
 		stretchr:testify:v1.10.0:stretchr_testify/vendor/github.com/stretchr/testify \
 		terraform-linters:tflint-plugin-sdk:v0.22.0:terraform_linters_tflint_plugin_sdk/vendor/github.com/terraform-linters/tflint-plugin-sdk \
@@ -247,7 +248,8 @@ GH_TUPLE=	\
 		yuin:goldmark-emoji:v1.0.5:yuin_goldmark_emoji/vendor/github.com/yuin/goldmark-emoji \
 		yuin:goldmark:v1.7.8:yuin_goldmark/vendor/github.com/yuin/goldmark \
 		zclconf:go-cty-yaml:v1.1.0:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
-		zclconf:go-cty:v1.16.2:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+		zclconf:go-cty:v1.16.2:zclconf_go_cty/vendor/github.com/zclconf/go-cty \
+		zeebo:errs:v1.4.0:zeebo_errs/vendor/github.com/zeebo/errs
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
 		#	::v0.2.8:group_name/vendor/cloud.google.com/go/auth/oauth2adapt (from cloud.google.com/go/auth/oauth2adapt@v0.2.8)
 		#	::v0.22.1:group_name/vendor/cel.dev/expr (from cel.dev/expr@v0.22.1)

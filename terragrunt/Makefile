@@ -1,6 +1,6 @@
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.78.1
+DISTVERSION=	0.78.2
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
 
@@ -89,6 +89,10 @@ GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+/vendor/github.com/envoyproxy/g
 #-googleapis:gax-go:v2.13.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2
 #+googleapis:gax-go:v2.13.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go
 GH_TUPLE:=	${GH_TUPLE:S|/gax-go/v2|/gax-go|1}
+
+#-spiffe:go-spiffe:v2.5.0:spiffe_go_spiffe_v2/vendor/github.com/spiffe/go-spiffe/v2
+#+spiffe:go-spiffe:v2.5.0:spiffe_go_spiffe_v2/vendor/github.com/spiffe/go-spiffe
+GH_TUPLE:=	${GH_TUPLE:S|/go-spiffe/v2|/go-spiffe|1}
 
 #-google:go-genproto:e6fa225c2576:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api
 #-google:go-genproto:e6fa225c2576:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc
