@@ -1,3 +1,15 @@
-GH_TUPLE=	inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
-		spf13:cobra:v1.8.1:spf13_cobra/vendor/github.com/spf13/cobra \
-		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag
+GH_TUPLE=	\
+		agext:levenshtein:v1.2.3:agext_levenshtein/vendor/github.com/agext/levenshtein \
+		apparentlymart:go-textseg:v15.0.0:apparentlymart_go_textseg_v15/vendor/github.com/apparentlymart/go-textseg/v15 \
+		golang:mod:v0.24.0:golang_mod/vendor/golang.org/x/mod \
+		golang:sync:v0.14.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.33.0:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.25.0:golang_text/vendor/golang.org/x/text \
+		golang:tools:v0.33.0:golang_tools/vendor/golang.org/x/tools \
+		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
+		hashicorp:hcl:v2.23.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
+		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
+		mitchellh:go-wordwrap:v1.0.1:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
+		spf13:cobra:v1.9.1:spf13_cobra/vendor/github.com/spf13/cobra \
+		spf13:pflag:v1.0.6:spf13_pflag/vendor/github.com/spf13/pflag \
+		zclconf:go-cty:v1.16.2:zclconf_go_cty/vendor/github.com/zclconf/go-cty
