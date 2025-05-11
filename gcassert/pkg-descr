@@ -1,0 +1,8 @@
+Make assertions about compiler decisions in Go programs, via inline comment
+directives like //gcassert:inline.
+
+Currently supported directives:
+
+ - //gcassert:inline to assert function callsites are inlined
+ - //gcassert:bce to assert bounds checks are eliminated
+ - //gcassert:noescape to assert variables don't escape to the heap
