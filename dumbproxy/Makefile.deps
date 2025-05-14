@@ -25,4 +25,4 @@ GH_TUPLE=	\
 		tg123:go-htpasswd:v1.2.4:tg123_go_htpasswd/vendor/github.com/tg123/go-htpasswd \
 		zeebo:xxh3:v1.0.2:zeebo_xxh3/vendor/github.com/zeebo/xxh3
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
-		#	::aae6e6107042:group_name/vendor/golang.org/x/crypto/x509roots/fallback (from go.googlesource.com/crypto@aae6e6107042)
+		#	::9f6bf8449a9f:group_name/vendor/golang.org/x/crypto/x509roots/fallback (from go.googlesource.com/crypto@9f6bf8449a9f)
