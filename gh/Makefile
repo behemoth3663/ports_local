@@ -1,5 +1,5 @@
 PORTNAME=	gh
-PORTVERSION=	2.72.0
+PORTVERSION=	2.73.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -64,7 +64,7 @@ make-from-deps: .PHONY
 	${.CURDIR}/Makefile.deps >>${.CURDIR}/generated.deps.mk
 
 post-deps-all: .PHONY
-	test -d ${PATCHDIR}_ && ${MV} ${PATCHDIR}_ ${PATCHDIR} || :
+	test ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
 
 post-extract: .PHONY
 	@${MKDIR} ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
