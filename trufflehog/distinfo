@@ -1,5 +1,5 @@
-TIMESTAMP = 1747475214
-SHA256 (go/local_trufflehog/trufflehog-v3.88.30/v3.88.30.mod) = c8ae1a05647852c97c4f190454f74ed572307bb6c812b85213efc748db6eff4a
-SIZE (go/local_trufflehog/trufflehog-v3.88.30/v3.88.30.mod) = 17107
-SHA256 (go/local_trufflehog/trufflehog-v3.88.30/v3.88.30.zip) = c3005ff9a92b68869133720bc748ecc32bcbbac58ab39561b9047e2d02b446e6
-SIZE (go/local_trufflehog/trufflehog-v3.88.30/v3.88.30.zip) = 7186247
+TIMESTAMP = 1747819674
+SHA256 (go/local_trufflehog/trufflehog-v3.88.31/v3.88.31.mod) = ba04940e7d91f71d984636e65654e4a5a93484339ebc8a1344f2189ae43e28b0
+SIZE (go/local_trufflehog/trufflehog-v3.88.31/v3.88.31.mod) = 17141
+SHA256 (go/local_trufflehog/trufflehog-v3.88.31/v3.88.31.zip) = 634cafbc632588c39d042ad6ad7d8e7e7a6bbab6f94848ba431af5dd5d05428f
+SIZE (go/local_trufflehog/trufflehog-v3.88.31/v3.88.31.zip) = 7205435
