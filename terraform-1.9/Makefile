@@ -1,7 +1,7 @@
 PORTNAME=	terraform
 PORTVERSION=	1.9.8
 DISTVERSIONPREFIX=	v
-#PORTREVISION=	1
+PORTREVISION=	20250523
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX?=	-${PORTVERSION:R}
 
@@ -41,22 +41,19 @@ post-install: .PHONY
 	${INSTALL} -l rs ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}${PKGNAMESUFFIX}
 
 pre-deps: .PHONY
-	if [ -d '${PATCHDIR}_' ]; then \
-		${RM} -r ${PATCHDIR}; \
-	else \
-		${MV} ${PATCHDIR} ${PATCHDIR}_; \
-	fi
-#	${RM} -r ${PATCHDIR}-${PORTVERSION}
-#	${MKDIR} ${PATCHDIR}-${PORTVERSION}
-#	cd ${WRKSRC} && \
-#		${CP} -a go.mod go.mod.orig && \
-#		${CP} -a go.sum go.sum.orig && \
-#		${GO_CMD} get -u=patch && \
-#		${GO_CMD} mod tidy && \
-#		${SETENV} TZ=UTC ${DIFF} -udp go.mod.orig go.mod | \
-#			${SED} -e '/^---/s|\.[0-9]* +0000$$| UTC|' -e '/^+++/s|\([[:blank:]][-0-9:.+]*\)*$$||' >${PATCHDIR}-${PORTVERSION}/patch-go.mod && \
-#		${SETENV} TZ=UTC ${DIFF} -udp go.sum.orig go.sum | \
-#			${SED} -e '/^---/s|\.[0-9]* +0000$$| UTC|' -e '/^+++/s|\([[:blank:]][-0-9:.+]*\)*$$||' >${PATCHDIR}-${PORTVERSION}/patch-go.sum
+	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+	cd ${WRKSRC} && \
+		${CP} -a go.mod go.mod.orig && \
+		${CP} -a go.sum go.sum.orig && \
+		echo 'replace k8s.io/kube-openapi => k8s.io/kube-openapi v0.0.0-20220803162953-67bda5d908f1' >> go.mod && \
+		echo 'replace github.com/google/gnostic => github.com/google/gnostic v0.5.7-v3refs' >> go.mod && \
+		echo 'replace github.com/hashicorp/aws-sdk-go-base/v2 => github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.55' >> go.mod && \
+		${GO_CMD} get -u=patch && \
+		${GO_CMD} mod tidy && \
+		${SETENV} TZ=UTC ${DIFF} -udp go.mod.orig go.mod | \
+			${SED} -e '/^---/s|\.[0-9]* +0000$$| UTC|' -e '/^+++/s|\([[:blank:]][-0-9:.+]*\)*$$||' >${PATCHDIR}_/patch-go.mod && \
+		${SETENV} TZ=UTC ${DIFF} -udp go.sum.orig go.sum | \
+			${SED} -e '/^---/s|\.[0-9]* +0000$$| UTC|' -e '/^+++/s|\([[:blank:]][-0-9:.+]*\)*$$||' >${PATCHDIR}_/patch-go.sum
 
 post-deps-all: .PHONY
 	test ! -d '${PATCHDIR}_' || ${MV} ${PATCHDIR}_ ${PATCHDIR}
@@ -64,7 +61,9 @@ post-deps-all: .PHONY
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 	${RM} ${.CURDIR}/generated.deps.mk
+	( make -C ${.CURDIR} make-from-deps GHT_ACNT=google GHT_PROJ=cel-spec GHT_PATH=cel.dev/expr )
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes-sigs GHT_PROJ=json GHT_PATH=sigs.k8s.io/json )
+	( make -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes-sigs GHT_PROJ=randfill GHT_PATH=sigs.k8s.io/randfill )
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes-sigs GHT_PROJ=structured-merge-diff GHT_PATH=sigs.k8s.io/structured-merge-diff/v4 )
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes GHT_PROJ=klog GHT_PATH=k8s.io/klog/v2 )
 
@@ -146,9 +145,6 @@ GH_TUPLE:=	${GH_TUPLE:N*/cloud.google.com/go/*}
 #+hashicorp:consul:v1.13.0:hashicorp_consul_api/vendor/github.com/hashicorp/consul
 GH_TUPLE:=	${GH_TUPLE:S|/consul/api|/consul|}
 
-#+hashicorp:go-version:v1.7.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version
-GH_TUPLE+=	hashicorp:go-version:v1.7.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version
-
 # hashicorp:terraform-svchost:v0.1.1:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost
 #-hashicorp:terraform:000000000000:hashicorp_terraform_azure_1
 #-hashicorp:terraform:000000000000:hashicorp_terraform_consul_1
@@ -184,6 +180,39 @@ GH_TUPLE:=	${GH_TUPLE:C|/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tenc
 
 #-tencentcloud:tencentcloud-sdk-go:v1.0.588:tencentcloud_tencentcloud_sdk_go_sts/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sts
 GH_TUPLE:=	${GH_TUPLE:N*/tencentcloud-sdk-go/*}
+
+#-GoogleCloudPlatform:opentelemetry-operations-go:d637680bde0c:googlecloudplatform_opentelemetry_operations_go_gcp
+#-census-instrumentation:opencensus-go:v0.24.0:census_instrumentation_opencensus_go/vendor/go.opencensus.io
+#-open-telemetry:opentelemetry-go-contrib:v0.54.0:open_telemetry_opentelemetry_go_contrib_1/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc
+#-opentracing:opentracing-go:v1.2.0:opentracing_opentracing_go/vendor/github.com/opentracing/opentracing-go
+GH_TUPLE:=	${GH_TUPLE:NGoogleCloudPlatform\:*}
+#GH_TUPLE:=	${GH_TUPLE:Ncensus-instrumentation\:*}
+#GH_TUPLE:=	${GH_TUPLE:Nopen-telemetry\:*}
+#GH_TUPLE:=	${GH_TUPLE:Nopentracing\:*}
+#GH_TUPLE:=	${GH_TUPLE:Ngolang\:telemetry\:*}
+
+#-envoyproxy:go-control-plane:v1.32.4:envoyproxy_go_control_plane_envoy/vendor/github.com/envoyproxy/go-control-plane/envoy
+#+envoyproxy:go-control-plane:envoy/v1.32.4:envoyproxy_go_control_plane/vendor/github.com/envoyproxy/go-control-plane
+GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+.*/envoyproxy/go-control-plane)/(envoy)$|\1\3/\2|}
+
+#-cncf:xds:d92e9ce0af51:cncf_xds_go/vendor/github.com/cncf/xds/go
+#+cncf:xds:d92e9ce0af51:cncf_xds_go/vendor/github.com/cncf/xds
+GH_TUPLE:=	${GH_TUPLE:S|/xds/go|/xds|1}
+
+#-spiffe:go-spiffe:v2.5.0:spiffe_go_spiffe_v2/vendor/github.com/spiffe/go-spiffe/v2
+#+spiffe:go-spiffe:v2.5.0:spiffe_go_spiffe_v2/vendor/github.com/spiffe/go-spiffe
+GH_TUPLE:=	${GH_TUPLE:S|/go-spiffe/v2|/go-spiffe|1}
+
+#-jcmturner:gokrb5:v8.4.4:jcmturner_gokrb5_v8/vendor/github.com/jcmturner/gokrb5/v8
+#+jcmturner:gokrb5:v8.4.4:jcmturner_gokrb5_v8/vendor/github.com/jcmturner/gokrb5
+GH_TUPLE:=	${GH_TUPLE:S|/gokrb5/v8|/gokrb5|1}
+
+#-jcmturner:rpc:v2.0.3:jcmturner_rpc_v2/vendor/github.com/jcmturner/rpc/v2
+#+jcmturner:rpc:v2.0.3:jcmturner_rpc_v2/vendor/github.com/jcmturner/rpc
+GH_TUPLE:=	${GH_TUPLE:S|/jcmturner/rpc/v2|/jcmturner/rpc|1}
+
+GH_TUPLE+=	golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf
+GH_TUPLE+=	hashicorp:go-version:v1.6.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version
 
 .sinclude "${.CURDIR}/generated.deps.mk"
 .include <bsd.port.mk>
