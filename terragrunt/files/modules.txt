@@ -830,7 +830,7 @@ github.com/gruntwork-io/go-commons/version
 ## explicit; go 1.23.0
 github.com/gruntwork-io/terragrunt-engine-go/engine
 github.com/gruntwork-io/terragrunt-engine-go/proto
-# github.com/gruntwork-io/terratest v0.48.2
+# github.com/gruntwork-io/terratest v0.49.0
 ## explicit; go 1.21
 github.com/gruntwork-io/terratest/modules/aws
 github.com/gruntwork-io/terratest/modules/collections
