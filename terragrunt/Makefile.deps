@@ -59,7 +59,7 @@ GH_TUPLE=	\
 		aws:aws-sdk-go-v2:v1.8.3:aws_aws_sdk_go_v2_ini/vendor/github.com/aws/aws-sdk-go-v2/internal/ini \
 		aws:aws-sdk-go-v2:v1.91.0:aws_aws_sdk_go_v2_rds/vendor/github.com/aws/aws-sdk-go-v2/service/rds \
 		aws:aws-sdk-go-v2:v2.6.34:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 \
-		aws:aws-sdk-go:v1.55.6:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		aws:aws-sdk-go:v1.55.7:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
 		aws:smithy-go:v1.22.3:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		aymanbagabas:go-osc52:v2.0.1:aymanbagabas_go_osc52_v2/vendor/github.com/aymanbagabas/go-osc52/v2 \
 		aymerick:douceur:v0.2.0:aymerick_douceur/vendor/github.com/aymerick/douceur \
@@ -112,15 +112,15 @@ GH_TUPLE=	\
 		golang:oauth2:v0.30.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:sync:v0.14.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.32.0:golang_sys/vendor/golang.org/x/sys \
+		golang:sys:v0.33.0:golang_sys/vendor/golang.org/x/sys \
 		golang:term:v0.31.0:golang_term/vendor/golang.org/x/term \
 		golang:text:v0.24.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.11.0:golang_time/vendor/golang.org/x/time \
 		golang:tools:v0.29.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
-		google:go-genproto:10db94c68c34:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc \
 		google:go-genproto:b45e905df463:google_go_genproto/vendor/google.golang.org/genproto \
-		google:go-genproto:b45e905df463:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api \
+		google:go-genproto:f936aa4a68b2:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api \
+		google:go-genproto:f936aa4a68b2:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc \
 		google:go-github:v53.2.0:google_go_github_v53/vendor/github.com/google/go-github/v53 \
 		google:go-jsonnet:v0.20.0:google_go_jsonnet/vendor/github.com/google/go-jsonnet \
 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
@@ -130,13 +130,13 @@ GH_TUPLE=	\
 		googleapis:enterprise-certificate-proxy:v0.3.6:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
 		googleapis:gax-go:v2.14.1:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2 \
 		googleapis:google-api-go-client:v0.232.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
-		googleapis:google-cloud-go:v0.120.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
+		googleapis:google-cloud-go:v0.121.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
 		googleapis:google-cloud-go:v0.16.1:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth \
-		googleapis:google-cloud-go:v0.6.6:googleapis_google_cloud_go_longrunning/vendor/cloud.google.com/go/longrunning \
+		googleapis:google-cloud-go:v0.6.7:googleapis_google_cloud_go_longrunning/vendor/cloud.google.com/go/longrunning \
 		googleapis:google-cloud-go:v1.21.1:googleapis_google_cloud_go_kms/vendor/cloud.google.com/go/kms \
 		googleapis:google-cloud-go:v1.24.1:googleapis_google_cloud_go_monitoring/vendor/cloud.google.com/go/monitoring \
-		googleapis:google-cloud-go:v1.4.2:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go/iam \
-		googleapis:google-cloud-go:v1.51.0:googleapis_google_cloud_go_storage/vendor/cloud.google.com/go/storage \
+		googleapis:google-cloud-go:v1.5.2:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go/iam \
+		googleapis:google-cloud-go:v1.54.0:googleapis_google_cloud_go_storage/vendor/cloud.google.com/go/storage \
 		gookit:color:v1.5.4:gookit_color/vendor/github.com/gookit/color \
 		gorilla:css:v1.0.1:gorilla_css/vendor/github.com/gorilla/css \
 		goware:prefixer:395022866408:goware_prefixer/vendor/github.com/goware/prefixer \
@@ -231,11 +231,11 @@ GH_TUPLE=	\
 		spf13:afero:v1.12.0:spf13_afero/vendor/github.com/spf13/afero \
 		spf13:cast:v1.7.1:spf13_cast/vendor/github.com/spf13/cast \
 		spiffe:go-spiffe:v2.5.0:spiffe_go_spiffe_v2/vendor/github.com/spiffe/go-spiffe/v2 \
-		stretchr:objx:v0.5.2:stretchr_objx/vendor/github.com/stretchr/objx \
 		stretchr:testify:v1.10.0:stretchr_testify/vendor/github.com/stretchr/testify \
 		terraform-linters:tflint-plugin-sdk:v0.22.0:terraform_linters_tflint_plugin_sdk/vendor/github.com/terraform-linters/tflint-plugin-sdk \
 		terraform-linters:tflint-ruleset-terraform:v0.10.0:terraform_linters_tflint_ruleset_terraform/vendor/github.com/terraform-linters/tflint-ruleset-terraform \
 		terraform-linters:tflint:v0.50.3:terraform_linters_tflint/vendor/github.com/terraform-linters/tflint \
+		uber-go:mock:v0.5.2:uber_go_mock/vendor/go.uber.org/mock \
 		ulikunitz:xz:v0.5.12:ulikunitz_xz/vendor/github.com/ulikunitz/xz \
 		urfave:cli:v1.22.16:urfave_cli/vendor/github.com/urfave/cli \
 		urfave:cli:v2.27.6:urfave_cli_v2/vendor/github.com/urfave/cli/v2 \
