@@ -1,6 +1,6 @@
 PORTNAME=	amazon-ssm-plugin
 PORTVERSION=	1.2.707.0
-PORTREVISION=	2
+PORTREVISION=	3
 CATEGORIES=	local sysutils
 
 MAINTAINER=	nork@FreeBSD.org
