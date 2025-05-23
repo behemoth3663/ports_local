@@ -26,6 +26,7 @@ JQ_GETVER_EXPR=	[.[].name | gsub("^[a-z]+";"") | \
 		"n"))][0]
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.rawVersion=${PORTVERSION}' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=${PORTVERSION}' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.dev=no' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.VersionPrerelease='"
