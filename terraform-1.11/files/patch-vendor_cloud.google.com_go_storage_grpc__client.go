@@ -1,50 +1,93 @@
---- vendor/cloud.google.com/go/storage/grpc_client.go.orig	2023-03-21 19:34:12 UTC
+--- vendor/cloud.google.com/go/storage/grpc_client.go.orig	2025-03-12 21:31:11 UTC
 +++ vendor/cloud.google.com/go/storage/grpc_client.go
-@@ -24,7 +24,6 @@ import (
+@@ -21,13 +21,11 @@ import (
+ 	"fmt"
+ 	"hash/crc32"
+ 	"io"
+-	"log"
+ 	"net/url"
  	"os"
+ 	"sync"
  
  	"cloud.google.com/go/iam/apiv1/iampb"
 -	"cloud.google.com/go/internal/trace"
  	gapic "cloud.google.com/go/storage/internal/apiv2"
- 	storagepb "cloud.google.com/go/storage/internal/apiv2/stubs"
+ 	"cloud.google.com/go/storage/internal/apiv2/storagepb"
  	"github.com/googleapis/gax-go/v2"
-@@ -852,9 +851,6 @@ func (c *grpcStorageClient) NewRangeReader(ctx context
+@@ -35,7 +33,6 @@ import (
+ 	"google.golang.org/api/iterator"
+ 	"google.golang.org/api/option"
+ 	"google.golang.org/api/option/internaloption"
+-	"google.golang.org/api/transport"
+ 	"google.golang.org/grpc"
+ 	"google.golang.org/grpc/codes"
+ 	"google.golang.org/grpc/encoding"
+@@ -119,23 +116,6 @@ type grpcStorageClient struct {
+ 	config   *storageConfig
  }
  
- func (c *grpcStorageClient) NewRangeReader(ctx context.Context, params *newRangeReaderParams, opts ...storageOption) (r *Reader, err error) {
+-func enableClientMetrics(ctx context.Context, s *settings, config storageConfig) (*metricsContext, error) {
+-	var project string
+-	// TODO: use new auth client
+-	c, err := transport.Creds(ctx, s.clientOption...)
+-	if err == nil {
+-		project = c.ProjectID
+-	}
+-	metricsContext, err := newGRPCMetricContext(ctx, metricsConfig{
+-		project:      project,
+-		interval:     config.metricInterval,
+-		manualReader: config.manualReader},
+-	)
+-	if err != nil {
+-		return nil, fmt.Errorf("gRPC Metrics: %w", err)
+-	}
+-	return metricsContext, nil
+-}
+ 
+ // newGRPCStorageClient initializes a new storageClient that uses the gRPC
+ // Storage API.
+@@ -150,15 +130,6 @@ func newGRPCStorageClient(ctx context.Context, opts ..
+ 		return nil, errors.New("storage: GRPC is incompatible with any option that specifies an API for reads")
+ 	}
+ 
+-	if !config.disableClientMetrics {
+-		// Do not fail client creation if enabling metrics fails.
+-		if metricsContext, err := enableClientMetrics(ctx, s, config); err == nil {
+-			s.metricsContext = metricsContext
+-			s.clientOption = append(s.clientOption, metricsContext.clientOpts...)
+-		} else {
+-			log.Printf("Failed to enable client metrics: %v", err)
+-		}
+-	}
+ 	g, err := gapic.NewClient(ctx, s.clientOption...)
+ 	if err != nil {
+ 		return nil, err
+@@ -172,9 +143,6 @@ func (c *grpcStorageClient) Close() error {
+ }
+ 
+ func (c *grpcStorageClient) Close() error {
+-	if c.settings.metricsContext != nil {
+-		c.settings.metricsContext.close()
+-	}
+ 	return c.raw.Close()
+ }
+ 
+@@ -1072,8 +1040,6 @@ func (c *grpcStorageClient) NewMultiRangeDownloader(ct
+ }
+ 
+ func (c *grpcStorageClient) NewMultiRangeDownloader(ctx context.Context, params *newMultiRangeDownloaderParams, opts ...storageOption) (mr *MultiRangeDownloader, err error) {
+-	ctx = trace.StartSpan(ctx, "cloud.google.com/go/storage.grpcStorageClient.NewMultiRangeDownloader")
+-	defer func() { trace.EndSpan(ctx, err) }()
+ 	s := callSettings(c.settings, opts...)
+ 
+ 	if s.userProject != "" {
+@@ -1504,9 +1470,6 @@ func (c *grpcStorageClient) NewRangeReader(ctx context
+ 	if !c.config.grpcBidiReads {
+ 		return c.NewRangeReaderReadObject(ctx, params, opts...)
+ 	}
+-
 -	ctx = trace.StartSpan(ctx, "cloud.google.com/go/storage.grpcStorageClient.NewRangeReader")
 -	defer func() { trace.EndSpan(ctx, err) }()
--
+ 
  	s := callSettings(c.settings, opts...)
  
- 	if s.userProject != "" {
-@@ -1253,9 +1249,6 @@ func (c *grpcStorageClient) ListNotifications(ctx cont
- // Notification methods.
- 
- func (c *grpcStorageClient) ListNotifications(ctx context.Context, bucket string, opts ...storageOption) (n map[string]*Notification, err error) {
--	ctx = trace.StartSpan(ctx, "cloud.google.com/go/storage.grpcStorageClient.ListNotifications")
--	defer func() { trace.EndSpan(ctx, err) }()
--
- 	s := callSettings(c.settings, opts...)
- 	if s.userProject != "" {
- 		ctx = setUserProjectMetadata(ctx, s.userProject)
-@@ -1288,9 +1281,6 @@ func (c *grpcStorageClient) CreateNotification(ctx con
- }
- 
- func (c *grpcStorageClient) CreateNotification(ctx context.Context, bucket string, n *Notification, opts ...storageOption) (ret *Notification, err error) {
--	ctx = trace.StartSpan(ctx, "cloud.google.com/go/storage.grpcStorageClient.CreateNotification")
--	defer func() { trace.EndSpan(ctx, err) }()
--
- 	s := callSettings(c.settings, opts...)
- 	req := &storagepb.CreateNotificationConfigRequest{
- 		Parent:             bucketResourceName(globalProjectAlias, bucket),
-@@ -1309,9 +1299,6 @@ func (c *grpcStorageClient) DeleteNotification(ctx con
- }
- 
- func (c *grpcStorageClient) DeleteNotification(ctx context.Context, bucket string, id string, opts ...storageOption) (err error) {
--	ctx = trace.StartSpan(ctx, "cloud.google.com/go/storage.grpcStorageClient.DeleteNotification")
--	defer func() { trace.EndSpan(ctx, err) }()
--
- 	s := callSettings(c.settings, opts...)
- 	req := &storagepb.DeleteNotificationConfigRequest{Name: id}
- 	return run(ctx, func() error {

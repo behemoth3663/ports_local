@@ -1,190 +1,207 @@
 GH_TUPLE=	\
 		AlecAivazis:survey:v2.3.7:alecaivazis_survey_v2/vendor/github.com/AlecAivazis/survey/v2 \
-		Azure:go-autorest:v0.11.29:azure_go_autorest_autorest/vendor/github.com/Azure/go-autorest/autorest \
-		Azure:go-autorest:v0.2.1:azure_go_autorest_logger/vendor/github.com/Azure/go-autorest/logger \
-		Azure:go-autorest:v0.3.0:azure_go_autorest_date/vendor/github.com/Azure/go-autorest/autorest/date \
-		Azure:go-autorest:v0.6.0:azure_go_autorest_tracing/vendor/github.com/Azure/go-autorest/tracing \
-		Azure:go-autorest:v0.9.23:azure_go_autorest_adal/vendor/github.com/Azure/go-autorest/autorest/adal \
+		Azure:go-autorest:v0.11.30:azure_go_autorest_autorest/vendor/github.com/Azure/go-autorest/autorest \
+		Azure:go-autorest:v0.2.2:azure_go_autorest_logger/vendor/github.com/Azure/go-autorest/logger \
+		Azure:go-autorest:v0.3.1:azure_go_autorest_date/vendor/github.com/Azure/go-autorest/autorest/date \
+		Azure:go-autorest:v0.6.1:azure_go_autorest_tracing/vendor/github.com/Azure/go-autorest/tracing \
+		Azure:go-autorest:v0.9.24:azure_go_autorest_adal/vendor/github.com/Azure/go-autorest/autorest/adal \
 		Azure:go-autorest:v14.2.0:azure_go_autorest/vendor/github.com/Azure/go-autorest \
-		Azure:go-ntlmssp:66371956d46c:azure_go_ntlmssp/vendor/github.com/Azure/go-ntlmssp \
+		Azure:go-ntlmssp:754e69321358:azure_go_ntlmssp/vendor/github.com/Azure/go-ntlmssp \
 		BurntSushi:toml:a339e1f7089c:burntsushi_toml/vendor/github.com/BurntSushi/toml \
-		ChrisTrenkamp:goxpath:c5096ec8773d:christrenkamp_goxpath/vendor/github.com/ChrisTrenkamp/goxpath \
+		ChrisTrenkamp:goxpath:97928f7e12b6:christrenkamp_goxpath/vendor/github.com/ChrisTrenkamp/goxpath \
+		GoogleCloudPlatform:opentelemetry-operations-go:v0.51.0:googlecloudplatform_opentelemetry_operations_go_metric/vendor/github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/metric \
+		GoogleCloudPlatform:opentelemetry-operations-go:v0.51.0:googlecloudplatform_opentelemetry_operations_go_resourcemapping/vendor/github.com/GoogleCloudPlatform/opentelemetry-operations-go/internal/resourcemapping \
+		GoogleCloudPlatform:opentelemetry-operations-go:v1.26.0:googlecloudplatform_opentelemetry_operations_go_gcp/vendor/github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp \
 		Masterminds:goutils:v1.1.1:masterminds_goutils/vendor/github.com/Masterminds/goutils \
-		Masterminds:semver:v3.2.0:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
+		Masterminds:semver:v3.2.1:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
 		Masterminds:sprig:v3.2.3:masterminds_sprig_v3/vendor/github.com/Masterminds/sprig/v3 \
-		Microsoft:go-winio:v0.5.2:microsoft_go_winio/vendor/github.com/Microsoft/go-winio \
+		Microsoft:go-winio:v0.6.2:microsoft_go_winio/vendor/github.com/Microsoft/go-winio \
 		Netflix:go-expect:73e0943537d2:netflix_go_expect/vendor/github.com/Netflix/go-expect \
-		ProtonMail:go-crypto:v1.0.0:protonmail_go_crypto/vendor/github.com/ProtonMail/go-crypto \
+		ProtonMail:go-crypto:v1.1.6:protonmail_go_crypto/vendor/github.com/ProtonMail/go-crypto \
 		PuerkitoBio:purell:v1.1.1:puerkitobio_purell/vendor/github.com/PuerkitoBio/purell \
 		PuerkitoBio:urlesc:de5bf2ad4578:puerkitobio_urlesc/vendor/github.com/PuerkitoBio/urlesc \
 		agext:levenshtein:v1.2.3:agext_levenshtein/vendor/github.com/agext/levenshtein \
-		aliyun:alibaba-cloud-sdk-go:v1.61.1501:aliyun_alibaba_cloud_sdk_go/vendor/github.com/aliyun/alibaba-cloud-sdk-go \
+		aliyun:alibaba-cloud-sdk-go:v1.61.1843:aliyun_alibaba_cloud_sdk_go/vendor/github.com/aliyun/alibaba-cloud-sdk-go \
 		aliyun:aliyun-oss-go-sdk:8205d1f41e70:aliyun_aliyun_oss_go_sdk/vendor/github.com/aliyun/aliyun-oss-go-sdk \
-		aliyun:aliyun-tablestore-go-sdk:v4.1.2:aliyun_aliyun_tablestore_go_sdk/vendor/github.com/aliyun/aliyun-tablestore-go-sdk \
+		aliyun:aliyun-tablestore-go-sdk:v4.1.3:aliyun_aliyun_tablestore_go_sdk/vendor/github.com/aliyun/aliyun-tablestore-go-sdk \
 		antchfx:xmlquery:v1.3.5:antchfx_xmlquery/vendor/github.com/antchfx/xmlquery \
 		antchfx:xpath:v1.1.10:antchfx_xpath/vendor/github.com/antchfx/xpath \
 		apparentlymart:go-cidr:v1.1.0:apparentlymart_go_cidr/vendor/github.com/apparentlymart/go-cidr \
 		apparentlymart:go-shquot:v0.0.1:apparentlymart_go_shquot/vendor/github.com/apparentlymart/go-shquot \
 		apparentlymart:go-textseg:v15.0.0:apparentlymart_go_textseg_v15/vendor/github.com/apparentlymart/go-textseg/v15 \
 		apparentlymart:go-userdirs:b0c018a67c13:apparentlymart_go_userdirs/vendor/github.com/apparentlymart/go-userdirs \
-		apparentlymart:go-versions:v1.0.2:apparentlymart_go_versions/vendor/github.com/apparentlymart/go-versions \
+		apparentlymart:go-versions:v1.0.3:apparentlymart_go_versions/vendor/github.com/apparentlymart/go-versions \
 		armon:circbuf:5111143e8da2:armon_circbuf/vendor/github.com/armon/circbuf \
 		armon:go-metrics:f0300d1749da:armon_go_metrics/vendor/github.com/armon/go-metrics \
 		armon:go-radix:v1.0.0:armon_go_radix/vendor/github.com/armon/go-radix \
 		asaskevich:govalidator:a9d515a09cc2:asaskevich_govalidator/vendor/github.com/asaskevich/govalidator \
-		aws:aws-sdk-go-v2:v1.10.12:aws_aws_sdk_go_v2_endpoint_discovery/vendor/github.com/aws/aws-sdk-go-v2/service/internal/endpoint-discovery \
-		aws:aws-sdk-go-v2:v1.12.12:aws_aws_sdk_go_v2_presigned_url/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url \
-		aws:aws-sdk-go-v2:v1.12.2:aws_aws_sdk_go_v2_accept_encoding/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding \
-		aws:aws-sdk-go-v2:v1.16.27:aws_aws_sdk_go_v2_imds/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds \
-		aws:aws-sdk-go-v2:v1.17.22:aws_aws_sdk_go_v2_manager/vendor/github.com/aws/aws-sdk-go-v2/feature/s3/manager \
-		aws:aws-sdk-go-v2:v1.17.57:aws_aws_sdk_go_v2_credentials/vendor/github.com/aws/aws-sdk-go-v2/credentials \
-		aws:aws-sdk-go-v2:v1.18.12:aws_aws_sdk_go_v2_s3shared/vendor/github.com/aws/aws-sdk-go-v2/service/internal/s3shared \
-		aws:aws-sdk-go-v2:v1.24.14:aws_aws_sdk_go_v2_sso/vendor/github.com/aws/aws-sdk-go-v2/service/sso \
-		aws:aws-sdk-go-v2:v1.28.13:aws_aws_sdk_go_v2_ssooidc/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc \
-		aws:aws-sdk-go-v2:v1.29.4:aws_aws_sdk_go_v2_config/vendor/github.com/aws/aws-sdk-go-v2/config \
-		aws:aws-sdk-go-v2:v1.3.31:aws_aws_sdk_go_v2_configsources/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources \
-		aws:aws-sdk-go-v2:v1.3.31:aws_aws_sdk_go_v2_v4a/vendor/github.com/aws/aws-sdk-go-v2/internal/v4a \
-		aws:aws-sdk-go-v2:v1.33.12:aws_aws_sdk_go_v2_sns/vendor/github.com/aws/aws-sdk-go-v2/service/sns \
-		aws:aws-sdk-go-v2:v1.33.12:aws_aws_sdk_go_v2_sts/vendor/github.com/aws/aws-sdk-go-v2/service/sts \
-		aws:aws-sdk-go-v2:v1.36.0:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
-		aws:aws-sdk-go-v2:v1.37.12:aws_aws_sdk_go_v2_sqs/vendor/github.com/aws/aws-sdk-go-v2/service/sqs \
-		aws:aws-sdk-go-v2:v1.38.10:aws_aws_sdk_go_v2_iam/vendor/github.com/aws/aws-sdk-go-v2/service/iam \
-		aws:aws-sdk-go-v2:v1.39.8:aws_aws_sdk_go_v2_dynamodb/vendor/github.com/aws/aws-sdk-go-v2/service/dynamodb \
-		aws:aws-sdk-go-v2:v1.5.5:aws_aws_sdk_go_v2_checksum/vendor/github.com/aws/aws-sdk-go-v2/service/internal/checksum \
-		aws:aws-sdk-go-v2:v1.6.8:aws_aws_sdk_go_v2_eventstream/vendor/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream \
-		aws:aws-sdk-go-v2:v1.75.2:aws_aws_sdk_go_v2_s3/vendor/github.com/aws/aws-sdk-go-v2/service/s3 \
-		aws:aws-sdk-go-v2:v1.8.2:aws_aws_sdk_go_v2_ini/vendor/github.com/aws/aws-sdk-go-v2/internal/ini \
-		aws:aws-sdk-go-v2:v2.6.31:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 \
-		aws:aws-sdk-go:v1.44.122:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
-		aws:smithy-go:v1.22.2:aws_smithy_go/vendor/github.com/aws/smithy-go \
+		aws:aws-sdk-go-v2:v1.10.15:aws_aws_sdk_go_v2_endpoint_discovery/vendor/github.com/aws/aws-sdk-go-v2/service/internal/endpoint-discovery \
+		aws:aws-sdk-go-v2:v1.12.15:aws_aws_sdk_go_v2_presigned_url/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url \
+		aws:aws-sdk-go-v2:v1.12.3:aws_aws_sdk_go_v2_accept_encoding/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding \
+		aws:aws-sdk-go-v2:v1.16.30:aws_aws_sdk_go_v2_imds/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds \
+		aws:aws-sdk-go-v2:v1.17.67:aws_aws_sdk_go_v2_credentials/vendor/github.com/aws/aws-sdk-go-v2/credentials \
+		aws:aws-sdk-go-v2:v1.17.76:aws_aws_sdk_go_v2_manager/vendor/github.com/aws/aws-sdk-go-v2/feature/s3/manager \
+		aws:aws-sdk-go-v2:v1.18.15:aws_aws_sdk_go_v2_s3shared/vendor/github.com/aws/aws-sdk-go-v2/service/internal/s3shared \
+		aws:aws-sdk-go-v2:v1.25.3:aws_aws_sdk_go_v2_sso/vendor/github.com/aws/aws-sdk-go-v2/service/sso \
+		aws:aws-sdk-go-v2:v1.29.14:aws_aws_sdk_go_v2_config/vendor/github.com/aws/aws-sdk-go-v2/config \
+		aws:aws-sdk-go-v2:v1.3.34:aws_aws_sdk_go_v2_configsources/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources \
+		aws:aws-sdk-go-v2:v1.3.34:aws_aws_sdk_go_v2_v4a/vendor/github.com/aws/aws-sdk-go-v2/internal/v4a \
+		aws:aws-sdk-go-v2:v1.30.1:aws_aws_sdk_go_v2_ssooidc/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc \
+		aws:aws-sdk-go-v2:v1.33.19:aws_aws_sdk_go_v2_sts/vendor/github.com/aws/aws-sdk-go-v2/service/sts \
+		aws:aws-sdk-go-v2:v1.34.4:aws_aws_sdk_go_v2_sns/vendor/github.com/aws/aws-sdk-go-v2/service/sns \
+		aws:aws-sdk-go-v2:v1.36.3:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+		aws:aws-sdk-go-v2:v1.38.5:aws_aws_sdk_go_v2_sqs/vendor/github.com/aws/aws-sdk-go-v2/service/sqs \
+		aws:aws-sdk-go-v2:v1.41.1:aws_aws_sdk_go_v2_iam/vendor/github.com/aws/aws-sdk-go-v2/service/iam \
+		aws:aws-sdk-go-v2:v1.42.4:aws_aws_sdk_go_v2_dynamodb/vendor/github.com/aws/aws-sdk-go-v2/service/dynamodb \
+		aws:aws-sdk-go-v2:v1.6.10:aws_aws_sdk_go_v2_eventstream/vendor/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream \
+		aws:aws-sdk-go-v2:v1.7.2:aws_aws_sdk_go_v2_checksum/vendor/github.com/aws/aws-sdk-go-v2/service/internal/checksum \
+		aws:aws-sdk-go-v2:v1.79.4:aws_aws_sdk_go_v2_s3/vendor/github.com/aws/aws-sdk-go-v2/service/s3 \
+		aws:aws-sdk-go-v2:v1.8.3:aws_aws_sdk_go_v2_ini/vendor/github.com/aws/aws-sdk-go-v2/internal/ini \
+		aws:aws-sdk-go-v2:v2.6.34:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 \
+		aws:aws-sdk-go:v1.44.334:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		aws:smithy-go:v1.22.3:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		aymanbagabas:go-osc52:v2.0.1:aymanbagabas_go_osc52_v2/vendor/github.com/aymanbagabas/go-osc52/v2 \
 		bgentry:go-netrc:9fd32a8b3d3d:bgentry_go_netrc/vendor/github.com/bgentry/go-netrc \
 		bgentry:speakeasy:v0.1.0:bgentry_speakeasy/vendor/github.com/bgentry/speakeasy \
 		bmatcuk:doublestar:v1.1.5:bmatcuk_doublestar/vendor/github.com/bmatcuk/doublestar \
 		bmatcuk:doublestar:v4.6.1:bmatcuk_doublestar_v4/vendor/github.com/bmatcuk/doublestar/v4 \
+		bodgit:ntlmssp:31973bb52d9b:bodgit_ntlmssp/vendor/github.com/bodgit/ntlmssp \
+		bodgit:windows:v1.0.1:bodgit_windows/vendor/github.com/bodgit/windows \
 		bradleyfalzon:ghinstallation:v2.11.0:bradleyfalzon_ghinstallation_v2/vendor/github.com/bradleyfalzon/ghinstallation/v2 \
 		cenkalti:backoff:v4.2.1:cenkalti_backoff_v4/vendor/github.com/cenkalti/backoff/v4 \
-		census-instrumentation:opencensus-go:v0.24.0:census_instrumentation_opencensus_go/vendor/go.opencensus.io \
+		cespare:xxhash:v2.3.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
 		chzyer:readline:2972be24d48e:chzyer_readline/vendor/github.com/chzyer/readline \
 		clbanning:mxj:v1.8.4:clbanning_mxj/vendor/github.com/clbanning/mxj \
 		cli:go-gh:v1.2.1:cli_go_gh/vendor/github.com/cli/go-gh \
 		cli:safeexec:v1.0.1:cli_safeexec/vendor/github.com/cli/safeexec \
 		cli:shurcooL-graphql:v0.0.4:cli_shurcool_graphql/vendor/github.com/cli/shurcooL-graphql \
 		cloudflare:circl:v1.4.0:cloudflare_circl/vendor/github.com/cloudflare/circl \
+		cncf:xds:2ac532fd4443:cncf_xds_go/vendor/github.com/cncf/xds/go \
 		creack:pty:v1.1.17:creack_pty/vendor/github.com/creack/pty \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		dominikh:go-tools:v0.5.1:dominikh_go_tools/vendor/honnef.co/go/tools \
 		dylanmei:iso8601:v0.1.0:dylanmei_iso8601/vendor/github.com/dylanmei/iso8601 \
 		dylanmei:winrmtest:fbc9ae56efb6:dylanmei_winrmtest/vendor/github.com/dylanmei/winrmtest \
 		emicklei:go-restful:v3.8.0:emicklei_go_restful_v3/vendor/github.com/emicklei/go-restful/v3 \
+		envoyproxy:go-control-plane:v1.32.4:envoyproxy_go_control_plane_envoy/vendor/github.com/envoyproxy/go-control-plane/envoy \
+		envoyproxy:protoc-gen-validate:v1.2.1:envoyproxy_protoc_gen_validate/vendor/github.com/envoyproxy/protoc-gen-validate \
 		fatih:color:v1.18.0:fatih_color/vendor/github.com/fatih/color \
+		felixge:httpsnoop:v1.0.4:felixge_httpsnoop/vendor/github.com/felixge/httpsnoop \
 		fsnotify:fsnotify:v1.7.0:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
 		go-inf:inf:v0.9.1:go_inf_inf/vendor/gopkg.in/inf.v0 \
-		go-ini:ini:v1.66.2:go_ini_ini/vendor/gopkg.in/ini.v1 \
+		go-ini:ini:v1.66.6:go_ini_ini/vendor/gopkg.in/ini.v1 \
+		go-jose:go-jose:v4.0.5:go_jose_go_jose_v4/vendor/github.com/go-jose/go-jose/v4 \
 		go-logr:logr:v1.4.2:go_logr_logr/vendor/github.com/go-logr/logr \
 		go-logr:stdr:v1.2.2:go_logr_stdr/vendor/github.com/go-logr/stdr \
-		go-openapi:errors:v0.22.0:go_openapi_errors/vendor/github.com/go-openapi/errors \
-		go-openapi:jsonpointer:v0.19.5:go_openapi_jsonpointer/vendor/github.com/go-openapi/jsonpointer \
-		go-openapi:jsonreference:v0.19.5:go_openapi_jsonreference/vendor/github.com/go-openapi/jsonreference \
+		go-openapi:errors:v0.22.1:go_openapi_errors/vendor/github.com/go-openapi/errors \
+		go-openapi:jsonpointer:v0.19.6:go_openapi_jsonpointer/vendor/github.com/go-openapi/jsonpointer \
+		go-openapi:jsonreference:v0.19.6:go_openapi_jsonreference/vendor/github.com/go-openapi/jsonreference \
 		go-openapi:strfmt:v0.23.0:go_openapi_strfmt/vendor/github.com/go-openapi/strfmt \
-		go-openapi:swag:v0.19.14:go_openapi_swag/vendor/github.com/go-openapi/swag \
+		go-openapi:swag:v0.22.10:go_openapi_swag/vendor/github.com/go-openapi/swag \
 		go-test:deep:v1.0.3:go_test_deep/vendor/github.com/go-test/deep \
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
-		gofrs:uuid:v4.0.0:gofrs_uuid/vendor/github.com/gofrs/uuid \
+		gofrs:uuid:v4.4.0:gofrs_uuid/vendor/github.com/gofrs/uuid \
 		gogo:protobuf:v1.3.2:gogo_protobuf/vendor/github.com/gogo/protobuf \
 		golang-jwt:jwt:v4.5.2:golang_jwt_jwt_v4/vendor/github.com/golang-jwt/jwt/v4 \
 		golang:appengine:v1.6.8:golang_appengine/vendor/google.golang.org/appengine \
-		golang:crypto:v0.35.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:groupcache:41bb18bfe9da:golang_groupcache/vendor/github.com/golang/groupcache \
-		golang:mod:v0.23.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.36.0:golang_net/vendor/golang.org/x/net \
-		golang:oauth2:v0.27.0:golang_oauth2/vendor/golang.org/x/oauth2 \
+		golang:crypto:v0.37.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:groupcache:2c02b8208cf8:golang_groupcache/vendor/github.com/golang/groupcache \
+		golang:mod:v0.24.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.39.0:golang_net/vendor/golang.org/x/net \
+		golang:oauth2:v0.30.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sync:v0.11.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.30.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.29.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.22.0:golang_text/vendor/golang.org/x/text \
-		golang:time:v0.7.0:golang_time/vendor/golang.org/x/time \
-		golang:tools:v0.30.0:golang_tools/vendor/golang.org/x/tools \
-		golang:xerrors:04be3eba64a2:golang_xerrors/vendor/golang.org/x/xerrors \
+		golang:sync:v0.14.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.32.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.31.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.24.0:golang_text/vendor/golang.org/x/text \
+		golang:time:v0.11.0:golang_time/vendor/golang.org/x/time \
+		golang:tools:v0.31.0:golang_tools/vendor/golang.org/x/tools \
 		google:gnostic:v0.5.7-v3refs:google_gnostic/vendor/github.com/google/gnostic \
-		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
-		google:go-genproto:b8732ec3820d:google_go_genproto/vendor/google.golang.org/genproto \
-		google:go-genproto:b8732ec3820d:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api \
-		google:go-genproto:b8732ec3820d:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc \
+		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
+		google:go-genproto:55703ea1f237:google_go_genproto/vendor/google.golang.org/genproto \
+		google:go-genproto:55703ea1f237:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api \
+		google:go-genproto:55703ea1f237:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc \
 		google:go-github:v45.2.0:google_go_github_v45/vendor/github.com/google/go-github/v45 \
 		google:go-github:v62.0.0:google_go_github_v62/vendor/github.com/google/go-github/v62 \
 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
 		google:gofuzz:v1.1.0:google_gofuzz/vendor/github.com/google/gofuzz \
-		google:s2a-go:v0.1.4:google_s2a_go/vendor/github.com/google/s2a-go \
+		google:s2a-go:v0.1.9:google_s2a_go/vendor/github.com/google/s2a-go \
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
-		googleapis:enterprise-certificate-proxy:v0.2.3:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
-		googleapis:gax-go:v2.11.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2 \
-		googleapis:google-api-go-client:v0.126.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
-		googleapis:google-cloud-go:v0.110.7:googleapis_google_cloud_go/vendor/cloud.google.com/go \
-		googleapis:google-cloud-go:v1.1.1:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go/iam \
-		googleapis:google-cloud-go:v1.30.1:googleapis_google_cloud_go_storage/vendor/cloud.google.com/go/storage \
-		grpc-ecosystem:grpc-gateway:v2.16.0:grpc_ecosystem_grpc_gateway_v2/vendor/github.com/grpc-ecosystem/grpc-gateway/v2 \
+		googleapis:enterprise-certificate-proxy:v0.3.6:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
+		googleapis:gax-go:v2.14.2:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2 \
+		googleapis:google-api-go-client:v0.232.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+		googleapis:google-cloud-go:v0.120.1:googleapis_google_cloud_go/vendor/cloud.google.com/go \
+		googleapis:google-cloud-go:v0.16.1:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth \
+		googleapis:google-cloud-go:v1.24.2:googleapis_google_cloud_go_monitoring/vendor/cloud.google.com/go/monitoring \
+		googleapis:google-cloud-go:v1.5.2:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go/iam \
+		googleapis:google-cloud-go:v1.51.0:googleapis_google_cloud_go_storage/vendor/cloud.google.com/go/storage \
+		grpc-ecosystem:grpc-gateway:v2.16.2:grpc_ecosystem_grpc_gateway_v2/vendor/github.com/grpc-ecosystem/grpc-gateway/v2 \
 		grpc:grpc-go:v1.2.0:grpc_grpc_go_1/vendor/google.golang.org/grpc/cmd/protoc-gen-go-grpc \
-		grpc:grpc-go:v1.59.0:grpc_grpc_go/vendor/google.golang.org/grpc \
-		hashicorp:aws-sdk-go-base:v2.0.0-beta.62:hashicorp_aws_sdk_go_base_v2/vendor/github.com/hashicorp/aws-sdk-go-base/v2 \
+		grpc:grpc-go:v1.72.1:grpc_grpc_go/vendor/google.golang.org/grpc \
+		hashicorp:aws-sdk-go-base:v2.0.0-beta.64:hashicorp_aws_sdk_go_base_v2/vendor/github.com/hashicorp/aws-sdk-go-base/v2 \
 		hashicorp:cli:v1.1.7:hashicorp_cli/vendor/github.com/hashicorp/cli \
-		hashicorp:consul:v1.13.0:hashicorp_consul_api/vendor/github.com/hashicorp/consul/api \
+		hashicorp:consul:v1.13.1:hashicorp_consul_api/vendor/github.com/hashicorp/consul/api \
 		hashicorp:copywrite:v0.19.0:hashicorp_copywrite/vendor/github.com/hashicorp/copywrite \
 		hashicorp:errwrap:v1.1.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
-		hashicorp:go-azure-helpers:v0.71.0:hashicorp_go_azure_helpers/vendor/github.com/hashicorp/go-azure-helpers \
+		hashicorp:go-azure-helpers:v0.71.1:hashicorp_go_azure_helpers/vendor/github.com/hashicorp/go-azure-helpers \
 		hashicorp:go-azure-sdk:v0.20250131.1134653:hashicorp_go_azure_sdk_resource_manager/vendor/github.com/hashicorp/go-azure-sdk/resource-manager \
 		hashicorp:go-azure-sdk:v0.20250131.1134653:hashicorp_go_azure_sdk_sdk/vendor/github.com/hashicorp/go-azure-sdk/sdk \
 		hashicorp:go-checkpoint:v0.5.0:hashicorp_go_checkpoint/vendor/github.com/hashicorp/go-checkpoint \
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
-		hashicorp:go-cty:d3edf31b6320:hashicorp_go_cty/vendor/github.com/hashicorp/go-cty \
-		hashicorp:go-getter:v1.7.5:hashicorp_go_getter/vendor/github.com/hashicorp/go-getter \
+		hashicorp:go-cty:v1.4.1:hashicorp_go_cty/vendor/github.com/hashicorp/go-cty \
+		hashicorp:go-getter:v1.7.8:hashicorp_go_getter/vendor/github.com/hashicorp/go-getter \
 		hashicorp:go-hclog:v1.6.3:hashicorp_go_hclog/vendor/github.com/hashicorp/go-hclog \
 		hashicorp:go-immutable-radix:v1.0.0:hashicorp_go_immutable_radix/vendor/github.com/hashicorp/go-immutable-radix \
 		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
-		hashicorp:go-plugin:v1.6.0:hashicorp_go_plugin/vendor/github.com/hashicorp/go-plugin \
+		hashicorp:go-plugin:v1.6.3:hashicorp_go_plugin/vendor/github.com/hashicorp/go-plugin \
 		hashicorp:go-retryablehttp:v0.7.7:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
 		hashicorp:go-rootcerts:v1.0.2:hashicorp_go_rootcerts/vendor/github.com/hashicorp/go-rootcerts \
 		hashicorp:go-safetemp:v1.0.0:hashicorp_go_safetemp/vendor/github.com/hashicorp/go-safetemp \
-		hashicorp:go-slug:v0.16.3:hashicorp_go_slug/vendor/github.com/hashicorp/go-slug \
+		hashicorp:go-slug:v0.16.4:hashicorp_go_slug/vendor/github.com/hashicorp/go-slug \
 		hashicorp:go-tfe:v1.70.0:hashicorp_go_tfe/vendor/github.com/hashicorp/go-tfe \
 		hashicorp:go-uuid:v1.0.3:hashicorp_go_uuid/vendor/github.com/hashicorp/go-uuid \
-		hashicorp:golang-lru:v0.5.1:hashicorp_golang_lru/vendor/github.com/hashicorp/golang-lru \
+		hashicorp:golang-lru:v0.5.4:hashicorp_golang_lru/vendor/github.com/hashicorp/golang-lru \
 		hashicorp:hcl:v1.0.0:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
 		hashicorp:hcl:v2.23.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
-		hashicorp:jsonapi:v1.3.1:hashicorp_jsonapi/vendor/github.com/hashicorp/jsonapi \
+		hashicorp:jsonapi:v1.3.2:hashicorp_jsonapi/vendor/github.com/hashicorp/jsonapi \
 		hashicorp:logutils:v1.0.0:hashicorp_logutils/vendor/github.com/hashicorp/logutils \
-		hashicorp:serf:v0.9.6:hashicorp_serf/vendor/github.com/hashicorp/serf \
-		hashicorp:terraform-plugin-go:v0.14.3:hashicorp_terraform_plugin_go/vendor/github.com/hashicorp/terraform-plugin-go \
+		hashicorp:serf:v0.9.8:hashicorp_serf/vendor/github.com/hashicorp/serf \
+		hashicorp:terraform-plugin-go:v0.26.0:hashicorp_terraform_plugin_go/vendor/github.com/hashicorp/terraform-plugin-go \
 		hashicorp:terraform-plugin-log:v0.9.0:hashicorp_terraform_plugin_log/vendor/github.com/hashicorp/terraform-plugin-log \
-		hashicorp:terraform-plugin-sdk:v2.26.1:hashicorp_terraform_plugin_sdk_v2/vendor/github.com/hashicorp/terraform-plugin-sdk/v2 \
-		hashicorp:terraform-registry-address:v0.2.3:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
+		hashicorp:terraform-plugin-sdk:v2.36.1:hashicorp_terraform_plugin_sdk_v2/vendor/github.com/hashicorp/terraform-plugin-sdk/v2 \
+		hashicorp:terraform-registry-address:v0.2.5:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
 		hashicorp:terraform-svchost:v0.1.1:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
-		hashicorp:terraform:000000000000:hashicorp_terraform_azure_1 \
-		hashicorp:terraform:000000000000:hashicorp_terraform_consul_1 \
-		hashicorp:terraform:000000000000:hashicorp_terraform_cos_1 \
-		hashicorp:terraform:000000000000:hashicorp_terraform_gcs_1 \
-		hashicorp:terraform:000000000000:hashicorp_terraform_kubernetes_1 \
-		hashicorp:terraform:000000000000:hashicorp_terraform_oss_1 \
-		hashicorp:terraform:000000000000:hashicorp_terraform_pg \
-		hashicorp:terraform:000000000000:hashicorp_terraform_s3 \
-		hashicorp:terraform:000000000000:hashicorp_terraform_legacy \
-		hashicorp:terraform::hashicorp_terraform_azure/github.com/hashicorp/terraform/internal/backend/remote-state/azure \
-		hashicorp:terraform::hashicorp_terraform_consul/github.com/hashicorp/terraform/internal/backend/remote-state/consul \
-		hashicorp:terraform::hashicorp_terraform_cos/github.com/hashicorp/terraform/internal/backend/remote-state/cos \
-		hashicorp:terraform::hashicorp_terraform_gcs/github.com/hashicorp/terraform/internal/backend/remote-state/gcs \
+		hashicorp:terraform:10f3524bc525:hashicorp_terraform_azure \
+		hashicorp:terraform:10f3524bc525:hashicorp_terraform_consul \
+		hashicorp:terraform:10f3524bc525:hashicorp_terraform_cos \
+		hashicorp:terraform:10f3524bc525:hashicorp_terraform_gcs \
+		hashicorp:terraform:10f3524bc525:hashicorp_terraform_kubernetes_1 \
+		hashicorp:terraform:10f3524bc525:hashicorp_terraform_oss \
+		hashicorp:terraform:10f3524bc525:hashicorp_terraform_pg \
+		hashicorp:terraform:10f3524bc525:hashicorp_terraform_s3_1 \
+		hashicorp:terraform:10f3524bc525:hashicorp_terraform_legacy \
+		hashicorp:terraform::hashicorp_terraform_azure_1/github.com/hashicorp/terraform/internal/backend/remote-state/azure \
+		hashicorp:terraform::hashicorp_terraform_consul_1/github.com/hashicorp/terraform/internal/backend/remote-state/consul \
+		hashicorp:terraform::hashicorp_terraform_cos_1/github.com/hashicorp/terraform/internal/backend/remote-state/cos \
+		hashicorp:terraform::hashicorp_terraform_gcs_1/github.com/hashicorp/terraform/internal/backend/remote-state/gcs \
 		hashicorp:terraform::hashicorp_terraform_kubernetes/github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes \
-		hashicorp:terraform::hashicorp_terraform_oss/github.com/hashicorp/terraform/internal/backend/remote-state/oss \
+		hashicorp:terraform::hashicorp_terraform_oss_1/github.com/hashicorp/terraform/internal/backend/remote-state/oss \
 		hashicorp:terraform::hashicorp_terraform_pg_1/github.com/hashicorp/terraform/internal/backend/remote-state/pg \
-		hashicorp:terraform::hashicorp_terraform_s3_1/github.com/hashicorp/terraform/internal/backend/remote-state/s3 \
+		hashicorp:terraform::hashicorp_terraform_s3/github.com/hashicorp/terraform/internal/backend/remote-state/s3 \
 		hashicorp:terraform::hashicorp_terraform_legacy_1/github.com/hashicorp/terraform/internal/legacy \
-		hashicorp:yamux:v0.1.1:hashicorp_yamux/vendor/github.com/hashicorp/yamux \
-		henvic:httpretty:v0.1.3:henvic_httpretty/vendor/github.com/henvic/httpretty \
+		hashicorp:yamux:v0.1.2:hashicorp_yamux/vendor/github.com/hashicorp/yamux \
+		henvic:httpretty:v0.1.4:henvic_httpretty/vendor/github.com/henvic/httpretty \
 		huandu:xstrings:v1.3.3:huandu_xstrings/vendor/github.com/huandu/xstrings \
-		imdario:mergo:v0.3.13:imdario_mergo/vendor/github.com/imdario/mergo \
+		imdario:mergo:v0.3.16:imdario_mergo/vendor/github.com/imdario/mergo \
 		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
 		jackofallops:giovanni:v0.28.0:jackofallops_giovanni/vendor/github.com/jackofallops/giovanni \
+		jcmturner:aescts:v2.0.0:jcmturner_aescts_v2/vendor/github.com/jcmturner/aescts/v2 \
+		jcmturner:dnsutils:v2.0.0:jcmturner_dnsutils_v2/vendor/github.com/jcmturner/dnsutils/v2 \
+		jcmturner:gofork:v1.7.6:jcmturner_gofork/vendor/github.com/jcmturner/gofork \
+		jcmturner:goidentity:v6.0.1:jcmturner_goidentity_v6/vendor/github.com/jcmturner/goidentity/v6 \
+		jcmturner:gokrb5:v8.4.4:jcmturner_gokrb5_v8/vendor/github.com/jcmturner/gokrb5/v8 \
+		jcmturner:rpc:v2.0.3:jcmturner_rpc_v2/vendor/github.com/jcmturner/rpc/v2 \
 		jedib0t:go-pretty:v4.3.0:jedib0t_go_pretty/vendor/github.com/jedib0t/go-pretty \
 		jedib0t:go-pretty:v6.5.9:jedib0t_go_pretty_v6/vendor/github.com/jedib0t/go-pretty/v6 \
 		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
@@ -193,20 +210,20 @@ GH_TUPLE=	\
 		json-iterator:go:v1.1.12:json_iterator_go/vendor/github.com/json-iterator/go \
 		kardianos:osext:2bc1f35cddc0:kardianos_osext/vendor/github.com/kardianos/osext \
 		kballard:go-shellquote:95032a82bc51:kballard_go_shellquote/vendor/github.com/kballard/go-shellquote \
-		klauspost:compress:v1.15.11:klauspost_compress/vendor/github.com/klauspost/compress \
+		klauspost:compress:v1.15.15:klauspost_compress/vendor/github.com/klauspost/compress \
 		knadh:koanf:v1.5.0:knadh_koanf/vendor/github.com/knadh/koanf \
 		kubernetes-sigs:yaml:v1.2.0:kubernetes_sigs_yaml/vendor/sigs.k8s.io/yaml \
-		kubernetes:api:v0.25.5:kubernetes_api/vendor/k8s.io/api \
-		kubernetes:apimachinery:v0.25.5:kubernetes_apimachinery/vendor/k8s.io/apimachinery \
-		kubernetes:client-go:v0.25.5:kubernetes_client_go/vendor/k8s.io/client-go \
+		kubernetes:api:v0.25.16:kubernetes_api/vendor/k8s.io/api \
+		kubernetes:apimachinery:v0.25.16:kubernetes_apimachinery/vendor/k8s.io/apimachinery \
+		kubernetes:client-go:v0.25.16:kubernetes_client_go/vendor/k8s.io/client-go \
 		kubernetes:kube-openapi:67bda5d908f1:kubernetes_kube_openapi/vendor/k8s.io/kube-openapi \
-		kubernetes:utils:ee6ede2d64ed:kubernetes_utils/vendor/k8s.io/utils \
-		lib:pq:v1.10.3:lib_pq/vendor/github.com/lib/pq \
+		kubernetes:utils:0f33e8f1c979:kubernetes_utils/vendor/k8s.io/utils \
+		lib:pq:v1.10.9:lib_pq/vendor/github.com/lib/pq \
 		lucasb-eyer:go-colorful:v1.2.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
-		mailru:easyjson:v0.7.6:mailru_easyjson/vendor/github.com/mailru/easyjson \
+		mailru:easyjson:v0.7.7:mailru_easyjson/vendor/github.com/mailru/easyjson \
 		masterzen:simplexml:31eea3082786:masterzen_simplexml/vendor/github.com/masterzen/simplexml \
-		masterzen:winrm:c42b5136ff88:masterzen_winrm/vendor/github.com/masterzen/winrm \
-		mattn:go-colorable:v0.1.13:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
+		masterzen:winrm:3fad6e106085:masterzen_winrm/vendor/github.com/masterzen/winrm \
+		mattn:go-colorable:v0.1.14:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
 		mattn:go-isatty:v0.0.20:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
 		mattn:go-runewidth:v0.0.16:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
 		mattn:go-shellwords:v1.0.12:mattn_go_shellwords/vendor/github.com/mattn/go-shellwords \
@@ -225,7 +242,7 @@ GH_TUPLE=	\
 		modern-go:concurrent:bacd9c7ef1dd:modern_go_concurrent/vendor/github.com/modern-go/concurrent \
 		modern-go:reflect2:v1.0.2:modern_go_reflect2/vendor/github.com/modern-go/reflect2 \
 		mongodb:mongo-go-driver:v1.16.1:mongodb_mongo_go_driver/vendor/go.mongodb.org/mongo-driver \
-		mozillazg:go-httpheader:v0.3.0:mozillazg_go_httpheader/vendor/github.com/mozillazg/go-httpheader \
+		mozillazg:go-httpheader:v0.3.1:mozillazg_go_httpheader/vendor/github.com/mozillazg/go-httpheader \
 		muesli:termenv:v0.15.2:muesli_termenv/vendor/github.com/muesli/termenv \
 		munnerz:goautoneg:a7dc8b61c822:munnerz_goautoneg/vendor/github.com/munnerz/goautoneg \
 		nishanths:exhaustive:v0.12.0:nishanths_exhaustive/vendor/github.com/nishanths/exhaustive \
@@ -234,86 +251,93 @@ GH_TUPLE=	\
 		oklog:ulid:v1.3.1:oklog_ulid/vendor/github.com/oklog/ulid \
 		packer-community:winrmcp:6e900dd2c68f:packer_community_winrmcp/vendor/github.com/packer-community/winrmcp \
 		pkg:browser:5ac0b6a4141c:pkg_browser/vendor/github.com/pkg/browser \
+		planetscale:vtprotobuf:0393e58bdf10:planetscale_vtprotobuf/vendor/github.com/planetscale/vtprotobuf \
 		posener:complete:v1.2.3:posener_complete/vendor/github.com/posener/complete \
-		protocolbuffers:protobuf-go:v1.34.2:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
+		protocolbuffers:protobuf-go:v1.36.6:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		rivo:uniseg:v0.4.7:rivo_uniseg/vendor/github.com/rivo/uniseg \
 		samber:lo:v1.47.0:samber_lo/vendor/github.com/samber/lo \
 		shopspring:decimal:v1.3.1:shopspring_decimal/vendor/github.com/shopspring/decimal \
-		spf13:afero:v1.9.5:spf13_afero/vendor/github.com/spf13/afero \
-		spf13:cast:v1.5.0:spf13_cast/vendor/github.com/spf13/cast \
+		spf13:afero:v1.10.0:spf13_afero/vendor/github.com/spf13/afero \
+		spf13:cast:v1.5.1:spf13_cast/vendor/github.com/spf13/cast \
 		spf13:cobra:v1.8.1:spf13_cobra/vendor/github.com/spf13/cobra \
-		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
-		tencentcloud:tencentcloud-sdk-go:v1.0.233:tencentcloud_tencentcloud_sdk_go_tag/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tag \
-		tencentcloud:tencentcloud-sdk-go:v1.0.588:tencentcloud_tencentcloud_sdk_go_common/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common \
-		tencentcloud:tencentcloud-sdk-go:v1.0.588:tencentcloud_tencentcloud_sdk_go_sts/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sts \
-		tencentyun:cos-go-sdk-v5:v0.7.42:tencentyun_cos_go_sdk_v5/vendor/github.com/tencentyun/cos-go-sdk-v5 \
+		spf13:pflag:v1.0.6:spf13_pflag/vendor/github.com/spf13/pflag \
+		spiffe:go-spiffe:v2.5.0:spiffe_go_spiffe_v2/vendor/github.com/spiffe/go-spiffe/v2 \
+		tencentcloud:tencentcloud-sdk-go:v1.0.1142:tencentcloud_tencentcloud_sdk_go_sts/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sts \
+		tencentcloud:tencentcloud-sdk-go:v1.0.1164:tencentcloud_tencentcloud_sdk_go_tag/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tag \
+		tencentcloud:tencentcloud-sdk-go:v1.0.1172:tencentcloud_tencentcloud_sdk_go_common/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common \
+		tencentyun:cos-go-sdk-v5:v0.7.65:tencentyun_cos_go_sdk_v5/vendor/github.com/tencentyun/cos-go-sdk-v5 \
 		thanhpk:randstr:v1.0.6:thanhpk_randstr/vendor/github.com/thanhpk/randstr \
-		thlib:go-timezone-local:v0.0.3:thlib_go_timezone_local/vendor/github.com/thlib/go-timezone-local \
+		thlib:go-timezone-local:v0.0.6:thlib_go_timezone_local/vendor/github.com/thlib/go-timezone-local \
+		tidwall:transform:32f242e2dbde:tidwall_transform/vendor/github.com/tidwall/transform \
 		uber-go:mock:v0.4.0:uber_go_mock/vendor/go.uber.org/mock \
-		ulikunitz:xz:v0.5.10:ulikunitz_xz/vendor/github.com/ulikunitz/xz \
+		ulikunitz:xz:v0.5.12:ulikunitz_xz/vendor/github.com/ulikunitz/xz \
 		vmihailenco:msgpack:v4.0.4:vmihailenco_msgpack/vendor/github.com/vmihailenco/msgpack \
-		vmihailenco:msgpack:v4.3.12:vmihailenco_msgpack_v4/vendor/github.com/vmihailenco/msgpack/v4 \
-		vmihailenco:msgpack:v5.3.5:vmihailenco_msgpack_v5/vendor/github.com/vmihailenco/msgpack/v5 \
-		vmihailenco:tagparser:v0.1.1:vmihailenco_tagparser/vendor/github.com/vmihailenco/tagparser \
+		vmihailenco:msgpack:v5.4.1:vmihailenco_msgpack_v5/vendor/github.com/vmihailenco/msgpack/v5 \
 		vmihailenco:tagparser:v2.0.0:vmihailenco_tagparser_v2/vendor/github.com/vmihailenco/tagparser/v2 \
 		xanzy:ssh-agent:v0.3.3:xanzy_ssh_agent/vendor/github.com/xanzy/ssh-agent \
 		xlab:treeprint:1d6e34225557:xlab_treeprint/vendor/github.com/xlab/treeprint \
 		zclconf:go-cty-debug:0d6042c53940:zclconf_go_cty_debug/vendor/github.com/zclconf/go-cty-debug \
 		zclconf:go-cty-yaml:v1.1.0:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
-		zclconf:go-cty:v1.16.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+		zclconf:go-cty:v1.16.3:zclconf_go_cty/vendor/github.com/zclconf/go-cty \
+		zeebo:errs:v1.4.0:zeebo_errs/vendor/github.com/zeebo/errs
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
-		#	::2478ac86f678:group_name/vendor/golang.org/x/exp/typeparams (from golang.org/x/exp/typeparams@2478ac86f678)
-		#	::f223a00ba0e2:group_name/vendor/sigs.k8s.io/json (from sigs.k8s.io/json@f223a00ba0e2)
+		#	::ce4c2cf36ca6:group_name/vendor/golang.org/x/exp/typeparams (from golang.org/x/exp/typeparams@ce4c2cf36ca6)
+		#	::cfa47c3a1cc8:group_name/vendor/sigs.k8s.io/json (from sigs.k8s.io/json@cfa47c3a1cc8)
 		#	::v0.1.0-deprecated:group_name/vendor/golang.org/x/tools/cmd/cover (from golang.org/x/tools/cmd/cover@v0.1.0-deprecated)
-		#	::v0.3.0:group_name/vendor/cloud.google.com/go/compute/metadata (from cloud.google.com/go/compute/metadata@v0.3.0)
+		#	::v0.2.8:group_name/vendor/cloud.google.com/go/auth/oauth2adapt (from cloud.google.com/go/auth/oauth2adapt@v0.2.8)
+		#	::v0.20.0:group_name/vendor/cel.dev/expr (from cel.dev/expr@v0.20.0)
 		#	::v0.4.0:group_name/vendor/software.sslmate.com/src/go-pkcs12 (from software.sslmate.com/src/go-pkcs12@v0.4.0)
 		#	::v0.45.0:group_name/vendor/go.opentelemetry.io/contrib/exporters/autoexport (from go.opentelemetry.io/contrib/exporters/autoexport@v0.45.0)
-		#	::v0.46.0:group_name/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc (from go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc@v0.46.0)
-		#	::v0.59.0:group_name/vendor/go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2/otelaws (from go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2/otelaws@v0.59.0)
+		#	::v0.6.0:group_name/vendor/cloud.google.com/go/compute/metadata (from cloud.google.com/go/compute/metadata@v0.6.0)
+		#	::v0.60.0:group_name/vendor/go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2/otelaws (from go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2/otelaws@v0.60.0)
+		#	::v0.60.0:group_name/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc (from go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc@v0.60.0)
+		#	::v0.60.0:group_name/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp (from go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp@v0.60.0)
 		#	::v1.0.0:group_name/vendor/go.opentelemetry.io/proto/otlp (from go.opentelemetry.io/proto/otlp@v1.0.0)
 		#	::v1.1.0:group_name/vendor/go.opentelemetry.io/auto/sdk (from go.opentelemetry.io/auto/sdk@v1.1.0)
 		#	::v1.19.0:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace (from go.opentelemetry.io/otel/exporters/otlp/otlptrace@v1.19.0)
 		#	::v1.19.0:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc (from go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc@v1.19.0)
 		#	::v1.19.0:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp (from go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp@v1.19.0)
-		#	::v1.30.0:group_name/vendor/go.opentelemetry.io/otel/sdk (from go.opentelemetry.io/otel/sdk@v1.30.0)
-		#	::v1.34.0:group_name/vendor/go.opentelemetry.io/otel (from go.opentelemetry.io/otel@v1.34.0)
-		#	::v1.34.0:group_name/vendor/go.opentelemetry.io/otel/metric (from go.opentelemetry.io/otel/metric@v1.34.0)
-		#	::v1.34.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.34.0)
-		#	::v2.70.1:group_name/vendor/k8s.io/klog/v2 (from k8s.io/klog/v2@v2.70.1)
+		#	::v1.34.0:group_name/vendor/go.opentelemetry.io/contrib/detectors/gcp (from go.opentelemetry.io/contrib/detectors/gcp@v1.34.0)
+		#	::v1.35.0:group_name/vendor/go.opentelemetry.io/otel (from go.opentelemetry.io/otel@v1.35.0)
+		#	::v1.35.0:group_name/vendor/go.opentelemetry.io/otel/metric (from go.opentelemetry.io/otel/metric@v1.35.0)
+		#	::v1.35.0:group_name/vendor/go.opentelemetry.io/otel/sdk (from go.opentelemetry.io/otel/sdk@v1.35.0)
+		#	::v1.35.0:group_name/vendor/go.opentelemetry.io/otel/sdk/metric (from go.opentelemetry.io/otel/sdk/metric@v1.35.0)
+		#	::v1.35.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.35.0)
+		#	::v2.80.1:group_name/vendor/k8s.io/klog/v2 (from k8s.io/klog/v2@v2.80.1)
 		#	::v4.2.3:group_name/vendor/sigs.k8s.io/structured-merge-diff/v4 (from sigs.k8s.io/structured-merge-diff/v4@v4.2.3)
 post-extract:
 	@${RM} -r ${WRKSRC}/internal/backend/remote-state/azure
-	@${RLN} ${WRKSRC_hashicorp_terraform_azure}/internal/backend/remote-state/azure ${WRKSRC}/internal/backend/remote-state/azure
-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/azure
 	@${RLN} ${WRKSRC_hashicorp_terraform_azure_1}/internal/backend/remote-state/azure ${WRKSRC}/internal/backend/remote-state/azure
-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/consul
-	@${RLN} ${WRKSRC_hashicorp_terraform_consul_1}/internal/backend/remote-state/consul ${WRKSRC}/internal/backend/remote-state/consul
+	@${RM} -r ${WRKSRC}/internal/backend/remote-state/azure
+	@${RLN} ${WRKSRC_hashicorp_terraform_azure}/internal/backend/remote-state/azure ${WRKSRC}/internal/backend/remote-state/azure
 	@${RM} -r ${WRKSRC}/internal/backend/remote-state/consul
 	@${RLN} ${WRKSRC_hashicorp_terraform_consul}/internal/backend/remote-state/consul ${WRKSRC}/internal/backend/remote-state/consul
-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/cos
-	@${RLN} ${WRKSRC_hashicorp_terraform_cos_1}/internal/backend/remote-state/cos ${WRKSRC}/internal/backend/remote-state/cos
+	@${RM} -r ${WRKSRC}/internal/backend/remote-state/consul
+	@${RLN} ${WRKSRC_hashicorp_terraform_consul_1}/internal/backend/remote-state/consul ${WRKSRC}/internal/backend/remote-state/consul
 	@${RM} -r ${WRKSRC}/internal/backend/remote-state/cos
 	@${RLN} ${WRKSRC_hashicorp_terraform_cos}/internal/backend/remote-state/cos ${WRKSRC}/internal/backend/remote-state/cos
-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/gcs
-	@${RLN} ${WRKSRC_hashicorp_terraform_gcs_1}/internal/backend/remote-state/gcs ${WRKSRC}/internal/backend/remote-state/gcs
+	@${RM} -r ${WRKSRC}/internal/backend/remote-state/cos
+	@${RLN} ${WRKSRC_hashicorp_terraform_cos_1}/internal/backend/remote-state/cos ${WRKSRC}/internal/backend/remote-state/cos
 	@${RM} -r ${WRKSRC}/internal/backend/remote-state/gcs
 	@${RLN} ${WRKSRC_hashicorp_terraform_gcs}/internal/backend/remote-state/gcs ${WRKSRC}/internal/backend/remote-state/gcs
+	@${RM} -r ${WRKSRC}/internal/backend/remote-state/gcs
+	@${RLN} ${WRKSRC_hashicorp_terraform_gcs_1}/internal/backend/remote-state/gcs ${WRKSRC}/internal/backend/remote-state/gcs
 	@${RM} -r ${WRKSRC}/internal/backend/remote-state/kubernetes
 	@${RLN} ${WRKSRC_hashicorp_terraform_kubernetes_1}/internal/backend/remote-state/kubernetes ${WRKSRC}/internal/backend/remote-state/kubernetes
 	@${RM} -r ${WRKSRC}/internal/backend/remote-state/kubernetes
 	@${RLN} ${WRKSRC_hashicorp_terraform_kubernetes}/internal/backend/remote-state/kubernetes ${WRKSRC}/internal/backend/remote-state/kubernetes
 	@${RM} -r ${WRKSRC}/internal/backend/remote-state/oss
-	@${RLN} ${WRKSRC_hashicorp_terraform_oss_1}/internal/backend/remote-state/oss ${WRKSRC}/internal/backend/remote-state/oss
-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/oss
 	@${RLN} ${WRKSRC_hashicorp_terraform_oss}/internal/backend/remote-state/oss ${WRKSRC}/internal/backend/remote-state/oss
+	@${RM} -r ${WRKSRC}/internal/backend/remote-state/oss
+	@${RLN} ${WRKSRC_hashicorp_terraform_oss_1}/internal/backend/remote-state/oss ${WRKSRC}/internal/backend/remote-state/oss
 	@${RM} -r ${WRKSRC}/internal/backend/remote-state/pg
 	@${RLN} ${WRKSRC_hashicorp_terraform_pg}/internal/backend/remote-state/pg ${WRKSRC}/internal/backend/remote-state/pg
 	@${RM} -r ${WRKSRC}/internal/backend/remote-state/pg
 	@${RLN} ${WRKSRC_hashicorp_terraform_pg_1}/internal/backend/remote-state/pg ${WRKSRC}/internal/backend/remote-state/pg
 	@${RM} -r ${WRKSRC}/internal/backend/remote-state/s3
-	@${RLN} ${WRKSRC_hashicorp_terraform_s3}/internal/backend/remote-state/s3 ${WRKSRC}/internal/backend/remote-state/s3
-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/s3
 	@${RLN} ${WRKSRC_hashicorp_terraform_s3_1}/internal/backend/remote-state/s3 ${WRKSRC}/internal/backend/remote-state/s3
+	@${RM} -r ${WRKSRC}/internal/backend/remote-state/s3
+	@${RLN} ${WRKSRC_hashicorp_terraform_s3}/internal/backend/remote-state/s3 ${WRKSRC}/internal/backend/remote-state/s3
 	@${RM} -r ${WRKSRC}/internal/legacy
 	@${RLN} ${WRKSRC_hashicorp_terraform_legacy}/internal/legacy ${WRKSRC}/internal/legacy
 	@${RM} -r ${WRKSRC}/internal/legacy

@@ -1,22 +1,34 @@
---- vendor/google.golang.org/api/transport/grpc/dial.go.orig	2023-06-08 22:34:15 UTC
+--- vendor/google.golang.org/api/transport/grpc/dial.go.orig	2025-05-06 20:54:19 UTC
 +++ vendor/google.golang.org/api/transport/grpc/dial.go
-@@ -16,7 +16,6 @@ import (
- 	"strings"
- 
+@@ -22,7 +22,6 @@ import (
+ 	"cloud.google.com/go/auth/grpctransport"
+ 	"cloud.google.com/go/auth/oauth2adapt"
  	"cloud.google.com/go/compute/metadata"
--	"go.opencensus.io/plugin/ocgrpc"
+-	"go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc"
  	"golang.org/x/oauth2"
+ 	"golang.org/x/time/rate"
  	"google.golang.org/api/internal"
- 	"google.golang.org/api/option"
-@@ -205,10 +204,7 @@ func addOCStatsHandler(opts []grpc.DialOption, setting
+@@ -68,12 +67,6 @@ var (
+ 
+ // otelGRPCStatsHandler returns singleton otelStatsHandler for reuse across all
+ // dial connections.
+-func otelGRPCStatsHandler() stats.Handler {
+-	initOtelStatsHandlerOnce.Do(func() {
+-		otelStatsHandler = otelgrpc.NewClientHandler()
+-	})
+-	return otelStatsHandler
+-}
+ 
+ // Dial returns a GRPC connection for use communicating with a Google cloud
+ // service, configured with the given ClientOptions.
+@@ -397,10 +390,7 @@ func addOpenTelemetryStatsHandler(opts []grpc.DialOpti
  }
  
- func addOCStatsHandler(opts []grpc.DialOption, settings *internal.DialSettings) []grpc.DialOption {
+ func addOpenTelemetryStatsHandler(opts []grpc.DialOption, settings *internal.DialSettings) []grpc.DialOption {
 -	if settings.TelemetryDisabled {
--		return opts
+ 		return opts
 -	}
--	return append(opts, grpc.WithStatsHandler(&ocgrpc.ClientHandler{}))
-+	return opts
+-	return append(opts, grpc.WithStatsHandler(otelGRPCStatsHandler()))
  }
  
  // grpcTokenSource supplies PerRPCCredentials from an oauth.TokenSource.
