@@ -1,9 +1,9 @@
 # Created by: Gabriel M. Dutra <0xdutra@gmail.com>
 
 PORTNAME=	tflint
-PORTVERSION=	0.57.0
+PORTVERSION=	0.58.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+#PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	dutra@FreeBSD.org
@@ -34,11 +34,11 @@ post-extract: .PHONY
 	@${RM} ${WRKSRC}/vendor/cloud.google.com/go/storage/trace.go
 	@${RM} -r ${WRKSRC}/vendor/google.golang.org/grpc/stats/opentelemetry
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/auth
-	@${RLN} ${WRKSRC_googleapis_google_cloud_go_auth}/auth ${WRKSRC}/vendor/cloud.google.com/go
+	@test ! -d ${WRKSRC}/vendor/cloud.google.com/go || ${RLN} ${WRKSRC_googleapis_google_cloud_go_auth}/auth ${WRKSRC}/vendor/cloud.google.com/go
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
-	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute
-#	@${RM} -r ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/api
-#	@test -z ${WRKSRC_google_go_genproto_api} || ${RLN} ${WRKSRC_google_go_genproto_api}/googleapis/api ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
+	@test ! -d ${WRKSRC}/vendor/cloud.google.com/go/compute || ${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute
+	@${RM} -r ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/api
+	@test -z ${WRKSRC_google_go_genproto_api} || ${RLN} ${WRKSRC_google_go_genproto_api}/googleapis/api ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
 	@${RM} -r ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/rpc
 	@test -z ${WRKSRC_google_go_genproto_rpc} || ${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
 
@@ -46,7 +46,7 @@ pre-deps: .PHONY
 	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
 
 post-deps-all: .PHONY
-	test ! -d '${PATCHDIR}_' || ${MV} ${PATCHDIR}_ ${PATCHDIR}
+	test ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
 
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
