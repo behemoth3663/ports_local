@@ -1,5 +1,5 @@
 PORTNAME=	tflint-ruleset-aws
-PORTVERSION=	0.39.0
+PORTVERSION=	0.40.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -34,7 +34,7 @@ pre-deps-all: .PHONY
 	${RM} ${.CURDIR}/generated.deps.mk
 
 post-deps-all: .PHONY
-	test -d ${PATCHDIR}_ && ${MV} ${PATCHDIR}_ ${PATCHDIR} || :
+	test ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
