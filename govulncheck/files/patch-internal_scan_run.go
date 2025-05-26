@@ -17,6 +17,15 @@
  	switch cfg.ScanMode {
  	case govulncheck.ScanModeSource:
  		dir := filepath.FromSlash(cfg.dir)
+@@ -87,7 +87,7 @@ func prepareConfig(ctx context.Context, cfg *config, c
+ 			}
+ 		}
+ 		if cfg.GoVersion == "" {
+-			if out, err := exec.Command("go", "env", "GOVERSION").Output(); err == nil {
++			if out, err := exec.Command("%%GO_CMD%%", "env", "GOVERSION").Output(); err == nil {
+ 				cfg.GoVersion = strings.TrimSpace(string(out))
+ 			}
+ 		}
 @@ -137,19 +134,6 @@ func scannerVersion(cfg *config, bi *debug.BuildInfo) 
  		}
  	}
