@@ -1,4 +1,4 @@
---- shell/run_cmd.go.orig	2025-05-13 18:23:29 UTC
+--- shell/run_cmd.go.orig	2025-06-02 18:34:14 UTC
 +++ shell/run_cmd.go
 @@ -3,7 +3,6 @@ import (
  
@@ -8,16 +8,16 @@
  	"io"
  	"strings"
  	"time"
-@@ -11,8 +10,6 @@ import (
- 	"github.com/gruntwork-io/terragrunt/engine"
+@@ -12,8 +11,6 @@ import (
  	"github.com/gruntwork-io/terragrunt/internal/os/exec"
+ 	"github.com/gruntwork-io/terragrunt/pkg/log"
  
 -	"github.com/gruntwork-io/terragrunt/telemetry"
 -
  	"github.com/gruntwork-io/terragrunt/internal/errors"
  	"github.com/gruntwork-io/terragrunt/options"
  	"github.com/gruntwork-io/terragrunt/util"
-@@ -57,11 +54,7 @@ func RunCommandWithOutput(
+@@ -59,11 +56,7 @@ func RunCommandWithOutput(
  		commandDir = opts.WorkingDir
  	}
  
@@ -27,10 +27,10 @@
 -		"dir":     commandDir,
 -	}, func(ctx context.Context) error {
 +	err := func(ctx context.Context) error {
- 		opts.Logger.Debugf("Running command: %s %s", command, strings.Join(args, " "))
+ 		l.Debugf("Running command: %s %s", command, strings.Join(args, " "))
  
  		var (
-@@ -69,14 +62,6 @@ func RunCommandWithOutput(
+@@ -71,14 +64,6 @@ func RunCommandWithOutput(
  			cmdStdout = io.MultiWriter(opts.Writer, &output.Stdout)
  		)
  
@@ -38,14 +38,14 @@
 -		traceParent := telemetry.TraceParentFromContext(ctx, opts.Telemetry)
 -
 -		if traceParent != "" {
--			opts.Logger.Debugf("Setting trace parent=%q for command %s", traceParent, fmt.Sprintf("%s %v", command, args))
+-			l.Debugf("Setting trace parent=%q for command %s", traceParent, fmt.Sprintf("%s %v", command, args))
 -			opts.Env[telemetry.TraceParentEnv] = traceParent
 -		}
 -
  		if suppressStdout {
- 			opts.Logger.Debugf("Command output will be suppressed.")
+ 			l.Debugf("Command output will be suppressed.")
  
-@@ -150,7 +135,7 @@ func RunCommandWithOutput(
+@@ -152,7 +137,7 @@ func RunCommandWithOutput(
  		}
  
  		return nil

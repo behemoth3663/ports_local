@@ -1,6 +1,6 @@
---- cli/flags/global/flags.go.orig	2025-03-28 15:11:40 UTC
+--- cli/flags/global/flags.go.orig	2025-06-02 18:34:14 UTC
 +++ cli/flags/global/flags.go
-@@ -48,15 +48,6 @@ const (
+@@ -50,15 +50,6 @@ const (
  	HelpFlagName    = "help"
  	VersionFlagName = "version"
  
@@ -16,13 +16,13 @@
  	// Renamed flags.
  
  	DeprecatedLogLevelFlagName        = "log-level"
-@@ -279,59 +270,10 @@ func NewFlags(opts *options.TerragruntOptions, prefix 
+@@ -300,59 +291,10 @@ func NewFlags(l log.Logger, opts *options.TerragruntOp
  			flags.WithDeprecatedNames(terragruntPrefix.FlagNames(DeprecatedStrictControlFlagName), terragruntPrefixControl)),
  	}
  
 -	flags = flags.Add(NewTelemetryFlags(opts, nil)...)
  	flags = flags.Sort()
- 	flags = flags.Add(NewHelpVersionFlags(opts)...)
+ 	flags = flags.Add(NewHelpVersionFlags(l, opts)...)
  
  	return flags
 -}
@@ -75,4 +75,4 @@
 -	}
  }
  
- func NewLogLevelFlag(opts *options.TerragruntOptions, prefix flags.Prefix) *flags.Flag {
+ func NewLogLevelFlag(l log.Logger, opts *options.TerragruntOptions, prefix flags.Prefix) *flags.Flag {
