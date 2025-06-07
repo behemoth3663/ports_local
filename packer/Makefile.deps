@@ -36,8 +36,7 @@ GH_TUPLE=	\
 		go-git:gcfg:3a3c6141e376:go_git_gcfg/vendor/github.com/go-git/gcfg \
 		go-git:go-billy:v5.6.0:go_git_go_billy_v5/vendor/github.com/go-git/go-billy/v5 \
 		go-git:go-git:v5.13.0:go_git_go_git_v5/vendor/github.com/go-git/go-git/v5 \
-		go-jose:go-jose:v3.0.3:go_jose_go_jose_v3/vendor/github.com/go-jose/go-jose/v3 \
-		go-jose:go-jose:v4.0.1:go_jose_go_jose_v4/vendor/github.com/go-jose/go-jose/v4 \
+		go-jose:go-jose:v4.0.5:go_jose_go_jose_v4/vendor/github.com/go-jose/go-jose/v4 \
 		go-logr:logr:v1.3.0:go_logr_logr/vendor/github.com/go-logr/logr \
 		go-logr:stdr:v1.2.2:go_logr_stdr/vendor/github.com/go-logr/stdr \
 		go-ole:go-ole:v1.2.6:go_ole_go_ole/vendor/github.com/go-ole/go-ole \
@@ -56,43 +55,43 @@ GH_TUPLE=	\
 		gobwas:glob:v0.2.3:gobwas_glob/vendor/github.com/gobwas/glob \
 		gofrs:flock:v0.8.1:gofrs_flock/vendor/github.com/gofrs/flock \
 		gofrs:uuid:v4.0.0:gofrs_uuid/vendor/github.com/gofrs/uuid \
-		golang:appengine:v1.6.7:golang_appengine/vendor/google.golang.org/appengine \
-		golang:crypto:v0.31.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.36.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:8a7402abbf56:golang_exp/vendor/golang.org/x/exp \
 		golang:groupcache:41bb18bfe9da:golang_groupcache/vendor/github.com/golang/groupcache \
 		golang:mod:v0.19.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.33.0:golang_net/vendor/golang.org/x/net \
-		golang:oauth2:v0.15.0:golang_oauth2/vendor/golang.org/x/oauth2 \
+		golang:net:v0.38.0:golang_net/vendor/golang.org/x/net \
+		golang:oauth2:v0.27.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.3:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sync:v0.10.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.28.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.27.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.21.0:golang_text/vendor/golang.org/x/text \
+		golang:sync:v0.12.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.31.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.30.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.23.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.3.0:golang_time/vendor/golang.org/x/time \
 		golang:tools:v0.23.0:golang_tools/vendor/golang.org/x/tools \
 		golang:xerrors:04be3eba64a2:golang_xerrors/vendor/golang.org/x/xerrors \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-genproto:49dd2c1f3d0b:google_go_genproto/vendor/google.golang.org/genproto \
-		google:go-genproto:d783a09b4405:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/rpc \
+		google:go-genproto:49dd2c1f3d0b:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api \
+		google:go-genproto:d783a09b4405:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc \
 		google:go-github:9318e629ec69:google_go_github_v33/vendor/github.com/google/go-github/v33 \
 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
 		google:s2a-go:v0.1.7:google_s2a_go/vendor/github.com/google/s2a-go \
 		google:uuid:v1.4.0:google_uuid/vendor/github.com/google/uuid \
 		googleapis:enterprise-certificate-proxy:v0.3.2:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
-		googleapis:gax-go:v2.12.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
+		googleapis:gax-go:v2.12.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2 \
 		googleapis:google-api-go-client:v0.150.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
-		googleapis:google-cloud-go:compute/v1.23.1:googleapis_google_cloud_go_compute \
-		googleapis:google-cloud-go:iam/v1.1.3:googleapis_google_cloud_go_iam \
-		googleapis:google-cloud-go:storage/v1.35.1:googleapis_google_cloud_go_storage \
 		googleapis:google-cloud-go:v0.110.8:googleapis_google_cloud_go/vendor/cloud.google.com/go \
-		googleapis:google-cloud-go:compute/metadata/v0.2.3:googleapis_google_cloud_go_compute_metadata \
+		googleapis:google-cloud-go:v1.1.3:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go/iam \
+		googleapis:google-cloud-go:v1.35.1:googleapis_google_cloud_go_storage/vendor/cloud.google.com/go/storage \
 		grpc:grpc-go:v1.59.0:grpc_grpc_go/vendor/google.golang.org/grpc \
 		hako:durafmt:c0fb7b4da026:hako_durafmt/vendor/github.com/hako/durafmt \
-		hashicorp:consul:api/v1.25.1:hashicorp_consul_api/vendor/github.com/hashicorp/consul \
+		hashicorp:consul:v1.25.1:hashicorp_consul_api/vendor/github.com/hashicorp/consul/api \
 		hashicorp:errwrap:v1.1.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
 		hashicorp:go-checkpoint:1545e56e46de:hashicorp_go_checkpoint/vendor/github.com/hashicorp/go-checkpoint \
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
 		hashicorp:go-cty-funcs:2721b1e36840:hashicorp_go_cty_funcs/vendor/github.com/hashicorp/go-cty-funcs \
+		hashicorp:go-getter:v2.2.2:hashicorp_go_getter_v2/vendor/github.com/hashicorp/go-getter/gcs/v2 \
+		hashicorp:go-getter:v2.2.2:hashicorp_go_getter_v2_1/vendor/github.com/hashicorp/go-getter/s3/v2 \
 		hashicorp:go-getter:v2.2.2:hashicorp_go_getter_v2_2/vendor/github.com/hashicorp/go-getter/v2 \
 		hashicorp:go-hclog:v1.6.3:hashicorp_go_hclog/vendor/github.com/hashicorp/go-hclog \
 		hashicorp:go-immutable-radix:v1.3.1:hashicorp_go_immutable_radix/vendor/github.com/hashicorp/go-immutable-radix \
@@ -100,22 +99,21 @@ GH_TUPLE=	\
 		hashicorp:go-retryablehttp:v0.7.7:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
 		hashicorp:go-rootcerts:v1.0.2:hashicorp_go_rootcerts/vendor/github.com/hashicorp/go-rootcerts \
 		hashicorp:go-safetemp:v1.0.0:hashicorp_go_safetemp/vendor/github.com/hashicorp/go-safetemp \
-		hashicorp:go-secure-stdlib:parseutil/v0.1.6:hashicorp_go_secure_stdlib_parseutil \
-		hashicorp:go-secure-stdlib:strutil/v0.1.2:hashicorp_go_secure_stdlib_strutil/vendor/github.com/hashicorp/go-secure-stdlib \
+		hashicorp:go-secure-stdlib:v0.1.2:hashicorp_go_secure_stdlib_strutil/vendor/github.com/hashicorp/go-secure-stdlib/strutil \
+		hashicorp:go-secure-stdlib:v0.1.6:hashicorp_go_secure_stdlib_parseutil/vendor/github.com/hashicorp/go-secure-stdlib/parseutil \
 		hashicorp:go-sockaddr:v1.0.7:hashicorp_go_sockaddr/vendor/github.com/hashicorp/go-sockaddr \
 		hashicorp:go-uuid:v1.0.3:hashicorp_go_uuid/vendor/github.com/hashicorp/go-uuid \
 		hashicorp:go-version:v1.6.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
 		hashicorp:golang-lru:v0.5.4:hashicorp_golang_lru/vendor/github.com/hashicorp/golang-lru \
 		hashicorp:hcl:v1.0.0:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
 		hashicorp:hcl:v2.19.1:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
-		hashicorp:hcp-sdk-go:v0.131.0:hashicorp_hcp_sdk_go/vendor/github.com/hashicorp/hcp-sdk-go \
+		hashicorp:hcp-sdk-go:v0.136.0:hashicorp_hcp_sdk_go/vendor/github.com/hashicorp/hcp-sdk-go \
 		hashicorp:packer-plugin-sdk:v0.6.0:hashicorp_packer_plugin_sdk/vendor/github.com/hashicorp/packer-plugin-sdk \
 		hashicorp:serf:v0.10.1:hashicorp_serf/vendor/github.com/hashicorp/serf \
-		hashicorp:vault:v1.14.0:hashicorp_vault_api/vendor/github.com/hashicorp/vault \
+		hashicorp:vault:v1.14.0:hashicorp_vault_api/vendor/github.com/hashicorp/vault/api \
 		hashicorp:yamux:v0.1.1:hashicorp_yamux/vendor/github.com/hashicorp/yamux \
 		huandu:xstrings:v1.3.2:huandu_xstrings/vendor/github.com/huandu/xstrings \
-		imdario:mergo:v0.3.12:imdario_mergo_1/vendor/github.com/imdario/mergo \
-		imdario:mergo:v1.0.0:imdario_mergo/vendor/dario.cat/mergo \
+		imdario:mergo:v0.3.12:imdario_mergo/vendor/github.com/imdario/mergo \
 		jbenet:go-context:d14ea06fba99:jbenet_go_context/vendor/github.com/jbenet/go-context \
 		jehiah:go-strftime:1d33003b3869:jehiah_go_strftime/vendor/github.com/jehiah/go-strftime \
 		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
@@ -148,6 +146,7 @@ GH_TUPLE=	\
 		nu7hatch:gouuid:179d4d0c4d8d:nu7hatch_gouuid/vendor/github.com/nu7hatch/gouuid \
 		nywilken:go-cty:v1.13.3:nywilken_go_cty/vendor/github.com/zclconf/go-cty \
 		oklog:ulid:v1.3.1:oklog_ulid/vendor/github.com/oklog/ulid \
+		opentracing:opentracing-go:v1.2.0:opentracing_opentracing_go/vendor/github.com/opentracing/opentracing-go \
 		packer-community:winrmcp:c76d91c1e7db:packer_community_winrmcp/vendor/github.com/packer-community/winrmcp \
 		pierrec:lz4:v4.1.18:pierrec_lz4_v4/vendor/github.com/pierrec/lz4/v4 \
 		pjbgf:sha1cd:v0.3.0:pjbgf_sha1cd/vendor/github.com/pjbgf/sha1cd \
@@ -169,7 +168,7 @@ GH_TUPLE=	\
 		stretchr:testify:v1.10.0:stretchr_testify/vendor/github.com/stretchr/testify \
 		tklauser:go-sysconf:v0.3.11:tklauser_go_sysconf/vendor/github.com/tklauser/go-sysconf \
 		tklauser:numcpus:v0.6.0:tklauser_numcpus/vendor/github.com/tklauser/numcpus \
-		ugorji:go:v1.2.6:ugorji_go_codec/vendor/github.com/ugorji/go \
+		ugorji:go:v1.2.6:ugorji_go_codec/vendor/github.com/ugorji/go/codec \
 		ulikunitz:xz:v0.5.10:ulikunitz_xz/vendor/github.com/ulikunitz/xz \
 		vmihailenco:msgpack:v5.3.5:vmihailenco_msgpack_v5/vendor/github.com/vmihailenco/msgpack/v5 \
 		vmihailenco:tagparser:v2.0.0:vmihailenco_tagparser_v2/vendor/github.com/vmihailenco/tagparser/v2 \
@@ -177,17 +176,9 @@ GH_TUPLE=	\
 		xeipuuv:gojsonpointer:02993c407bfb:xeipuuv_gojsonpointer/vendor/github.com/xeipuuv/gojsonpointer \
 		yusufpapurcu:wmi:v1.2.2:yusufpapurcu_wmi/vendor/github.com/yusufpapurcu/wmi \
 		zclconf:go-cty-yaml:v1.0.1:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml
-post-extract:
-	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute
-	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute}/compute ${WRKSRC}/vendor/cloud.google.com/go/compute
-	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/iam
-	@${RLN} ${WRKSRC_googleapis_google_cloud_go_iam}/iam ${WRKSRC}/vendor/cloud.google.com/go/iam
-	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
-	@${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go/storage
-	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute_metadata
-	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
-	@${RM} -r ${WRKSRC}/vendor/github.com/hashicorp/go-secure-stdlib/parseutil
-	@${RLN} ${WRKSRC_hashicorp_go_secure_stdlib_parseutil}/parseutil ${WRKSRC}/vendor/github.com/hashicorp/go-secure-stdlib/parseutil
-	@${MKDIR} ${WRKSRC}/vendor/github.com/hashicorp/go-getter/s3 ${WRKSRC}/vendor/github.com/hashicorp/go-getter/gcs
-	@${RLN} ${WRKSRC}/vendor/github.com/hashicorp/go-getter/v2/s3 ${WRKSRC}/vendor/github.com/hashicorp/go-getter/s3/v2
-	@${RLN} ${WRKSRC}/vendor/github.com/hashicorp/go-getter/v2/gcs ${WRKSRC}/vendor/github.com/hashicorp/go-getter/gcs/v2
+		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
+		#	::v0.3.0:group_name/vendor/cloud.google.com/go/compute/metadata (from cloud.google.com/go/compute/metadata@v0.3.0)
+		#	::v1.0.0:group_name/vendor/dario.cat/mergo (from dario.cat/mergo@v1.0.0)
+		#	::v1.17.0:group_name/vendor/go.opentelemetry.io/otel (from go.opentelemetry.io/otel@v1.17.0)
+		#	::v1.17.0:group_name/vendor/go.opentelemetry.io/otel/metric (from go.opentelemetry.io/otel/metric@v1.17.0)
+		#	::v1.17.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.17.0)
