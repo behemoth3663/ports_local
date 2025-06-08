@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/storage/storage.go.orig	2025-03-12 21:31:11 UTC
+--- vendor/cloud.google.com/go/storage/storage.go.orig	2025-05-02 19:54:59 UTC
 +++ vendor/cloud.google.com/go/storage/storage.go
 @@ -39,13 +39,9 @@ import (
  	"unicode/utf8"
@@ -100,3 +100,11 @@
  	return &Writer{
  		ctx:         ctx,
  		o:           o,
+@@ -1266,7 +1221,6 @@ func (o *ObjectHandle) NewWriterFromAppendableObject(c
+ // objects which were created append semantics and not finalized.
+ // This feature is in preview and is not yet available for general use.
+ func (o *ObjectHandle) NewWriterFromAppendableObject(ctx context.Context, opts *AppendableWriterOpts) (*Writer, int64, error) {
+-	ctx = trace.StartSpan(ctx, "cloud.google.com/go/storage.Object.Writer")
+ 	if o.gen < 0 {
+ 		return nil, 0, errors.New("storage: ObjectHandle.Generation must be set to use NewWriterFromAppendableObject")
+ 	}
