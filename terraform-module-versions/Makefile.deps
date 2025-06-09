@@ -12,7 +12,7 @@ GH_TUPLE=	\
 		emirpasic:gods:v1.18.1:emirpasic_gods/vendor/github.com/emirpasic/gods \
 		go-git:gcfg:3a3c6141e376:go_git_gcfg/vendor/github.com/go-git/gcfg \
 		go-git:go-billy:v5.6.2:go_git_go_billy_v5/vendor/github.com/go-git/go-billy/v5 \
-		go-git:go-git:v5.16.0:go_git_go_git_v5/vendor/github.com/go-git/go-git/v5 \
+		go-git:go-git:v5.16.2:go_git_go_git_v5/vendor/github.com/go-git/go-git/v5 \
 		go-test:deep:v1.0.7:go_test_deep/vendor/github.com/go-test/deep \
 		go-warnings:warnings:v0.1.2:go_warnings_warnings/vendor/gopkg.in/warnings.v0 \
 		gobwas:glob:v0.2.3:gobwas_glob/vendor/github.com/gobwas/glob \
