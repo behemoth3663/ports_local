@@ -63,10 +63,12 @@ GH_TUPLE=	\
 		aws:smithy-go:v1.22.3:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		aymanbagabas:go-osc52:v2.0.1:aymanbagabas_go_osc52_v2/vendor/github.com/aymanbagabas/go-osc52/v2 \
 		aymerick:douceur:v0.2.0:aymerick_douceur/vendor/github.com/aymerick/douceur \
+		bahlo:generic-list-go:v0.2.0:bahlo_generic_list_go/vendor/github.com/bahlo/generic-list-go \
 		bgentry:go-netrc:9fd32a8b3d3d:bgentry_go_netrc/vendor/github.com/bgentry/go-netrc \
 		blang:semver:v3.5.1:blang_semver/vendor/github.com/blang/semver \
 		bmatcuk:doublestar:v1.3.4:bmatcuk_doublestar/vendor/github.com/bmatcuk/doublestar \
 		boombuler:barcode:v1.0.1:boombuler_barcode/vendor/github.com/boombuler/barcode \
+		buger:jsonparser:v1.1.1:buger_jsonparser/vendor/github.com/buger/jsonparser \
 		cenkalti:backoff:v4.3.0:cenkalti_backoff_v4/vendor/github.com/cenkalti/backoff/v4 \
 		cenkalti:backoff:v5.0.2:cenkalti_backoff_v5/vendor/github.com/cenkalti/backoff/v5 \
 		cespare:xxhash:v2.3.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
@@ -175,6 +177,7 @@ GH_TUPLE=	\
 		huandu:go-clone:v1.7.2:huandu_go_clone/vendor/github.com/huandu/go-clone \
 		huandu:xstrings:v1.5.0:huandu_xstrings/vendor/github.com/huandu/xstrings \
 		inancgumus:screen:06e984b86ed3:inancgumus_screen/vendor/github.com/inancgumus/screen \
+		invopop:jsonschema:v0.13.0:invopop_jsonschema/vendor/github.com/invopop/jsonschema \
 		jackc:pgpassfile:v1.0.0:jackc_pgpassfile/vendor/github.com/jackc/pgpassfile \
 		jackc:pgservicefile:5a60cdf6a761:jackc_pgservicefile/vendor/github.com/jackc/pgservicefile \
 		jackc:pgx:v5.7.1:jackc_pgx_v5/vendor/github.com/jackc/pgx/v5 \
@@ -191,6 +194,7 @@ GH_TUPLE=	\
 		lib:pq:v1.10.9:lib_pq/vendor/github.com/lib/pq \
 		lithammer:fuzzysearch:v1.1.8:lithammer_fuzzysearch/vendor/github.com/lithammer/fuzzysearch \
 		lucasb-eyer:go-colorful:v1.2.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
+		mailru:easyjson:v0.7.7:mailru_easyjson/vendor/github.com/mailru/easyjson \
 		mattn:go-colorable:v0.1.14:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
 		mattn:go-isatty:v0.0.20:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
 		mattn:go-localereader:v0.0.1:mattn_go_localereader/vendor/github.com/mattn/go-localereader \
@@ -244,6 +248,10 @@ GH_TUPLE=	\
 		valyala:fasttemplate:v1.2.2:valyala_fasttemplate/vendor/github.com/valyala/fasttemplate \
 		vmihailenco:msgpack:v5.4.1:vmihailenco_msgpack_v5/vendor/github.com/vmihailenco/msgpack/v5 \
 		vmihailenco:tagparser:v2.0.0:vmihailenco_tagparser_v2/vendor/github.com/vmihailenco/tagparser/v2 \
+		wk8:go-ordered-map:v2.1.8:wk8_go_ordered_map_v2/vendor/github.com/wk8/go-ordered-map/v2 \
+		xeipuuv:gojsonpointer:02993c407bfb:xeipuuv_gojsonpointer/vendor/github.com/xeipuuv/gojsonpointer \
+		xeipuuv:gojsonreference:bd5ef7bd5415:xeipuuv_gojsonreference/vendor/github.com/xeipuuv/gojsonreference \
+		xeipuuv:gojsonschema:v1.2.0:xeipuuv_gojsonschema/vendor/github.com/xeipuuv/gojsonschema \
 		xo:terminfo:abceb7e1c41e:xo_terminfo/vendor/github.com/xo/terminfo \
 		xrash:smetrics:686a1a2994c1:xrash_smetrics/vendor/github.com/xrash/smetrics \
 		yuin:goldmark-emoji:v1.0.5:yuin_goldmark_emoji/vendor/github.com/yuin/goldmark-emoji \
