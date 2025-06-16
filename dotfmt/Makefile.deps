@@ -1,0 +1,2 @@
+GH_TUPLE=	google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
+		teleivo:assertive:4d52e9d98f38:teleivo_assertive/vendor/github.com/teleivo/assertive

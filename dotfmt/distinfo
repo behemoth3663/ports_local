@@ -1,0 +1,7 @@
+TIMESTAMP = 1750087964
+SHA256 (teleivo-dot-v20250119-c0c9cfa_GH0.tar.gz) = 9df76e689a54e6ab152cf08f6ef83f2ccd844c933c99c57a35efe3075c1045e5
+SIZE (teleivo-dot-v20250119-c0c9cfa_GH0.tar.gz) = 46200
+SHA256 (google-go-cmp-v0.6.0_GH0.tar.gz) = d14f7d57b0f6d25771bee3d7d5d038f532539e71bfc934772b1c0467ab90fa86
+SIZE (google-go-cmp-v0.6.0_GH0.tar.gz) = 104784
+SHA256 (teleivo-assertive-4d52e9d98f38_GH0.tar.gz) = 9d76b443be7587de0e91d904570172bace862e572c3bb3d5d26cb012bc26e895
+SIZE (teleivo-assertive-4d52e9d98f38_GH0.tar.gz) = 15288

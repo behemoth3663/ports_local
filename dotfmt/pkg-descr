@@ -1,0 +1,8 @@
+Format DOT language files. dotfmt is inspired by gofmt. As such it is
+opinionated and has no options to change its format.
+
+Limitations
+  - does not support https://graphviz.org/doc/info/lang.html#html-strings
+  - does not support double-quoted string concatenation with '+' operator
+  - does not treat records in any special way. Labels will be parsed as strings
+  - attributes are not validated
