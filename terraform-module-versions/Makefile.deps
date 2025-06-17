@@ -17,16 +17,16 @@ GH_TUPLE=	\
 		go-warnings:warnings:v0.1.2:go_warnings_warnings/vendor/gopkg.in/warnings.v0 \
 		gobwas:glob:v0.2.3:gobwas_glob/vendor/github.com/gobwas/glob \
 		golang:appengine:v1.6.8:golang_appengine/vendor/google.golang.org/appengine \
-		golang:crypto:v0.37.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.39.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:groupcache:2c02b8208cf8:golang_groupcache/vendor/github.com/golang/groupcache \
-		golang:mod:v0.21.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.39.0:golang_net/vendor/golang.org/x/net \
+		golang:mod:v0.25.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.41.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.23.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sync:v0.13.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.32.0:golang_sys/vendor/golang.org/x/sys \
-		golang:text:v0.24.0:golang_text/vendor/golang.org/x/text \
-		golang:tools:v0.25.0:golang_tools/vendor/golang.org/x/tools \
+		golang:sync:v0.15.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.33.0:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.26.0:golang_text/vendor/golang.org/x/text \
+		golang:tools:v0.33.0:golang_tools/vendor/golang.org/x/tools \
 		golang:xerrors:04be3eba64a2:golang_xerrors/vendor/golang.org/x/xerrors \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-genproto:b8732ec3820d:google_go_genproto/vendor/google.golang.org/genproto \
@@ -47,7 +47,7 @@ GH_TUPLE=	\
 		hashicorp:hcl:v1.0.0:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
 		hashicorp:hcl:v2.23.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
 		hashicorp:terraform-config-inspect:efaa306e97b4:hashicorp_terraform_config_inspect/vendor/github.com/hashicorp/terraform-config-inspect \
-		hashicorp:terraform-registry-address:v0.2.5:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
+		hashicorp:terraform-registry-address:v0.3.0:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
 		hashicorp:terraform-svchost:v0.1.1:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
 		imdario:mergo:v1.0.0:imdario_mergo/vendor/dario.cat/mergo \
 		jbenet:go-context:d14ea06fba99:jbenet_go_context/vendor/github.com/jbenet/go-context \
