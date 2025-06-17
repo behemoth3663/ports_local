@@ -19,8 +19,8 @@ GH_TUPLE=	\
 		aws:aws-sdk-go-v2:v1.29.17:aws_aws_sdk_go_v2_codedeploy/vendor/github.com/aws/aws-sdk-go-v2/service/codedeploy \
 		aws:aws-sdk-go-v2:v1.29.5:aws_aws_sdk_go_v2_config/vendor/github.com/aws/aws-sdk-go-v2/config \
 		aws:aws-sdk-go-v2:v1.29.9:aws_aws_sdk_go_v2_ses/vendor/github.com/aws/aws-sdk-go-v2/service/ses \
-		aws:aws-sdk-go-v2:v1.3.31:aws_aws_sdk_go_v2_configsources/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources \
 		aws:aws-sdk-go-v2:v1.3.31:aws_aws_sdk_go_v2_v4a/vendor/github.com/aws/aws-sdk-go-v2/internal/v4a \
+		aws:aws-sdk-go-v2:v1.3.34:aws_aws_sdk_go_v2_configsources/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources \
 		aws:aws-sdk-go-v2:v1.30.17:aws_aws_sdk_go_v2_acm/vendor/github.com/aws/aws-sdk-go-v2/service/acm \
 		aws:aws-sdk-go-v2:v1.31.0:aws_aws_sdk_go_v2_amp/vendor/github.com/aws/aws-sdk-go-v2/service/amp \
 		aws:aws-sdk-go-v2:v1.32.14:aws_aws_sdk_go_v2_apprunner/vendor/github.com/aws/aws-sdk-go-v2/service/apprunner \
@@ -29,9 +29,9 @@ GH_TUPLE=	\
 		aws:aws-sdk-go-v2:v1.33.18:aws_aws_sdk_go_v2_sns/vendor/github.com/aws/aws-sdk-go-v2/service/sns \
 		aws:aws-sdk-go-v2:v1.34.10:aws_aws_sdk_go_v2_efs/vendor/github.com/aws/aws-sdk-go-v2/service/efs \
 		aws:aws-sdk-go-v2:v1.34.17:aws_aws_sdk_go_v2_secretsmanager/vendor/github.com/aws/aws-sdk-go-v2/service/secretsmanager \
-		aws:aws-sdk-go-v2:v1.36.0:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
 		aws:aws-sdk-go-v2:v1.36.10:aws_aws_sdk_go_v2_eventbridge/vendor/github.com/aws/aws-sdk-go-v2/service/eventbridge \
 		aws:aws-sdk-go-v2:v1.36.12:aws_aws_sdk_go_v2_accessanalyzer/vendor/github.com/aws/aws-sdk-go-v2/service/accessanalyzer \
+		aws:aws-sdk-go-v2:v1.36.3:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
 		aws:aws-sdk-go-v2:v1.36.3:aws_aws_sdk_go_v2_firehose/vendor/github.com/aws/aws-sdk-go-v2/service/firehose \
 		aws:aws-sdk-go-v2:v1.37.13:aws_aws_sdk_go_v2_sqs/vendor/github.com/aws/aws-sdk-go-v2/service/sqs \
 		aws:aws-sdk-go-v2:v1.37.17:aws_aws_sdk_go_v2_acmpca/vendor/github.com/aws/aws-sdk-go-v2/service/acmpca \
@@ -48,6 +48,7 @@ GH_TUPLE=	\
 		aws:aws-sdk-go-v2:v1.44.8:aws_aws_sdk_go_v2_macie2/vendor/github.com/aws/aws-sdk-go-v2/service/macie2 \
 		aws:aws-sdk-go-v2:v1.45.10:aws_aws_sdk_go_v2_opensearch/vendor/github.com/aws/aws-sdk-go-v2/service/opensearch \
 		aws:aws-sdk-go-v2:v1.45.11:aws_aws_sdk_go_v2_cloudwatchlogs/vendor/github.com/aws/aws-sdk-go-v2/service/cloudwatchlogs \
+		aws:aws-sdk-go-v2:v1.45.2:aws_aws_sdk_go_v2_cloudfront/vendor/github.com/aws/aws-sdk-go-v2/service/cloudfront \
 		aws:aws-sdk-go-v2:v1.45.3:aws_aws_sdk_go_v2_datasync/vendor/github.com/aws/aws-sdk-go-v2/service/datasync \
 		aws:aws-sdk-go-v2:v1.47.3:aws_aws_sdk_go_v2_cloudtrail/vendor/github.com/aws/aws-sdk-go-v2/service/cloudtrail \
 		aws:aws-sdk-go-v2:v1.48.6:aws_aws_sdk_go_v2_route53/vendor/github.com/aws/aws-sdk-go-v2/service/route53 \
@@ -65,7 +66,8 @@ GH_TUPLE=	\
 		aws:aws-sdk-go-v2:v1.75.3:aws_aws_sdk_go_v2_s3/vendor/github.com/aws/aws-sdk-go-v2/service/s3 \
 		aws:aws-sdk-go-v2:v1.8.2:aws_aws_sdk_go_v2_ini/vendor/github.com/aws/aws-sdk-go-v2/internal/ini \
 		aws:aws-sdk-go-v2:v1.93.11:aws_aws_sdk_go_v2_rds/vendor/github.com/aws/aws-sdk-go-v2/service/rds \
-		aws:aws-sdk-go-v2:v2.6.31:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 \
+		aws:aws-sdk-go-v2:v2.6.34:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 \
+		aws:aws-sdk-go:v1.44.48:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
 		aws:smithy-go:v1.22.2:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		charmbracelet:lipgloss:v0.6.0:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
 		containerd:console:v1.0.3:containerd_console/vendor/github.com/containerd/console \
@@ -85,6 +87,7 @@ GH_TUPLE=	\
 		gruntwork-io:gruntwork-cli:v0.7.0:gruntwork_io_gruntwork_cli/vendor/github.com/gruntwork-io/gruntwork-cli \
 		hashicorp:errwrap:v1.0.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
 		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
+		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
 		lithammer:fuzzysearch:v1.1.5:lithammer_fuzzysearch/vendor/github.com/lithammer/fuzzysearch \
 		lucasb-eyer:go-colorful:v1.2.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
 		mattn:go-isatty:v0.0.14:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
