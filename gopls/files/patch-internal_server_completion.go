@@ -1,4 +1,4 @@
---- internal/server/completion.go.orig	2025-02-24 17:39:34 UTC
+--- internal/server/completion.go.orig	2025-06-18 21:21:32 UTC
 +++ internal/server/completion.go
 @@ -15,18 +15,12 @@ import (
  	"golang.org/x/tools/gopls/internal/label"
@@ -16,7 +16,7 @@
 -		recordLatency(ctx, rerr)
 -	}()
 -
- 	ctx, done := event.Start(ctx, "lsp.Server.completion", label.URI.Of(params.TextDocument.URI))
+ 	ctx, done := event.Start(ctx, "server.Completion", label.URI.Of(params.TextDocument.URI))
  	defer done()
  
 @@ -61,7 +55,6 @@ func (s *server) Completion(ctx context.Context, param

@@ -2,6 +2,15 @@
 ## explicit; go 1.18
 github.com/BurntSushi/toml
 github.com/BurntSushi/toml/internal
+# github.com/fatih/camelcase v1.0.0
+## explicit
+github.com/fatih/camelcase
+# github.com/fatih/gomodifytags v1.17.1-0.20250423142747-f3939df9aa3c
+## explicit; go 1.13
+github.com/fatih/gomodifytags/modifytags
+# github.com/fatih/structtag v1.2.0
+## explicit; go 1.12
+github.com/fatih/structtag
 # github.com/google/go-cmp v0.6.0
 ## explicit; go 1.13
 github.com/google/go-cmp/cmp
@@ -21,28 +30,26 @@ github.com/google/safehtml/uncheckedconversions
 # github.com/jba/templatecheck v0.7.1
 ## explicit; go 1.18
 github.com/jba/templatecheck
-# golang.org/x/exp/typeparams v0.0.0-20241210194714-1829a127f884
-## explicit; go 1.18
+# golang.org/x/exp/typeparams v0.0.0-20250218142911-aa4b98e5adaa
+## explicit; go 1.23.0
 golang.org/x/exp/typeparams
-# golang.org/x/mod v0.23.0
-## explicit; go 1.22.0
+# golang.org/x/mod v0.25.0
+## explicit; go 1.23.0
 golang.org/x/mod/internal/lazyregexp
 golang.org/x/mod/modfile
 golang.org/x/mod/module
 golang.org/x/mod/semver
-# golang.org/x/sync v0.11.0
-## explicit; go 1.18
+# golang.org/x/sync v0.15.0
+## explicit; go 1.23.0
 golang.org/x/sync/errgroup
-# golang.org/x/sys v0.30.0
-## explicit; go 1.18
-golang.org/x/sys/unix
+# golang.org/x/sys v0.33.0
+## explicit; go 1.23.0
 golang.org/x/sys/windows
-# golang.org/x/telemetry v0.0.0-20241220003058-cc96b6e0d3d9
-## explicit; go 1.22.0
+# golang.org/x/telemetry v0.0.0-20250417124945-06ef541f3fa3
+## explicit; go 1.23.0
 golang.org/x/telemetry
 golang.org/x/telemetry/counter
 golang.org/x/telemetry/counter/countertest
-golang.org/x/telemetry/crashmonitor
 golang.org/x/telemetry/internal/config
 golang.org/x/telemetry/internal/configstore
 golang.org/x/telemetry/internal/counter
@@ -50,12 +57,12 @@ golang.org/x/telemetry/internal/crashmonitor
 golang.org/x/telemetry/internal/mmap
 golang.org/x/telemetry/internal/telemetry
 golang.org/x/telemetry/internal/upload
-# golang.org/x/text v0.22.0
-## explicit; go 1.18
+# golang.org/x/text v0.26.0
+## explicit; go 1.23.0
 golang.org/x/text/unicode/rangetable
 golang.org/x/text/unicode/runenames
-# golang.org/x/tools v0.30.1-0.20250221230316-5055f70f240c
-## explicit; go 1.22.0
+# golang.org/x/tools v0.34.1-0.20250610205101-c26dd3ba555e
+## explicit; go 1.23.0
 golang.org/x/tools/go/analysis
 golang.org/x/tools/go/analysis/analysistest
 golang.org/x/tools/go/analysis/checker
@@ -79,6 +86,7 @@ golang.org/x/tools/go/analysis/passes/defers
 golang.org/x/tools/go/analysis/passes/directive
 golang.org/x/tools/go/analysis/passes/errorsas
 golang.org/x/tools/go/analysis/passes/framepointer
+golang.org/x/tools/go/analysis/passes/hostport
 golang.org/x/tools/go/analysis/passes/httpresponse
 golang.org/x/tools/go/analysis/passes/ifaceassert
 golang.org/x/tools/go/analysis/passes/inspect
@@ -109,6 +117,7 @@ golang.org/x/tools/go/analysis/passes/waitgroup
 golang.org/x/tools/go/analysis/singlechecker
 golang.org/x/tools/go/analysis/unitchecker
 golang.org/x/tools/go/ast/astutil
+golang.org/x/tools/go/ast/edge
 golang.org/x/tools/go/ast/inspector
 golang.org/x/tools/go/buildutil
 golang.org/x/tools/go/callgraph
@@ -128,9 +137,8 @@ golang.org/x/tools/go/types/typeutil
 golang.org/x/tools/imports
 golang.org/x/tools/internal/aliases
 golang.org/x/tools/internal/analysisinternal
+golang.org/x/tools/internal/analysisinternal/typeindex
 golang.org/x/tools/internal/astutil
-golang.org/x/tools/internal/astutil/cursor
-golang.org/x/tools/internal/astutil/edge
 golang.org/x/tools/internal/diff
 golang.org/x/tools/internal/diff/lcs
 golang.org/x/tools/internal/diff/myers
@@ -139,8 +147,6 @@ golang.org/x/tools/internal/event
 golang.org/x/tools/internal/event/core
 golang.org/x/tools/internal/event/export
 golang.org/x/tools/internal/event/export/metric
-golang.org/x/tools/internal/event/export/ocagent
-golang.org/x/tools/internal/event/export/ocagent/wire
 golang.org/x/tools/internal/event/export/prometheus
 golang.org/x/tools/internal/event/keys
 golang.org/x/tools/internal/event/label
@@ -150,12 +156,17 @@ golang.org/x/tools/internal/fakenet
 golang.org/x/tools/internal/fmtstr
 golang.org/x/tools/internal/gcimporter
 golang.org/x/tools/internal/gocommand
+golang.org/x/tools/internal/gofix
+golang.org/x/tools/internal/gofix/findgofix
 golang.org/x/tools/internal/gopathwalk
 golang.org/x/tools/internal/goroot
 golang.org/x/tools/internal/imports
 golang.org/x/tools/internal/jsonrpc2
 golang.org/x/tools/internal/jsonrpc2/servertest
 golang.org/x/tools/internal/jsonrpc2_v2
+golang.org/x/tools/internal/mcp
+golang.org/x/tools/internal/mcp/internal/util
+golang.org/x/tools/internal/mcp/jsonschema
 golang.org/x/tools/internal/memoize
 golang.org/x/tools/internal/modindex
 golang.org/x/tools/internal/packagesinternal
@@ -171,12 +182,13 @@ golang.org/x/tools/internal/tokeninternal
 golang.org/x/tools/internal/tool
 golang.org/x/tools/internal/typeparams
 golang.org/x/tools/internal/typesinternal
+golang.org/x/tools/internal/typesinternal/typeindex
 golang.org/x/tools/internal/versions
 golang.org/x/tools/internal/xcontext
 golang.org/x/tools/refactor/satisfy
 golang.org/x/tools/txtar
-# golang.org/x/vuln v1.1.3
-## explicit; go 1.21
+# golang.org/x/vuln v1.1.4
+## explicit; go 1.22.0
 golang.org/x/vuln/internal
 golang.org/x/vuln/internal/buildinfo
 golang.org/x/vuln/internal/client
@@ -198,8 +210,8 @@ golang.org/x/vuln/scan
 # gopkg.in/yaml.v3 v3.0.1
 ## explicit
 gopkg.in/yaml.v3
-# honnef.co/go/tools v0.5.1
-## explicit; go 1.22.1
+# honnef.co/go/tools v0.7.0-0.dev.0.20250523013057-bbc2f4dd71ea
+## explicit; go 1.23.0
 honnef.co/go/tools/analysis/callcheck
 honnef.co/go/tools/analysis/code
 honnef.co/go/tools/analysis/edit
@@ -216,8 +228,10 @@ honnef.co/go/tools/go/ast/astutil
 honnef.co/go/tools/go/ir
 honnef.co/go/tools/go/ir/irutil
 honnef.co/go/tools/go/types/typeutil
+honnef.co/go/tools/internal/analysisinternal/typeindex
 honnef.co/go/tools/internal/passes/buildir
 honnef.co/go/tools/internal/sharedcheck
+honnef.co/go/tools/internal/typesinternal/typeindex
 honnef.co/go/tools/knowledge
 honnef.co/go/tools/pattern
 honnef.co/go/tools/printf
@@ -395,6 +409,6 @@ mvdan.cc/gofumpt/internal/govendor/go/doc/comment
 mvdan.cc/gofumpt/internal/govendor/go/format
 mvdan.cc/gofumpt/internal/govendor/go/printer
 mvdan.cc/gofumpt/internal/version
-# mvdan.cc/xurls/v2 v2.5.0
-## explicit; go 1.19
+# mvdan.cc/xurls/v2 v2.6.0
+## explicit; go 1.22.0
 mvdan.cc/xurls/v2

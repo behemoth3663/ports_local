@@ -1,4 +1,4 @@
---- internal/server/references.go.orig	2025-02-24 17:39:34 UTC
+--- internal/server/references.go.orig	2025-06-18 21:21:32 UTC
 +++ internal/server/references.go
 @@ -11,17 +11,11 @@ import (
  	"golang.org/x/tools/gopls/internal/golang"
@@ -15,6 +15,6 @@
 -		recordLatency(ctx, rerr)
 -	}()
 -
- 	ctx, done := event.Start(ctx, "lsp.Server.references", label.URI.Of(params.TextDocument.URI))
+ 	ctx, done := event.Start(ctx, "server.References", label.URI.Of(params.TextDocument.URI))
  	defer done()
  

@@ -1,4 +1,4 @@
---- internal/server/workspace_symbol.go.orig	2025-02-24 17:39:34 UTC
+--- internal/server/workspace_symbol.go.orig	2025-06-18 21:21:32 UTC
 +++ internal/server/workspace_symbol.go
 @@ -10,16 +10,10 @@ import (
  	"golang.org/x/tools/gopls/internal/cache"
@@ -14,6 +14,6 @@
 -		recordLatency(ctx, rerr)
 -	}()
 -
- 	ctx, done := event.Start(ctx, "lsp.Server.symbol")
+ 	ctx, done := event.Start(ctx, "server.Symbol")
  	defer done()
  

@@ -1,4 +1,4 @@
---- internal/server/hover.go.orig	2025-02-24 17:39:34 UTC
+--- internal/server/hover.go.orig	2025-06-18 21:21:32 UTC
 +++ internal/server/hover.go
 @@ -13,18 +13,12 @@ import (
  	"golang.org/x/tools/gopls/internal/mod"
@@ -16,6 +16,6 @@
 -		recordLatency(ctx, rerr)
 -	}()
 -
- 	ctx, done := event.Start(ctx, "lsp.Server.hover", label.URI.Of(params.TextDocument.URI))
+ 	ctx, done := event.Start(ctx, "server.Hover", label.URI.Of(params.TextDocument.URI))
  	defer done()
  

@@ -1,4 +1,4 @@
---- internal/server/implementation.go.orig	2025-02-24 17:39:34 UTC
+--- internal/server/implementation.go.orig	2025-06-18 21:21:32 UTC
 +++ internal/server/implementation.go
 @@ -11,16 +11,10 @@ import (
  	"golang.org/x/tools/gopls/internal/golang"
@@ -14,6 +14,6 @@
 -		recordLatency(ctx, rerr)
 -	}()
 -
- 	ctx, done := event.Start(ctx, "lsp.Server.implementation", label.URI.Of(params.TextDocument.URI))
+ 	ctx, done := event.Start(ctx, "server.Implementation", label.URI.Of(params.TextDocument.URI))
  	defer done()
  

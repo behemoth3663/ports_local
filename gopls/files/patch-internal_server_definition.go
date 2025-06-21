@@ -1,6 +1,6 @@
---- internal/server/definition.go.orig	2025-02-24 17:39:34 UTC
+--- internal/server/definition.go.orig	2025-06-18 21:21:32 UTC
 +++ internal/server/definition.go
-@@ -12,17 +12,11 @@ import (
+@@ -13,17 +13,11 @@ import (
  	"golang.org/x/tools/gopls/internal/golang"
  	"golang.org/x/tools/gopls/internal/label"
  	"golang.org/x/tools/gopls/internal/protocol"
@@ -15,6 +15,6 @@
 -		recordLatency(ctx, rerr)
 -	}()
 -
- 	ctx, done := event.Start(ctx, "lsp.Server.definition", label.URI.Of(params.TextDocument.URI))
+ 	ctx, done := event.Start(ctx, "server.Definition", label.URI.Of(params.TextDocument.URI))
  	defer done()
  

@@ -1,19 +1,22 @@
 GH_TUPLE=	\
 		BurntSushi:toml:a339e1f7089c:burntsushi_toml/vendor/github.com/BurntSushi/toml \
-		dominikh:go-tools:v0.5.1:dominikh_go_tools/vendor/honnef.co/go/tools \
+		dominikh:go-tools:bbc2f4dd71ea:dominikh_go_tools/vendor/honnef.co/go/tools \
+		fatih:camelcase:v1.0.0:fatih_camelcase/vendor/github.com/fatih/camelcase \
+		fatih:gomodifytags:f3939df9aa3c:fatih_gomodifytags/vendor/github.com/fatih/gomodifytags \
+		fatih:structtag:v1.2.0:fatih_structtag/vendor/github.com/fatih/structtag \
 		go-check:check:41f04d3bba15:go_check_check/vendor/gopkg.in/check.v1 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
-		golang:mod:v0.23.0:golang_mod/vendor/golang.org/x/mod \
-		golang:sync:v0.11.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.30.0:golang_sys/vendor/golang.org/x/sys \
-		golang:telemetry:cc96b6e0d3d9:golang_telemetry/vendor/golang.org/x/telemetry \
-		golang:text:v0.22.0:golang_text/vendor/golang.org/x/text \
-		golang:tools:5055f70f240c:golang_tools/vendor/golang.org/x/tools \
-		golang:vuln:v1.1.3:golang_vuln/vendor/golang.org/x/vuln \
+		golang:mod:v0.25.0:golang_mod/vendor/golang.org/x/mod \
+		golang:sync:v0.15.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.33.0:golang_sys/vendor/golang.org/x/sys \
+		golang:telemetry:06ef541f3fa3:golang_telemetry/vendor/golang.org/x/telemetry \
+		golang:text:v0.26.0:golang_text/vendor/golang.org/x/text \
+		golang:tools:c26dd3ba555e:golang_tools/vendor/golang.org/x/tools \
+		golang:vuln:v1.1.4:golang_vuln/vendor/golang.org/x/vuln \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:safehtml:v0.1.0:google_safehtml/vendor/github.com/google/safehtml \
 		jba:templatecheck:v0.7.1:jba_templatecheck/vendor/github.com/jba/templatecheck \
 		mvdan:gofumpt:v0.7.0:mvdan_gofumpt/vendor/mvdan.cc/gofumpt
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
-		#	::1829a127f884:group_name/vendor/golang.org/x/exp/typeparams (from golang.org/x/exp/typeparams@1829a127f884)
-		#	::v2.5.0:group_name/vendor/mvdan.cc/xurls/v2 (from mvdan.cc/xurls/v2@v2.5.0)
+		#	::aa4b98e5adaa:group_name/vendor/golang.org/x/exp/typeparams (from golang.org/x/exp/typeparams@aa4b98e5adaa)
+		#	::v2.6.0:group_name/vendor/mvdan.cc/xurls/v2 (from mvdan.cc/xurls/v2@v2.6.0)
