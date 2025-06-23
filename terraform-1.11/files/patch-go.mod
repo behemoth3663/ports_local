@@ -41,10 +41,11 @@
 +	github.com/hashicorp/go-getter v1.7.8
  	github.com/hashicorp/go-hclog v1.6.3
 -	github.com/hashicorp/go-plugin v1.6.0
-+	github.com/hashicorp/go-plugin v1.6.3
- 	github.com/hashicorp/go-retryablehttp v0.7.7
+-	github.com/hashicorp/go-retryablehttp v0.7.7
 -	github.com/hashicorp/go-slug v0.16.3
-+	github.com/hashicorp/go-slug v0.16.6
++	github.com/hashicorp/go-plugin v1.6.3
++	github.com/hashicorp/go-retryablehttp v0.7.8
++	github.com/hashicorp/go-slug v0.16.7
  	github.com/hashicorp/go-tfe v1.70.0
  	github.com/hashicorp/go-uuid v1.0.3
  	github.com/hashicorp/go-version v1.7.0
@@ -64,15 +65,15 @@
 -	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-00010101000000-000000000000
 -	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-00010101000000-000000000000
 -	github.com/hashicorp/terraform/internal/legacy v0.0.0-00010101000000-000000000000
-+	github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20250606150233-b4a3e56a19d0
-+	github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20250606150233-b4a3e56a19d0
-+	github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20250606150233-b4a3e56a19d0
-+	github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20250606150233-b4a3e56a19d0
-+	github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20250606150233-b4a3e56a19d0
-+	github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20250606150233-b4a3e56a19d0
-+	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20250606150233-b4a3e56a19d0
-+	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20250606150233-b4a3e56a19d0
-+	github.com/hashicorp/terraform/internal/legacy v0.0.0-20250606150233-b4a3e56a19d0
++	github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20250623092356-8a498df05d36
++	github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20250623092356-8a498df05d36
++	github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20250623092356-8a498df05d36
++	github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20250623092356-8a498df05d36
++	github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20250623092356-8a498df05d36
++	github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20250623092356-8a498df05d36
++	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20250623092356-8a498df05d36
++	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20250623092356-8a498df05d36
++	github.com/hashicorp/terraform/internal/legacy v0.0.0-20250623092356-8a498df05d36
  	github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0
 -	github.com/masterzen/winrm v0.0.0-20200615185753-c42b5136ff88
 +	github.com/masterzen/winrm v0.0.0-20240702205601-3fad6e106085
@@ -204,30 +205,30 @@
 -	github.com/aws/aws-sdk-go-v2/service/sts v1.33.12 // indirect
 -	github.com/aws/smithy-go v1.22.2 // indirect
 +	github.com/aws/aws-sdk-go v1.44.334 // indirect
-+	github.com/aws/aws-sdk-go-v2 v1.36.3 // indirect
-+	github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream v1.6.10 // indirect
-+	github.com/aws/aws-sdk-go-v2/config v1.29.15 // indirect
-+	github.com/aws/aws-sdk-go-v2/credentials v1.17.68 // indirect
-+	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.16.30 // indirect
-+	github.com/aws/aws-sdk-go-v2/feature/s3/manager v1.17.78 // indirect
-+	github.com/aws/aws-sdk-go-v2/internal/configsources v1.3.34 // indirect
-+	github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.6.34 // indirect
++	github.com/aws/aws-sdk-go-v2 v1.36.5 // indirect
++	github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream v1.6.11 // indirect
++	github.com/aws/aws-sdk-go-v2/config v1.29.17 // indirect
++	github.com/aws/aws-sdk-go-v2/credentials v1.17.70 // indirect
++	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.16.32 // indirect
++	github.com/aws/aws-sdk-go-v2/feature/s3/manager v1.17.81 // indirect
++	github.com/aws/aws-sdk-go-v2/internal/configsources v1.3.36 // indirect
++	github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.6.36 // indirect
 +	github.com/aws/aws-sdk-go-v2/internal/ini v1.8.3 // indirect
-+	github.com/aws/aws-sdk-go-v2/internal/v4a v1.3.34 // indirect
-+	github.com/aws/aws-sdk-go-v2/service/dynamodb v1.43.2 // indirect
-+	github.com/aws/aws-sdk-go-v2/service/iam v1.42.0 // indirect
-+	github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding v1.12.3 // indirect
-+	github.com/aws/aws-sdk-go-v2/service/internal/checksum v1.7.2 // indirect
-+	github.com/aws/aws-sdk-go-v2/service/internal/endpoint-discovery v1.10.15 // indirect
-+	github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.12.15 // indirect
-+	github.com/aws/aws-sdk-go-v2/service/internal/s3shared v1.18.15 // indirect
-+	github.com/aws/aws-sdk-go-v2/service/s3 v1.80.1 // indirect
-+	github.com/aws/aws-sdk-go-v2/service/sns v1.34.5 // indirect
-+	github.com/aws/aws-sdk-go-v2/service/sqs v1.38.6 // indirect
-+	github.com/aws/aws-sdk-go-v2/service/sso v1.25.3 // indirect
-+	github.com/aws/aws-sdk-go-v2/service/ssooidc v1.30.1 // indirect
-+	github.com/aws/aws-sdk-go-v2/service/sts v1.33.20 // indirect
-+	github.com/aws/smithy-go v1.22.3 // indirect
++	github.com/aws/aws-sdk-go-v2/internal/v4a v1.3.36 // indirect
++	github.com/aws/aws-sdk-go-v2/service/dynamodb v1.43.4 // indirect
++	github.com/aws/aws-sdk-go-v2/service/iam v1.42.2 // indirect
++	github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding v1.12.4 // indirect
++	github.com/aws/aws-sdk-go-v2/service/internal/checksum v1.7.4 // indirect
++	github.com/aws/aws-sdk-go-v2/service/internal/endpoint-discovery v1.10.17 // indirect
++	github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.12.17 // indirect
++	github.com/aws/aws-sdk-go-v2/service/internal/s3shared v1.18.17 // indirect
++	github.com/aws/aws-sdk-go-v2/service/s3 v1.81.0 // indirect
++	github.com/aws/aws-sdk-go-v2/service/sns v1.34.7 // indirect
++	github.com/aws/aws-sdk-go-v2/service/sqs v1.38.8 // indirect
++	github.com/aws/aws-sdk-go-v2/service/sso v1.25.5 // indirect
++	github.com/aws/aws-sdk-go-v2/service/ssooidc v1.30.3 // indirect
++	github.com/aws/aws-sdk-go-v2/service/sts v1.34.0 // indirect
++	github.com/aws/smithy-go v1.22.4 // indirect
  	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
  	github.com/bgentry/go-netrc v0.0.0-20140422174119-9fd32a8b3d3d // indirect
  	github.com/bmatcuk/doublestar/v4 v4.6.1 // indirect
@@ -327,7 +328,7 @@
  	github.com/jedib0t/go-pretty v4.3.0+incompatible // indirect
  	github.com/jedib0t/go-pretty/v6 v6.5.9 // indirect
  	github.com/jmespath/go-jmespath v0.4.0 // indirect
-@@ -212,13 +235,13 @@ require (
+@@ -212,15 +235,15 @@ require (
  	github.com/josharian/intern v1.0.0 // indirect
  	github.com/json-iterator/go v1.1.12 // indirect
  	github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51 // indirect
@@ -343,8 +344,11 @@
 -	github.com/mattn/go-colorable v0.1.13 // indirect
 +	github.com/mattn/go-colorable v0.1.14 // indirect
  	github.com/mattn/go-runewidth v0.0.16 // indirect
- 	github.com/mergestat/timediff v0.0.3 // indirect
+-	github.com/mergestat/timediff v0.0.3 // indirect
++	github.com/mergestat/timediff v0.0.4 // indirect
  	github.com/mgutz/ansi v0.0.0-20200706080929-d51e80ef957d // indirect
+ 	github.com/mitchellh/copystructure v1.2.0 // indirect
+ 	github.com/mitchellh/go-testing-interface v1.14.1 // indirect
 @@ -229,59 +252,62 @@ require (
  	github.com/mitchellh/reflectwalk v1.0.2 // indirect
  	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
@@ -370,7 +374,7 @@
 -	github.com/tencentyun/cos-go-sdk-v5 v0.7.42 // indirect
 +	github.com/spf13/pflag v1.0.6 // indirect
 +	github.com/spiffe/go-spiffe/v2 v2.5.0 // indirect
-+	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common v1.0.1181 // indirect
++	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common v1.0.1192 // indirect
 +	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sts v1.0.1142 // indirect
 +	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tag v1.0.1175 // indirect
 +	github.com/tencentyun/cos-go-sdk-v5 v0.7.66 // indirect
@@ -406,7 +410,7 @@
 -	golang.org/x/time v0.7.0 // indirect
 -	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2 // indirect
 -	google.golang.org/api v0.126.0 // indirect
-+	golang.org/x/exp/typeparams v0.0.0-20250606033433-dcc06ee1d476 // indirect
++	golang.org/x/exp/typeparams v0.0.0-20250620022241-b7579e27df2b // indirect
 +	golang.org/x/sync v0.15.0 // indirect
 +	golang.org/x/time v0.11.0 // indirect
 +	google.golang.org/api v0.232.0 // indirect
@@ -433,7 +437,7 @@
 +	k8s.io/apimachinery v0.25.16 // indirect
 +	k8s.io/client-go v0.25.16 // indirect
 +	k8s.io/klog/v2 v2.80.1 // indirect
-+	k8s.io/kube-openapi v0.0.0-20250318190949-c8a335a9a2ff // indirect
++	k8s.io/kube-openapi v0.0.0-20250610211856-8b98d1ed966a // indirect
 +	k8s.io/utils v0.0.0-20250604170112-4c0f3b243397 // indirect
 +	sigs.k8s.io/json v0.0.0-20241014173422-cfa47c3a1cc8 // indirect
  	sigs.k8s.io/structured-merge-diff/v4 v4.2.3 // indirect
