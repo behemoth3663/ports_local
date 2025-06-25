@@ -1,5 +1,5 @@
 PORTNAME=	aws-iam-authenticator
-PORTVERSION=	0.7.2
+PORTVERSION=	0.7.3
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local security
@@ -33,7 +33,7 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 PLIST_FILES=	bin/${PORTNAME}
 
 post-extract: .PHONY
-	@test -d ${WRKSRC}/vendor/github.com && ${LN} -s ${WRKSRC}/src/github.com/${GH_ACCOUNT} ${WRKSRC}/vendor/github.com || :
+	@test ! -d ${WRKSRC}/vendor/github.com || ${LN} -s ${WRKSRC}/src/github.com/${GH_ACCOUNT} ${WRKSRC}/vendor/github.com
 	@test -f ${WRKSRC}/vendor/modules.txt || test ! -f ${PATCHDIR}/modules.txt || ${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 
 pre-deps post-deps-all: .PHONY
