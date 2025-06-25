@@ -54,7 +54,7 @@ GH_TUPLE=	\
 		pmezard:go-difflib:5d4384ee4fb2:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		prometheus:client_golang:v1.22.0:prometheus_client_golang/vendor/github.com/prometheus/client_golang \
 		prometheus:client_model:v0.6.2:prometheus_client_model/vendor/github.com/prometheus/client_model \
-		prometheus:common:v0.64.0:prometheus_common/vendor/github.com/prometheus/common \
+		prometheus:common:v0.65.0:prometheus_common/vendor/github.com/prometheus/common \
 		prometheus:procfs:v0.15.1:prometheus_procfs/vendor/github.com/prometheus/procfs \
 		prometheus:prometheus:v0.304.1:prometheus_prometheus/vendor/github.com/prometheus/prometheus \
 		protocolbuffers:protobuf-go:v1.36.6:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
@@ -70,14 +70,14 @@ GH_TUPLE=	\
 		uber-go:atomic:v1.11.0:uber_go_atomic/vendor/go.uber.org/atomic \
 		uber-go:automaxprocs:v1.6.0:uber_go_automaxprocs/vendor/go.uber.org/automaxprocs \
 		uber-go:ratelimit:v0.3.1:uber_go_ratelimit/vendor/go.uber.org/ratelimit \
-		urfave:cli:v3.3.3:urfave_cli_v3/vendor/github.com/urfave/cli/v3 \
+		urfave:cli:v3.3.8:urfave_cli_v3/vendor/github.com/urfave/cli/v3 \
 		yudai:gojsondiff:v1.0.0:yudai_gojsondiff/vendor/github.com/yudai/gojsondiff \
 		yudai:golcs:ecda9a501e82:yudai_golcs/vendor/github.com/yudai/golcs \
 		zclconf:go-cty:v1.16.3:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 		# Errors found during processing:
-		#	error getting commit v0.129.0 for gitlab-org/api: not found
+		#	error getting commit v0.130.1 for gitlab-org/api: not found
 GL_TUPLE=	\
-		gitlab-org-api:client-go:v0.128.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
+		gitlab-org-api:client-go:v0.130.1:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
 post-extract: .PHONY
 	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 	${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/exporters

@@ -176,7 +176,7 @@ github.com/prometheus/client_golang/prometheus/testutil/promlint/validations
 # github.com/prometheus/client_model v0.6.2
 ## explicit; go 1.22.0
 github.com/prometheus/client_model/go
-# github.com/prometheus/common v0.64.0
+# github.com/prometheus/common v0.65.0
 ## explicit; go 1.23.0
 github.com/prometheus/common/expfmt
 github.com/prometheus/common/helpers/templates
@@ -251,7 +251,7 @@ github.com/tidwall/pretty
 # github.com/tidwall/sjson v1.2.5
 ## explicit; go 1.14
 github.com/tidwall/sjson
-# github.com/urfave/cli/v3 v3.3.3
+# github.com/urfave/cli/v3 v3.3.8
 ## explicit; go 1.22
 github.com/urfave/cli/v3
 # github.com/yudai/gojsondiff v1.0.0
@@ -271,7 +271,7 @@ github.com/zclconf/go-cty/cty/function/stdlib
 github.com/zclconf/go-cty/cty/gocty
 github.com/zclconf/go-cty/cty/json
 github.com/zclconf/go-cty/cty/set
-# gitlab.com/gitlab-org/api/client-go v0.129.0
+# gitlab.com/gitlab-org/api/client-go v0.130.1
 ## explicit; go 1.23.0
 gitlab.com/gitlab-org/api/client-go
 # go.nhat.io/httpmock v0.11.0
