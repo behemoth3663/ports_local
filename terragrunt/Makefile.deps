@@ -151,7 +151,7 @@ GH_TUPLE=	\
 		gruntwork-io:boilerplate:v0.6.3:gruntwork_io_boilerplate/vendor/github.com/gruntwork-io/boilerplate \
 		gruntwork-io:go-commons:v0.17.2:gruntwork_io_go_commons/vendor/github.com/gruntwork-io/go-commons \
 		gruntwork-io:terragrunt-engine-go:v0.0.15:gruntwork_io_terragrunt_engine_go/vendor/github.com/gruntwork-io/terragrunt-engine-go \
-		gruntwork-io:terratest:v0.49.0:gruntwork_io_terratest/vendor/github.com/gruntwork-io/terratest \
+		gruntwork-io:terratest:v0.50.0:gruntwork_io_terratest/vendor/github.com/gruntwork-io/terratest \
 		hashicorp:errwrap:v1.1.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
 		hashicorp:go-getter:v1.7.8:hashicorp_go_getter/vendor/github.com/hashicorp/go-getter \
@@ -192,7 +192,7 @@ GH_TUPLE=	\
 		klauspost:compress:v1.17.11:klauspost_compress/vendor/github.com/klauspost/compress \
 		kubernetes-sigs:yaml:v1.4.0:kubernetes_sigs_yaml/vendor/sigs.k8s.io/yaml \
 		kylelemons:godebug:v1.1.0:kylelemons_godebug/vendor/github.com/kylelemons/godebug \
-		labstack:echo:v4.13.3:labstack_echo_v4/vendor/github.com/labstack/echo/v4 \
+		labstack:echo:v4.13.4:labstack_echo_v4/vendor/github.com/labstack/echo/v4 \
 		labstack:gommon:v0.4.2:labstack_gommon/vendor/github.com/labstack/gommon \
 		lib:pq:v1.10.9:lib_pq/vendor/github.com/lib/pq \
 		lithammer:fuzzysearch:v1.1.8:lithammer_fuzzysearch/vendor/github.com/lithammer/fuzzysearch \
