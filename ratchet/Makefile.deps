@@ -1,25 +1,20 @@
 GH_TUPLE=	\
 		braydonk:yaml:v0.9.0:braydonk_yaml/vendor/github.com/braydonk/yaml \
 		containerd:stargz-snapshotter:v0.16.3:containerd_stargz_snapshotter_estargz/vendor/github.com/containerd/stargz-snapshotter \
-		docker:cli:v28.1.1:docker_cli/vendor/github.com/docker/cli \
+		docker:cli:v28.3.0:docker_cli/vendor/github.com/docker/cli \
 		docker:distribution:v2.8.3:docker_distribution/vendor/github.com/docker/distribution \
-		go-check:check:10cb98267c6c:go_check_check/vendor/gopkg.in/check.v1 \
 		golang:oauth2:v0.30.0:golang_oauth2/vendor/golang.org/x/oauth2 \
-		golang:sync:v0.14.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sync:v0.15.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.33.0:golang_sys/vendor/golang.org/x/sys \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
-		google:go-containerregistry:v0.20.3:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
-		google:go-github:v72.0.0:google_go_github_v72/vendor/github.com/google/go-github/v72 \
+		google:go-containerregistry:v0.20.6:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
+		google:go-github:v73.0.0:google_go_github_v73/vendor/github.com/google/go-github/v73 \
 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
-		gotestyourself:gotest.tools:v3.5.1:gotestyourself_gotest_tools/vendor/gotest.tools/v3 \
 		klauspost:compress:v1.18.0:klauspost_compress/vendor/github.com/klauspost/compress \
-		kr:pretty:v0.3.1:kr_pretty/vendor/github.com/kr/pretty \
 		mitchellh:go-homedir:v1.1.0:mitchellh_go_homedir/vendor/github.com/mitchellh/go-homedir \
 		moby:moby:v0.9.3:moby_moby/vendor/github.com/docker/docker-credential-helpers \
 		opencontainers:go-digest:v1.0.0:opencontainers_go_digest/vendor/github.com/opencontainers/go-digest \
 		opencontainers:image-spec:v1.1.1:opencontainers_image_spec/vendor/github.com/opencontainers/image-spec \
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
-		rogpeppe:go-internal:v1.13.1:rogpeppe_go_internal/vendor/github.com/rogpeppe/go-internal \
 		sirupsen:logrus:v1.9.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
-		stretchr:testify:v1.10.0:stretchr_testify/vendor/github.com/stretchr/testify \
 		vbatts:tar-split:v0.12.1:vbatts_tar_split/vendor/github.com/vbatts/tar-split
