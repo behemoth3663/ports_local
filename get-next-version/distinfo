@@ -1,6 +1,6 @@
-TIMESTAMP = 1751126627
-SHA256 (thenativeweb-get-next-version-2.7.0_GH0.tar.gz) = f0f58fc2e9bd701a05771452c8881c224cf27a48fdb60d40f3b57ef636b40504
-SIZE (thenativeweb-get-next-version-2.7.0_GH0.tar.gz) = 21503
+TIMESTAMP = 1751195819
+SHA256 (thenativeweb-get-next-version-2.7.1_GH0.tar.gz) = ed6969340cd827300742912436c02ff40cff333160c260e665c072e96d6ea0d6
+SIZE (thenativeweb-get-next-version-2.7.1_GH0.tar.gz) = 22855
 SHA256 (Masterminds-semver-v1.5.0_GH0.tar.gz) = c9140eddfb03dc862f826e7761561260b9a840afa7519cc0919e89a43b5be5ba
 SIZE (Masterminds-semver-v1.5.0_GH0.tar.gz) = 21188
 SHA256 (Microsoft-go-winio-v0.6.2_GH0.tar.gz) = 0bf0aedbb0a38c494fda60804679e270fe98ca05dc9c2659584df1e3e1e0bd17
