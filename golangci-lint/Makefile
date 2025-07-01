@@ -1,5 +1,5 @@
 PORTNAME=	golangci-lint
-PORTVERSION=	2.1.6
+PORTVERSION=	2.2.1
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -40,17 +40,18 @@ OPTIONS_DEFINE=	EXAMPLES
 
 post-install-EXAMPLES-on:
 	@${MKDIR} ${STAGEDIR}${EXAMPLESDIR}
-	${INSTALL_DATA} ${WRKSRC}/${PORTEXAMPLES} \
-		${STAGEDIR}${EXAMPLESDIR}
+	${INSTALL_DATA} ${WRKSRC}/${PORTEXAMPLES} ${STAGEDIR}${EXAMPLESDIR}
 
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 	@${RM} -r ${WRKSRC}/vendor/github.com/quasilyte/go-ruleguard/dsl
-	@test -z '${WRKSRC_quasilyte_go_ruleguard_dsl}' || ${RLN} ${WRKSRC_quasilyte_go_ruleguard_dsl}/dsl ${WRKSRC}/vendor/github.com/quasilyte/go-ruleguard
+	@test -z ${WRKSRC_quasilyte_go_ruleguard_dsl} || ${RLN} ${WRKSRC_quasilyte_go_ruleguard_dsl}/dsl ${WRKSRC}/vendor/github.com/quasilyte/go-ruleguard
 	@${RM} -r ${WRKSRC}/vendor/github.com/charmbracelet/x/cellbuf
-	@test -z '${WRKSRC_charmbracelet_x_cellbuf}' || ${RLN} ${WRKSRC_charmbracelet_x_cellbuf}/cellbuf ${WRKSRC}/vendor/github.com/charmbracelet/x
+	@test -z ${WRKSRC_charmbracelet_x_cellbuf} || ${RLN} ${WRKSRC_charmbracelet_x_cellbuf}/cellbuf ${WRKSRC}/vendor/github.com/charmbracelet/x
 	@${RM} -r ${WRKSRC}/vendor/github.com/charmbracelet/x/term
-	@test -z '${WRKSRC_charmbracelet_x_term}' || ${RLN} ${WRKSRC_charmbracelet_x_term}/term ${WRKSRC}/vendor/github.com/charmbracelet/x
+	@test -z ${WRKSRC_charmbracelet_x_term} || ${RLN} ${WRKSRC_charmbracelet_x_term}/term ${WRKSRC}/vendor/github.com/charmbracelet/x
+	@${MKDIR} ${WRKSRC}/vendor/codeberg.org/chavacava
+	@test -z ${WRKSRC_chavacava_garif} || ${RLN} ${WRKSRC_chavacava_garif:H}/garif ${WRKSRC}/vendor/codeberg.org/chavacava
 
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
@@ -66,6 +67,8 @@ pre-deps-all: .PHONY
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=leighmcculloch GHT_PROJ=gocheckcompilerdirectives GHT_PATH=4d63.com/gocheckcompilerdirectives )
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=leighmcculloch GHT_PROJ=gochecknoglobals GHT_PATH=4d63.com/gochecknoglobals )
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=Crocmagnon GHT_PROJ=fatcontext GHT_PATH=go.augendre.info/fatcontext )
+	( make -C ${.CURDIR} make-from-deps GHT_ACNT=Crocmagnon GHT_PROJ=arangolint GHT_PATH=go.augendre.info/arangolint )
+	( make -C ${.CURDIR} make-from-deps GHT_ACNT=chavacava GHT_PROJ=garif GHT_PATH=codeberg.org/chavacava/garif )
 
 make-from-deps: .PHONY
 	@${SED} -rn \
@@ -101,5 +104,9 @@ GH_TUPLE:=	${GH_TUPLE:S|/vendor/github.com/charmbracelet/x/cellbuf$||1}
 GH_TUPLE:=	${GH_TUPLE:C|(.*/quasilyte/regex)/syntax$|\1|1}
 
 .sinclude "${.CURDIR}/generated.deps.mk"
+
+#-chavacava:garif:v0.2.0:chavacava_garif/vendor/codeberg.org/chavacava/garif
+#+chavacava:garif:v0.2.0:chavacava_garif
+GH_TUPLE:=	${GH_TUPLE:C|/vendor/codeberg\.org/.*||}
 
 .include <bsd.port.mk>
