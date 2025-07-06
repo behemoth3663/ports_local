@@ -1,0 +1,5 @@
+Utilities for use on the command line, to convert BSON, CBOR, CSV, INI,
+MessagePack, Plist, RSV, TOML, XML & YAML to JSON. For each supported format
+there is a tool for use in a pipe as well as a wrapper which passes the
+converted input or files in the arguments to jaq or jq, for further querying
+and processing.
