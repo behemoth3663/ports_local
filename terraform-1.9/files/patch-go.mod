@@ -63,15 +63,15 @@
 -	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-00010101000000-000000000000
 -	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-00010101000000-000000000000
 -	github.com/hashicorp/terraform/internal/legacy v0.0.0-00010101000000-000000000000
-+	github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20250623092356-8a498df05d36
-+	github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20250623092356-8a498df05d36
-+	github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20250623092356-8a498df05d36
-+	github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20250623092356-8a498df05d36
-+	github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20250623092356-8a498df05d36
-+	github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20250623092356-8a498df05d36
-+	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20250623092356-8a498df05d36
-+	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20250623092356-8a498df05d36
-+	github.com/hashicorp/terraform/internal/legacy v0.0.0-20250623092356-8a498df05d36
++	github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20250704093539-8d8b2bb69457
++	github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20250704093539-8d8b2bb69457
++	github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20250704093539-8d8b2bb69457
++	github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20250704093539-8d8b2bb69457
++	github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20250704093539-8d8b2bb69457
++	github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20250704093539-8d8b2bb69457
++	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20250704093539-8d8b2bb69457
++	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20250704093539-8d8b2bb69457
++	github.com/hashicorp/terraform/internal/legacy v0.0.0-20250704093539-8d8b2bb69457
  	github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0
 -	github.com/masterzen/winrm v0.0.0-20200615185753-c42b5136ff88
 +	github.com/masterzen/winrm v0.0.0-20240702205601-3fad6e106085
@@ -117,7 +117,7 @@
 +	golang.org/x/tools v0.34.0
  	golang.org/x/tools/cmd/cover v0.1.0-deprecated
 -	google.golang.org/grpc v1.59.0
-+	google.golang.org/grpc v1.72.2
++	google.golang.org/grpc v1.73.0
  	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.1.0
 -	google.golang.org/protobuf v1.33.0
 -	honnef.co/go/tools v0.5.0-0.dev.0.20230826160118-ad5ca31ff221
@@ -132,14 +132,14 @@
 -	cloud.google.com/go/iam v1.1.1 // indirect
 -	cloud.google.com/go/storage v1.30.1 // indirect
 -	github.com/AlecAivazis/survey/v2 v2.3.6 // indirect
-+	cel.dev/expr v0.20.0 // indirect
-+	cloud.google.com/go v0.121.2 // indirect
++	cel.dev/expr v0.23.1 // indirect
++	cloud.google.com/go v0.121.3 // indirect
 +	cloud.google.com/go/auth v0.16.2 // indirect
 +	cloud.google.com/go/auth/oauth2adapt v0.2.8 // indirect
 +	cloud.google.com/go/compute/metadata v0.7.0 // indirect
 +	cloud.google.com/go/iam v1.5.2 // indirect
 +	cloud.google.com/go/monitoring v1.24.2 // indirect
-+	cloud.google.com/go/storage v1.53.0 // indirect
++	cloud.google.com/go/storage v1.55.0 // indirect
 +	github.com/AlecAivazis/survey/v2 v2.3.7 // indirect
  	github.com/Azure/azure-sdk-for-go v59.2.0+incompatible // indirect
  	github.com/Azure/go-autorest v14.2.0+incompatible // indirect
@@ -385,9 +385,9 @@
 -	github.com/thlib/go-timezone-local v0.0.0-20210907160436-ef149e42d28e // indirect
 +	github.com/spf13/pflag v1.0.6 // indirect
 +	github.com/spiffe/go-spiffe/v2 v2.5.0 // indirect
-+	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common v1.0.1192 // indirect
-+	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sts v1.0.1142 // indirect
-+	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tag v1.0.1175 // indirect
++	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common v1.0.1200 // indirect
++	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sts v1.0.1200 // indirect
++	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tag v1.0.1200 // indirect
 +	github.com/tencentyun/cos-go-sdk-v5 v0.7.66 // indirect
 +	github.com/thanhpk/randstr v1.0.6 // indirect
 +	github.com/thlib/go-timezone-local v0.0.6 // indirect
@@ -404,7 +404,7 @@
 +	github.com/zeebo/errs v1.4.0 // indirect
 +	go.mongodb.org/mongo-driver v1.13.4 // indirect
 +	go.opentelemetry.io/auto/sdk v1.1.0 // indirect
-+	go.opentelemetry.io/contrib/detectors/gcp v1.35.0 // indirect
++	go.opentelemetry.io/contrib/detectors/gcp v1.36.0 // indirect
 +	go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2/otelaws v0.53.0 // indirect
 +	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.61.0 // indirect
  	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.19.0 // indirect
@@ -427,8 +427,8 @@
 +	golang.org/x/exp v0.0.0-20250620022241-b7579e27df2b // indirect
 +	golang.org/x/exp/typeparams v0.0.0-20250620022241-b7579e27df2b // indirect
 +	golang.org/x/sync v0.15.0 // indirect
-+	golang.org/x/time v0.11.0 // indirect
-+	google.golang.org/api v0.232.0 // indirect
++	golang.org/x/time v0.12.0 // indirect
++	google.golang.org/api v0.237.0 // indirect
 +	google.golang.org/genproto v0.0.0-20250603155806-513f23925822 // indirect
 +	google.golang.org/genproto/googleapis/api v0.0.0-20250603155806-513f23925822 // indirect
 +	google.golang.org/genproto/googleapis/rpc v0.0.0-20250603155806-513f23925822 // indirect
@@ -448,7 +448,7 @@
 +	k8s.io/apimachinery v0.25.16 // indirect
 +	k8s.io/client-go v0.25.16 // indirect
 +	k8s.io/klog/v2 v2.80.1 // indirect
-+	k8s.io/kube-openapi v0.0.0-20250610211856-8b98d1ed966a // indirect
++	k8s.io/kube-openapi v0.0.0-20250701173324-9bd5c66d9911 // indirect
 +	k8s.io/utils v0.0.0-20250604170112-4c0f3b243397 // indirect
 +	sigs.k8s.io/json v0.0.0-20241014173422-cfa47c3a1cc8 // indirect
  	sigs.k8s.io/structured-merge-diff/v4 v4.2.3 // indirect

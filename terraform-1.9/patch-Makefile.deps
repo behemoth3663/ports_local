@@ -1,6 +1,6 @@
---- Makefile.deps.orig	2025-06-23 16:31:58 UTC
+--- Makefile.deps.orig	2025-07-06 19:47:42 UTC
 +++ Makefile.deps
-@@ -302,42 +302,51 @@ GH_TUPLE=	\
+@@ -302,42 +302,53 @@ GH_TUPLE=	\
  		#	::v1.36.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.36.0)
  		#	::v2.80.1:group_name/vendor/k8s.io/klog/v2 (from k8s.io/klog/v2@v2.80.1)
  		#	::v4.2.3:group_name/vendor/sigs.k8s.io/structured-merge-diff/v4 (from sigs.k8s.io/structured-merge-diff/v4@v4.2.3)
@@ -89,5 +89,7 @@
 +	@${RM} ${WRKSRC}/vendor/cloud.google.com/go/storage/trace.go
 +	@${RM} ${WRKSRC}/vendor/cloud.google.com/go/storage/experimental/experimental.go
 +	@${RM} ${WRKSRC}/vendor/cloud.google.com/go/storage/grpc_metrics.go
-+	@${RM} -r ${WRKSRC}/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common
-+	@${RLN} ${WRKSRC_tencentcloud_tencentcloud_sdk_go_common}/tencentcloud/common ${WRKSRC}/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common
++	@${MKDIR} ${WRKSRC}/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud
++	@${RLN} ${WRKSRC_tencentcloud_tencentcloud_sdk_go_common}/tencentcloud/common ${WRKSRC}/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud
++	@${RLN} ${WRKSRC_tencentcloud_tencentcloud_sdk_go_common}/tencentcloud/sts ${WRKSRC}/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud
++	@${RLN} ${WRKSRC_tencentcloud_tencentcloud_sdk_go_common}/tencentcloud/tag ${WRKSRC}/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud
