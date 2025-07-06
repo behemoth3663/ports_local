@@ -1,4 +1,4 @@
---- internal/rpcapi/server.go.orig	2024-10-16 12:28:59 UTC
+--- internal/rpcapi/server.go.orig	2025-04-09 13:10:05 UTC
 +++ internal/rpcapi/server.go
 @@ -9,7 +9,6 @@ import (
  	"os"
@@ -8,15 +8,12 @@
  	"google.golang.org/grpc"
  )
  
-@@ -38,10 +37,7 @@ func ServePlugin(ctx context.Context, opts ServerOpts)
- 			},
+@@ -39,8 +38,6 @@ func ServePlugin(ctx context.Context, opts ServerOpts)
  		},
  		GRPCServer: func(opts []grpc.ServerOption) *grpc.Server {
--			fullOpts := []grpc.ServerOption{
+ 			fullOpts := []grpc.ServerOption{
 -				grpc.UnaryInterceptor(otelgrpc.UnaryServerInterceptor()),
 -				grpc.StreamInterceptor(otelgrpc.StreamServerInterceptor()),
--			}
-+			fullOpts := []grpc.ServerOption{}
+ 			}
  			fullOpts = append(fullOpts, opts...)
  			server := grpc.NewServer(fullOpts...)
- 			// We'll also monitor the given context for cancellation

@@ -65,15 +65,15 @@
 -	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-00010101000000-000000000000
 -	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-00010101000000-000000000000
 -	github.com/hashicorp/terraform/internal/legacy v0.0.0-00010101000000-000000000000
-+	github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20250623092356-8a498df05d36
-+	github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20250623092356-8a498df05d36
-+	github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20250623092356-8a498df05d36
-+	github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20250623092356-8a498df05d36
-+	github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20250623092356-8a498df05d36
-+	github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20250623092356-8a498df05d36
-+	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20250623092356-8a498df05d36
-+	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20250623092356-8a498df05d36
-+	github.com/hashicorp/terraform/internal/legacy v0.0.0-20250623092356-8a498df05d36
++	github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20250704093539-8d8b2bb69457
++	github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20250704093539-8d8b2bb69457
++	github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20250704093539-8d8b2bb69457
++	github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20250704093539-8d8b2bb69457
++	github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20250704093539-8d8b2bb69457
++	github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20250704093539-8d8b2bb69457
++	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20250704093539-8d8b2bb69457
++	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20250704093539-8d8b2bb69457
++	github.com/hashicorp/terraform/internal/legacy v0.0.0-20250704093539-8d8b2bb69457
  	github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0
 -	github.com/masterzen/winrm v0.0.0-20200615185753-c42b5136ff88
 +	github.com/masterzen/winrm v0.0.0-20240702205601-3fad6e106085
@@ -210,7 +210,7 @@
 +	github.com/aws/aws-sdk-go-v2/config v1.29.17 // indirect
 +	github.com/aws/aws-sdk-go-v2/credentials v1.17.70 // indirect
 +	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.16.32 // indirect
-+	github.com/aws/aws-sdk-go-v2/feature/s3/manager v1.17.81 // indirect
++	github.com/aws/aws-sdk-go-v2/feature/s3/manager v1.17.83 // indirect
 +	github.com/aws/aws-sdk-go-v2/internal/configsources v1.3.36 // indirect
 +	github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.6.36 // indirect
 +	github.com/aws/aws-sdk-go-v2/internal/ini v1.8.3 // indirect
@@ -222,7 +222,7 @@
 +	github.com/aws/aws-sdk-go-v2/service/internal/endpoint-discovery v1.10.17 // indirect
 +	github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.12.17 // indirect
 +	github.com/aws/aws-sdk-go-v2/service/internal/s3shared v1.18.17 // indirect
-+	github.com/aws/aws-sdk-go-v2/service/s3 v1.81.0 // indirect
++	github.com/aws/aws-sdk-go-v2/service/s3 v1.83.0 // indirect
 +	github.com/aws/aws-sdk-go-v2/service/sns v1.34.7 // indirect
 +	github.com/aws/aws-sdk-go-v2/service/sqs v1.38.8 // indirect
 +	github.com/aws/aws-sdk-go-v2/service/sso v1.25.5 // indirect
@@ -374,9 +374,9 @@
 -	github.com/tencentyun/cos-go-sdk-v5 v0.7.42 // indirect
 +	github.com/spf13/pflag v1.0.6 // indirect
 +	github.com/spiffe/go-spiffe/v2 v2.5.0 // indirect
-+	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common v1.0.1192 // indirect
-+	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sts v1.0.1142 // indirect
-+	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tag v1.0.1175 // indirect
++	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common v1.0.1200 // indirect
++	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sts v1.0.1200 // indirect
++	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tag v1.0.1200 // indirect
 +	github.com/tencentyun/cos-go-sdk-v5 v0.7.66 // indirect
  	github.com/thanhpk/randstr v1.0.6 // indirect
 -	github.com/thlib/go-timezone-local v0.0.3 // indirect
@@ -437,7 +437,7 @@
 +	k8s.io/apimachinery v0.25.16 // indirect
 +	k8s.io/client-go v0.25.16 // indirect
 +	k8s.io/klog/v2 v2.80.1 // indirect
-+	k8s.io/kube-openapi v0.0.0-20250610211856-8b98d1ed966a // indirect
++	k8s.io/kube-openapi v0.0.0-20250701173324-9bd5c66d9911 // indirect
 +	k8s.io/utils v0.0.0-20250604170112-4c0f3b243397 // indirect
 +	sigs.k8s.io/json v0.0.0-20241014173422-cfa47c3a1cc8 // indirect
  	sigs.k8s.io/structured-merge-diff/v4 v4.2.3 // indirect

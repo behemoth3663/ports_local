@@ -1,7 +1,7 @@
 PORTNAME=	terraform
 PORTVERSION=	1.11.4
 DISTVERSIONPREFIX=	v
-PORTREVISION=	20250623
+PORTREVISION=	20250706
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX?=	-${PORTVERSION:R}
 
@@ -206,17 +206,17 @@ GH_TUPLE:=	${GH_TUPLE:Nhashicorp\:terraform\:000000000000\:*}
 # hashicorp:yamux:v0.1.1:hashicorp_yamux/vendor/github.com/hashicorp/yamux
 GH_TUPLE:=	${GH_TUPLE:Nhashicorp\:terraform\:\:*}
 
-# spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag
-#-tencentcloud:tencentcloud-sdk-go:v1.0.233:tencentcloud_tencentcloud_sdk_go_tag/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tag
-#+tencentcloud:tencentcloud-sdk-go:v1.0.233:tencentcloud_tencentcloud_sdk_go_tag/vendor/github.com/tencentcloud/tencentcloud-sdk-go
-GH_TUPLE:=	${GH_TUPLE:S|/tencentcloud-sdk-go/tencentcloud/tag|/tencentcloud-sdk-go|}
-
 #-tencentcloud:tencentcloud-sdk-go:v1.0.588:tencentcloud_tencentcloud_sdk_go_common/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common
 #+tencentcloud:tencentcloud-sdk-go:v1.0.588:tencentcloud_tencentcloud_sdk_go_common
 GH_TUPLE:=	${GH_TUPLE:C|/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common||}
 
 #-tencentcloud:tencentcloud-sdk-go:v1.0.588:tencentcloud_tencentcloud_sdk_go_sts/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sts
 GH_TUPLE:=	${GH_TUPLE:N*/tencentcloud-sdk-go/*}
+
+# spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag
+#-tencentcloud:tencentcloud-sdk-go:v1.0.233:tencentcloud_tencentcloud_sdk_go_tag/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tag
+#+tencentcloud:tencentcloud-sdk-go:v1.0.233:tencentcloud_tencentcloud_sdk_go_tag/vendor/github.com/tencentcloud/tencentcloud-sdk-go
+#GH_TUPLE:=	${GH_TUPLE:S|/tencentcloud-sdk-go/tencentcloud/tag|/tencentcloud-sdk-go|}
 
 #+hashicorp:go-version:v1.7.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version
 GH_TUPLE+=	hashicorp:go-version:v1.7.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version
