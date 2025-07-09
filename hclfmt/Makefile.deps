@@ -1,17 +1,17 @@
 GH_TUPLE=	\
 		agext:levenshtein:v1.2.1:agext_levenshtein/vendor/github.com/agext/levenshtein \
-		apparentlymart:go-textseg:v13.0.0:apparentlymart_go_textseg_v13/vendor/github.com/apparentlymart/go-textseg/v13 \
 		apparentlymart:go-textseg:v15.0.0:apparentlymart_go_textseg_v15/vendor/github.com/apparentlymart/go-textseg/v15 \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		go-test:deep:v1.0.3:go_test_deep/vendor/github.com/go-test/deep \
-		golang:crypto:85d78b3ac167:golang_crypto/vendor/golang.org/x/crypto \
-		golang:mod:v0.8.0:golang_mod/vendor/golang.org/x/mod \
-		golang:sys:v0.5.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:7de9c90e9dd1:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.11.0:golang_text/vendor/golang.org/x/text \
-		golang:tools:v0.6.0:golang_tools/vendor/golang.org/x/tools \
+		golang:crypto:v0.38.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:mod:v0.17.0:golang_mod/vendor/golang.org/x/mod \
+		golang:sync:v0.14.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.33.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.32.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.25.0:golang_text/vendor/golang.org/x/text \
+		golang:tools:e35e4ccd0d2d:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
-		mitchellh:go-wordwrap:ad45545899c7:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
+		mitchellh:go-wordwrap:v1.0.1:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
 		spf13:pflag:v1.0.2:spf13_pflag/vendor/github.com/spf13/pflag \
 		zclconf:go-cty-debug:0d6042c53940:zclconf_go_cty_debug/vendor/github.com/zclconf/go-cty-debug \
-		zclconf:go-cty:v1.13.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+		zclconf:go-cty:v1.16.3:zclconf_go_cty/vendor/github.com/zclconf/go-cty

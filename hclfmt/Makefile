@@ -1,5 +1,5 @@
 PORTNAME=	hclfmt
-PORTVERSION=	2.23.0
+PORTVERSION=	2.24.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local textproc
 
@@ -23,13 +23,20 @@ PLIST_FILES=	bin/${PORTNAME}
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
 
 #const versionStr = "0.0.1-dev"
-_OPTIONS_extract+=	750:post-post-extract
-post-post-extract: .PHONY
-	${REINPLACE_CMD} -r \
+post-extract: .PHONY
+	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+	@${REINPLACE_CMD} -r \
 		-e 's|^([[:space:]]*const[[:space:]]+versionStr[[:space:]]*=[[:space:]]*)".*"[[:space:]]*$$|\1"${PORTVERSION}"|' \
 	${WRKSRC}/${GO_TARGET}/main.go
 
-pre-deps pre-deps-all post-deps-all: .PHONY
+pre-deps: .PHONY
+	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+
+pre-deps-all: .PHONY
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
+
+post-deps-all: .PHONY
+	test -d ${PATCHDIR}_ && ${MV} ${PATCHDIR}_ ${PATCHDIR} || :
 
 .include "/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
