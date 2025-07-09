@@ -1,5 +1,5 @@
 PORTNAME=	gh
-PORTVERSION=	2.74.2
+PORTVERSION=	2.75.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -56,7 +56,7 @@ pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 	${RM} ${.CURDIR}/generated.deps.mk
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=imdario GHT_PROJ=mergo GHT_PATH=dario.cat/mergo )
-	( make -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes GHT_PROJ=klog GHT_PATH=k8s.io/klog/v2 )
+#	( make -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes GHT_PROJ=klog GHT_PATH=k8s.io/klog/v2 )
 
 make-from-deps: .PHONY
 	@${SED} -rn \
