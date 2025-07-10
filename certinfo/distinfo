@@ -1,6 +1,6 @@
-TIMESTAMP = 1751827472
-SHA256 (pete911-certinfo-v1.0.36_GH0.tar.gz) = 703d52f876fedce915ac725b0281a58bef6fbf9fd662abd8fa277125c0b00077
-SIZE (pete911-certinfo-v1.0.36_GH0.tar.gz) = 161697
+TIMESTAMP = 1752179163
+SHA256 (pete911-certinfo-v1.0.37_GH0.tar.gz) = 926f6db3a937529d2769b95428cc86932978019fbb03d8feba8b547853be8937
+SIZE (pete911-certinfo-v1.0.37_GH0.tar.gz) = 162079
 SHA256 (davecgh-go-spew-v1.1.1_GH0.tar.gz) = 7d82b9bb7291adbe7498fe946920ab3e7fc9e6cbfc3b2294693fad00bf0dd17e
 SIZE (davecgh-go-spew-v1.1.1_GH0.tar.gz) = 42152
 SHA256 (go-yaml-yaml-v3.0.1_GH0.tar.gz) = cf05411540d3e6ef8f1fd88434b34f94cedaceb540329031d80e23b74540c4e5
