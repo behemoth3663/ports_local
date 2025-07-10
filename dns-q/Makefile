@@ -1,6 +1,6 @@
 PORTNAME=	dns-q
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.19.2
+DISTVERSION=	0.19.5
 CATEGORIES=	local dns
 
 MAINTAINER=	none@freebsd.org
@@ -25,13 +25,23 @@ GIT_COMMIT=	git ls-remote \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
 		${SED} -rn 's/(.{7}).*/\1/p'
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X 'main.version=${PORTVERSION}' \
 	-X 'main.commit=$$(${GIT_COMMIT})' \
 	-X 'main.date=${%FT%TZ:L:gmtime}'"
 
-pre-deps pre-deps-all post-deps-all: .PHONY
+post-extract: .PHONY
+	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+pre-deps: .PHONY
+	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+
+pre-deps-all: .PHONY
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
+
+post-deps-all: .PHONY
+	test ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
+
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
