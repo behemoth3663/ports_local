@@ -1,7 +1,7 @@
 GH_TUPLE=	\
 		4meepo:tagalign:v1.4.2:4meepo_tagalign/vendor/github.com/4meepo/tagalign \
 		Abirdcfly:dupword:v0.1.6:abirdcfly_dupword/vendor/github.com/Abirdcfly/dupword \
-		AlwxSin:noinlineerr:v1.0.3:alwxsin_noinlineerr/vendor/github.com/AlwxSin/noinlineerr \
+		AlwxSin:noinlineerr:v1.0.4:alwxsin_noinlineerr/vendor/github.com/AlwxSin/noinlineerr \
 		Antonboom:errname:v1.1.0:antonboom_errname/vendor/github.com/Antonboom/errname \
 		Antonboom:nilnil:v1.1.0:antonboom_nilnil/vendor/github.com/Antonboom/nilnil \
 		Antonboom:testifylint:v1.6.1:antonboom_testifylint/vendor/github.com/Antonboom/testifylint \
@@ -10,7 +10,7 @@ GH_TUPLE=	\
 		GaijinEntertainment:go-exhaustruct:v3.3.1:gaijinentertainment_go_exhaustruct_v3/vendor/github.com/GaijinEntertainment/go-exhaustruct/v3 \
 		Masterminds:semver:v3.3.1:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
 		OpenPeeDeeP:depguard:v2.2.1:openpeedeep_depguard_v2/vendor/github.com/OpenPeeDeeP/depguard/v2 \
-		alecthomas:chroma:v2.18.0:alecthomas_chroma_v2/vendor/github.com/alecthomas/chroma/v2 \
+		alecthomas:chroma:v2.19.0:alecthomas_chroma_v2/vendor/github.com/alecthomas/chroma/v2 \
 		alecthomas:go-check-sumtype:v0.3.1:alecthomas_go_check_sumtype/vendor/github.com/alecthomas/go-check-sumtype \
 		alexkohler:nakedret:v2.0.6:alexkohler_nakedret_v2/vendor/github.com/alexkohler/nakedret/v2 \
 		alexkohler:prealloc:v1.0.0:alexkohler_prealloc/vendor/github.com/alexkohler/prealloc \
@@ -70,10 +70,10 @@ GH_TUPLE=	\
 		gobwas:glob:v0.2.3:gobwas_glob/vendor/github.com/gobwas/glob \
 		gofrs:flock:v0.12.1:gofrs_flock/vendor/github.com/gofrs/flock \
 		golang:exp:701f63a606c0:golang_exp/vendor/golang.org/x/exp \
-		golang:mod:v0.25.0:golang_mod/vendor/golang.org/x/mod \
+		golang:mod:v0.26.0:golang_mod/vendor/golang.org/x/mod \
 		golang:protobuf:v1.5.3:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:sync:v0.15.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.33.0:golang_sys/vendor/golang.org/x/sys \
+		golang:sys:v0.34.0:golang_sys/vendor/golang.org/x/sys \
 		golang:text:v0.26.0:golang_text/vendor/golang.org/x/text \
 		golang:tools:v0.34.0:golang_tools/vendor/golang.org/x/tools \
 		golangci:dupl:f665c8d69b32:golangci_dupl/vendor/github.com/golangci/dupl \
@@ -162,7 +162,7 @@ GH_TUPLE=	\
 		sashamelentyev:interfacebloat:v1.1.0:sashamelentyev_interfacebloat/vendor/github.com/sashamelentyev/interfacebloat \
 		sashamelentyev:usestdlibvars:v1.29.0:sashamelentyev_usestdlibvars/vendor/github.com/sashamelentyev/usestdlibvars \
 		securego:gosec:v2.22.5:securego_gosec_v2/vendor/github.com/securego/gosec/v2 \
-		shirou:gopsutil:v4.25.5:shirou_gopsutil_v4/vendor/github.com/shirou/gopsutil/v4 \
+		shirou:gopsutil:v4.25.6:shirou_gopsutil_v4/vendor/github.com/shirou/gopsutil/v4 \
 		sirupsen:logrus:v1.9.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
 		sivchari:containedctx:v1.0.3:sivchari_containedctx/vendor/github.com/sivchari/containedctx \
 		sonatard:noctx:v0.3.4:sonatard_noctx/vendor/github.com/sonatard/noctx \
