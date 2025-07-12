@@ -56,7 +56,7 @@ GH_TUPLE=	\
 		aws:aws-sdk-go-v2:v1.69.0:aws_aws_sdk_go_v2_lambda/vendor/github.com/aws/aws-sdk-go-v2/service/lambda \
 		aws:aws-sdk-go-v2:v1.7.4:aws_aws_sdk_go_v2_checksum/vendor/github.com/aws/aws-sdk-go-v2/service/internal/checksum \
 		aws:aws-sdk-go-v2:v1.8.3:aws_aws_sdk_go_v2_ini/vendor/github.com/aws/aws-sdk-go-v2/internal/ini \
-		aws:aws-sdk-go-v2:v1.82.0:aws_aws_sdk_go_v2_s3/vendor/github.com/aws/aws-sdk-go-v2/service/s3 \
+		aws:aws-sdk-go-v2:v1.83.0:aws_aws_sdk_go_v2_s3/vendor/github.com/aws/aws-sdk-go-v2/service/s3 \
 		aws:aws-sdk-go-v2:v1.91.0:aws_aws_sdk_go_v2_rds/vendor/github.com/aws/aws-sdk-go-v2/service/rds \
 		aws:aws-sdk-go-v2:v2.6.36:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 \
 		aws:aws-sdk-go:v1.55.7:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
@@ -113,16 +113,16 @@ GH_TUPLE=	\
 		golang-jwt:jwt:v5.2.2:golang_jwt_jwt_v5/vendor/github.com/golang-jwt/jwt/v5 \
 		golang:crypto:v0.39.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:b6e5de432a8b:golang_exp/vendor/golang.org/x/exp \
-		golang:mod:v0.25.0:golang_mod/vendor/golang.org/x/mod \
+		golang:mod:v0.26.0:golang_mod/vendor/golang.org/x/mod \
 		golang:net:v0.41.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.30.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sync:v0.15.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.33.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.32.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.26.0:golang_text/vendor/golang.org/x/text \
+		golang:sync:v0.16.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.34.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.33.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.27.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.12.0:golang_time/vendor/golang.org/x/time \
-		golang:tools:v0.33.0:golang_tools/vendor/golang.org/x/tools \
+		golang:tools:v0.34.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-genproto:513f23925822:google_go_genproto/vendor/google.golang.org/genproto \
 		google:go-genproto:513f23925822:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api \
@@ -135,7 +135,7 @@ GH_TUPLE=	\
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
 		googleapis:enterprise-certificate-proxy:v0.3.6:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
 		googleapis:gax-go:v2.14.2:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2 \
-		googleapis:google-api-go-client:v0.238.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+		googleapis:google-api-go-client:v0.241.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
 		googleapis:google-cloud-go:v0.121.2:googleapis_google_cloud_go/vendor/cloud.google.com/go \
 		googleapis:google-cloud-go:v0.16.2:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth \
 		googleapis:google-cloud-go:v0.6.7:googleapis_google_cloud_go_longrunning/vendor/cloud.google.com/go/longrunning \
@@ -168,7 +168,7 @@ GH_TUPLE=	\
 		hashicorp:go-uuid:v1.0.3:hashicorp_go_uuid/vendor/github.com/hashicorp/go-uuid \
 		hashicorp:go-version:v1.7.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
 		hashicorp:hcl:v1.0.1-vault-7:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
-		hashicorp:hcl:v2.23.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
+		hashicorp:hcl:v2.24.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
 		hashicorp:logutils:v1.0.0:hashicorp_logutils/vendor/github.com/hashicorp/logutils \
 		hashicorp:terraform-config-inspect:9a80970d6b34:hashicorp_terraform_config_inspect/vendor/github.com/hashicorp/terraform-config-inspect \
 		hashicorp:terraform-registry-address:v0.2.4:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
@@ -177,7 +177,7 @@ GH_TUPLE=	\
 		hashicorp:vault:v1.16.0:hashicorp_vault_api/vendor/github.com/hashicorp/vault/api \
 		hashicorp:vault:v1.4.2:hashicorp_vault/vendor/github.com/hashicorp/vault \
 		hashicorp:yamux:v0.1.2:hashicorp_yamux/vendor/github.com/hashicorp/yamux \
-		huandu:go-clone:v1.7.2:huandu_go_clone/vendor/github.com/huandu/go-clone \
+		huandu:go-clone:v1.7.3:huandu_go_clone/vendor/github.com/huandu/go-clone \
 		huandu:xstrings:v1.5.0:huandu_xstrings/vendor/github.com/huandu/xstrings \
 		inancgumus:screen:06e984b86ed3:inancgumus_screen/vendor/github.com/inancgumus/screen \
 		invopop:jsonschema:v0.13.0:invopop_jsonschema/vendor/github.com/invopop/jsonschema \
