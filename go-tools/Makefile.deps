@@ -1,8 +1,8 @@
 GH_TUPLE=	\
-		golang:mod:v0.25.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.41.0:golang_net/vendor/golang.org/x/net \
-		golang:sync:v0.15.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.33.0:golang_sys/vendor/golang.org/x/sys \
-		golang:telemetry:bda55230c457:golang_telemetry/vendor/golang.org/x/telemetry \
+		golang:mod:v0.26.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.42.0:golang_net/vendor/golang.org/x/net \
+		golang:sync:v0.16.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.34.0:golang_sys/vendor/golang.org/x/sys \
+		golang:telemetry:8d8967aff50b:golang_telemetry/vendor/golang.org/x/telemetry \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		yuin:goldmark:v1.4.13:yuin_goldmark/vendor/github.com/yuin/goldmark
