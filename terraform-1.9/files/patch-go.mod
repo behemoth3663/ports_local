@@ -6,7 +6,7 @@
 -go 1.22.7
 +go 1.23.0
  
-+toolchain go1.24.4
++toolchain go1.24.5
 +
  require (
  	github.com/Netflix/go-expect v0.0.0-20220104043353-73e0943537d2
@@ -63,15 +63,15 @@
 -	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-00010101000000-000000000000
 -	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-00010101000000-000000000000
 -	github.com/hashicorp/terraform/internal/legacy v0.0.0-00010101000000-000000000000
-+	github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20250704093539-8d8b2bb69457
-+	github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20250704093539-8d8b2bb69457
-+	github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20250704093539-8d8b2bb69457
-+	github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20250704093539-8d8b2bb69457
-+	github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20250704093539-8d8b2bb69457
-+	github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20250704093539-8d8b2bb69457
-+	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20250704093539-8d8b2bb69457
-+	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20250704093539-8d8b2bb69457
-+	github.com/hashicorp/terraform/internal/legacy v0.0.0-20250704093539-8d8b2bb69457
++	github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20250711100856-145e152a5762
++	github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20250711100856-145e152a5762
++	github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20250711100856-145e152a5762
++	github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20250711100856-145e152a5762
++	github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20250711100856-145e152a5762
++	github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20250711100856-145e152a5762
++	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20250711100856-145e152a5762
++	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20250711100856-145e152a5762
++	github.com/hashicorp/terraform/internal/legacy v0.0.0-20250711100856-145e152a5762
  	github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0
 -	github.com/masterzen/winrm v0.0.0-20200615185753-c42b5136ff88
 +	github.com/masterzen/winrm v0.0.0-20240702205601-3fad6e106085
@@ -107,14 +107,14 @@
 -	golang.org/x/term v0.18.0
 -	golang.org/x/text v0.14.0
 -	golang.org/x/tools v0.19.0
-+	golang.org/x/crypto v0.39.0
-+	golang.org/x/mod v0.25.0
-+	golang.org/x/net v0.41.0
++	golang.org/x/crypto v0.40.0
++	golang.org/x/mod v0.26.0
++	golang.org/x/net v0.42.0
 +	golang.org/x/oauth2 v0.30.0
-+	golang.org/x/sys v0.33.0
-+	golang.org/x/term v0.32.0
-+	golang.org/x/text v0.26.0
-+	golang.org/x/tools v0.34.0
++	golang.org/x/sys v0.34.0
++	golang.org/x/term v0.33.0
++	golang.org/x/text v0.27.0
++	golang.org/x/tools v0.35.0
  	golang.org/x/tools/cmd/cover v0.1.0-deprecated
 -	google.golang.org/grpc v1.59.0
 +	google.golang.org/grpc v1.73.0
@@ -385,7 +385,7 @@
 -	github.com/thlib/go-timezone-local v0.0.0-20210907160436-ef149e42d28e // indirect
 +	github.com/spf13/pflag v1.0.6 // indirect
 +	github.com/spiffe/go-spiffe/v2 v2.5.0 // indirect
-+	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common v1.0.1200 // indirect
++	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common v1.0.1205 // indirect
 +	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sts v1.0.1200 // indirect
 +	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tag v1.0.1200 // indirect
 +	github.com/tencentyun/cos-go-sdk-v5 v0.7.66 // indirect
@@ -424,14 +424,14 @@
 -	google.golang.org/genproto v0.0.0-20230822172742-b8732ec3820d // indirect
 -	google.golang.org/genproto/googleapis/api v0.0.0-20230822172742-b8732ec3820d // indirect
 -	google.golang.org/genproto/googleapis/rpc v0.0.0-20230822172742-b8732ec3820d // indirect
-+	golang.org/x/exp v0.0.0-20250620022241-b7579e27df2b // indirect
-+	golang.org/x/exp/typeparams v0.0.0-20250620022241-b7579e27df2b // indirect
-+	golang.org/x/sync v0.15.0 // indirect
++	golang.org/x/exp v0.0.0-20250711185948-6ae5c78190dc // indirect
++	golang.org/x/exp/typeparams v0.0.0-20250711185948-6ae5c78190dc // indirect
++	golang.org/x/sync v0.16.0 // indirect
 +	golang.org/x/time v0.12.0 // indirect
 +	google.golang.org/api v0.237.0 // indirect
-+	google.golang.org/genproto v0.0.0-20250603155806-513f23925822 // indirect
-+	google.golang.org/genproto/googleapis/api v0.0.0-20250603155806-513f23925822 // indirect
-+	google.golang.org/genproto/googleapis/rpc v0.0.0-20250603155806-513f23925822 // indirect
++	google.golang.org/genproto v0.0.0-20250707201910-8d1bb00bc6a7 // indirect
++	google.golang.org/genproto/googleapis/api v0.0.0-20250707201910-8d1bb00bc6a7 // indirect
++	google.golang.org/genproto/googleapis/rpc v0.0.0-20250707201910-8d1bb00bc6a7 // indirect
  	gopkg.in/inf.v0 v0.9.1 // indirect
 -	gopkg.in/ini.v1 v1.66.2 // indirect
 +	gopkg.in/ini.v1 v1.66.6 // indirect
@@ -448,7 +448,7 @@
 +	k8s.io/apimachinery v0.25.16 // indirect
 +	k8s.io/client-go v0.25.16 // indirect
 +	k8s.io/klog/v2 v2.80.1 // indirect
-+	k8s.io/kube-openapi v0.0.0-20250701173324-9bd5c66d9911 // indirect
++	k8s.io/kube-openapi v0.0.0-20250710124328-f3f2b991d03b // indirect
 +	k8s.io/utils v0.0.0-20250604170112-4c0f3b243397 // indirect
 +	sigs.k8s.io/json v0.0.0-20241014173422-cfa47c3a1cc8 // indirect
  	sigs.k8s.io/structured-merge-diff/v4 v4.2.3 // indirect
