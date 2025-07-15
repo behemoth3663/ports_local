@@ -68,15 +68,15 @@ GH_TUPLE=	\
 		go-viper:mapstructure:v2.3.0:go_viper_mapstructure_v2/vendor/github.com/go-viper/mapstructure/v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
 		godbus:dbus:v5.1.0:godbus_dbus_v5/vendor/github.com/godbus/dbus/v5 \
-		golang:crypto:v0.39.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.40.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:b7579e27df2b:golang_exp/vendor/golang.org/x/exp \
 		golang:mod:v0.25.0:golang_mod/vendor/golang.org/x/mod \
 		golang:net:v0.41.0:golang_net/vendor/golang.org/x/net \
 		golang:snappy:v1.0.0:golang_snappy/vendor/github.com/golang/snappy \
-		golang:sync:v0.15.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.33.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.32.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.26.0:golang_text/vendor/golang.org/x/text \
+		golang:sync:v0.16.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.34.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.33.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.27.0:golang_text/vendor/golang.org/x/text \
 		golang:tools:v0.34.0:golang_tools/vendor/golang.org/x/tools \
 		google:certificate-transparency-go:v1.3.2:google_certificate_transparency_go/vendor/github.com/google/certificate-transparency-go \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
@@ -147,7 +147,7 @@ GH_TUPLE=	\
 		shopspring:decimal:v1.4.0:shopspring_decimal/vendor/github.com/shopspring/decimal \
 		shurcooL:githubv4:48295856cce7:shurcool_githubv4/vendor/github.com/shurcooL/githubv4 \
 		shurcooL:graphql:ed46e5a46466:shurcool_graphql/vendor/github.com/shurcooL/graphql \
-		sigstore:protobuf-specs:v0.4.3:sigstore_protobuf_specs/vendor/github.com/sigstore/protobuf-specs \
+		sigstore:protobuf-specs:v0.5.0:sigstore_protobuf_specs/vendor/github.com/sigstore/protobuf-specs \
 		sigstore:rekor:v1.3.10:sigstore_rekor/vendor/github.com/sigstore/rekor \
 		sigstore:sigstore-go:v1.0.0:sigstore_sigstore_go/vendor/github.com/sigstore/sigstore-go \
 		sigstore:sigstore:v1.9.5:sigstore_sigstore/vendor/github.com/sigstore/sigstore \

@@ -1,5 +1,5 @@
 PORTNAME=	gh
-PORTVERSION=	2.75.0
+PORTVERSION=	2.75.1
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -67,8 +67,8 @@ post-deps-all: .PHONY
 	test ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
 
 post-extract: .PHONY
-	@${MKDIR} ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+	@${MKDIR} ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
 	@test -z '${WRKSRC_google_go_genproto_api}' || ${RLN} ${WRKSRC_google_go_genproto_api}/googleapis/api ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/api
 	@test -z '${WRKSRC_google_go_genproto_rpc}' || ${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/rpc
 	@${RM} ${WRKSRC}/vendor/github.com/go-openapi/runtime/client/opentelemetry.go
