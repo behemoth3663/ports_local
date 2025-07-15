@@ -1,6 +1,6 @@
-TIMESTAMP = 1752085736
-SHA256 (AlexNabokikh-tfsort-v0.7.0_GH0.tar.gz) = a94d221a7eef439b6b174cba6f84a1f945cf4c292caa7ed7577655cc8c7514cf
-SIZE (AlexNabokikh-tfsort-v0.7.0_GH0.tar.gz) = 63486
+TIMESTAMP = 1752592143
+SHA256 (AlexNabokikh-tfsort-v0.7.1_GH0.tar.gz) = 6f72bb06b57573ee63fec715cd4493ed90d0af0dfeea7478abfde04745d39157
+SIZE (AlexNabokikh-tfsort-v0.7.1_GH0.tar.gz) = 64032
 SHA256 (agext-levenshtein-v1.2.3_GH0.tar.gz) = ba59a69fcaea38ec40470cac08620dd2cca1980355d9b10e90e37b3b3ac2eb46
 SIZE (agext-levenshtein-v1.2.3_GH0.tar.gz) = 13227
 SHA256 (apparentlymart-go-textseg-v15.0.0_GH0.tar.gz) = d73ee2bce8c1a8e35b0355a8cb66d05cd65a07099b7edaf1e44edc51cf33210d
