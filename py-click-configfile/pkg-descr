@@ -1,0 +1,2 @@
+click-configfile extends the click functionality by adding support for
+commands that use configuration files.
