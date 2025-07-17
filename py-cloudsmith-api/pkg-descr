@@ -1,0 +1,4 @@
+The Cloudsmith API (Application Programmatic Interface) bindings provide
+libraries in different languages for accessing the service programmatically.
+The API is fully compliant with the OpenAPI 2.0 Specification and the clients
+are generated using swagger-codegen-cli from the Swagger Project.
