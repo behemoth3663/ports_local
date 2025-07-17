@@ -1,0 +1,4 @@
+The Cloudsmith Command Line Interface (CLI) is a Python 3 text-based
+interface to the API. This allows users, machines and other services to
+access and integrate smoothly with Cloudsmith without requiring explicit
+plugins or tools. Be awesome. Automate Everything.
