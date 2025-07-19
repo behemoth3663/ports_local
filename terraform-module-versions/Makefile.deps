@@ -21,7 +21,7 @@ GH_TUPLE=	\
 		golang:groupcache:2c02b8208cf8:golang_groupcache/vendor/github.com/golang/groupcache \
 		golang:mod:v0.25.0:golang_mod/vendor/golang.org/x/mod \
 		golang:net:v0.41.0:golang_net/vendor/golang.org/x/net \
-		golang:oauth2:v0.23.0:golang_oauth2/vendor/golang.org/x/oauth2 \
+		golang:oauth2:v0.27.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:sync:v0.15.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.33.0:golang_sys/vendor/golang.org/x/sys \
