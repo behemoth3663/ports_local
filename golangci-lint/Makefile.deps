@@ -1,7 +1,7 @@
 GH_TUPLE=	\
 		4meepo:tagalign:v1.4.2:4meepo_tagalign/vendor/github.com/4meepo/tagalign \
 		Abirdcfly:dupword:v0.1.6:abirdcfly_dupword/vendor/github.com/Abirdcfly/dupword \
-		AlwxSin:noinlineerr:v1.0.4:alwxsin_noinlineerr/vendor/github.com/AlwxSin/noinlineerr \
+		AlwxSin:noinlineerr:v1.0.5:alwxsin_noinlineerr/vendor/github.com/AlwxSin/noinlineerr \
 		Antonboom:errname:v1.1.0:antonboom_errname/vendor/github.com/Antonboom/errname \
 		Antonboom:nilnil:v1.1.0:antonboom_nilnil/vendor/github.com/Antonboom/nilnil \
 		Antonboom:testifylint:v1.6.1:antonboom_testifylint/vendor/github.com/Antonboom/testifylint \
@@ -23,7 +23,7 @@ GH_TUPLE=	\
 		bkielbasa:cyclop:v1.2.3:bkielbasa_cyclop/vendor/github.com/bkielbasa/cyclop \
 		blizzy78:varnamelen:v0.8.0:blizzy78_varnamelen/vendor/github.com/blizzy78/varnamelen \
 		bombsimon:wsl:v4.7.0:bombsimon_wsl_v4/vendor/github.com/bombsimon/wsl/v4 \
-		bombsimon:wsl:v5.0.0:bombsimon_wsl_v5/vendor/github.com/bombsimon/wsl/v5 \
+		bombsimon:wsl:v5.1.0:bombsimon_wsl_v5/vendor/github.com/bombsimon/wsl/v5 \
 		breml:bidichk:v0.3.3:breml_bidichk/vendor/github.com/breml/bidichk \
 		breml:errchkjson:v0.4.1:breml_errchkjson/vendor/github.com/breml/errchkjson \
 		butuzov:ireturn:v0.4.0:butuzov_ireturn/vendor/github.com/butuzov/ireturn \
@@ -63,7 +63,7 @@ GH_TUPLE=	\
 		go-toolsmith:astp:v1.1.0:go_toolsmith_astp/vendor/github.com/go-toolsmith/astp \
 		go-toolsmith:strparse:v1.1.0:go_toolsmith_strparse/vendor/github.com/go-toolsmith/strparse \
 		go-toolsmith:typep:v1.1.0:go_toolsmith_typep/vendor/github.com/go-toolsmith/typep \
-		go-viper:mapstructure:v2.3.0:go_viper_mapstructure_v2/vendor/github.com/go-viper/mapstructure/v2 \
+		go-viper:mapstructure:v2.4.0:go_viper_mapstructure_v2/vendor/github.com/go-viper/mapstructure/v2 \
 		go-xmlfmt:xmlfmt:v1.1.3:go_xmlfmt_xmlfmt/vendor/github.com/go-xmlfmt/xmlfmt \
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
@@ -72,10 +72,10 @@ GH_TUPLE=	\
 		golang:exp:701f63a606c0:golang_exp/vendor/golang.org/x/exp \
 		golang:mod:v0.26.0:golang_mod/vendor/golang.org/x/mod \
 		golang:protobuf:v1.5.3:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sync:v0.15.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sync:v0.16.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.34.0:golang_sys/vendor/golang.org/x/sys \
-		golang:text:v0.26.0:golang_text/vendor/golang.org/x/text \
-		golang:tools:v0.34.0:golang_tools/vendor/golang.org/x/tools \
+		golang:text:v0.27.0:golang_text/vendor/golang.org/x/text \
+		golang:tools:v0.35.0:golang_tools/vendor/golang.org/x/tools \
 		golangci:dupl:f665c8d69b32:golangci_dupl/vendor/github.com/golangci/dupl \
 		golangci:go-printf-func-name:v0.1.0:golangci_go_printf_func_name/vendor/github.com/golangci/go-printf-func-name \
 		golangci:gofmt:d62b90e6713d:golangci_gofmt/vendor/github.com/golangci/gofmt \
@@ -126,7 +126,7 @@ GH_TUPLE=	\
 		mattn:go-isatty:v0.0.20:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
 		mattn:go-runewidth:v0.0.16:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
 		matttproud:golang_protobuf_extensions:v1.0.1:matttproud_golang_protobuf_extensions/vendor/github.com/matttproud/golang_protobuf_extensions \
-		mgechev:revive:v1.10.0:mgechev_revive/vendor/github.com/mgechev/revive \
+		mgechev:revive:v1.11.0:mgechev_revive/vendor/github.com/mgechev/revive \
 		mitchellh:go-homedir:v1.1.0:mitchellh_go_homedir/vendor/github.com/mitchellh/go-homedir \
 		mitchellh:mapstructure:v1.5.0:mitchellh_mapstructure/vendor/github.com/mitchellh/mapstructure \
 		moricho:tparallel:v0.3.2:moricho_tparallel/vendor/github.com/moricho/tparallel \
@@ -136,7 +136,7 @@ GH_TUPLE=	\
 		nakabonne:nestif:v0.3.1:nakabonne_nestif/vendor/github.com/nakabonne/nestif \
 		nishanths:exhaustive:v0.12.0:nishanths_exhaustive/vendor/github.com/nishanths/exhaustive \
 		nishanths:predeclared:v0.2.2:nishanths_predeclared/vendor/github.com/nishanths/predeclared \
-		nunnatsa:ginkgolinter:v0.19.1:nunnatsa_ginkgolinter/vendor/github.com/nunnatsa/ginkgolinter \
+		nunnatsa:ginkgolinter:v0.20.0:nunnatsa_ginkgolinter/vendor/github.com/nunnatsa/ginkgolinter \
 		pelletier:go-toml:v1.9.5:pelletier_go_toml/vendor/github.com/pelletier/go-toml \
 		pelletier:go-toml:v2.2.4:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
@@ -161,17 +161,17 @@ GH_TUPLE=	\
 		santhosh-tekuri:jsonschema:v6.0.2:santhosh_tekuri_jsonschema_v6/vendor/github.com/santhosh-tekuri/jsonschema/v6 \
 		sashamelentyev:interfacebloat:v1.1.0:sashamelentyev_interfacebloat/vendor/github.com/sashamelentyev/interfacebloat \
 		sashamelentyev:usestdlibvars:v1.29.0:sashamelentyev_usestdlibvars/vendor/github.com/sashamelentyev/usestdlibvars \
-		securego:gosec:v2.22.5:securego_gosec_v2/vendor/github.com/securego/gosec/v2 \
+		securego:gosec:v2.22.6:securego_gosec_v2/vendor/github.com/securego/gosec/v2 \
 		shirou:gopsutil:v4.25.6:shirou_gopsutil_v4/vendor/github.com/shirou/gopsutil/v4 \
 		sirupsen:logrus:v1.9.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
 		sivchari:containedctx:v1.0.3:sivchari_containedctx/vendor/github.com/sivchari/containedctx \
-		sonatard:noctx:v0.3.4:sonatard_noctx/vendor/github.com/sonatard/noctx \
+		sonatard:noctx:v0.3.5:sonatard_noctx/vendor/github.com/sonatard/noctx \
 		sourcegraph:go-diff:v0.7.0:sourcegraph_go_diff/vendor/github.com/sourcegraph/go-diff \
 		spf13:afero:v1.14.0:spf13_afero/vendor/github.com/spf13/afero \
 		spf13:cast:v1.5.0:spf13_cast/vendor/github.com/spf13/cast \
 		spf13:cobra:v1.9.1:spf13_cobra/vendor/github.com/spf13/cobra \
 		spf13:jwalterweatherman:v1.1.0:spf13_jwalterweatherman/vendor/github.com/spf13/jwalterweatherman \
-		spf13:pflag:v1.0.6:spf13_pflag/vendor/github.com/spf13/pflag \
+		spf13:pflag:v1.0.7:spf13_pflag/vendor/github.com/spf13/pflag \
 		spf13:viper:v1.12.0:spf13_viper/vendor/github.com/spf13/viper \
 		ssgreg:nlreturn:v2.2.1:ssgreg_nlreturn_v2/vendor/github.com/ssgreg/nlreturn/v2 \
 		stbenjam:no-sprintf-host-port:v0.2.0:stbenjam_no_sprintf_host_port/vendor/github.com/stbenjam/no-sprintf-host-port \
@@ -193,7 +193,7 @@ GH_TUPLE=	\
 		ultraware:funlen:v0.2.0:ultraware_funlen/vendor/github.com/ultraware/funlen \
 		ultraware:whitespace:v0.2.0:ultraware_whitespace/vendor/github.com/ultraware/whitespace \
 		uudashr:gocognit:v1.2.0:uudashr_gocognit/vendor/github.com/uudashr/gocognit \
-		uudashr:iface:v1.4.0:uudashr_iface/vendor/github.com/uudashr/iface \
+		uudashr:iface:v1.4.1:uudashr_iface/vendor/github.com/uudashr/iface \
 		valyala:bytebufferpool:v1.0.0:valyala_bytebufferpool/vendor/github.com/valyala/bytebufferpool \
 		valyala:quicktemplate:v1.8.0:valyala_quicktemplate/vendor/github.com/valyala/quicktemplate \
 		xen0n:gosmopolitan:v1.3.0:xen0n_gosmopolitan/vendor/github.com/xen0n/gosmopolitan \
@@ -204,8 +204,10 @@ GH_TUPLE=	\
 		yusufpapurcu:wmi:v1.2.4:yusufpapurcu_wmi/vendor/github.com/yusufpapurcu/wmi
 GL_TUPLE=	bosi:decorder:v0.4.2:bosi_decorder/vendor/gitlab.com/bosi/decorder
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
-		#	::939b2ce775ac:group_name/vendor/golang.org/x/exp/typeparams (from golang.org/x/exp/typeparams@939b2ce775ac)
-		#	::v0.11.0:group_name/vendor/go-simpler.org/sloglint (from go-simpler.org/sloglint@v0.11.0)
+		#	::b7579e27df2b:group_name/vendor/golang.org/x/exp/typeparams (from golang.org/x/exp/typeparams@b7579e27df2b)
+		#	::v0.1.1-deprecated:group_name/vendor/golang.org/x/tools/go/expect (from golang.org/x/tools/go/expect@v0.1.1-deprecated)
+		#	::v0.1.1-deprecated:group_name/vendor/golang.org/x/tools/go/packages/packagestest (from golang.org/x/tools/go/packages/packagestest@v0.1.1-deprecated)
+		#	::v0.11.1:group_name/vendor/go-simpler.org/sloglint (from go-simpler.org/sloglint@v0.11.1)
 		#	::v0.13.1:group_name/vendor/go-simpler.org/musttag (from go-simpler.org/musttag@v0.13.1)
 		#	::v0.2.0:group_name/vendor/codeberg.org/chavacava/garif (from codeberg.org/chavacava/garif@v0.2.0)
 		#	::v0.2.0:group_name/vendor/go.augendre.info/arangolint (from go.augendre.info/arangolint@v0.2.0)
