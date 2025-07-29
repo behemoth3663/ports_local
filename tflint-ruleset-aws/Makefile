@@ -1,5 +1,5 @@
 PORTNAME=	tflint-ruleset-aws
-PORTVERSION=	0.40.0
+PORTVERSION=	0.41.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -31,7 +31,6 @@ pre-deps: .PHONY
 
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
-	${RM} ${.CURDIR}/generated.deps.mk
 
 post-deps-all: .PHONY
 	test ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
