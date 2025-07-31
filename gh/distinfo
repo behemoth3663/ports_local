@@ -1,6 +1,6 @@
-TIMESTAMP = 1753661465
-SHA256 (cli-cli-v2.76.1_GH0.tar.gz) = 9a247dbbf4079b29177ef58948a099b482efef7d2d7f2b934c175709ab8ea1b6
-SIZE (cli-cli-v2.76.1_GH0.tar.gz) = 15715410
+TIMESTAMP = 1753952425
+SHA256 (cli-cli-v2.76.2_GH0.tar.gz) = 6aee5afebdabd33f4c5e8604a9b7fa55e5bbac2a5cd36101cc221c990320c8b3
+SIZE (cli-cli-v2.76.2_GH0.tar.gz) = 15716947
 SHA256 (AlecAivazis-survey-v2.3.7_GH0.tar.gz) = 4975751ab98c2d0075c1d2b992bd8aee733c97c29cecac179ca36290abbeac5f
 SIZE (AlecAivazis-survey-v2.3.7_GH0.tar.gz) = 125594
 SHA256 (GoogleCloudPlatform-grpc-gcp-go-grpcgcp-v1.5.2_GH0.tar.gz) = 252f84d7545b7be85f0e581bc37637148bef34f6ff7afcf18d6f445325892244
