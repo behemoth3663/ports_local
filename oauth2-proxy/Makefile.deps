@@ -20,10 +20,10 @@ GH_TUPLE=	\
 		go-logr:logr:v1.4.3:go_logr_logr/vendor/github.com/go-logr/logr \
 		go-logr:stdr:v1.2.2:go_logr_stdr/vendor/github.com/go-logr/stdr \
 		go-task:slim-sprig:v3.0.0:go_task_slim_sprig_v3/vendor/github.com/go-task/slim-sprig/v3 \
-		go-viper:mapstructure:v2.3.0:go_viper_mapstructure_v2/vendor/github.com/go-viper/mapstructure/v2 \
+		go-viper:mapstructure:v2.4.0:go_viper_mapstructure_v2/vendor/github.com/go-viper/mapstructure/v2 \
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
-		golang-jwt:jwt:v5.2.2:golang_jwt_jwt_v5/vendor/github.com/golang-jwt/jwt/v5 \
+		golang-jwt:jwt:v5.2.3:golang_jwt_jwt_v5/vendor/github.com/golang-jwt/jwt/v5 \
 		golang:crypto:v0.40.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:net:v0.42.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.30.0:golang_oauth2/vendor/golang.org/x/oauth2 \
@@ -38,14 +38,14 @@ GH_TUPLE=	\
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
 		googleapis:enterprise-certificate-proxy:v0.3.6:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
 		googleapis:gax-go:v2.15.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
-		googleapis:google-api-go-client:v0.241.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+		googleapis:google-api-go-client:v0.242.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
 		googleapis:google-cloud-go:auth/v0.16.2:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go \
 		googleapis:google-cloud-go:v0.2.8:googleapis_google_cloud_go/vendor/cloud.google.com/go/auth/oauth2adapt \
 		googleapis:google-cloud-go:v0.7.0:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata \
 		gorilla:mux:v1.8.1:gorilla_mux/vendor/github.com/gorilla/mux \
 		grpc:grpc-go:v1.73.0:grpc_grpc_go/vendor/google.golang.org/grpc \
 		justinas:alice:v1.2.0:justinas_alice/vendor/github.com/justinas/alice \
-		kubernetes:apimachinery:v0.33.2:kubernetes_apimachinery/vendor/k8s.io/apimachinery \
+		kubernetes:apimachinery:v0.33.3:kubernetes_apimachinery/vendor/k8s.io/apimachinery \
 		kylelemons:godebug:v1.1.0:kylelemons_godebug/vendor/github.com/kylelemons/godebug \
 		mbland:hmacauth:44256dfd4bfa:mbland_hmacauth/vendor/github.com/mbland/hmacauth \
 		munnerz:goautoneg:a7dc8b61c822:munnerz_goautoneg/vendor/github.com/munnerz/goautoneg \
@@ -70,7 +70,7 @@ GH_TUPLE=	\
 		sourcegraph:conc:v0.3.0:sourcegraph_conc/vendor/github.com/sourcegraph/conc \
 		spf13:afero:v1.14.0:spf13_afero/vendor/github.com/spf13/afero \
 		spf13:cast:v1.9.2:spf13_cast/vendor/github.com/spf13/cast \
-		spf13:pflag:v1.0.6:spf13_pflag/vendor/github.com/spf13/pflag \
+		spf13:pflag:v1.0.7:spf13_pflag/vendor/github.com/spf13/pflag \
 		spf13:viper:v1.20.1:spf13_viper/vendor/github.com/spf13/viper \
 		stretchr:testify:v1.10.0:stretchr_testify/vendor/github.com/stretchr/testify \
 		subosito:gotenv:v1.6.0:subosito_gotenv/vendor/github.com/subosito/gotenv \
