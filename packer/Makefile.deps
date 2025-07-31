@@ -5,8 +5,8 @@ GH_TUPLE=	\
 		Masterminds:goutils:v1.1.1:masterminds_goutils/vendor/github.com/Masterminds/goutils \
 		Masterminds:semver:v3.1.1:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
 		Masterminds:sprig:v3.2.1:masterminds_sprig_v3/vendor/github.com/Masterminds/sprig/v3 \
-		Microsoft:go-winio:v0.6.1:microsoft_go_winio/vendor/github.com/Microsoft/go-winio \
-		ProtonMail:go-crypto:v1.1.3:protonmail_go_crypto/vendor/github.com/ProtonMail/go-crypto \
+		Microsoft:go-winio:v0.6.2:microsoft_go_winio/vendor/github.com/Microsoft/go-winio \
+		ProtonMail:go-crypto:v1.1.6:protonmail_go_crypto/vendor/github.com/ProtonMail/go-crypto \
 		agext:levenshtein:v1.2.3:agext_levenshtein/vendor/github.com/agext/levenshtein \
 		anchore:go-struct-converter:c68fdcfa2092:anchore_go_struct_converter/vendor/github.com/anchore/go-struct-converter \
 		apparentlymart:go-cidr:v1.0.1:apparentlymart_go_cidr/vendor/github.com/apparentlymart/go-cidr \
@@ -26,16 +26,16 @@ GH_TUPLE=	\
 		cheggaaa:pb:v1.0.28:cheggaaa_pb_1/vendor/gopkg.in/cheggaaa/pb.v1 \
 		chzyer:readline:2972be24d48e:chzyer_readline/vendor/github.com/chzyer/readline \
 		chzyer:test:v1.0.0:chzyer_test/vendor/github.com/chzyer/test \
-		cloudflare:circl:v1.3.7:cloudflare_circl/vendor/github.com/cloudflare/circl \
-		cyphar:filepath-securejoin:v0.2.5:cyphar_filepath_securejoin/vendor/github.com/cyphar/filepath-securejoin \
+		cloudflare:circl:v1.6.1:cloudflare_circl/vendor/github.com/cloudflare/circl \
+		cyphar:filepath-securejoin:v0.4.1:cyphar_filepath_securejoin/vendor/github.com/cyphar/filepath-securejoin \
 		davecgh:go-spew:d8f796af33cc:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		dsnet:compress:v0.0.1:dsnet_compress/vendor/github.com/dsnet/compress \
 		dylanmei:iso8601:v0.1.0:dylanmei_iso8601/vendor/github.com/dylanmei/iso8601 \
 		emirpasic:gods:v1.18.1:emirpasic_gods/vendor/github.com/emirpasic/gods \
 		fatih:color:v1.16.0:fatih_color/vendor/github.com/fatih/color \
 		go-git:gcfg:3a3c6141e376:go_git_gcfg/vendor/github.com/go-git/gcfg \
-		go-git:go-billy:v5.6.0:go_git_go_billy_v5/vendor/github.com/go-git/go-billy/v5 \
-		go-git:go-git:v5.13.0:go_git_go_git_v5/vendor/github.com/go-git/go-git/v5 \
+		go-git:go-billy:v5.6.2:go_git_go_billy_v5/vendor/github.com/go-git/go-billy/v5 \
+		go-git:go-git:v5.16.2:go_git_go_git_v5/vendor/github.com/go-git/go-git/v5 \
 		go-jose:go-jose:v4.0.5:go_jose_go_jose_v4/vendor/github.com/go-jose/go-jose/v4 \
 		go-logr:logr:v1.3.0:go_logr_logr/vendor/github.com/go-logr/logr \
 		go-logr:stdr:v1.2.2:go_logr_stdr/vendor/github.com/go-logr/stdr \
@@ -55,21 +55,21 @@ GH_TUPLE=	\
 		gobwas:glob:v0.2.3:gobwas_glob/vendor/github.com/gobwas/glob \
 		gofrs:flock:v0.8.1:gofrs_flock/vendor/github.com/gofrs/flock \
 		gofrs:uuid:v4.0.0:gofrs_uuid/vendor/github.com/gofrs/uuid \
-		golang:crypto:v0.36.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.37.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:8a7402abbf56:golang_exp/vendor/golang.org/x/exp \
-		golang:groupcache:41bb18bfe9da:golang_groupcache/vendor/github.com/golang/groupcache \
-		golang:mod:v0.19.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.38.0:golang_net/vendor/golang.org/x/net \
+		golang:groupcache:2c02b8208cf8:golang_groupcache/vendor/github.com/golang/groupcache \
+		golang:mod:v0.24.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.39.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.27.0:golang_oauth2/vendor/golang.org/x/oauth2 \
-		golang:protobuf:v1.5.3:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sync:v0.12.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.31.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.30.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.23.0:golang_text/vendor/golang.org/x/text \
-		golang:time:v0.3.0:golang_time/vendor/golang.org/x/time \
-		golang:tools:v0.23.0:golang_tools/vendor/golang.org/x/tools \
+		golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf \
+		golang:sync:v0.13.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.32.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.31.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.24.0:golang_text/vendor/golang.org/x/text \
+		golang:time:v0.11.0:golang_time/vendor/golang.org/x/time \
+		golang:tools:v0.31.0:golang_tools/vendor/golang.org/x/tools \
 		golang:xerrors:04be3eba64a2:golang_xerrors/vendor/golang.org/x/xerrors \
-		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
+		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-genproto:49dd2c1f3d0b:google_go_genproto/vendor/google.golang.org/genproto \
 		google:go-genproto:49dd2c1f3d0b:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api \
 		google:go-genproto:d783a09b4405:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc \
@@ -108,7 +108,7 @@ GH_TUPLE=	\
 		hashicorp:hcl:v1.0.0:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
 		hashicorp:hcl:v2.19.1:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
 		hashicorp:hcp-sdk-go:v0.136.0:hashicorp_hcp_sdk_go/vendor/github.com/hashicorp/hcp-sdk-go \
-		hashicorp:packer-plugin-sdk:v0.6.0:hashicorp_packer_plugin_sdk/vendor/github.com/hashicorp/packer-plugin-sdk \
+		hashicorp:packer-plugin-sdk:v0.6.2:hashicorp_packer_plugin_sdk/vendor/github.com/hashicorp/packer-plugin-sdk \
 		hashicorp:serf:v0.10.1:hashicorp_serf/vendor/github.com/hashicorp/serf \
 		hashicorp:vault:v1.14.0:hashicorp_vault_api/vendor/github.com/hashicorp/vault/api \
 		hashicorp:yamux:v0.1.1:hashicorp_yamux/vendor/github.com/hashicorp/yamux \
@@ -149,7 +149,7 @@ GH_TUPLE=	\
 		opentracing:opentracing-go:v1.2.0:opentracing_opentracing_go/vendor/github.com/opentracing/opentracing-go \
 		packer-community:winrmcp:c76d91c1e7db:packer_community_winrmcp/vendor/github.com/packer-community/winrmcp \
 		pierrec:lz4:v4.1.18:pierrec_lz4_v4/vendor/github.com/pierrec/lz4/v4 \
-		pjbgf:sha1cd:v0.3.0:pjbgf_sha1cd/vendor/github.com/pjbgf/sha1cd \
+		pjbgf:sha1cd:v0.3.2:pjbgf_sha1cd/vendor/github.com/pjbgf/sha1cd \
 		pkg:sftp:v1.13.2:pkg_sftp/vendor/github.com/pkg/sftp \
 		pmezard:go-difflib:5d4384ee4fb2:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		posener:complete:v1.2.3:posener_complete/vendor/github.com/posener/complete \
@@ -161,7 +161,7 @@ GH_TUPLE=	\
 		shirou:gopsutil:v3.23.4:shirou_gopsutil_v3/vendor/github.com/shirou/gopsutil/v3 \
 		shoenig:go-m1cpu:v0.1.5:shoenig_go_m1cpu/vendor/github.com/shoenig/go-m1cpu \
 		shopspring:decimal:v1.2.0:shopspring_decimal/vendor/github.com/shopspring/decimal \
-		skeema:knownhosts:v1.3.0:skeema_knownhosts/vendor/github.com/skeema/knownhosts \
+		skeema:knownhosts:v1.3.1:skeema_knownhosts/vendor/github.com/skeema/knownhosts \
 		skratchdot:open-golang:eef842397966:skratchdot_open_golang/vendor/github.com/skratchdot/open-golang \
 		spdx:tools-golang:v0.5.5:spdx_tools_golang/vendor/github.com/spdx/tools-golang \
 		spf13:cast:v1.3.1:spf13_cast/vendor/github.com/spf13/cast \
