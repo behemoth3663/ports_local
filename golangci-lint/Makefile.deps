@@ -23,7 +23,7 @@ GH_TUPLE=	\
 		bkielbasa:cyclop:v1.2.3:bkielbasa_cyclop/vendor/github.com/bkielbasa/cyclop \
 		blizzy78:varnamelen:v0.8.0:blizzy78_varnamelen/vendor/github.com/blizzy78/varnamelen \
 		bombsimon:wsl:v4.7.0:bombsimon_wsl_v4/vendor/github.com/bombsimon/wsl/v4 \
-		bombsimon:wsl:v5.1.0:bombsimon_wsl_v5/vendor/github.com/bombsimon/wsl/v5 \
+		bombsimon:wsl:v5.1.1:bombsimon_wsl_v5/vendor/github.com/bombsimon/wsl/v5 \
 		breml:bidichk:v0.3.3:breml_bidichk/vendor/github.com/breml/bidichk \
 		breml:errchkjson:v0.4.1:breml_errchkjson/vendor/github.com/breml/errchkjson \
 		butuzov:ireturn:v0.4.0:butuzov_ireturn/vendor/github.com/butuzov/ireturn \
@@ -39,7 +39,7 @@ GH_TUPLE=	\
 		charmbracelet:x:v0.8.0:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x/ansi \
 		ckaznocha:intrange:v0.3.1:ckaznocha_intrange/vendor/github.com/ckaznocha/intrange \
 		curioswitch:go-reassign:v0.3.0:curioswitch_go_reassign/vendor/github.com/curioswitch/go-reassign \
-		daixiang0:gci:v0.13.6:daixiang0_gci/vendor/github.com/daixiang0/gci \
+		daixiang0:gci:v0.13.7:daixiang0_gci/vendor/github.com/daixiang0/gci \
 		dave:dst:v0.27.3:dave_dst/vendor/github.com/dave/dst \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		denis-tingaikin:go-header:v0.5.0:denis_tingaikin_go_header/vendor/github.com/denis-tingaikin/go-header \
@@ -109,7 +109,7 @@ GH_TUPLE=	\
 		lasiar:canonicalheader:v1.1.2:lasiar_canonicalheader/vendor/github.com/lasiar/canonicalheader \
 		ldez:exptostd:v0.4.4:ldez_exptostd/vendor/github.com/ldez/exptostd \
 		ldez:gomoddirectives:v0.7.0:ldez_gomoddirectives/vendor/github.com/ldez/gomoddirectives \
-		ldez:grignotin:v0.9.0:ldez_grignotin/vendor/github.com/ldez/grignotin \
+		ldez:grignotin:v0.10.0:ldez_grignotin/vendor/github.com/ldez/grignotin \
 		ldez:tagliatelle:v0.7.1:ldez_tagliatelle/vendor/github.com/ldez/tagliatelle \
 		ldez:usetesting:v0.5.0:ldez_usetesting/vendor/github.com/ldez/usetesting \
 		leonklingele:grouper:v1.1.2:leonklingele_grouper/vendor/github.com/leonklingele/grouper \
@@ -161,11 +161,11 @@ GH_TUPLE=	\
 		santhosh-tekuri:jsonschema:v6.0.2:santhosh_tekuri_jsonschema_v6/vendor/github.com/santhosh-tekuri/jsonschema/v6 \
 		sashamelentyev:interfacebloat:v1.1.0:sashamelentyev_interfacebloat/vendor/github.com/sashamelentyev/interfacebloat \
 		sashamelentyev:usestdlibvars:v1.29.0:sashamelentyev_usestdlibvars/vendor/github.com/sashamelentyev/usestdlibvars \
-		securego:gosec:v2.22.6:securego_gosec_v2/vendor/github.com/securego/gosec/v2 \
+		securego:gosec:v2.22.7:securego_gosec_v2/vendor/github.com/securego/gosec/v2 \
 		shirou:gopsutil:v4.25.6:shirou_gopsutil_v4/vendor/github.com/shirou/gopsutil/v4 \
 		sirupsen:logrus:v1.9.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
 		sivchari:containedctx:v1.0.3:sivchari_containedctx/vendor/github.com/sivchari/containedctx \
-		sonatard:noctx:v0.3.5:sonatard_noctx/vendor/github.com/sonatard/noctx \
+		sonatard:noctx:v0.4.0:sonatard_noctx/vendor/github.com/sonatard/noctx \
 		sourcegraph:go-diff:v0.7.0:sourcegraph_go_diff/vendor/github.com/sourcegraph/go-diff \
 		spf13:afero:v1.14.0:spf13_afero/vendor/github.com/spf13/afero \
 		spf13:cast:v1.5.0:spf13_cast/vendor/github.com/spf13/cast \
