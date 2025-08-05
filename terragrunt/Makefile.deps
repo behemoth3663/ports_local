@@ -41,7 +41,7 @@ GH_TUPLE=	\
 		aws:aws-sdk-go-v2:v1.33.19:aws_aws_sdk_go_v2_sts/vendor/github.com/aws/aws-sdk-go-v2/service/sts \
 		aws:aws-sdk-go-v2:v1.33.6:aws_aws_sdk_go_v2_sns/vendor/github.com/aws/aws-sdk-go-v2/service/sns \
 		aws:aws-sdk-go-v2:v1.34.6:aws_aws_sdk_go_v2_secretsmanager/vendor/github.com/aws/aws-sdk-go-v2/service/secretsmanager \
-		aws:aws-sdk-go-v2:v1.36.5:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+		aws:aws-sdk-go-v2:v1.36.6:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
 		aws:aws-sdk-go-v2:v1.36.6:aws_aws_sdk_go_v2_ecr/vendor/github.com/aws/aws-sdk-go-v2/service/ecr \
 		aws:aws-sdk-go-v2:v1.37.1:aws_aws_sdk_go_v2_dynamodb/vendor/github.com/aws/aws-sdk-go-v2/service/dynamodb \
 		aws:aws-sdk-go-v2:v1.37.1:aws_aws_sdk_go_v2_sqs/vendor/github.com/aws/aws-sdk-go-v2/service/sqs \
@@ -111,10 +111,10 @@ GH_TUPLE=	\
 		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
 		gofrs:flock:v0.12.1:gofrs_flock/vendor/github.com/gofrs/flock \
 		golang-jwt:jwt:v5.2.2:golang_jwt_jwt_v5/vendor/github.com/golang-jwt/jwt/v5 \
-		golang:crypto:v0.39.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.40.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:b6e5de432a8b:golang_exp/vendor/golang.org/x/exp \
 		golang:mod:v0.26.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.41.0:golang_net/vendor/golang.org/x/net \
+		golang:net:v0.42.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.30.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:sync:v0.16.0:golang_sync/vendor/golang.org/x/sync \
@@ -125,8 +125,8 @@ GH_TUPLE=	\
 		golang:tools:v0.34.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-genproto:513f23925822:google_go_genproto/vendor/google.golang.org/genproto \
-		google:go-genproto:513f23925822:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api \
-		google:go-genproto:513f23925822:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc \
+		google:go-genproto:a45f3dfb1074:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api \
+		google:go-genproto:f173205681a0:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc \
 		google:go-github:v53.2.0:google_go_github_v53/vendor/github.com/google/go-github/v53 \
 		google:go-jsonnet:v0.20.0:google_go_jsonnet/vendor/github.com/google/go-jsonnet \
 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
@@ -134,21 +134,21 @@ GH_TUPLE=	\
 		google:shlex:e7afc7fbc510:google_shlex/vendor/github.com/google/shlex \
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
 		googleapis:enterprise-certificate-proxy:v0.3.6:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
-		googleapis:gax-go:v2.14.2:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2 \
-		googleapis:google-api-go-client:v0.241.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
-		googleapis:google-cloud-go:v0.121.2:googleapis_google_cloud_go/vendor/cloud.google.com/go \
-		googleapis:google-cloud-go:v0.16.2:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth \
+		googleapis:gax-go:v2.15.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2 \
+		googleapis:google-api-go-client:v0.244.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+		googleapis:google-cloud-go:v0.121.4:googleapis_google_cloud_go/vendor/cloud.google.com/go \
+		googleapis:google-cloud-go:v0.16.3:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth \
 		googleapis:google-cloud-go:v0.6.7:googleapis_google_cloud_go_longrunning/vendor/cloud.google.com/go/longrunning \
 		googleapis:google-cloud-go:v1.22.0:googleapis_google_cloud_go_kms/vendor/cloud.google.com/go/kms \
 		googleapis:google-cloud-go:v1.24.2:googleapis_google_cloud_go_monitoring/vendor/cloud.google.com/go/monitoring \
 		googleapis:google-cloud-go:v1.5.2:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go/iam \
-		googleapis:google-cloud-go:v1.55.0:googleapis_google_cloud_go_storage/vendor/cloud.google.com/go/storage \
+		googleapis:google-cloud-go:v1.56.0:googleapis_google_cloud_go_storage/vendor/cloud.google.com/go/storage \
 		gookit:color:v1.5.4:gookit_color/vendor/github.com/gookit/color \
 		gorilla:css:v1.0.1:gorilla_css/vendor/github.com/gorilla/css \
 		goware:prefixer:395022866408:goware_prefixer/vendor/github.com/goware/prefixer \
 		grpc-ecosystem:grpc-gateway:v2.27.1:grpc_ecosystem_grpc_gateway_v2/vendor/github.com/grpc-ecosystem/grpc-gateway/v2 \
-		grpc:grpc-go:v1.73.0:grpc_grpc_go/vendor/google.golang.org/grpc \
-		gruntwork-io:boilerplate:v0.6.3:gruntwork_io_boilerplate/vendor/github.com/gruntwork-io/boilerplate \
+		grpc:grpc-go:v1.74.2:grpc_grpc_go/vendor/google.golang.org/grpc \
+		gruntwork-io:boilerplate:v0.8.1:gruntwork_io_boilerplate/vendor/github.com/gruntwork-io/boilerplate \
 		gruntwork-io:go-commons:v0.17.2:gruntwork_io_go_commons/vendor/github.com/gruntwork-io/go-commons \
 		gruntwork-io:terragrunt-engine-go:v0.0.15:gruntwork_io_terragrunt_engine_go/vendor/github.com/gruntwork-io/terragrunt-engine-go \
 		gruntwork-io:terratest:v0.50.0:gruntwork_io_terratest/vendor/github.com/gruntwork-io/terratest \
@@ -242,6 +242,7 @@ GH_TUPLE=	\
 		spf13:cast:v1.7.1:spf13_cast/vendor/github.com/spf13/cast \
 		spiffe:go-spiffe:v2.5.0:spiffe_go_spiffe_v2/vendor/github.com/spiffe/go-spiffe/v2 \
 		stretchr:testify:v1.10.0:stretchr_testify/vendor/github.com/stretchr/testify \
+		tencentcloud:tencentcloud-sdk-go:f8fa457a3c72:tencentcloud_tencentcloud_sdk_go/vendor/github.com/tencentcloud/tencentcloud-sdk-go \
 		terraform-linters:tflint-plugin-sdk:v0.22.0:terraform_linters_tflint_plugin_sdk/vendor/github.com/terraform-linters/tflint-plugin-sdk \
 		terraform-linters:tflint-ruleset-terraform:v0.10.0:terraform_linters_tflint_ruleset_terraform/vendor/github.com/terraform-linters/tflint-ruleset-terraform \
 		terraform-linters:tflint:v0.50.3:terraform_linters_tflint/vendor/github.com/terraform-linters/tflint \
