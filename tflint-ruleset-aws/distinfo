@@ -1,12 +1,12 @@
-TIMESTAMP = 1753824664
-SHA256 (terraform-linters-tflint-ruleset-aws-v0.41.0_GH0.tar.gz) = 06e18d0604097cb933a255bc94ea8fa19219596b7830cfb43e582d5e1d50815e
-SIZE (terraform-linters-tflint-ruleset-aws-v0.41.0_GH0.tar.gz) = 1119435
+TIMESTAMP = 1754660923
+SHA256 (terraform-linters-tflint-ruleset-aws-v0.42.0_GH0.tar.gz) = b46faf1a48e503356ba2a712836c3d9b66a2eccfe4746c7c4b6e38e82bddb75a
+SIZE (terraform-linters-tflint-ruleset-aws-v0.42.0_GH0.tar.gz) = 1118811
 SHA256 (agext-levenshtein-v1.2.2_GH0.tar.gz) = b238bfd1dce6da173913c27cf2e172d58a55e7e6b7fc11736c7e45bd1af4818f
 SIZE (agext-levenshtein-v1.2.2_GH0.tar.gz) = 13098
 SHA256 (apparentlymart-go-textseg-v15.0.0_GH0.tar.gz) = d73ee2bce8c1a8e35b0355a8cb66d05cd65a07099b7edaf1e44edc51cf33210d
 SIZE (apparentlymart-go-textseg-v15.0.0_GH0.tar.gz) = 137290
-SHA256 (aws-aws-sdk-go-v2-v1.36.6_GH0.tar.gz) = a4088fca87efea8f7430f7e1736e0d73ded600630eb035102ce7def705c95065
-SIZE (aws-aws-sdk-go-v2-v1.36.6_GH0.tar.gz) = 54605882
+SHA256 (aws-aws-sdk-go-v2-v1.37.1_GH0.tar.gz) = 4122daf10db64f882ae220f9d99c7181fd559ad865911b6a13293db64574eeac
+SIZE (aws-aws-sdk-go-v2-v1.37.1_GH0.tar.gz) = 55329357
 SHA256 (aws-smithy-go-v1.22.5_GH0.tar.gz) = 29552cc28f26d8f26944f4c2c85d3273c7c2d16422e0b6eb5e82fe0437c27317
 SIZE (aws-smithy-go-v1.22.5_GH0.tar.gz) = 470364
 SHA256 (dave-dst-v0.27.3_GH0.tar.gz) = 99aecc09aac20ccd6faccecd1a09c3fa4bef1870f3e9ff007a9acc19950e4cfc

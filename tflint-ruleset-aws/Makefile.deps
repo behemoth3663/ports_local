@@ -2,33 +2,33 @@ GH_TUPLE=	\
 		agext:levenshtein:v1.2.2:agext_levenshtein/vendor/github.com/agext/levenshtein \
 		apparentlymart:go-textseg:v15.0.0:apparentlymart_go_textseg_v15/vendor/github.com/apparentlymart/go-textseg/v15 \
 		aws:aws-sdk-go-v2:v1.10.15:aws_aws_sdk_go_v2_endpoint_discovery/vendor/github.com/aws/aws-sdk-go-v2/service/internal/endpoint-discovery \
-		aws:aws-sdk-go-v2:v1.12.18:aws_aws_sdk_go_v2_presigned_url/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url \
-		aws:aws-sdk-go-v2:v1.12.4:aws_aws_sdk_go_v2_accept_encoding/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding \
+		aws:aws-sdk-go-v2:v1.100.1:aws_aws_sdk_go_v2_rds/vendor/github.com/aws/aws-sdk-go-v2/service/rds \
+		aws:aws-sdk-go-v2:v1.13.0:aws_aws_sdk_go_v2_accept_encoding/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding \
+		aws:aws-sdk-go-v2:v1.13.1:aws_aws_sdk_go_v2_presigned_url/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url \
 		aws:aws-sdk-go-v2:v1.16.30:aws_aws_sdk_go_v2_imds/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds \
 		aws:aws-sdk-go-v2:v1.17.68:aws_aws_sdk_go_v2_credentials/vendor/github.com/aws/aws-sdk-go-v2/credentials \
 		aws:aws-sdk-go-v2:v1.18.15:aws_aws_sdk_go_v2_s3shared/vendor/github.com/aws/aws-sdk-go-v2/service/internal/s3shared \
-		aws:aws-sdk-go-v2:v1.236.0:aws_aws_sdk_go_v2_ec2/vendor/github.com/aws/aws-sdk-go-v2/service/ec2 \
+		aws:aws-sdk-go-v2:v1.239.0:aws_aws_sdk_go_v2_ec2/vendor/github.com/aws/aws-sdk-go-v2/service/ec2 \
 		aws:aws-sdk-go-v2:v1.25.3:aws_aws_sdk_go_v2_sso/vendor/github.com/aws/aws-sdk-go-v2/service/sso \
 		aws:aws-sdk-go-v2:v1.29.15:aws_aws_sdk_go_v2_config/vendor/github.com/aws/aws-sdk-go-v2/config \
-		aws:aws-sdk-go-v2:v1.29.7:aws_aws_sdk_go_v2_elasticloadbalancing/vendor/github.com/aws/aws-sdk-go-v2/service/elasticloadbalancing \
 		aws:aws-sdk-go-v2:v1.3.34:aws_aws_sdk_go_v2_v4a/vendor/github.com/aws/aws-sdk-go-v2/internal/v4a \
-		aws:aws-sdk-go-v2:v1.3.37:aws_aws_sdk_go_v2_configsources/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources \
+		aws:aws-sdk-go-v2:v1.30.1:aws_aws_sdk_go_v2_elasticloadbalancing/vendor/github.com/aws/aws-sdk-go-v2/service/elasticloadbalancing \
 		aws:aws-sdk-go-v2:v1.30.1:aws_aws_sdk_go_v2_ssooidc/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc \
 		aws:aws-sdk-go-v2:v1.33.20:aws_aws_sdk_go_v2_sts/vendor/github.com/aws/aws-sdk-go-v2/service/sts \
 		aws:aws-sdk-go-v2:v1.34.4:aws_aws_sdk_go_v2_sns/vendor/github.com/aws/aws-sdk-go-v2/service/sns \
-		aws:aws-sdk-go-v2:v1.36.6:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+		aws:aws-sdk-go-v2:v1.37.1:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
 		aws:aws-sdk-go-v2:v1.38.6:aws_aws_sdk_go_v2_sqs/vendor/github.com/aws/aws-sdk-go-v2/service/sqs \
-		aws:aws-sdk-go-v2:v1.43.1:aws_aws_sdk_go_v2_iam/vendor/github.com/aws/aws-sdk-go-v2/service/iam \
+		aws:aws-sdk-go-v2:v1.4.1:aws_aws_sdk_go_v2_configsources/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources \
 		aws:aws-sdk-go-v2:v1.43.2:aws_aws_sdk_go_v2_dynamodb/vendor/github.com/aws/aws-sdk-go-v2/service/dynamodb \
-		aws:aws-sdk-go-v2:v1.46.1:aws_aws_sdk_go_v2_elasticloadbalancingv2/vendor/github.com/aws/aws-sdk-go-v2/service/elasticloadbalancingv2 \
-		aws:aws-sdk-go-v2:v1.46.4:aws_aws_sdk_go_v2_elasticache/vendor/github.com/aws/aws-sdk-go-v2/service/elasticache \
+		aws:aws-sdk-go-v2:v1.44.1:aws_aws_sdk_go_v2_iam/vendor/github.com/aws/aws-sdk-go-v2/service/iam \
+		aws:aws-sdk-go-v2:v1.47.1:aws_aws_sdk_go_v2_elasticache/vendor/github.com/aws/aws-sdk-go-v2/service/elasticache \
+		aws:aws-sdk-go-v2:v1.47.2:aws_aws_sdk_go_v2_elasticloadbalancingv2/vendor/github.com/aws/aws-sdk-go-v2/service/elasticloadbalancingv2 \
 		aws:aws-sdk-go-v2:v1.6.10:aws_aws_sdk_go_v2_eventstream/vendor/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream \
-		aws:aws-sdk-go-v2:v1.60.1:aws_aws_sdk_go_v2_ecs/vendor/github.com/aws/aws-sdk-go-v2/service/ecs \
+		aws:aws-sdk-go-v2:v1.61.1:aws_aws_sdk_go_v2_ecs/vendor/github.com/aws/aws-sdk-go-v2/service/ecs \
 		aws:aws-sdk-go-v2:v1.7.2:aws_aws_sdk_go_v2_checksum/vendor/github.com/aws/aws-sdk-go-v2/service/internal/checksum \
 		aws:aws-sdk-go-v2:v1.8.3:aws_aws_sdk_go_v2_ini/vendor/github.com/aws/aws-sdk-go-v2/internal/ini \
 		aws:aws-sdk-go-v2:v1.80.1:aws_aws_sdk_go_v2_s3/vendor/github.com/aws/aws-sdk-go-v2/service/s3 \
-		aws:aws-sdk-go-v2:v1.99.2:aws_aws_sdk_go_v2_rds/vendor/github.com/aws/aws-sdk-go-v2/service/rds \
-		aws:aws-sdk-go-v2:v2.6.37:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 \
+		aws:aws-sdk-go-v2:v2.7.1:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 \
 		aws:smithy-go:v1.22.5:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		dave:dst:v0.27.3:dave_dst/vendor/github.com/dave/dst \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
