@@ -1,7 +1,7 @@
 PORTNAME=	gopls
-PORTVERSION=	0.19.1
+PORTVERSION=	0.20.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+#PORTREVISION=	1
 CATEGORIES=	local devel
 
 MAINTAINER=	fuz@FreeBSD.org
@@ -46,10 +46,14 @@ post-deps-all: .PHONY
 	test -d ${PATCHDIR}_ && ${MV} ${PATCHDIR}_ ${PATCHDIR} || :
 
 post-extract: .PHONY
+.if "${.TARGETS:M*deps}" == ""
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 	@${RM} -r ${WRKSRC}/vendor/golang.org/x/tools/gopls
 	@${RM} -r ${WRKSRC}/internal/telemetry
-	@${RM} -r ${WRKSRC}/internal/server/counters.go
+	@${RM} ${WRKSRC}/internal/cmd/counters.go
+	@${RM} ${WRKSRC}/internal/golang/counters.go
+	@${RM} ${WRKSRC}/internal/server/counters.go
+.endif
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
