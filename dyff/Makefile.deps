@@ -1,25 +1,25 @@
 GH_TUPLE=	\
-		BurntSushi:toml:v1.4.0:burntsushi_toml/vendor/github.com/BurntSushi/toml \
-		cpuguy83:go-md2man:v2.0.6:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
+		BurntSushi:toml:v1.5.0:burntsushi_toml/vendor/github.com/BurntSushi/toml \
+		cpuguy83:go-md2man:v2.0.7:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
 		davecgh:go-spew:d8f796af33cc:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
-		go-logr:logr:v1.4.2:go_logr_logr/vendor/github.com/go-logr/logr \
+		go-logr:logr:v1.4.3:go_logr_logr/vendor/github.com/go-logr/logr \
 		go-task:slim-sprig:v3.0.0:go_task_slim_sprig_v3/vendor/github.com/go-task/slim-sprig/v3 \
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
-		golang:net:v0.37.0:golang_net/vendor/golang.org/x/net \
-		golang:sync:v0.12.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.31.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.30.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.23.0:golang_text/vendor/golang.org/x/text \
-		golang:tools:v0.31.0:golang_tools/vendor/golang.org/x/tools \
-		gonvenience:bunt:v1.4.0:gonvenience_bunt/vendor/github.com/gonvenience/bunt \
-		gonvenience:idem:v0.0.1:gonvenience_idem/vendor/github.com/gonvenience/idem \
-		gonvenience:neat:v1.3.15:gonvenience_neat/vendor/github.com/gonvenience/neat \
-		gonvenience:term:v1.0.3:gonvenience_term/vendor/github.com/gonvenience/term \
-		gonvenience:text:v1.0.8:gonvenience_text/vendor/github.com/gonvenience/text \
-		gonvenience:ytbx:v1.4.6:gonvenience_ytbx/vendor/github.com/gonvenience/ytbx \
+		golang:net:v0.43.0:golang_net/vendor/golang.org/x/net \
+		golang:sync:v0.16.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.35.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.34.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.28.0:golang_text/vendor/golang.org/x/text \
+		golang:tools:v0.36.0:golang_tools/vendor/golang.org/x/tools \
+		gonvenience:bunt:v1.4.2:gonvenience_bunt/vendor/github.com/gonvenience/bunt \
+		gonvenience:idem:v0.0.2:gonvenience_idem/vendor/github.com/gonvenience/idem \
+		gonvenience:neat:v1.3.16:gonvenience_neat/vendor/github.com/gonvenience/neat \
+		gonvenience:term:v1.0.4:gonvenience_term/vendor/github.com/gonvenience/term \
+		gonvenience:text:v1.0.9:gonvenience_text/vendor/github.com/gonvenience/text \
+		gonvenience:ytbx:v1.4.7:gonvenience_ytbx/vendor/github.com/gonvenience/ytbx \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
-		google:pprof:077ca0a936bf:google_pprof/vendor/github.com/google/pprof \
+		google:pprof:27863c87afa6:google_pprof/vendor/github.com/google/pprof \
 		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
 		kr:pretty:v0.3.1:kr_pretty/vendor/github.com/kr/pretty \
 		lucasb-eyer:go-colorful:v1.2.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
@@ -27,13 +27,14 @@ GH_TUPLE=	\
 		mattn:go-isatty:v0.0.20:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
 		mitchellh:go-ps:v1.0.0:mitchellh_go_ps/vendor/github.com/mitchellh/go-ps \
 		mitchellh:hashstructure:v1.1.0:mitchellh_hashstructure/vendor/github.com/mitchellh/hashstructure \
-		onsi:ginkgo:v2.23.0:onsi_ginkgo_v2/vendor/github.com/onsi/ginkgo/v2 \
-		onsi:gomega:v1.36.2:onsi_gomega/vendor/github.com/onsi/gomega \
+		onsi:ginkgo:v2.23.4:onsi_ginkgo_v2/vendor/github.com/onsi/ginkgo/v2 \
+		onsi:gomega:v1.38.0:onsi_gomega/vendor/github.com/onsi/gomega \
 		pmezard:go-difflib:5d4384ee4fb2:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		russross:blackfriday:v2.1.0:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
-		sergi:go-diff:5b0b94c5c0d3:sergi_go_diff/vendor/github.com/sergi/go-diff \
+		sergi:go-diff:v1.4.0:sergi_go_diff/vendor/github.com/sergi/go-diff \
 		spf13:cobra:v1.9.1:spf13_cobra/vendor/github.com/spf13/cobra \
-		spf13:pflag:v1.0.6:spf13_pflag/vendor/github.com/spf13/pflag \
+		spf13:pflag:v1.0.7:spf13_pflag/vendor/github.com/spf13/pflag \
 		stretchr:testify:v1.10.0:stretchr_testify/vendor/github.com/stretchr/testify \
 		texttheater:golang-levenshtein:v1.0.1:texttheater_golang_levenshtein/vendor/github.com/texttheater/golang-levenshtein \
+		uber-go:automaxprocs:v1.6.0:uber_go_automaxprocs/vendor/go.uber.org/automaxprocs \
 		virtuald:go-ordered-json:b18e6e673d74:virtuald_go_ordered_json/vendor/github.com/virtuald/go-ordered-json
