@@ -1,5 +1,5 @@
 PORTNAME=	inframap
-PORTVERSION=	0.7.0
+PORTVERSION=	0.8.0
 #PORTREVISION=	1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
@@ -11,7 +11,7 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:modules
+USES=		go:1.25,modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	cycloidio
