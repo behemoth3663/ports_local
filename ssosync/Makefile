@@ -1,5 +1,5 @@
 PORTNAME=	ssosync
-PORTVERSION=	2.2.9
+PORTVERSION=	2.3.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -12,7 +12,7 @@ LICENSE=	APACHE20
 
 BUILD_DEPENDS=	git:devel/git
 
-USES=		go:modules
+USES=		go:1.25,modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	awslabs
@@ -28,16 +28,12 @@ GIT_COMMIT=	git ls-remote \
 		${SED} -rn 's/(.{7}).*/\1/p'
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.version=${DISTVERSIONPREFIX}${PORTVERSION}' \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.version=${PORTVERSION}' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.commit=$$(${GIT_COMMIT})' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.date=${%FT%TZ:L:gmtime}' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.builtBy=${OPSYS}'"
 
-pre-deps: .PHONY .SILENT
-	${MAKE} -C ${.CURDIR} patch
-	( cd ${WRKSRC} && ${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod tidy -v )
-
-pre-deps-all post-deps-all: .PHONY
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
