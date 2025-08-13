@@ -9,7 +9,6 @@ COMMENT=	Simple command line tool for formatting yaml files
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	APACHE20
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

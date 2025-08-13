@@ -16,7 +16,6 @@ MAINTAINER=	dmgk@FreeBSD.org
 COMMENT=	Go programming language
 
 LICENSE=	BSD3CLAUSE
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 .ifdef QEMU_EMULATING
 IGNORE=		fails to build with qemu-user-static

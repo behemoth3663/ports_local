@@ -9,7 +9,6 @@ COMMENT=	Check latency to each Amazon EC2 region
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MIT
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 BUILD_DEPENDS=	git:devel/git
 

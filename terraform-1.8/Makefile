@@ -12,7 +12,6 @@ WWW=		https://terraform.io/
 USES=		go:modules,1.23
 
 LICENSE_NAME=   Business Source License 1.1
-LICENSE_FILE=	${WRKSRC}/LICENSE
 LICENSE_PERMS=	dist-mirror pkg-mirror pkg-sell auto-accept
 
 USE_GITHUB=	yes

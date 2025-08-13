@@ -9,7 +9,6 @@ COMMENT=	Security scanner written in go
 WWW=		https://${GO_MODULE}
 
 LICENSE=	APACHE20
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

@@ -10,7 +10,6 @@ COMMENT=	Syntax based grep for HCL(v2)
 WWW=		https://github.com/magodo/hclgrep
 
 LICENSE=	BSD3CLAUSE
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 BUILD_DEPENDS=	git:devel/git
 

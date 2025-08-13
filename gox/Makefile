@@ -9,7 +9,6 @@ MAINTAINER=	none@freebsd.org
 COMMENT=	Go cross compile tool
 
 LICENSE=	MPL20
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=	go:modules
 

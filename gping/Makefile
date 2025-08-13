@@ -9,7 +9,6 @@ MAINTAINER=	none@freebsd.org
 COMMENT=	Ping with a graph
 
 LICENSE=	MIT
-#LICENSE_FILE=	${WRKSRC}/LICENSE
 
 BROKEN=		Error pinging: Unsupported OS Unknown, src/main.rs:122:33
 

@@ -8,7 +8,6 @@ MAINTAINER=	swills@FreeBSD.org
 COMMENT=	Tool for securely accessing secrets
 
 LICENSE=	MPL20
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 BUILD_DEPENDS=	git:devel/git
 

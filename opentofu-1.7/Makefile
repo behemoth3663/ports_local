@@ -10,7 +10,6 @@ COMMENT=	Tool for building, changing, and versioning infrastructure
 WWW=		https://opentofu.org/
 
 LICENSE=	MPL20
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

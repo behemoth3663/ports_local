@@ -9,7 +9,6 @@ COMMENT=	Update version constraints in Terraform configurations
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MIT
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

@@ -9,7 +9,6 @@ COMMENT=	Convert between YAML, TOML, JSON, and HCL
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	APACHE20
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

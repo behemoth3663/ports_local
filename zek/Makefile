@@ -9,7 +9,6 @@ COMMENT=	Create a Go struct from an XML document
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	GPLv3
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 GO_TARGET=	./cmd/${PORTNAME}

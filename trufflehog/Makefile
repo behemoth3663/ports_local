@@ -9,7 +9,6 @@ COMMENT=	Find and verify credentials
 WWW=		https://trufflesecurity.com/
 
 LICENSE=	AGPLv3
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:1.25,modules
 

@@ -8,7 +8,6 @@ MAINTAINER=	none@freebsd.org
 COMMENT=	Expose your local web server to the Internet via a public URL
 
 LICENSE=	MIT
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		cargo ssl
 USE_GITHUB=	yes

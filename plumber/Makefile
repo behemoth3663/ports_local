@@ -9,7 +9,6 @@ COMMENT=	Inspecting, piping, messaging, redirecting tool
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MIT
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 BUILD_DEPENDS=	git:devel/git
 

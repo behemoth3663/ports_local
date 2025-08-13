@@ -9,7 +9,6 @@ COMMENT=	Use AWS IAM credentials to authenticate to a Kubernetes cluster
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	APACHE20
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 BUILD_DEPENDS=	git:devel/git
 

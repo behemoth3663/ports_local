@@ -8,7 +8,6 @@ COMMENT=	Amazon AWS Manages shell experience using SSM APIs
 WWW=		https://github.com/${GH_ACCOUNT}/session-manager-plugin
 
 LICENSE=	APACHE20
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 RUN_DEPENDS=	aws:devel/py-awscli@${PY_FLAVOR}
 

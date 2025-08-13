@@ -9,7 +9,6 @@ MAINTAINER=	none@freebsd.org
 COMMENT=	Interpret traceroute output to show names of ASN traversed
 
 LICENSE=	MIT
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		cargo
 USE_GITHUB=	yes

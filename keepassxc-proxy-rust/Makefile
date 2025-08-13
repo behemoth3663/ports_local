@@ -7,7 +7,6 @@ COMMENT=	Proxy between Native Messaging browser extension
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	GPLv3
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		cargo
 USE_GITHUB=	yes

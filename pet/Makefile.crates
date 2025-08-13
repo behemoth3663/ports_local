@@ -60,19 +60,27 @@ CARGO_CRATES=	ahash-0.8.11 \
 		utf8parse-0.2.2 \
 		version_check-0.9.4 \
 		winapi-util-0.1.8 \
+		windows-sys-0.48.0 \
 		windows-sys-0.52.0 \
-		windows-sys-0.59.0 \
-		windows-targets-0.52.6 \
-		windows_aarch64_gnullvm-0.52.6 \
-		windows_aarch64_msvc-0.52.6 \
-		windows_i686_gnu-0.52.6 \
-		windows_i686_gnullvm-0.52.6 \
-		windows_i686_msvc-0.52.6 \
-		windows_x86_64_gnu-0.52.6 \
-		windows_x86_64_gnullvm-0.52.6 \
-		windows_x86_64_msvc-0.52.6 \
+		windows-targets-0.48.5 \
+		windows-targets-0.52.5 \
+		windows_aarch64_gnullvm-0.48.5 \
+		windows_aarch64_gnullvm-0.52.5 \
+		windows_aarch64_msvc-0.48.5 \
+		windows_aarch64_msvc-0.52.5 \
+		windows_i686_gnu-0.48.5 \
+		windows_i686_gnu-0.52.5 \
+		windows_i686_gnullvm-0.52.5 \
+		windows_i686_msvc-0.48.5 \
+		windows_i686_msvc-0.52.5 \
+		windows_x86_64_gnu-0.48.5 \
+		windows_x86_64_gnu-0.52.5 \
+		windows_x86_64_gnullvm-0.48.5 \
+		windows_x86_64_gnullvm-0.52.5 \
+		windows_x86_64_msvc-0.48.5 \
+		windows_x86_64_msvc-0.52.5 \
 		winnow-0.6.13 \
-		winreg-0.55.0 \
+		winreg-0.52.0 \
 		yaml-rust2-0.8.1 \
 		zerocopy-0.7.35 \
 		zerocopy-derive-0.7.35

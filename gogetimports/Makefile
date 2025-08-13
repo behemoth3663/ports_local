@@ -9,7 +9,6 @@ COMMENT=	Get JSON-formatted list of Go imports
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MIT
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 #USES=		go:modules
 USES=		go

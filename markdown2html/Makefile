@@ -8,7 +8,6 @@ COMMENT=	Converting Markdown file to single HTML file with built-in CSS and JS
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MIT
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		cargo
 USE_GITHUB=	yes

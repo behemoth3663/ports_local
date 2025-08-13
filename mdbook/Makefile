@@ -9,9 +9,8 @@ COMMENT=	Create book from markdown files
 WWW=		https://rust-lang.github.io/mdBook/
 
 LICENSE=	MPL20
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		cargo # ssl
+USES=		cargo
 USE_GITHUB=	yes
 GH_ACCOUNT=	rust-lang
 GH_PROJECT=	mdBook

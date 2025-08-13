@@ -9,7 +9,6 @@ COMMENT=	Security scanner for Terraform
 WWW=		https://aquasecurity.github.io/${PORTNAME}
 
 LICENSE=	MIT
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

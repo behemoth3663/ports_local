@@ -10,7 +10,6 @@ MAINTAINER=	none@freebsd.org
 COMMENT=	Create diagrams on a grid using HCL syntax
 
 LICENSE=	MIT
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 GO_TARGET=	./cmd/${PORTNAME}

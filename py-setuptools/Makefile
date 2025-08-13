@@ -14,7 +14,6 @@ MAINTAINER=	python@FreeBSD.org
 COMMENT=	Python packages installer
 
 LICENSE=	MIT
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 NO_ARCH=	yes
 USES=		python zip

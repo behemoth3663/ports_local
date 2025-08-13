@@ -11,7 +11,6 @@ COMMENT=	Go Tools
 WWW=		https://godoc.org/golang.org/x/tools
 
 LICENSE=	BSD3CLAUSE
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

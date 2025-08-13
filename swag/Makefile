@@ -9,7 +9,6 @@ COMMENT=	Generate RESTful API documentation with Swagger 2.0 for Go
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MIT
-LICENSE_FILE=	${WRKSRC}/license
 
 USES=		go:modules
 GO_TARGET=	./cmd/${PORTNAME}

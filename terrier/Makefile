@@ -9,7 +9,6 @@ MAINTAINER=	none@freebsd.org
 COMMENT=	Tool for Identifying and Analyzing Container and Image Components
 
 LICENSE=	APACHE20
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

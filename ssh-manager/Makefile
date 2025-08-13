@@ -8,7 +8,6 @@ COMMENT=	SSH Key Manager for 1Password, Bitwarden and AWS S3
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	APACHE20
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

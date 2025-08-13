@@ -12,7 +12,6 @@ MAINTAINER=	none@FreeBSD.org
 COMMENT=	Go programming language
 
 LICENSE=	BSD3CLAUSE
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 BUILD_DEPENDS=	go:lang/go
 

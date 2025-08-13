@@ -10,7 +10,6 @@ MAINTAINER=	none@FreeBSD.org
 COMMENT=	S3 benchmark utility
 
 LICENSE=	GPLv3
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

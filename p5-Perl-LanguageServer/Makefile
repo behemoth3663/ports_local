@@ -9,7 +9,6 @@ COMMENT=	Language Server and Debug Protocol Adapter for Perl
 WWW=		https://metacpan.org/pod/Perl::LanguageServer
 
 LICENSE=	ART20
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 RUN_DEPENDS=	\
 	p5-AnyEvent>=0:devel/p5-AnyEvent \

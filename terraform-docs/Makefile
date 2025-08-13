@@ -9,7 +9,6 @@ COMMENT=	Generate documentation from Terraform modules
 WWW=		https://${GO_MODULE}
 
 LICENSE=	MIT
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

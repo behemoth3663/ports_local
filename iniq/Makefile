@@ -9,7 +9,6 @@ COMMENT=	Simple INI file reader for command line
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	BSD3CLAUSE
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		gmake perl5
 USE_PERL5=	build

@@ -10,7 +10,6 @@ COMMENT=	Measure Amazon S3's performance
 WWW=		https://github.com/amilevskiy/s3-benchmark
 
 LICENSE=	MIT
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

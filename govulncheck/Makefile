@@ -10,7 +10,6 @@ COMMENT=	Database client and tools for Go vulnerability database
 WWW=		https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck
 
 LICENSE=	BSD3CLAUSE
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

@@ -11,7 +11,6 @@ WWW=		https://github.com/perlpunk/YAML-PP-p5
 
 LICENSE=	ART10 GPLv1+
 LICENSE_COMB=	dual
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 TEST_DEPENDS=	p5-Test-Warn>=0:devel/p5-Test-Warn
 

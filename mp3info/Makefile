@@ -8,7 +8,6 @@ COMMENT=	MP3 technical info viewer and ID3 1.x tag editor
 WWW=		https://ibiblio.org/mp3info/
 
 LICENSE=	GPLv2+
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 DEPRECATED=	Last release in 2006 and lacks support for ID3v2
 EXPIRATION_DATE=2023-12-31

@@ -8,7 +8,6 @@ COMMENT=	TFLint ruleset for terraform-provider-aws
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MPL20
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

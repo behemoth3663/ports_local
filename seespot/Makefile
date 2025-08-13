@@ -8,7 +8,6 @@ COMMENT=	Watches for a termination notification in AWS
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MPL20
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go
 USE_GITHUB=	yes

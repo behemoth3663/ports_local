@@ -11,7 +11,6 @@ MAINTAINER=	none@freebsd.org
 COMMENT=	Provides a common configuration to launch infrastructure
 
 LICENSE=	MPL20
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

@@ -7,7 +7,6 @@ MAINTAINER=	none@freebsd.org
 COMMENT=	Top for www/nginx
 
 LICENSE=	MIT
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		cargo
 USE_GITHUB=	yes

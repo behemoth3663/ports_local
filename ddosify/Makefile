@@ -9,7 +9,6 @@ COMMENT=	High-performance load testing tool
 WWW=		https://ddosify.com/
 
 LICENSE=	AGPLv3
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 BUILD_DEPENDS=	git:devel/git
 

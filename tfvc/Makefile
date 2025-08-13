@@ -9,7 +9,6 @@ COMMENT=	Terraform provider and module version checking tool
 WWW=		https://tfverch.github.io/tfvc
 
 LICENSE=	MIT
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

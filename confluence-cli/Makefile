@@ -10,7 +10,6 @@ MAINTAINER=	none@freebsd.org
 COMMENT=	Command line interface to Atlassian Confluence
 
 LICENSE=	MIT
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

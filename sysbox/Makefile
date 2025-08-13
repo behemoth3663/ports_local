@@ -8,7 +8,6 @@ COMMENT=	sysadmin/scripting utilities, distributed as a single binary
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	GPLv2
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

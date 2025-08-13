@@ -9,7 +9,6 @@ COMMENT=	CLI tool that checks Terraform code for module updates
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MIT
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

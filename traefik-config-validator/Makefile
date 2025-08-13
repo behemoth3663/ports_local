@@ -10,7 +10,6 @@ MAINTAINER=	none@freebsd.org
 COMMENT=	Validate your Traefik configuration files
 
 LICENSE=	APACHE20
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

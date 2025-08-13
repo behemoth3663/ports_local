@@ -9,7 +9,6 @@ COMMENT=	Go backend for LibreSpeed
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	LGPL3
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

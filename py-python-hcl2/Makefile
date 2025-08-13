@@ -9,7 +9,6 @@ COMMENT=	Python HCL2 parser (HashiCorp Configuration Language)
 WWW=		https://github.com/amplify-education/python-hcl2
 
 LICENSE=	MIT
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		python
 USE_PYTHON=	autoplist concurrent pep517

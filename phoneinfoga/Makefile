@@ -8,7 +8,6 @@ COMMENT=	Advanced information gathering & OSINT framework for phone numbers
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	GPLv3
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 BUILD_DEPENDS=	git:devel/git \
 		swag:local/swag

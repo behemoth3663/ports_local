@@ -10,7 +10,6 @@ COMMENT=	Provides a common configuration to launch infrastructure
 WWW=		https://terraform.io/
 
 LICENSE=	BSL # not match 'Business Source License 1.1'
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

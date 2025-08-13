@@ -9,7 +9,6 @@ COMMENT=	Debugger for the Go programming language
 WWW=		https://${GO_PKGNAME}
 
 LICENSE=	MIT
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 ONLY_FOR_ARCHS=	amd64
 

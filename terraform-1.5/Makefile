@@ -10,7 +10,6 @@ COMMENT=	Provides a common configuration to launch infrastructure
 WWW=		https://terraform.io/
 
 LICENSE=	MPL20
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

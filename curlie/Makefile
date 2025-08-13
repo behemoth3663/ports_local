@@ -8,7 +8,6 @@ COMMENT=	Frontend to cURL that adds the ease of use of HTTPie
 WWW=		https://curlie.io/
 
 LICENSE=	MIT
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 RUN_DEPENDS=	curl:ftp/curl
 BUILD_DEPENDS=	git:devel/git

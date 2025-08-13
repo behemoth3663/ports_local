@@ -8,7 +8,6 @@ COMMENT=	Generate and validate Terraform plugin/provider documentation
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MPL20
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

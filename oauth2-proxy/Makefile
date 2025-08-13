@@ -9,7 +9,6 @@ COMMENT=	OAuth 2.0 proxy server
 WWW=		https://github.com/oauth2-proxy/oauth2-proxy
 
 LICENSE=	MIT
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

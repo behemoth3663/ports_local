@@ -9,7 +9,6 @@ COMMENT=	Find in Go exported variables that could be unexported
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MIT
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 #USES=		go:modules
 USES=		go

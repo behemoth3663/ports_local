@@ -9,7 +9,6 @@ COMMENT=	Converts a stream of newline separated json data to csv format
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MIT
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

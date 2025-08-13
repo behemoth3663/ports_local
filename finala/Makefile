@@ -10,7 +10,6 @@ MAINTAINER=	none@freebsd.org
 COMMENT=	Resource cloud scanner that reports wasteful and unused resources
 
 LICENSE=	BSD3CLAUSE
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

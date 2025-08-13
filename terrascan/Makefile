@@ -9,7 +9,6 @@ COMMENT=	Compliance and security violations in terraform code
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	APACHE20
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 GO_TARGET=	./cmd/${PORTNAME}

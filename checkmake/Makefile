@@ -9,7 +9,6 @@ COMMENT=	Experimental linter/analyzer for Makefiles
 WWW=		https://github.com/mrtazz/checkmake
 
 LICENSE=	MIT
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

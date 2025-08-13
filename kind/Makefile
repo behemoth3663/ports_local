@@ -8,7 +8,6 @@ COMMENT=	Kubernetes IN Docker - local clusters for testing Kubernetes
 WWW=		https://kind.sigs.k8s.io/
 
 LICENSE=	APACHE20
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

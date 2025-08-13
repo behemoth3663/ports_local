@@ -9,7 +9,6 @@ COMMENT=	Format DOT language files
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	GPLv3
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

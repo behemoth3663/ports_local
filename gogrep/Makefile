@@ -10,7 +10,6 @@ MAINTAINER=	none@freebsd.org
 COMMENT=	Search for Go code using syntax trees
 
 LICENSE=	BSD3CLAUSE
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

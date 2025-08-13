@@ -8,7 +8,6 @@ COMMENT=	Format and prettify HCL files
 WWW=		https://github.com/${GH_ACCOUNT}/hcl
 
 LICENSE=	MPL20
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 

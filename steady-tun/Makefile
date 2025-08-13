@@ -8,7 +8,6 @@ COMMENT=	Secure TLS tunnel with pool of prepared upstream connections
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MIT
-LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		go:modules
 
