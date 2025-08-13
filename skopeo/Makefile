@@ -1,5 +1,5 @@
 PORTNAME=	skopeo
-PORTVERSION=	1.19.0
+PORTVERSION=	1.20.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -9,7 +9,7 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	APACHE20
 
-USES=		go:modules
+USES=		go:1.25,modules
 GO_TARGET=	./cmd/${PORTNAME}
 
 USE_GITHUB=	yes
@@ -40,14 +40,7 @@ post-post-extract: .PHONY
 	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io
 	@${RM} -r ${WRKSRC}/vendor/github.com/opentracing
 
-pre-deps: .PHONY
-#	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
-
-post-deps-all: .PHONY
-#	test ! -d '${PATCHDIR}_' || ${MV} ${PATCHDIR}_ ${PATCHDIR}
-
-pre-deps-all: .PHONY
-#	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
+pre-deps post-deps-all pre-deps-all: .PHONY
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
