@@ -1,5 +1,5 @@
 PORTNAME=	pint
-PORTVERSION=	0.74.3
+PORTVERSION=	0.74.6
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -10,7 +10,7 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	APACHE20
 
-USES=		go:modules
+USES=		go:1.25,modules
 GO_TARGET=	./cmd/${PORTNAME}
 
 USE_GITHUB=	yes
@@ -26,12 +26,17 @@ GIT_COMMIT=	git ls-remote \
 		${SED} -rn 's/(.{7}).*/\1/p'
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
-	-X 'main.version=${DISTVERSIONPREFIX}${PORTVERSION}' \
+	-X 'main.version=${PORTVERSION}' \
 	-X 'main.commit=$$(${GIT_COMMIT})'"
 
-pre-deps post-deps-all: .PHONY
+pre-deps: .PHONY
+	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+
+post-deps-all: .PHONY
+	test -d ${PATCHDIR}_ && ${MV} ${PATCHDIR}_ ${PATCHDIR} || :
+
 pre-deps-all: .PHONY
-	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"

@@ -24,15 +24,15 @@ GH_TUPLE=	\
 		golang:sync:v0.14.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.33.0:golang_sys/vendor/golang.org/x/sys \
 		golang:text:v0.25.0:golang_text/vendor/golang.org/x/text \
-		golang:time:v0.11.0:golang_time/vendor/golang.org/x/time \
+		golang:time:v0.12.0:golang_time/vendor/golang.org/x/time \
 		golang:tools:v0.32.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
-		google:go-github:v72.0.0:google_go_github_v72/vendor/github.com/google/go-github/v72 \
+		google:go-github:v73.0.0:google_go_github_v73/vendor/github.com/google/go-github/v73 \
 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
 		grafana:regexp:a468a5bfb3bc:grafana_regexp/vendor/github.com/grafana/regexp \
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
-		hashicorp:go-retryablehttp:v0.7.7:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
-		hashicorp:hcl:v2.23.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
+		hashicorp:go-retryablehttp:v0.7.8:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
+		hashicorp:hcl:v2.24.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
 		iancoleman:orderedmap:v0.2.0:iancoleman_orderedmap/vendor/github.com/iancoleman/orderedmap \
 		itchyny:json2yaml:v0.1.4:itchyny_json2yaml/vendor/github.com/itchyny/json2yaml \
 		json-iterator:go:v1.1.12:json_iterator_go/vendor/github.com/json-iterator/go \
@@ -41,7 +41,7 @@ GH_TUPLE=	\
 		kr:text:v0.2.0:kr_text/vendor/github.com/kr/text \
 		kylelemons:godebug:v1.1.0:kylelemons_godebug/vendor/github.com/kylelemons/godebug \
 		maruel:natural:v1.1.1:maruel_natural/vendor/github.com/maruel/natural \
-		mitchellh:go-wordwrap:ad45545899c7:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
+		mitchellh:go-wordwrap:v1.0.1:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
 		modern-go:concurrent:bacd9c7ef1dd:modern_go_concurrent/vendor/github.com/modern-go/concurrent \
 		modern-go:reflect2:v1.0.2:modern_go_reflect2/vendor/github.com/modern-go/reflect2 \
 		munnerz:goautoneg:a7dc8b61c822:munnerz_goautoneg/vendor/github.com/munnerz/goautoneg \
@@ -56,7 +56,7 @@ GH_TUPLE=	\
 		prometheus:client_model:v0.6.2:prometheus_client_model/vendor/github.com/prometheus/client_model \
 		prometheus:common:v0.65.0:prometheus_common/vendor/github.com/prometheus/common \
 		prometheus:procfs:v0.15.1:prometheus_procfs/vendor/github.com/prometheus/procfs \
-		prometheus:prometheus:v0.304.1:prometheus_prometheus/vendor/github.com/prometheus/prometheus \
+		prometheus:prometheus:v0.304.2:prometheus_prometheus/vendor/github.com/prometheus/prometheus \
 		protocolbuffers:protobuf-go:v1.36.6:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		prymitive:current:v0.1.1:prymitive_current/vendor/github.com/prymitive/current \
 		rogpeppe:go-internal:v1.14.1:rogpeppe_go_internal/vendor/github.com/rogpeppe/go-internal \
@@ -75,9 +75,10 @@ GH_TUPLE=	\
 		yudai:golcs:ecda9a501e82:yudai_golcs/vendor/github.com/yudai/golcs \
 		zclconf:go-cty:v1.16.3:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 		# Errors found during processing:
-		#	error getting commit v0.130.1 for gitlab-org/api: not found
+		#	error getting commit v0.137.0 for gitlab-org/api: not found
 GL_TUPLE=	\
-		gitlab-org-api:client-go:v0.130.1:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
+		gitlab-org-api:client-go:v0.137.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
+
 post-extract: .PHONY
 	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 	${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/exporters
