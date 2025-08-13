@@ -1,5 +1,5 @@
 PORTNAME=	trufflehog
-PORTVERSION=	3.90.2
+PORTVERSION=	3.90.3
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -11,7 +11,7 @@ WWW=		https://trufflesecurity.com/
 LICENSE=	AGPLv3
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-USES=		go:modules
+USES=		go:1.25,modules
 
 GO_MODULE=	github.com/trufflesecurity/${PORTNAME}/v3
 
