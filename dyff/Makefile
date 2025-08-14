@@ -9,7 +9,7 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MIT
 
-USES=		go:1.25,modules
+USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	homeport

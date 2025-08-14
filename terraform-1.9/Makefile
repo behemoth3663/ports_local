@@ -9,7 +9,7 @@ MAINTAINER= 	dutra@FreeBSD.org
 COMMENT=	Provides a common configuration to launch infrastructure
 WWW=		https://terraform.io/
 
-USES=		go:1.25,modules
+USES=		go:modules
 
 LICENSE_NAME=   Business Source License 1.1
 LICENSE_PERMS=	dist-mirror pkg-mirror pkg-sell auto-accept

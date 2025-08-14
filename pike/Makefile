@@ -10,7 +10,7 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	APACHE20
 
-USES=		go:1.25,modules
+USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	jamesWoolfenden

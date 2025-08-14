@@ -10,7 +10,7 @@ WWW=		https://trufflesecurity.com/
 
 LICENSE=	AGPLv3
 
-USES=		go:1.25,modules
+USES=		go:modules
 
 GO_MODULE=	github.com/trufflesecurity/${PORTNAME}/v3
 

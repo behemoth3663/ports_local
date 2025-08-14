@@ -1,5 +1,5 @@
 PORTNAME=	imgpkg
-PORTVERSION=	0.110.4
+PORTVERSION=	0.46.1
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -17,12 +17,24 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	carvel-dev
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
-	-X 'carvel.dev/imgpkg/pkg/imgpkg/cmd.Version=${DISTVERSIONPREFIX}${PORTVERSION}'"
+	-X 'carvel.dev/imgpkg/pkg/imgpkg/cmd.Version=${PORTVERSION}'"
 
 PLIST_FILES=	bin/${PORTNAME}
 
-pre-deps pre-deps-all post-deps-all: .PHONY
+M2T_OFFLINE=	true
+.export	M2T_OFFLINE
+
+pre-deps post-deps-all pre-deps-all: .PHONY
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
+
+GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+)/vendor/github.com/Azure/go-autorest/(.*)|\1\3/\2|}
+
+GH_TUPLE:=	${GH_TUPLE:Naws*aws_aws_sdk_go_v2_*/vendor/github.com/aws/aws-sdk-go-v2/*}
+
+#-moby:moby:v0.8.2:moby_moby_1/vendor/github.com/docker/docker-credential-helpers
+#+docker:docker-credential-helpers:v0.8.2:moby_moby_1/vendor/github.com/docker/docker-credential-helpers
+GH_TUPLE:=	${GH_TUPLE:C|^moby:moby(:.*/)(docker-credential-helpers)$|docker:\2\1\2|1}
+
 .include <bsd.port.mk>

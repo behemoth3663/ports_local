@@ -12,7 +12,7 @@ LICENSE=	APACHE20
 
 BUILD_DEPENDS=	git:devel/git
 
-USES=		go:1.25,modules
+USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	awslabs
