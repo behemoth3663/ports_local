@@ -1,0 +1,21 @@
+GH_TUPLE=	\
+		aws:aws-sdk-go:v1.55.6:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		cpuguy83:go-md2man:v2.0.6:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
+		davecgh:go-spew:v1.1.0:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
+		go-yaml:yaml:v2.2.8:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
+		golang:crypto:v0.37.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:mod:v0.24.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.39.0:golang_net/vendor/golang.org/x/net \
+		golang:sync:v0.13.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.32.0:golang_sys/vendor/golang.org/x/sys \
+		golang:tools:v0.32.0:golang_tools/vendor/golang.org/x/tools \
+		gucumber:gucumber:7d5c79e832a2:gucumber_gucumber/vendor/github.com/gucumber/gucumber \
+		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
+		miekg:dns:v1.1.65:miekg_dns/vendor/github.com/miekg/dns \
+		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
+		russross:blackfriday:v2.1.0:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
+		shiena:ansicolor:a9deabde6e02:shiena_ansicolor/vendor/github.com/shiena/ansicolor \
+		shurcooL:sanitized_anchor_name:v1.0.0:shurcool_sanitized_anchor_name/vendor/github.com/shurcooL/sanitized_anchor_name \
+		stretchr:testify:v1.4.0:stretchr_testify/vendor/github.com/stretchr/testify \
+		urfave:cli:v2.27.6:urfave_cli_v2/vendor/github.com/urfave/cli/v2 \
+		xrash:smetrics:686a1a2994c1:xrash_smetrics/vendor/github.com/xrash/smetrics
