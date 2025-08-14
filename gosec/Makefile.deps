@@ -6,35 +6,35 @@ GH_TUPLE=	\
 		go-logr:stdr:v1.2.2:go_logr_stdr/vendor/github.com/go-logr/stdr \
 		go-task:slim-sprig:v3.0.0:go_task_slim_sprig_v3/vendor/github.com/go-task/slim-sprig/v3 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
-		golang:crypto:v0.40.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:mod:v0.26.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.42.0:golang_net/vendor/golang.org/x/net \
+		golang:crypto:v0.41.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:mod:v0.27.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.43.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.30.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:sync:v0.16.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.34.0:golang_sys/vendor/golang.org/x/sys \
-		golang:text:v0.27.0:golang_text/vendor/golang.org/x/text \
+		golang:sys:v0.35.0:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.28.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.12.0:golang_time/vendor/golang.org/x/time \
-		golang:tools:v0.35.0:golang_tools/vendor/golang.org/x/tools \
+		golang:tools:v0.36.0:golang_tools/vendor/golang.org/x/tools \
 		google:generative-ai-go:v0.20.1:google_generative_ai_go/vendor/github.com/google/generative-ai-go \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-genproto:513f23925822:google_go_genproto/vendor/google.golang.org/genproto/googleapis/api \
-		google:go-genproto:513f23925822:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/rpc \
+		google:go-genproto:f173205681a0:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/rpc \
 		google:pprof:033d6d78b36a:google_pprof/vendor/github.com/google/pprof \
 		google:s2a-go:v0.1.9:google_s2a_go/vendor/github.com/google/s2a-go \
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
 		googleapis:enterprise-certificate-proxy:v0.3.6:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
-		googleapis:gax-go:v2.14.2:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2 \
-		googleapis:google-api-go-client:v0.242.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+		googleapis:gax-go:v2.15.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2 \
+		googleapis:google-api-go-client:v0.246.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
 		googleapis:google-cloud-go:v0.12.1:googleapis_google_cloud_go_ai/vendor/cloud.google.com/go/ai \
 		googleapis:google-cloud-go:v0.121.2:googleapis_google_cloud_go/vendor/cloud.google.com/go \
-		googleapis:google-cloud-go:v0.16.2:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth \
+		googleapis:google-cloud-go:v0.16.3:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth \
 		googleapis:google-cloud-go:v0.6.7:googleapis_google_cloud_go_longrunning/vendor/cloud.google.com/go/longrunning \
 		gookit:color:v1.5.4:gookit_color/vendor/github.com/gookit/color \
-		grpc:grpc-go:v1.73.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+		grpc:grpc-go:v1.74.2:grpc_grpc_go/vendor/google.golang.org/grpc \
 		lib:pq:v1.10.9:lib_pq/vendor/github.com/lib/pq \
 		mozilla:tls-observatory:7bc42856d2e5:mozilla_tls_observatory/vendor/github.com/mozilla/tls-observatory \
 		onsi:ginkgo:v2.23.4:onsi_ginkgo_v2/vendor/github.com/onsi/ginkgo/v2 \
-		onsi:gomega:v1.37.0:onsi_gomega/vendor/github.com/onsi/gomega \
+		onsi:gomega:v1.38.0:onsi_gomega/vendor/github.com/onsi/gomega \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		protocolbuffers:protobuf-go:v1.36.6:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		stretchr:objx:v0.5.2:stretchr_objx/vendor/github.com/stretchr/objx \
