@@ -5,3 +5,5 @@ GH_TUPLE+=leighmcculloch:gochecknoglobals:v0.2.2:leighmcculloch_gochecknoglobals
 GH_TUPLE+=Crocmagnon:fatcontext:v0.8.0:crocmagnon_fatcontext/vendor/go.augendre.info/fatcontext
 GH_TUPLE+=Crocmagnon:arangolint:v0.2.0:crocmagnon_arangolint/vendor/go.augendre.info/arangolint
 GH_TUPLE+=chavacava:garif:v0.2.0:chavacava_garif/vendor/codeberg.org/chavacava/garif
+GH_TUPLE+=GaijinEntertainment:go-exhaustruct:v4.0.0:gaijinentertainment_go_exhaustruct/vendor/dev.gaijin.team/go/exhaustruct/v4
+GH_TUPLE+=GaijinEntertainment:golib:v0.6.0:gaijinentertainment_golib/vendor/dev.gaijin.team/go/golib

@@ -1,5 +1,5 @@
 GH_TUPLE=	\
-		4meepo:tagalign:v1.4.2:4meepo_tagalign/vendor/github.com/4meepo/tagalign \
+		4meepo:tagalign:v1.4.3:4meepo_tagalign/vendor/github.com/4meepo/tagalign \
 		Abirdcfly:dupword:v0.1.6:abirdcfly_dupword/vendor/github.com/Abirdcfly/dupword \
 		AlwxSin:noinlineerr:v1.0.5:alwxsin_noinlineerr/vendor/github.com/AlwxSin/noinlineerr \
 		Antonboom:errname:v1.1.0:antonboom_errname/vendor/github.com/Antonboom/errname \
@@ -7,13 +7,13 @@ GH_TUPLE=	\
 		Antonboom:testifylint:v1.6.1:antonboom_testifylint/vendor/github.com/Antonboom/testifylint \
 		BurntSushi:toml:v1.5.0:burntsushi_toml/vendor/github.com/BurntSushi/toml \
 		Djarvur:go-err113:aea10b59be24:djarvur_go_err113/vendor/github.com/Djarvur/go-err113 \
-		GaijinEntertainment:go-exhaustruct:v3.3.1:gaijinentertainment_go_exhaustruct_v3/vendor/github.com/GaijinEntertainment/go-exhaustruct/v3 \
 		Masterminds:semver:v3.3.1:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
 		OpenPeeDeeP:depguard:v2.2.1:openpeedeep_depguard_v2/vendor/github.com/OpenPeeDeeP/depguard/v2 \
-		alecthomas:chroma:v2.19.0:alecthomas_chroma_v2/vendor/github.com/alecthomas/chroma/v2 \
+		alecthomas:chroma:v2.20.0:alecthomas_chroma_v2/vendor/github.com/alecthomas/chroma/v2 \
 		alecthomas:go-check-sumtype:v0.3.1:alecthomas_go_check_sumtype/vendor/github.com/alecthomas/go-check-sumtype \
 		alexkohler:nakedret:v2.0.6:alexkohler_nakedret_v2/vendor/github.com/alexkohler/nakedret/v2 \
 		alexkohler:prealloc:v1.0.0:alexkohler_prealloc/vendor/github.com/alexkohler/prealloc \
+		alfatraining:structtag:v1.0.0:alfatraining_structtag/vendor/github.com/alfatraining/structtag \
 		alingse:asasalint:v0.0.11:alingse_asasalint/vendor/github.com/alingse/asasalint \
 		alingse:nilnesserr:v0.2.0:alingse_nilnesserr/vendor/github.com/alingse/nilnesserr \
 		ashanbrown:forbidigo:v2.1.0:ashanbrown_forbidigo_v2/vendor/github.com/ashanbrown/forbidigo/v2 \
@@ -70,12 +70,12 @@ GH_TUPLE=	\
 		gobwas:glob:v0.2.3:gobwas_glob/vendor/github.com/gobwas/glob \
 		gofrs:flock:v0.12.1:gofrs_flock/vendor/github.com/gofrs/flock \
 		golang:exp:701f63a606c0:golang_exp/vendor/golang.org/x/exp \
-		golang:mod:v0.26.0:golang_mod/vendor/golang.org/x/mod \
+		golang:mod:v0.27.0:golang_mod/vendor/golang.org/x/mod \
 		golang:protobuf:v1.5.3:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:sync:v0.16.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.34.0:golang_sys/vendor/golang.org/x/sys \
+		golang:sys:v0.35.0:golang_sys/vendor/golang.org/x/sys \
 		golang:text:v0.27.0:golang_text/vendor/golang.org/x/text \
-		golang:tools:v0.35.0:golang_tools/vendor/golang.org/x/tools \
+		golang:tools:v0.36.0:golang_tools/vendor/golang.org/x/tools \
 		golangci:dupl:f665c8d69b32:golangci_dupl/vendor/github.com/golangci/dupl \
 		golangci:go-printf-func-name:v0.1.0:golangci_go_printf_func_name/vendor/github.com/golangci/go-printf-func-name \
 		golangci:gofmt:d62b90e6713d:golangci_gofmt/vendor/github.com/golangci/gofmt \
@@ -162,7 +162,7 @@ GH_TUPLE=	\
 		sashamelentyev:interfacebloat:v1.1.0:sashamelentyev_interfacebloat/vendor/github.com/sashamelentyev/interfacebloat \
 		sashamelentyev:usestdlibvars:v1.29.0:sashamelentyev_usestdlibvars/vendor/github.com/sashamelentyev/usestdlibvars \
 		securego:gosec:v2.22.7:securego_gosec_v2/vendor/github.com/securego/gosec/v2 \
-		shirou:gopsutil:v4.25.6:shirou_gopsutil_v4/vendor/github.com/shirou/gopsutil/v4 \
+		shirou:gopsutil:v4.25.7:shirou_gopsutil_v4/vendor/github.com/shirou/gopsutil/v4 \
 		sirupsen:logrus:v1.9.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
 		sivchari:containedctx:v1.0.3:sivchari_containedctx/vendor/github.com/sivchari/containedctx \
 		sonatard:noctx:v0.4.0:sonatard_noctx/vendor/github.com/sonatard/noctx \
@@ -182,14 +182,13 @@ GH_TUPLE=	\
 		tetafro:godot:v1.5.1:tetafro_godot/vendor/github.com/tetafro/godot \
 		timakin:bodyclose:1db5c5ca4d67:timakin_bodyclose/vendor/github.com/timakin/bodyclose \
 		timonwong:loggercheck:v0.11.0:timonwong_loggercheck/vendor/github.com/timonwong/loggercheck \
-		tklauser:go-sysconf:v0.3.12:tklauser_go_sysconf/vendor/github.com/tklauser/go-sysconf \
-		tklauser:numcpus:v0.6.1:tklauser_numcpus/vendor/github.com/tklauser/numcpus \
+		tklauser:go-sysconf:v0.3.15:tklauser_go_sysconf/vendor/github.com/tklauser/go-sysconf \
+		tklauser:numcpus:v0.10.0:tklauser_numcpus/vendor/github.com/tklauser/numcpus \
 		tomarrell:wrapcheck:v2.11.0:tomarrell_wrapcheck_v2/vendor/github.com/tomarrell/wrapcheck/v2 \
 		tommy-muehle:go-mnd:v2.5.1:tommy_muehle_go_mnd_v2/vendor/github.com/tommy-muehle/go-mnd/v2 \
-		uber-go:atomic:v1.7.0:uber_go_atomic/vendor/go.uber.org/atomic \
 		uber-go:automaxprocs:v1.6.0:uber_go_automaxprocs/vendor/go.uber.org/automaxprocs \
-		uber-go:multierr:v1.6.0:uber_go_multierr/vendor/go.uber.org/multierr \
-		uber-go:zap:v1.24.0:uber_go_zap/vendor/go.uber.org/zap \
+		uber-go:multierr:v1.10.0:uber_go_multierr/vendor/go.uber.org/multierr \
+		uber-go:zap:v1.27.0:uber_go_zap/vendor/go.uber.org/zap \
 		ultraware:funlen:v0.2.0:ultraware_funlen/vendor/github.com/ultraware/funlen \
 		ultraware:whitespace:v0.2.0:ultraware_whitespace/vendor/github.com/ultraware/whitespace \
 		uudashr:gocognit:v1.2.0:uudashr_gocognit/vendor/github.com/uudashr/gocognit \
@@ -212,5 +211,7 @@ GL_TUPLE=	bosi:decorder:v0.4.2:bosi_decorder/vendor/gitlab.com/bosi/decorder
 		#	::v0.2.0:group_name/vendor/codeberg.org/chavacava/garif (from codeberg.org/chavacava/garif@v0.2.0)
 		#	::v0.2.0:group_name/vendor/go.augendre.info/arangolint (from go.augendre.info/arangolint@v0.2.0)
 		#	::v0.2.2:group_name/vendor/4d63.com/gochecknoglobals (from 4d63.com/gochecknoglobals@v0.2.2)
+		#	::v0.6.0:group_name/vendor/dev.gaijin.team/go/golib (from dev.gaijin.team/go/golib@v0.6.0)
 		#	::v0.8.0:group_name/vendor/go.augendre.info/fatcontext (from go.augendre.info/fatcontext@v0.8.0)
 		#	::v1.3.0:group_name/vendor/4d63.com/gocheckcompilerdirectives (from 4d63.com/gocheckcompilerdirectives@v1.3.0)
+		#	::v4.0.0:group_name/vendor/dev.gaijin.team/go/exhaustruct/v4 (from dev.gaijin.team/go/exhaustruct/v4@v4.0.0)

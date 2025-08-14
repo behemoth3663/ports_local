@@ -1,7 +1,7 @@
 PORTNAME=	golangci-lint
-PORTVERSION=	2.3.1
+PORTVERSION=	2.4.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+#PORTREVISION=	1
 CATEGORIES=	local devel
 
 MAINTAINER=	lcook@FreeBSD.org
@@ -68,6 +68,8 @@ pre-deps-all: .PHONY
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=Crocmagnon GHT_PROJ=fatcontext GHT_PATH=go.augendre.info/fatcontext )
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=Crocmagnon GHT_PROJ=arangolint GHT_PATH=go.augendre.info/arangolint )
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=chavacava GHT_PROJ=garif GHT_PATH=codeberg.org/chavacava/garif )
+	( make -C ${.CURDIR} make-from-deps GHT_ACNT=GaijinEntertainment GHT_PROJ=golib GHT_PATH=dev.gaijin.team/go/golib )
+	( make -C ${.CURDIR} make-from-deps GHT_ACNT=GaijinEntertainment GHT_PROJ=go-exhaustruct GHT_PATH=dev.gaijin.team/go/exhaustruct/v4 )
 
 make-from-deps: .PHONY
 	@${SED} -rn \
