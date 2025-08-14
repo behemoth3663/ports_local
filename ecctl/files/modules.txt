@@ -1,0 +1,262 @@
+# github.com/asaskevich/govalidator v0.0.0-20230301143203-a9d515a09cc2
+## explicit; go 1.13
+github.com/asaskevich/govalidator
+# github.com/blang/semver/v4 v4.0.0
+## explicit; go 1.14
+github.com/blang/semver/v4
+# github.com/cpuguy83/go-md2man/v2 v2.0.6
+## explicit; go 1.12
+github.com/cpuguy83/go-md2man/v2/md2man
+# github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc
+## explicit
+github.com/davecgh/go-spew/spew
+# github.com/elastic/cloud-sdk-go v1.24.1
+## explicit; go 1.19
+github.com/elastic/cloud-sdk-go/pkg/api
+github.com/elastic/cloud-sdk-go/pkg/api/apierror
+github.com/elastic/cloud-sdk-go/pkg/api/commentapi
+github.com/elastic/cloud-sdk-go/pkg/api/deploymentapi
+github.com/elastic/cloud-sdk-go/pkg/api/deploymentapi/depresourceapi
+github.com/elastic/cloud-sdk-go/pkg/api/deploymentapi/deptemplateapi
+github.com/elastic/cloud-sdk-go/pkg/api/deploymentapi/deputil
+github.com/elastic/cloud-sdk-go/pkg/api/deploymentapi/eskeystoreapi
+github.com/elastic/cloud-sdk-go/pkg/api/deploymentapi/extensionapi
+github.com/elastic/cloud-sdk-go/pkg/api/deploymentapi/trafficfilterapi
+github.com/elastic/cloud-sdk-go/pkg/api/mock
+github.com/elastic/cloud-sdk-go/pkg/api/platformapi
+github.com/elastic/cloud-sdk-go/pkg/api/platformapi/allocatorapi
+github.com/elastic/cloud-sdk-go/pkg/api/platformapi/constructorapi
+github.com/elastic/cloud-sdk-go/pkg/api/platformapi/enrollmenttokenapi
+github.com/elastic/cloud-sdk-go/pkg/api/platformapi/instanceconfigapi
+github.com/elastic/cloud-sdk-go/pkg/api/platformapi/proxyapi
+github.com/elastic/cloud-sdk-go/pkg/api/platformapi/proxyapi/filteredgroupapi
+github.com/elastic/cloud-sdk-go/pkg/api/platformapi/proxyapi/settingsapi
+github.com/elastic/cloud-sdk-go/pkg/api/platformapi/roleapi
+github.com/elastic/cloud-sdk-go/pkg/api/platformapi/runnerapi
+github.com/elastic/cloud-sdk-go/pkg/api/platformapi/snaprepoapi
+github.com/elastic/cloud-sdk-go/pkg/api/stackapi
+github.com/elastic/cloud-sdk-go/pkg/api/userapi
+github.com/elastic/cloud-sdk-go/pkg/api/userapi/authapi
+github.com/elastic/cloud-sdk-go/pkg/api/userapi/authapi/adminapi
+github.com/elastic/cloud-sdk-go/pkg/auth
+github.com/elastic/cloud-sdk-go/pkg/client
+github.com/elastic/cloud-sdk-go/pkg/client/accounts
+github.com/elastic/cloud-sdk-go/pkg/client/authentication
+github.com/elastic/cloud-sdk-go/pkg/client/billing_costs_analysis
+github.com/elastic/cloud-sdk-go/pkg/client/comments
+github.com/elastic/cloud-sdk-go/pkg/client/deployment_templates
+github.com/elastic/cloud-sdk-go/pkg/client/deployments
+github.com/elastic/cloud-sdk-go/pkg/client/deployments_traffic_filter
+github.com/elastic/cloud-sdk-go/pkg/client/extensions
+github.com/elastic/cloud-sdk-go/pkg/client/organizations
+github.com/elastic/cloud-sdk-go/pkg/client/platform
+github.com/elastic/cloud-sdk-go/pkg/client/platform_configuration_instances
+github.com/elastic/cloud-sdk-go/pkg/client/platform_configuration_networking
+github.com/elastic/cloud-sdk-go/pkg/client/platform_configuration_security
+github.com/elastic/cloud-sdk-go/pkg/client/platform_configuration_snapshots
+github.com/elastic/cloud-sdk-go/pkg/client/platform_configuration_templates
+github.com/elastic/cloud-sdk-go/pkg/client/platform_configuration_trust_relationships
+github.com/elastic/cloud-sdk-go/pkg/client/platform_infrastructure
+github.com/elastic/cloud-sdk-go/pkg/client/stack
+github.com/elastic/cloud-sdk-go/pkg/client/telemetry
+github.com/elastic/cloud-sdk-go/pkg/client/trusted_environments
+github.com/elastic/cloud-sdk-go/pkg/client/user_role_assignments
+github.com/elastic/cloud-sdk-go/pkg/client/users
+github.com/elastic/cloud-sdk-go/pkg/input
+github.com/elastic/cloud-sdk-go/pkg/models
+github.com/elastic/cloud-sdk-go/pkg/multierror
+github.com/elastic/cloud-sdk-go/pkg/output
+github.com/elastic/cloud-sdk-go/pkg/plan
+github.com/elastic/cloud-sdk-go/pkg/plan/mock
+github.com/elastic/cloud-sdk-go/pkg/plan/planutil
+github.com/elastic/cloud-sdk-go/pkg/sync/pool
+github.com/elastic/cloud-sdk-go/pkg/util
+github.com/elastic/cloud-sdk-go/pkg/util/cmdutil
+github.com/elastic/cloud-sdk-go/pkg/util/ec
+github.com/elastic/cloud-sdk-go/pkg/util/email
+github.com/elastic/cloud-sdk-go/pkg/util/slice
+# github.com/fsnotify/fsnotify v1.8.0
+## explicit; go 1.17
+github.com/fsnotify/fsnotify
+github.com/fsnotify/fsnotify/internal
+# github.com/ghodss/yaml v1.0.0
+## explicit
+github.com/ghodss/yaml
+# github.com/go-openapi/analysis v0.21.2
+## explicit; go 1.13
+github.com/go-openapi/analysis
+github.com/go-openapi/analysis/internal/debug
+github.com/go-openapi/analysis/internal/flatten/normalize
+github.com/go-openapi/analysis/internal/flatten/operations
+github.com/go-openapi/analysis/internal/flatten/replace
+github.com/go-openapi/analysis/internal/flatten/schutils
+github.com/go-openapi/analysis/internal/flatten/sortref
+# github.com/go-openapi/errors v0.20.2
+## explicit; go 1.14
+github.com/go-openapi/errors
+# github.com/go-openapi/jsonpointer v0.19.5
+## explicit; go 1.13
+github.com/go-openapi/jsonpointer
+# github.com/go-openapi/jsonreference v0.20.0
+## explicit; go 1.13
+github.com/go-openapi/jsonreference
+github.com/go-openapi/jsonreference/internal
+# github.com/go-openapi/loads v0.21.1
+## explicit; go 1.13
+github.com/go-openapi/loads
+# github.com/go-openapi/runtime v0.23.0
+## explicit; go 1.15
+github.com/go-openapi/runtime
+github.com/go-openapi/runtime/client
+github.com/go-openapi/runtime/logger
+github.com/go-openapi/runtime/middleware
+github.com/go-openapi/runtime/middleware/denco
+github.com/go-openapi/runtime/middleware/header
+github.com/go-openapi/runtime/middleware/untyped
+github.com/go-openapi/runtime/security
+github.com/go-openapi/runtime/yamlpc
+# github.com/go-openapi/spec v0.20.4
+## explicit; go 1.13
+github.com/go-openapi/spec
+# github.com/go-openapi/strfmt v0.21.2
+## explicit; go 1.13
+github.com/go-openapi/strfmt
+# github.com/go-openapi/swag v0.21.1
+## explicit; go 1.11
+github.com/go-openapi/swag
+# github.com/go-openapi/validate v0.20.3
+## explicit; go 1.14
+github.com/go-openapi/validate
+# github.com/go-viper/mapstructure/v2 v2.2.1
+## explicit; go 1.18
+github.com/go-viper/mapstructure/v2
+github.com/go-viper/mapstructure/v2/internal/errors
+# github.com/hashicorp/errwrap v1.1.0
+## explicit
+github.com/hashicorp/errwrap
+# github.com/hashicorp/go-multierror v1.1.1
+## explicit; go 1.13
+github.com/hashicorp/go-multierror
+# github.com/inconshreveable/mousetrap v1.1.0
+## explicit; go 1.18
+github.com/inconshreveable/mousetrap
+# github.com/josharian/intern v1.0.0
+## explicit; go 1.5
+github.com/josharian/intern
+# github.com/mailru/easyjson v0.7.7
+## explicit; go 1.12
+github.com/mailru/easyjson/buffer
+github.com/mailru/easyjson/jlexer
+github.com/mailru/easyjson/jwriter
+# github.com/mitchellh/mapstructure v1.5.0
+## explicit; go 1.14
+github.com/mitchellh/mapstructure
+# github.com/oklog/ulid v1.3.1
+## explicit
+github.com/oklog/ulid
+# github.com/opentracing/opentracing-go v1.2.0
+## explicit; go 1.14
+github.com/opentracing/opentracing-go
+github.com/opentracing/opentracing-go/ext
+github.com/opentracing/opentracing-go/log
+# github.com/pelletier/go-toml/v2 v2.2.3
+## explicit; go 1.21.0
+github.com/pelletier/go-toml/v2
+github.com/pelletier/go-toml/v2/internal/characters
+github.com/pelletier/go-toml/v2/internal/danger
+github.com/pelletier/go-toml/v2/internal/tracker
+github.com/pelletier/go-toml/v2/unstable
+# github.com/pkg/errors v0.9.1
+## explicit
+github.com/pkg/errors
+# github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2
+## explicit
+github.com/pmezard/go-difflib/difflib
+# github.com/russross/blackfriday/v2 v2.1.0
+## explicit
+github.com/russross/blackfriday/v2
+# github.com/sagikazarmark/locafero v0.7.0
+## explicit; go 1.21
+github.com/sagikazarmark/locafero
+# github.com/sourcegraph/conc v0.3.0
+## explicit; go 1.19
+github.com/sourcegraph/conc
+github.com/sourcegraph/conc/internal/multierror
+github.com/sourcegraph/conc/iter
+github.com/sourcegraph/conc/panics
+# github.com/spf13/afero v1.12.0
+## explicit; go 1.21
+github.com/spf13/afero
+github.com/spf13/afero/internal/common
+github.com/spf13/afero/mem
+# github.com/spf13/cast v1.7.1
+## explicit; go 1.19
+github.com/spf13/cast
+# github.com/spf13/cobra v1.9.1
+## explicit; go 1.15
+github.com/spf13/cobra
+github.com/spf13/cobra/doc
+# github.com/spf13/pflag v1.0.6
+## explicit; go 1.12
+github.com/spf13/pflag
+# github.com/spf13/viper v1.20.1
+## explicit; go 1.21.0
+github.com/spf13/viper
+github.com/spf13/viper/internal/encoding/dotenv
+github.com/spf13/viper/internal/encoding/json
+github.com/spf13/viper/internal/encoding/toml
+github.com/spf13/viper/internal/encoding/yaml
+github.com/spf13/viper/internal/features
+# github.com/stretchr/testify v1.10.0
+## explicit; go 1.17
+github.com/stretchr/testify/assert
+github.com/stretchr/testify/assert/yaml
+github.com/stretchr/testify/require
+# github.com/subosito/gotenv v1.6.0
+## explicit; go 1.18
+github.com/subosito/gotenv
+# go.mongodb.org/mongo-driver v1.10.0
+## explicit; go 1.10
+go.mongodb.org/mongo-driver/bson
+go.mongodb.org/mongo-driver/bson/bsoncodec
+go.mongodb.org/mongo-driver/bson/bsonoptions
+go.mongodb.org/mongo-driver/bson/bsonrw
+go.mongodb.org/mongo-driver/bson/bsontype
+go.mongodb.org/mongo-driver/bson/primitive
+go.mongodb.org/mongo-driver/x/bsonx/bsoncore
+# go.uber.org/atomic v1.9.0
+## explicit; go 1.13
+go.uber.org/atomic
+# go.uber.org/multierr v1.9.0
+## explicit; go 1.19
+go.uber.org/multierr
+# golang.org/x/sys v0.30.0
+## explicit; go 1.18
+golang.org/x/sys/plan9
+golang.org/x/sys/unix
+golang.org/x/sys/windows
+# golang.org/x/term v0.29.0
+## explicit; go 1.18
+golang.org/x/term
+# golang.org/x/text v0.22.0
+## explicit; go 1.18
+golang.org/x/text/cases
+golang.org/x/text/encoding
+golang.org/x/text/encoding/internal
+golang.org/x/text/encoding/internal/identifier
+golang.org/x/text/encoding/unicode
+golang.org/x/text/internal
+golang.org/x/text/internal/language
+golang.org/x/text/internal/language/compact
+golang.org/x/text/internal/tag
+golang.org/x/text/internal/utf8internal
+golang.org/x/text/language
+golang.org/x/text/runes
+golang.org/x/text/transform
+golang.org/x/text/unicode/norm
+# gopkg.in/yaml.v2 v2.4.0
+## explicit; go 1.15
+gopkg.in/yaml.v2
+# gopkg.in/yaml.v3 v3.0.1
+## explicit
+gopkg.in/yaml.v3

@@ -1,5 +1,5 @@
 PORTNAME=	ecctl
-PORTVERSION=	1.13.0
+PORTVERSION=	1.15.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -24,13 +24,26 @@ GIT_COMMIT=	git ls-remote \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
 		${SED} -rn 's/(.{7}).*/\1/p'
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static' \
-	-X 'main.version=${DISTVERSIONPREFIX}${PORTVERSION}' \
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+	-X 'main.version=${PORTVERSION}' \
 	-X 'main.commit=$$(${GIT_COMMIT})' \
 	-X 'main.built=${%FT%TZ:L:gmtime}'"
 
-pre-deps pre-deps-all post-deps-all: .PHONY
+#M2T_OFFLINE=	true
+#.export	M2T_OFFLINE
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+post-extract: .PHONY
+	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+
+pre-deps: .PHONY
+	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+
+pre-deps-all: .PHONY
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
+
+post-deps-all: .PHONY
+	test -d ${PATCHDIR}_ && ${MV} ${PATCHDIR}_ ${PATCHDIR} || :
+
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>

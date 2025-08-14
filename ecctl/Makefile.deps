@@ -1,12 +1,11 @@
 GH_TUPLE=	\
-		asaskevich:govalidator:f21760c49a8d:asaskevich_govalidator/vendor/github.com/asaskevich/govalidator \
+		asaskevich:govalidator:a9d515a09cc2:asaskevich_govalidator/vendor/github.com/asaskevich/govalidator \
 		blang:semver:v4.0.0:blang_semver_v4/vendor/github.com/blang/semver \
-		cpuguy83:go-md2man:v2.0.3:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
+		cpuguy83:go-md2man:v2.0.6:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
 		davecgh:go-spew:d8f796af33cc:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
-		elastic:cloud-sdk-go:v1.17.0:elastic_cloud_sdk_go/vendor/github.com/elastic/cloud-sdk-go \
-		fsnotify:fsnotify:v1.7.0:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
+		elastic:cloud-sdk-go:v1.24.1:elastic_cloud_sdk_go/vendor/github.com/elastic/cloud-sdk-go \
+		fsnotify:fsnotify:v1.8.0:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
 		ghodss:yaml:v1.0.0:ghodss_yaml/vendor/github.com/ghodss/yaml \
-		go-ini:ini:v1.67.0:go_ini_ini/vendor/gopkg.in/ini.v1 \
 		go-openapi:analysis:v0.21.2:go_openapi_analysis/vendor/github.com/go-openapi/analysis \
 		go-openapi:errors:v0.20.2:go_openapi_errors/vendor/github.com/go-openapi/errors \
 		go-openapi:jsonpointer:v0.19.5:go_openapi_jsonpointer/vendor/github.com/go-openapi/jsonpointer \
@@ -17,36 +16,33 @@ GH_TUPLE=	\
 		go-openapi:strfmt:v0.21.2:go_openapi_strfmt/vendor/github.com/go-openapi/strfmt \
 		go-openapi:swag:v0.21.1:go_openapi_swag/vendor/github.com/go-openapi/swag \
 		go-openapi:validate:v0.20.3:go_openapi_validate/vendor/github.com/go-openapi/validate \
+		go-viper:mapstructure:v2.2.1:go_viper_mapstructure_v2/vendor/github.com/go-viper/mapstructure/v2 \
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
-		golang:exp:921286631fa9:golang_exp/vendor/golang.org/x/exp \
-		golang:sys:v0.18.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.18.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.14.0:golang_text/vendor/golang.org/x/text \
+		golang:sys:v0.30.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.29.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.22.0:golang_text/vendor/golang.org/x/text \
 		hashicorp:errwrap:v1.1.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
 		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
-		hashicorp:hcl:v1.0.0:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
 		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
 		josharian:intern:v1.0.0:josharian_intern/vendor/github.com/josharian/intern \
-		magiconair:properties:v1.8.7:magiconair_properties/vendor/github.com/magiconair/properties \
 		mailru:easyjson:v0.7.7:mailru_easyjson/vendor/github.com/mailru/easyjson \
 		mitchellh:mapstructure:v1.5.0:mitchellh_mapstructure/vendor/github.com/mitchellh/mapstructure \
 		mongodb:mongo-go-driver:v1.10.0:mongodb_mongo_go_driver/vendor/go.mongodb.org/mongo-driver \
 		oklog:ulid:v1.3.1:oklog_ulid/vendor/github.com/oklog/ulid \
 		opentracing:opentracing-go:v1.2.0:opentracing_opentracing_go/vendor/github.com/opentracing/opentracing-go \
-		pelletier:go-toml:v2.1.0:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
+		pelletier:go-toml:v2.2.3:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
 		pmezard:go-difflib:5d4384ee4fb2:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		russross:blackfriday:v2.1.0:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
-		sagikazarmark:locafero:v0.4.0:sagikazarmark_locafero/vendor/github.com/sagikazarmark/locafero \
-		sagikazarmark:slog-shim:v0.1.0:sagikazarmark_slog_shim/vendor/github.com/sagikazarmark/slog-shim \
+		sagikazarmark:locafero:v0.7.0:sagikazarmark_locafero/vendor/github.com/sagikazarmark/locafero \
 		sourcegraph:conc:v0.3.0:sourcegraph_conc/vendor/github.com/sourcegraph/conc \
-		spf13:afero:v1.11.0:spf13_afero/vendor/github.com/spf13/afero \
-		spf13:cast:v1.6.0:spf13_cast/vendor/github.com/spf13/cast \
-		spf13:cobra:v1.8.0:spf13_cobra/vendor/github.com/spf13/cobra \
-		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
-		spf13:viper:v1.18.2:spf13_viper/vendor/github.com/spf13/viper \
-		stretchr:testify:v1.9.0:stretchr_testify/vendor/github.com/stretchr/testify \
+		spf13:afero:v1.12.0:spf13_afero/vendor/github.com/spf13/afero \
+		spf13:cast:v1.7.1:spf13_cast/vendor/github.com/spf13/cast \
+		spf13:cobra:v1.9.1:spf13_cobra/vendor/github.com/spf13/cobra \
+		spf13:pflag:v1.0.6:spf13_pflag/vendor/github.com/spf13/pflag \
+		spf13:viper:v1.20.1:spf13_viper/vendor/github.com/spf13/viper \
+		stretchr:testify:v1.10.0:stretchr_testify/vendor/github.com/stretchr/testify \
 		subosito:gotenv:v1.6.0:subosito_gotenv/vendor/github.com/subosito/gotenv \
 		uber-go:atomic:v1.9.0:uber_go_atomic/vendor/go.uber.org/atomic \
 		uber-go:multierr:v1.9.0:uber_go_multierr/vendor/go.uber.org/multierr
