@@ -1,4 +1,4 @@
---- cli/flags/global/flags.go.orig	2025-06-02 18:34:14 UTC
+--- cli/flags/global/flags.go.orig	2025-08-15 12:17:28 UTC
 +++ cli/flags/global/flags.go
 @@ -50,15 +50,6 @@ const (
  	HelpFlagName    = "help"
@@ -16,8 +16,8 @@
  	// Renamed flags.
  
  	DeprecatedLogLevelFlagName        = "log-level"
-@@ -300,59 +291,10 @@ func NewFlags(l log.Logger, opts *options.TerragruntOp
- 			flags.WithDeprecatedNames(terragruntPrefix.FlagNames(DeprecatedStrictControlFlagName), terragruntPrefixControl)),
+@@ -286,59 +277,10 @@ func NewFlags(l log.Logger, opts *options.TerragruntOp
+ 			flags.WithDeprecatedEnvVars(terragruntPrefix.EnvVars(DeprecatedStrictControlFlagName), terragruntPrefixControl)),
  	}
  
 -	flags = flags.Add(NewTelemetryFlags(opts, nil)...)
@@ -38,22 +38,22 @@
 -			EnvVars:     tgPrefix.EnvVars(TelemetryTraceExporterFlagName),
 -			Destination: &opts.Telemetry.TraceExporter,
 -		},
--			flags.WithDeprecatedNames(terragruntPrefix.FlagNames("telemetry-trace-exporter"), terragruntPrefixControl),
--			flags.WithDeprecatedNames(terragruntPrefix.FlagNames("telemerty-trace-exporter"), terragruntPrefixControl)),
+-			flags.WithDeprecatedEnvVars(terragruntPrefix.EnvVars("telemetry-trace-exporter"), terragruntPrefixControl),
+-			flags.WithDeprecatedEnvVars(terragruntPrefix.EnvVars("telemerty-trace-exporter"), terragruntPrefixControl)),
 -
 -		flags.NewFlag(&cli.BoolFlag{
 -			EnvVars:     tgPrefix.EnvVars(TelemetryTraceExporterInsecureEndpointFlagName),
 -			Destination: &opts.Telemetry.TraceExporterInsecureEndpoint,
 -		},
--			flags.WithDeprecatedNames(terragruntPrefix.FlagNames("telemetry-trace-exporter-insecure-endpoint"), terragruntPrefixControl),
--			flags.WithDeprecatedNames(terragruntPrefix.FlagNames("telemerty-trace-exporter-insecure-endpoint"), terragruntPrefixControl)),
+-			flags.WithDeprecatedEnvVars(terragruntPrefix.EnvVars("telemetry-trace-exporter-insecure-endpoint"), terragruntPrefixControl),
+-			flags.WithDeprecatedEnvVars(terragruntPrefix.EnvVars("telemerty-trace-exporter-insecure-endpoint"), terragruntPrefixControl)),
 -
 -		flags.NewFlag(&cli.GenericFlag[string]{
 -			EnvVars:     tgPrefix.EnvVars(TelemetryTraceExporterHTTPEndpointFlagName),
 -			Destination: &opts.Telemetry.TraceExporterHTTPEndpoint,
 -		},
--			flags.WithDeprecatedNames(terragruntPrefix.FlagNames("telemetry-trace-exporter-http-endpoint"), terragruntPrefixControl),
--			flags.WithDeprecatedNames(terragruntPrefix.FlagNames("telemerty-trace-exporter-http-endpoint"), terragruntPrefixControl)),
+-			flags.WithDeprecatedEnvVars(terragruntPrefix.EnvVars("telemetry-trace-exporter-http-endpoint"), terragruntPrefixControl),
+-			flags.WithDeprecatedEnvVars(terragruntPrefix.EnvVars("telemerty-trace-exporter-http-endpoint"), terragruntPrefixControl)),
 -
 -		flags.NewFlag(&cli.GenericFlag[string]{
 -			EnvVars:     flags.Prefix{}.EnvVars(TraceparentFlagName),
@@ -63,15 +63,15 @@
 -			EnvVars:     tgPrefix.EnvVars(TelemetryMetricExporterFlagName),
 -			Destination: &opts.Telemetry.MetricExporter,
 -		},
--			flags.WithDeprecatedNames(terragruntPrefix.FlagNames("telemetry-metric-exporter"), terragruntPrefixControl),
--			flags.WithDeprecatedNames(terragruntPrefix.FlagNames("telemerty-metric-exporter"), terragruntPrefixControl)),
+-			flags.WithDeprecatedEnvVars(terragruntPrefix.EnvVars("telemetry-metric-exporter"), terragruntPrefixControl),
+-			flags.WithDeprecatedEnvVars(terragruntPrefix.EnvVars("telemerty-metric-exporter"), terragruntPrefixControl)),
 -
 -		flags.NewFlag(&cli.BoolFlag{
 -			EnvVars:     tgPrefix.EnvVars(TelemetryMetricExporterInsecureEndpointFlagName),
 -			Destination: &opts.Telemetry.MetricExporterInsecureEndpoint,
 -		},
--			flags.WithDeprecatedNames(terragruntPrefix.FlagNames("telemetry-metric-exporter-insecure-endpoint"), terragruntPrefixControl),
--			flags.WithDeprecatedNames(terragruntPrefix.FlagNames("telemerty-metric-exporter-insecure-endpoint"), terragruntPrefixControl)),
+-			flags.WithDeprecatedEnvVars(terragruntPrefix.EnvVars("telemetry-metric-exporter-insecure-endpoint"), terragruntPrefixControl),
+-			flags.WithDeprecatedEnvVars(terragruntPrefix.EnvVars("telemerty-metric-exporter-insecure-endpoint"), terragruntPrefixControl)),
 -	}
  }
  

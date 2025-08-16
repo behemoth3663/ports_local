@@ -1,6 +1,6 @@
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.84.1
+DISTVERSION=	0.85.0
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
 
@@ -17,7 +17,7 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	gruntwork-io
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
-	-X 'github.com/${GH_ACCOUNT}/go-commons/version.Version=${DISTVERSIONPREFIX}${PORTVERSION}'"
+	-X 'github.com/${GH_ACCOUNT}/go-commons/version.Version=${PORTVERSION}'"
 
 PLIST_FILES=	bin/${PORTNAME}
 
