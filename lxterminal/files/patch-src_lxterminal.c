@@ -8,6 +8,20 @@
  static void terminal_vte_size_allocate_event(GtkWidget *widget, GtkAllocation *allocation, Term *term);
  static void terminal_window_title_changed_event(GtkWidget * vte, Term * term);
  static gboolean terminal_close_window_confirmation_event(GtkWidget * widget, GdkEventButton * event, LXTerminal * terminal);
+@@ -290,11 +291,11 @@ static void terminal_initialize_switch_tab_accelerator
+  * These switch to the tab selected by the digit, if it exists. */
+ static void terminal_initialize_switch_tab_accelerator(Term * term)
+ {
+-    if ((term->index + 1) < 10)
++    if ((term->index + 1) <= 10)
+     {
+         /* Formulate the accelerator name. */
+         char switch_tab_accel[1 + 3 + 1 + 1 + 1]; /* "<ALT>n" */
+-        sprintf(switch_tab_accel, "<ALT>%d", term->index + 1);
++        sprintf(switch_tab_accel, "<ALT>%d", (term->index + 1) % 10);
+ 
+         /* Parse the accelerator name. */
+         guint key;
 @@ -814,13 +815,38 @@ static void terminal_switch_page_event(GtkNotebook * n
  
          /* Propagate the title to the toplevel window. */
