@@ -1,12 +1,12 @@
 PORTNAME=	oauth2-proxy
-PORTVERSION=	7.11.0
+PORTVERSION=	7.12.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
-CATEGORIES=	www
+CATEGORIES=	local www
 
 MAINTAINER=	freebsd@rheinwolf.de
 COMMENT=	OAuth 2.0 proxy server
-WWW=		https://github.com/oauth2-proxy/oauth2-proxy
+WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MIT
 
