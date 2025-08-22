@@ -1,4 +1,4 @@
---- telemetry/telemeter.go.orig	2025-03-28 15:11:40 UTC
+--- telemetry/telemeter.go.orig	2025-08-21 13:41:43 UTC
 +++ telemetry/telemeter.go
 @@ -4,58 +4,24 @@ import (
  import (
@@ -55,8 +55,8 @@
  // Collect collects telemetry from function execution metrics and traces.
  func (tlm *Telemeter) Collect(ctx context.Context, name string, attrs map[string]any, fn func(childCtx context.Context) error) error {
  	// wrap telemetry collection with trace and time metric
--	return tlm.Tracer.Trace(ctx, name, attrs, func(ctx context.Context) error {
--		return tlm.Meter.Time(ctx, name, attrs, fn)
+-	return tlm.Trace(ctx, name, attrs, func(ctx context.Context) error {
+-		return tlm.Time(ctx, name, attrs, fn)
 -	})
 +	return fn(ctx)
  }
