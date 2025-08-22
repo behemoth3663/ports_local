@@ -1,6 +1,6 @@
 GH_TUPLE=	\
 		AlecAivazis:survey:v2.3.7:alecaivazis_survey_v2/vendor/github.com/AlecAivazis/survey/v2 \
-		GoogleCloudPlatform:grpc-gcp-go:v1.5.2:googlecloudplatform_grpc_gcp_go_grpcgcp/vendor/github.com/GoogleCloudPlatform/grpc-gcp-go/grpcgcp \
+		GoogleCloudPlatform:grpc-gcp-go:v1.5.3:googlecloudplatform_grpc_gcp_go_grpcgcp/vendor/github.com/GoogleCloudPlatform/grpc-gcp-go/grpcgcp \
 		GoogleCloudPlatform:opentelemetry-operations-go:v0.53.0:googlecloudplatform_opentelemetry_operations_go_metric/vendor/github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/metric \
 		GoogleCloudPlatform:opentelemetry-operations-go:v0.53.0:googlecloudplatform_opentelemetry_operations_go_resourcemapping/vendor/github.com/GoogleCloudPlatform/opentelemetry-operations-go/internal/resourcemapping \
 		GoogleCloudPlatform:opentelemetry-operations-go:v1.27.0:googlecloudplatform_opentelemetry_operations_go_gcp/vendor/github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp \
@@ -34,12 +34,12 @@ GH_TUPLE=	\
 		charmbracelet:x:v0.2.1:charmbracelet_x_term/vendor/github.com/charmbracelet/x/term \
 		charmbracelet:x:v0.9.3:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x/ansi \
 		cli:browser:v1.3.0:cli_browser/vendor/github.com/cli/browser \
-		cli:go-gh:v2.12.1:cli_go_gh_v2/vendor/github.com/cli/go-gh/v2 \
+		cli:go-gh:v2.12.2:cli_go_gh_v2/vendor/github.com/cli/go-gh/v2 \
 		cli:go-internal:6c48bcd5ce24:cli_go_internal/vendor/github.com/cli/go-internal \
 		cli:oauth:v1.2.0:cli_oauth/vendor/github.com/cli/oauth \
 		cli:safeexec:v1.0.1:cli_safeexec/vendor/github.com/cli/safeexec \
 		cli:shurcooL-graphql:v0.0.4:cli_shurcool_graphql/vendor/github.com/cli/shurcooL-graphql \
-		cncf:xds:ae57f3c0d45f:cncf_xds_go/vendor/github.com/cncf/xds/go \
+		cncf:xds:2ac532fd4443:cncf_xds_go/vendor/github.com/cncf/xds/go \
 		containerd:stargz-snapshotter:v0.16.3:containerd_stargz_snapshotter_estargz/vendor/github.com/containerd/stargz-snapshotter/estargz \
 		cpuguy83:go-md2man:v2.0.7:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
 		creack:pty:v1.1.24:creack_pty/vendor/github.com/creack/pty \
@@ -77,27 +77,27 @@ GH_TUPLE=	\
 		go-openapi:strfmt:v0.23.0:go_openapi_strfmt/vendor/github.com/go-openapi/strfmt \
 		go-openapi:swag:v0.23.1:go_openapi_swag/vendor/github.com/go-openapi/swag \
 		go-openapi:validate:v0.24.0:go_openapi_validate/vendor/github.com/go-openapi/validate \
-		go-viper:mapstructure:v2.3.0:go_viper_mapstructure_v2/vendor/github.com/go-viper/mapstructure/v2 \
+		go-viper:mapstructure:v2.4.0:go_viper_mapstructure_v2/vendor/github.com/go-viper/mapstructure/v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
 		godbus:dbus:v5.1.0:godbus_dbus_v5/vendor/github.com/godbus/dbus/v5 \
-		golang:crypto:v0.40.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.41.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:b7579e27df2b:golang_exp/vendor/golang.org/x/exp \
 		golang:groupcache:2c02b8208cf8:golang_groupcache/vendor/github.com/golang/groupcache \
 		golang:mod:v0.26.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.41.0:golang_net/vendor/golang.org/x/net \
+		golang:net:v0.43.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.30.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:snappy:v1.0.0:golang_snappy/vendor/github.com/golang/snappy \
 		golang:sync:v0.16.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.34.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.33.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.27.0:golang_text/vendor/golang.org/x/text \
+		golang:sys:v0.35.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.34.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.28.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.12.0:golang_time/vendor/golang.org/x/time \
-		golang:tools:v0.34.0:golang_tools/vendor/golang.org/x/tools \
+		golang:tools:v0.35.0:golang_tools/vendor/golang.org/x/tools \
 		google:certificate-transparency-go:v1.3.2:google_certificate_transparency_go/vendor/github.com/google/certificate-transparency-go \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-containerregistry:v0.20.6:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
 		google:go-genproto:513f23925822:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api \
-		google:go-genproto:513f23925822:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc \
+		google:go-genproto:5f3141c8851a:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc \
 		google:go-genproto:f936aa4a68b2:google_go_genproto/vendor/google.golang.org/genproto \
 		google:s2a-go:v0.1.9:google_s2a_go/vendor/github.com/google/s2a-go \
 		google:shlex:e7afc7fbc510:google_shlex/vendor/github.com/google/shlex \
@@ -115,7 +115,7 @@ GH_TUPLE=	\
 		gorilla:css:v1.0.1:gorilla_css/vendor/github.com/gorilla/css \
 		gorilla:websocket:v1.5.3:gorilla_websocket/vendor/github.com/gorilla/websocket \
 		grpc-ecosystem:grpc-gateway:v2.27.0:grpc_ecosystem_grpc_gateway_v2/vendor/github.com/grpc-ecosystem/grpc-gateway/v2 \
-		grpc:grpc-go:v1.73.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+		grpc:grpc-go:v1.74.2:grpc_grpc_go/vendor/google.golang.org/grpc \
 		h2non:gock:v1.1.2:h2non_gock/vendor/gopkg.in/h2non/gock.v1 \
 		h2non:parth:b4df798d6542:h2non_parth/vendor/github.com/h2non/parth \
 		hashicorp:errwrap:v1.1.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
@@ -165,7 +165,7 @@ GH_TUPLE=	\
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
 		planetscale:vtprotobuf:0393e58bdf10:planetscale_vtprotobuf/vendor/github.com/planetscale/vtprotobuf \
 		pmezard:go-difflib:5d4384ee4fb2:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
-		protocolbuffers:protobuf-go:v1.36.6:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
+		protocolbuffers:protobuf-go:v1.36.7:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		rivo:tview:a4a78f1e05cb:rivo_tview/vendor/github.com/rivo/tview \
 		rivo:uniseg:v0.4.7:rivo_uniseg/vendor/github.com/rivo/uniseg \
 		rodaine:table:v1.3.0:rodaine_table/vendor/github.com/rodaine/table \
@@ -188,7 +188,7 @@ GH_TUPLE=	\
 		spf13:afero:v1.14.0:spf13_afero/vendor/github.com/spf13/afero \
 		spf13:cast:v1.9.2:spf13_cast/vendor/github.com/spf13/cast \
 		spf13:cobra:v1.9.1:spf13_cobra/vendor/github.com/spf13/cobra \
-		spf13:pflag:v1.0.6:spf13_pflag/vendor/github.com/spf13/pflag \
+		spf13:pflag:v1.0.7:spf13_pflag/vendor/github.com/spf13/pflag \
 		spf13:viper:v1.20.1:spf13_viper/vendor/github.com/spf13/viper \
 		spiffe:go-spiffe:v2.5.0:spiffe_go_spiffe_v2/vendor/github.com/spiffe/go-spiffe/v2 \
 		stretchr:objx:v0.5.2:stretchr_objx/vendor/github.com/stretchr/objx \
@@ -206,12 +206,12 @@ GH_TUPLE=	\
 		vbatts:tar-split:v0.12.1:vbatts_tar_split/vendor/github.com/vbatts/tar-split \
 		xo:terminfo:abceb7e1c41e:xo_terminfo/vendor/github.com/xo/terminfo \
 		yuin:goldmark-emoji:v1.0.6:yuin_goldmark_emoji/vendor/github.com/yuin/goldmark-emoji \
-		yuin:goldmark:v1.7.12:yuin_goldmark/vendor/github.com/yuin/goldmark \
+		yuin:goldmark:v1.7.13:yuin_goldmark/vendor/github.com/yuin/goldmark \
 		zalando:go-keyring:v0.2.6:zalando_go_keyring/vendor/github.com/zalando/go-keyring \
 		zeebo:errs:v1.4.0:zeebo_errs/vendor/github.com/zeebo/errs
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
 		#	::v0.2.8:group_name/vendor/cloud.google.com/go/auth/oauth2adapt (from cloud.google.com/go/auth/oauth2adapt@v0.2.8)
-		#	::v0.23.1:group_name/vendor/cel.dev/expr (from cel.dev/expr@v0.23.1)
+		#	::v0.24.0:group_name/vendor/cel.dev/expr (from cel.dev/expr@v0.24.0)
 		#	::v0.61.0:group_name/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc (from go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc@v0.61.0)
 		#	::v0.61.0:group_name/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp (from go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp@v0.61.0)
 		#	::v0.7.0:group_name/vendor/cloud.google.com/go/compute/metadata (from cloud.google.com/go/compute/metadata@v0.7.0)
