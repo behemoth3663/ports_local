@@ -113,7 +113,7 @@ GH_TUPLE=	\
 		golang-jwt:jwt:v5.2.2:golang_jwt_jwt_v5/vendor/github.com/golang-jwt/jwt/v5 \
 		golang:crypto:v0.41.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:b6e5de432a8b:golang_exp/vendor/golang.org/x/exp \
-		golang:mod:v0.26.0:golang_mod/vendor/golang.org/x/mod \
+		golang:mod:v0.27.0:golang_mod/vendor/golang.org/x/mod \
 		golang:net:v0.43.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.30.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf \
@@ -122,7 +122,7 @@ GH_TUPLE=	\
 		golang:term:v0.34.0:golang_term/vendor/golang.org/x/term \
 		golang:text:v0.28.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.12.0:golang_time/vendor/golang.org/x/time \
-		golang:tools:v0.35.0:golang_tools/vendor/golang.org/x/tools \
+		golang:tools:v0.36.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-genproto:5f3141c8851a:google_go_genproto/vendor/google.golang.org/genproto \
 		google:go-genproto:5f3141c8851a:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api \
