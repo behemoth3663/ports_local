@@ -1,5 +1,5 @@
 PORTNAME=	tparse
-PORTVERSION=	0.17.0
+PORTVERSION=	0.18.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local textproc
@@ -18,10 +18,10 @@ GH_ACCOUNT=	mfridman
 PLIST_FILES=	bin/${PORTNAME}
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
-	-X 'main.version=${DISTVERSIONPREFIX}${PORTVERSION}'"
+	-X 'main.version=${PORTVERSION}'"
 
-post-extract: .PHONY
-	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+#post-extract: .PHONY
+#	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
