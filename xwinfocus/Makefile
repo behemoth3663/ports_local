@@ -1,5 +1,5 @@
 PORTNAME=	xwinfocus
-DISTVERSION=	0.0.1
+DISTVERSION=	0.0.2
 CATEGORIES=	local
 
 MAINTAINER=	none@freebsd.org
@@ -18,7 +18,7 @@ USE_XORG=	x11 xcb xau xdmcp
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	omilevskyi
-GH_TAGNAME=	f890519
+GH_TAGNAME=	e90a7bf
 
 PLIST_FILES=	bin/${PORTNAME}
 
