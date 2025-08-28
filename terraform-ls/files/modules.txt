@@ -92,13 +92,13 @@ github.com/cloudflare/circl/math/mlsbset
 github.com/cloudflare/circl/sign
 github.com/cloudflare/circl/sign/ed25519
 github.com/cloudflare/circl/sign/ed448
-# github.com/creachadair/jrpc2 v1.3.1
-## explicit; go 1.23
+# github.com/creachadair/jrpc2 v1.3.2
+## explicit; go 1.24
 github.com/creachadair/jrpc2
 github.com/creachadair/jrpc2/channel
 github.com/creachadair/jrpc2/handler
 github.com/creachadair/jrpc2/server
-# github.com/creachadair/mds v0.23.0
+# github.com/creachadair/mds v0.25.1
 ## explicit; go 1.23
 github.com/creachadair/mds/queue
 github.com/creachadair/mds/slice
@@ -118,15 +118,19 @@ github.com/djherbis/nio/v3
 github.com/fatih/color
 # github.com/felixge/httpsnoop v1.0.4
 ## explicit; go 1.13
+github.com/felixge/httpsnoop
 # github.com/fsnotify/fsnotify v1.8.0
 ## explicit; go 1.17
 github.com/fsnotify/fsnotify
 github.com/fsnotify/fsnotify/internal
-# github.com/go-logr/logr v1.4.2
+# github.com/go-logr/logr v1.4.3
 ## explicit; go 1.18
+github.com/go-logr/logr
+github.com/go-logr/logr/funcr
 # github.com/go-logr/stdr v1.2.2
 ## explicit; go 1.16
-# github.com/go-viper/mapstructure/v2 v2.2.1
+github.com/go-logr/stdr
+# github.com/go-viper/mapstructure/v2 v2.3.0
 ## explicit; go 1.18
 github.com/go-viper/mapstructure/v2
 github.com/go-viper/mapstructure/v2/internal/errors
@@ -202,8 +206,8 @@ github.com/hashicorp/hcl-lang/reference
 github.com/hashicorp/hcl-lang/schema
 github.com/hashicorp/hcl-lang/schemacontext
 github.com/hashicorp/hcl-lang/validator
-# github.com/hashicorp/hcl/v2 v2.23.0
-## explicit; go 1.18
+# github.com/hashicorp/hcl/v2 v2.24.0
+## explicit; go 1.23.0
 github.com/hashicorp/hcl/v2
 github.com/hashicorp/hcl/v2/ext/customdecode
 github.com/hashicorp/hcl/v2/ext/typeexpr
@@ -216,16 +220,17 @@ github.com/hashicorp/hcl/v2/json
 ## explicit; go 1.23.0
 github.com/hashicorp/terraform-exec/internal/version
 github.com/hashicorp/terraform-exec/tfexec
-# github.com/hashicorp/terraform-json v0.25.0
-## explicit; go 1.18
+# github.com/hashicorp/terraform-json v0.26.0
+## explicit; go 1.21
 github.com/hashicorp/terraform-json
 # github.com/hashicorp/terraform-registry-address v0.3.0
 ## explicit; go 1.23.0
 github.com/hashicorp/terraform-registry-address
-# github.com/hashicorp/terraform-schema v0.0.0-20250616115602-34f2164294a0
+# github.com/hashicorp/terraform-schema v0.0.0-20250828062434-26de354af365
 ## explicit; go 1.23.0
 github.com/hashicorp/terraform-schema/backend
 github.com/hashicorp/terraform-schema/earlydecoder
+github.com/hashicorp/terraform-schema/earlydecoder/search
 github.com/hashicorp/terraform-schema/earlydecoder/stacks
 github.com/hashicorp/terraform-schema/earlydecoder/tests
 github.com/hashicorp/terraform-schema/internal/addr
@@ -244,6 +249,7 @@ github.com/hashicorp/terraform-schema/internal/schema/0.14
 github.com/hashicorp/terraform-schema/internal/schema/0.15
 github.com/hashicorp/terraform-schema/internal/schema/1.1
 github.com/hashicorp/terraform-schema/internal/schema/1.10
+github.com/hashicorp/terraform-schema/internal/schema/1.12
 github.com/hashicorp/terraform-schema/internal/schema/1.2
 github.com/hashicorp/terraform-schema/internal/schema/1.3
 github.com/hashicorp/terraform-schema/internal/schema/1.4
@@ -254,6 +260,7 @@ github.com/hashicorp/terraform-schema/internal/schema/1.8
 github.com/hashicorp/terraform-schema/internal/schema/1.9
 github.com/hashicorp/terraform-schema/internal/schema/backends
 github.com/hashicorp/terraform-schema/internal/schema/refscope
+github.com/hashicorp/terraform-schema/internal/schema/search/1.14
 github.com/hashicorp/terraform-schema/internal/schema/stacks/1.9
 github.com/hashicorp/terraform-schema/internal/schema/tests/1.6
 github.com/hashicorp/terraform-schema/internal/schema/tests/1.7
@@ -262,8 +269,10 @@ github.com/hashicorp/terraform-schema/internal/schema/tokmod
 github.com/hashicorp/terraform-schema/module
 github.com/hashicorp/terraform-schema/registry
 github.com/hashicorp/terraform-schema/schema
+github.com/hashicorp/terraform-schema/schema/search
 github.com/hashicorp/terraform-schema/schema/stacks
 github.com/hashicorp/terraform-schema/schema/tests
+github.com/hashicorp/terraform-schema/search
 github.com/hashicorp/terraform-schema/stack
 github.com/hashicorp/terraform-schema/test
 # github.com/hashicorp/terraform-svchost v0.1.1
@@ -433,20 +442,50 @@ go.bobheadxi.dev/streamline/pipeline
 go.bobheadxi.dev/streamline/streamexec
 # go.opentelemetry.io/auto/sdk v1.1.0
 ## explicit; go 1.22.0
-# go.opentelemetry.io/contrib/instrumentation/net/http/httptrace/otelhttptrace v0.61.0
+go.opentelemetry.io/auto/sdk
+go.opentelemetry.io/auto/sdk/internal/telemetry
+# go.opentelemetry.io/contrib/instrumentation/net/http/httptrace/otelhttptrace v0.62.0
 ## explicit; go 1.23.0
-# go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.61.0
+go.opentelemetry.io/contrib/instrumentation/net/http/httptrace/otelhttptrace
+go.opentelemetry.io/contrib/instrumentation/net/http/httptrace/otelhttptrace/internal/semconv
+go.opentelemetry.io/contrib/instrumentation/net/http/httptrace/otelhttptrace/internal/semconvutil
+# go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.62.0
 ## explicit; go 1.23.0
-# go.opentelemetry.io/otel v1.36.0
+go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp
+go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp/internal/request
+go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp/internal/semconv
+go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp/internal/semconvutil
+# go.opentelemetry.io/otel v1.37.0
 ## explicit; go 1.23.0
-# go.opentelemetry.io/otel/metric v1.36.0
+go.opentelemetry.io/otel
+go.opentelemetry.io/otel/attribute
+go.opentelemetry.io/otel/attribute/internal
+go.opentelemetry.io/otel/baggage
+go.opentelemetry.io/otel/codes
+go.opentelemetry.io/otel/internal/baggage
+go.opentelemetry.io/otel/internal/global
+go.opentelemetry.io/otel/propagation
+go.opentelemetry.io/otel/semconv/internal
+go.opentelemetry.io/otel/semconv/v1.20.0
+go.opentelemetry.io/otel/semconv/v1.26.0
+go.opentelemetry.io/otel/semconv/v1.34.0
+go.opentelemetry.io/otel/semconv/v1.34.0/httpconv
+go.opentelemetry.io/otel/semconv/v1.4.0
+# go.opentelemetry.io/otel/metric v1.37.0
 ## explicit; go 1.23.0
-# go.opentelemetry.io/otel/trace v1.36.0
+go.opentelemetry.io/otel/metric
+go.opentelemetry.io/otel/metric/embedded
+go.opentelemetry.io/otel/metric/noop
+# go.opentelemetry.io/otel/trace v1.37.0
 ## explicit; go 1.23.0
+go.opentelemetry.io/otel/trace
+go.opentelemetry.io/otel/trace/embedded
+go.opentelemetry.io/otel/trace/internal/telemetry
+go.opentelemetry.io/otel/trace/noop
 # go.uber.org/multierr v1.11.0
 ## explicit; go 1.19
 go.uber.org/multierr
-# golang.org/x/crypto v0.39.0
+# golang.org/x/crypto v0.40.0
 ## explicit; go 1.23.0
 golang.org/x/crypto/argon2
 golang.org/x/crypto/bcrypt
@@ -459,32 +498,32 @@ golang.org/x/crypto/hkdf
 golang.org/x/crypto/pbkdf2
 golang.org/x/crypto/scrypt
 golang.org/x/crypto/sha3
-# golang.org/x/mod v0.25.0
+# golang.org/x/mod v0.26.0
 ## explicit; go 1.23.0
 golang.org/x/mod/internal/lazyregexp
 golang.org/x/mod/modfile
 golang.org/x/mod/module
 golang.org/x/mod/semver
 golang.org/x/mod/sumdb/dirhash
-# golang.org/x/net v0.41.0
+# golang.org/x/net v0.42.0
 ## explicit; go 1.23.0
 golang.org/x/net/idna
 golang.org/x/net/webdav
 golang.org/x/net/webdav/internal/xml
-# golang.org/x/sync v0.15.0
+# golang.org/x/sync v0.16.0
 ## explicit; go 1.23.0
 golang.org/x/sync/errgroup
 golang.org/x/sync/semaphore
-# golang.org/x/sys v0.33.0
+# golang.org/x/sys v0.34.0
 ## explicit; go 1.23.0
 golang.org/x/sys/cpu
 golang.org/x/sys/plan9
 golang.org/x/sys/unix
 golang.org/x/sys/windows
-# golang.org/x/term v0.32.0
+# golang.org/x/term v0.33.0
 ## explicit; go 1.23.0
 golang.org/x/term
-# golang.org/x/text v0.26.0
+# golang.org/x/text v0.27.0
 ## explicit; go 1.23.0
 golang.org/x/text/encoding
 golang.org/x/text/encoding/internal
@@ -496,7 +535,7 @@ golang.org/x/text/secure/bidirule
 golang.org/x/text/transform
 golang.org/x/text/unicode/bidi
 golang.org/x/text/unicode/norm
-# golang.org/x/tools v0.34.0
+# golang.org/x/tools v0.35.0
 ## explicit; go 1.23.0
 golang.org/x/tools/cmd/stringer
 golang.org/x/tools/go/ast/astutil
