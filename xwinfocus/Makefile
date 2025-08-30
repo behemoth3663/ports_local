@@ -1,5 +1,5 @@
 PORTNAME=	xwinfocus
-DISTVERSION=	0.0.2
+DISTVERSION=	0.0.3
 CATEGORIES=	local
 
 MAINTAINER=	none@freebsd.org
@@ -8,7 +8,7 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	BSD3CLAUSE
 
-USES=		xorg
+USES=		xorg llvm:21,build
 USE_XORG=	x11 xcb xau xdmcp
 
 #BUILD_DEPENDS=	${LOCALBASE}/lib/libX11.a:x11/libX11 \
@@ -18,7 +18,9 @@ USE_XORG=	x11 xcb xau xdmcp
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	omilevskyi
-GH_TAGNAME=	e90a7bf
+GH_TAGNAME=	beb3735
+
+CFLAGS+=	-DVERSION='\"${DISTVERSION}\"' -DCOMMIT_HASH='\"${GH_TAGNAME}\"'
 
 PLIST_FILES=	bin/${PORTNAME}
 
