@@ -1,7 +1,7 @@
 # Created by: Gabriel M. Dutra <0xdutra@gmail.com>
 
 PORTNAME=	tflint
-PORTVERSION=	0.58.1
+PORTVERSION=	0.59.1
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -31,8 +31,15 @@ post-extract: .PHONY
 	@${RM} ${WRKSRC}/vendor/github.com/envoyproxy/go-control-plane/envoy/config/trace/v3/opencensus.pb.validate.go
 	@${RM} ${WRKSRC}/vendor/github.com/envoyproxy/go-control-plane/envoy/config/trace/v3/trace.pb.go
 	@${RM} ${WRKSRC}/vendor/cloud.google.com/go/storage/trace.go
-	@${RM} -r ${WRKSRC}/vendor/google.golang.org/grpc/stats/opentelemetry
+	@${RM} ${WRKSRC}/vendor/github.com/transparency-dev/tessera/client/otel.go
+	@${RM} ${WRKSRC}/vendor/github.com/transparency-dev/tessera/internal/stream/otel.go
+	@${RM} ${WRKSRC}/vendor/github.com/transparency-dev/tessera/otel.go
+	@${RM} ${WRKSRC}/vendor/github.com/transparency-dev/tessera/storage/internal/otel.go
+	@${RM} ${WRKSRC}/vendor/github.com/transparency-dev/tessera/storage/gcp/otel.go
+	@${RM} ${WRKSRC}/vendor/github.com/transparency-dev/tessera/storage/gcp/antispam/otel.go
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/auth
+	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/internal/trace
+	@${RM} -r ${WRKSRC}/vendor/google.golang.org/grpc/stats/opentelemetry
 	@test ! -d ${WRKSRC}/vendor/cloud.google.com/go || ${RLN} ${WRKSRC_googleapis_google_cloud_go_auth}/auth ${WRKSRC}/vendor/cloud.google.com/go
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
 	@test ! -d ${WRKSRC}/vendor/cloud.google.com/go/compute || ${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute
@@ -66,11 +73,15 @@ make-from-deps: .PHONY
 #-census-instrumentation:opencensus-go:v0.24.0:census_instrumentation_opencensus_go/vendor/go.opencensus.io
 #-open-telemetry:opentelemetry-go-contrib:v0.54.0:open_telemetry_opentelemetry_go_contrib_1/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc
 #-opentracing:opentracing-go:v1.2.0:opentracing_opentracing_go/vendor/github.com/opentracing/opentracing-go
-GH_TUPLE:=	${GH_TUPLE:NGoogleCloudPlatform\:*}
+GH_TUPLE:=	${GH_TUPLE:NGoogleCloudPlatform\:opentelemetry-operations-go\:*}
 GH_TUPLE:=	${GH_TUPLE:Ncensus-instrumentation\:*}
 GH_TUPLE:=	${GH_TUPLE:Nopen-telemetry\:*}
 GH_TUPLE:=	${GH_TUPLE:Nopentracing\:*}
 GH_TUPLE:=	${GH_TUPLE:Ngolang\:telemetry\:*}
+
+#-GoogleCloudPlatform:grpc-gcp-go:v1.5.3:googlecloudplatform_grpc_gcp_go_grpcgcp/vendor/github.com/GoogleCloudPlatform/grpc-gcp-go/grpcgcp
+#+GoogleCloudPlatform:grpc-gcp-go:grpcgcp/v1.5.3:googlecloudplatform_grpc_gcp_go_grpcgcp/vendor/github.com/GoogleCloudPlatform/grpc-gcp-go
+GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+.*/GoogleCloudPlatform/grpc-gcp-go)/(grpcgcp)$|\1\3/\2|}
 
 #-cncf:xds:b4127c9b8d78:cncf_xds_go/vendor/github.com/cncf/xds/go
 #+cncf:xds:b4127c9b8d78:cncf_xds_go/vendor/github.com/cncf/xds
