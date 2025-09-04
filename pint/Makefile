@@ -1,5 +1,5 @@
 PORTNAME=	pint
-PORTVERSION=	0.74.6
+PORTVERSION=	0.74.8
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -21,13 +21,13 @@ USE_GITLAB=	nodefault
 PLIST_FILES=	bin/${PORTNAME}
 
 GIT_COMMIT=	git ls-remote \
-		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
+		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
 		${SED} -rn 's/(.{7}).*/\1/p'
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X 'main.version=${PORTVERSION}' \
-	-X 'main.commit=$$(${GIT_COMMIT})'"
+	-X 'main.commit=${GIT_COMMIT:sh}'"
 
 pre-deps: .PHONY
 	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_

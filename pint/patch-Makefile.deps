@@ -1,4 +1,4 @@
---- Makefile.deps.orig	2025-08-13 19:50:13 UTC
+--- Makefile.deps.orig	2025-09-04 10:26:24 UTC
 +++ Makefile.deps
 @@ -49,7 +49,7 @@ GH_TUPLE=	\
  		nhatthm:go-matcher:v2.0.0:nhatthm_go_matcher/vendor/go.nhat.io/matcher/v2 \
@@ -8,13 +8,13 @@
 +		open-telemetry:opentelemetry-go-instrumentation:sdk/v1.1.0:open_telemetry_opentelemetry_go_instrumentation/vendor/go.opentelemetry.io/auto \
  		open-telemetry:opentelemetry-go:v1.35.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
  		pmezard:go-difflib:5d4384ee4fb2:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
- 		prometheus:client_golang:v1.22.0:prometheus_client_golang/vendor/github.com/prometheus/client_golang \
+ 		prometheus:client_golang:v1.23.0:prometheus_client_golang/vendor/github.com/prometheus/client_golang \
 @@ -76,3 +76,10 @@ GH_TUPLE=	\
- 		zclconf:go-cty:v1.16.3:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+ 		zclconf:go-cty:v1.16.4:zclconf_go_cty/vendor/github.com/zclconf/go-cty
  		# Errors found during processing:
- 		#	error getting commit v0.137.0 for gitlab-org/api: not found
+ 		#	error getting commit v0.142.5 for gitlab-org/api: not found
 +GL_TUPLE=	\
-+		gitlab-org-api:client-go:v0.137.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
++		gitlab-org-api:client-go:v0.142.5:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
 +
 +post-extract: .PHONY
 +	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
