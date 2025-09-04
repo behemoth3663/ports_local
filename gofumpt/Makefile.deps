@@ -1,10 +1,10 @@
 GH_TUPLE=	\
 		go-quicktest:qt:v1.101.0:go_quicktest_qt/vendor/github.com/go-quicktest/qt \
-		golang:mod:v0.24.0:golang_mod/vendor/golang.org/x/mod \
-		golang:sync:v0.13.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.32.0:golang_sys/vendor/golang.org/x/sys \
-		golang:tools:v0.32.0:golang_tools/vendor/golang.org/x/tools \
-		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
+		golang:mod:v0.27.0:golang_mod/vendor/golang.org/x/mod \
+		golang:sync:v0.16.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.35.0:golang_sys/vendor/golang.org/x/sys \
+		golang:tools:v0.36.0:golang_tools/vendor/golang.org/x/tools \
+		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		kr:pretty:v0.3.1:kr_pretty/vendor/github.com/kr/pretty \
 		kr:text:v0.2.0:kr_text/vendor/github.com/kr/text \
 		rogpeppe:go-internal:v1.14.1:rogpeppe_go_internal/vendor/github.com/rogpeppe/go-internal
