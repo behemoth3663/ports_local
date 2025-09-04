@@ -1,5 +1,5 @@
 PORTNAME=	aws-iam-authenticator
-PORTVERSION=	0.7.5
+PORTVERSION=	0.7.6
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local security
@@ -20,14 +20,14 @@ GH_ACCOUNT=	kubernetes-sigs
 GO_TARGET=	./cmd/${PORTNAME}
 
 GIT_COMMIT=	git ls-remote \
-		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
+		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
 		${SED} -rn 's/(.{7}).*/\1/p'
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X 'sigs.k8s.io/${PORTNAME}/pkg.Version=${PORTVERSION}' \
 	-X 'sigs.k8s.io/${PORTNAME}/pkg.BuildDate=${%FT%TZ:L:gmtime}' \
-	-X 'sigs.k8s.io/${PORTNAME}/pkg.CommitID=$$(${GIT_COMMIT})'"
+	-X 'sigs.k8s.io/${PORTNAME}/pkg.CommitID=${GIT_COMMIT:sh}'"
 
 PLIST_FILES=	bin/${PORTNAME}
 
@@ -38,7 +38,8 @@ post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 	@test ! -d ${WRKSRC}/vendor/github.com || ${LN} -s ${WRKSRC}/src/github.com/${GH_ACCOUNT} ${WRKSRC}/vendor/github.com
 	@${MKDIR} ${WRKSRC}/vendor/go.yaml.in/yaml
-	@${RLN} ${WRKSRC}/vendor/gopkg.in/yaml.v2 ${WRKSRC}/vendor/go.yaml.in/yaml/v2
+	@test ! -e ${WRKSRC}/vendor/gopkg.in/yaml.v2 || ${RLN} ${WRKSRC}/vendor/gopkg.in/yaml.v2 ${WRKSRC}/vendor/go.yaml.in/yaml/v2
+	@test ! -e ${WRKSRC}/vendor/gopkg.in/yaml.v3 || ${RLN} ${WRKSRC}/vendor/gopkg.in/yaml.v3 ${WRKSRC}/vendor/go.yaml.in/yaml/v3
 
 pre-deps: .PHONY
 	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
@@ -48,7 +49,7 @@ pre-deps-all: .PHONY
 	${RM} ${.CURDIR}/generated.deps.mk
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes GHT_PROJ=klog GHT_PATH=k8s.io/klog/v2 )
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes-sigs GHT_PROJ=json GHT_PATH=sigs.k8s.io/json )
-	( make -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes-sigs GHT_PROJ=structured-merge-diff GHT_PATH=sigs.k8s.io/structured-merge-diff/v4 )
+	( make -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes-sigs GHT_PROJ=structured-merge-diff GHT_PATH=sigs.k8s.io/structured-merge-diff/v6 )
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes-sigs GHT_PROJ=randfill GHT_PATH=sigs.k8s.io/randfill )
 
 make-from-deps: .PHONY
