@@ -1,6 +1,6 @@
 PORTNAME=	dns-q
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.19.5
+DISTVERSION=	0.19.8
 CATEGORIES=	local dns
 
 MAINTAINER=	none@freebsd.org
@@ -26,7 +26,7 @@ GIT_COMMIT=	git ls-remote \
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X 'main.version=${PORTVERSION}' \
-	-X 'main.commit=$$(${GIT_COMMIT})' \
+	-X 'main.commit=${GIT_COMMIT:sh}' \
 	-X 'main.date=${%FT%TZ:L:gmtime}'"
 
 post-extract: .PHONY
