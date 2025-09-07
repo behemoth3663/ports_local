@@ -1,5 +1,5 @@
 PORTNAME=	xwinfocus
-PORTVERSION=	0.0.4
+PORTVERSION=	0.0.2
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local
 
@@ -20,9 +20,10 @@ GH_ACCOUNT=	omilevskyi
 # GH_PROJECT below is not expanded, so PORTNAME is used instead
 GIT_COMMIT=	git ls-remote \
 		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
-		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
+		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
+		${SED} -rn 's/(.{7}).*/\1/p'
 
-CFLAGS+=	-DVERSION='\"${DISTVERSION}\"' -DCOMMIT_HASH='\"${GIT_COMMIT:sh:C/(.{7}).*/\1/W}\"'
+CFLAGS+=	-DVERSION='\"${PORTVERSION}\"' -DCOMMIT_HASH='\"${GIT_COMMIT:sh}\"'
 
 PLIST_FILES=	bin/${PORTNAME} \
 		share/man/man1/${PORTNAME}.1.gz

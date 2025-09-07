@@ -1,1 +1,5 @@
-Activate or list X11 windows, or run fallback command
+Lightweight X11 utility to focus an existing window by its name and/or class,
+or launch a fallback command if the window is not found. Optionally, it can
+wait for a specified time and then activate a window. It also supports
+toggling back to the previously active window. It can list all client
+windows.
