@@ -539,7 +539,7 @@ github.com/hashicorp/hcp-sdk-go/config/files
 github.com/hashicorp/hcp-sdk-go/httpclient
 github.com/hashicorp/hcp-sdk-go/profile
 github.com/hashicorp/hcp-sdk-go/version
-# github.com/hashicorp/packer-plugin-sdk v0.6.2
+# github.com/hashicorp/packer-plugin-sdk v0.6.3
 ## explicit; go 1.23.0
 github.com/hashicorp/packer-plugin-sdk/acctest
 github.com/hashicorp/packer-plugin-sdk/acctest/provisioneracc
@@ -782,7 +782,7 @@ github.com/tklauser/numcpus
 # github.com/ugorji/go/codec v1.2.6
 ## explicit; go 1.11
 github.com/ugorji/go/codec
-# github.com/ulikunitz/xz v0.5.10
+# github.com/ulikunitz/xz v0.5.15
 ## explicit; go 1.12
 github.com/ulikunitz/xz
 github.com/ulikunitz/xz/internal/hash
