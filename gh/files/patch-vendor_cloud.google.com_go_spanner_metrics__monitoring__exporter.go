@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/spanner/metrics_monitoring_exporter.go.orig	2025-05-13 20:48:25 UTC
+--- vendor/cloud.google.com/go/spanner/metrics_monitoring_exporter.go.orig	2025-07-17 21:08:43 UTC
 +++ vendor/cloud.google.com/go/spanner/metrics_monitoring_exporter.go
 @@ -22,26 +22,11 @@ import (
  	"context"
@@ -27,7 +27,7 @@
  	"google.golang.org/protobuf/types/known/timestamppb"
  )
  
-@@ -92,26 +77,11 @@ type monitoringExporter struct {
+@@ -92,7 +77,6 @@ type monitoringExporter struct {
  type monitoringExporter struct {
  	projectID        string
  	compression      string
@@ -35,6 +35,8 @@
  	shutdown         chan struct{}
  	client           *monitoring.MetricClient
  	shutdownOnce     sync.Once
+@@ -102,21 +86,6 @@ type monitoringExporter struct {
+ 	lastExportedAt time.Time
  }
  
 -func newMonitoringExporter(ctx context.Context, project, compression string, clientAttributes []attribute.KeyValue, opts ...option.ClientOption) (*monitoringExporter, error) {
@@ -46,15 +48,16 @@
 -		projectID:        project,
 -		compression:      compression,
 -		clientAttributes: clientAttributes,
+-		lastExportedAt:   time.Now().Add(-time.Minute),
 -		client:           client,
 -		shutdown:         make(chan struct{}),
 -	}, nil
 -}
 -
- // ForceFlush does nothing, the exporter holds no state.
- func (e *monitoringExporter) ForceFlush(ctx context.Context) error { return ctx.Err() }
- 
-@@ -125,201 +95,6 @@ func (e *monitoringExporter) Shutdown(ctx context.Cont
+ func (me *monitoringExporter) stop() {
+ 	// stop the exporter if last export happens within half-time of default sample period
+ 	me.mu.Lock()
+@@ -139,210 +108,6 @@ func (e *monitoringExporter) Shutdown(ctx context.Cont
  	return err
  }
  
@@ -66,6 +69,12 @@
 -	default:
 -	}
 -
+-	me.mu.Lock()
+-	if me.stopExport {
+-		me.mu.Unlock()
+-		return nil
+-	}
+-	me.mu.Unlock()
 -	return me.exportTimeSeries(ctx, rm)
 -}
 -
@@ -111,6 +120,9 @@
 -		errs = append(errs, err)
 -	}
 -
+-	me.mu.Lock()
+-	me.lastExportedAt = time.Now()
+-	me.mu.Unlock()
 -	return errors.Join(errs...)
 -}
 -
@@ -256,7 +268,7 @@
  func toNonemptyTimeIntervalpb(start, end time.Time) (*monitoringpb.TimeInterval, error) {
  	// The end time of a new interval must be at least a millisecond after the end time of the
  	// previous interval, for all non-gauge types.
-@@ -341,46 +116,4 @@ func toNonemptyTimeIntervalpb(start, end time.Time) (*
+@@ -364,46 +129,4 @@ func toNonemptyTimeIntervalpb(start, end time.Time) (*
  		StartTime: startpb,
  		EndTime:   endpb,
  	}, nil

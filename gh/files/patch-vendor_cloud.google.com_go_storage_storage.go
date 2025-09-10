@@ -1,8 +1,8 @@
---- vendor/cloud.google.com/go/storage/storage.go.orig	2025-05-13 20:48:25 UTC
+--- vendor/cloud.google.com/go/storage/storage.go.orig	2025-07-17 21:08:43 UTC
 +++ vendor/cloud.google.com/go/storage/storage.go
-@@ -39,13 +39,9 @@ import (
- 	"unicode/utf8"
+@@ -40,21 +40,15 @@ import (
  
+ 	"cloud.google.com/go/auth"
  	"cloud.google.com/go/internal/optional"
 -	"cloud.google.com/go/internal/trace"
  	"cloud.google.com/go/storage/internal"
@@ -11,11 +11,10 @@
 -	"go.opentelemetry.io/otel/attribute"
 -	"go.opentelemetry.io/otel/sdk/metric"
 -	"go.opentelemetry.io/otel/sdk/metric/metricdata"
- 	"golang.org/x/oauth2/google"
  	"google.golang.org/api/googleapi"
  	"google.golang.org/api/option"
-@@ -54,8 +50,6 @@ import (
- 	"google.golang.org/api/transport"
+ 	"google.golang.org/api/option/internaloption"
+ 	raw "google.golang.org/api/storage/v1"
  	htransport "google.golang.org/api/transport/http"
  	"google.golang.org/grpc/codes"
 -	"google.golang.org/grpc/experimental/stats"
@@ -23,7 +22,7 @@
  	"google.golang.org/grpc/status"
  	"google.golang.org/protobuf/proto"
  	"google.golang.org/protobuf/reflect/protoreflect"
-@@ -257,23 +251,7 @@ func CheckDirectConnectivitySupported(ctx context.Cont
+@@ -266,23 +260,7 @@ func CheckDirectConnectivitySupported(ctx context.Cont
  //
  // You can pass in [option.ClientOption] you plan on passing to [NewGRPCClient]
  func CheckDirectConnectivitySupported(ctx context.Context, bucket string, opts ...option.ClientOption) error {
@@ -48,7 +47,7 @@
  	client, err := NewGRPCClient(ctx, combinedOpts...)
  	if err != nil {
  		return fmt.Errorf("storage.NewGRPCClient: %w", err)
-@@ -282,25 +260,7 @@ func CheckDirectConnectivitySupported(ctx context.Cont
+@@ -291,25 +269,7 @@ func CheckDirectConnectivitySupported(ctx context.Cont
  	if _, err = client.Bucket(bucket).Attrs(ctx); err != nil {
  		return fmt.Errorf("Bucket.Attrs: %w", err)
  	}
@@ -75,7 +74,7 @@
  }
  
  // Close closes the Client.
-@@ -1028,9 +988,6 @@ func (o *ObjectHandle) Attrs(ctx context.Context) (att
+@@ -1037,9 +997,6 @@ func (o *ObjectHandle) Attrs(ctx context.Context) (att
  // Attrs returns meta information about the object.
  // ErrObjectNotExist will be returned if the object is not found.
  func (o *ObjectHandle) Attrs(ctx context.Context) (attrs *ObjectAttrs, err error) {
@@ -85,7 +84,7 @@
  	if err := o.validate(); err != nil {
  		return nil, err
  	}
-@@ -1042,9 +999,6 @@ func (o *ObjectHandle) Update(ctx context.Context, uat
+@@ -1051,9 +1008,6 @@ func (o *ObjectHandle) Update(ctx context.Context, uat
  // ObjectAttrsToUpdate docs for details on treatment of zero values.
  // ErrObjectNotExist will be returned if the object is not found.
  func (o *ObjectHandle) Update(ctx context.Context, uattrs ObjectAttrsToUpdate) (oa *ObjectAttrs, err error) {
@@ -95,7 +94,7 @@
  	if err := o.validate(); err != nil {
  		return nil, err
  	}
-@@ -1113,8 +1067,6 @@ func (o *ObjectHandle) Delete(ctx context.Context) (er
+@@ -1122,8 +1076,6 @@ func (o *ObjectHandle) Delete(ctx context.Context) (er
  
  // Delete deletes the single specified object.
  func (o *ObjectHandle) Delete(ctx context.Context) (err error) {
@@ -104,7 +103,7 @@
  	if err := o.validate(); err != nil {
  		return err
  	}
-@@ -1238,7 +1190,6 @@ func (o *ObjectHandle) NewWriter(ctx context.Context) 
+@@ -1247,7 +1199,6 @@ func (o *ObjectHandle) NewWriter(ctx context.Context) 
  // It is the caller's responsibility to call Close when writing is done. To
  // stop writing without saving the data, cancel the context.
  func (o *ObjectHandle) NewWriter(ctx context.Context) *Writer {
@@ -112,7 +111,7 @@
  	return &Writer{
  		ctx:         ctx,
  		o:           o,
-@@ -1274,7 +1225,6 @@ func (o *ObjectHandle) NewWriterFromAppendableObject(c
+@@ -1283,7 +1234,6 @@ func (o *ObjectHandle) NewWriterFromAppendableObject(c
  // objects which were created append semantics and not finalized.
  // This feature is in preview and is not yet available for general use.
  func (o *ObjectHandle) NewWriterFromAppendableObject(ctx context.Context, opts *AppendableWriterOpts) (*Writer, int64, error) {

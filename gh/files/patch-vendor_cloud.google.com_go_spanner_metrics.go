@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/spanner/metrics.go.orig	2025-05-13 20:48:25 UTC
+--- vendor/cloud.google.com/go/spanner/metrics.go.orig	2025-07-17 21:08:43 UTC
 +++ vendor/cloud.google.com/go/spanner/metrics.go
 @@ -18,27 +18,15 @@ import (
  
@@ -93,7 +93,7 @@
 -	var meterProvider *sdkmetric.MeterProvider
 -	if metricsProvider == nil {
 -		// Create default meter provider
--		mpOptions, err := builtInMeterProviderOptions(project, compression, tracerFactory.clientAttributes, opts...)
+-		mpOptions, exporter, err := builtInMeterProviderOptions(project, compression, tracerFactory.clientAttributes, opts...)
 -		if err != nil {
 -			return tracerFactory, err
 -		}
@@ -118,7 +118,7 @@
 -		}
 -		tracerFactory.enabled = true
 -		tracerFactory.shutdown = func(ctx context.Context) {
--			meterProvider.ForceFlush(ctx)
+-			exporter.stop()
 -			meterProvider.Shutdown(ctx)
 -		}
 -	} else {
@@ -136,11 +136,11 @@
 -	return tracerFactory, err
 -}
 -
--func builtInMeterProviderOptions(project, compression string, clientAttributes []attribute.KeyValue, opts ...option.ClientOption) ([]sdkmetric.Option, error) {
+-func builtInMeterProviderOptions(project, compression string, clientAttributes []attribute.KeyValue, opts ...option.ClientOption) ([]sdkmetric.Option, *monitoringExporter, error) {
 -	allOpts := createExporterOptions(opts...)
 -	defaultExporter, err := newMonitoringExporter(context.Background(), project, compression, clientAttributes, allOpts...)
 -	if err != nil {
--		return nil, err
+-		return nil, nil, err
 -	}
 -	var views []sdkmetric.View
 -	for _, m := range grpcMetricsToEnable {
@@ -164,7 +164,7 @@
 -			defaultExporter,
 -			sdkmetric.WithInterval(defaultSamplePeriod),
 -		),
--	), sdkmetric.WithView(views...)}, nil
+-	), sdkmetric.WithView(views...)}, defaultExporter, nil
 -}
 -
 -func (tf *builtinMetricsTracerFactory) createInstruments(meter metric.Meter) error {
