@@ -1,6 +1,6 @@
 PORTNAME=	tools
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.36.0
+DISTVERSION=	0.37.0
 #PORTREVISION=	1
 PORTEPOCH=	1
 CATEGORIES=	local devel
@@ -36,7 +36,6 @@ GO_TARGET=	\
 	./cmd/fiximports \
 	./cmd/go-contrib-init \
 	./cmd/godex \
-	./cmd/godoc \
 	./cmd/goimports \
 	./cmd/gomvpkg \
 	./cmd/gonew \
@@ -74,8 +73,6 @@ post-deps-all: .PHONY
 
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
-#	added in 0.33.0
-	@${RM} ${WRKSRC}/cmd/auth/go.mod
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
