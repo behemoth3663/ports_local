@@ -252,7 +252,7 @@ GH_TUPLE=	\
 		tidwall:pretty:v1.2.1:tidwall_pretty/vendor/github.com/tidwall/pretty \
 		tidwall:sjson:v1.2.5:tidwall_sjson/vendor/github.com/tidwall/sjson \
 		uber-go:mock:v0.6.0:uber_go_mock/vendor/go.uber.org/mock \
-		ulikunitz:xz:v0.5.12:ulikunitz_xz/vendor/github.com/ulikunitz/xz \
+		ulikunitz:xz:v0.5.15:ulikunitz_xz/vendor/github.com/ulikunitz/xz \
 		urfave:cli:v1.22.16:urfave_cli/vendor/github.com/urfave/cli \
 		urfave:cli:v2.27.7:urfave_cli_v2/vendor/github.com/urfave/cli/v2 \
 		valyala:bytebufferpool:v1.0.0:valyala_bytebufferpool/vendor/github.com/valyala/bytebufferpool \
