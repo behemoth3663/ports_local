@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/storage/grpc_client.go.orig	2025-05-21 15:38:31 UTC
+--- vendor/cloud.google.com/go/storage/grpc_client.go.orig	2025-09-04 15:58:59 UTC
 +++ vendor/cloud.google.com/go/storage/grpc_client.go
 @@ -21,19 +21,16 @@ import (
  	"fmt"
@@ -20,7 +20,7 @@
  	"google.golang.org/grpc"
  	"google.golang.org/grpc/codes"
  	"google.golang.org/grpc/encoding"
-@@ -112,24 +109,6 @@ type grpcStorageClient struct {
+@@ -117,26 +114,6 @@ type grpcStorageClient struct {
  	config   *storageConfig
  }
  
@@ -32,9 +32,11 @@
 -		project = c.ProjectID
 -	}
 -	metricsContext, err := newGRPCMetricContext(ctx, metricsConfig{
--		project:      project,
--		interval:     config.metricInterval,
--		manualReader: config.manualReader},
+-		project:       project,
+-		interval:      config.metricInterval,
+-		manualReader:  config.manualReader,
+-		meterProvider: config.meterProvider,
+-	},
 -	)
 -	if err != nil {
 -		return nil, fmt.Errorf("gRPC Metrics: %w", err)
@@ -45,7 +47,7 @@
  // newGRPCStorageClient initializes a new storageClient that uses the gRPC
  // Storage API.
  func newGRPCStorageClient(ctx context.Context, opts ...storageOption) (*grpcStorageClient, error) {
-@@ -143,15 +122,6 @@ func newGRPCStorageClient(ctx context.Context, opts ..
+@@ -150,15 +127,6 @@ func newGRPCStorageClient(ctx context.Context, opts ..
  		return nil, errors.New("storage: GRPC is incompatible with any option that specifies an API for reads")
  	}
  
@@ -61,7 +63,7 @@
  	g, err := gapic.NewClient(ctx, s.clientOption...)
  	if err != nil {
  		return nil, err
-@@ -165,9 +135,6 @@ func (c *grpcStorageClient) Close() error {
+@@ -172,9 +140,6 @@ func (c *grpcStorageClient) Close() error {
  }
  
  func (c *grpcStorageClient) Close() error {
@@ -71,7 +73,7 @@
  	return c.raw.Close()
  }
  
-@@ -453,8 +420,6 @@ func (c *grpcStorageClient) ListObjects(ctx context.Co
+@@ -460,8 +425,6 @@ func (c *grpcStorageClient) ListObjects(ctx context.Co
  	}
  	fetch := func(pageSize int, pageToken string) (token string, err error) {
  		// Add trace span around List API call within the fetch.
@@ -80,16 +82,16 @@
  		var objects []*storagepb.Object
  		var gitr *gapic.ObjectIterator
  		err = run(it.ctx, func(ctx context.Context) error {
-@@ -1062,8 +1027,6 @@ func (c *grpcStorageClient) NewMultiRangeDownloader(ct
+@@ -1069,8 +1032,6 @@ func (c *grpcStorageClient) NewMultiRangeDownloader(ct
  		return nil, errors.New("storage: MultiRangeDownloader requires the experimental.WithGRPCBidiReads option")
  	}
  
 -	ctx = trace.StartSpan(ctx, "cloud.google.com/go/storage.grpcStorageClient.NewMultiRangeDownloader")
 -	defer func() { trace.EndSpan(ctx, err) }()
  	s := callSettings(c.settings, opts...)
- 
- 	if s.userProject != "" {
-@@ -1536,9 +1499,6 @@ func (c *grpcStorageClient) NewRangeReader(ctx context
+ 	// Force the use of the custom codec to enable zero-copy reads.
+ 	s.gax = append(s.gax, gax.WithGRPCOptions(
+@@ -1613,9 +1574,6 @@ func (c *grpcStorageClient) NewRangeReader(ctx context
  	if !c.config.grpcBidiReads {
  		return c.NewRangeReaderReadObject(ctx, params, opts...)
  	}
