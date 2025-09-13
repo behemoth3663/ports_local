@@ -19,7 +19,7 @@ EXTRA_PATCHES+=	${FILESDIR}/extra-patch-src_diffviewer_ydiff.c
 RUN_DEPENDS+=	gdiff:textproc/diffutils
 .endif
 
-USES=		gmake gnome libtool perl5 pkgconfig python shebangfix tar:xz
+USES=		gmake gnome libtool perl5 pkgconfig python shebangfix tar:xz llvm:21,build
 SHEBANG_FILES=	${WRKSRC}/src/vfs/extfs/helpers/s3+.in \
 		${WRKSRC}/src/vfs/extfs/helpers/uc1541.in
 python_OLD_CMD=	@PYTHON@
@@ -82,6 +82,31 @@ GH_ACCOUNT?=	MidnightCommander
 GH_PROJECT?=	mc
 
 JQ_GETVER_EXPR=	[.[].name | select(test("^[-0-9.]+$$"; "n"))][0]
+
+CFLAGS:=	-Oz ${CFLAGS:N-O*}
+
+CFLAGS+=	-fomit-frame-pointer -fno-unwind-tables -fno-asynchronous-unwind-tables
+
+CFLAGS+=	-flto=full
+LDFLAGS+=	-Wl,--lto-O2
+
+CFLAGS+=	-faddrsig
+LDFLAGS+=	-Wl,--icf=all
+#LDFLAGS+=	-Wl,--print-icf-sections
+
+CFLAGS+=	-ffunction-sections
+CFLAGS+=	-fdata-sections
+LDFLAGS+=	-Wl,--gc-sections
+
+LDFLAGS+=	-Wl,--hash-style=gnu
+#LDFLAGS+=	-fuse-ld=lld
+
+#no compile LDFLAGS+=	-Wl,--pack-dyn-relocs=relr
+
+#no effect
+LDFLAGS+=	-Wl,--as-needed
+LDFLAGS+=	-Wl,--build-id=none
+LDFLAGS+=	-Wl,--sort-common
 
 post-patch:
 	@${REINPLACE_CMD} -e 's|clang\*)|*)|' ${WRKSRC}/configure
