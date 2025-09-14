@@ -34,10 +34,11 @@ NLS_USES_OFF=		gettext-tools
 USE_GITHUB=	yes
 GH_ACCOUNT=	lxde
 
+CFLAGS:=        -O3 ${CFLAGS:N-O*}
 CFLAGS+=	-fomit-frame-pointer -fno-unwind-tables -fno-asynchronous-unwind-tables
 
 CFLAGS+=	-flto=full
-LDFLAGS+=	-Wl,--lto-O2
+LDFLAGS+=	-Wl,--lto-O3
 
 CFLAGS+=	-faddrsig
 LDFLAGS+=	-Wl,--icf=all
