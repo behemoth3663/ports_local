@@ -1,5 +1,5 @@
 PORTNAME=	xwinfocus
-PORTVERSION=	0.0.3
+PORTVERSION=	0.0.4
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local
 
@@ -20,13 +20,19 @@ GH_ACCOUNT=	omilevskyi
 # GH_PROJECT below is not expanded, so PORTNAME is used instead
 GIT_COMMIT=	git ls-remote \
 		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
-		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
-		${SED} -rn 's/(.{7}).*/\1/p'
+		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
 
-CFLAGS+=	-DVERSION='\"${PORTVERSION}\"' -DCOMMIT_HASH='\"${GIT_COMMIT:sh}\"'
+CFLAGS+=	-DVERSION='\"${PORTVERSION}\"' -DCOMMIT_HASH='\"${GIT_COMMIT:sh:C/(.{7}).*/\\1/W}\"'
 
 PLIST_FILES=	bin/${PORTNAME} \
 		share/man/man1/${PORTNAME}.1.gz
+
+post-patch: .PHONY
+	${REINPLACE_CMD} \
+		-e '/-fstack-protector/d' \
+		-e '/-ftrivial-auto-var-init/d' \
+		-e '/-fzero-call-used-regs/d' \
+	${WRKSRC}/Makefile
 
 post-install: .PHONY
 	${INSTALL_MAN} ${WRKSRC}/man/${PORTNAME}.1 ${STAGEDIR}${PREFIX}/share/man/man1
