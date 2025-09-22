@@ -1,5 +1,5 @@
 GH_TUPLE=	\
-		AdguardTeam:golibs:v0.32.14:adguardteam_golibs/vendor/github.com/AdguardTeam/golibs \
+		AdguardTeam:golibs:v0.34.1:adguardteam_golibs/vendor/github.com/AdguardTeam/golibs \
 		ameshkov:dnscrypt:v2.4.0:ameshkov_dnscrypt_v2/vendor/github.com/ameshkov/dnscrypt/v2 \
 		ameshkov:dnsstamps:v1.0.3:ameshkov_dnsstamps/vendor/github.com/ameshkov/dnsstamps \
 		cisco:go-hpke:246075f83609:cisco_go_hpke/vendor/github.com/cisco/go-hpke \
@@ -8,29 +8,29 @@ GH_TUPLE=	\
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		go-task:slim-sprig:v3.0.0:go_task_slim_sprig_v3/vendor/github.com/go-task/slim-sprig/v3 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
-		golang:crypto:v0.39.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:exp:b7579e27df2b:golang_exp/vendor/golang.org/x/exp \
-		golang:mod:v0.25.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.41.0:golang_net/vendor/golang.org/x/net \
-		golang:sync:v0.15.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.33.0:golang_sys/vendor/golang.org/x/sys \
-		golang:text:v0.26.0:golang_text/vendor/golang.org/x/text \
-		golang:tools:v0.34.0:golang_tools/vendor/golang.org/x/tools \
-		google:pprof:033d6d78b36a:google_pprof/vendor/github.com/google/pprof \
+		golang:crypto:v0.42.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:exp:df9299821621:golang_exp/vendor/golang.org/x/exp \
+		golang:mod:v0.28.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.44.0:golang_net/vendor/golang.org/x/net \
+		golang:sync:v0.17.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.36.0:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.29.0:golang_text/vendor/golang.org/x/text \
+		golang:tools:v0.37.0:golang_tools/vendor/golang.org/x/tools \
+		google:pprof:c28834ac2320:google_pprof/vendor/github.com/google/pprof \
 		jedisct1:go-dnsstamps:07a0735c7774:jedisct1_go_dnsstamps/vendor/github.com/jedisct1/go-dnsstamps \
 		jessevdk:go-flags:v1.6.1:jessevdk_go_flags/vendor/github.com/jessevdk/go-flags \
 		json-iterator:go:v1.1.12:json_iterator_go/vendor/github.com/json-iterator/go \
 		kr:pretty:v0.3.1:kr_pretty/vendor/github.com/kr/pretty \
-		miekg:dns:v1.1.66:miekg_dns/vendor/github.com/miekg/dns \
+		miekg:dns:v1.1.68:miekg_dns/vendor/github.com/miekg/dns \
 		modern-go:concurrent:bacd9c7ef1dd:modern_go_concurrent/vendor/github.com/modern-go/concurrent \
 		modern-go:reflect2:v1.0.2:modern_go_reflect2/vendor/github.com/modern-go/reflect2 \
 		natesales:bgptools-go:2b519d61269c:natesales_bgptools_go/vendor/github.com/natesales/bgptools-go \
-		onsi:ginkgo:v2.23.4:onsi_ginkgo_v2/vendor/github.com/onsi/ginkgo/v2 \
+		onsi:ginkgo:v2.25.3:onsi_ginkgo_v2/vendor/github.com/onsi/ginkgo/v2 \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		quic-go:qpack:v0.5.1:quic_go_qpack/vendor/github.com/quic-go/qpack \
-		quic-go:quic-go:v0.52.0:quic_go_quic_go/vendor/github.com/quic-go/quic-go \
+		quic-go:quic-go:v0.54.0:quic_go_quic_go/vendor/github.com/quic-go/quic-go \
 		sirupsen:logrus:v1.9.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
 		sthorne:odoh-go:v1.0.4:sthorne_odoh_go/vendor/github.com/sthorne/odoh-go \
 		stretchr:testify:v1.10.0:stretchr_testify/vendor/github.com/stretchr/testify \
 		uber-go:automaxprocs:v1.6.0:uber_go_automaxprocs/vendor/go.uber.org/automaxprocs \
-		uber-go:mock:v0.5.2:uber_go_mock/vendor/go.uber.org/mock
+		uber-go:mock:v0.6.0:uber_go_mock/vendor/go.uber.org/mock

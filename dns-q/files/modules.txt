@@ -1,5 +1,5 @@
-# github.com/AdguardTeam/golibs v0.32.14
-## explicit; go 1.24.4
+# github.com/AdguardTeam/golibs v0.34.1
+## explicit; go 1.24.6
 github.com/AdguardTeam/golibs/errors
 github.com/AdguardTeam/golibs/log
 github.com/AdguardTeam/golibs/logutil/slogutil
@@ -29,10 +29,8 @@ github.com/cloudflare/circl/math/fp448
 github.com/davecgh/go-spew/spew
 # github.com/go-task/slim-sprig/v3 v3.0.0
 ## explicit; go 1.20
-github.com/go-task/slim-sprig/v3
-# github.com/google/pprof v0.0.0-20250607225305-033d6d78b36a
-## explicit; go 1.23.0
-github.com/google/pprof/profile
+# github.com/google/pprof v0.0.0-20250903194437-c28834ac2320
+## explicit; go 1.24.0
 # github.com/jedisct1/go-dnsstamps v0.0.0-20240423203910-07a0735c7774
 ## explicit; go 1.18
 github.com/jedisct1/go-dnsstamps
@@ -45,7 +43,7 @@ github.com/json-iterator/go
 github.com/json-iterator/go/extra
 # github.com/kr/pretty v0.3.1
 ## explicit; go 1.12
-# github.com/miekg/dns v1.1.66
+# github.com/miekg/dns v1.1.68
 ## explicit; go 1.23.0
 github.com/miekg/dns
 # github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
@@ -57,31 +55,15 @@ github.com/modern-go/reflect2
 # github.com/natesales/bgptools-go v0.0.0-20230212051756-2b519d61269c
 ## explicit; go 1.20
 github.com/natesales/bgptools-go
-# github.com/onsi/ginkgo/v2 v2.23.4
+# github.com/onsi/ginkgo/v2 v2.25.3
 ## explicit; go 1.23.0
-github.com/onsi/ginkgo/v2/config
-github.com/onsi/ginkgo/v2/formatter
-github.com/onsi/ginkgo/v2/ginkgo
-github.com/onsi/ginkgo/v2/ginkgo/build
-github.com/onsi/ginkgo/v2/ginkgo/command
-github.com/onsi/ginkgo/v2/ginkgo/generators
-github.com/onsi/ginkgo/v2/ginkgo/internal
-github.com/onsi/ginkgo/v2/ginkgo/labels
-github.com/onsi/ginkgo/v2/ginkgo/outline
-github.com/onsi/ginkgo/v2/ginkgo/run
-github.com/onsi/ginkgo/v2/ginkgo/unfocus
-github.com/onsi/ginkgo/v2/ginkgo/watch
-github.com/onsi/ginkgo/v2/internal/interrupt_handler
-github.com/onsi/ginkgo/v2/internal/parallel_support
-github.com/onsi/ginkgo/v2/reporters
-github.com/onsi/ginkgo/v2/types
 # github.com/pmezard/go-difflib v1.0.0
 ## explicit
 github.com/pmezard/go-difflib/difflib
 # github.com/quic-go/qpack v0.5.1
 ## explicit; go 1.22
 github.com/quic-go/qpack
-# github.com/quic-go/quic-go v0.52.0
+# github.com/quic-go/quic-go v0.54.0
 ## explicit; go 1.23
 github.com/quic-go/quic-go
 github.com/quic-go/quic-go/http3
@@ -109,16 +91,12 @@ github.com/stretchr/testify/assert
 github.com/stretchr/testify/assert/yaml
 # go.uber.org/automaxprocs v1.6.0
 ## explicit; go 1.20
-go.uber.org/automaxprocs
-go.uber.org/automaxprocs/internal/cgroups
-go.uber.org/automaxprocs/internal/runtime
-go.uber.org/automaxprocs/maxprocs
-# go.uber.org/mock v0.5.2
-## explicit; go 1.23
+# go.uber.org/mock v0.6.0
+## explicit; go 1.23.0
 go.uber.org/mock/mockgen
 go.uber.org/mock/mockgen/model
-# golang.org/x/crypto v0.39.0
-## explicit; go 1.23.0
+# golang.org/x/crypto v0.42.0
+## explicit; go 1.24.0
 golang.org/x/crypto/blake2b
 golang.org/x/crypto/chacha20
 golang.org/x/crypto/chacha20poly1305
@@ -132,17 +110,17 @@ golang.org/x/crypto/nacl/box
 golang.org/x/crypto/nacl/secretbox
 golang.org/x/crypto/poly1305
 golang.org/x/crypto/salsa20/salsa
-# golang.org/x/exp v0.0.0-20250620022241-b7579e27df2b
-## explicit; go 1.23.0
+# golang.org/x/exp v0.0.0-20250911091902-df9299821621
+## explicit; go 1.24.0
 golang.org/x/exp/constraints
-# golang.org/x/mod v0.25.0
-## explicit; go 1.23.0
+# golang.org/x/mod v0.28.0
+## explicit; go 1.24.0
 golang.org/x/mod/internal/lazyregexp
 golang.org/x/mod/modfile
 golang.org/x/mod/module
 golang.org/x/mod/semver
-# golang.org/x/net v0.41.0
-## explicit; go 1.23.0
+# golang.org/x/net v0.44.0
+## explicit; go 1.24.0
 golang.org/x/net/bpf
 golang.org/x/net/http/httpguts
 golang.org/x/net/http2
@@ -153,26 +131,23 @@ golang.org/x/net/internal/iana
 golang.org/x/net/internal/socket
 golang.org/x/net/ipv4
 golang.org/x/net/ipv6
-# golang.org/x/sync v0.15.0
-## explicit; go 1.23.0
+# golang.org/x/sync v0.17.0
+## explicit; go 1.24.0
 golang.org/x/sync/errgroup
-# golang.org/x/sys v0.33.0
-## explicit; go 1.23.0
+# golang.org/x/sys v0.36.0
+## explicit; go 1.24.0
 golang.org/x/sys/cpu
 golang.org/x/sys/unix
 golang.org/x/sys/windows
-# golang.org/x/text v0.26.0
-## explicit; go 1.23.0
+# golang.org/x/text v0.29.0
+## explicit; go 1.24.0
 golang.org/x/text/secure/bidirule
 golang.org/x/text/transform
 golang.org/x/text/unicode/bidi
 golang.org/x/text/unicode/norm
-# golang.org/x/tools v0.34.0
-## explicit; go 1.23.0
-golang.org/x/tools/cover
+# golang.org/x/tools v0.37.0
+## explicit; go 1.24.0
 golang.org/x/tools/go/ast/astutil
-golang.org/x/tools/go/ast/edge
-golang.org/x/tools/go/ast/inspector
 golang.org/x/tools/go/gcexportdata
 golang.org/x/tools/go/packages
 golang.org/x/tools/go/types/objectpath
