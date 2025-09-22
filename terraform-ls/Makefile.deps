@@ -25,16 +25,16 @@ GH_TUPLE=	\
 		fsnotify:fsnotify:v1.8.0:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
 		go-logr:logr:v1.4.3:go_logr_logr/vendor/github.com/go-logr/logr \
 		go-logr:stdr:v1.2.2:go_logr_stdr/vendor/github.com/go-logr/stdr \
-		go-viper:mapstructure:v2.3.0:go_viper_mapstructure_v2/vendor/github.com/go-viper/mapstructure/v2 \
+		go-viper:mapstructure:v2.4.0:go_viper_mapstructure_v2/vendor/github.com/go-viper/mapstructure/v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
-		golang:crypto:v0.40.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:mod:v0.26.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.42.0:golang_net/vendor/golang.org/x/net \
-		golang:sync:v0.16.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.34.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.33.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.27.0:golang_text/vendor/golang.org/x/text \
-		golang:tools:v0.35.0:golang_tools/vendor/golang.org/x/tools \
+		golang:crypto:v0.42.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:mod:v0.28.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.44.0:golang_net/vendor/golang.org/x/net \
+		golang:sync:v0.17.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.36.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.35.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.29.0:golang_text/vendor/golang.org/x/text \
+		golang:tools:v0.37.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
 		hashicorp:errwrap:v1.0.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
@@ -50,10 +50,10 @@ GH_TUPLE=	\
 		hashicorp:hc-install:v0.9.2:hashicorp_hc_install/vendor/github.com/hashicorp/hc-install \
 		hashicorp:hcl-lang:ef4e1a57cead:hashicorp_hcl_lang/vendor/github.com/hashicorp/hcl-lang \
 		hashicorp:hcl:v2.24.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
-		hashicorp:terraform-exec:v0.23.0:hashicorp_terraform_exec/vendor/github.com/hashicorp/terraform-exec \
-		hashicorp:terraform-json:v0.26.0:hashicorp_terraform_json/vendor/github.com/hashicorp/terraform-json \
-		hashicorp:terraform-registry-address:v0.3.0:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
-		hashicorp:terraform-schema:26de354af365:hashicorp_terraform_schema/vendor/github.com/hashicorp/terraform-schema \
+		hashicorp:terraform-exec:v0.24.0:hashicorp_terraform_exec/vendor/github.com/hashicorp/terraform-exec \
+		hashicorp:terraform-json:v0.27.2:hashicorp_terraform_json/vendor/github.com/hashicorp/terraform-json \
+		hashicorp:terraform-registry-address:v0.4.0:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
+		hashicorp:terraform-schema:47be6f126d59:hashicorp_terraform_schema/vendor/github.com/hashicorp/terraform-schema \
 		hashicorp:terraform-svchost:v0.1.1:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
 		huandu:xstrings:v1.4.0:huandu_xstrings/vendor/github.com/huandu/xstrings \
 		iancoleman:strcase:v0.3.0:iancoleman_strcase/vendor/github.com/iancoleman/strcase \
@@ -72,10 +72,10 @@ GH_TUPLE=	\
 		mitchellh:mapstructure:v1.5.0:mitchellh_mapstructure/vendor/github.com/mitchellh/mapstructure \
 		mitchellh:reflectwalk:v1.0.2:mitchellh_reflectwalk/vendor/github.com/mitchellh/reflectwalk \
 		olekukonko:tablewriter:v0.0.5:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
-		open-telemetry:opentelemetry-go-contrib:v0.62.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/httptrace/otelhttptrace \
-		open-telemetry:opentelemetry-go-contrib:v0.62.0:open_telemetry_opentelemetry_go_contrib_1/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp \
+		open-telemetry:opentelemetry-go-contrib:v0.63.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/httptrace/otelhttptrace \
+		open-telemetry:opentelemetry-go-contrib:v0.63.0:open_telemetry_opentelemetry_go_contrib_1/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp \
 		open-telemetry:opentelemetry-go-instrumentation:v1.1.0:open_telemetry_opentelemetry_go_instrumentation/vendor/go.opentelemetry.io/auto/sdk \
-		open-telemetry:opentelemetry-go:v1.37.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
+		open-telemetry:opentelemetry-go:v1.38.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
 		otiai10:copy:v1.14.1:otiai10_copy/vendor/github.com/otiai10/copy \
 		otiai10:mint:v1.6.3:otiai10_mint/vendor/github.com/otiai10/mint \
 		pelletier:go-toml:v2.2.3:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
@@ -92,9 +92,9 @@ GH_TUPLE=	\
 		spf13:pflag:v1.0.6:spf13_pflag/vendor/github.com/spf13/pflag \
 		spf13:viper:v1.20.0:spf13_viper/vendor/github.com/spf13/viper \
 		stretchr:objx:v0.5.2:stretchr_objx/vendor/github.com/stretchr/objx \
-		stretchr:testify:v1.10.0:stretchr_testify/vendor/github.com/stretchr/testify \
+		stretchr:testify:v1.11.1:stretchr_testify/vendor/github.com/stretchr/testify \
 		subosito:gotenv:v1.6.0:subosito_gotenv/vendor/github.com/subosito/gotenv \
 		uber-go:multierr:v1.11.0:uber_go_multierr/vendor/go.uber.org/multierr \
-		vektra:mockery:v2.53.4:vektra_mockery_v2/vendor/github.com/vektra/mockery/v2 \
+		vektra:mockery:v2.53.5:vektra_mockery_v2/vendor/github.com/vektra/mockery/v2 \
 		zclconf:go-cty-debug:0d6042c53940:zclconf_go_cty_debug/vendor/github.com/zclconf/go-cty-debug \
-		zclconf:go-cty:v1.16.3:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+		zclconf:go-cty:v1.17.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
