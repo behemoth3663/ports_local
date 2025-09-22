@@ -4,7 +4,8 @@ GH_TUPLE=	\
 		ProtonMail:go-crypto:v1.1.6:protonmail_go_crypto/vendor/github.com/ProtonMail/go-crypto \
 		agext:levenshtein:v1.2.3:agext_levenshtein/vendor/github.com/agext/levenshtein \
 		apparentlymart:go-textseg:v15.0.0:apparentlymart_go_textseg_v15/vendor/github.com/apparentlymart/go-textseg/v15 \
-		aws:aws-sdk-go:v1.44.122:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
+		aws:aws-sdk-go-v2:v1.36.3:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+		aws:smithy-go:v1.22.3:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		bgentry:go-netrc:9fd32a8b3d3d:bgentry_go_netrc/vendor/github.com/bgentry/go-netrc \
 		census-instrumentation:opencensus-go:v0.24.0:census_instrumentation_opencensus_go/vendor/go.opencensus.io \
 		cloudflare:circl:v1.6.1:cloudflare_circl/vendor/github.com/cloudflare/circl \
@@ -40,8 +41,9 @@ GH_TUPLE=	\
 		googleapis:google-cloud-go:v0.110.7:googleapis_google_cloud_go/vendor/cloud.google.com/go \
 		googleapis:google-cloud-go:v0.3.0:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata \
 		grpc:grpc-go:v1.59.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+		hashicorp:aws-sdk-go-base:v2.0.0-beta.65:hashicorp_aws_sdk_go_base_v2/vendor/github.com/hashicorp/aws-sdk-go-base \
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
-		hashicorp:go-getter:v1.7.8:hashicorp_go_getter/vendor/github.com/hashicorp/go-getter \
+		hashicorp:go-getter:v1.8.0:hashicorp_go_getter/vendor/github.com/hashicorp/go-getter \
 		hashicorp:go-safetemp:v1.0.0:hashicorp_go_safetemp/vendor/github.com/hashicorp/go-safetemp \
 		hashicorp:go-version:v1.7.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
 		hashicorp:hcl:v1.0.0:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
@@ -51,13 +53,11 @@ GH_TUPLE=	\
 		hashicorp:terraform-svchost:v0.1.1:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
 		imdario:mergo:v1.0.0:imdario_mergo/vendor/dario.cat/mergo \
 		jbenet:go-context:d14ea06fba99:jbenet_go_context/vendor/github.com/jbenet/go-context \
-		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
 		jstemmer:go-junit-report:v1.0.0:jstemmer_go_junit_report/vendor/github.com/jstemmer/go-junit-report \
 		kevinburke:ssh_config:v1.2.0:kevinburke_ssh_config/vendor/github.com/kevinburke/ssh_config \
 		klauspost:compress:v1.15.11:klauspost_compress/vendor/github.com/klauspost/compress \
 		mattn:go-runewidth:v0.0.16:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
 		mitchellh:go-homedir:v1.1.0:mitchellh_go_homedir/vendor/github.com/mitchellh/go-homedir \
-		mitchellh:go-testing-interface:v1.14.1:mitchellh_go_testing_interface/vendor/github.com/mitchellh/go-testing-interface \
 		mitchellh:go-wordwrap:v1.0.1:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
 		olekukonko:tablewriter:v0.0.5:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
 		peterbourgon:ff:v3.4.0:peterbourgon_ff_v3/vendor/github.com/peterbourgon/ff/v3 \
@@ -67,11 +67,6 @@ GH_TUPLE=	\
 		sergi:go-diff:5b0b94c5c0d3:sergi_go_diff/vendor/github.com/sergi/go-diff \
 		sgreben:flagvar:v1.10.2:sgreben_flagvar/vendor/github.com/sgreben/flagvar \
 		skeema:knownhosts:v1.3.1:skeema_knownhosts/vendor/github.com/skeema/knownhosts \
-		ulikunitz:xz:v0.5.10:ulikunitz_xz/vendor/github.com/ulikunitz/xz \
+		ulikunitz:xz:v0.5.14:ulikunitz_xz/vendor/github.com/ulikunitz/xz \
 		xanzy:ssh-agent:v0.3.3:xanzy_ssh_agent/vendor/github.com/xanzy/ssh-agent \
 		zclconf:go-cty:v1.16.2:zclconf_go_cty/vendor/github.com/zclconf/go-cty
-post-extract:
-	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/iam
-	@${RLN} ${WRKSRC_googleapis_google_cloud_go_iam}/iam ${WRKSRC}/vendor/cloud.google.com/go/iam
-	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
-	@${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go/storage
