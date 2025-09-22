@@ -1,7 +1,7 @@
 PORTNAME=	golangci-lint
-PORTVERSION=	2.4.0
+PORTVERSION=	2.5.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+#PORTREVISION=	1
 CATEGORIES=	local devel
 
 MAINTAINER=	lcook@FreeBSD.org
@@ -103,6 +103,8 @@ GH_TUPLE:=	${GH_TUPLE:S|/vendor/github.com/charmbracelet/x/cellbuf$||1}
 #-quasilyte:regex:b3f0c404a727:quasilyte_regex_syntax/vendor/github.com/quasilyte/regex/syntax
 #+quasilyte:regex:b3f0c404a727:quasilyte_regex_syntax/vendor/github.com/quasilyte/regex
 GH_TUPLE:=	${GH_TUPLE:C|(.*/quasilyte/regex)/syntax$|\1|1}
+
+GH_TUPLE+=	tetafro:godot:v1.5.4:tetafro_godot/vendor/github.com/tetafro/godot
 
 .sinclude "${.CURDIR}/generated.deps.mk"
 
