@@ -1,5 +1,5 @@
 PORTNAME=	aws-ec2-instance-selector
-PORTVERSION=	3.1.1
+PORTVERSION=	3.1.2
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -26,6 +26,9 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
+
+#pre-build: .PHONY
+#	${FIND} ${WRKSRC} -name go.mod -type f -execdir ${GO_CMD} mod edit -go=1.25 \;
 
 post-extract: .PHONY
 	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
