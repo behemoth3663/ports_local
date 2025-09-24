@@ -1,0 +1,2 @@
+Lightweight utility to print the current git branch name in the fastest way.
+It is mostly intended to be used in a bash prompt.
