@@ -1,5 +1,5 @@
 PORTNAME=	gh
-PORTVERSION=	2.79.0
+PORTVERSION=	2.80.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -149,16 +149,14 @@ GH_TUPLE:=	${GH_TUPLE:N*/cloud.google.com/go/*}
 #+charmbracelet:x:ansi/v0.8.0:charmbracelet_x_ansi
 GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+).*/charmbracelet/x/(ansi\|cellbuf\|term)|\1\3/\2|}
 
-#-charmbracelet:x:212f7b056ed0:charmbracelet_x_strings/vendor/github.com/charmbracelet/x/exp/strings
-#+charmbracelet:x:212f7b056ed0:charmbracelet_x_strings/vendor/github.com/charmbracelet/x
-GH_TUPLE:=	${GH_TUPLE:S|/charmbracelet/x/exp/strings|/charmbracelet/x|1}
+#-charmbracelet:x:821143405392:charmbracelet_x_slice/vendor/github.com/charmbracelet/x/exp/slice
+#-charmbracelet:x:821143405392:charmbracelet_x_strings/vendor/github.com/charmbracelet/x/exp/strings
+#+charmbracelet:x:821143405392:charmbracelet_x/vendor/github.com/charmbracelet/x
+GH_TUPLE:=	${GH_TUPLE:C|(.*:charmbracelet_x)_.*(/vendor/github.com/charmbracelet/x)/exp/.*|\1\2|:u}
 
-#-		containerd:stargz-snapshotter:v0.16.3:containerd_stargz_snapshotter_estargz/vendor/github.com/containerd/stargz-snapshotter/estargz
-#+		containerd:stargz-snapshotter:v0.16.3:containerd_stargz_snapshotter_estargz/vendor/github.com/containerd/stargz-snapshotter
+#-containerd:stargz-snapshotter:v0.16.3:containerd_stargz_snapshotter_estargz/vendor/github.com/containerd/stargz-snapshotter/estargz
+#+containerd:stargz-snapshotter:v0.16.3:containerd_stargz_snapshotter_estargz/vendor/github.com/containerd/stargz-snapshotter
 GH_TUPLE:=	${GH_TUPLE:S|/estargz||1}
-
-#-		opentracing:opentracing-go:v1.2.0:opentracing_opentracing_go/vendor/github.com/opentracing/opentracing-go
-GH_TUPLE:=	${GH_TUPLE:Nopentracing\:opentracing-go\:*}
 
 #-envoyproxy:go-control-plane:v1.32.4:envoyproxy_go_control_plane_envoy/vendor/github.com/envoyproxy/go-control-plane/envoy
 #+envoyproxy:go-control-plane:envoy/v1.32.4:envoyproxy_go_control_plane/vendor/github.com/envoyproxy/go-control-plane
