@@ -49,10 +49,10 @@ CARGO_CRATES=	ahash-0.8.12 \
 		rsv-core-0.0.4 \
 		rustversion-1.0.21 \
 		ryu-1.0.20 \
-		serde-1.0.225 \
+		serde-1.0.227 \
 		serde_bytes-0.11.17 \
-		serde_core-1.0.225 \
-		serde_derive-1.0.225 \
+		serde_core-1.0.227 \
+		serde_derive-1.0.227 \
 		serde_ini-0.2.0 \
 		serde_json-1.0.145 \
 		serde_spanned-1.0.0 \
