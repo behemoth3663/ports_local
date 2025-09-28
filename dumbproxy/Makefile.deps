@@ -22,10 +22,12 @@ GH_TUPLE=	\
 		klauspost:compress:v1.18.0:klauspost_compress/vendor/github.com/klauspost/compress \
 		klauspost:cpuid:v2.3.0:klauspost_cpuid_v2/vendor/github.com/klauspost/cpuid/v2 \
 		libp2p:go-reuseport:v0.4.0:libp2p_go_reuseport/vendor/github.com/libp2p/go-reuseport \
+		ncruces:go-dns:v1.2.7:ncruces_go_dns/vendor/github.com/ncruces/go-dns \
 		pires:go-proxyproto:v0.8.1:pires_go_proxyproto/vendor/github.com/pires/go-proxyproto \
 		redis:go-redis:v9.13.0:redis_go_redis_v9/vendor/github.com/redis/go-redis/v9 \
 		refraction-networking:utls:v1.8.0:refraction_networking_utls/vendor/github.com/refraction-networking/utls \
 		tg123:go-htpasswd:v1.2.4:tg123_go_htpasswd/vendor/github.com/tg123/go-htpasswd \
+		things-go:go-socks5:v0.1.0:things_go_go_socks5/vendor/github.com/things-go/go-socks5 \
 		zeebo:xxh3:v1.0.2:zeebo_xxh3/vendor/github.com/zeebo/xxh3
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
 		#	::8f580defa01d:group_name/vendor/golang.org/x/crypto/x509roots/fallback (from go.googlesource.com/crypto@8f580defa01d)
