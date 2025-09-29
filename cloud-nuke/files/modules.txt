@@ -25,7 +25,7 @@ cloud.google.com/go/storage
 cloud.google.com/go/storage/internal
 cloud.google.com/go/storage/internal/apiv2
 cloud.google.com/go/storage/internal/apiv2/storagepb
-# github.com/aws/aws-sdk-go-v2 v1.36.3
+# github.com/aws/aws-sdk-go-v2 v1.38.3
 ## explicit; go 1.22
 github.com/aws/aws-sdk-go-v2/aws
 github.com/aws/aws-sdk-go-v2/aws/arn
@@ -74,10 +74,10 @@ github.com/aws/aws-sdk-go-v2/credentials/stscreds
 ## explicit; go 1.21
 github.com/aws/aws-sdk-go-v2/feature/ec2/imds
 github.com/aws/aws-sdk-go-v2/feature/ec2/imds/internal/config
-# github.com/aws/aws-sdk-go-v2/internal/configsources v1.3.34
+# github.com/aws/aws-sdk-go-v2/internal/configsources v1.4.6
 ## explicit; go 1.22
 github.com/aws/aws-sdk-go-v2/internal/configsources
-# github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.6.34
+# github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.7.6
 ## explicit; go 1.22
 github.com/aws/aws-sdk-go-v2/internal/endpoints/v2
 # github.com/aws/aws-sdk-go-v2/internal/ini v1.8.2
@@ -134,6 +134,11 @@ github.com/aws/aws-sdk-go-v2/service/autoscaling/types
 github.com/aws/aws-sdk-go-v2/service/backup
 github.com/aws/aws-sdk-go-v2/service/backup/internal/endpoints
 github.com/aws/aws-sdk-go-v2/service/backup/types
+# github.com/aws/aws-sdk-go-v2/service/cloudformation v1.65.2
+## explicit; go 1.22
+github.com/aws/aws-sdk-go-v2/service/cloudformation
+github.com/aws/aws-sdk-go-v2/service/cloudformation/internal/endpoints
+github.com/aws/aws-sdk-go-v2/service/cloudformation/types
 # github.com/aws/aws-sdk-go-v2/service/cloudfront v1.45.2
 ## explicit; go 1.22
 github.com/aws/aws-sdk-go-v2/service/cloudfront
@@ -349,6 +354,11 @@ github.com/aws/aws-sdk-go-v2/service/secretsmanager/types
 github.com/aws/aws-sdk-go-v2/service/securityhub
 github.com/aws/aws-sdk-go-v2/service/securityhub/internal/endpoints
 github.com/aws/aws-sdk-go-v2/service/securityhub/types
+# github.com/aws/aws-sdk-go-v2/service/servicediscovery v1.39.3
+## explicit; go 1.22
+github.com/aws/aws-sdk-go-v2/service/servicediscovery
+github.com/aws/aws-sdk-go-v2/service/servicediscovery/internal/endpoints
+github.com/aws/aws-sdk-go-v2/service/servicediscovery/types
 # github.com/aws/aws-sdk-go-v2/service/ses v1.29.9
 ## explicit; go 1.21
 github.com/aws/aws-sdk-go-v2/service/ses
@@ -384,8 +394,8 @@ github.com/aws/aws-sdk-go-v2/service/sts/types
 github.com/aws/aws-sdk-go-v2/service/vpclattice
 github.com/aws/aws-sdk-go-v2/service/vpclattice/internal/endpoints
 github.com/aws/aws-sdk-go-v2/service/vpclattice/types
-# github.com/aws/smithy-go v1.22.2
-## explicit; go 1.21
+# github.com/aws/smithy-go v1.23.0
+## explicit; go 1.22
 github.com/aws/smithy-go
 github.com/aws/smithy-go/auth
 github.com/aws/smithy-go/auth/bearer
