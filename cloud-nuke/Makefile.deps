@@ -20,7 +20,6 @@ GH_TUPLE=	\
 		aws:aws-sdk-go-v2:v1.29.5:aws_aws_sdk_go_v2_config/vendor/github.com/aws/aws-sdk-go-v2/config \
 		aws:aws-sdk-go-v2:v1.29.9:aws_aws_sdk_go_v2_ses/vendor/github.com/aws/aws-sdk-go-v2/service/ses \
 		aws:aws-sdk-go-v2:v1.3.31:aws_aws_sdk_go_v2_v4a/vendor/github.com/aws/aws-sdk-go-v2/internal/v4a \
-		aws:aws-sdk-go-v2:v1.3.34:aws_aws_sdk_go_v2_configsources/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources \
 		aws:aws-sdk-go-v2:v1.30.17:aws_aws_sdk_go_v2_acm/vendor/github.com/aws/aws-sdk-go-v2/service/acm \
 		aws:aws-sdk-go-v2:v1.31.0:aws_aws_sdk_go_v2_amp/vendor/github.com/aws/aws-sdk-go-v2/service/amp \
 		aws:aws-sdk-go-v2:v1.32.14:aws_aws_sdk_go_v2_apprunner/vendor/github.com/aws/aws-sdk-go-v2/service/apprunner \
@@ -31,14 +30,16 @@ GH_TUPLE=	\
 		aws:aws-sdk-go-v2:v1.34.17:aws_aws_sdk_go_v2_secretsmanager/vendor/github.com/aws/aws-sdk-go-v2/service/secretsmanager \
 		aws:aws-sdk-go-v2:v1.36.10:aws_aws_sdk_go_v2_eventbridge/vendor/github.com/aws/aws-sdk-go-v2/service/eventbridge \
 		aws:aws-sdk-go-v2:v1.36.12:aws_aws_sdk_go_v2_accessanalyzer/vendor/github.com/aws/aws-sdk-go-v2/service/accessanalyzer \
-		aws:aws-sdk-go-v2:v1.36.3:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
 		aws:aws-sdk-go-v2:v1.36.3:aws_aws_sdk_go_v2_firehose/vendor/github.com/aws/aws-sdk-go-v2/service/firehose \
 		aws:aws-sdk-go-v2:v1.37.13:aws_aws_sdk_go_v2_sqs/vendor/github.com/aws/aws-sdk-go-v2/service/sqs \
 		aws:aws-sdk-go-v2:v1.37.17:aws_aws_sdk_go_v2_acmpca/vendor/github.com/aws/aws-sdk-go-v2/service/acmpca \
 		aws:aws-sdk-go-v2:v1.37.17:aws_aws_sdk_go_v2_kms/vendor/github.com/aws/aws-sdk-go-v2/service/kms \
 		aws:aws-sdk-go-v2:v1.38.15:aws_aws_sdk_go_v2_kafka/vendor/github.com/aws/aws-sdk-go-v2/service/kafka \
+		aws:aws-sdk-go-v2:v1.38.3:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
 		aws:aws-sdk-go-v2:v1.39.0:aws_aws_sdk_go_v2_iam/vendor/github.com/aws/aws-sdk-go-v2/service/iam \
+		aws:aws-sdk-go-v2:v1.39.3:aws_aws_sdk_go_v2_servicediscovery/vendor/github.com/aws/aws-sdk-go-v2/service/servicediscovery \
 		aws:aws-sdk-go-v2:v1.39.9:aws_aws_sdk_go_v2_dynamodb/vendor/github.com/aws/aws-sdk-go-v2/service/dynamodb \
+		aws:aws-sdk-go-v2:v1.4.6:aws_aws_sdk_go_v2_configsources/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources \
 		aws:aws-sdk-go-v2:v1.40.2:aws_aws_sdk_go_v2_ecr/vendor/github.com/aws/aws-sdk-go-v2/service/ecr \
 		aws:aws-sdk-go-v2:v1.40.9:aws_aws_sdk_go_v2_backup/vendor/github.com/aws/aws-sdk-go-v2/service/backup \
 		aws:aws-sdk-go-v2:v1.43.11:aws_aws_sdk_go_v2_elasticloadbalancingv2/vendor/github.com/aws/aws-sdk-go-v2/service/elasticloadbalancingv2 \
@@ -62,12 +63,13 @@ GH_TUPLE=	\
 		aws:aws-sdk-go-v2:v1.55.8:aws_aws_sdk_go_v2_securityhub/vendor/github.com/aws/aws-sdk-go-v2/service/securityhub \
 		aws:aws-sdk-go-v2:v1.57.3:aws_aws_sdk_go_v2_eks/vendor/github.com/aws/aws-sdk-go-v2/service/eks \
 		aws:aws-sdk-go-v2:v1.6.8:aws_aws_sdk_go_v2_eventstream/vendor/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream \
+		aws:aws-sdk-go-v2:v1.65.2:aws_aws_sdk_go_v2_cloudformation/vendor/github.com/aws/aws-sdk-go-v2/service/cloudformation \
 		aws:aws-sdk-go-v2:v1.69.11:aws_aws_sdk_go_v2_lambda/vendor/github.com/aws/aws-sdk-go-v2/service/lambda \
 		aws:aws-sdk-go-v2:v1.75.3:aws_aws_sdk_go_v2_s3/vendor/github.com/aws/aws-sdk-go-v2/service/s3 \
 		aws:aws-sdk-go-v2:v1.8.2:aws_aws_sdk_go_v2_ini/vendor/github.com/aws/aws-sdk-go-v2/internal/ini \
 		aws:aws-sdk-go-v2:v1.93.11:aws_aws_sdk_go_v2_rds/vendor/github.com/aws/aws-sdk-go-v2/service/rds \
-		aws:aws-sdk-go-v2:v2.6.34:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 \
-		aws:smithy-go:v1.22.2:aws_smithy_go/vendor/github.com/aws/smithy-go \
+		aws:aws-sdk-go-v2:v2.7.6:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 \
+		aws:smithy-go:v1.23.0:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		census-instrumentation:opencensus-go:v0.24.0:census_instrumentation_opencensus_go/vendor/go.opencensus.io \
 		charmbracelet:lipgloss:v0.6.0:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
 		containerd:console:v1.0.3:containerd_console/vendor/github.com/containerd/console \
