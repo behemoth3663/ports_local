@@ -1,7 +1,7 @@
 PORTNAME=	tools
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.37.0
-#PORTREVISION=	1
+PORTREVISION=	1
 PORTEPOCH=	1
 CATEGORIES=	local devel
 PKGNAMEPREFIX=	go-
@@ -73,6 +73,7 @@ post-deps-all: .PHONY
 
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+	@${FIND} ${WRKSRC}/cmd -name go.mod -type f -delete
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
