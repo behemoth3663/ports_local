@@ -1,5 +1,5 @@
 PORTNAME=	aws-iam-authenticator
-PORTVERSION=	0.7.7
+PORTVERSION=	0.7.8
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local security
@@ -39,7 +39,6 @@ post-extract: .PHONY
 	@test ! -d ${WRKSRC}/vendor/github.com || ${LN} -s ${WRKSRC}/src/github.com/${GH_ACCOUNT} ${WRKSRC}/vendor/github.com
 	@${MKDIR} ${WRKSRC}/vendor/go.yaml.in/yaml
 	@test ! -e ${WRKSRC}/vendor/gopkg.in/yaml.v2 || ${RLN} ${WRKSRC}/vendor/gopkg.in/yaml.v2 ${WRKSRC}/vendor/go.yaml.in/yaml/v2
-	@test ! -e ${WRKSRC}/vendor/gopkg.in/yaml.v3 || ${RLN} ${WRKSRC}/vendor/gopkg.in/yaml.v3 ${WRKSRC}/vendor/go.yaml.in/yaml/v3
 
 pre-deps: .PHONY
 	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
@@ -51,6 +50,7 @@ pre-deps-all: .PHONY
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes-sigs GHT_PROJ=json GHT_PATH=sigs.k8s.io/json )
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes-sigs GHT_PROJ=structured-merge-diff GHT_PATH=sigs.k8s.io/structured-merge-diff/v6 )
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes-sigs GHT_PROJ=randfill GHT_PATH=sigs.k8s.io/randfill )
+	( make -C ${.CURDIR} make-from-deps GHT_ACNT=go-yaml GHT_PROJ=yaml GHT_PATH=go.yaml.in/yaml/v3 )
 
 make-from-deps: .PHONY
 	@${SED} -rn \
@@ -63,7 +63,17 @@ post-deps-all: .PHONY
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 
-GH_TUPLE:=	${GH_TUPLE:Naws*aws_aws_sdk_go_v2_*/vendor/github.com/aws/aws-sdk-go-v2/*}
+GH_TUPLE:=	${GH_TUPLE:N*/vendor/github.com/aws/aws-sdk-go-v2/*}
+GH_TUPLE:=	${GH_TUPLE:N*/vendor/github.com/go-openapi/swag/*}
+
+#-go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2
+#+go-yaml:yaml:v2.4.0:go_yaml_yaml_2/vendor/gopkg.in/yaml.v2
+GH_TUPLE:=	${GH_TUPLE:C,^(go-yaml:yaml:v2[^:]+:[^/]+),\1_2,1}
 
 .sinclude "${.CURDIR}/generated.deps.mk"
+
+#-go-yaml:yaml:v3.0.4:go_yaml_yaml/vendor/go.yaml.in/yaml/v3
+#+go-yaml:yaml:v3.0.1:go_yaml_yaml_3/vendor/go.yaml.in/yaml/v3
+GH_TUPLE:=	${GH_TUPLE:C,^(go-yaml:yaml:)v3[^:]+:([^/]+),\1v3.0.1:\2_3,1}
+
 .include <bsd.port.mk>
