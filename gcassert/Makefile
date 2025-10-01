@@ -1,7 +1,7 @@
 PORTNAME=	gcassert
 PORTVERSION=	20250430
 #DISTVERSIONPREFIX=	v
-#PORTREVISION=	1
+PORTREVISION=	1
 CATEGORIES=	local devel
 
 MAINTAINER=	none@freebsd.org
@@ -11,7 +11,7 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
-USES=		go:modules
+USES=		go:1.24,modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	jordanlewis
@@ -28,6 +28,9 @@ M2T_OFFLINE=	true
 
 post-extract: .PHONY
 	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+	set -o pipefail && \
+		cd ${WRKSRC} && \
+		${FETCH_CMD} ${WWW}/pull/20.diff | ${PATCH} -p1
 
 pre-deps: .PHONY
 	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
