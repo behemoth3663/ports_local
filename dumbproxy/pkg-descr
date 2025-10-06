@@ -1,1 +1,3 @@
-Dumbiest HTTP proxy ever
+Multipurpose scriptable secure HTTP/SOCKS5 forward proxy, ideal for secure
+and flexible proxy deployments, including use cases behind reverse proxies
+like HAProxy or Traefik.

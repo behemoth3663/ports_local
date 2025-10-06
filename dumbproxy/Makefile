@@ -1,11 +1,11 @@
 PORTNAME=	dumbproxy
-PORTVERSION=	1.32.0
+PORTVERSION=	1.34.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local net
 
 MAINTAINER=	none@freebsd.org
-COMMENT=	Dumbiest HTTP proxy ever
+COMMENT=	Simple, scriptable, secure HTTP/SOCKS5 forward proxy
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MIT
