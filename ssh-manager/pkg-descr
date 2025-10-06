@@ -1,1 +1,6 @@
-SSH Key Manager for 1Password, Bitwarden and AWS S3
+SSH Key Manager is a command-line tool that simplifies the management of SSH
+keys across multiple secret backends such as 1Password, Bitwarden, and AWS
+S3. You can securely store, retrieve, and load SSH keys into your local SSH
+agent from these providers. It is designed to streamline workflows for
+developers and DevOps engineers who use multiple machines or secret
+managers.

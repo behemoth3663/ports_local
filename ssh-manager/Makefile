@@ -1,6 +1,6 @@
 PORTNAME=	ssh-manager
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.73.0
+DISTVERSION=	1.74.0
 CATEGORIES=	local security
 
 MAINTAINER=	none@freebsd.org
@@ -24,7 +24,7 @@ M2T_OFFLINE=	true
 
 post-patch: .PHONY
 	${REINPLACE_CMD} \
-		's/log\.Infoln(version)/version.Version = "${DISTVERSIONPREFIX}${PORTVERSION}"; version.Time = "${%FT%TZ:L:gmtime}"; &/' \
+		's/log\.Infoln(version)/version.Version = "${PORTVERSION}"; version.Time = "${%FT%TZ:L:gmtime}"; &/' \
 	${WRKSRC}/cmd/version.go
 
 post-extract: .PHONY
