@@ -1,1 +1,6 @@
-Helping you populate AWS SSO directly with your Google Apps users
+ssosync is a command-line utility developed that synchronizes users and
+groups from Google Workspace (formerly G Suite) into AWS IAM Identity Center
+(formerly AWS SSO). It enables automated provisioning of identities by
+mapping Google groups to AWS permission sets, making it easier to manage
+access control across AWS accounts. It is intended to be run periodically or
+integrated into identity workflows.
