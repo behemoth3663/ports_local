@@ -1,7 +1,7 @@
 PORTNAME=	trivy
-PORTVERSION=	0.66.0
+PORTVERSION=	0.67.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+#PORTREVISION=	1
 CATEGORIES=	local security
 
 MAINTAINER=	mfechner@FreeBSD.org
@@ -19,6 +19,8 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X '${GO_MODULE}/pkg/version/app.ver=${PORTVERSION}'"
 
 PLIST_FILES=	bin/${PORTNAME}
+
+GO_ENV+=	GOEXPERIMENT=jsonv2
 
 post-install: .PHONY
 	${MKDIR} ${STAGEDIR}${DATADIR}
