@@ -1,32 +1,31 @@
---- Makefile.deps.orig	2025-02-09 15:34:40 UTC
+--- Makefile.deps.orig	2025-11-04 20:35:56 UTC
 +++ Makefile.deps
-@@ -136,3 +136,29 @@ GH_TUPLE=	\
- 		#	::v0.2.3:group_name/vendor/cloud.google.com/go/compute/metadata (from cloud.google.com/go/compute/metadata@v0.2.3)
- 		#	::v1.0.0:group_name/vendor/filippo.io/age (from filippo.io/age@v1.0.0)
- 		#	::v3.7.3:group_name/vendor/go.mozilla.org/sops/v3 (from go.mozilla.org/sops/v3@v3.7.3)
-+post-extract:
+@@ -174,3 +174,28 @@ GH_TUPLE=	\
+ 		#	::v1.34.0:group_name/vendor/go.opentelemetry.io/otel/sdk/metric (from go.opentelemetry.io/otel/sdk/metric@v1.34.0)
+ 		#	::v1.34.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.34.0)
+ 		#	::v1.5.0:group_name/vendor/go.opentelemetry.io/proto/otlp (from go.opentelemetry.io/proto/otlp@v1.5.0)
++post-extract: .PHONY
 +	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
-+	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
-+	@${CP} -r ${WRKSRC_azure_go_autorest_autorest}/autorest ${WRKSRC}/vendor/github.com/Azure/go-autorest
-+	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/logger
-+	@${RLN} ${WRKSRC_azure_go_autorest_logger}/logger ${WRKSRC}/vendor/github.com/Azure/go-autorest
-+	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/date
-+	@${RLN} ${WRKSRC_azure_go_autorest_date}/autorest/date ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
-+	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/validation
-+	@${RLN} ${WRKSRC_azure_go_autorest_validation}/autorest/validation ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
-+	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/to
-+	@${RLN} ${WRKSRC_azure_go_autorest_to}/autorest/to ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
-+	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/azure/cli
-+	@${RLN} ${WRKSRC_azure_go_autorest_cli}/autorest/azure/cli ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/azure
-+	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/azure/auth
-+	@${RLN} ${WRKSRC_azure_go_autorest_auth}/autorest/azure/auth ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/azure
-+	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/tracing
-+	@${RLN} ${WRKSRC_azure_go_autorest_tracing}/tracing ${WRKSRC}/vendor/github.com/Azure/go-autorest
-+	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/adal
-+	@${RLN} ${WRKSRC_azure_go_autorest_adal}/autorest/adal ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/adal
++	@${RM} -r ${WRKSRC}/vendor/github.com/gruntwork-io/terragrunt/telemetry
++
++	#Azure:azure-sdk-for-go:sdk/security/keyvault/internal/v1.1.0:azure_azure_sdk_for_go_internal_1
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/internal
++	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_internal_1}/sdk/security/keyvault/internal ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/internal
++
++	#Azure:azure-sdk-for-go:sdk/security/keyvault/azkeys/v1.3.0:azure_azure_sdk_for_go_azkeys
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azkeys
++	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_azkeys}/sdk/security/keyvault/azkeys ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azkeys
++
++	#Azure:azure-sdk-for-go:sdk/internal/v1.10.0:azure_azure_sdk_for_go_internal
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/internal
++	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_internal}/sdk/internal ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/internal
++
++	#Azure:azure-sdk-for-go:sdk/azidentity/v1.8.1:azure_azure_sdk_for_go_azidentity
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/azidentity
++	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_azidentity}/sdk/azidentity ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/azidentity
++
 +	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
 +	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute
-+	@${RM} -r ${WRKSRC}/vendor/github.com/hashicorp/go-secure-stdlib/mlock
-+	@${RLN} ${WRKSRC_hashicorp_go_secure_stdlib_mlock}/mlock ${WRKSRC}/vendor/github.com/hashicorp/go-secure-stdlib
++
 +	@${RM} -r ${WRKSRC}/vendor/github.com/hashicorp/go-secure-stdlib/strutil
 +	@${RLN} ${WRKSRC_hashicorp_go_secure_stdlib_strutil}/strutil ${WRKSRC}/vendor/github.com/hashicorp/go-secure-stdlib
