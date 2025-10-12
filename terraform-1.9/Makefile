@@ -1,7 +1,7 @@
 PORTNAME=	terraform
 PORTVERSION=	1.9.8
 DISTVERSIONPREFIX=	v
-PORTREVISION=	20250825
+PORTREVISION=	20251012
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX?=	-${PORTVERSION:R}
 
@@ -47,6 +47,7 @@ pre-deps: .PHONY
 		echo 'replace k8s.io/kube-openapi => k8s.io/kube-openapi v0.0.0-20220803162953-67bda5d908f1' >> go.mod && \
 		echo 'replace github.com/google/gnostic => github.com/google/gnostic v0.5.7-v3refs' >> go.mod && \
 		echo 'replace github.com/hashicorp/aws-sdk-go-base/v2 => github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.55' >> go.mod && \
+		echo 'replace github.com/hashicorp/go-getter => github.com/hashicorp/go-getter v1.7.9' >> go.mod && \
 		${GO_CMD} get -u=patch && \
 		${GO_CMD} mod tidy && \
 		${SETENV} TZ=UTC ${DIFF} -udp go.mod.orig go.mod | \
@@ -144,17 +145,17 @@ GH_TUPLE:=	${GH_TUPLE:N*/cloud.google.com/go/*}
 #+hashicorp:consul:v1.13.0:hashicorp_consul_api/vendor/github.com/hashicorp/consul
 GH_TUPLE:=	${GH_TUPLE:S|/consul/api|/consul|}
 
-# hashicorp:terraform-svchost:v0.1.1:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost
-#-hashicorp:terraform:000000000000:hashicorp_terraform_azure_1
-#-hashicorp:terraform:000000000000:hashicorp_terraform_consul_1
-#-hashicorp:terraform:000000000000:hashicorp_terraform_cos_1
-#-hashicorp:terraform:000000000000:hashicorp_terraform_gcs_1
-#-hashicorp:terraform:000000000000:hashicorp_terraform_kubernetes_1
-#-hashicorp:terraform:000000000000:hashicorp_terraform_oss_1
-#-hashicorp:terraform:000000000000:hashicorp_terraform_pg
-#-hashicorp:terraform:000000000000:hashicorp_terraform_s3
-#-hashicorp:terraform:000000000000:hashicorp_terraform_legacy
-GH_TUPLE:=	${GH_TUPLE:Nhashicorp\:terraform\:000000000000\:*}
+#-hashicorp:terraform:fc3b1ed17408:hashicorp_terraform_azure
+#-hashicorp:terraform:fc3b1ed17408:hashicorp_terraform_consul
+#-hashicorp:terraform:fc3b1ed17408:hashicorp_terraform_cos_1
+#-hashicorp:terraform:fc3b1ed17408:hashicorp_terraform_gcs
+#-hashicorp:terraform:fc3b1ed17408:hashicorp_terraform_kubernetes
+#-hashicorp:terraform:fc3b1ed17408:hashicorp_terraform_oss_1
+#-hashicorp:terraform:fc3b1ed17408:hashicorp_terraform_pg_1
+#-hashicorp:terraform:fc3b1ed17408:hashicorp_terraform_s3_1
+#-hashicorp:terraform:fc3b1ed17408:hashicorp_terraform_legacy
+#+hashicorp:terraform:fc3b1ed17408:hashicorp_terraform_backend
+GH_TUPLE:=	${GH_TUPLE:Nhashicorp\:terraform\:[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f]\:hashicorp_terraform_*}
 
 #-hashicorp:terraform::hashicorp_terraform_azure/github.com/hashicorp/terraform/internal/backend/remote-state/azure
 #-hashicorp:terraform::hashicorp_terraform_consul/github.com/hashicorp/terraform/internal/backend/remote-state/consul
@@ -184,7 +185,7 @@ GH_TUPLE:=	${GH_TUPLE:N*/tencentcloud-sdk-go/*}
 #-census-instrumentation:opencensus-go:v0.24.0:census_instrumentation_opencensus_go/vendor/go.opencensus.io
 #-open-telemetry:opentelemetry-go-contrib:v0.54.0:open_telemetry_opentelemetry_go_contrib_1/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc
 #-opentracing:opentracing-go:v1.2.0:opentracing_opentracing_go/vendor/github.com/opentracing/opentracing-go
-GH_TUPLE:=	${GH_TUPLE:NGoogleCloudPlatform\:*}
+GH_TUPLE:=	${GH_TUPLE:NGoogleCloudPlatform\:opentelemetry-operations-go\:*}
 #GH_TUPLE:=	${GH_TUPLE:Ncensus-instrumentation\:*}
 #GH_TUPLE:=	${GH_TUPLE:Nopen-telemetry\:*}
 #GH_TUPLE:=	${GH_TUPLE:Nopentracing\:*}
@@ -212,6 +213,13 @@ GH_TUPLE:=	${GH_TUPLE:S|/jcmturner/rpc/v2|/jcmturner/rpc|1}
 
 GH_TUPLE+=	golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf
 GH_TUPLE+=	hashicorp:go-version:v1.6.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version
+
+#It's ok if `make deps-all` finishes with:
+## github.com/hashicorp/terraform/internal/rpcapi
+#internal/rpcapi/grpc_testing.go:29:34: undefined: otelgrpc.UnaryServerInterceptor
+#internal/rpcapi/grpc_testing.go:52:38: undefined: otelgrpc.UnaryClientInterceptor
+#internal/rpcapi/server.go:42:36: undefined: otelgrpc.UnaryServerInterceptor
+#DO: mv files_ files && make clean all
 
 .sinclude "${.CURDIR}/generated.deps.mk"
 .include <bsd.port.mk>
