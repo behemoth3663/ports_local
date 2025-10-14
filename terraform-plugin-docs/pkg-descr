@@ -1,1 +1,6 @@
-Generate and validate Terraform plugin/provider documentation.
+terraform-plugin-docs is a documentation generator for Terraform providers.
+It extracts structured information from Terraform provider source code and
+produces Markdown documentation compatible with the Terraform Registry. The
+tool supports resources, data sources, nested blocks, attributes, and other
+schema elements, helping provider developers automate and standardize their
+documentation.
