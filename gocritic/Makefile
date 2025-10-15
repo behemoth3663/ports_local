@@ -1,7 +1,7 @@
 PORTNAME=	gocritic
-PORTVERSION=	0.13.0
+PORTVERSION=	0.14.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	7
+#PORTREVISION=	7
 CATEGORIES=	local devel
 
 MAINTAINER=	fuz@FreeBSD.org
@@ -34,11 +34,7 @@ post-extract: .PHONY
 	@test -z '${WRKSRC_quasilyte_go_ruleguard_dsl}' || ${RLN} ${WRKSRC_quasilyte_go_ruleguard_dsl}/dsl ${WRKSRC}/vendor/github.com/quasilyte/go-ruleguard/dsl
 
 pre-deps: .PHONY
-	if [ -d '${PATCHDIR}_' ]; then \
-		${RM} -r ${PATCHDIR}; \
-	else \
-		${MV} ${PATCHDIR} ${PATCHDIR}_; \
-	fi
+	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
 
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
