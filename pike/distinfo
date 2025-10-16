@@ -1,6 +1,6 @@
-TIMESTAMP = 1760624652
-SHA256 (jamesWoolfenden-pike-v0.3.80_GH0.tar.gz) = c244cd9053a22072fa46243d23a7c8260bea46ff1267a3739186e425f39dea1f
-SIZE (jamesWoolfenden-pike-v0.3.80_GH0.tar.gz) = 2066640
+TIMESTAMP = 1760630070
+SHA256 (jamesWoolfenden-pike-v0.3.82_GH0.tar.gz) = ce3437a1530bed3ed69c19e9b7213bf9ae2940acff2c21d065c5bbfe26ee1480
+SIZE (jamesWoolfenden-pike-v0.3.82_GH0.tar.gz) = 2071176
 SHA256 (JamesWoolfenden-arn-v0.2.5_GH0.tar.gz) = f5669ceae6b5f358c1fb33c414afa0c8c93aae364eedf078f0cda6740b0e51ec
 SIZE (JamesWoolfenden-arn-v0.2.5_GH0.tar.gz) = 4881
 SHA256 (Microsoft-go-winio-v0.6.2_GH0.tar.gz) = 0bf0aedbb0a38c494fda60804679e270fe98ca05dc9c2659584df1e3e1e0bd17
