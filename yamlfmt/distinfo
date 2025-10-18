@@ -1,6 +1,6 @@
-TIMESTAMP = 1760635976
-SHA256 (google-yamlfmt-v0.18.1_GH0.tar.gz) = aec8d5cb8ca395ed60bddeb14d4a4076d5b46939a3a9cd6773eb1913d2d63a0e
-SIZE (google-yamlfmt-v0.18.1_GH0.tar.gz) = 154154
+TIMESTAMP = 1760806641
+SHA256 (google-yamlfmt-v0.19.0_GH0.tar.gz) = 257dd1521895c6b22ab4c71c27fa27f2290d05cedd0734f819573b509039e9b2
+SIZE (google-yamlfmt-v0.19.0_GH0.tar.gz) = 154429
 SHA256 (bmatcuk-doublestar-v4.7.1_GH0.tar.gz) = 09dea26a4d3f1e2d4e6801fdc777eb5863957430d75255ec69d98b4c97ad44ed
 SIZE (bmatcuk-doublestar-v4.7.1_GH0.tar.gz) = 27248
 SHA256 (go-check-check-20d25e280405_GH0.tar.gz) = 64e480598f0fdcd71a62b3da12d1cb88199881f90a3eb8553eee043002592500
