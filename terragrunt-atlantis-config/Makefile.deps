@@ -176,6 +176,24 @@ GH_TUPLE=	\
 		#	::v1.5.0:group_name/vendor/go.opentelemetry.io/proto/otlp (from go.opentelemetry.io/proto/otlp@v1.5.0)
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+
+	#Azure:azure-sdk-for-go:sdk/security/keyvault/internal/v1.1.0:azure_azure_sdk_for_go_internal_1
+	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/internal
+	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_internal_1}/sdk/security/keyvault/internal ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/internal
+
+	#Azure:azure-sdk-for-go:sdk/security/keyvault/azkeys/v1.3.0:azure_azure_sdk_for_go_azkeys
+	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azkeys
+	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_azkeys}/sdk/security/keyvault/azkeys ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azkeys
+
+	#Azure:azure-sdk-for-go:sdk/internal/v1.10.0:azure_azure_sdk_for_go_internal
+	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/internal
+	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_internal}/sdk/internal ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/internal
+
+	#Azure:azure-sdk-for-go:sdk/azidentity/v1.8.1:azure_azure_sdk_for_go_azidentity
+	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/azidentity
+	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_azidentity}/sdk/azidentity ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/azidentity
+
+
 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest
 	@${CP} -r ${WRKSRC_azure_go_autorest_autorest}/autorest ${WRKSRC}/vendor/github.com/Azure/go-autorest
 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/logger
