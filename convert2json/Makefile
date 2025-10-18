@@ -1,5 +1,5 @@
 PORTNAME=	convert2json
-DISTVERSION=	2.3.6
+DISTVERSION=	2.3.7
 #PORTREVISION=	1
 CATEGORIES=	local converters
 
