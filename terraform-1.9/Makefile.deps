@@ -58,7 +58,7 @@ GH_TUPLE=	\
 		aws:aws-sdk-go-v2:v1.36.6:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
 		aws:aws-sdk-go-v2:v1.6.11:aws_aws_sdk_go_v2_eventstream/vendor/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream \
 		aws:aws-sdk-go-v2:v1.60.1:aws_aws_sdk_go_v2_s3/vendor/github.com/aws/aws-sdk-go-v2/service/s3 \
-		aws:aws-sdk-go-v2:v1.8.3:aws_aws_sdk_go_v2_ini/vendor/github.com/aws/aws-sdk-go-v2/internal/ini \
+		aws:aws-sdk-go-v2:v1.8.4:aws_aws_sdk_go_v2_ini/vendor/github.com/aws/aws-sdk-go-v2/internal/ini \
 		aws:aws-sdk-go-v2:v1.9.19:aws_aws_sdk_go_v2_endpoint_discovery/vendor/github.com/aws/aws-sdk-go-v2/service/internal/endpoint-discovery \
 		aws:aws-sdk-go-v2:v2.6.37:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 \
 		aws:aws-sdk-go:v1.44.334:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
@@ -79,7 +79,7 @@ GH_TUPLE=	\
 		cli:shurcooL-graphql:v0.0.4:cli_shurcool_graphql/vendor/github.com/cli/shurcooL-graphql \
 		clipperhouse:uax29:v2.2.0:clipperhouse_uax29_v2/vendor/github.com/clipperhouse/uax29/v2 \
 		cloudflare:circl:v1.3.9:cloudflare_circl/vendor/github.com/cloudflare/circl \
-		cncf:xds:2ac532fd4443:cncf_xds_go/vendor/github.com/cncf/xds/go \
+		cncf:xds:2ee22ca58382:cncf_xds_go/vendor/github.com/cncf/xds/go \
 		creack:pty:v1.1.17:creack_pty/vendor/github.com/creack/pty \
 		davecgh:go-spew:d8f796af33cc:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		dimchansky:utfbom:v1.1.1:dimchansky_utfbom/vendor/github.com/dimchansky/utfbom \
@@ -109,7 +109,7 @@ GH_TUPLE=	\
 		gogo:protobuf:v1.3.2:gogo_protobuf/vendor/github.com/gogo/protobuf \
 		golang-jwt:jwt:v4.5.2:golang_jwt_jwt_v4/vendor/github.com/golang-jwt/jwt/v4 \
 		golang:crypto:v0.43.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:exp:d2f985daa21b:golang_exp/vendor/golang.org/x/exp \
+		golang:exp:90e834f514db:golang_exp/vendor/golang.org/x/exp \
 		golang:groupcache:2c02b8208cf8:golang_groupcache/vendor/github.com/golang/groupcache \
 		golang:mod:v0.29.0:golang_mod/vendor/golang.org/x/mod \
 		golang:net:v0.46.0:golang_net/vendor/golang.org/x/net \
@@ -122,9 +122,9 @@ GH_TUPLE=	\
 		golang:tools:v0.38.0:golang_tools/vendor/golang.org/x/tools \
 		google:gnostic:v0.5.7-v3refs:google_gnostic/vendor/github.com/google/gnostic \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
-		google:go-genproto:49b9836ed3ff:google_go_genproto/vendor/google.golang.org/genproto \
-		google:go-genproto:49b9836ed3ff:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api \
-		google:go-genproto:49b9836ed3ff:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc \
+		google:go-genproto:4626949a642f:google_go_genproto/vendor/google.golang.org/genproto \
+		google:go-genproto:4626949a642f:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api \
+		google:go-genproto:4626949a642f:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc \
 		google:go-github:v45.2.0:google_go_github_v45/vendor/github.com/google/go-github/v45 \
 		google:go-github:v53.0.0:google_go_github_v53/vendor/github.com/google/go-github/v53 \
 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
@@ -138,7 +138,7 @@ GH_TUPLE=	\
 		googleapis:google-cloud-go:v0.16.5:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth \
 		googleapis:google-cloud-go:v1.24.3:googleapis_google_cloud_go_monitoring/vendor/cloud.google.com/go/monitoring \
 		googleapis:google-cloud-go:v1.5.3:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go/iam \
-		googleapis:google-cloud-go:v1.56.2:googleapis_google_cloud_go_storage/vendor/cloud.google.com/go/storage \
+		googleapis:google-cloud-go:v1.56.3:googleapis_google_cloud_go_storage/vendor/cloud.google.com/go/storage \
 		grpc-ecosystem:grpc-gateway:v2.16.2:grpc_ecosystem_grpc_gateway_v2/vendor/github.com/grpc-ecosystem/grpc-gateway/v2 \
 		grpc:grpc-go:v1.1.0:grpc_grpc_go_1/vendor/google.golang.org/grpc/cmd/protoc-gen-go-grpc \
 		grpc:grpc-go:v1.75.1:grpc_grpc_go/vendor/google.golang.org/grpc \
@@ -170,6 +170,15 @@ GH_TUPLE=	\
 		hashicorp:terraform-plugin-log:v0.9.0:hashicorp_terraform_plugin_log/vendor/github.com/hashicorp/terraform-plugin-log \
 		hashicorp:terraform-registry-address:v0.2.5:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
 		hashicorp:terraform-svchost:v0.1.1:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
+		hashicorp:terraform:106f8c6a1f51:hashicorp_terraform_azure \
+		hashicorp:terraform:106f8c6a1f51:hashicorp_terraform_consul \
+		hashicorp:terraform:106f8c6a1f51:hashicorp_terraform_cos_1 \
+		hashicorp:terraform:106f8c6a1f51:hashicorp_terraform_gcs \
+		hashicorp:terraform:106f8c6a1f51:hashicorp_terraform_kubernetes \
+		hashicorp:terraform:106f8c6a1f51:hashicorp_terraform_oss_1 \
+		hashicorp:terraform:106f8c6a1f51:hashicorp_terraform_pg_1 \
+		hashicorp:terraform:106f8c6a1f51:hashicorp_terraform_s3_1 \
+		hashicorp:terraform:106f8c6a1f51:hashicorp_terraform_legacy \
 		hashicorp:terraform::hashicorp_terraform_azure_1/github.com/hashicorp/terraform/internal/backend/remote-state/azure \
 		hashicorp:terraform::hashicorp_terraform_consul_1/github.com/hashicorp/terraform/internal/backend/remote-state/consul \
 		hashicorp:terraform::hashicorp_terraform_cos/github.com/hashicorp/terraform/internal/backend/remote-state/cos \
@@ -179,15 +188,6 @@ GH_TUPLE=	\
 		hashicorp:terraform::hashicorp_terraform_pg/github.com/hashicorp/terraform/internal/backend/remote-state/pg \
 		hashicorp:terraform::hashicorp_terraform_s3/github.com/hashicorp/terraform/internal/backend/remote-state/s3 \
 		hashicorp:terraform::hashicorp_terraform_legacy_1/github.com/hashicorp/terraform/internal/legacy \
-		hashicorp:terraform:fc3b1ed17408:hashicorp_terraform_azure \
-		hashicorp:terraform:fc3b1ed17408:hashicorp_terraform_consul \
-		hashicorp:terraform:fc3b1ed17408:hashicorp_terraform_cos_1 \
-		hashicorp:terraform:fc3b1ed17408:hashicorp_terraform_gcs \
-		hashicorp:terraform:fc3b1ed17408:hashicorp_terraform_kubernetes \
-		hashicorp:terraform:fc3b1ed17408:hashicorp_terraform_oss_1 \
-		hashicorp:terraform:fc3b1ed17408:hashicorp_terraform_pg_1 \
-		hashicorp:terraform:fc3b1ed17408:hashicorp_terraform_s3_1 \
-		hashicorp:terraform:fc3b1ed17408:hashicorp_terraform_legacy \
 		hashicorp:yamux:v0.1.2:hashicorp_yamux/vendor/github.com/hashicorp/yamux \
 		henvic:httpretty:v0.0.6:henvic_httpretty/vendor/github.com/henvic/httpretty \
 		huandu:xstrings:v1.3.3:huandu_xstrings/vendor/github.com/huandu/xstrings \
@@ -279,7 +279,7 @@ GH_TUPLE=	\
 		zeebo:errs:v1.4.0:zeebo_errs/vendor/github.com/zeebo/errs
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
 		#	::2d320260d730:group_name/vendor/sigs.k8s.io/json (from sigs.k8s.io/json@2d320260d730)
-		#	::d2f985daa21b:group_name/vendor/golang.org/x/exp/typeparams (from golang.org/x/exp/typeparams@d2f985daa21b)
+		#	::90e834f514db:group_name/vendor/golang.org/x/exp/typeparams (from golang.org/x/exp/typeparams@90e834f514db)
 		#	::v0.1.0-deprecated:group_name/vendor/golang.org/x/tools/cmd/cover (from golang.org/x/tools/cmd/cover@v0.1.0-deprecated)
 		#	::v0.2.8:group_name/vendor/cloud.google.com/go/auth/oauth2adapt (from cloud.google.com/go/auth/oauth2adapt@v0.2.8)
 		#	::v0.24.0:group_name/vendor/cel.dev/expr (from cel.dev/expr@v0.24.0)

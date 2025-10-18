@@ -1,7 +1,7 @@
 PORTNAME=	terraform
 PORTVERSION=	1.9.8
 DISTVERSIONPREFIX=	v
-PORTREVISION=	20251012
+PORTREVISION=	20251018
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX?=	-${PORTVERSION:R}
 
@@ -212,7 +212,6 @@ GH_TUPLE:=	${GH_TUPLE:S|/gokrb5/v8|/gokrb5|1}
 GH_TUPLE:=	${GH_TUPLE:S|/jcmturner/rpc/v2|/jcmturner/rpc|1}
 
 GH_TUPLE+=	golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf
-GH_TUPLE+=	hashicorp:go-version:v1.6.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version
 
 #It's ok if `make deps-all` finishes with:
 ## github.com/hashicorp/terraform/internal/rpcapi
