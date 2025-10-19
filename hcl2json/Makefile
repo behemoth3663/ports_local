@@ -1,6 +1,7 @@
 PORTNAME=	hcl2json
 PORTVERSION=	0.6.8
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
@@ -17,7 +18,7 @@ GH_ACCOUNT=	tmccombs
 PLIST_FILES=	bin/${PORTNAME}
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
-	-X 'main.Version=${PORTVERSION}'"
+	-X 'main.version=${PORTVERSION}'"
 
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
