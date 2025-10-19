@@ -25,7 +25,7 @@ github.com/dgryski/go-rendezvous
 ## explicit; go 1.13
 github.com/dlclark/regexp2
 github.com/dlclark/regexp2/syntax
-# github.com/dop251/goja v0.0.0-20250630131328-58d95d85e994
+# github.com/dop251/goja v0.0.0-20251008123653-cf18d89f3cf6
 ## explicit; go 1.20
 github.com/dop251/goja
 github.com/dop251/goja/ast
@@ -39,7 +39,7 @@ github.com/dop251/goja/unistring
 ## explicit
 github.com/go-sourcemap/sourcemap
 github.com/go-sourcemap/sourcemap/internal/base64vlq
-# github.com/google/pprof v0.0.0-20250903194437-c28834ac2320
+# github.com/google/pprof v0.0.0-20251007162407-5df77e3f7d1d
 ## explicit; go 1.24.0
 github.com/google/pprof/profile
 # github.com/hashicorp/errwrap v1.1.0
@@ -73,7 +73,7 @@ github.com/ncruces/go-dns
 # github.com/pires/go-proxyproto v0.8.1
 ## explicit; go 1.24
 github.com/pires/go-proxyproto
-# github.com/redis/go-redis/v9 v9.13.0
+# github.com/redis/go-redis/v9 v9.14.0
 ## explicit; go 1.18
 github.com/redis/go-redis/v9
 github.com/redis/go-redis/v9/auth
@@ -84,7 +84,7 @@ github.com/redis/go-redis/v9/internal/pool
 github.com/redis/go-redis/v9/internal/proto
 github.com/redis/go-redis/v9/internal/rand
 github.com/redis/go-redis/v9/internal/util
-# github.com/refraction-networking/utls v1.8.0
+# github.com/refraction-networking/utls v1.8.1
 ## explicit; go 1.24
 github.com/refraction-networking/utls
 github.com/refraction-networking/utls/dicttls
@@ -109,8 +109,8 @@ github.com/things-go/go-socks5/statute
 # github.com/zeebo/xxh3 v1.0.2
 ## explicit; go 1.17
 github.com/zeebo/xxh3
-# golang.org/x/crypto v0.41.0
-## explicit; go 1.23.0
+# golang.org/x/crypto v0.43.0
+## explicit; go 1.24.0
 golang.org/x/crypto/acme
 golang.org/x/crypto/acme/autocert
 golang.org/x/crypto/bcrypt
@@ -124,11 +124,12 @@ golang.org/x/crypto/internal/alias
 golang.org/x/crypto/internal/poly1305
 golang.org/x/crypto/sha3
 golang.org/x/crypto/ssh/terminal
-# golang.org/x/crypto/x509roots/fallback v0.0.0-20250826074233-8f580defa01d
+# golang.org/x/crypto/x509roots/fallback v0.0.0-20251009181029-0b7aa0cfb07b
 ## explicit; go 1.24.0
 golang.org/x/crypto/x509roots/fallback
-# golang.org/x/net v0.43.0
-## explicit; go 1.23.0
+golang.org/x/crypto/x509roots/fallback/bundle
+# golang.org/x/net v0.46.0
+## explicit; go 1.24.0
 golang.org/x/net/http/httpguts
 golang.org/x/net/http2
 golang.org/x/net/http2/hpack
@@ -136,20 +137,20 @@ golang.org/x/net/idna
 golang.org/x/net/internal/httpcommon
 golang.org/x/net/internal/socks
 golang.org/x/net/proxy
-# golang.org/x/sync v0.16.0
-## explicit; go 1.23.0
+# golang.org/x/sync v0.17.0
+## explicit; go 1.24.0
 golang.org/x/sync/singleflight
-# golang.org/x/sys v0.35.0
-## explicit; go 1.23.0
+# golang.org/x/sys v0.37.0
+## explicit; go 1.24.0
 golang.org/x/sys/cpu
 golang.org/x/sys/plan9
 golang.org/x/sys/unix
 golang.org/x/sys/windows
-# golang.org/x/term v0.34.0
-## explicit; go 1.23.0
+# golang.org/x/term v0.36.0
+## explicit; go 1.24.0
 golang.org/x/term
-# golang.org/x/text v0.28.0
-## explicit; go 1.23.0
+# golang.org/x/text v0.30.0
+## explicit; go 1.24.0
 golang.org/x/text/cases
 golang.org/x/text/collate
 golang.org/x/text/internal
@@ -163,7 +164,7 @@ golang.org/x/text/transform
 golang.org/x/text/unicode/bidi
 golang.org/x/text/unicode/norm
 golang.org/x/text/unicode/rangetable
-# golang.org/x/time v0.12.0 => github.com/Snawoot/xtime v0.0.0-20250501122004-d1ce456948bb
+# golang.org/x/time v0.14.0 => github.com/Snawoot/xtime v0.0.0-20250501122004-d1ce456948bb
 ## explicit; go 1.23.0
 golang.org/x/time/rate
 # golang.org/x/time => github.com/Snawoot/xtime v0.0.0-20250501122004-d1ce456948bb
