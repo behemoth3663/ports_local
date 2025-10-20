@@ -1,1 +1,3 @@
-A cat(1) clone with syntax highlighting and Git integration.
+A cat(1) clone with syntax highlighting and Git integration. It provides
+syntax highlighting for a wide range of programming and markup languages,
+automatic paging of output, and Git-aware file display.
