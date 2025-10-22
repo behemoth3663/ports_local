@@ -1,6 +1,6 @@
---- vendor/cloud.google.com/go/spanner/ot_metrics.go.orig	2025-05-13 20:48:25 UTC
+--- vendor/cloud.google.com/go/spanner/ot_metrics.go.orig	2025-08-14 14:42:16 UTC
 +++ vendor/cloud.google.com/go/spanner/ot_metrics.go
-@@ -19,10 +19,6 @@ import (
+@@ -19,11 +19,6 @@ import (
  	"log"
  	"sync"
  
@@ -8,10 +8,11 @@
 -	"go.opentelemetry.io/otel"
 -	"go.opentelemetry.io/otel/attribute"
 -	"go.opentelemetry.io/otel/metric"
+-	"go.opentelemetry.io/otel/trace"
  	"google.golang.org/grpc/metadata"
  )
  
-@@ -31,203 +27,22 @@ var (
+@@ -32,212 +27,21 @@ var (
  const metricsPrefix = "spanner/"
  
  var (
@@ -31,21 +32,30 @@
  	otMu = sync.RWMutex{}
  )
  
--func createOpenTelemetryConfig(mp metric.MeterProvider, logger *log.Logger, sessionClientID string, db string) (*openTelemetryConfig, error) {
+-func createOpenTelemetryConfig(ctx context.Context, mp metric.MeterProvider, logger *log.Logger, sessionClientID string, db string) (*openTelemetryConfig, error) {
 -	// Important: snapshot the value of the global variable to ensure a
 -	// consistent value for the lifetime of this client.
 -	enabled := IsOpenTelemetryMetricsEnabled()
--
--	config := &openTelemetryConfig{
--		enabled:      enabled,
--		attributeMap: []attribute.KeyValue{},
--	}
--	if !enabled {
--		return config, nil
--	}
 -	_, instance, database, err := parseDatabaseName(db)
 -	if err != nil {
 -		return nil, err
+-	}
+-	config := &openTelemetryConfig{
+-		enabled:      enabled,
+-		attributeMap: []attribute.KeyValue{},
+-		commonTraceStartOptions: []trace.SpanStartOption{
+-			trace.WithAttributes(
+-				attribute.String("db.name", database),
+-				attribute.String("instance.name", instance),
+-				attribute.String("cloud.region", detectClientLocation(ctx)),
+-				attribute.String("gcp.client.version", internal.Version),
+-				attribute.String("gcp.client.repo", gcpClientRepo),
+-				attribute.String("gcp.client.artifact", gcpClientArtifact),
+-			),
+-		},
+-	}
+-	if !enabled {
+-		return config, nil
 -	}
 -
 -	// Construct attributes for Metrics
@@ -77,7 +87,7 @@
 -
  func initializeMetricInstruments(config *openTelemetryConfig, logger *log.Logger) {
 -	if !config.enabled {
- 		return
+-		return
 -	}
 -	meter := config.meterProvider.Meter(OtInstrumentationScope, metric.WithInstrumentationVersion(internal.Version))
 -
@@ -179,7 +189,7 @@
  func registerSessionPoolOTMetrics(pool *sessionPool) error {
 -	otConfig := pool.otConfig
 -	if otConfig == nil || !otConfig.enabled {
--		return nil
+ 		return nil
 -	}
 -
 -	attributes := otConfig.attributeMap
@@ -198,7 +208,7 @@
 -			o.ObserveInt64(otConfig.sessionsCount, int64(pool.numInUse), metric.WithAttributes(append(attributesInUseSessions, attribute.Key("is_multiplexed").String("false"))...))
 -			o.ObserveInt64(otConfig.sessionsCount, int64(pool.numSessions), metric.WithAttributes(attributesAvailableSessions...))
 -			o.ObserveInt64(otConfig.maxInUseSessionsCount, int64(pool.maxNumInUse), metric.WithAttributes(append(attributes, attribute.Key("is_multiplexed").String("false"))...))
- 			return nil
+-			return nil
 -		},
 -		otConfig.openSessionCount,
 -		otConfig.maxAllowedSessionsCount,
@@ -215,7 +225,7 @@
  }
  
  // IsOpenTelemetryMetricsEnabled tells whether OpenTelemtery metrics is enabled or not.
-@@ -238,24 +53,8 @@ func setOpenTelemetryMetricsFlag(enable bool) {
+@@ -248,24 +52,8 @@ func setOpenTelemetryMetricsFlag(enable bool) {
  }
  
  func setOpenTelemetryMetricsFlag(enable bool) {

@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/spanner/pdml.go.orig	2025-05-13 20:48:25 UTC
+--- vendor/cloud.google.com/go/spanner/pdml.go.orig	2025-08-14 14:42:16 UTC
 +++ vendor/cloud.google.com/go/spanner/pdml.go
 @@ -17,10 +17,8 @@ import (
  import (
@@ -15,8 +15,8 @@
  }
  
  func (c *Client) partitionedUpdate(ctx context.Context, statement Statement, options QueryOptions) (count int64, err error) {
--	ctx = trace.StartSpan(ctx, "cloud.google.com/go/spanner.PartitionedUpdate")
--	defer func() { trace.EndSpan(ctx, err) }()
+-	ctx, _ = startSpan(ctx, "PartitionedUpdate", c.otConfig.commonTraceStartOptions...)
+-	defer func() { endSpan(ctx, err) }()
  	if err := checkNestedTxn(ctx); err != nil {
  		return 0, err
  	}

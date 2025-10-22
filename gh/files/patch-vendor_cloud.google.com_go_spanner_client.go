@@ -1,6 +1,6 @@
---- vendor/cloud.google.com/go/spanner/client.go.orig	2025-07-17 21:08:43 UTC
+--- vendor/cloud.google.com/go/spanner/client.go.orig	2025-08-14 14:42:16 UTC
 +++ vendor/cloud.google.com/go/spanner/client.go
-@@ -28,14 +28,10 @@ import (
+@@ -27,15 +27,10 @@ import (
  	"strings"
  	"time"
  
@@ -12,10 +12,19 @@
 -	"go.opentelemetry.io/otel/attribute"
 -	"go.opentelemetry.io/otel/metric"
 -	"go.opentelemetry.io/otel/metric/noop"
+-	otrace "go.opentelemetry.io/otel/trace"
  	"google.golang.org/api/iterator"
  	"google.golang.org/api/option"
  	"google.golang.org/api/option/internaloption"
-@@ -349,8 +345,6 @@ type ClientConfig struct {
+@@ -127,7 +122,6 @@ type Client struct {
+ 	ct                   *commonTags
+ 	disableRouteToLeader bool
+ 	dro                  *sppb.DirectedReadOptions
+-	otConfig             *openTelemetryConfig
+ 	metricsTracerFactory *builtinMetricsTracerFactory
+ }
+ 
+@@ -349,8 +343,6 @@ type ClientConfig struct {
  	// should be used for non-transactional reads or queries.
  	DirectedReadOptions *sppb.DirectedReadOptions
  
@@ -24,11 +33,12 @@
  	// EnableEndToEndTracing indicates whether end to end tracing is enabled or not. If
  	// it is enabled, trace spans will be created at Spanner layer. Enabling end to end
  	// tracing requires OpenTelemetry to be set up. Simply enabling this option won't
-@@ -371,20 +365,6 @@ type openTelemetryConfig struct {
+@@ -371,21 +363,6 @@ type openTelemetryConfig struct {
  
  type openTelemetryConfig struct {
  	enabled                        bool
 -	meterProvider                  metric.MeterProvider
+-	commonTraceStartOptions        []otrace.SpanStartOption
 -	attributeMap                   []attribute.KeyValue
 -	attributeMapWithMultiplexed    []attribute.KeyValue
 -	attributeMapWithoutMultiplexed []attribute.KeyValue
@@ -45,17 +55,17 @@
  }
  
  func contextWithOutgoingMetadata(ctx context.Context, md metadata.MD, disableRouteToLeader bool) context.Context {
-@@ -417,9 +397,6 @@ func newClientWithConfig(ctx context.Context, database
+@@ -420,9 +397,6 @@ func newClientWithConfig(ctx context.Context, database
  		return nil, err
  	}
  
--	ctx = trace.StartSpan(ctx, "cloud.google.com/go/spanner.NewClient")
--	defer func() { trace.EndSpan(ctx, err) }()
+-	ctx, _ = startSpan(ctx, "NewClient")
+-	defer func() { endSpan(ctx, err) }()
 -
  	// Explicitly disable some gRPC experiments as they are not stable yet.
  	gRPCPickFirstEnvVarName := "GRPC_EXPERIMENTAL_ENABLE_NEW_PICK_FIRST"
  	if os.Getenv(gRPCPickFirstEnvVarName) == "" {
-@@ -447,43 +424,21 @@ func newClientWithConfig(ctx context.Context, database
+@@ -450,43 +424,21 @@ func newClientWithConfig(ctx context.Context, database
  		config.NumChannels = numChannels
  	}
  
@@ -99,12 +109,12 @@
  	var pool gtransport.ConnPool
  
  	if gme != nil {
-@@ -581,18 +536,6 @@ func newClientWithConfig(ctx context.Context, database
+@@ -584,18 +536,6 @@ func newClientWithConfig(ctx context.Context, database
  	// Create a session client.
  	sc := newSessionClient(pool, database, config.UserAgent, sessionLabels, config.DatabaseRole, config.DisableRouteToLeader, md, config.BatchTimeout, config.Logger, config.CallOptions)
  
--	// Create a OpenTelemetry configuration
--	otConfig, err := createOpenTelemetryConfig(config.OpenTelemetryMeterProvider, config.Logger, sc.id, database)
+-	// Create an OpenTelemetry configuration
+-	otConfig, err := createOpenTelemetryConfig(ctx, config.OpenTelemetryMeterProvider, config.Logger, sc.id, database)
 -	if err != nil {
 -		// The error returned here will be due to database name parsing
 -		return nil, err
@@ -118,7 +128,7 @@
  	// Create a session pool.
  	config.SessionPoolConfig.sessionLabels = sessionLabels
  	sp, err := newSessionPool(sc, config.SessionPoolConfig)
-@@ -613,8 +556,6 @@ func newClientWithConfig(ctx context.Context, database
+@@ -616,8 +556,6 @@ func newClientWithConfig(ctx context.Context, database
  		ct:                   getCommonTags(sc),
  		disableRouteToLeader: config.DisableRouteToLeader,
  		dro:                  config.DirectedReadOptions,
@@ -127,25 +137,74 @@
  	}
  	return c, nil
  }
-@@ -1056,8 +997,6 @@ func (c *Client) ReadWriteTransaction(ctx context.Cont
+@@ -721,8 +659,6 @@ func metricsInterceptor() grpc.UnaryClientInterceptor 
+ 		mt.currOp.currAttempt.setStatus(statusCode.Code().String())
+ 		mt.currOp.currAttempt.setDirectPathUsed(peer.NewContext(ctx, peerInfo))
+ 		latencies := parseServerTimingHeader(md)
+-		span := otrace.SpanFromContext(ctx)
+-		setGFEAndAFESpanAttributes(span, latencies)
+ 		mt.currOp.currAttempt.setServerTimingMetrics(latencies)
+ 		recordAttemptCompletion(mt)
+ 		return err
+@@ -835,7 +771,6 @@ func (c *Client) Single() *ReadOnlyTransaction {
+ 	t.txReadOnly.ro.DirectedReadOptions = c.dro
+ 	t.txReadOnly.ro.LockHint = sppb.ReadRequest_LOCK_HINT_UNSPECIFIED
+ 	t.ct = c.ct
+-	t.otConfig = c.otConfig
+ 	return t
+ }
+ 
+@@ -862,7 +797,6 @@ func (c *Client) ReadOnlyTransaction() *ReadOnlyTransa
+ 	t.txReadOnly.ro.DirectedReadOptions = c.dro
+ 	t.txReadOnly.ro.LockHint = sppb.ReadRequest_LOCK_HINT_UNSPECIFIED
+ 	t.ct = c.ct
+-	t.otConfig = c.otConfig
+ 	return t
+ }
+ 
+@@ -945,7 +879,6 @@ func (c *Client) BatchReadOnlyTransaction(ctx context.
+ 	t.txReadOnly.ro.DirectedReadOptions = c.dro
+ 	t.txReadOnly.ro.LockHint = sppb.ReadRequest_LOCK_HINT_UNSPECIFIED
+ 	t.ct = c.ct
+-	t.otConfig = c.otConfig
+ 	return t, nil
+ }
+ 
+@@ -981,7 +914,6 @@ func (c *Client) BatchReadOnlyTransactionFromID(tid Ba
+ 	t.txReadOnly.ro.DirectedReadOptions = c.dro
+ 	t.txReadOnly.ro.LockHint = sppb.ReadRequest_LOCK_HINT_UNSPECIFIED
+ 	t.ct = c.ct
+-	t.otConfig = c.otConfig
+ 	return t
+ }
+ 
+@@ -1013,8 +945,6 @@ func (c *Client) ReadWriteTransaction(ctx context.Cont
  // See https://godoc.org/cloud.google.com/go/spanner#ReadWriteTransaction for
  // more details.
  func (c *Client) ReadWriteTransaction(ctx context.Context, f func(context.Context, *ReadWriteTransaction) error) (commitTimestamp time.Time, err error) {
--	ctx = trace.StartSpan(ctx, "cloud.google.com/go/spanner.ReadWriteTransaction")
--	defer func() { trace.EndSpan(ctx, err) }()
+-	ctx, _ = startSpan(ctx, "ReadWriteTransaction", c.otConfig.commonTraceStartOptions...)
+-	defer func() { endSpan(ctx, err) }()
  	resp, err := c.rwTransaction(ctx, f, TransactionOptions{})
  	return resp.CommitTs, err
  }
-@@ -1070,8 +1009,6 @@ func (c *Client) ReadWriteTransactionWithOptions(ctx c
+@@ -1027,8 +957,6 @@ func (c *Client) ReadWriteTransactionWithOptions(ctx c
  // See https://godoc.org/cloud.google.com/go/spanner#ReadWriteTransaction for
  // more details.
  func (c *Client) ReadWriteTransactionWithOptions(ctx context.Context, f func(context.Context, *ReadWriteTransaction) error, options TransactionOptions) (resp CommitResponse, err error) {
--	ctx = trace.StartSpan(ctx, "cloud.google.com/go/spanner.ReadWriteTransactionWithOptions")
--	defer func() { trace.EndSpan(ctx, err) }()
+-	ctx, _ = startSpan(ctx, "ReadWriteTransactionWithOptions", c.otConfig.commonTraceStartOptions...)
+-	defer func() { endSpan(ctx, err) }()
  	resp, err = c.rwTransaction(ctx, f, options)
  	return resp, err
  }
-@@ -1132,11 +1069,6 @@ func (c *Client) rwTransaction(ctx context.Context, f 
+@@ -1075,7 +1003,6 @@ func (c *Client) rwTransaction(ctx context.Context, f 
+ 			t.wb = []*Mutation{}
+ 			t.txOpts = c.txo.merge(options)
+ 			t.ct = c.ct
+-			t.otConfig = c.otConfig
+ 		}
+ 		if t.shouldExplicitBegin(attempt, options) {
+ 			if t == nil {
+@@ -1089,11 +1016,6 @@ func (c *Client) rwTransaction(ctx context.Context, f 
  			// BeginTransaction RPC invocation will be retried on a new session if it returns SessionNotFound.
  			t.txReadOnly.sh = sh
  			if err = t.begin(ctx, nil); err != nil {
@@ -157,7 +216,7 @@
  				return ToSpannerError(err)
  			}
  		} else {
-@@ -1153,9 +1085,6 @@ func (c *Client) rwTransaction(ctx context.Context, f 
+@@ -1110,9 +1032,6 @@ func (c *Client) rwTransaction(ctx context.Context, f 
  		}
  		attempt++
  
@@ -167,17 +226,17 @@
  		resp, err = t.runInTransaction(ctx, f)
  		return err
  	})
-@@ -1253,9 +1182,6 @@ func (c *Client) Apply(ctx context.Context, ms []*Muta
+@@ -1210,9 +1129,6 @@ func (c *Client) Apply(ctx context.Context, ms []*Muta
  		opt(ao)
  	}
  
--	ctx = trace.StartSpan(ctx, "cloud.google.com/go/spanner.Apply")
--	defer func() { trace.EndSpan(ctx, err) }()
+-	ctx, _ = startSpan(ctx, "Apply", c.otConfig.commonTraceStartOptions...)
+-	defer func() { endSpan(ctx, err) }()
 -
  	if !ao.atLeastOnce {
  		resp, err := c.ReadWriteTransactionWithOptions(ctx, func(ctx context.Context, t *ReadWriteTransaction) error {
  			return t.BufferWrite(ms)
-@@ -1366,7 +1292,6 @@ func (r *BatchWriteResponseIterator) Stop() {
+@@ -1323,7 +1239,6 @@ func (r *BatchWriteResponseIterator) Stop() {
  		if err == iterator.Done {
  			err = nil
  		}
@@ -185,11 +244,11 @@
  	}
  	if r.cancel != nil {
  		r.cancel()
-@@ -1426,12 +1351,7 @@ func (c *Client) BatchWriteWithOptions(ctx context.Con
+@@ -1383,12 +1298,7 @@ func (c *Client) BatchWriteWithOptions(ctx context.Con
  
  // BatchWriteWithOptions is same as BatchWrite. It accepts additional options to customize the request.
  func (c *Client) BatchWriteWithOptions(ctx context.Context, mgs []*MutationGroup, opts BatchWriteOptions) *BatchWriteResponseIterator {
--	ctx = trace.StartSpan(ctx, "cloud.google.com/go/spanner.BatchWrite")
+-	ctx, _ = startSpan(ctx, "BatchWrite", c.otConfig.commonTraceStartOptions...)
 -
  	var err error
 -	defer func() {
@@ -198,7 +257,7 @@
  
  	opts = c.bwo.merge(opts)
  
-@@ -1456,14 +1376,6 @@ func (c *Client) BatchWriteWithOptions(ctx context.Con
+@@ -1413,14 +1323,6 @@ func (c *Client) BatchWriteWithOptions(ctx context.Con
  			ExcludeTxnFromChangeStreams: opts.ExcludeTxnFromChangeStreams,
  		}, gax.WithGRPCOptions(grpc.Header(&md)))
  
@@ -213,11 +272,11 @@
  		return stream, rpcErr
  	}
  
-@@ -1487,7 +1399,6 @@ func (c *Client) BatchWriteWithOptions(ctx context.Con
+@@ -1444,7 +1346,6 @@ func (c *Client) BatchWriteWithOptions(ctx context.Con
  	}
  
  	ctx, cancel := context.WithCancel(ctx)
--	ctx = trace.StartSpan(ctx, "cloud.google.com/go/spanner.BatchWriteResponseIterator")
+-	ctx, _ = startSpan(ctx, "BatchWriteResponseIterator", c.otConfig.commonTraceStartOptions...)
  	return &BatchWriteResponseIterator{
  		ctx:                ctx,
  		meterTracerFactory: c.metricsTracerFactory,
