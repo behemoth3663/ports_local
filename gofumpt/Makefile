@@ -1,5 +1,5 @@
 PORTNAME=	gofumpt
-PORTVERSION=	0.9.1
+PORTVERSION=	0.9.2
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local devel
 
@@ -16,12 +16,8 @@ GH_ACCOUNT=	mvdan
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static"
-
-#const fallbackVersion = "(devel)" // to match the default from runtime/debug
-post-patch: .PHONY
-	${REINPLACE_CMD} 's| = "(devel)"| = "${DISTVERSIONPREFIX}${PORTVERSION}"|' \
-		${WRKSRC}/internal/version/version.go
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+	-X main.version=${PORTVERSION}"
 
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
