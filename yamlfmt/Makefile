@@ -1,5 +1,5 @@
 PORTNAME=	yamlfmt
-PORTVERSION=	0.19.0
+PORTVERSION=	0.20.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local textproc
@@ -25,7 +25,7 @@ GIT_COMMIT=	git ls-remote \
 		${SED} -rn 's/(.{7}).*/\1/p'
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
-	-X 'main.version=${DISTVERSIONPREFIX}${PORTVERSION}' \
+	-X 'main.version=${PORTVERSION}' \
 	-X 'main.commit=${GIT_COMMIT:sh}'"
 
 pre-deps pre-deps-all post-deps-all: .PHONY
