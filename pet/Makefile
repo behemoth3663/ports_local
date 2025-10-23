@@ -1,7 +1,7 @@
 PORTNAME=	pet-cli
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2024.16.0
-#PORTREVISION=	1
+PORTREVISION=	1
 CATEGORIES=	local devel
 
 MAINTAINER=	none@freebsd.org
@@ -9,7 +9,7 @@ COMMENT=	Python environment tools for Visual Studio Code
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MIT
-LICENSE_FILE=	${WRKSRC}/../../LICENSE
+LICENSE_FILE=	${WRKSRC}/LICENSE
 
 USES=		cargo
 USE_GITHUB=	yes
@@ -18,9 +18,9 @@ GH_PROJECT=	python-environment-tools
 
 CONFLICTS=	deskutils/pet
 
-WRKSRC_SUBDIR=	crates/pet
-
 PLIST_FILES=	bin/pet
+
+CARGO_INSTALL_PATH=	crates/pet
 
 post-install: .PHONY
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/pet
