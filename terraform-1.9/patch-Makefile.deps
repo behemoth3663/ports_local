@@ -73,7 +73,7 @@
 +	@${RLN} ${WRKSRC_azure_go_autorest_autorest}/autorest ${WRKSRC}/vendor/github.com/Azure/go-autorest
 +	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/logger
 +	@${RLN} ${WRKSRC_azure_go_autorest_logger}/logger ${WRKSRC}/vendor/github.com/Azure/go-autorest
-+	# /date, /validation, /to, /adal in the end are important to avoid error
++# /date, /validation, /to, /adal in the end are important to avoid error
 +	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/date
 +	@${RLN} ${WRKSRC_azure_go_autorest_date}/autorest/date ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/date
 +	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/validation
