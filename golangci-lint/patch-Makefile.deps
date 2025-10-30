@@ -1,0 +1,9 @@
+--- Makefile.deps.orig	2025-10-30 20:56:01 UTC
++++ Makefile.deps
+@@ -217,6 +217,3 @@ GL_TUPLE=	bosi:decorder:v0.4.2:bosi_decorder/vendor/gi
+ 		#	::v0.9.0:group_name/vendor/go.augendre.info/fatcontext (from go.augendre.info/fatcontext@v0.9.0)
+ 		#	::v1.3.0:group_name/vendor/4d63.com/gocheckcompilerdirectives (from 4d63.com/gocheckcompilerdirectives@v1.3.0)
+ 		#	::v4.0.0:group_name/vendor/dev.gaijin.team/go/exhaustruct/v4 (from dev.gaijin.team/go/exhaustruct/v4@v4.0.0)
+-post-extract:
+-	@${MKDIR} ${WRKSRC}/vendor/github.com/tetafro
+-	@${RLN} ${WRKSRC_fsnotify_fsnotify} ${WRKSRC}/vendor/github.com/tetafro/godot
