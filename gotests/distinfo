@@ -1,6 +1,6 @@
-TIMESTAMP = 1761041093
-SHA256 (cweill-gotests-v1.8.0_GH0.tar.gz) = 6d7ce2754290c6247d3a4ee3a9ad521c84f4334e3905274c68ae232613f37953
-SIZE (cweill-gotests-v1.8.0_GH0.tar.gz) = 50914
+TIMESTAMP = 1761853605
+SHA256 (cweill-gotests-v1.9.0_GH0.tar.gz) = 1a36874dd5beec211e9b9aaf7d72be8839e76b5ad0a002cb4e83b80ad948697b
+SIZE (cweill-gotests-v1.9.0_GH0.tar.gz) = 89337
 SHA256 (golang-mod-v0.29.0_GH0.tar.gz) = 4a154cdb364fbdd1c71d2f29d9aea1a3127568cf596877337e630e00e28840e6
 SIZE (golang-mod-v0.29.0_GH0.tar.gz) = 126550
 SHA256 (golang-sync-v0.17.0_GH0.tar.gz) = 43bb928dbf895ec51797c1ec8899dd8cbb57af34e8e0c4960609cb957af1aad7
