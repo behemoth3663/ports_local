@@ -1,6 +1,6 @@
-TIMESTAMP = 1761853021
-SHA256 (go-critic-go-critic-v0.14.1_GH0.tar.gz) = e9487c5cb16dfd2d6d6456b95cbeeb40cc48a1da4b5be7c5cfacdd0d12902ec8
-SIZE (go-critic-go-critic-v0.14.1_GH0.tar.gz) = 184220
+TIMESTAMP = 1761915351
+SHA256 (go-critic-go-critic-v0.14.2_GH0.tar.gz) = a4a3df4eeac4bfffe308c48426a7f41f1aebbec842204da7720e244b2b53ced9
+SIZE (go-critic-go-critic-v0.14.2_GH0.tar.gz) = 184296
 SHA256 (cristalhq-acmd-v0.12.0_GH0.tar.gz) = ee53f5d8f27a5d6e3b553bcdc792545a3dfad60c3e28798d85ba02ba3f47f029
 SIZE (cristalhq-acmd-v0.12.0_GH0.tar.gz) = 10726
 SHA256 (go-toolsmith-astcast-v1.1.0_GH0.tar.gz) = ecb8c5a624c0d4c2d9728e02cf22c065adf8c0208f34bca85c5045a3c1085850
