@@ -1,5 +1,5 @@
 PORTNAME=	golangci-lint
-PORTVERSION=	2.6.0
+PORTVERSION=	2.6.1
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -30,6 +30,8 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X main.version=${PORTVERSION} \
 	-X main.commit=$$(${GIT_COMMIT}) \
 	-X main.date=${%FT%TZ:L:gmtime}"
+
+GO_ENV+=	GOEXPERIMENT=greenteagc
 
 PLIST_FILES=	bin/${PORTNAME}
 

@@ -230,8 +230,8 @@ github.com/fzipp/gocyclo
 # github.com/ghostiam/protogetter v0.3.17
 ## explicit; go 1.24.0
 github.com/ghostiam/protogetter
-# github.com/go-critic/go-critic v0.14.0
-## explicit; go 1.23.0
+# github.com/go-critic/go-critic v0.14.2
+## explicit; go 1.24.0
 github.com/go-critic/go-critic/checkers
 github.com/go-critic/go-critic/checkers/internal/astwalk
 github.com/go-critic/go-critic/checkers/internal/lintutil
@@ -405,8 +405,8 @@ github.com/jjti/go-spancheck
 # github.com/julz/importas v0.2.0
 ## explicit; go 1.20
 github.com/julz/importas
-# github.com/karamaru-alpha/copyloopvar v1.2.1
-## explicit; go 1.21
+# github.com/karamaru-alpha/copyloopvar v1.2.2
+## explicit; go 1.24.0
 github.com/karamaru-alpha/copyloopvar
 # github.com/kisielk/errcheck v1.9.0
 ## explicit; go 1.22.0
@@ -579,7 +579,7 @@ github.com/prometheus/common/model
 github.com/prometheus/procfs
 github.com/prometheus/procfs/internal/fs
 github.com/prometheus/procfs/internal/util
-# github.com/quasilyte/go-ruleguard v0.4.4
+# github.com/quasilyte/go-ruleguard v0.4.5
 ## explicit; go 1.22.0
 github.com/quasilyte/go-ruleguard/internal/goenv
 github.com/quasilyte/go-ruleguard/internal/golist
@@ -652,8 +652,8 @@ github.com/securego/gosec/v2/analyzers
 github.com/securego/gosec/v2/cwe
 github.com/securego/gosec/v2/issue
 github.com/securego/gosec/v2/rules
-# github.com/shirou/gopsutil/v4 v4.25.9
-## explicit; go 1.23.0
+# github.com/shirou/gopsutil/v4 v4.25.10
+## explicit; go 1.24.0
 github.com/shirou/gopsutil/v4/common
 github.com/shirou/gopsutil/v4/cpu
 github.com/shirou/gopsutil/v4/internal/common
@@ -824,7 +824,7 @@ go.uber.org/zap/internal/stacktrace
 go.uber.org/zap/zapcore
 # golang.org/x/exp v0.0.0-20240909161429-701f63a606c0
 ## explicit; go 1.22.0
-# golang.org/x/exp/typeparams v0.0.0-20251002181428-27f1f14c8bb9
+# golang.org/x/exp/typeparams v0.0.0-20251023183803-a4bb9ffd2546
 ## explicit; go 1.24.0
 golang.org/x/exp/typeparams
 # golang.org/x/mod v0.29.0
@@ -842,6 +842,7 @@ golang.org/x/sync/semaphore
 ## explicit; go 1.24.0
 golang.org/x/sys/unix
 golang.org/x/sys/windows
+golang.org/x/sys/windows/registry
 # golang.org/x/text v0.30.0
 ## explicit; go 1.24.0
 golang.org/x/text/feature/plural
