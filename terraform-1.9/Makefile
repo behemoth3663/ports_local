@@ -29,6 +29,8 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.dev=no' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.VersionPrerelease='"
 
+GO_ENV+=	GOEXPERIMENT=greenteagc
+
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
 
