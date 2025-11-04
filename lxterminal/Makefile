@@ -1,6 +1,6 @@
 PORTNAME=	lxterminal
 PORTVERSION=	0.4.1
-PORTREVISION=	3
+PORTREVISION=	4
 CATEGORIES=	local sysutils
 
 MAINTAINER=	portmaster@BSDforge.com
@@ -37,12 +37,15 @@ GH_ACCOUNT=	lxde
 CFLAGS:=        -O3 ${CFLAGS:N-O*}
 CFLAGS+=	-fomit-frame-pointer -fno-unwind-tables -fno-asynchronous-unwind-tables
 
+CFLAGS+=	-fwhole-program-vtables
+CFLAGS+=	-fno-unique-section-names
+
 CFLAGS+=	-flto=full
 LDFLAGS+=	-Wl,--lto-O3
 
 CFLAGS+=	-faddrsig
 LDFLAGS+=	-Wl,--icf=all
-LDFLAGS+=	-Wl,--print-icf-sections
+#LDFLAGS+=	-Wl,--print-icf-sections
 
 CFLAGS+=	-ffunction-sections
 CFLAGS+=	-fdata-sections
