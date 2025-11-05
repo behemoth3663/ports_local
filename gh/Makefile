@@ -1,5 +1,5 @@
 PORTNAME=	gh
-PORTVERSION=	2.82.1
+PORTVERSION=	2.83.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -22,6 +22,8 @@ GO_TARGET=	./cmd/${PORTNAME}
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/internal/build.Version=${PORTVERSION} \
 	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/internal/build.Date=${%FT%TZ:L:gmtime}"
+
+GO_ENV+=	GOEXPERIMENT=greenteagc
 
 _DOCS=		README.md docs/[!README]*.md
 PORTDOCS=	${_DOCS:T}

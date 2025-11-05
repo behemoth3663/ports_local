@@ -33,7 +33,7 @@ GH_TUPLE=	\
 		charmbracelet:x:v0.2.1:charmbracelet_x_term/vendor/github.com/charmbracelet/x/term \
 		charmbracelet:x:v0.9.3:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x/ansi \
 		cli:browser:v1.3.0:cli_browser/vendor/github.com/cli/browser \
-		cli:go-gh:v2.12.2:cli_go_gh_v2/vendor/github.com/cli/go-gh/v2 \
+		cli:go-gh:v2.13.0:cli_go_gh_v2/vendor/github.com/cli/go-gh/v2 \
 		cli:go-internal:6c48bcd5ce24:cli_go_internal/vendor/github.com/cli/go-internal \
 		cli:oauth:v1.2.0:cli_oauth/vendor/github.com/cli/oauth \
 		cli:safeexec:v1.0.1:cli_safeexec/vendor/github.com/cli/safeexec \
@@ -89,19 +89,19 @@ GH_TUPLE=	\
 		go-viper:mapstructure:v2.4.0:go_viper_mapstructure_v2/vendor/github.com/go-viper/mapstructure/v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
 		godbus:dbus:v5.1.0:godbus_dbus_v5/vendor/github.com/godbus/dbus/v5 \
-		golang:crypto:v0.42.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.43.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:b7579e27df2b:golang_exp/vendor/golang.org/x/exp \
 		golang:groupcache:2c02b8208cf8:golang_groupcache/vendor/github.com/golang/groupcache \
 		golang:mod:v0.28.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.43.0:golang_net/vendor/golang.org/x/net \
+		golang:net:v0.45.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.30.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:snappy:v1.0.0:golang_snappy/vendor/github.com/golang/snappy \
 		golang:sync:v0.17.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.36.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.35.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.29.0:golang_text/vendor/golang.org/x/text \
+		golang:sys:v0.37.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.36.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.30.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.12.0:golang_time/vendor/golang.org/x/time \
-		golang:tools:v0.36.0:golang_tools/vendor/golang.org/x/tools \
+		golang:tools:v0.37.0:golang_tools/vendor/golang.org/x/tools \
 		google:certificate-transparency-go:v1.3.2:google_certificate_transparency_go/vendor/github.com/google/certificate-transparency-go \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-containerregistry:v0.20.6:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
@@ -175,7 +175,7 @@ GH_TUPLE=	\
 		planetscale:vtprotobuf:0393e58bdf10:planetscale_vtprotobuf/vendor/github.com/planetscale/vtprotobuf \
 		pmezard:go-difflib:5d4384ee4fb2:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		protocolbuffers:protobuf-go:v1.36.9:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
-		rivo:tview:a4a78f1e05cb:rivo_tview/vendor/github.com/rivo/tview \
+		rivo:tview:v0.42.0:rivo_tview/vendor/github.com/rivo/tview \
 		rivo:uniseg:v0.4.7:rivo_uniseg/vendor/github.com/rivo/uniseg \
 		rodaine:table:v1.3.0:rodaine_table/vendor/github.com/rodaine/table \
 		russross:blackfriday:v2.1.0:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
