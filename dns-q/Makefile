@@ -1,6 +1,6 @@
 PORTNAME=	dns-q
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.19.9
+DISTVERSION=	0.19.10
 CATEGORIES=	local dns
 
 MAINTAINER=	none@freebsd.org
@@ -29,7 +29,7 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X 'main.commit=${GIT_COMMIT:sh}' \
 	-X 'main.date=${%FT%TZ:L:gmtime}'"
 
-post-extract: .PHONY
+pre-patch: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 
 pre-deps: .PHONY
