@@ -1,5 +1,5 @@
 PORTNAME=	lark
-PORTVERSION=	1.3.0
+PORTVERSION=	1.3.1
 #PORTREVISION=	1
 CATEGORIES=	devel python
 MASTER_SITES=	PYPI
@@ -11,11 +11,11 @@ WWW=		https://github.com/lark-parser/lark
 
 LICENSE=	MIT
 
-BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}setuptools>=61.2.0:devel/py-setuptools@${PY_FLAVOR} \
+BUILD_DEPENDS=	${PYTHON_PKGNAMEPREFIX}setuptools>=0:devel/py-setuptools@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}wheel>=0:devel/py-wheel@${PY_FLAVOR}
 
 USES=		dos2unix python
-USE_PYTHON=	autoplist concurrent pep517
+USE_PYTHON=	autoplist pep517 concurrent
 
 NO_ARCH=	yes
 
@@ -27,7 +27,7 @@ REGEX_DESC=		Use third-party regex instead of standard library re
 
 INTEREGULAR_RUN_DEPENDS=${PYTHON_PKGNAMEPREFIX}interegular>=0.3.1<0.4.0:textproc/py-interegular@${PY_FLAVOR}
 NEARLEY_RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}Js2Py>=0:devel/py-Js2Py@${PY_FLAVOR}
-REGEX_RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}regex>=0:local/py-regex@${PY_FLAVOR}
+REGEX_RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}regex>=0:textproc/py-regex@${PY_FLAVOR}
 
 GH_ACCOUNT=	${WWW:S|/| |g:[-2]}
 GH_PROJECT=	${PORTNAME}
