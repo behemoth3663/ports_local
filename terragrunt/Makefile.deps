@@ -172,7 +172,6 @@ GH_TUPLE=	\
 		hashicorp:hcl:v1.0.1-vault-7:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
 		hashicorp:hcl:v2.24.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
 		hashicorp:logutils:v1.0.0:hashicorp_logutils/vendor/github.com/hashicorp/logutils \
-		hashicorp:terraform-config-inspect:9a80970d6b34:hashicorp_terraform_config_inspect/vendor/github.com/hashicorp/terraform-config-inspect \
 		hashicorp:terraform-registry-address:v0.2.4:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
 		hashicorp:terraform-svchost:v0.1.1:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
 		hashicorp:terraform:v0.15.3:hashicorp_terraform/vendor/github.com/hashicorp/terraform \
@@ -299,17 +298,15 @@ GH_TUPLE=	\
 		#	::v3.0.4:group_name/vendor/go.yaml.in/yaml/v3 (from go.yaml.in/yaml/v3@v3.0.4)
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
-	@${RM} -r ${WRKSRC}/telemetry/meter*.go
-	@${RM} -r ${WRKSRC}/telemetry/tracer*.go
-	@${RM} -r ${WRKSRC}/telemetry/util.go
+	@${RM} -r ${WRKSRC}/telemetry
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/internal/trace
-	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage/trace.go
 	@${RM} -r ${WRKSRC}/vendor/google.golang.org/grpc/stats/opentelemetry
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/auth
-	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage/grpc_metrics.go
-	@${RM} -r ${WRKSRC}/vendor/github.com/envoyproxy/go-control-plane/envoy/config/trace/v3/opencensus.pb.go
-	@${RM} -r ${WRKSRC}/vendor/github.com/envoyproxy/go-control-plane/envoy/config/trace/v3/opencensus.pb.validate.go
-	@${RM} -r ${WRKSRC}/vendor/github.com/envoyproxy/go-control-plane/envoy/config/trace/v3/trace.pb.go
+	@${RM} ${WRKSRC}/vendor/cloud.google.com/go/storage/trace.go
+	@${RM} ${WRKSRC}/vendor/cloud.google.com/go/storage/grpc_metrics.go
+	@${RM} ${WRKSRC}/vendor/github.com/envoyproxy/go-control-plane/envoy/config/trace/v3/opencensus.pb.go
+	@${RM} ${WRKSRC}/vendor/github.com/envoyproxy/go-control-plane/envoy/config/trace/v3/opencensus.pb.validate.go
+	@${RM} ${WRKSRC}/vendor/github.com/envoyproxy/go-control-plane/envoy/config/trace/v3/trace.pb.go
 	@${MKDIR} ${WRKSRC}/vendor/go.yaml.in/yaml
 	@${RLN} ${WRKSRC}/vendor/gopkg.in/yaml.v2 ${WRKSRC}/vendor/go.yaml.in/yaml/v2
 	@${RLN} ${WRKSRC}/vendor/gopkg.in/yaml.v3 ${WRKSRC}/vendor/go.yaml.in/yaml/v3

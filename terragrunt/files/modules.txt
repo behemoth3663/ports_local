@@ -927,8 +927,6 @@ github.com/hashicorp/terraform/lang/funcs
 github.com/hashicorp/terraform/plugin/discovery
 github.com/hashicorp/terraform/tfdiags
 github.com/hashicorp/terraform/version
-# github.com/hashicorp/terraform-config-inspect v0.0.0-20210318070130-9a80970d6b34
-## explicit; go 1.13
 # github.com/hashicorp/terraform-registry-address v0.2.4
 ## explicit; go 1.19
 github.com/hashicorp/terraform-registry-address
