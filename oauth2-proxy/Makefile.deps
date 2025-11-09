@@ -2,7 +2,6 @@ GH_TUPLE=	\
 		Bose:minisentinel:917c5a9223bb:bose_minisentinel/vendor/github.com/Bose/minisentinel \
 		a8m:envsubst:v1.4.3:a8m_envsubst/vendor/github.com/a8m/envsubst \
 		alicebob:miniredis:v2.35.0:alicebob_miniredis_v2/vendor/github.com/alicebob/miniredis/v2 \
-		benbjohnson:clock:v1.3.5:benbjohnson_clock/vendor/github.com/benbjohnson/clock \
 		beorn7:perks:v1.0.1:beorn7_perks/vendor/github.com/beorn7/perks \
 		bitly:go-simplejson:v0.5.1:bitly_go_simplejson/vendor/github.com/bitly/go-simplejson \
 		bmizerany:assert:b7ed37b82869:bmizerany_assert/vendor/github.com/bmizerany/assert \
