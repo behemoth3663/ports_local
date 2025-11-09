@@ -1,26 +1,32 @@
 PORTNAME=	wstunnel
+PORTVERSION=	10.5.0
 DISTVERSIONPREFIX=	v
-DISTVERSION=	10.1.8
-PORTREVISION=	7
-CATEGORIES=	local security
+#PORTREVISION=	1
+CATEGORIES=	local net
 
 MAINTAINER=	none@freebsd.org
-COMMENT=	Tunnel traffic over websocket protocol
+COMMENT=	Traffic tunnel over Websocket or HTTP2 to bypass firewalls/DPI
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	BSD3CLAUSE
 
-USES=		cargo # ssl
+USES=		cargo llvm:21,build
+
 USE_GITHUB=	yes
 GH_ACCOUNT=	erebe
 
-#CARGO_CARGOTOML=	${WRKSRC}/${PORTNAME}/Cargo.toml
-#CARGO_INSTALL_PATH=	${PORTNAME}
+JQ_GETVER_EXPR=	[.[].name | select(test("^v10\\."; "n")) | sub("^v"; "")][0]
+
+CARGO_CARGOTOML=	${WRKSRC}/wstunnel-cli/Cargo.toml
+CARGO_INSTALL_PATH=	wstunnel-cli
+CARGO_FEATURES=		--no-default-features ring jemalloc
+
+#Attempt to link statically
+#CARGO_BUILD_TARGET=	x86_64-unknown-freebsd
+#CARGO_BUILD_ARGS+=	-Z build-std=std,panic_abort -Z build-std-features=panic_immediate_abort
+#CARGO_ENV+=		RUSTFLAGS="-C target-feature=+crt-static"
 
 PLIST_FILES=	bin/${PORTNAME}
-
-post-install: .PHONY
-	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
 
 #https://www.freebsd.org/doc/en_US.ISO8859-1/books/porters-handbook/building.html#using-cargo
 deps: .PHONY
