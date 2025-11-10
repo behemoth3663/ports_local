@@ -1,6 +1,6 @@
 PORTNAME=	dns-q
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.19.10
+DISTVERSION=	0.19.11
 CATEGORIES=	local dns
 
 MAINTAINER=	none@freebsd.org
@@ -30,7 +30,7 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X 'main.date=${%FT%TZ:L:gmtime}'"
 
 pre-patch: .PHONY
-	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor || :
 
 pre-deps: .PHONY
 	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
