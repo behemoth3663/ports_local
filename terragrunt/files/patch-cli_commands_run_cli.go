@@ -1,14 +1,14 @@
---- cli/commands/run/cli.go.orig	2025-11-05 17:03:04 UTC
+--- cli/commands/run/cli.go.orig	2025-11-10 20:41:38 UTC
 +++ cli/commands/run/cli.go
-@@ -15,7 +15,6 @@ import (
- 	"github.com/gruntwork-io/terragrunt/internal/report"
+@@ -17,7 +17,6 @@ import (
+ 	"github.com/gruntwork-io/terragrunt/internal/stacks/generate"
  	"github.com/gruntwork-io/terragrunt/options"
  	"github.com/gruntwork-io/terragrunt/pkg/log"
 -	"github.com/gruntwork-io/terragrunt/telemetry"
  	"github.com/gruntwork-io/terragrunt/tf"
  )
  
-@@ -128,25 +127,19 @@ func wrapWithStackGenerate(l log.Logger, opts *options
+@@ -130,25 +129,19 @@ func wrapWithStackGenerate(l log.Logger, opts *options
  
  		// Clean stack folders before calling `generate` when the `--source-update` flag is passed
  		if opts.SourceUpdate {
@@ -32,7 +32,7 @@
 -			"working_dir":       opts.WorkingDir,
 -		}, func(ctx context.Context) error {
 +		err := func(ctx context.Context) error {
- 			return config.GenerateStacks(ctx, l, opts)
+ 			return generate.GenerateStacks(ctx, l, opts)
 -		})
 +		}(ctx)
  
