@@ -1,14 +1,14 @@
---- cli/commands/run/run.go.orig	2025-11-05 17:03:04 UTC
-+++ cli/commands/run/run.go
-@@ -17,7 +17,6 @@ import (
- 	"github.com/gruntwork-io/terragrunt/cli/commands/run/creds/providers/amazonsts"
- 	"github.com/gruntwork-io/terragrunt/cli/commands/run/creds/providers/externalcmd"
+--- internal/runner/run/run.go.orig	2025-11-10 13:46:52 UTC
++++ internal/runner/run/run.go
+@@ -20,7 +20,6 @@ import (
+ 	"github.com/gruntwork-io/terragrunt/internal/runner/run/creds/providers/amazonsts"
+ 	"github.com/gruntwork-io/terragrunt/internal/runner/run/creds/providers/externalcmd"
  	"github.com/gruntwork-io/terragrunt/pkg/log"
 -	"github.com/gruntwork-io/terragrunt/telemetry"
  
  	"github.com/gruntwork-io/terragrunt/tf"
  
-@@ -179,12 +178,10 @@ func run(ctx context.Context, l log.Logger, opts *opti
+@@ -182,12 +181,10 @@ func run(ctx context.Context, l log.Logger, opts *opti
  	}
  
  	if sourceURL != "" {

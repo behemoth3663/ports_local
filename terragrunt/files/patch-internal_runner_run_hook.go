@@ -1,5 +1,5 @@
---- cli/commands/run/hook.go.orig	2025-11-05 17:03:04 UTC
-+++ cli/commands/run/hook.go
+--- internal/runner/run/hook.go.orig	2025-11-10 13:46:52 UTC
++++ internal/runner/run/hook.go
 @@ -12,7 +12,6 @@ import (
  	"github.com/gruntwork-io/terragrunt/options"
  	"github.com/gruntwork-io/terragrunt/pkg/log"
