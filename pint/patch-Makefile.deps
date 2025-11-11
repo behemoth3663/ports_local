@@ -1,4 +1,4 @@
---- Makefile.deps.orig	2025-10-18 18:09:07 UTC
+--- Makefile.deps.orig	2025-11-11 21:21:58 UTC
 +++ Makefile.deps
 @@ -50,7 +50,7 @@ GH_TUPLE=	\
  		nhatthm:go-matcher:v2.0.0:nhatthm_go_matcher/vendor/go.nhat.io/matcher/v2 \
@@ -12,9 +12,9 @@
 @@ -79,3 +79,10 @@ GH_TUPLE=	\
  		zclconf:go-cty:v1.17.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
  		# Errors found during processing:
- 		#	error getting commit v0.157.0 for gitlab-org/api: not found
+ 		#	error getting commit v0.159.0 for gitlab-org/api: not found
 +GL_TUPLE=	\
-+		gitlab-org-api:client-go:v0.157.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
++		gitlab-org-api:client-go:v0.159.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
 +
 +post-extract: .PHONY
 +	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
