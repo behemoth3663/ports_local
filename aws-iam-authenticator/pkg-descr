@@ -1,1 +1,4 @@
-Tool to use AWS IAM credentials to authenticate to a Kubernetes cluster.
+AWS IAM Authenticator for Kubernetes allows you to use AWS IAM credentials to
+authenticate to Kubernetes clusters. It provides a webhook server and client
+utility for token generation and validation, enabling secure integration with
+Amazon EKS or self-managed clusters.
