@@ -75,7 +75,7 @@ GH_TUPLE=	\
 		golang:exp:701f63a606c0:golang_exp/vendor/golang.org/x/exp \
 		golang:mod:v0.29.0:golang_mod/vendor/golang.org/x/mod \
 		golang:protobuf:v1.5.3:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sync:v0.17.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sync:v0.18.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.37.0:golang_sys/vendor/golang.org/x/sys \
 		golang:text:v0.30.0:golang_text/vendor/golang.org/x/text \
 		golang:tools:v0.38.0:golang_tools/vendor/golang.org/x/tools \
@@ -123,8 +123,8 @@ GH_TUPLE=	\
 		magiconair:properties:v1.8.6:magiconair_properties/vendor/github.com/magiconair/properties \
 		manuelarte:embeddedstructfieldcheck:v0.4.0:manuelarte_embeddedstructfieldcheck/vendor/github.com/manuelarte/embeddedstructfieldcheck \
 		manuelarte:funcorder:v0.5.0:manuelarte_funcorder/vendor/github.com/manuelarte/funcorder \
-		maratori:testableexamples:v1.0.0:maratori_testableexamples/vendor/github.com/maratori/testableexamples \
-		maratori:testpackage:v1.1.1:maratori_testpackage/vendor/github.com/maratori/testpackage \
+		maratori:testableexamples:v1.0.1:maratori_testableexamples/vendor/github.com/maratori/testableexamples \
+		maratori:testpackage:v1.1.2:maratori_testpackage/vendor/github.com/maratori/testpackage \
 		matoous:godox:v1.1.0:matoous_godox/vendor/github.com/matoous/godox \
 		mattn:go-colorable:v0.1.14:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
 		mattn:go-isatty:v0.0.20:mattn_go_isatty/vendor/github.com/mattn/go-isatty \

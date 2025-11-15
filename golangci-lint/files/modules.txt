@@ -467,11 +467,11 @@ github.com/manuelarte/embeddedstructfieldcheck/internal
 ## explicit; go 1.23.0
 github.com/manuelarte/funcorder/analyzer
 github.com/manuelarte/funcorder/internal
-# github.com/maratori/testableexamples v1.0.0
-## explicit; go 1.19
+# github.com/maratori/testableexamples v1.0.1
+## explicit; go 1.22.0
 github.com/maratori/testableexamples/pkg/testableexamples
-# github.com/maratori/testpackage v1.1.1
-## explicit; go 1.20
+# github.com/maratori/testpackage v1.1.2
+## explicit; go 1.22.0
 github.com/maratori/testpackage/pkg/testpackage
 # github.com/matoous/godox v1.1.0
 ## explicit; go 1.18
@@ -834,7 +834,7 @@ golang.org/x/mod/modfile
 golang.org/x/mod/module
 golang.org/x/mod/semver
 golang.org/x/mod/sumdb/dirhash
-# golang.org/x/sync v0.17.0
+# golang.org/x/sync v0.18.0
 ## explicit; go 1.24.0
 golang.org/x/sync/errgroup
 golang.org/x/sync/semaphore
