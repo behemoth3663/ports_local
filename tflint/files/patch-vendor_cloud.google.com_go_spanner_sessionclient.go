@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/spanner/sessionclient.go.orig	2025-05-13 20:48:25 UTC
+--- vendor/cloud.google.com/go/spanner/sessionclient.go.orig	2025-08-14 14:42:16 UTC
 +++ vendor/cloud.google.com/go/spanner/sessionclient.go
 @@ -25,12 +25,9 @@ import (
  	"sync/atomic"
@@ -11,9 +11,17 @@
  	"github.com/googleapis/gax-go/v2"
 -	"go.opencensus.io/tag"
  	"google.golang.org/api/option"
+ 
  	gtransport "google.golang.org/api/transport/grpc"
- 	"google.golang.org/grpc"
-@@ -170,28 +167,6 @@ func (sc *sessionClient) createSession(ctx context.Con
+@@ -106,7 +103,6 @@ type sessionClient struct {
+ 	batchTimeout         time.Duration
+ 	logger               *log.Logger
+ 	callOptions          *vkit.CallOptions
+-	otConfig             *openTelemetryConfig
+ 	metricsTracerFactory *builtinMetricsTracerFactory
+ 	channelIDMap         map[*grpc.ClientConn]uint64
+ 
+@@ -171,28 +167,6 @@ func (sc *sessionClient) createSession(ctx context.Con
  		Session:  &sppb.Session{Labels: sc.sessionLabels, CreatorRole: sc.databaseRole},
  	}, gax.WithGRPCOptions(grpc.Header(&md)))
  
@@ -42,17 +50,17 @@
  	if err != nil {
  		return nil, ToSpannerError(err)
  	}
-@@ -269,9 +244,6 @@ func (sc *sessionClient) executeBatchCreateSessions(cl
+@@ -270,9 +244,6 @@ func (sc *sessionClient) executeBatchCreateSessions(cl
  	defer sc.waitWorkers.Done()
  	ctx, cancel := context.WithTimeout(context.Background(), sc.batchTimeout)
  	defer cancel()
--	ctx = trace.StartSpan(ctx, "cloud.google.com/go/spanner.BatchCreateSessions")
--	defer func() { trace.EndSpan(ctx, nil) }()
+-	ctx, _ = startSpan(ctx, "BatchCreateSessions", sc.otConfig.commonTraceStartOptions...)
+-	defer func() { endSpan(ctx, nil) }()
 -	trace.TracePrintf(ctx, nil, "Creating a batch of %d sessions", createCount)
  
  	remainingCreateCount := createCount
  	for {
-@@ -280,12 +252,10 @@ func (sc *sessionClient) executeBatchCreateSessions(cl
+@@ -281,12 +252,10 @@ func (sc *sessionClient) executeBatchCreateSessions(cl
  		sc.mu.Unlock()
  		if closed {
  			err := spannerErrorf(codes.Canceled, "Session client closed")
@@ -65,7 +73,7 @@
  			consumer.sessionCreationFailed(ctx, ToSpannerError(ctx.Err()), remainingCreateCount, false)
  			break
  		}
-@@ -296,36 +266,11 @@ func (sc *sessionClient) executeBatchCreateSessions(cl
+@@ -297,36 +266,11 @@ func (sc *sessionClient) executeBatchCreateSessions(cl
  			SessionTemplate: &sppb.Session{Labels: labels, CreatorRole: sc.databaseRole},
  		}, gax.WithGRPCOptions(grpc.Header(&mdForGFELatency)))
  
@@ -102,7 +110,7 @@
  		for _, s := range response.Session {
  			consumer.sessionReady(ctx, &session{valid: true, client: client, id: s.Name, createTime: time.Now(), md: md, logger: sc.logger})
  		}
-@@ -334,26 +279,20 @@ func (sc *sessionClient) executeBatchCreateSessions(cl
+@@ -335,26 +279,20 @@ func (sc *sessionClient) executeBatchCreateSessions(cl
  			// should do another call using the same gRPC channel.
  			remainingCreateCount -= actuallyCreated
  		} else {
@@ -113,8 +121,8 @@
  }
  
  func (sc *sessionClient) executeCreateMultiplexedSession(ctx context.Context, client spannerClient, md metadata.MD, consumer sessionConsumer) {
--	ctx = trace.StartSpan(ctx, "cloud.google.com/go/spanner.CreateSession")
--	defer func() { trace.EndSpan(ctx, nil) }()
+-	ctx, _ = startSpan(ctx, "CreateSession", sc.otConfig.commonTraceStartOptions...)
+-	defer func() { endSpan(ctx, nil) }()
 -	trace.TracePrintf(ctx, nil, "Creating a multiplexed session")
  	sc.mu.Lock()
  	closed := sc.closed
@@ -122,7 +130,7 @@
  	if closed {
 -		err := spannerErrorf(codes.Canceled, "Session client closed")
 -		trace.TracePrintf(ctx, nil, "Session client closed while creating a multiplexed session: %v", err)
-+		spannerErrorf(codes.Canceled, "Session client closed")
++		_ = spannerErrorf(codes.Canceled, "Session client closed")
  		return
  	}
  	if ctx.Err() != nil {
@@ -130,7 +138,7 @@
  		consumer.sessionCreationFailed(ctx, ToSpannerError(ctx.Err()), 1, true)
  		return
  	}
-@@ -364,36 +303,11 @@ func (sc *sessionClient) executeCreateMultiplexedSessi
+@@ -365,36 +303,11 @@ func (sc *sessionClient) executeCreateMultiplexedSessi
  		Session: &sppb.Session{CreatorRole: sc.databaseRole, Multiplexed: true},
  	}, gax.WithGRPCOptions(grpc.Header(&mdForGFELatency)))
  

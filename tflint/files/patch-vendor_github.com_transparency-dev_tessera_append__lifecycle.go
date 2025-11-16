@@ -1,4 +1,4 @@
---- vendor/github.com/transparency-dev/tessera/append_lifecycle.go.orig	2025-06-10 15:09:26 UTC
+--- vendor/github.com/transparency-dev/tessera/append_lifecycle.go.orig	2025-09-22 08:57:07 UTC
 +++ vendor/github.com/transparency-dev/tessera/append_lifecycle.go
 @@ -20,7 +20,6 @@ import (
  	"fmt"
@@ -8,32 +8,32 @@
  	"sync"
  	"sync/atomic"
  	"time"
-@@ -28,12 +27,9 @@ import (
+@@ -28,11 +27,8 @@ import (
  	f_log "github.com/transparency-dev/formats/log"
  	"github.com/transparency-dev/merkle/rfc6962"
  	"github.com/transparency-dev/tessera/api/layout"
 -	"github.com/transparency-dev/tessera/internal/otel"
  	"github.com/transparency-dev/tessera/internal/parse"
- 	"github.com/transparency-dev/tessera/internal/stream"
  	"github.com/transparency-dev/tessera/internal/witness"
 -	"go.opentelemetry.io/otel/attribute"
 -	"go.opentelemetry.io/otel/metric"
  	"golang.org/x/mod/sumdb/note"
  	"k8s.io/klog/v2"
  )
-@@ -52,116 +48,10 @@ var (
+@@ -55,126 +51,10 @@ var (
  )
  
  var (
--	appenderAddsTotal        metric.Int64Counter
--	appenderAddHistogram     metric.Int64Histogram
--	appenderHighestIndex     metric.Int64Gauge
--	appenderIntegratedSize   metric.Int64Gauge
--	appenderIntegrateLatency metric.Int64Histogram
--	appenderNextIndex        metric.Int64Gauge
--	appenderSignedSize       metric.Int64Gauge
--	appenderWitnessedSize    metric.Int64Gauge
--	appenderWitnessRequests  metric.Int64Counter
+-	appenderAddsTotal         metric.Int64Counter
+-	appenderAddHistogram      metric.Int64Histogram
+-	appenderHighestIndex      metric.Int64Gauge
+-	appenderIntegratedSize    metric.Int64Gauge
+-	appenderIntegrateLatency  metric.Int64Histogram
+-	appenderDeadlineRemaining metric.Int64Histogram
+-	appenderNextIndex         metric.Int64Gauge
+-	appenderSignedSize        metric.Int64Gauge
+-	appenderWitnessedSize     metric.Int64Gauge
+-	appenderWitnessRequests   metric.Int64Counter
 -
 -	followerEntriesProcessed metric.Int64Gauge
 -	followerLag              metric.Int64Gauge
@@ -86,6 +86,15 @@
 -		klog.Exitf("Failed to create appenderIntegrateLatency metric: %v", err)
 -	}
 -
+-	appenderDeadlineRemaining, err = meter.Int64Histogram(
+-		"tessera.appender.deadline.remaining",
+-		metric.WithDescription("Duration remaining before context cancellation when appender is invoked (only set for contexts with deadline)"),
+-		metric.WithUnit("ms"),
+-		metric.WithExplicitBucketBoundaries(histogramBuckets...))
+-	if err != nil {
+-		klog.Exitf("Failed to create appenderDeadlineRemaining metric: %v", err)
+-	}
+-
 -	appenderNextIndex, err = meter.Int64Gauge(
 -		"tessera.appender.next_index",
 -		metric.WithDescription("The next available index to be assigned to entries"))
@@ -135,20 +144,23 @@
 -
 -}
 -
- // AddFn adds a new entry to be sequenced.
- // This method quickly returns an IndexFuture, which will return the index assigned
- // to the new leaf. Until this index is obtained from the future, the leaf is not durably
-@@ -246,9 +136,6 @@ func NewAppender(ctx context.Context, d Driver, opts *
+ // AddFn adds a new entry to be sequenced by the storage implementation.
+ //
+ // This method should quickly return an IndexFuture, which can be called to resolve to the
+@@ -269,12 +149,6 @@ func NewAppender(ctx context.Context, d Driver, opts *
  	}
  	// TODO(mhutchinson): move this into the decorators
  	a.Add = func(ctx context.Context, entry *Entry) IndexFuture {
+-		if deadline, ok := ctx.Deadline(); ok {
+-			appenderDeadlineRemaining.Record(ctx, time.Until(deadline).Milliseconds())
+-		}
 -		ctx, span := tracer.Start(ctx, "tessera.Appender.Add")
 -		defer span.End()
 -
- 		return t.Add(ctx, entry)
- 	}
- 	return a, t.Shutdown, r, nil
-@@ -264,18 +151,15 @@ func followerStats(ctx context.Context, f stream.Follo
+ 		// NOTE: We memoize the returned value here so that repeated calls to the returned
+ 		//		 future don't result in unexpected side-effects from inner AddFn functions
+ 		//		 being called multiple times.
+@@ -305,18 +179,15 @@ func followerStats(ctx context.Context, f Follower, si
  		case <-t.C:
  		}
  
@@ -169,7 +181,7 @@
  	}
  }
  
-@@ -344,15 +228,11 @@ func (i *integrationStats) updateStats(ctx context.Con
+@@ -385,15 +256,11 @@ func (i *integrationStats) updateStats(ctx context.Con
  			klog.Errorf("IntegratedSize: %v", err)
  			continue
  		}
@@ -187,7 +199,7 @@
  	}
  }
  
-@@ -360,32 +240,11 @@ func (i *integrationStats) statsDecorator(delegate Add
+@@ -401,32 +268,11 @@ func (i *integrationStats) statsDecorator(delegate Add
  // metric stats.
  func (i *integrationStats) statsDecorator(delegate AddFn) AddFn {
  	return func(ctx context.Context, entry *Entry) IndexFuture {
@@ -220,7 +232,7 @@
  			if !idx.IsDup {
  				i.sample(idx.Index)
  			}
-@@ -429,7 +288,6 @@ func (t *terminator) Add(ctx context.Context, entry *E
+@@ -470,7 +316,6 @@ func (t *terminator) Add(ctx context.Context, entry *E
  		for old < i.Index && !t.largestIssued.CompareAndSwap(old, i.Index) {
  			old = t.largestIssued.Load()
  		}
@@ -228,7 +240,7 @@
  
  		return i, err
  	}
-@@ -537,29 +395,19 @@ func (o AppendOptions) CheckpointPublisher(lr LogReade
+@@ -592,29 +437,19 @@ func (o AppendOptions) CheckpointPublisher(lr LogReade
  func (o AppendOptions) CheckpointPublisher(lr LogReader, httpClient *http.Client) func(context.Context, uint64, []byte) ([]byte, error) {
  	wg := witness.NewWitnessGateway(o.witnesses, httpClient, lr.ReadTile)
  	return func(ctx context.Context, size uint64, root []byte) ([]byte, error) {
@@ -258,7 +270,7 @@
  		return cp, nil
  	}
  }
-@@ -613,9 +461,6 @@ func (o *AppendOptions) WithCheckpointSigner(s note.Si
+@@ -668,9 +503,6 @@ func (o *AppendOptions) WithCheckpointSigner(s note.Si
  		}
  	}
  	o.newCP = func(ctx context.Context, size uint64, hash []byte) ([]byte, error) {

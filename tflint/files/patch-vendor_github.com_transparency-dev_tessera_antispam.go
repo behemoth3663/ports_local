@@ -1,5 +1,5 @@
---- vendor/github.com/transparency-dev/tessera/dedupe.go.orig	2025-06-10 15:09:26 UTC
-+++ vendor/github.com/transparency-dev/tessera/dedupe.go
+--- vendor/github.com/transparency-dev/tessera/antispam.go.orig	2025-09-08 14:09:34 UTC
++++ vendor/github.com/transparency-dev/tessera/antispam.go
 @@ -57,9 +57,6 @@ func (d *inMemoryDedupe) add(ctx context.Context, e *E
  // Add adds the entry to the underlying delegate only if e hasn't been recently seen. In either case,
  // an IndexFuture will be returned that the client can use to get the sequence number of this entry.
