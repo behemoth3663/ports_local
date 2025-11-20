@@ -1,5 +1,5 @@
 PORTNAME=	packer
-PORTVERSION=	1.14.2
+PORTVERSION=	1.14.3
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -118,6 +118,14 @@ GH_TUPLE:=	${GH_TUPLE:C|(:google_go_genproto_).*/(rpc)|\1\2|}
 #+google:go-genproto:49dd2c1f3d0b:google_go_genproto_api
 # * set - #
 GH_TUPLE:=	${GH_TUPLE:N*google_go_genproto_[0-9]*}
+
+#-jcmturner:gokrb5:v8.4.4:jcmturner_gokrb5_v8/vendor/github.com/jcmturner/gokrb5/v8
+#+jcmturner:gokrb5:v8.4.4:jcmturner_gokrb5_v8/vendor/github.com/jcmturner/gokrb5
+GH_TUPLE:=	${GH_TUPLE:S|/gokrb5/v8|/gokrb5|1}
+
+#-jcmturner:rpc:v2.0.3:jcmturner_rpc_v2/vendor/github.com/jcmturner/rpc/v2
+#+jcmturner:rpc:v2.0.3:jcmturner_rpc_v2/vendor/github.com/jcmturner/rpc
+GH_TUPLE:=	${GH_TUPLE:S|/jcmturner/rpc/v2|/jcmturner/rpc|1}
 
 .sinclude "${.CURDIR}/generated.deps.mk"
 GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+).*/cloud.google.com/go/(compute)/(metadata)$|\1\3/\4/\2_\3_\4|}
