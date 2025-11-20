@@ -1,6 +1,6 @@
---- Makefile.deps.orig	2025-11-12 11:11:51 UTC
+--- Makefile.deps.orig	2025-11-20 08:26:28 UTC
 +++ Makefile.deps
-@@ -296,3 +296,36 @@ GH_TUPLE=	\
+@@ -328,3 +328,42 @@ GH_TUPLE=	\
  		#	::v1.8.0:group_name/vendor/go.opentelemetry.io/proto/otlp (from go.opentelemetry.io/proto/otlp@v1.8.0)
  		#	::v2.4.3:group_name/vendor/go.yaml.in/yaml/v2 (from go.yaml.in/yaml/v2@v2.4.3)
  		#	::v3.0.4:group_name/vendor/go.yaml.in/yaml/v3 (from go.yaml.in/yaml/v3@v3.0.4)
@@ -37,3 +37,9 @@
 +	@${RLN} ${WRKSRC_charmbracelet_x_ansi}/ansi ${WRKSRC}/vendor/github.com/charmbracelet/x
 +	@${RLN} ${WRKSRC_charmbracelet_x_cellbuf}/cellbuf ${WRKSRC}/vendor/github.com/charmbracelet/x
 +	@${RLN} ${WRKSRC_charmbracelet_x_term}/term ${WRKSRC}/vendor/github.com/charmbracelet/x
++	@${RM} -r ${WRKSRC}/vendor/github.com/moby/sys/userns
++	@${RLN} ${WRKSRC_moby_sys_userns}/userns ${WRKSRC}/vendor/github.com/moby/sys
++	@${RM} -r ${WRKSRC}/vendor/github.com/moby/sys/user
++	@${RLN} ${WRKSRC_moby_sys_userns}/user ${WRKSRC}/vendor/github.com/moby/sys
++	@${RM} -r ${WRKSRC}/vendor/github.com/moby/sys/sequential
++	@${RLN} ${WRKSRC_moby_sys_userns}/sequential ${WRKSRC}/vendor/github.com/moby/sys

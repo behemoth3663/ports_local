@@ -1,6 +1,6 @@
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.93.8
+DISTVERSION=	0.93.9
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
 
@@ -128,6 +128,14 @@ GH_TUPLE:=	${GH_TUPLE:S|/xds/go|/xds|1}
 #-charmbracelet:x:     v0.1.4:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x/ansi
 #+charmbracelet:x:ansi/v0.1.4:charmbracelet_x_ansi
 GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+).*/charmbracelet/x/(ansi\|cellbuf\|term)|\1\3/\2|}
+
+#-moby:sys:v0.1.0:moby_sys_userns/vendor/github.com/moby/sys/userns
+#-moby:sys:v0.4.0:moby_sys_user/vendor/github.com/moby/sys/user
+#-moby:sys:v0.6.0:moby_sys_sequential/vendor/github.com/moby/sys/sequential
+#+moby:sys:v0.1.0:moby_sys_userns
+#+moby:sys:v0.4.0:moby_sys_user
+#+moby:sys:v0.6.0:moby_sys_sequential
+GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+).*/moby/sys/(.*)|\1\3/\2|}
 
 .sinclude "${.CURDIR}/generated.deps.mk"
 GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+).*/cloud.google.com/go/(compute)/(metadata)$|\1\3/\4/\2_\3_\4|}
