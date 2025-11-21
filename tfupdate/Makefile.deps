@@ -5,17 +5,15 @@ GH_TUPLE=	\
 		bgentry:speakeasy:v0.1.0:bgentry_speakeasy/vendor/github.com/bgentry/speakeasy \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		fatih:color:v1.7.0:fatih_color/vendor/github.com/fatih/color \
-		golang:appengine:v1.6.7:golang_appengine/vendor/google.golang.org/appengine \
-		golang:crypto:v0.41.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.45.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:2e198f4a06a1:golang_exp/vendor/golang.org/x/exp \
-		golang:mod:v0.26.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.42.0:golang_net/vendor/golang.org/x/net \
-		golang:oauth2:v0.4.0:golang_oauth2/vendor/golang.org/x/oauth2 \
-		golang:protobuf:v1.5.2:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sync:v0.16.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.35.0:golang_sys/vendor/golang.org/x/sys \
-		golang:text:v0.28.0:golang_text/vendor/golang.org/x/text \
-		golang:tools:v0.35.0:golang_tools/vendor/golang.org/x/tools \
+		golang:mod:v0.29.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.47.0:golang_net/vendor/golang.org/x/net \
+		golang:oauth2:v0.27.0:golang_oauth2/vendor/golang.org/x/oauth2 \
+		golang:sync:v0.18.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.38.0:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.31.0:golang_text/vendor/golang.org/x/text \
+		golang:tools:v0.38.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-github:v28.1.1:google_go_github_v28/vendor/github.com/google/go-github/v28 \
 		google:go-querystring:v1.0.0:google_go_querystring/vendor/github.com/google/go-querystring \
@@ -35,7 +33,6 @@ GH_TUPLE=	\
 		mitchellh:go-wordwrap:v1.0.1:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
 		posener:complete:v1.1.1:posener_complete/vendor/github.com/posener/complete \
-		protocolbuffers:protobuf-go:v1.28.1:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		spf13:afero:v1.9.5:spf13_afero/vendor/github.com/spf13/afero \
 		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag \
 		xanzy:go-gitlab:v0.20.1:xanzy_go_gitlab/vendor/github.com/xanzy/go-gitlab \
