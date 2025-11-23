@@ -1,7 +1,7 @@
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.93.10
-#PORTREVISION=	1
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	dutra@FreeBSD.org
@@ -16,10 +16,9 @@ USES=		go:modules
 USE_GITHUB=	yes
 GH_ACCOUNT=	gruntwork-io
 
+CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X 'github.com/${GH_ACCOUNT}/go-commons/version.Version=${PORTVERSION}'"
-
-GO_ENV+=	GOEXPERIMENT=greenteagc
 
 PLIST_FILES=	bin/${PORTNAME}
 
