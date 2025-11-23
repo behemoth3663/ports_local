@@ -170,15 +170,15 @@ GH_TUPLE=	\
 		hashicorp:terraform-plugin-log:v0.9.0:hashicorp_terraform_plugin_log/vendor/github.com/hashicorp/terraform-plugin-log \
 		hashicorp:terraform-registry-address:v0.2.5:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
 		hashicorp:terraform-svchost:v0.1.1:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
-		hashicorp:terraform:1cd08351fb89:hashicorp_terraform_azure \
-		hashicorp:terraform:1cd08351fb89:hashicorp_terraform_consul \
-		hashicorp:terraform:1cd08351fb89:hashicorp_terraform_cos_1 \
-		hashicorp:terraform:1cd08351fb89:hashicorp_terraform_gcs \
-		hashicorp:terraform:1cd08351fb89:hashicorp_terraform_kubernetes \
-		hashicorp:terraform:1cd08351fb89:hashicorp_terraform_oss_1 \
-		hashicorp:terraform:1cd08351fb89:hashicorp_terraform_pg_1 \
-		hashicorp:terraform:1cd08351fb89:hashicorp_terraform_s3_1 \
-		hashicorp:terraform:1cd08351fb89:hashicorp_terraform_legacy \
+		hashicorp:terraform:3df28c31019d:hashicorp_terraform_azure \
+		hashicorp:terraform:3df28c31019d:hashicorp_terraform_consul \
+		hashicorp:terraform:3df28c31019d:hashicorp_terraform_cos_1 \
+		hashicorp:terraform:3df28c31019d:hashicorp_terraform_gcs \
+		hashicorp:terraform:3df28c31019d:hashicorp_terraform_kubernetes \
+		hashicorp:terraform:3df28c31019d:hashicorp_terraform_oss_1 \
+		hashicorp:terraform:3df28c31019d:hashicorp_terraform_pg_1 \
+		hashicorp:terraform:3df28c31019d:hashicorp_terraform_s3_1 \
+		hashicorp:terraform:3df28c31019d:hashicorp_terraform_legacy \
 		hashicorp:terraform::hashicorp_terraform_azure_1/github.com/hashicorp/terraform/internal/backend/remote-state/azure \
 		hashicorp:terraform::hashicorp_terraform_consul_1/github.com/hashicorp/terraform/internal/backend/remote-state/consul \
 		hashicorp:terraform::hashicorp_terraform_cos/github.com/hashicorp/terraform/internal/backend/remote-state/cos \

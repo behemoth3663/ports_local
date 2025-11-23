@@ -1,7 +1,7 @@
 PORTNAME=	terraform
 PORTVERSION=	1.9.8
 DISTVERSIONPREFIX=	v
-PORTREVISION=	20251116
+PORTREVISION=	20251123
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX?=	-${PORTVERSION:R}
 
@@ -28,8 +28,8 @@ GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=${PORTVERSION}' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.dev=no' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.VersionPrerelease='"
-
-GO_ENV+=	GOEXPERIMENT=greenteagc
+CGO_ENABLED=	0
+#GO_ENV+=	GOEXPERIMENT=greenteagc
 
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE

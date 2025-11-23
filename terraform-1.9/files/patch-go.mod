@@ -61,15 +61,15 @@
 -	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-00010101000000-000000000000
 -	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-00010101000000-000000000000
 -	github.com/hashicorp/terraform/internal/legacy v0.0.0-00010101000000-000000000000
-+	github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20251114210659-1cd08351fb89
-+	github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20251114210659-1cd08351fb89
-+	github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20251114210659-1cd08351fb89
-+	github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20251114210659-1cd08351fb89
-+	github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20251114210659-1cd08351fb89
-+	github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20251114210659-1cd08351fb89
-+	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20251114210659-1cd08351fb89
-+	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20251114210659-1cd08351fb89
-+	github.com/hashicorp/terraform/internal/legacy v0.0.0-20251114210659-1cd08351fb89
++	github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20251121192403-3df28c31019d
++	github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20251121192403-3df28c31019d
++	github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20251121192403-3df28c31019d
++	github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20251121192403-3df28c31019d
++	github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20251121192403-3df28c31019d
++	github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20251121192403-3df28c31019d
++	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20251121192403-3df28c31019d
++	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20251121192403-3df28c31019d
++	github.com/hashicorp/terraform/internal/legacy v0.0.0-20251121192403-3df28c31019d
  	github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0
 -	github.com/masterzen/winrm v0.0.0-20200615185753-c42b5136ff88
 +	github.com/masterzen/winrm v0.0.0-20250927112105-5f8e6c707321
@@ -448,7 +448,7 @@
 +	k8s.io/apimachinery v0.25.16 // indirect
 +	k8s.io/client-go v0.25.16 // indirect
 +	k8s.io/klog/v2 v2.80.1 // indirect
-+	k8s.io/kube-openapi v0.0.0-20250910181357-589584f1c912 // indirect
++	k8s.io/kube-openapi v0.0.0-20251121143641-b6aabc6c6745 // indirect
 +	k8s.io/utils v0.0.0-20251002143259-bc988d571ff4 // indirect
 +	sigs.k8s.io/json v0.0.0-20250730193827-2d320260d730 // indirect
  	sigs.k8s.io/structured-merge-diff/v4 v4.2.3 // indirect
