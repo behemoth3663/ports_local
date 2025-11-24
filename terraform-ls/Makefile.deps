@@ -15,8 +15,8 @@ GH_TUPLE=	\
 		bobheadxi:streamline:v1.2.1:bobheadxi_streamline/vendor/go.bobheadxi.dev/streamline \
 		chigopher:pathlib:v1.0.0:chigopher_pathlib/vendor/github.com/chigopher/pathlib \
 		cloudflare:circl:v1.6.1:cloudflare_circl/vendor/github.com/cloudflare/circl \
-		creachadair:jrpc2:v1.3.2:creachadair_jrpc2/vendor/github.com/creachadair/jrpc2 \
-		creachadair:mds:v0.25.1:creachadair_mds/vendor/github.com/creachadair/mds \
+		creachadair:jrpc2:v1.3.3:creachadair_jrpc2/vendor/github.com/creachadair/jrpc2 \
+		creachadair:mds:v0.25.4:creachadair_mds/vendor/github.com/creachadair/mds \
 		davecgh:go-spew:d8f796af33cc:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		djherbis:buffer:v1.2.0:djherbis_buffer/vendor/github.com/djherbis/buffer \
 		djherbis:nio:v3.0.1:djherbis_nio_v3/vendor/github.com/djherbis/nio/v3 \
@@ -27,14 +27,14 @@ GH_TUPLE=	\
 		go-logr:stdr:v1.2.2:go_logr_stdr/vendor/github.com/go-logr/stdr \
 		go-viper:mapstructure:v2.4.0:go_viper_mapstructure_v2/vendor/github.com/go-viper/mapstructure/v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
-		golang:crypto:v0.42.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:mod:v0.28.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.44.0:golang_net/vendor/golang.org/x/net \
-		golang:sync:v0.17.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.36.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.35.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.29.0:golang_text/vendor/golang.org/x/text \
-		golang:tools:v0.37.0:golang_tools/vendor/golang.org/x/tools \
+		golang:crypto:v0.45.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:mod:v0.29.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.47.0:golang_net/vendor/golang.org/x/net \
+		golang:sync:v0.18.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.38.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.37.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.31.0:golang_text/vendor/golang.org/x/text \
+		golang:tools:v0.38.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
 		hashicorp:errwrap:v1.0.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
@@ -53,7 +53,7 @@ GH_TUPLE=	\
 		hashicorp:terraform-exec:v0.24.0:hashicorp_terraform_exec/vendor/github.com/hashicorp/terraform-exec \
 		hashicorp:terraform-json:v0.27.2:hashicorp_terraform_json/vendor/github.com/hashicorp/terraform-json \
 		hashicorp:terraform-registry-address:v0.4.0:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
-		hashicorp:terraform-schema:20a20a238307:hashicorp_terraform_schema/vendor/github.com/hashicorp/terraform-schema \
+		hashicorp:terraform-schema:a4dd8fbff2ba:hashicorp_terraform_schema/vendor/github.com/hashicorp/terraform-schema \
 		hashicorp:terraform-svchost:v0.1.1:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
 		huandu:xstrings:v1.4.0:huandu_xstrings/vendor/github.com/huandu/xstrings \
 		iancoleman:strcase:v0.3.0:iancoleman_strcase/vendor/github.com/iancoleman/strcase \

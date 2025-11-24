@@ -1,7 +1,7 @@
 PORTNAME=	terraform-ls
-PORTVERSION=	0.38.2
+PORTVERSION=	0.38.3
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+#PORTREVISION=	1
 CATEGORIES=	local devel
 
 MAINTAINER=	none@freebsd.org
@@ -17,6 +17,7 @@ GH_ACCOUNT=	hashicorp
 
 PLIST_FILES=	bin/${PORTNAME}
 
+CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static"
 
 post-extract: .PHONY
