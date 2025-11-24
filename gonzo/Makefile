@@ -1,5 +1,5 @@
 PORTNAME=	gonzo
-PORTVERSION=	0.2.1
+PORTVERSION=	0.2.2
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -18,6 +18,8 @@ GH_ACCOUNT=	control-theory
 PLIST_FILES=	bin/${PORTNAME}
 
 GO_TARGET=	./cmd/${PORTNAME}
+
+CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static"
 
 #M2T_OFFLINE=	true
