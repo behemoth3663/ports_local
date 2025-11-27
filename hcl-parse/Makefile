@@ -27,7 +27,7 @@ M2T_OFFLINE=	true
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 	@${REINPLACE_CMD} -r \
-		-e 's|^([[:blank:]]*const[[:blank:]]+versionStr[[:blank:]]*=[[:blank:]]*)".*"[[:blank:]]*$$|\1"v${PORTVERSION}-u${PORTREVISION}"|' \
+		-e 's|^([[:blank:]]*const[[:blank:]]+versionStr[[:blank:]]*=[[:blank:]]*)".*"[[:blank:]]*$$|\1"v${PORTVERSION}-u${PORTREVISION} (${GH_TAGNAME})"|' \
 	${WRKSRC}/main.go
 
 pre-deps: .PHONY
@@ -35,7 +35,7 @@ pre-deps: .PHONY
 	cd ${WRKSRC} && \
 		${CP} -a go.mod go.mod.orig && \
 		${CP} -a go.sum go.sum.orig && \
-		${GO_CMD} get -u=patch && \
+		${GO_CMD} get -u && \
 		${GO_CMD} mod tidy && \
 		${SETENV} TZ=UTC ${DIFF} -udp go.mod.orig go.mod | \
 			${SED} -e '/^---/s|\.[0-9]* +0000$$| UTC|' -e '/^+++/s|\([[:blank:]][-0-9:.+]*\)*$$||' >${PATCHDIR}_/patch-go.mod && \
