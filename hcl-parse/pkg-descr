@@ -1,0 +1,2 @@
+hcl-parse is a command line tool that dumps HCL native syntax AST.
+This is a helper that prints the nodes processed by hclsyntax.Walk.
