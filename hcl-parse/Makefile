@@ -1,6 +1,6 @@
 PORTNAME=	hcl-parse
 PORTVERSION=	20240727
-#DISTVERSIONPREFIX=	v
+PORTREVISION=	20251127
 CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
@@ -20,15 +20,27 @@ PLIST_FILES=	bin/${PORTNAME}
 CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
 
+M2T_OFFLINE=	true
+.export	M2T_OFFLINE
+
 #const versionStr = "0.0.1-dev"
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
-#	@${REINPLACE_CMD} -r \
-#		-e 's|^([[:space:]]*const[[:space:]]+versionStr[[:space:]]*=[[:space:]]*)".*"[[:space:]]*$$|\1"${PORTVERSION}"|' \
-#	${WRKSRC}/${GO_TARGET}/main.go
+	@${REINPLACE_CMD} -r \
+		-e 's|^([[:blank:]]*const[[:blank:]]+versionStr[[:blank:]]*=[[:blank:]]*)".*"[[:blank:]]*$$|\1"v${PORTVERSION}-u${PORTREVISION}"|' \
+	${WRKSRC}/main.go
 
 pre-deps: .PHONY
 	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+	cd ${WRKSRC} && \
+		${CP} -a go.mod go.mod.orig && \
+		${CP} -a go.sum go.sum.orig && \
+		${GO_CMD} get -u=patch && \
+		${GO_CMD} mod tidy && \
+		${SETENV} TZ=UTC ${DIFF} -udp go.mod.orig go.mod | \
+			${SED} -e '/^---/s|\.[0-9]* +0000$$| UTC|' -e '/^+++/s|\([[:blank:]][-0-9:.+]*\)*$$||' >${PATCHDIR}_/patch-go.mod && \
+		${SETENV} TZ=UTC ${DIFF} -udp go.sum.orig go.sum | \
+			${SED} -e '/^---/s|\.[0-9]* +0000$$| UTC|' -e '/^+++/s|\([[:blank:]][-0-9:.+]*\)*$$||' >${PATCHDIR}_/patch-go.sum
 
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_

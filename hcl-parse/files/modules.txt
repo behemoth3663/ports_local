@@ -1,4 +1,4 @@
-# github.com/agext/levenshtein v1.2.1
+# github.com/agext/levenshtein v1.2.3
 ## explicit
 github.com/agext/levenshtein
 # github.com/apparentlymart/go-textseg/v13 v13.0.0
@@ -15,7 +15,7 @@ github.com/hashicorp/hcl/v2/hclsyntax
 # github.com/mitchellh/go-wordwrap v0.0.0-20150314170334-ad45545899c7
 ## explicit
 github.com/mitchellh/go-wordwrap
-# github.com/zclconf/go-cty v1.13.0
+# github.com/zclconf/go-cty v1.13.3
 ## explicit; go 1.18
 github.com/zclconf/go-cty/cty
 github.com/zclconf/go-cty/cty/convert
