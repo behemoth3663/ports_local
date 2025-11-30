@@ -1,5 +1,5 @@
 PORTNAME=	pike
-PORTVERSION=	0.3.83
+PORTVERSION=	0.3.84
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -17,6 +17,7 @@ GH_ACCOUNT=	jamesWoolfenden
 
 PLIST_FILES=	bin/${PORTNAME}
 
+CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static"
 
 M2T_OFFLINE=	true

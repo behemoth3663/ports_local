@@ -1,13 +1,12 @@
---- Makefile.deps.orig	2025-08-13 21:24:07 UTC
+--- Makefile.deps.orig	2025-11-30 13:14:13 UTC
 +++ Makefile.deps
-@@ -94,6 +94,8 @@ GH_TUPLE=	\
- 		#	::v1.37.0:group_name/vendor/go.opentelemetry.io/otel (from go.opentelemetry.io/otel@v1.37.0)
- 		#	::v1.37.0:group_name/vendor/go.opentelemetry.io/otel/metric (from go.opentelemetry.io/otel/metric@v1.37.0)
- 		#	::v1.37.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.37.0)
+@@ -96,6 +96,7 @@ GH_TUPLE=	\
+ 		#	::v1.38.0:group_name/vendor/go.opentelemetry.io/otel (from go.opentelemetry.io/otel@v1.38.0)
+ 		#	::v1.38.0:group_name/vendor/go.opentelemetry.io/otel/metric (from go.opentelemetry.io/otel/metric@v1.38.0)
+ 		#	::v1.38.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.38.0)
 -post-extract:
 -	@${MKDIR} ${WRKSRC}/vendor/github.com/hashicorp
 -	@${RLN} ${WRKSRC_fsnotify_fsnotify} ${WRKSRC}/vendor/github.com/hashicorp/go-version
-+
 +post-extract: .PHONY
 +	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 +	@${MKDIR} ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
