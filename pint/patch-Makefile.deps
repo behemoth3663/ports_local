@@ -1,6 +1,6 @@
---- Makefile.deps.orig	2025-11-11 21:21:58 UTC
+--- Makefile.deps.orig	2025-12-01 21:38:06 UTC
 +++ Makefile.deps
-@@ -50,7 +50,7 @@ GH_TUPLE=	\
+@@ -49,7 +49,7 @@ GH_TUPLE=	\
  		nhatthm:go-matcher:v2.0.0:nhatthm_go_matcher/vendor/go.nhat.io/matcher/v2 \
  		nhatthm:go-wait:v0.1.0:nhatthm_go_wait/vendor/go.nhat.io/wait \
  		nhatthm:httpmock:v0.11.0:nhatthm_httpmock/vendor/go.nhat.io/httpmock \
@@ -9,12 +9,12 @@
  		open-telemetry:opentelemetry-go:v1.38.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
  		pmezard:go-difflib:5d4384ee4fb2:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
  		prometheus:client_golang:v1.23.2:prometheus_client_golang/vendor/github.com/prometheus/client_golang \
-@@ -79,3 +79,10 @@ GH_TUPLE=	\
+@@ -78,3 +78,10 @@ GH_TUPLE=	\
  		zclconf:go-cty:v1.17.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
  		# Errors found during processing:
- 		#	error getting commit v0.159.0 for gitlab-org/api: not found
+ 		#	error getting commit v1.3.0 for gitlab-org/api: not found
 +GL_TUPLE=	\
-+		gitlab-org-api:client-go:v0.159.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
++		gitlab-org-api:client-go:v1.3.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
 +
 +post-extract: .PHONY
 +	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor

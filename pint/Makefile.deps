@@ -12,23 +12,22 @@ GH_TUPLE=	\
 		facette:natsort:2cd4dd1e2dcb:facette_natsort/vendor/github.com/facette/natsort \
 		fatih:color:v1.18.0:fatih_color/vendor/github.com/fatih/color \
 		gkampitakis:ciinfo:v0.3.2:gkampitakis_ciinfo/vendor/github.com/gkampitakis/ciinfo \
-		gkampitakis:go-diff:v1.3.2:gkampitakis_go_diff/vendor/github.com/gkampitakis/go-diff \
-		gkampitakis:go-snaps:v0.5.14:gkampitakis_go_snaps/vendor/github.com/gkampitakis/go-snaps \
+		gkampitakis:go-snaps:v0.5.16:gkampitakis_go_snaps/vendor/github.com/gkampitakis/go-snaps \
 		go-logr:logr:v1.4.3:go_logr_logr/vendor/github.com/go-logr/logr \
 		go-logr:stdr:v1.2.2:go_logr_stdr/vendor/github.com/go-logr/stdr \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
 		goccy:go-yaml:v1.18.0:goccy_go_yaml/vendor/github.com/goccy/go-yaml \
 		gogo:protobuf:v1.3.2:gogo_protobuf/vendor/github.com/gogo/protobuf \
-		golang:exp:a408d31f581a:golang_exp/vendor/golang.org/x/exp \
-		golang:mod:v0.28.0:golang_mod/vendor/golang.org/x/mod \
+		golang:exp:42675adae3e6:golang_exp/vendor/golang.org/x/exp \
+		golang:mod:v0.29.0:golang_mod/vendor/golang.org/x/mod \
 		golang:oauth2:v0.33.0:golang_oauth2/vendor/golang.org/x/oauth2 \
-		golang:sync:v0.17.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.37.0:golang_sys/vendor/golang.org/x/sys \
-		golang:text:v0.30.0:golang_text/vendor/golang.org/x/text \
-		golang:time:v0.13.0:golang_time/vendor/golang.org/x/time \
-		golang:tools:v0.37.0:golang_tools/vendor/golang.org/x/tools \
+		golang:sync:v0.18.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.38.0:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.31.0:golang_text/vendor/golang.org/x/text \
+		golang:time:v0.14.0:golang_time/vendor/golang.org/x/time \
+		golang:tools:v0.38.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
-		google:go-github:v78.0.0:google_go_github_v78/vendor/github.com/google/go-github/v78 \
+		google:go-github:v79.0.0:google_go_github_v79/vendor/github.com/google/go-github/v79 \
 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
 		grafana:regexp:f7b3be9d1853:grafana_regexp/vendor/github.com/grafana/regexp \
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
@@ -37,7 +36,7 @@ GH_TUPLE=	\
 		iancoleman:orderedmap:v0.2.0:iancoleman_orderedmap/vendor/github.com/iancoleman/orderedmap \
 		itchyny:json2yaml:v0.1.4:itchyny_json2yaml/vendor/github.com/itchyny/json2yaml \
 		json-iterator:go:v1.1.12:json_iterator_go/vendor/github.com/json-iterator/go \
-		klauspost:compress:v1.18.1:klauspost_compress/vendor/github.com/klauspost/compress \
+		klauspost:compress:v1.18.2:klauspost_compress/vendor/github.com/klauspost/compress \
 		kr:pretty:v0.3.1:kr_pretty/vendor/github.com/kr/pretty \
 		kr:text:v0.2.0:kr_text/vendor/github.com/kr/text \
 		kylelemons:godebug:v1.1.0:kylelemons_godebug/vendor/github.com/kylelemons/godebug \
@@ -55,13 +54,13 @@ GH_TUPLE=	\
 		pmezard:go-difflib:5d4384ee4fb2:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		prometheus:client_golang:v1.23.2:prometheus_client_golang/vendor/github.com/prometheus/client_golang \
 		prometheus:client_model:v0.6.2:prometheus_client_model/vendor/github.com/prometheus/client_model \
-		prometheus:common:v0.67.2:prometheus_common/vendor/github.com/prometheus/common \
+		prometheus:common:v0.67.4:prometheus_common/vendor/github.com/prometheus/common \
 		prometheus:procfs:v0.16.1:prometheus_procfs/vendor/github.com/prometheus/procfs \
 		prometheus:prometheus:v0.307.3:prometheus_prometheus/vendor/github.com/prometheus/prometheus \
 		protocolbuffers:protobuf-go:v1.36.10:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		prymitive:current:v0.1.1:prymitive_current/vendor/github.com/prymitive/current \
 		rogpeppe:go-internal:v1.14.1:rogpeppe_go_internal/vendor/github.com/rogpeppe/go-internal \
-		sergi:go-diff:v1.3.1:sergi_go_diff/vendor/github.com/sergi/go-diff \
+		sergi:go-diff:v1.4.0:sergi_go_diff/vendor/github.com/sergi/go-diff \
 		stretchr:testify:v1.11.1:stretchr_testify/vendor/github.com/stretchr/testify \
 		swaggest:assertjson:v1.7.0:swaggest_assertjson/vendor/github.com/swaggest/assertjson \
 		tidwall:gjson:v1.18.0:tidwall_gjson/vendor/github.com/tidwall/gjson \
@@ -71,16 +70,16 @@ GH_TUPLE=	\
 		uber-go:atomic:v1.11.0:uber_go_atomic/vendor/go.uber.org/atomic \
 		uber-go:automaxprocs:v1.6.0:uber_go_automaxprocs/vendor/go.uber.org/automaxprocs \
 		uber-go:ratelimit:v0.3.1:uber_go_ratelimit/vendor/go.uber.org/ratelimit \
-		urfave:cli:v3.6.0:urfave_cli_v3/vendor/github.com/urfave/cli/v3 \
+		urfave:cli:v3.6.1:urfave_cli_v3/vendor/github.com/urfave/cli/v3 \
 		yaml:go-yaml:v2.4.3:yaml_go_yaml/vendor/go.yaml.in/yaml/v2 \
 		yaml:go-yaml:v3.0.4:yaml_go_yaml_1/vendor/go.yaml.in/yaml/v3 \
 		yudai:gojsondiff:v1.0.0:yudai_gojsondiff/vendor/github.com/yudai/gojsondiff \
 		yudai:golcs:ecda9a501e82:yudai_golcs/vendor/github.com/yudai/golcs \
 		zclconf:go-cty:v1.17.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 		# Errors found during processing:
-		#	error getting commit v0.159.0 for gitlab-org/api: not found
+		#	error getting commit v1.3.0 for gitlab-org/api: not found
 GL_TUPLE=	\
-		gitlab-org-api:client-go:v0.159.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
+		gitlab-org-api:client-go:v1.3.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
 
 post-extract: .PHONY
 	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
