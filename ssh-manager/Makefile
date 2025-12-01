@@ -1,6 +1,6 @@
 PORTNAME=	ssh-manager
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.81.0
+DISTVERSION=	1.82.0
 CATEGORIES=	local security
 
 MAINTAINER=	none@freebsd.org
@@ -16,10 +16,10 @@ GH_ACCOUNT=	omegion
 
 PLIST_FILES=	bin/${PORTNAME}
 
+CGO_ENABLED=	0
 # looks like -buildid=${PORTVERSION} is not working
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static"
-
-GO_ENV+=	GOEXPERIMENT=greenteagc
+#GO_ENV+=	GOEXPERIMENT=greenteagc
 
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
