@@ -9,35 +9,68 @@ GH_TUPLE=	\
 		charmbracelet:x:ansi/v0.9.3:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x \
 		charmbracelet:x:cellbuf/v0.0.13:charmbracelet_x_cellbuf \
 		charmbracelet:x:term/v0.2.1:charmbracelet_x_term \
+		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
+		emicklei:go-restful:v3.12.2:emicklei_go_restful_v3/vendor/github.com/emicklei/go-restful/v3 \
 		erikgeiser:coninput:1c3628e74d0f:erikgeiser_coninput/vendor/github.com/erikgeiser/coninput \
+		evanphx:json-patch:v4.12.0:evanphx_json_patch/vendor/gopkg.in/evanphx/json-patch.v4 \
 		fsnotify:fsnotify:v1.9.0:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
+		fxamacker:cbor:v2.9.0:fxamacker_cbor_v2/vendor/github.com/fxamacker/cbor/v2 \
+		go-inf:inf:v0.9.1:go_inf_inf/vendor/gopkg.in/inf.v0 \
+		go-logr:logr:v1.4.3:go_logr_logr/vendor/github.com/go-logr/logr \
+		go-openapi:jsonpointer:v0.21.0:go_openapi_jsonpointer/vendor/github.com/go-openapi/jsonpointer \
+		go-openapi:jsonreference:v0.20.2:go_openapi_jsonreference/vendor/github.com/go-openapi/jsonreference \
+		go-openapi:swag:v0.23.0:go_openapi_swag/vendor/github.com/go-openapi/swag \
 		go-viper:mapstructure:v2.4.0:go_viper_mapstructure_v2/vendor/github.com/go-viper/mapstructure/v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
+		gogo:protobuf:v1.3.2:gogo_protobuf/vendor/github.com/gogo/protobuf \
 		golang:net:v0.43.0:golang_net/vendor/golang.org/x/net \
+		golang:oauth2:v0.30.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:sync:v0.16.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.35.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.34.0:golang_term/vendor/golang.org/x/term \
 		golang:text:v0.28.0:golang_text/vendor/golang.org/x/text \
+		golang:time:v0.9.0:golang_time/vendor/golang.org/x/time \
+		google:gnostic-models:v0.7.0:google_gnostic_models/vendor/github.com/google/gnostic-models \
+		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-genproto:200df99c418a:google_go_genproto/vendor/google.golang.org/genproto/googleapis/api \
 		google:go-genproto:5f3141c8851a:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/rpc \
+		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
 		grpc-ecosystem:grpc-gateway:v2.26.3:grpc_ecosystem_grpc_gateway_v2/vendor/github.com/grpc-ecosystem/grpc-gateway/v2 \
 		grpc:grpc-go:v1.74.2:grpc_grpc_go/vendor/google.golang.org/grpc \
 		hashicorp:golang-lru:v2.0.7:hashicorp_golang_lru_v2/vendor/github.com/hashicorp/golang-lru/v2 \
 		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
 		jaeyo:go-drain3:v0.1.2:jaeyo_go_drain3/vendor/github.com/jaeyo/go-drain3 \
+		josharian:intern:v1.0.0:josharian_intern/vendor/github.com/josharian/intern \
+		json-iterator:go:v1.1.12:json_iterator_go/vendor/github.com/json-iterator/go \
+		kubernetes-sigs:json:cfa47c3a1cc8:kubernetes_sigs_json/vendor/sigs.k8s.io/json \
+		kubernetes-sigs:randfill:v1.0.0:kubernetes_sigs_randfill/vendor/sigs.k8s.io/randfill \
+		kubernetes-sigs:structured-merge-diff:v6.3.0:kubernetes_sigs_structured_merge_diff/vendor/sigs.k8s.io/structured-merge-diff/v6 \
+		kubernetes-sigs:yaml:v1.6.0:kubernetes_sigs_yaml/vendor/sigs.k8s.io/yaml \
+		kubernetes:api:v0.34.2:kubernetes_api/vendor/k8s.io/api \
+		kubernetes:apimachinery:v0.34.2:kubernetes_apimachinery/vendor/k8s.io/apimachinery \
+		kubernetes:client-go:v0.34.2:kubernetes_client_go/vendor/k8s.io/client-go \
+		kubernetes:klog:v2.130.1:kubernetes_klog/vendor/k8s.io/klog/v2 \
+		kubernetes:kube-openapi:f3f2b991d03b:kubernetes_kube_openapi/vendor/k8s.io/kube-openapi \
+		kubernetes:utils:4c0f3b243397:kubernetes_utils/vendor/k8s.io/utils \
 		lrstanley:bubblezone:b48c55a5e78e:lrstanley_bubblezone/vendor/github.com/lrstanley/bubblezone \
 		lucasb-eyer:go-colorful:v1.2.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
+		mailru:easyjson:v0.7.7:mailru_easyjson/vendor/github.com/mailru/easyjson \
 		mattn:go-isatty:v0.0.20:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
 		mattn:go-localereader:v0.0.1:mattn_go_localereader/vendor/github.com/mattn/go-localereader \
 		mattn:go-runewidth:v0.0.16:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
+		modern-go:concurrent:bacd9c7ef1dd:modern_go_concurrent/vendor/github.com/modern-go/concurrent \
+		modern-go:reflect2:35a7c28c31ee:modern_go_reflect2/vendor/github.com/modern-go/reflect2 \
 		muesli:ansi:276c6243b2f6:muesli_ansi/vendor/github.com/muesli/ansi \
 		muesli:cancelreader:v0.2.2:muesli_cancelreader/vendor/github.com/muesli/cancelreader \
 		muesli:termenv:v0.16.0:muesli_termenv/vendor/github.com/muesli/termenv \
+		munnerz:goautoneg:a7dc8b61c822:munnerz_goautoneg/vendor/github.com/munnerz/goautoneg \
 		open-telemetry:opentelemetry-go:v1.37.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
 		open-telemetry:opentelemetry-proto-go:v1.7.0:open_telemetry_opentelemetry_proto_go/vendor/go.opentelemetry.io/proto/otlp \
 		pelletier:go-toml:v2.2.3:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
+		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
+		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		protocolbuffers:protobuf-go:v1.36.7:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		rivo:uniseg:v0.4.7:rivo_uniseg/vendor/github.com/rivo/uniseg \
-		rogpeppe:go-internal:v1.13.1:rogpeppe_go_internal/vendor/github.com/rogpeppe/go-internal \
 		sagikazarmark:locafero:v0.7.0:sagikazarmark_locafero/vendor/github.com/sagikazarmark/locafero \
 		sourcegraph:conc:v0.3.0:sourcegraph_conc/vendor/github.com/sourcegraph/conc \
 		spf13:afero:v1.12.0:spf13_afero/vendor/github.com/spf13/afero \
@@ -47,7 +80,10 @@ GH_TUPLE=	\
 		spf13:viper:v1.20.1:spf13_viper/vendor/github.com/spf13/viper \
 		subosito:gotenv:v1.6.0:subosito_gotenv/vendor/github.com/subosito/gotenv \
 		uber-go:multierr:v1.11.0:uber_go_multierr/vendor/go.uber.org/multierr \
-		xo:terminfo:abceb7e1c41e:xo_terminfo/vendor/github.com/xo/terminfo
+		x448:float16:v0.8.4:x448_float16/vendor/github.com/x448/float16 \
+		xo:terminfo:abceb7e1c41e:xo_terminfo/vendor/github.com/xo/terminfo \
+		yaml:go-yaml:v2.4.2:yaml_go_yaml/vendor/go.yaml.in/yaml/v2 \
+		yaml:go-yaml:v3.0.4:yaml_go_yaml_1/vendor/go.yaml.in/yaml/v3
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 	@${MKDIR} ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
