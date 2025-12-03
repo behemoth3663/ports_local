@@ -1,6 +1,6 @@
 PORTNAME=	infracost
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.10.42
+DISTVERSION=	0.10.43
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
 
@@ -18,6 +18,7 @@ USES=		go:modules
 GO_MODULE=	github.com/${PORTNAME}/${PORTNAME}
 GO_TARGET=	./cmd/${PORTNAME}
 
+CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X ${GO_MODULE}/internal/version.Version=v${PORTVERSION}"
 
