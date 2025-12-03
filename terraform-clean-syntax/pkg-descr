@@ -1,0 +1,10 @@
+terraform-clean-syntax is a simple command line tool for performing some
+small syntax cleanup steps on Terraform .tf configuration files
+automatically.
+
+Specifically, it currently knows how to clean up the following:
+  - Argument values that are just a single template interpolation, like
+    "${foo}", are simplified to the equivalent foo.
+  - Variable type constraints using the legacy forms from Terraform 0.11,
+    like "string", "list", or "map", are replaced with their modern type
+    constraint expressions string, list(string) and map(string).
