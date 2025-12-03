@@ -1,7 +1,7 @@
 PORTNAME=	obsolete-packages
 PORTVERSION=	0.0.5
 DISTVERSIONPREFIX=	v
-#PORTREVISION=	1
+PORTREVISION=	1
 CATEGORIES=	local devel
 
 MAINTAINER=	none@freebsd.org
