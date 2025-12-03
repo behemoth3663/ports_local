@@ -87,11 +87,11 @@ GH_TUPLE=	\
 		gogo:protobuf:v1.3.2:gogo_protobuf/vendor/github.com/gogo/protobuf \
 		golang-jwt:jwt:v4.5.2:golang_jwt_jwt_v4/vendor/github.com/golang-jwt/jwt/v4 \
 		golang:appengine:v1.6.8:golang_appengine/vendor/google.golang.org/appengine \
-		golang:crypto:v0.44.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.45.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:ce4c2cf36ca6:golang_exp/vendor/golang.org/x/exp \
 		golang:groupcache:41bb18bfe9da:golang_groupcache/vendor/github.com/golang/groupcache \
 		golang:mod:v0.29.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.46.0:golang_net/vendor/golang.org/x/net \
+		golang:net:v0.47.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.27.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:sync:v0.18.0:golang_sync/vendor/golang.org/x/sync \
