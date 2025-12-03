@@ -61,15 +61,15 @@
 -	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-00010101000000-000000000000
 -	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-00010101000000-000000000000
 -	github.com/hashicorp/terraform/internal/legacy v0.0.0-00010101000000-000000000000
-+	github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20251121192403-3df28c31019d
-+	github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20251121192403-3df28c31019d
-+	github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20251121192403-3df28c31019d
-+	github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20251121192403-3df28c31019d
-+	github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20251121192403-3df28c31019d
-+	github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20251121192403-3df28c31019d
-+	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20251121192403-3df28c31019d
-+	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20251121192403-3df28c31019d
-+	github.com/hashicorp/terraform/internal/legacy v0.0.0-20251121192403-3df28c31019d
++	github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20251203153835-fe70f0a7db9d
++	github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20251203153835-fe70f0a7db9d
++	github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20251203153835-fe70f0a7db9d
++	github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20251203153835-fe70f0a7db9d
++	github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20251203153835-fe70f0a7db9d
++	github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20251203153835-fe70f0a7db9d
++	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20251203153835-fe70f0a7db9d
++	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20251203153835-fe70f0a7db9d
++	github.com/hashicorp/terraform/internal/legacy v0.0.0-20251203153835-fe70f0a7db9d
  	github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0
 -	github.com/masterzen/winrm v0.0.0-20200615185753-c42b5136ff88
 +	github.com/masterzen/winrm v0.0.0-20250927112105-5f8e6c707321
@@ -424,14 +424,14 @@
 -	google.golang.org/genproto v0.0.0-20230822172742-b8732ec3820d // indirect
 -	google.golang.org/genproto/googleapis/api v0.0.0-20230822172742-b8732ec3820d // indirect
 -	google.golang.org/genproto/googleapis/rpc v0.0.0-20230822172742-b8732ec3820d // indirect
-+	golang.org/x/exp v0.0.0-20251113190631-e25ba8c21ef6 // indirect
-+	golang.org/x/exp/typeparams v0.0.0-20251113190631-e25ba8c21ef6 // indirect
++	golang.org/x/exp v0.0.0-20251125195548-87e1e737ad39 // indirect
++	golang.org/x/exp/typeparams v0.0.0-20251125195548-87e1e737ad39 // indirect
 +	golang.org/x/sync v0.18.0 // indirect
 +	golang.org/x/time v0.12.0 // indirect
 +	google.golang.org/api v0.247.0 // indirect
-+	google.golang.org/genproto v0.0.0-20251111163417-95abcf5c77ba // indirect
-+	google.golang.org/genproto/googleapis/api v0.0.0-20251111163417-95abcf5c77ba // indirect
-+	google.golang.org/genproto/googleapis/rpc v0.0.0-20251111163417-95abcf5c77ba // indirect
++	google.golang.org/genproto v0.0.0-20251202230838-ff82c1b0f217 // indirect
++	google.golang.org/genproto/googleapis/api v0.0.0-20251202230838-ff82c1b0f217 // indirect
++	google.golang.org/genproto/googleapis/rpc v0.0.0-20251202230838-ff82c1b0f217 // indirect
  	gopkg.in/inf.v0 v0.9.1 // indirect
 -	gopkg.in/ini.v1 v1.66.2 // indirect
 +	gopkg.in/ini.v1 v1.66.6 // indirect
@@ -448,7 +448,7 @@
 +	k8s.io/apimachinery v0.25.16 // indirect
 +	k8s.io/client-go v0.25.16 // indirect
 +	k8s.io/klog/v2 v2.80.1 // indirect
-+	k8s.io/kube-openapi v0.0.0-20251121143641-b6aabc6c6745 // indirect
++	k8s.io/kube-openapi v0.0.0-20251125145642-4e65d59e963e // indirect
 +	k8s.io/utils v0.0.0-20251002143259-bc988d571ff4 // indirect
 +	sigs.k8s.io/json v0.0.0-20250730193827-2d320260d730 // indirect
  	sigs.k8s.io/structured-merge-diff/v4 v4.2.3 // indirect
