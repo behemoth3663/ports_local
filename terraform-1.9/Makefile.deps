@@ -170,6 +170,15 @@ GH_TUPLE=	\
 		hashicorp:terraform-plugin-log:v0.9.0:hashicorp_terraform_plugin_log/vendor/github.com/hashicorp/terraform-plugin-log \
 		hashicorp:terraform-registry-address:v0.2.5:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
 		hashicorp:terraform-svchost:v0.1.1:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
+		hashicorp:terraform:0941763d05cb:hashicorp_terraform_azure \
+		hashicorp:terraform:0941763d05cb:hashicorp_terraform_consul \
+		hashicorp:terraform:0941763d05cb:hashicorp_terraform_cos_1 \
+		hashicorp:terraform:0941763d05cb:hashicorp_terraform_gcs \
+		hashicorp:terraform:0941763d05cb:hashicorp_terraform_kubernetes \
+		hashicorp:terraform:0941763d05cb:hashicorp_terraform_oss_1 \
+		hashicorp:terraform:0941763d05cb:hashicorp_terraform_pg_1 \
+		hashicorp:terraform:0941763d05cb:hashicorp_terraform_s3_1 \
+		hashicorp:terraform:0941763d05cb:hashicorp_terraform_legacy \
 		hashicorp:terraform::hashicorp_terraform_azure_1/github.com/hashicorp/terraform/internal/backend/remote-state/azure \
 		hashicorp:terraform::hashicorp_terraform_consul_1/github.com/hashicorp/terraform/internal/backend/remote-state/consul \
 		hashicorp:terraform::hashicorp_terraform_cos/github.com/hashicorp/terraform/internal/backend/remote-state/cos \
@@ -179,15 +188,6 @@ GH_TUPLE=	\
 		hashicorp:terraform::hashicorp_terraform_pg/github.com/hashicorp/terraform/internal/backend/remote-state/pg \
 		hashicorp:terraform::hashicorp_terraform_s3/github.com/hashicorp/terraform/internal/backend/remote-state/s3 \
 		hashicorp:terraform::hashicorp_terraform_legacy_1/github.com/hashicorp/terraform/internal/legacy \
-		hashicorp:terraform:fe70f0a7db9d:hashicorp_terraform_azure \
-		hashicorp:terraform:fe70f0a7db9d:hashicorp_terraform_consul \
-		hashicorp:terraform:fe70f0a7db9d:hashicorp_terraform_cos_1 \
-		hashicorp:terraform:fe70f0a7db9d:hashicorp_terraform_gcs \
-		hashicorp:terraform:fe70f0a7db9d:hashicorp_terraform_kubernetes \
-		hashicorp:terraform:fe70f0a7db9d:hashicorp_terraform_oss_1 \
-		hashicorp:terraform:fe70f0a7db9d:hashicorp_terraform_pg_1 \
-		hashicorp:terraform:fe70f0a7db9d:hashicorp_terraform_s3_1 \
-		hashicorp:terraform:fe70f0a7db9d:hashicorp_terraform_legacy \
 		hashicorp:yamux:v0.1.2:hashicorp_yamux/vendor/github.com/hashicorp/yamux \
 		henvic:httpretty:v0.0.6:henvic_httpretty/vendor/github.com/henvic/httpretty \
 		huandu:xstrings:v1.3.3:huandu_xstrings/vendor/github.com/huandu/xstrings \
