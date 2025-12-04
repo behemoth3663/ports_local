@@ -1,5 +1,5 @@
 PORTNAME=	skopeo
-PORTVERSION=	1.20.0
+PORTVERSION=	1.21.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -17,30 +17,31 @@ GH_ACCOUNT=	containers
 
 PLIST_FILES=	bin/${PORTNAME}
 
-#-extldflags '-static' causes ld: error: unable to find library -lgpgme
+#CGO_ENABLED=0 -> imports github.com/proglottis/gpgme: build constraints exclude all Go files
+#-extldflags -static -> ld: error: unable to find library -lgpgme
 GO_BUILDFLAGS+=	-ldflags="-s -w"
 
-#1.19.0
-#===>  Building skopeo from ./cmd/skopeo
-#vendor/github.com/go-openapi/runtime/client/opentracing.go:8:2: cannot find module providing package github.com/opentracing/opentracing-go: import lookup disabled by -mod=vendor
-#vendor/github.com/go-openapi/runtime/client/opentracing.go:9:2: cannot find module providing package github.com/opentracing/opentracing-go/ext: import lookup disabled by -mod=vendor
-#vendor/github.com/go-openapi/runtime/client/opentracing.go:10:2: cannot find module providing package github.com/opentracing/opentracing-go/log: import lookup disabled by -mod=vendor
-#vendor/github.com/go-openapi/runtime/client/opentelemetry.go:10:2: cannot find module providing package go.opentelemetry.io/otel: import lookup disabled by -mod=vendor
-#vendor/github.com/go-openapi/runtime/client/opentelemetry.go:11:2: cannot find module providing package go.opentelemetry.io/otel/attribute: import lookup disabled by -mod=vendor
-#vendor/github.com/go-openapi/runtime/client/opentelemetry.go:12:2: cannot find module providing package go.opentelemetry.io/otel/codes: import lookup disabled by -mod=vendor
-#vendor/github.com/go-openapi/runtime/client/opentelemetry.go:13:2: cannot find module providing package go.opentelemetry.io/otel/propagation: import lookup disabled by -mod=vendor
-#vendor/github.com/go-openapi/runtime/client/opentelemetry.go:14:2: cannot find module providing package go.opentelemetry.io/otel/semconv/v1.17.0: import lookup disabled by -mod=vendor
-#vendor/github.com/go-openapi/runtime/client/opentelemetry.go:15:2: cannot find module providing package go.opentelemetry.io/otel/semconv/v1.17.0/httpconv: import lookup disabled by -mod=vendor
-#vendor/github.com/go-openapi/runtime/client/opentelemetry.go:16:2: cannot find module providing package go.opentelemetry.io/otel/trace: import lookup disabled by -mod=vendor
-#vendor/github.com/docker/docker/client/client.go:61:2: cannot find module providing package go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp: import lookup disabled by -mod=vendor
-#*** Error code 1
-#_OPTIONS_extract+=	750:post-post-extract
-post-post-extract: .PHONY
-	@${RM} -r ${WRKSRC}/vendor/go.opencensus.io
+# vendor directory appears to be pre-populated
+post-patch: .PHONY
 	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io
-	@${RM} -r ${WRKSRC}/vendor/github.com/opentracing
+	@${RM} -r ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/api
+	@test -z ${WRKSRC_google_go_genproto_api} || ${RLN} ${WRKSRC_google_go_genproto_api}/googleapis/api ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
+	@${RM} -r ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/rpc
+	@test -z ${WRKSRC_google_go_genproto_rpc} || ${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
+	@${RM} -r ${WRKSRC}/vendor/go.podman.io
+	@${MKDIR} ${WRKSRC}/vendor/go.podman.io/image
+	@test -z ${WRKSRC_containers_container_libs_common} || ${RLN} ${WRKSRC_containers_container_libs_common}/common ${WRKSRC}/vendor/go.podman.io
+	@test -z ${WRKSRC_containers_container_libs_storage} || ${RLN} ${WRKSRC_containers_container_libs_storage}/storage ${WRKSRC}/vendor/go.podman.io
+	@test -z ${WRKSRC_containers_container_libs_image} || ${RLN} ${WRKSRC_containers_container_libs_image}/image ${WRKSRC}/vendor/go.podman.io/image/v5
 
-pre-deps post-deps-all pre-deps-all: .PHONY
+pre-deps: .PHONY
+	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+
+pre-deps-all: .PHONY
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
+
+post-deps-all: .PHONY
+	test ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
@@ -54,10 +55,18 @@ GH_TUPLE:=	${GH_TUPLE:C|^moby:moby(:.*/)(docker-credential-helpers)$|docker:\2\1
 #-open-telemetry:opentelemetry-proto-go:v1.0.0:open_telemetry_opentelemetry_proto_go/vendor/go.opentelemetry.io/proto/otlp
 GH_TUPLE:=	${GH_TUPLE:Nopen-telemetry\:opentelemetry-go*}
 
-#-opentracing:opentracing-go:v1.2.0:opentracing_opentracing_go/vendor/github.com/opentracing/opentracing-go
-GH_TUPLE:=	${GH_TUPLE:Nopentracing\:opentracing-go\:*}
+#-google:go-genproto:207652e42e2e:google_go_genproto/vendor/google.golang.org/genproto/googleapis/api
+#+google:go-genproto:207652e42e2e:google_go_genproto_api
+#-google:go-genproto:207652e42e2e:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/rpc
+#+google:go-genproto:207652e42e2e:google_go_genproto_rpc
+GH_TUPLE:=	${GH_TUPLE:C,_genproto.*/vendor/google\.golang\.org/genproto/googleapis/(api|rpc),_genproto_\1,}
 
-#-census-instrumentation:opencensus-go:v0.24.0:census_instrumentation_opencensus_go/vendor/go.opencensus.io
-GH_TUPLE:=	${GH_TUPLE:Ncensus-instrumentation\:opencensus-go\:*}
+#-containers:container-libs:v0.66.0:containers_container_libs/vendor/go.podman.io/common
+#+containers:container-libs:common/v0.66.0:containers_container_libs_common
+#-containers:container-libs:v1.61.0:containers_container_libs_2/vendor/go.podman.io/storage
+#+containers:container-libs:storage/v1.61.0:containers_container_libs_storage
+#-containers:container-libs:v5.38.0:containers_container_libs_1/vendor/go.podman.io/image/v5
+#+containers:container-libs:image/v5.38.0:containers_container_libs_image
+GH_TUPLE:=	${GH_TUPLE:C,^(containers):(container)-(libs):([^:]+).*/go\.podman\.io/(common|storage|image).*,\1:\2-\3:\5/\4:\1_\2_\3_\5,}
 
 .include <bsd.port.mk>
