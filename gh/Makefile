@@ -1,7 +1,7 @@
 PORTNAME=	gh
 PORTVERSION=	2.83.1
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	local devel
 
 MAINTAINER=	lcook@FreeBSD.org
@@ -19,11 +19,11 @@ GH_ACCOUNT=	cli
 GH_PROJECT=	${GH_ACCOUNT}
 
 GO_TARGET=	./cmd/${PORTNAME}
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/internal/build.Version=${PORTVERSION} \
 	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/internal/build.Date=${%FT%TZ:L:gmtime}"
-
-GO_ENV+=	GOEXPERIMENT=greenteagc
 
 _DOCS=		README.md docs/[!README]*.md
 PORTDOCS=	${_DOCS:T}
