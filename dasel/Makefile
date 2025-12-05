@@ -1,7 +1,7 @@
 PORTNAME=	dasel
 PORTVERSION=	2.8.1
 DISTVERSIONPREFIX=	v
-PORTREVISION=	3
+PORTREVISION=	4
 CATEGORIES=	textproc local
 
 MAINTAINER=	lcook@FreeBSD.org
@@ -17,7 +17,8 @@ GH_ACCOUNT=	tomwright
 
 GO_TARGET=	./cmd/${PORTNAME}
 
-GO_BUILDFLAGS+=	-tags noupdater -ldflags="-s -w -extldflags -static \
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-tags noupdater -ldflags="-s -w \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/internal.Version=${PORTVERSION}'"
 
 PLIST_FILES=	bin/${PORTNAME}
