@@ -1,5 +1,5 @@
 PORTNAME=	golangci-lint
-PORTVERSION=	2.7.1
+PORTVERSION=	2.7.2
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -52,6 +52,8 @@ post-extract: .PHONY
 	@test -z ${WRKSRC_charmbracelet_x_term} || ${RLN} ${WRKSRC_charmbracelet_x_term}/term ${WRKSRC}/vendor/github.com/charmbracelet/x
 	@${MKDIR} ${WRKSRC}/vendor/codeberg.org/chavacava
 	@test -z ${WRKSRC_chavacava_garif} || ${RLN} ${WRKSRC_chavacava_garif:H}/garif ${WRKSRC}/vendor/codeberg.org/chavacava
+	@${MKDIR} ${WRKSRC}/vendor/go.yaml.in/yaml
+	@${TEST} ! -e ${WRKSRC}/vendor/gopkg.in/yaml.v3 || ${RLN} ${WRKSRC}/vendor/gopkg.in/yaml.v3 ${WRKSRC}/vendor/go.yaml.in/yaml/v3
 
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE

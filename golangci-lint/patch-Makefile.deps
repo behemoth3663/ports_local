@@ -1,8 +1,37 @@
---- Makefile.deps.orig	2025-10-30 20:56:01 UTC
+--- Makefile.deps.orig	2025-12-04 16:36:30 UTC
 +++ Makefile.deps
-@@ -217,6 +217,3 @@ GL_TUPLE=	bosi:decorder:v0.4.2:bosi_decorder/vendor/gi
+@@ -77,7 +77,7 @@ GH_TUPLE=	\
+ 		golang:protobuf:v1.5.3:golang_protobuf/vendor/github.com/golang/protobuf \
+ 		golang:sync:v0.18.0:golang_sync/vendor/golang.org/x/sync \
+ 		golang:sys:v0.38.0:golang_sys/vendor/golang.org/x/sys \
+-		golang:text:v0.30.0:golang_text/vendor/golang.org/x/text \
++		golang:text:v0.31.0:golang_text/vendor/golang.org/x/text \
+ 		golang:tools:v0.39.0:golang_tools/vendor/golang.org/x/tools \
+ 		golangci:asciicheck:v0.5.0:golangci_asciicheck/vendor/github.com/golangci/asciicheck \
+ 		golangci:dupl:f665c8d69b32:golangci_dupl/vendor/github.com/golangci/dupl \
+@@ -165,7 +165,7 @@ GH_TUPLE=	\
+ 		santhosh-tekuri:jsonschema:v6.0.2:santhosh_tekuri_jsonschema_v6/vendor/github.com/santhosh-tekuri/jsonschema/v6 \
+ 		sashamelentyev:interfacebloat:v1.1.0:sashamelentyev_interfacebloat/vendor/github.com/sashamelentyev/interfacebloat \
+ 		sashamelentyev:usestdlibvars:v1.29.0:sashamelentyev_usestdlibvars/vendor/github.com/sashamelentyev/usestdlibvars \
+-		securego:gosec:v2.22.10:securego_gosec_v2/vendor/github.com/securego/gosec/v2 \
++		securego:gosec:daccba6b93d7:securego_gosec_v2/vendor/github.com/securego/gosec/v2 \
+ 		shirou:gopsutil:v4.25.11:shirou_gopsutil_v4/vendor/github.com/shirou/gopsutil/v4 \
+ 		sirupsen:logrus:v1.9.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
+ 		sivchari:containedctx:v1.0.3:sivchari_containedctx/vendor/github.com/sivchari/containedctx \
+@@ -173,7 +173,7 @@ GH_TUPLE=	\
+ 		sourcegraph:go-diff:v0.7.0:sourcegraph_go_diff/vendor/github.com/sourcegraph/go-diff \
+ 		spf13:afero:v1.15.0:spf13_afero/vendor/github.com/spf13/afero \
+ 		spf13:cast:v1.5.0:spf13_cast/vendor/github.com/spf13/cast \
+-		spf13:cobra:v1.10.1:spf13_cobra/vendor/github.com/spf13/cobra \
++		spf13:cobra:v1.10.2:spf13_cobra/vendor/github.com/spf13/cobra \
+ 		spf13:jwalterweatherman:v1.1.0:spf13_jwalterweatherman/vendor/github.com/spf13/jwalterweatherman \
+ 		spf13:pflag:v1.0.10:spf13_pflag/vendor/github.com/spf13/pflag \
+ 		spf13:viper:v1.12.0:spf13_viper/vendor/github.com/spf13/viper \
+@@ -216,7 +216,5 @@ GL_TUPLE=	bosi:decorder:v0.4.2:bosi_decorder/vendor/gi
+ 		#	::v0.6.0:group_name/vendor/dev.gaijin.team/go/golib (from dev.gaijin.team/go/golib@v0.6.0)
  		#	::v0.9.0:group_name/vendor/go.augendre.info/fatcontext (from go.augendre.info/fatcontext@v0.9.0)
  		#	::v1.3.0:group_name/vendor/4d63.com/gocheckcompilerdirectives (from 4d63.com/gocheckcompilerdirectives@v1.3.0)
++		#	::v3.0.4:group_name/vendor/go.yaml.in/yaml/v3 (from go.yaml.in/yaml/v3@v3.0.4)
  		#	::v4.0.0:group_name/vendor/dev.gaijin.team/go/exhaustruct/v4 (from dev.gaijin.team/go/exhaustruct/v4@v4.0.0)
 -post-extract:
 -	@${MKDIR} ${WRKSRC}/vendor/github.com/tetafro
