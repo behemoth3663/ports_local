@@ -1,5 +1,5 @@
 PORTNAME=	dumbproxy
-PORTVERSION=	1.38.0
+PORTVERSION=	1.39.1
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local net
@@ -17,7 +17,8 @@ GH_ACCOUNT=	Snawoot
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'main.version=${PORTVERSION}'"
 
 post-extract: .PHONY

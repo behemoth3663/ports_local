@@ -5,6 +5,10 @@ github.com/GehirnInc/crypt/common
 github.com/GehirnInc/crypt/internal
 github.com/GehirnInc/crypt/sha256_crypt
 github.com/GehirnInc/crypt/sha512_crypt
+# github.com/Snawoot/secache v0.2.0
+## explicit; go 1.23
+github.com/Snawoot/secache
+github.com/Snawoot/secache/randmap
 # github.com/Snawoot/uniqueslice v0.1.1
 ## explicit; go 1.23.0
 github.com/Snawoot/uniqueslice
@@ -48,9 +52,6 @@ github.com/hashicorp/errwrap
 # github.com/hashicorp/go-multierror v1.1.1
 ## explicit; go 1.13
 github.com/hashicorp/go-multierror
-# github.com/jellydator/ttlcache/v3 v3.4.0
-## explicit; go 1.23.0
-github.com/jellydator/ttlcache/v3
 # github.com/klauspost/compress v1.18.1
 ## explicit; go 1.23
 github.com/klauspost/compress
@@ -61,9 +62,6 @@ github.com/klauspost/compress/internal/le
 github.com/klauspost/compress/internal/snapref
 github.com/klauspost/compress/zstd
 github.com/klauspost/compress/zstd/internal/xxhash
-# github.com/klauspost/cpuid/v2 v2.3.0
-## explicit; go 1.22
-github.com/klauspost/cpuid/v2
 # github.com/libp2p/go-reuseport v0.4.0
 ## explicit; go 1.20
 github.com/libp2p/go-reuseport
@@ -111,9 +109,6 @@ github.com/tg123/go-htpasswd
 github.com/things-go/go-socks5
 github.com/things-go/go-socks5/bufferpool
 github.com/things-go/go-socks5/statute
-# github.com/zeebo/xxh3 v1.0.2
-## explicit; go 1.17
-github.com/zeebo/xxh3
 # golang.org/x/crypto v0.44.0
 ## explicit; go 1.24.0
 golang.org/x/crypto/acme
