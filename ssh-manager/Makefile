@@ -1,6 +1,6 @@
 PORTNAME=	ssh-manager
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.82.0
+DISTVERSION=	1.83.0
 CATEGORIES=	local security
 
 MAINTAINER=	none@freebsd.org
@@ -18,7 +18,7 @@ PLIST_FILES=	bin/${PORTNAME}
 
 CGO_ENABLED=	0
 # looks like -buildid=${PORTVERSION} is not working
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static"
+GO_BUILDFLAGS+=	-ldflags="-s -w"
 #GO_ENV+=	GOEXPERIMENT=greenteagc
 
 M2T_OFFLINE=	true
