@@ -1,7 +1,7 @@
 PORTNAME=	impl
-PORTVERSION=	1.4.0
+PORTVERSION=	1.5.0
 DISTVERSIONPREFIX=	v
-#PORTREVISION=	19
+#PORTREVISION=	1
 CATEGORIES=	local devel
 
 MAINTAINER=	none@freebsd.org
@@ -18,10 +18,24 @@ GH_ACCOUNT=	josharian
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w  -extldflags '-static'"
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w"
 
-pre-deps pre-deps-all post-deps-all: .PHONY
+M2T_OFFLINE=	true
+.export	M2T_OFFLINE
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
+pre-deps: .PHONY
+	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+
+pre-deps-all: .PHONY
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
+
+post-deps-all: .PHONY
+	test ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
+
+post-extract: .PHONY
+	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
