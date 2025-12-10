@@ -1,18 +1,12 @@
---- Makefile.deps.orig	2025-10-11 20:40:46 UTC
+--- Makefile.deps.orig	2025-12-10 09:52:50 UTC
 +++ Makefile.deps
-@@ -295,7 +295,7 @@ GH_TUPLE=	\
+@@ -281,7 +281,8 @@ GH_TUPLE=	\
  		xeipuuv:gojsonpointer:02993c407bfb:xeipuuv_gojsonpointer/vendor/github.com/xeipuuv/gojsonpointer \
  		xeipuuv:gojsonreference:bd5ef7bd5415:xeipuuv_gojsonreference/vendor/github.com/xeipuuv/gojsonreference \
  		yashtewari:glob-intersection:v0.2.0:yashtewari_glob_intersection/vendor/github.com/yashtewari/glob-intersection
--GL_TUPLE=	gitlab-org:api:v0.148.1:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
-+GL_TUPLE=	gitlab-org-api:client-go:v0.148.1:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
+-GL_TUPLE=	gitlab-org:api:v0.160.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
++GL_TUPLE=	gitlab-org-api:client-go:v0.160.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
++
  		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
- 		#	::49cab49c8e9d:group_name/vendor/cuelabs.dev/go/oci/ociregistry (from cuelabs.dev/go/oci/ociregistry@49cab49c8e9d)
+ 		#	::074d06050084:group_name/vendor/cuelabs.dev/go/oci/ociregistry (from cuelabs.dev/go/oci/ociregistry@074d06050084)
  		#	::cfa47c3a1cc8:group_name/vendor/sigs.k8s.io/json (from sigs.k8s.io/json@cfa47c3a1cc8)
-@@ -320,6 +320,3 @@ GL_TUPLE=	gitlab-org:api:v0.148.1:gitlab_org_api_clien
- 		#	::v2.4.2:group_name/vendor/go.yaml.in/yaml/v2 (from go.yaml.in/yaml/v2@v2.4.2)
- 		#	::v3.0.4:group_name/vendor/go.yaml.in/yaml/v3 (from go.yaml.in/yaml/v3@v3.0.4)
- 		#	::v6.3.0:group_name/vendor/sigs.k8s.io/structured-merge-diff/v6 (from sigs.k8s.io/structured-merge-diff/v6@v6.3.0)
--post-extract:
--	@${MKDIR} ${WRKSRC}/vendor/github.com/open-policy-agent
--	@${RLN} ${WRKSRC_fsnotify_fsnotify} ${WRKSRC}/vendor/github.com/open-policy-agent/opa

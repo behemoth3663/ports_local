@@ -1,7 +1,7 @@
 PORTNAME=	cosign
-PORTVERSION=	3.0.2
+PORTVERSION=	3.0.3
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+#PORTREVISION=	1
 CATEGORIES=	local security
 
 MAINTAINER=	bofh@FreeBSD.org
@@ -24,6 +24,7 @@ GIT_COMMIT=	git ls-remote \
 		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}^{}
 
+CGO_ENABLED=	0
 GO_BUILDFLAGS=	-ldflags="-s -w -buildid= \
 	-X sigs.k8s.io/release-utils/version.gitVersion=${PORTVERSION} \
 	-X sigs.k8s.io/release-utils/version.gitCommit=${GIT_COMMIT:sh:M*:[1]} \
@@ -54,16 +55,14 @@ post-extract: .PHONY .SILENT
 	@${TEST} -z ${WRKSRC_azure_azure_sdk_for_go_azidentity} || ${RLN} ${WRKSRC_azure_azure_sdk_for_go_azidentity}/sdk/azidentity ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk
 	@${TEST} -z ${WRKSRC_azure_azure_sdk_for_go_internal_1} || ${RLN} ${WRKSRC_azure_azure_sdk_for_go_internal_1}/sdk/security/keyvault/internal ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault
 	@${TEST} -z ${WRKSRC_azure_azure_sdk_for_go_azkeys} || ${RLN} ${WRKSRC_azure_azure_sdk_for_go_azkeys}/sdk/security/keyvault/azkeys ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault
+	@${RM} -r ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/api
+	@test -z ${WRKSRC_google_go_genproto_api} || ${RLN} ${WRKSRC_google_go_genproto_api}/googleapis/api ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
+	@${RM} -r ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/rpc
+	@test -z ${WRKSRC_google_go_genproto_rpc} || ${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
 	@${RM} ${WRKSRC}/vendor/github.com/go-openapi/runtime/client/opentelemetry.go
 	@${RM} ${WRKSRC}/vendor/github.com/go-openapi/runtime/client/opentelemetry_test.go
 	@${RM} ${WRKSRC}/vendor/github.com/go-openapi/runtime/client/opentracing.go
 	@${RM} ${WRKSRC}/vendor/github.com/go-openapi/runtime/client/opentracing_test.go
-	@${RM} ${WRKSRC}/vendor/github.com/transparency-dev/tessera/client/otel.go
-	@${RM} ${WRKSRC}/vendor/github.com/transparency-dev/tessera/internal/stream/otel.go
-	@${RM} ${WRKSRC}/vendor/github.com/transparency-dev/tessera/otel.go
-	@${RM} ${WRKSRC}/vendor/github.com/transparency-dev/tessera/storage/internal/otel.go
-	@${RM} ${WRKSRC}/vendor/github.com/transparency-dev/tessera/storage/gcp/otel.go
-	@${RM} ${WRKSRC}/vendor/github.com/transparency-dev/tessera/storage/gcp/antispam/otel.go
 
 pre-deps: .PHONY
 	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
@@ -74,7 +73,6 @@ post-deps-all: .PHONY
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 	${RM} ${.CURDIR}/generated.deps.mk
-	( make -C ${.CURDIR} make-from-deps GHT_ACNT=google GHT_PROJ=cel-spec GHT_PATH=cel.dev/expr )
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes-sigs GHT_PROJ=json GHT_PATH=sigs.k8s.io/json )
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes-sigs GHT_PROJ=randfill GHT_PATH=sigs.k8s.io/randfill )
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes-sigs GHT_PROJ=release-utils GHT_PATH=sigs.k8s.io/release-utils )
@@ -173,10 +171,12 @@ GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)(.*/hashicorp/vault)/(.*)|\1\3/\2|}
 #-sigstore:sigstore:v1.9.5:sigstore_sigstore_hashivault/vendor/github.com/sigstore/sigstore/pkg/signature/kms/hashivault
 GH_TUPLE:=	${GH_TUPLE:N*/sigstore/sigstore/*}
 
-#-google:go-genproto:57b25ae835d4:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api
-#-google:go-genproto:57b25ae835d4:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc
-# google:go-genproto:9219d122eba9:google_go_genproto/vendor/google.golang.org/genproto
-GH_TUPLE:=	${GH_TUPLE:N*/genproto/googleapis/*}
+#-google:go-genproto:513f23925822:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api
+#+google:go-genproto:513f23925822:google_go_genproto_api
+#-google:go-genproto:513f23925822:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc
+#+google:go-genproto:513f23925822:google_go_genproto_rpc
+# google:go-genproto:f936aa4a68b2:google_go_genproto/vendor/google.golang.org/genproto
+GH_TUPLE:=	${GH_TUPLE:C,_./vendor/google\.golang\.org/genproto/googleapis/(api|rpc),_\1,}
 
 #-hashicorp:go-secure-stdlib:v0.1.2:hashicorp_go_secure_stdlib_mlock/vendor/github.com/hashicorp/go-secure-stdlib/mlock
 #-hashicorp:go-secure-stdlib:v0.1.2:hashicorp_go_secure_stdlib_strutil/vendor/github.com/hashicorp/go-secure-stdlib/strutil
@@ -222,8 +222,6 @@ GH_TUPLE:=	${GH_TUPLE:S|/xds/go|/xds|1}
 # go-ini:ini:v1.67.0:go_ini_ini/vendor/github.com/go-ini/ini
 #-go-ini:ini:v1.67.0:go_ini_ini_1/vendor/gopkg.in/ini.v1
 GH_TUPLE:=	${GH_TUPLE:N*/vendor/gopkg.in/ini.v1}
-
-GH_TUPLE+=	open-policy-agent:opa:v1.9.0:open_policy_agent_opa/vendor/github.com/open-policy-agent/opa
 
 .sinclude "${.CURDIR}/generated.deps.mk"
 
