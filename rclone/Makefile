@@ -1,6 +1,6 @@
 PORTNAME=	rclone
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.72.0
+DISTVERSION=	1.72.1
 #PORTREVISION=	1
 CATEGORIES=	local net
 
@@ -21,7 +21,8 @@ PLIST_FILES=	bin/${PORTNAME} \
 
 JQ_GETVER_EXPR=	.[0].name | gsub("[-a-z]"; "")
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X '${GO_MODULE}/fs.VersionSuffix='"
 
 OPTIONS_DEFINE=	CMOUNT
