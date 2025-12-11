@@ -1,7 +1,7 @@
 PORTNAME=	gh
-PORTVERSION=	2.83.1
+PORTVERSION=	2.83.2
 DISTVERSIONPREFIX=	v
-PORTREVISION=	2
+#PORTREVISION=	1
 CATEGORIES=	local devel
 
 MAINTAINER=	lcook@FreeBSD.org
@@ -167,10 +167,6 @@ GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+.*/envoyproxy/go-control-plane)
 #-cncf:xds:d92e9ce0af51:cncf_xds_go/vendor/github.com/cncf/xds/go
 #+cncf:xds:d92e9ce0af51:cncf_xds_go/vendor/github.com/cncf/xds
 GH_TUPLE:=	${GH_TUPLE:S|/xds/go|/xds|1}
-
-#-spiffe:go-spiffe:v2.5.0:spiffe_go_spiffe_v2/vendor/github.com/spiffe/go-spiffe/v2
-#+spiffe:go-spiffe:v2.5.0:spiffe_go_spiffe_v2/vendor/github.com/spiffe/go-spiffe
-GH_TUPLE:=	${GH_TUPLE:S|/go-spiffe/v2|/go-spiffe|1}
 
 #-go-openapi:swag:v0.24.0:go_openapi_swag_cmdutils/vendor/github.com/go-openapi/swag/cmdutils
 #-go-openapi:swag:v0.24.0:go_openapi_swag_conv/vendor/github.com/go-openapi/swag/conv
