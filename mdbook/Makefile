@@ -1,6 +1,6 @@
 PORTNAME=	mdbook
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.5.1
+DISTVERSION=	0.5.2
 #PORTREVISION=	1
 CATEGORIES=	local textproc
 
@@ -24,7 +24,7 @@ post-install: .PHONY
 deps: .PHONY
 	${RM} Makefile.deps
 	${MAKE} -C ${.CURDIR} makesum
-	set -o pipefail && ${MAKE} -C ${.CURDIR} cargo-crates | ${GREP} --extended-regexp --invert-match '^=' > Makefile.deps
+	set -o errexit && set -o pipefail && ${MAKE} -C ${.CURDIR} cargo-crates | ${GREP} --extended-regexp --invert-match '^=' > Makefile.deps
 	${MAKE} -C ${.CURDIR} makesum
 
 .sinclude "${.CURDIR}/Makefile.deps"
