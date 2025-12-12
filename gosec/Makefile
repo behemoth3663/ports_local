@@ -1,7 +1,7 @@
 PORTNAME=	gosec
-PORTVERSION=	2.22.10
+PORTVERSION=	2.22.11
 DISTVERSIONPREFIX=	v
-PORTREVISION=	2
+#PORTREVISION=	1
 CATEGORIES=	local devel security
 
 MAINTAINER=	none@freebsd.org
@@ -27,7 +27,8 @@ GIT_COMMIT=	git ls-remote \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
 		${SED} -rn 's/(.{7}).*/\1/p'
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'main.GitTag=$$(${GIT_COMMIT})' \
 	-X 'main.Version=${PORTVERSION}' \
 	-X 'main.BuildDate=${%F %T:L:gmtime}'"
@@ -47,6 +48,8 @@ post-extract: .PHONY .SILENT
 	test -z ${WRKSRC_googleapis_google_cloud_go_auth} || ${RLN} ${WRKSRC_googleapis_google_cloud_go_auth}/auth ${WRKSRC}/vendor/cloud.google.com/go
 	${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
 	test -z ${WRKSRC_googleapis_google_cloud_go_compute_metadata} || ${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute
+	@${MKDIR} ${WRKSRC}/vendor/go.yaml.in/yaml
+	@${TEST} ! -e ${WRKSRC}/vendor/gopkg.in/yaml.v3 || ${RLN} ${WRKSRC}/vendor/gopkg.in/yaml.v3 ${WRKSRC}/vendor/go.yaml.in/yaml/v3
 
 pre-deps: .PHONY
 	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
@@ -88,11 +91,6 @@ GH_TUPLE:=	${GH_TUPLE:N*\:googleapis_google_cloud_go_[b-z]*}
 GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+).*/cloud.google.com/go/(auth)$|\1\3/\2|}
 GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/0-9]+).*/cloud.google.com/go/(compute)/(metadata)$|\1\3/\4/\2\3_\4|}
 GH_TUPLE:=	${GH_TUPLE:N*/vendor/cloud.google.com/go/*}
-
-#GH_TUPLE+=	open-telemetry:opentelemetry-go-contrib:instrumentation/google.golang.org/grpc/otelgrpc/v0.58.0:open_telemetry_opentelemetry_go_contrib
-#GH_TUPLE+=	open-telemetry:opentelemetry-go-contrib:instrumentation/net/http/otelhttp/v0.58.0:open_telemetry_opentelemetry_go_contrib_net_http_otelhttp
-#GH_TUPLE+=	open-telemetry:opentelemetry-go-instrumentation:sdk/v1.1.0:open_telemetry_opentelemetry_go_instrumentation_sdk
-#GH_TUPLE+=	open-telemetry:opentelemetry-go:v1.34.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel
 
 .sinclude "${.CURDIR}/generated.deps.mk"
 
