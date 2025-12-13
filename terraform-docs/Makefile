@@ -1,7 +1,7 @@
 PORTNAME=	terraform-docs
-PORTVERSION=	0.20.0
+PORTVERSION=	0.21.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	9
+#PORTREVISION=	1
 CATEGORIES=	local sysutils textproc
 
 MAINTAINER=	0xdutra@gmail.com
@@ -16,6 +16,7 @@ PLIST_FILES=	bin/${PORTNAME}
 
 GO_MODULE=	github.com/${PORTNAME}/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w"
 
 .include <bsd.port.mk>
