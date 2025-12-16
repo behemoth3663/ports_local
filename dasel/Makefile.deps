@@ -1,14 +1,41 @@
 GH_TUPLE=	\
-		alecthomas:chroma:v2.13.0:alecthomas_chroma_v2/vendor/github.com/alecthomas/chroma/v2 \
-		clbanning:mxj:v2.7.0:clbanning_mxj_v2/vendor/github.com/clbanning/mxj/v2 \
-		cpuguy83:go-md2man:v2.0.3:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
-		dlclark:regexp2:v1.11.0:dlclark_regexp2/vendor/github.com/dlclark/regexp2 \
-		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
-		golang:net:v0.25.0:golang_net/vendor/golang.org/x/net \
-		golang:text:v0.15.0:golang_text/vendor/golang.org/x/text \
-		google:go-cmp:v0.5.9:google_go_cmp/vendor/github.com/google/go-cmp \
-		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
-		pelletier:go-toml:v2.2.2:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
-		russross:blackfriday:v2.1.0:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
-		spf13:cobra:v1.8.0:spf13_cobra/vendor/github.com/spf13/cobra \
-		spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag
+		agext:levenshtein:v1.2.1:agext_levenshtein/vendor/github.com/agext/levenshtein \
+		alecthomas:kong:v1.13.0:alecthomas_kong/vendor/github.com/alecthomas/kong \
+		apparentlymart:go-textseg:v15.0.0:apparentlymart_go_textseg_v15/vendor/github.com/apparentlymart/go-textseg/v15 \
+		atotto:clipboard:v0.1.4:atotto_clipboard/vendor/github.com/atotto/clipboard \
+		aymanbagabas:go-osc52:v2.0.1:aymanbagabas_go_osc52_v2/vendor/github.com/aymanbagabas/go-osc52/v2 \
+		charmbracelet:bubbles:v0.21.0:charmbracelet_bubbles/vendor/github.com/charmbracelet/bubbles \
+		charmbracelet:bubbletea:v1.3.7:charmbracelet_bubbletea/vendor/github.com/charmbracelet/bubbletea \
+		charmbracelet:colorprofile:f60798e515dc:charmbracelet_colorprofile/vendor/github.com/charmbracelet/colorprofile \
+		charmbracelet:lipgloss:v1.1.0:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
+		charmbracelet:x:2c3ea96c31dd:charmbracelet_x_cellbuf \
+		charmbracelet:x:ansi/v0.10.1:charmbracelet_x_ansi \
+		charmbracelet:x:term/v0.2.1:charmbracelet_x_term/vendor/github.com/charmbracelet/x \
+		erikgeiser:coninput:1c3628e74d0f:erikgeiser_coninput/vendor/github.com/erikgeiser/coninput \
+		go-ini:ini:v1.67.0:go_ini_ini/vendor/gopkg.in/ini.v1 \
+		golang:mod:v0.26.0:golang_mod/vendor/golang.org/x/mod \
+		golang:sync:v0.16.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.34.0:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.28.0:golang_text/vendor/golang.org/x/text \
+		golang:tools:v0.35.0:golang_tools/vendor/golang.org/x/tools \
+		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
+		hashicorp:hcl:v2.24.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
+		lucasb-eyer:go-colorful:v1.2.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
+		mattn:go-isatty:v0.0.20:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
+		mattn:go-localereader:v0.0.1:mattn_go_localereader/vendor/github.com/mattn/go-localereader \
+		mattn:go-runewidth:v0.0.16:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
+		mitchellh:go-wordwrap:v1.0.1:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
+		muesli:ansi:276c6243b2f6:muesli_ansi/vendor/github.com/muesli/ansi \
+		muesli:cancelreader:v0.2.2:muesli_cancelreader/vendor/github.com/muesli/cancelreader \
+		muesli:termenv:v0.16.0:muesli_termenv/vendor/github.com/muesli/termenv \
+		pelletier:go-toml:a0e846496753:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
+		rivo:uniseg:v0.4.7:rivo_uniseg/vendor/github.com/rivo/uniseg \
+		stretchr:testify:v1.11.1:stretchr_testify/vendor/github.com/stretchr/testify \
+		xo:terminfo:abceb7e1c41e:xo_terminfo/vendor/github.com/xo/terminfo \
+		yaml:go-yaml:v4.0.0-rc.3:yaml_go_yaml/vendor/go.yaml.in/yaml/v4 \
+		zclconf:go-cty:v1.17.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+post-extract:
+	@${RM} -r ${WRKSRC}/vendor/github.com/charmbracelet/x/ansi
+	@${RLN} ${WRKSRC_charmbracelet_x_ansi}/ansi ${WRKSRC}/vendor/github.com/charmbracelet/x/ansi
+	@${RM} -r ${WRKSRC}/vendor/github.com/charmbracelet/x/cellbuf
+	@${RLN} ${WRKSRC_charmbracelet_x_cellbuf}/cellbuf ${WRKSRC}/vendor/github.com/charmbracelet/x/cellbuf
