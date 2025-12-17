@@ -1,7 +1,7 @@
 PORTNAME=	trivy
-PORTVERSION=	0.68.1
+PORTVERSION=	0.68.2
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+#PORTREVISION=	1
 CATEGORIES=	local security
 
 MAINTAINER=	mfechner@FreeBSD.org
@@ -16,7 +16,7 @@ GO_MODULE=	github.com/aquasecurity/${PORTNAME}
 GO_TARGET=	./cmd/${PORTNAME}
 
 CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X '${GO_MODULE}/pkg/version/app.ver=${PORTVERSION}'"
 
 PLIST_FILES=	bin/${PORTNAME}
