@@ -1,6 +1,6 @@
-TIMESTAMP = 1765896154
-SHA256 (gruntwork-io-terragrunt-v0.96.0_GH0.tar.gz) = d41e28aed4c829604ba8aebe66983cc00c4c901a5adf8c06c666b02499e89e0c
-SIZE (gruntwork-io-terragrunt-v0.96.0_GH0.tar.gz) = 8839302
+TIMESTAMP = 1766052373
+SHA256 (gruntwork-io-terragrunt-v0.96.1_GH0.tar.gz) = e9b293f9b1b0265f30bdaf565b39a9501b5b07352d856a5da52bcd1a6f4bb217
+SIZE (gruntwork-io-terragrunt-v0.96.1_GH0.tar.gz) = 8845411
 SHA256 (AlecAivazis-survey-v2.3.7_GH0.tar.gz) = 4975751ab98c2d0075c1d2b992bd8aee733c97c29cecac179ca36290abbeac5f
 SIZE (AlecAivazis-survey-v2.3.7_GH0.tar.gz) = 125594
 SHA256 (Azure-azure-sdk-for-go-sdk-internal-v1.11.2_GH0.tar.gz) = d089ea8d17e3aa9fac311bc2f20511926681deffcfcfe575697c95a8d8868b5e
