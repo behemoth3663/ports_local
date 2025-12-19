@@ -1,5 +1,5 @@
 PORTNAME=	tomlv
-PORTVERSION=	1.5.0
+PORTVERSION=	1.6.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -21,6 +21,7 @@ PLIST_FILES=	bin/${PORTNAME}
 
 GO_TARGET=	./cmd/tomlv
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static"
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w"
 
 .include <bsd.port.mk>
