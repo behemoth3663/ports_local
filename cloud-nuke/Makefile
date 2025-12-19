@@ -1,5 +1,5 @@
 PORTNAME=	cloud-nuke
-PORTVERSION=	0.45.0
+PORTVERSION=	0.46.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -18,10 +18,11 @@ GH_ACCOUNT=	gruntwork-io
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'main.VERSION=${DISTVERSIONPREFIX}${PORTVERSION}'"
 
-GO_ENV+=	GOEXPERIMENT=greenteagc
+#GO_ENV+=	GOEXPERIMENT=greenteagc
 
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
@@ -39,7 +40,7 @@ pre-post-extract: .PHONY .SILENT
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/securityhub
-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_securityhub}/service/securityhub ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service
+	@test -z ${WRKSRC_aws_aws_sdk_go_v2_securityhub} || ${RLN} ${WRKSRC_aws_aws_sdk_go_v2_securityhub}/service/securityhub ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service
 
 pre-deps: .PHONY
 	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_

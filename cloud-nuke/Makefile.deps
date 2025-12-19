@@ -81,16 +81,16 @@ GH_TUPLE=	\
 		go-logr:stdr:v1.2.2:go_logr_stdr/vendor/github.com/go-logr/stdr \
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
-		golang:crypto:v0.36.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.45.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:f9659909a136:golang_exp/vendor/golang.org/x/exp \
 		golang:groupcache:41bb18bfe9da:golang_groupcache/vendor/github.com/golang/groupcache \
-		golang:net:v0.38.0:golang_net/vendor/golang.org/x/net \
+		golang:net:v0.47.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.27.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.3:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sync:v0.12.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.31.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.30.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.23.0:golang_text/vendor/golang.org/x/text \
+		golang:sync:v0.18.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.38.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.37.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.31.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.5.0:golang_time/vendor/golang.org/x/time \
 		google:go-genproto:012b6fc9bca9:google_go_genproto/vendor/google.golang.org/genproto \
 		google:go-genproto:37d4d3c04a78:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api \
@@ -120,7 +120,7 @@ GH_TUPLE=	\
 		pterm:pterm:v0.12.45:pterm_pterm/vendor/github.com/pterm/pterm \
 		rivo:uniseg:v0.2.0:rivo_uniseg/vendor/github.com/rivo/uniseg \
 		russross:blackfriday:v2.1.0:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
-		sirupsen:logrus:v1.8.1:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
+		sirupsen:logrus:v1.8.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
 		stretchr:testify:v1.8.4:stretchr_testify/vendor/github.com/stretchr/testify \
 		urfave:cli:v1.22.12:urfave_cli/vendor/github.com/urfave/cli \
 		urfave:cli:v2.10.3:urfave_cli_v2/vendor/github.com/urfave/cli/v2 \
