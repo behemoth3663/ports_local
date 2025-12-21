@@ -1,6 +1,6 @@
---- internal/server/general.go.orig	2025-02-24 17:39:34 UTC
+--- internal/server/general.go.orig	2025-12-05 20:12:17 UTC
 +++ internal/server/general.go
-@@ -20,7 +20,6 @@ import (
+@@ -20,14 +20,12 @@ import (
  	"strings"
  	"sync"
  
@@ -8,7 +8,6 @@
  	"golang.org/x/tools/gopls/internal/cache"
  	"golang.org/x/tools/gopls/internal/debug"
  	debuglog "golang.org/x/tools/gopls/internal/debug/log"
-@@ -28,7 +27,6 @@ import (
  	"golang.org/x/tools/gopls/internal/protocol"
  	"golang.org/x/tools/gopls/internal/protocol/semtok"
  	"golang.org/x/tools/gopls/internal/settings"
@@ -16,7 +15,7 @@
  	"golang.org/x/tools/gopls/internal/util/bug"
  	"golang.org/x/tools/gopls/internal/util/goversion"
  	"golang.org/x/tools/gopls/internal/util/moremaps"
-@@ -254,9 +252,6 @@ func (s *server) checkViewGoVersions() {
+@@ -252,9 +250,6 @@ func (s *server) checkViewGoVersions() {
  		if oldestVersion == -1 || viewVersion < oldestVersion {
  			oldestVersion, fromBuild = viewVersion, false
  		}
@@ -26,7 +25,7 @@
  	}
  
  	if msg, isError := goversion.Message(oldestVersion, fromBuild); msg != "" {
-@@ -488,18 +483,6 @@ func (s *server) newFolder(ctx context.Context, folder
+@@ -490,18 +485,6 @@ func (s *server) newFolder(ctx context.Context, folder
  		return nil, err
  	}
  
@@ -45,7 +44,7 @@
  	// Record whether a driver is in use so that it appears in the
  	// user's telemetry upload. Although we can't correlate the
  	// driver information with the crash or bug.Report at the
-@@ -507,9 +490,6 @@ func (s *server) newFolder(ctx context.Context, folder
+@@ -509,9 +492,6 @@ func (s *server) newFolder(ctx context.Context, folder
  	// driver tend to do so most of the time, so we'll get a
  	// strong clue. See #60890 for an example of an issue where
  	// this information would have been helpful.
@@ -55,7 +54,7 @@
  
  	return &cache.Folder{
  		Dir:     folder,
-@@ -561,10 +541,9 @@ func (s *server) eventuallyShowMessage(ctx context.Con
+@@ -563,10 +543,9 @@ func (s *server) eventuallyShowMessage(ctx context.Con
  	s.notifications = append(s.notifications, msg)
  }
  
@@ -67,7 +66,7 @@
  	}
  
  	var warnings, errs []string
-@@ -672,39 +651,4 @@ func recordClientInfo(clientName string) {
+@@ -654,49 +633,4 @@ func recordClientInfo(clientName string) {
  
  // recordClientInfo records gopls client info.
  func recordClientInfo(clientName string) {
@@ -88,6 +87,9 @@
 -	case "govim":
 -		// https://github.com/govim/govim/pull/1189
 -		key = "gopls/client:govim"
+-	case "helix":
+-		// https://github.com/helix-editor/helix/blob/d0218f7e78bc0c3af4b0995ab8bda66b9c542cf3/helix-lsp/src/client.rs#L714
+-		key = "gopls/client:helix"
 -	case "Neovim":
 -		// https://github.com/neovim/neovim/blob/42333ea98dfcd2994ee128a3467dfe68205154cd/runtime/lua/vim/lsp.lua#L1361
 -		key = "gopls/client:neovim"
@@ -97,6 +99,13 @@
 -	case "Sublime Text LSP":
 -		// https://github.com/sublimelsp/LSP/blob/e608f878e7e9dd34aabe4ff0462540fadcd88fcc/plugin/core/sessions.py#L493
 -		key = "gopls/client:sublimetext"
+-	case "Windsurf":
+-		key = "gopls/client:windsurf"
+-	case "Cursor":
+-		key = "gopls/client:cursor"
+-	case "Zed", "Zed Dev", "Zed Nightly", "Zed Preview":
+-		// https: //github.com/zed-industries/zed/blob/0ac17526687bf11007f0fbb5c3b2ff463ce47293/crates/release_channel/src/lib.rs#L147
+-		key = "gopls/client:zed"
 -	default:
 -		// Accumulate at least a local counter for an unknown
 -		// client name, but also fall through to count it as

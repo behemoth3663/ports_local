@@ -1,7 +1,7 @@
 PORTNAME=	gopls
-PORTVERSION=	0.20.0
+PORTVERSION=	0.21.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	6
+#PORTREVISION=	1
 CATEGORIES=	local devel
 
 MAINTAINER=	fuz@FreeBSD.org
@@ -20,7 +20,8 @@ GH_TAGNAME=	${PORTNAME}/${DISTVERSIONPREFIX}${PORTVERSION}
 
 WRKSRC_SUBDIR=	${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'main.version=${PORTVERSION}'"
 
 PLIST_FILES=	bin/${PORTNAME}
@@ -52,6 +53,7 @@ post-extract: .PHONY
 	@${RM} -r ${WRKSRC}/internal/telemetry
 	@${RM} ${WRKSRC}/internal/cmd/counters.go
 	@${RM} ${WRKSRC}/internal/golang/counters.go
+	@${RM} ${WRKSRC}/internal/mcp/counters.go
 	@${RM} ${WRKSRC}/internal/server/counters.go
 .endif
 
