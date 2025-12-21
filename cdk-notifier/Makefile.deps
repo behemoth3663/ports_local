@@ -8,12 +8,12 @@ GH_TUPLE=	\
 		go-check:check:8fa46927fb4f:go_check_check/vendor/gopkg.in/check.v1 \
 		go-viper:mapstructure:v2.4.0:go_viper_mapstructure_v2/vendor/github.com/go-viper/mapstructure/v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
-		golang:crypto:v0.40.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:oauth2:v0.30.0:golang_oauth2/vendor/golang.org/x/oauth2 \
-		golang:sys:v0.34.0:golang_sys/vendor/golang.org/x/sys \
-		golang:text:v0.27.0:golang_text/vendor/golang.org/x/text \
-		golang:time:v0.12.0:golang_time/vendor/golang.org/x/time \
-		google:go-github:v74.0.0:google_go_github_v74/vendor/github.com/google/go-github/v74 \
+		golang:crypto:v0.46.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:oauth2:v0.34.0:golang_oauth2/vendor/golang.org/x/oauth2 \
+		golang:sys:v0.39.0:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.32.0:golang_text/vendor/golang.org/x/text \
+		golang:time:v0.14.0:golang_time/vendor/golang.org/x/time \
+		google:go-github:v80.0.0:google_go_github_v80/vendor/github.com/google/go-github/v80 \
 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
@@ -26,18 +26,18 @@ GH_TUPLE=	\
 		niemeyer:pretty:a10e7caefd8e:niemeyer_pretty/vendor/github.com/niemeyer/pretty \
 		pelletier:go-toml:v2.2.4:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
 		pmezard:go-difflib:5d4384ee4fb2:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
-		quasilyte:go-ruleguard:dsl/v0.3.22:quasilyte_go_ruleguard_dsl/vendor/github.com/quasilyte/go-ruleguard \
-		sagikazarmark:locafero:v0.9.0:sagikazarmark_locafero/vendor/github.com/sagikazarmark/locafero \
+		quasilyte:go-ruleguard:dsl/v0.3.23:quasilyte_go_ruleguard_dsl/vendor/github.com/quasilyte/go-ruleguard \
+		sagikazarmark:locafero:v0.11.0:sagikazarmark_locafero/vendor/github.com/sagikazarmark/locafero \
 		shopspring:decimal:v1.4.0:shopspring_decimal/vendor/github.com/shopspring/decimal \
 		sirupsen:logrus:v1.9.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
-		sourcegraph:conc:v0.3.0:sourcegraph_conc/vendor/github.com/sourcegraph/conc \
-		spf13:afero:v1.14.0:spf13_afero/vendor/github.com/spf13/afero \
-		spf13:cast:v1.9.2:spf13_cast/vendor/github.com/spf13/cast \
-		spf13:cobra:v1.9.1:spf13_cobra/vendor/github.com/spf13/cobra \
-		spf13:pflag:v1.0.7:spf13_pflag/vendor/github.com/spf13/pflag \
-		spf13:viper:v1.20.1:spf13_viper/vendor/github.com/spf13/viper \
-		stretchr:testify:v1.10.0:stretchr_testify/vendor/github.com/stretchr/testify \
+		sourcegraph:conc:5f936abd7ae8:sourcegraph_conc/vendor/github.com/sourcegraph/conc \
+		spf13:afero:v1.15.0:spf13_afero/vendor/github.com/spf13/afero \
+		spf13:cast:v1.10.0:spf13_cast/vendor/github.com/spf13/cast \
+		spf13:cobra:v1.10.2:spf13_cobra/vendor/github.com/spf13/cobra \
+		spf13:pflag:v1.0.10:spf13_pflag/vendor/github.com/spf13/pflag \
+		spf13:viper:v1.21.0:spf13_viper/vendor/github.com/spf13/viper \
+		stretchr:testify:v1.11.1:stretchr_testify/vendor/github.com/stretchr/testify \
 		subosito:gotenv:v1.6.0:subosito_gotenv/vendor/github.com/subosito/gotenv \
-		uber-go:multierr:v1.11.0:uber_go_multierr/vendor/go.uber.org/multierr
+		yaml:go-yaml:v3.0.4:yaml_go_yaml/vendor/go.yaml.in/yaml/v3
 		# Errors found during processing:
-		#	error getting commit v0.137.0 for gitlab-org/api: not found
+		#	error getting commit v1.10.0 for gitlab-org/api: not found
