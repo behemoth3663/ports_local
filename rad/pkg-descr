@@ -1,0 +1,13 @@
+Rad is a modern, lightweight scripting language and interpreter designed
+specifically for creating maintainable and expressive command-line tools.
+It provides a clean, Python-like syntax with built-in declarative argument
+definitions, automatic help generation, and native support for
+JSON processing, HTTP requests, and interactive user prompts. These features
+remove the boilerplate typically required in Bash or Python scripts and make
+everyday automation tasks significantly simpler.
+
+The language focuses on readability, safety, and a frictionless development
+experience. Scripts written in Rad require no external dependencies,
+integrate naturally with the shell environment, and come with built-in type
+checking and validation. This makes Rad suitable both for quick utilities and
+for complex CLI workflows.
