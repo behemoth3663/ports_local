@@ -1,5 +1,5 @@
 PORTNAME=	aws-ec2-instance-selector
-PORTVERSION=	3.1.2
+PORTVERSION=	3.1.3
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -21,13 +21,14 @@ GO_TARGET=	./cmd/main.go:${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'main.versionID=${DISTVERSIONPREFIX}${PORTVERSION}'"
 
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
 
-#pre-build: .PHONY
+#pre-build: .PHONY # does not work
 #	${FIND} ${WRKSRC} -name go.mod -type f -execdir ${GO_CMD} mod edit -go=1.25 \;
 
 post-extract: .PHONY

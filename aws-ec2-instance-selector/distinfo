@@ -1,6 +1,6 @@
-TIMESTAMP = 1758622477
-SHA256 (aws-amazon-ec2-instance-selector-v3.1.2_GH0.tar.gz) = 1b061a29e89c73b1505d1cfeeba447f842c8cc6afd215d6465a7cc9fdfcdf42f
-SIZE (aws-amazon-ec2-instance-selector-v3.1.2_GH0.tar.gz) = 175256
+TIMESTAMP = 1766589781
+SHA256 (aws-amazon-ec2-instance-selector-v3.1.3_GH0.tar.gz) = d7a0d44ed7793e8dcf4e7f54abc4bb4ce9aceffb378e3ef8a5de25390eb5ef9d
+SIZE (aws-amazon-ec2-instance-selector-v3.1.3_GH0.tar.gz) = 175533
 SHA256 (atotto-clipboard-v0.1.4_GH0.tar.gz) = cafd64dc78f293c1e774386186f3f817461a1a8940ef86d5d9e9524b58aa791e
 SIZE (atotto-clipboard-v0.1.4_GH0.tar.gz) = 5017
 SHA256 (aws-aws-sdk-go-v2-v1.39.0_GH0.tar.gz) = 736619f57c9a2bc168339486727e5e41c6f23cb107b5123c80e53dfe2bbe78d3
