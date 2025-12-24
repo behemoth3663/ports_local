@@ -1,1 +1,14 @@
-diff tool for YAML files, and sometimes JSON
+dyff is a diff tool for YAML files, and sometimes JSON. It is inspired
+by the way the old BOSH v1 deployment output presented changes by showing
+only the sections of a YAML document that differ between versions.
+
+Differences are referenced using Spruce dot-style syntax or go-patch path
+syntax, giving precise and readable context for each change. The output is
+designed to be compact, clear, and structurally meaningful, preserving key
+order and focusing on semantic differences rather than raw text changes.
+
+dyff can read input from local files, remote URIs, or standard input. It also
+supports converting YAML to JSON and vice versa while maintaining
+the original ordering of keys. The tool can be used directly or integrated
+into workflows such as Kubernetes diffing and other configuration management
+tasks.

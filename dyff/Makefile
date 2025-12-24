@@ -1,6 +1,6 @@
 PORTNAME=	dyff
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.10.2
+DISTVERSION=	1.10.3
 CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
@@ -16,7 +16,8 @@ GH_ACCOUNT=	homeport
 
 GO_TARGET=	./cmd/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal/cmd.version=${PORTVERSION}'"
 
 PLIST_FILES=	bin/${PORTNAME}
