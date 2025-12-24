@@ -1,4 +1,4 @@
---- vendor/k8s.io/component-base/metrics/counter.go.orig	2025-07-16 01:44:15 UTC
+--- vendor/k8s.io/component-base/metrics/counter.go.orig	2025-12-17 22:45:12 UTC
 +++ vendor/k8s.io/component-base/metrics/counter.go
 @@ -22,7 +22,6 @@ import (
  
@@ -8,11 +8,11 @@
  
  	dto "github.com/prometheus/client_model/go"
  )
-@@ -126,18 +125,6 @@ func (e *exemplarCounterMetric) withExemplar(v float64
+@@ -109,18 +108,6 @@ func (e *exemplarCounterMetric) Add(v float64) {
  
- // withExemplar attaches an exemplar to the metric.
- func (e *exemplarCounterMetric) withExemplar(v float64) {
--	if m, ok := e.CounterMetric.(prometheus.ExemplarAdder); ok {
+ // Add attaches an exemplar to the metric and then calls the delegate.
+ func (e *exemplarCounterMetric) Add(v float64) {
+-	if m, ok := e.delegate.(prometheus.ExemplarAdder); ok {
 -		maybeSpanCtx := trace.SpanContextFromContext(e.ctx)
 -		if maybeSpanCtx.IsValid() && maybeSpanCtx.IsSampled() {
 -			exemplarLabels := prometheus.Labels{
@@ -24,6 +24,6 @@
 -		}
 -	}
 -
- 	e.CounterMetric.Add(v)
+ 	e.delegate.Add(v)
  }
  

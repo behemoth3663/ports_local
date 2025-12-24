@@ -1,4 +1,4 @@
---- vendor/k8s.io/component-base/metrics/histogram.go.orig	2025-07-16 01:44:15 UTC
+--- vendor/k8s.io/component-base/metrics/histogram.go.orig	2025-12-17 22:45:12 UTC
 +++ vendor/k8s.io/component-base/metrics/histogram.go
 @@ -22,7 +22,6 @@ import (
  
@@ -8,11 +8,11 @@
  )
  
  // Histogram is our internal representation for our wrapping struct around prometheus
-@@ -56,18 +55,6 @@ func (e *exemplarHistogramMetric) withExemplar(v float
+@@ -47,18 +46,6 @@ func (e *exemplarHistogramMetric) Observe(v float64) {
  
- // withExemplar attaches an exemplar to the metric.
- func (e *exemplarHistogramMetric) withExemplar(v float64) {
--	if m, ok := e.Histogram.ObserverMetric.(prometheus.ExemplarObserver); ok {
+ // Observe attaches an exemplar to the metric and then calls the delegate.
+ func (e *exemplarHistogramMetric) Observe(v float64) {
+-	if m, ok := e.delegate.(prometheus.ExemplarObserver); ok {
 -		maybeSpanCtx := trace.SpanContextFromContext(e.ctx)
 -		if maybeSpanCtx.IsValid() && maybeSpanCtx.IsSampled() {
 -			exemplarLabels := prometheus.Labels{
@@ -24,10 +24,10 @@
 -		}
 -	}
 -
- 	e.ObserverMetric.Observe(v)
+ 	e.delegate.Observe(v)
  }
  
-@@ -268,17 +255,6 @@ func (h *exemplarHistogramVec) withExemplar(v float64)
+@@ -263,17 +250,6 @@ func (h *exemplarHistogramVec) withExemplar(v float64)
  }
  
  func (h *exemplarHistogramVec) withExemplar(v float64) {

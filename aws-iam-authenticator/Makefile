@@ -1,5 +1,5 @@
 PORTNAME=	aws-iam-authenticator
-PORTVERSION=	0.7.9
+PORTVERSION=	0.7.10
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local security
@@ -24,7 +24,8 @@ GIT_COMMIT=	git ls-remote \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
 		${SED} -rn 's/(.{7}).*/\1/p'
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'sigs.k8s.io/${PORTNAME}/pkg.Version=${PORTVERSION}' \
 	-X 'sigs.k8s.io/${PORTNAME}/pkg.BuildDate=${%FT%TZ:L:gmtime}' \
 	-X 'sigs.k8s.io/${PORTNAME}/pkg.CommitID=${GIT_COMMIT:sh}'"

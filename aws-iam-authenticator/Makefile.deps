@@ -1,17 +1,18 @@
 GH_TUPLE=	\
-		aws:aws-sdk-go-v2:v1.13.13:aws_aws_sdk_go_v2_presigned_url/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url \
+		aws:aws-sdk-go-v2:v1.0.1:aws_aws_sdk_go_v2_signin/vendor/github.com/aws/aws-sdk-go-v2/service/signin \
+		aws:aws-sdk-go-v2:v1.13.14:aws_aws_sdk_go_v2_presigned_url/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url \
 		aws:aws-sdk-go-v2:v1.13.3:aws_aws_sdk_go_v2_accept_encoding/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding \
-		aws:aws-sdk-go-v2:v1.18.13:aws_aws_sdk_go_v2_imds/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds \
-		aws:aws-sdk-go-v2:v1.18.21:aws_aws_sdk_go_v2_credentials/vendor/github.com/aws/aws-sdk-go-v2/credentials \
-		aws:aws-sdk-go-v2:v1.264.0:aws_aws_sdk_go_v2_ec2/vendor/github.com/aws/aws-sdk-go-v2/service/ec2 \
-		aws:aws-sdk-go-v2:v1.30.1:aws_aws_sdk_go_v2_sso/vendor/github.com/aws/aws-sdk-go-v2/service/sso \
-		aws:aws-sdk-go-v2:v1.31.17:aws_aws_sdk_go_v2_config/vendor/github.com/aws/aws-sdk-go-v2/config \
-		aws:aws-sdk-go-v2:v1.35.5:aws_aws_sdk_go_v2_ssooidc/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc \
-		aws:aws-sdk-go-v2:v1.39.1:aws_aws_sdk_go_v2_sts/vendor/github.com/aws/aws-sdk-go-v2/service/sts \
-		aws:aws-sdk-go-v2:v1.39.6:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
-		aws:aws-sdk-go-v2:v1.4.13:aws_aws_sdk_go_v2_configsources/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources \
+		aws:aws-sdk-go-v2:v1.18.14:aws_aws_sdk_go_v2_imds/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds \
+		aws:aws-sdk-go-v2:v1.19.1:aws_aws_sdk_go_v2_credentials/vendor/github.com/aws/aws-sdk-go-v2/credentials \
+		aws:aws-sdk-go-v2:v1.274.0:aws_aws_sdk_go_v2_ec2/vendor/github.com/aws/aws-sdk-go-v2/service/ec2 \
+		aws:aws-sdk-go-v2:v1.30.4:aws_aws_sdk_go_v2_sso/vendor/github.com/aws/aws-sdk-go-v2/service/sso \
+		aws:aws-sdk-go-v2:v1.32.1:aws_aws_sdk_go_v2_config/vendor/github.com/aws/aws-sdk-go-v2/config \
+		aws:aws-sdk-go-v2:v1.35.9:aws_aws_sdk_go_v2_ssooidc/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc \
+		aws:aws-sdk-go-v2:v1.4.14:aws_aws_sdk_go_v2_configsources/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources \
+		aws:aws-sdk-go-v2:v1.40.0:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+		aws:aws-sdk-go-v2:v1.41.1:aws_aws_sdk_go_v2_sts/vendor/github.com/aws/aws-sdk-go-v2/service/sts \
 		aws:aws-sdk-go-v2:v1.8.4:aws_aws_sdk_go_v2_ini/vendor/github.com/aws/aws-sdk-go-v2/internal/ini \
-		aws:aws-sdk-go-v2:v2.7.13:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 \
+		aws:aws-sdk-go-v2:v2.7.14:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 \
 		aws:smithy-go:v1.23.2:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		beorn7:perks:v1.0.1:beorn7_perks/vendor/github.com/beorn7/perks \
 		blang:semver:v4.0.0:blang_semver_v4/vendor/github.com/blang/semver/v4 \
@@ -24,47 +25,46 @@ GH_TUPLE=	\
 		fxamacker:cbor:v2.9.0:fxamacker_cbor_v2/vendor/github.com/fxamacker/cbor/v2 \
 		go-inf:inf:v0.9.1:go_inf_inf/vendor/gopkg.in/inf.v0 \
 		go-logr:logr:v1.4.3:go_logr_logr/vendor/github.com/go-logr/logr \
-		go-openapi:jsonpointer:v0.22.1:go_openapi_jsonpointer/vendor/github.com/go-openapi/jsonpointer \
-		go-openapi:jsonreference:v0.21.2:go_openapi_jsonreference/vendor/github.com/go-openapi/jsonreference \
-		go-openapi:swag:v0.25.1:go_openapi_swag/vendor/github.com/go-openapi/swag \
-		go-openapi:swag:v0.25.1:go_openapi_swag_cmdutils/vendor/github.com/go-openapi/swag/cmdutils \
-		go-openapi:swag:v0.25.1:go_openapi_swag_conv/vendor/github.com/go-openapi/swag/conv \
-		go-openapi:swag:v0.25.1:go_openapi_swag_fileutils/vendor/github.com/go-openapi/swag/fileutils \
-		go-openapi:swag:v0.25.1:go_openapi_swag_jsonname/vendor/github.com/go-openapi/swag/jsonname \
-		go-openapi:swag:v0.25.1:go_openapi_swag_jsonutils/vendor/github.com/go-openapi/swag/jsonutils \
-		go-openapi:swag:v0.25.1:go_openapi_swag_loading/vendor/github.com/go-openapi/swag/loading \
-		go-openapi:swag:v0.25.1:go_openapi_swag_mangling/vendor/github.com/go-openapi/swag/mangling \
-		go-openapi:swag:v0.25.1:go_openapi_swag_netutils/vendor/github.com/go-openapi/swag/netutils \
-		go-openapi:swag:v0.25.1:go_openapi_swag_stringutils/vendor/github.com/go-openapi/swag/stringutils \
-		go-openapi:swag:v0.25.1:go_openapi_swag_typeutils/vendor/github.com/go-openapi/swag/typeutils \
-		go-openapi:swag:v0.25.1:go_openapi_swag_yamlutils/vendor/github.com/go-openapi/swag/yamlutils \
+		go-openapi:jsonpointer:v0.22.3:go_openapi_jsonpointer/vendor/github.com/go-openapi/jsonpointer \
+		go-openapi:jsonreference:v0.21.3:go_openapi_jsonreference/vendor/github.com/go-openapi/jsonreference \
+		go-openapi:swag:v0.25.4:go_openapi_swag/vendor/github.com/go-openapi/swag \
+		go-openapi:swag:v0.25.4:go_openapi_swag_cmdutils/vendor/github.com/go-openapi/swag/cmdutils \
+		go-openapi:swag:v0.25.4:go_openapi_swag_conv/vendor/github.com/go-openapi/swag/conv \
+		go-openapi:swag:v0.25.4:go_openapi_swag_fileutils/vendor/github.com/go-openapi/swag/fileutils \
+		go-openapi:swag:v0.25.4:go_openapi_swag_jsonname/vendor/github.com/go-openapi/swag/jsonname \
+		go-openapi:swag:v0.25.4:go_openapi_swag_jsonutils/vendor/github.com/go-openapi/swag/jsonutils \
+		go-openapi:swag:v0.25.4:go_openapi_swag_loading/vendor/github.com/go-openapi/swag/loading \
+		go-openapi:swag:v0.25.4:go_openapi_swag_mangling/vendor/github.com/go-openapi/swag/mangling \
+		go-openapi:swag:v0.25.4:go_openapi_swag_netutils/vendor/github.com/go-openapi/swag/netutils \
+		go-openapi:swag:v0.25.4:go_openapi_swag_stringutils/vendor/github.com/go-openapi/swag/stringutils \
+		go-openapi:swag:v0.25.4:go_openapi_swag_typeutils/vendor/github.com/go-openapi/swag/typeutils \
+		go-openapi:swag:v0.25.4:go_openapi_swag_yamlutils/vendor/github.com/go-openapi/swag/yamlutils \
 		go-viper:mapstructure:v2.4.0:go_viper_mapstructure_v2/vendor/github.com/go-viper/mapstructure/v2 \
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
 		gofrs:flock:v0.13.0:gofrs_flock/vendor/github.com/gofrs/flock \
-		gogo:protobuf:v1.3.2:gogo_protobuf/vendor/github.com/gogo/protobuf \
-		golang:mod:v0.29.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.46.0:golang_net/vendor/golang.org/x/net \
-		golang:oauth2:v0.32.0:golang_oauth2/vendor/golang.org/x/oauth2 \
-		golang:sync:v0.17.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.37.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.36.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.30.0:golang_text/vendor/golang.org/x/text \
+		golang:mod:v0.30.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.47.0:golang_net/vendor/golang.org/x/net \
+		golang:oauth2:v0.33.0:golang_oauth2/vendor/golang.org/x/oauth2 \
+		golang:sync:v0.18.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.38.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.37.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.31.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.14.0:golang_time/vendor/golang.org/x/time \
-		golang:tools:v0.38.0:golang_tools/vendor/golang.org/x/tools \
-		google:gnostic-models:v0.7.0:google_gnostic_models/vendor/github.com/google/gnostic-models \
+		golang:tools:v0.39.0:golang_tools/vendor/golang.org/x/tools \
+		google:gnostic-models:v0.7.1:google_gnostic_models/vendor/github.com/google/gnostic-models \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
 		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
 		json-iterator:go:v1.1.12:json_iterator_go/vendor/github.com/json-iterator/go \
 		kubernetes-sigs:yaml:v1.6.0:kubernetes_sigs_yaml/vendor/sigs.k8s.io/yaml \
-		kubernetes:api:v0.34.1:kubernetes_api/vendor/k8s.io/api \
-		kubernetes:apimachinery:v0.34.1:kubernetes_apimachinery/vendor/k8s.io/apimachinery \
-		kubernetes:client-go:v0.34.1:kubernetes_client_go/vendor/k8s.io/client-go \
-		kubernetes:code-generator:v0.34.1:kubernetes_code_generator/vendor/k8s.io/code-generator \
-		kubernetes:component-base:v0.34.1:kubernetes_component_base/vendor/k8s.io/component-base \
-		kubernetes:kube-openapi:f3f2b991d03b:kubernetes_kube_openapi/vendor/k8s.io/kube-openapi \
-		kubernetes:sample-controller:v0.34.1:kubernetes_sample_controller/vendor/k8s.io/sample-controller \
-		kubernetes:utils:4c0f3b243397:kubernetes_utils/vendor/k8s.io/utils \
+		kubernetes:api:v0.35.0:kubernetes_api/vendor/k8s.io/api \
+		kubernetes:apimachinery:v0.35.0:kubernetes_apimachinery/vendor/k8s.io/apimachinery \
+		kubernetes:client-go:v0.35.0:kubernetes_client_go/vendor/k8s.io/client-go \
+		kubernetes:code-generator:v0.35.0:kubernetes_code_generator/vendor/k8s.io/code-generator \
+		kubernetes:component-base:v0.35.0:kubernetes_component_base/vendor/k8s.io/component-base \
+		kubernetes:kube-openapi:589584f1c912:kubernetes_kube_openapi/vendor/k8s.io/kube-openapi \
+		kubernetes:sample-controller:v0.35.0:kubernetes_sample_controller/vendor/k8s.io/sample-controller \
+		kubernetes:utils:bc988d571ff4:kubernetes_utils/vendor/k8s.io/utils \
 		manifoldco:promptui:v0.9.0:manifoldco_promptui/vendor/github.com/manifoldco/promptui \
 		modern-go:concurrent:bacd9c7ef1dd:modern_go_concurrent/vendor/github.com/modern-go/concurrent \
 		modern-go:reflect2:35a7c28c31ee:modern_go_reflect2/vendor/github.com/modern-go/reflect2 \
@@ -73,7 +73,7 @@ GH_TUPLE=	\
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		prometheus:client_golang:v1.23.2:prometheus_client_golang/vendor/github.com/prometheus/client_golang \
 		prometheus:client_model:v0.6.2:prometheus_client_model/vendor/github.com/prometheus/client_model \
-		prometheus:common:v0.67.2:prometheus_common/vendor/github.com/prometheus/common \
+		prometheus:common:v0.67.4:prometheus_common/vendor/github.com/prometheus/common \
 		prometheus:procfs:v0.19.2:prometheus_procfs/vendor/github.com/prometheus/procfs \
 		protocolbuffers:protobuf-go:v1.36.10:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		sagikazarmark:locafero:v0.12.0:sagikazarmark_locafero/vendor/github.com/sagikazarmark/locafero \
@@ -86,9 +86,8 @@ GH_TUPLE=	\
 		subosito:gotenv:v1.6.0:subosito_gotenv/vendor/github.com/subosito/gotenv \
 		x448:float16:v0.8.4:x448_float16/vendor/github.com/x448/float16
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
-		#	::85fd79dbfd9f:group_name/vendor/k8s.io/gengo/v2 (from k8s.io/gengo/v2@85fd79dbfd9f)
-		#	::cfa47c3a1cc8:group_name/vendor/sigs.k8s.io/json (from sigs.k8s.io/json@cfa47c3a1cc8)
-		#	::v0.1.1-deprecated:group_name/vendor/golang.org/x/tools/go/packages/packagestest (from golang.org/x/tools/go/packages/packagestest@v0.1.1-deprecated)
+		#	::2d320260d730:group_name/vendor/sigs.k8s.io/json (from sigs.k8s.io/json@2d320260d730)
+		#	::ec3ebc5fd46b:group_name/vendor/k8s.io/gengo/v2 (from k8s.io/gengo/v2@ec3ebc5fd46b)
 		#	::v1.0.0:group_name/vendor/sigs.k8s.io/randfill (from sigs.k8s.io/randfill@v1.0.0)
 		#	::v1.38.0:group_name/vendor/go.opentelemetry.io/otel (from go.opentelemetry.io/otel@v1.38.0)
 		#	::v1.38.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.38.0)
