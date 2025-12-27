@@ -1,8 +1,8 @@
 PORTNAME=	dasel
-PORTVERSION=	3.1.4
+PORTVERSION=	3.2.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
-CATEGORIES=	textproc local
+CATEGORIES=	local textproc
 
 MAINTAINER=	lcook@FreeBSD.org
 COMMENT=	Query and update data structures from the command line
