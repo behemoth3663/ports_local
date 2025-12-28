@@ -1,6 +1,6 @@
 PORTNAME=	age
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.2.1
+DISTVERSION=	1.3.1
 #PORTREVISION=	1
 CATEGORIES=	local security
 
@@ -12,14 +12,14 @@ LICENSE=	BSD3CLAUSE
 
 USES=		go:modules
 
-#GO_MODULE=	filippo.io/age
 GO_TARGET=	./cmd/age \
 		./cmd/age-keygen
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	FiloSottile
 
-GO_BUILDFLAGS+=	-ldflags="-s -w  -extldflags -static \
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'main.Version=${DISTVERSIONPREFIX}${PORTVERSION}'"
 
 PLIST_FILES=	bin/age \
@@ -30,7 +30,17 @@ PLIST_FILES=	bin/age \
 post-install: .PHONY
 	${INSTALL_MAN} ${WRKSRC}/doc/*.1 ${STAGEDIR}${PREFIX}/share/man/man1/
 
-pre-deps pre-deps-all post-deps-all: .PHONY
+pre-deps: .PHONY
+	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+
+pre-deps-all: .PHONY
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
+
+post-deps-all: .PHONY
+	test ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
+
+post-extract: .PHONY
+	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
