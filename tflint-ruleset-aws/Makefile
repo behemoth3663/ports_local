@@ -1,7 +1,7 @@
 PORTNAME=	tflint-ruleset-aws
-PORTVERSION=	0.44.0
+PORTVERSION=	0.45.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+#PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -20,7 +20,8 @@ PLIST_FILES=	bin/${PORTNAME}
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static"
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w"
 
 post-extract: .PHONY
 	@test ! -d ${WRKSRC}/vendor || ${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
