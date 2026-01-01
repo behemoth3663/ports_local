@@ -24,19 +24,16 @@ JQ_GETVER_EXPR=	[.[].name | gsub("^[a-z]+";"") | \
 		select(test("^${PORTVERSION:C/[^.]+$/[0-9]+/:S/./\\\\./g}$$"; \
 		"n"))][0]
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.rawVersion=${PORTVERSION}' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=${PORTVERSION}' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.dev=no' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.VersionPrerelease='"
-CGO_ENABLED=	0
 #GO_ENV+=	GOEXPERIMENT=greenteagc
 
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
-
-pre-extract: .PHONY .SILENT
-	test -z '${WRKSRC_grpc_grpc_go_1}' || ${LN} -s ${WRKDIR}/grpc-go-cmd-protoc-gen-go-grpc-v1.1.0 ${WRKSRC_grpc_grpc_go_1}
 
 post-install: .PHONY
 	${MV} ${STAGEDIR}${PREFIX}/bin/${PORTNAME} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION}
@@ -65,10 +62,6 @@ make-from-deps: .PHONY
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
-
-# XXX: Work around ports framework inability to regenerate GH_TUPLE for Go
-# modules for modules with embedded slashes in version numbers.
-GH_TUPLE:=	${GH_TUPLE:S|v1.1.0:grpc_grpc_go_1|cmd%2Fprotoc-gen-go-grpc%2Fv1.1.0:grpc_grpc_go_1/|1}
 
 # Azure:azure-sdk-for-go:v59.2.0:azure_azure_sdk_for_go/vendor/github.com/Azure/azure-sdk-for-go
 #-Azure:go-autorest:v0.11.27:azure_go_autorest_autorest/vendor/github.com/Azure/go-autorest/autorest
@@ -204,12 +197,10 @@ GH_TUPLE:=	${GH_TUPLE:C|/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tenc
 #-tencentcloud:tencentcloud-sdk-go:v1.0.588:tencentcloud_tencentcloud_sdk_go_sts/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sts
 GH_TUPLE:=	${GH_TUPLE:N*/tencentcloud-sdk-go/*}
 
-# spf13:pflag:v1.0.5:spf13_pflag/vendor/github.com/spf13/pflag
 #-tencentcloud:tencentcloud-sdk-go:v1.0.233:tencentcloud_tencentcloud_sdk_go_tag/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tag
 #+tencentcloud:tencentcloud-sdk-go:v1.0.233:tencentcloud_tencentcloud_sdk_go_tag/vendor/github.com/tencentcloud/tencentcloud-sdk-go
 #GH_TUPLE:=	${GH_TUPLE:S|/tencentcloud-sdk-go/tencentcloud/tag|/tencentcloud-sdk-go|}
 
-#+hashicorp:go-version:v1.7.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version
 GH_TUPLE+=	hashicorp:go-version:v1.7.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version
 GH_TUPLE+=	spf13:cast:v1.7.0:spf13_cast/vendor/github.com/spf13/cast
 
