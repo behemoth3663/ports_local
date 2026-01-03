@@ -1,5 +1,5 @@
 PORTNAME=	rad
-PORTVERSION=	0.6.25
+PORTVERSION=	0.6.26
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local lang
@@ -33,12 +33,14 @@ post-deps-all: .PHONY
 
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
-	@${REINPLACE_CMD} 's/go:build/& freebsd ||/' ${WRKSRC}/vendor/github.com/tree-sitter/go-tree-sitter/dup_unix.go
-	@${MKDIR} ${WRKSRC}/vendor/github.com/charmbracelet/x/exp
-	@test -z '${WRKSRC_charmbracelet_x_strings}' || ${RLN} ${WRKSRC_charmbracelet_x_strings}/exp/strings ${WRKSRC}/vendor/github.com/charmbracelet/x/exp
-	@test -z '${WRKSRC_charmbracelet_x_ansi}' || ${RLN} ${WRKSRC_charmbracelet_x_ansi}/ansi ${WRKSRC}/vendor/github.com/charmbracelet/x
-	@test -z '${WRKSRC_charmbracelet_x_cellbuf}' || ${RLN} ${WRKSRC_charmbracelet_x_cellbuf}/cellbuf ${WRKSRC}/vendor/github.com/charmbracelet/x
-	@test -z '${WRKSRC_charmbracelet_x_term}' || ${RLN} ${WRKSRC_charmbracelet_x_term}/term ${WRKSRC}/vendor/github.com/charmbracelet/x
+	@test ! -f ${WRKSRC}/vendor/github.com/tree-sitter/go-tree-sitter/dup_unix.go || ${REINPLACE_CMD} 's/go:build/& freebsd ||/' ${WRKSRC}/vendor/github.com/tree-sitter/go-tree-sitter/dup_unix.go
+	@if [ -d ${WRKSRC}/vendor ]; then \
+		${MKDIR} ${WRKSRC}/vendor/github.com/charmbracelet/x/exp; \
+		${RLN} ${WRKSRC_charmbracelet_x_strings}/exp/strings ${WRKSRC}/vendor/github.com/charmbracelet/x/exp; \
+		${RLN} ${WRKSRC_charmbracelet_x_ansi}/ansi ${WRKSRC}/vendor/github.com/charmbracelet/x; \
+		${RLN} ${WRKSRC_charmbracelet_x_cellbuf}/cellbuf ${WRKSRC}/vendor/github.com/charmbracelet/x; \
+		${RLN} ${WRKSRC_charmbracelet_x_term}/term ${WRKSRC}/vendor/github.com/charmbracelet/x; \
+	fi
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
