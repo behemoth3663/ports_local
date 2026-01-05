@@ -1,7 +1,7 @@
 PORTNAME=	yamlfmt
-PORTVERSION=	0.20.0
+PORTVERSION=	0.21.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+#PORTREVISION=	1
 CATEGORIES=	local textproc
 
 MAINTAINER=	meta@FreeBSD.org
@@ -24,7 +24,8 @@ GIT_COMMIT=	git ls-remote \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}^{} | \
 		${SED} -rn 's/(.{7}).*/\1/p'
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'main.version=${PORTVERSION}' \
 	-X 'main.commit=${GIT_COMMIT:sh}'"
 

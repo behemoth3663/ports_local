@@ -1,8 +1,14 @@
 GH_TUPLE=	\
 		bmatcuk:doublestar:v4.7.1:bmatcuk_doublestar_v4/vendor/github.com/bmatcuk/doublestar/v4 \
+		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		go-check:check:20d25e280405:go_check_check/vendor/gopkg.in/check.v1 \
+		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
 		golang:text:v0.14.0:golang_text/vendor/golang.org/x/text \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
+		kubernetes-sigs:yaml:v1.6.0:kubernetes_sigs_yaml/vendor/sigs.k8s.io/yaml \
 		mitchellh:mapstructure:v1.5.0:mitchellh_mapstructure/vendor/github.com/mitchellh/mapstructure \
+		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		sabhiram:go-gitignore:525f6e181f06:sabhiram_go_gitignore/vendor/github.com/sabhiram/go-gitignore \
-		santhosh-tekuri:jsonschema:v6.0.1:santhosh_tekuri_jsonschema_v6/vendor/github.com/santhosh-tekuri/jsonschema/v6
+		santhosh-tekuri:jsonschema:v6.0.1:santhosh_tekuri_jsonschema_v6/vendor/github.com/santhosh-tekuri/jsonschema/v6 \
+		stretchr:testify:v1.11.1:stretchr_testify/vendor/github.com/stretchr/testify \
+		yaml:go-yaml:v3.0.3:yaml_go_yaml/vendor/go.yaml.in/yaml/v3
