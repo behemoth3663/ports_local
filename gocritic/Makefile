@@ -1,5 +1,5 @@
 PORTNAME=	gocritic
-PORTVERSION=	0.14.2
+PORTVERSION=	0.14.3
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	7
 CATEGORIES=	local devel
@@ -19,7 +19,8 @@ GH_PROJECT=	go-critic
 GO_TARGET=	./cmd/gocritic \
 		./cmd/gocritic-analysis
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X main.Version=v${PORTVERSION}"
 
 PLIST_FILES=	bin/gocritic \
