@@ -1,5 +1,5 @@
 PORTNAME=	pike
-PORTVERSION=	0.3.87
+PORTVERSION=	0.3.88
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -22,6 +22,11 @@ GO_BUILDFLAGS+=	-ldflags="-s -w"
 
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
+
+post-extract: .PHONY
+	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+	@${MKDIR} ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
+	@${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
 
 post-patch: .PHONY
 	${REINPLACE_CMD} -r \
