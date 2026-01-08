@@ -7,3 +7,4 @@ GH_TUPLE+=Crocmagnon:arangolint:v0.3.1:crocmagnon_arangolint/vendor/go.augendre.
 GH_TUPLE+=chavacava:garif:v0.2.0:chavacava_garif/vendor/codeberg.org/chavacava/garif
 GH_TUPLE+=GaijinEntertainment:golib:v0.6.0:gaijinentertainment_golib/vendor/dev.gaijin.team/go/golib
 GH_TUPLE+=GaijinEntertainment:go-exhaustruct:v4.0.0:gaijinentertainment_go_exhaustruct/vendor/dev.gaijin.team/go/exhaustruct/v4
+GH_TUPLE+=polyfloyd:go-errorlint:v1.9.0:polyfloyd_go_errorlint/vendor/codeberg.org/polyfloyd/go-errorlint
