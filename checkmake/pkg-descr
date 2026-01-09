@@ -1,1 +1,2 @@
-Experimental tool for linting and checking Makefiles.
+checkmake is a linter for Makefiles. It scans Makefiles for potential issues
+based on configurable rules.

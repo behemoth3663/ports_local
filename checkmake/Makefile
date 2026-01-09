@@ -1,11 +1,10 @@
-#
-
 PORTNAME=	checkmake
-PORTVERSION=	0.2.2
+PORTVERSION=	0.3.0
+DISTVERSIONPREFIX=	v
 CATEGORIES=	local devel
 
 MAINTAINER=	none@freebsd.org
-COMMENT=	Experimental linter/analyzer for Makefiles
+COMMENT=	Linter/analyzer for Makefiles
 WWW=		https://github.com/mrtazz/checkmake
 
 LICENSE=	MIT
@@ -17,15 +16,41 @@ GH_ACCOUNT=	mrtazz
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+GO_TARGET=	./cmd/${PORTNAME}
+
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'main.version=${PORTVERSION}' \
 	-X 'main.buildTime=${%FT%TZ:L:gmtime}' \
 	-X 'main.builder=FreeBSD ports' \
 	-X 'main.goversion=go${GO_VERSION}'"
 
-fetch-version: .PHONY get-version
+OPTIONS_DEFINE=	MANPAGES
+OPTIONS_DEFAULT=MANPAGES
 
-.include "${COMPAT_PREFIX}/etc/make.d/go-deps.mk"
-.-include "${.CURDIR}/Makefile.deps"
+MANPAGES_BUILD_DEPENDS=	pandoc:textproc/hs-pandoc
+MANPAGES_PLIST_FILES=	share/man/man1/${PORTNAME}.1.gz
 
+post-build-MANPAGES-on: .PHONY
+	# Retrieve buildTime from binary built from patched sources
+	${SED} 's/REPLACE_DATE/${:!${GO_WRKDIR_BIN}/${GO_TARGET:T} --version!:[6]}/' ${WRKSRC}/man/man1/${PORTNAME}.1.md | \
+		pandoc --standalone --to=man --output=${WRKSRC}/man/man1/${PORTNAME}.1
+
+post-stage-MANPAGES-on: .PHONY
+	${INSTALL_MAN} ${WRKSRC}/man/man1/${PORTNAME}.1 ${STAGEDIR}${LOCALBASE}/share/man/man1
+
+post-extract: .PHONY
+	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+
+pre-deps: .PHONY
+	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+
+pre-deps-all: .PHONY
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
+
+post-deps-all: .PHONY
+	test ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
+
+.include "${}/etc/make.d/go-deps.mk"
+.sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
