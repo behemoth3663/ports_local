@@ -1,5 +1,5 @@
 PORTNAME=	checkmake
-PORTVERSION=	0.3.0
+PORTVERSION=	0.3.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local devel
 
@@ -33,7 +33,7 @@ MANPAGES_PLIST_FILES=	share/man/man1/${PORTNAME}.1.gz
 
 post-build-MANPAGES-on: .PHONY
 	# Retrieve buildTime from binary built from patched sources
-	${SED} 's/REPLACE_DATE/${:!${GO_WRKDIR_BIN}/${GO_TARGET:T} --version!:[6]}/' ${WRKSRC}/man/man1/${PORTNAME}.1.md | \
+	${SED} 's/REPLACE_DATE/${:!${GO_WRKDIR_BIN}/${GO_TARGET:T} --version!:[5]}/' ${WRKSRC}/man/man1/${PORTNAME}.1.md | \
 		pandoc --standalone --to=man --output=${WRKSRC}/man/man1/${PORTNAME}.1
 
 post-stage-MANPAGES-on: .PHONY
