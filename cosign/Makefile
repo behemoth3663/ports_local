@@ -1,5 +1,5 @@
 PORTNAME=	cosign
-PORTVERSION=	3.0.3
+PORTVERSION=	3.0.4
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local security
@@ -222,6 +222,10 @@ GH_TUPLE:=	${GH_TUPLE:S|/xds/go|/xds|1}
 # go-ini:ini:v1.67.0:go_ini_ini/vendor/github.com/go-ini/ini
 #-go-ini:ini:v1.67.0:go_ini_ini_1/vendor/gopkg.in/ini.v1
 GH_TUPLE:=	${GH_TUPLE:N*/vendor/gopkg.in/ini.v1}
+
+#-gitlab-org:api:v1.11.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
+#+gitlab-org-api:client-go:v1.11.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
+GL_TUPLE:=	${GL_TUPLE:S/^gitlab-org:api:/gitlab-org-api:client-go:/}
 
 .sinclude "${.CURDIR}/generated.deps.mk"
 
