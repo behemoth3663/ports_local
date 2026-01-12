@@ -17,7 +17,7 @@ github.com/amterp/jsoncolor
 # github.com/amterp/ra v0.4.3
 ## explicit; go 1.24.1
 github.com/amterp/ra
-# github.com/amterp/tree-sitter-rad v0.1.16
+# github.com/amterp/tree-sitter-rad v0.1.17
 ## explicit; go 1.22
 github.com/amterp/tree-sitter-rad/bindings/go
 # github.com/atotto/clipboard v0.1.4
