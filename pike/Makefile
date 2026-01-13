@@ -1,5 +1,5 @@
 PORTNAME=	pike
-PORTVERSION=	0.3.88
+PORTVERSION=	0.3.89
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -26,7 +26,7 @@ M2T_OFFLINE=	true
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 	@${MKDIR} ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
-	@${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
+	@test -z ${WRKSRC_google_go_genproto_rpc} || ${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
 
 post-patch: .PHONY
 	${REINPLACE_CMD} -r \
