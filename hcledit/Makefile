@@ -1,6 +1,7 @@
 PORTNAME=	hcledit
 PORTVERSION=	0.2.17
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -16,7 +17,8 @@ GH_ACCOUNT=	minamijoyo
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static"
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w"
 
 post-extract: .PHONY
 	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
