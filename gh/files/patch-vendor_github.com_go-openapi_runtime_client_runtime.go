@@ -1,33 +1,29 @@
---- vendor/github.com/go-openapi/runtime/client/runtime.go.orig	2024-03-09 19:19:52 UTC
+--- vendor/github.com/go-openapi/runtime/client/runtime.go.orig	2025-11-09 19:45:35 UTC
 +++ vendor/github.com/go-openapi/runtime/client/runtime.go
-@@ -33,7 +33,6 @@ import (
- 	"time"
+@@ -302,26 +302,11 @@ func NewWithClient(host, basePath string, schemes []st
+ // usual opentracing options and opentracing-enabled transport.
+ //
+ // Passed options are ignored unless they are of type [OpenTelemetryOpt].
+-func (r *Runtime) WithOpenTracing(opts ...any) runtime.ClientTransport {
+-	otelOpts := make([]OpenTelemetryOpt, 0, len(opts))
+-	for _, o := range opts {
+-		otelOpt, ok := o.(OpenTelemetryOpt)
+-		if !ok {
+-			continue
+-		}
+-		otelOpts = append(otelOpts, otelOpt)
+-	}
  
- 	"github.com/go-openapi/strfmt"
--	"github.com/opentracing/opentracing-go"
- 
- 	"github.com/go-openapi/runtime"
- 	"github.com/go-openapi/runtime/logger"
-@@ -300,22 +299,6 @@ func NewWithClient(host, basePath string, schemes []st
- 		})
- 	}
- 	return rt
+-	return r.WithOpenTelemetry(otelOpts...)
 -}
 -
--// WithOpenTracing adds opentracing support to the provided runtime.
--// A new client span is created for each request.
--// If the context of the client operation does not contain an active span, no span is created.
--// The provided opts are applied to each spans - for example to add global tags.
--func (r *Runtime) WithOpenTracing(opts ...opentracing.StartSpanOption) runtime.ClientTransport {
--	return newOpenTracingTransport(r, r.Host, opts)
--}
--
--// WithOpenTelemetry adds opentelemetry support to the provided runtime.
--// A new client span is created for each request.
--// If the context of the client operation does not contain an active span, no span is created.
--// The provided opts are applied to each spans - for example to add global tags.
+ // WithOpenTelemetry adds opentelemetry support to the provided runtime.
+ // A new client span is created for each request.
+ // If the context of the client operation does not contain an active span, no span is created.
+ // The provided opts are applied to each spans - for example to add global tags.
 -func (r *Runtime) WithOpenTelemetry(opts ...OpenTelemetryOpt) runtime.ClientTransport {
 -	return newOpenTelemetryTransport(r, r.Host, opts)
- }
+-}
  
- func (r *Runtime) pickScheme(schemes []string) string {
+ // EnableConnectionReuse drains the remaining body from a response
+ // so that go will reuse the TCP connections.
