@@ -1,7 +1,7 @@
 PORTNAME=	gotestsum
 PORTVERSION=	1.13.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	4
+PORTREVISION=	5
 CATEGORIES=	local devel
 
 MAINTAINER=	adamw@FreeBSD.org
@@ -17,7 +17,8 @@ GH_ACCOUNT=	gotestyourself
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w  -extldflags -static"
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w"
 
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE

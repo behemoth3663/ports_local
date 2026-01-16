@@ -1,7 +1,7 @@
 PORTNAME=	s5cmd
 PORTVERSION=	2.3.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	11
+PORTREVISION=	12
 CATEGORIES=	local net
 
 MAINTAINER=	none@freebsd.org
@@ -24,7 +24,8 @@ GIT_COMMIT=	git ls-remote \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
 		${SED} -rn 's/(.{7}).*/\1/p'
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/version.Version=${DISTVERSIONPREFIX}${PORTVERSION}' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/version.GitCommit=$$(${GIT_COMMIT})'"
 

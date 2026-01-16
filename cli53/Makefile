@@ -1,7 +1,7 @@
 PORTNAME=	cli53
 PORTVERSION=	0.8.25
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	local dns
 
 MAINTAINER=	meta@FreeBSD.org
@@ -19,7 +19,8 @@ PLIST_FILES=	bin/${PORTNAME}
 
 GO_TARGET=	./cmd/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}.version=${PORTVERSION}"
 
 M2T_OFFLINE=	true
