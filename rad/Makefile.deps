@@ -5,7 +5,7 @@ GH_TUPLE=	\
 		amterp:go-tbl:v0.12.0:amterp_go_tbl/vendor/github.com/amterp/go-tbl \
 		amterp:jsoncolor:v0.4.0:amterp_jsoncolor/vendor/github.com/amterp/jsoncolor \
 		amterp:ra:v0.4.3:amterp_ra/vendor/github.com/amterp/ra \
-		amterp:tree-sitter-rad:v0.1.17:amterp_tree_sitter_rad/vendor/github.com/amterp/tree-sitter-rad \
+		amterp:tree-sitter-rad:v0.1.18:amterp_tree_sitter_rad/vendor/github.com/amterp/tree-sitter-rad \
 		atotto:clipboard:v0.1.4:atotto_clipboard/vendor/github.com/atotto/clipboard \
 		aymanbagabas:go-osc52:v2.0.1:aymanbagabas_go_osc52_v2/vendor/github.com/aymanbagabas/go-osc52/v2 \
 		catppuccin:go:v0.3.0:catppuccin_go/vendor/github.com/catppuccin/go \
