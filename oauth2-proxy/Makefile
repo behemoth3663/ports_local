@@ -1,5 +1,5 @@
 PORTNAME=	oauth2-proxy
-PORTVERSION=	7.13.0
+PORTVERSION=	7.14.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local www
@@ -30,7 +30,8 @@ SUB_LIST+=	GROUP=${GROUP} \
 		RUN_DIR=${RUN_DIR} \
 		USER=${USER}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'version.VERSION=${PORTVERSION}'"
 
 post-install: .PHONY
