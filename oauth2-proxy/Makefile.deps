@@ -21,22 +21,22 @@ GH_TUPLE=	\
 		go-viper:mapstructure:v2.4.0:go_viper_mapstructure_v2/vendor/github.com/go-viper/mapstructure/v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
 		golang-jwt:jwt:v5.3.0:golang_jwt_jwt_v5/vendor/github.com/golang-jwt/jwt/v5 \
-		golang:crypto:v0.46.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:mod:v0.31.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.48.0:golang_net/vendor/golang.org/x/net \
+		golang:crypto:v0.47.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:mod:v0.32.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.49.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.34.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:sync:v0.19.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.39.0:golang_sys/vendor/golang.org/x/sys \
-		golang:text:v0.32.0:golang_text/vendor/golang.org/x/text \
-		golang:tools:v0.40.0:golang_tools/vendor/golang.org/x/tools \
+		golang:sys:v0.40.0:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.33.0:golang_text/vendor/golang.org/x/text \
+		golang:tools:v0.41.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
-		google:go-genproto:0a764e51fe1b:google_go_genproto/vendor/google.golang.org/genproto/googleapis/rpc \
-		google:pprof:b05bdaca462f:google_pprof/vendor/github.com/google/pprof \
+		google:go-genproto:3f89685c29c3:google_go_genproto/vendor/google.golang.org/genproto/googleapis/rpc \
+		google:pprof:294ebfa9ad83:google_pprof/vendor/github.com/google/pprof \
 		google:s2a-go:v0.1.9:google_s2a_go/vendor/github.com/google/s2a-go \
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
-		googleapis:enterprise-certificate-proxy:v0.3.7:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
+		googleapis:enterprise-certificate-proxy:v0.3.11:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
 		googleapis:gax-go:v2.16.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
-		googleapis:google-api-go-client:v0.258.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+		googleapis:google-api-go-client:v0.260.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
 		googleapis:google-cloud-go:v0.18.0:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth \
 		googleapis:google-cloud-go:v0.2.8:googleapis_google_cloud_go/vendor/cloud.google.com/go/auth/oauth2adapt \
 		googleapis:google-cloud-go:v0.9.0:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata \
@@ -48,17 +48,17 @@ GH_TUPLE=	\
 		munnerz:goautoneg:a7dc8b61c822:munnerz_goautoneg/vendor/github.com/munnerz/goautoneg \
 		natefinch:lumberjack:v2.2.1:natefinch_lumberjack/vendor/gopkg.in/natefinch/lumberjack.v2 \
 		oauth2-proxy:mockoidc:caebfff84d25:oauth2_proxy_mockoidc/vendor/github.com/oauth2-proxy/mockoidc \
-		onsi:ginkgo:v2.27.3:onsi_ginkgo_v2/vendor/github.com/onsi/ginkgo/v2 \
-		onsi:gomega:v1.38.3:onsi_gomega/vendor/github.com/onsi/gomega \
+		onsi:ginkgo:v2.27.5:onsi_ginkgo_v2/vendor/github.com/onsi/ginkgo/v2 \
+		onsi:gomega:v1.39.0:onsi_gomega/vendor/github.com/onsi/gomega \
 		open-telemetry:opentelemetry-go-contrib:v0.64.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp \
 		open-telemetry:opentelemetry-go-instrumentation:v1.2.1:open_telemetry_opentelemetry_go_instrumentation/vendor/go.opentelemetry.io/auto/sdk \
 		open-telemetry:opentelemetry-go:v1.39.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
 		pelletier:go-toml:v2.2.4:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
-		pierrec:lz4:v4.1.23:pierrec_lz4_v4/vendor/github.com/pierrec/lz4/v4 \
+		pierrec:lz4:v4.1.25:pierrec_lz4_v4/vendor/github.com/pierrec/lz4/v4 \
 		pmezard:go-difflib:5d4384ee4fb2:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		prometheus:client_golang:v1.23.2:prometheus_client_golang/vendor/github.com/prometheus/client_golang \
 		prometheus:client_model:v0.6.2:prometheus_client_model/vendor/github.com/prometheus/client_model \
-		prometheus:common:v0.67.4:prometheus_common/vendor/github.com/prometheus/common \
+		prometheus:common:v0.67.5:prometheus_common/vendor/github.com/prometheus/common \
 		prometheus:procfs:v0.19.2:prometheus_procfs/vendor/github.com/prometheus/procfs \
 		protocolbuffers:protobuf-go:v1.36.11:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		redis:go-redis:v9.17.2:redis_go_redis_v9/vendor/github.com/redis/go-redis/v9 \
