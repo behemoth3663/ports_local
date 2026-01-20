@@ -1,13 +1,13 @@
---- internal/discovery/worktreediscovery.go.orig	2025-12-17 15:14:20 UTC
+--- internal/discovery/worktreediscovery.go.orig	2026-01-19 21:45:47 UTC
 +++ internal/discovery/worktreediscovery.go
-@@ -21,7 +21,6 @@ import (
+@@ -18,7 +18,6 @@ import (
+ 	"github.com/gruntwork-io/terragrunt/internal/component"
+ 	"github.com/gruntwork-io/terragrunt/internal/errors"
+ 	"github.com/gruntwork-io/terragrunt/internal/filter"
+-	"github.com/gruntwork-io/terragrunt/internal/telemetry"
  	"github.com/gruntwork-io/terragrunt/internal/worktrees"
- 	"github.com/gruntwork-io/terragrunt/options"
  	"github.com/gruntwork-io/terragrunt/pkg/log"
--	"github.com/gruntwork-io/terragrunt/telemetry"
- 	"golang.org/x/sync/errgroup"
- )
- 
+ 	"github.com/gruntwork-io/terragrunt/pkg/options"
 @@ -174,13 +173,6 @@ func recordWorktreeDiscoveryMetrics(ctx context.Contex
  
  // recordWorktreeDiscoveryMetrics records telemetry metrics for worktree discovery.

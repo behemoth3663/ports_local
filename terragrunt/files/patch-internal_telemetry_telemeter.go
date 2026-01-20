@@ -1,5 +1,5 @@
---- telemetry/telemeter.go.orig	2025-08-21 13:41:43 UTC
-+++ telemetry/telemeter.go
+--- internal/telemetry/telemeter.go.orig	2026-01-19 21:45:47 UTC
++++ internal/telemetry/telemeter.go
 @@ -4,58 +4,24 @@ import (
  import (
  	"context"

@@ -1,11 +1,11 @@
---- internal/cache/cache.go.orig	2025-09-10 19:24:04 UTC
+--- internal/cache/cache.go.orig	2026-01-19 21:45:47 UTC
 +++ internal/cache/cache.go
 @@ -9,8 +9,6 @@ import (
  	"fmt"
  	"sync"
  	"time"
 -
--	"github.com/gruntwork-io/terragrunt/telemetry"
+-	"github.com/gruntwork-io/terragrunt/internal/telemetry"
  )
  
  // Cache - generic cache implementation

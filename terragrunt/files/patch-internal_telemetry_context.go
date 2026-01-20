@@ -1,5 +1,5 @@
---- telemetry/context.go.orig	2025-05-13 18:23:29 UTC
-+++ telemetry/context.go
+--- internal/telemetry/context.go.orig	2026-01-19 21:45:47 UTC
++++ internal/telemetry/context.go
 @@ -2,9 +2,6 @@ import (
  
  import (
@@ -18,11 +18,11 @@
 -	spanContext := span.SpanContext()
 -
 -	if !spanContext.IsValid() {
--		return ""
+ 		return ""
 -	}
 -
 -	if len(telemetry.TraceParent) > 0 {
- 		return telemetry.TraceParent
+-		return telemetry.TraceParent
 -	}
 -
 -	traceID := spanContext.TraceID().String()
