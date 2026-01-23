@@ -1,3 +1,3 @@
-TIMESTAMP = 1638810235
-SHA256 (docker-docker-ce-v19.03.15_GH0.tar.gz) = f2f31dd4137eaa735a26e590c9718fb06867afff4d8415cc80feb6cdc9e4a8cd
-SIZE (docker-docker-ce-v19.03.15_GH0.tar.gz) = 18284803
+TIMESTAMP = 1769199048
+SHA256 (docker-cli-v29.1.5_GH0.tar.gz) = 6198939fd6de9cec74f9129b388a7f259cac1fe63758d73a61216093001dc55a
+SIZE (docker-cli-v29.1.5_GH0.tar.gz) = 7303424

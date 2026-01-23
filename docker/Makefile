@@ -1,7 +1,5 @@
-# Created by: Nikolai Lifanov <lifanov@FreeBSD.org>
-
 PORTNAME=		docker
-PORTVERSION=		19.03.15
+PORTVERSION=		29.1.5
 DISTVERSIONPREFIX=	v
 CATEGORIES=		local sysutils
 
@@ -11,30 +9,38 @@ WWW=		https://www.docker.com/
 
 LICENSE=	APACHE20
 
-BUILD_DEPENDS=	git:devel/git
+RUN_DEPENDS=	git:devel/git
 
 USES=		cpe go
 
 PLIST_FILES=	bin/docker
 
 USE_GITHUB=	yes
-GH_PROJECT=	docker-ce
+GH_ACCOUNT=	docker
+GH_PROJECT=	cli
 
-GO_PKGNAME=	github.com/${PORTNAME}
-GO_TARGET=	${GO_PKGNAME}/cli/cmd/docker
+GO_TARGET=	./cmd/${PORTNAME}
 
 GIT_COMMIT=	git ls-remote \
 		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
-		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
-		${SED} -rn 's/(.{7}).*/\1/p'
+		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}^{}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
-	-X 'github.com/docker/cli/cli/version.Version=${PORTVERSION}' \
-	-X 'github.com/docker/cli/cli/version.GitCommit=$$(${GIT_COMMIT})' \
-	-X 'github.com/docker/cli/cli/version.BuildTime=${%FT%TZ:L:gmtime}'"
+CGO_ENABLED=	0
 
-pre-build: .PHONY
-		${FIND} ${GO_WRKSRC}/components -mindepth 1 -maxdepth 1 -type d -exec ${MV} {} ${GO_WRKSRC} \;
-		${CP} ${FILESDIR}/default_store_freebsd.go ${GO_WRKSRC}/cli/cli/config/credentials/
+post-extract: .PHONY
+	# ${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io
+	${MKDIR} ${WRKSRC}/vendor/github.com/docker/cli
+	${RLN} ${WRKSRC}/cli ${WRKSRC}/vendor/github.com/docker/cli
+	${RLN} ${WRKSRC}/cli-plugins ${WRKSRC}/vendor/github.com/docker/cli
+	${RLN} ${WRKSRC}/cmd ${WRKSRC}/vendor/github.com/docker/cli
+	${RLN} ${WRKSRC}/internal ${WRKSRC}/vendor/github.com/docker/cli
+	${RLN} ${WRKSRC}/opts ${WRKSRC}/vendor/github.com/docker/cli
+	${RLN} ${WRKSRC}/pkg ${WRKSRC}/vendor/github.com/docker/cli
+	${RLN} ${WRKSRC}/templates ${WRKSRC}/vendor/github.com/docker/cli
+	${REINPLACE_CMD} -r \
+		-e 's/^([[:blank:]]*Version[[:blank:]]*=[[:blank:]]*).*/\1"${PORTVERSION}"/' \
+		-e 's/^([[:blank:]]*GitCommit[[:blank:]]*=[[:blank:]]*).*/\1"${GIT_COMMIT:sh:C/(.{7}).*/\\1/W}"/' \
+		-e 's/^([[:blank:]]*BuildTime[[:blank:]]*=[[:blank:]]*).*/\1"${%FT%TZ:L:gmtime}"/' \
+	${WRKSRC}/cli/version/version.go
 
 .include <bsd.port.mk>
