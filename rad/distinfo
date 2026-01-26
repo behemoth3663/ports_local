@@ -1,6 +1,6 @@
-TIMESTAMP = 1768563027
-SHA256 (amterp-rad-v0.7.0_GH0.tar.gz) = 716fd40dcbbfb58fb8c39bd5d65da47383f49ee4f4bdf790af20bd16aab92d36
-SIZE (amterp-rad-v0.7.0_GH0.tar.gz) = 781140
+TIMESTAMP = 1769430849
+SHA256 (amterp-rad-v0.7.1_GH0.tar.gz) = cbc2abbef78d68e72024c136474e0463395c4ae51201999be76097226c3e0fbf
+SIZE (amterp-rad-v0.7.1_GH0.tar.gz) = 803760
 SHA256 (BurntSushi-toml-v1.5.0_GH0.tar.gz) = 723ede1a61ca8311046f840020e485dec3ceb2e614d1a539cd154375bdd7b8cb
 SIZE (BurntSushi-toml-v1.5.0_GH0.tar.gz) = 118644
 SHA256 (amterp-color-v1.20.1_GH0.tar.gz) = 9ddb2679a69ae3d39e577d7877ed78879597203f62e9f782fe1ed8a342dd2da3
