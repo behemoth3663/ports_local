@@ -1,5 +1,5 @@
 PORTNAME=		docker
-PORTVERSION=		29.1.5
+PORTVERSION=		29.2.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=		local sysutils
 
@@ -26,6 +26,7 @@ GIT_COMMIT=	git ls-remote \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}^{}
 
 CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w"
 
 post-extract: .PHONY
 	# ${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io
