@@ -980,8 +980,8 @@ github.com/gruntwork-io/go-commons/env
 github.com/gruntwork-io/go-commons/errors
 github.com/gruntwork-io/go-commons/files
 github.com/gruntwork-io/go-commons/version
-# github.com/gruntwork-io/terragrunt-engine-go v0.0.16
-## explicit; go 1.24
+# github.com/gruntwork-io/terragrunt-engine-go v0.1.0
+## explicit; go 1.25
 github.com/gruntwork-io/terragrunt-engine-go/engine
 github.com/gruntwork-io/terragrunt-engine-go/proto
 # github.com/gruntwork-io/terratest v0.51.0

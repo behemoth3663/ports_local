@@ -170,7 +170,7 @@ GH_TUPLE=	\
 		grpc:grpc-go:v1.78.0:grpc_grpc_go/vendor/google.golang.org/grpc \
 		gruntwork-io:boilerplate:v0.10.1:gruntwork_io_boilerplate/vendor/github.com/gruntwork-io/boilerplate \
 		gruntwork-io:go-commons:v0.17.2:gruntwork_io_go_commons/vendor/github.com/gruntwork-io/go-commons \
-		gruntwork-io:terragrunt-engine-go:v0.0.16:gruntwork_io_terragrunt_engine_go/vendor/github.com/gruntwork-io/terragrunt-engine-go \
+		gruntwork-io:terragrunt-engine-go:v0.1.0:gruntwork_io_terragrunt_engine_go/vendor/github.com/gruntwork-io/terragrunt-engine-go \
 		gruntwork-io:terratest:v0.51.0:gruntwork_io_terratest/vendor/github.com/gruntwork-io/terratest \
 		hashicorp:aws-sdk-go-base:v2.0.0-beta.70:hashicorp_aws_sdk_go_base_v2/vendor/github.com/hashicorp/aws-sdk-go-base/v2 \
 		hashicorp:errwrap:v1.1.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
