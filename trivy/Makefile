@@ -1,7 +1,7 @@
 PORTNAME=	trivy
-PORTVERSION=	0.68.2
+PORTVERSION=	0.69.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+#PORTREVISION=	1
 CATEGORIES=	local security
 
 MAINTAINER=	mfechner@FreeBSD.org
@@ -9,6 +9,8 @@ COMMENT=	Security scanner written in go
 WWW=		https://${GO_MODULE}
 
 LICENSE=	APACHE20
+
+BROKEN_i386=	not supported, see https://github.com/aquasecurity/trivy/pull/9102
 
 USES=		go:modules
 
