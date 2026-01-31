@@ -1,5 +1,5 @@
 PORTNAME=	imgpkg
-PORTVERSION=	0.47.0
+PORTVERSION=	0.47.1
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -16,7 +16,8 @@ GO_TARGET=	./cmd/${PORTNAME}
 USE_GITHUB=	yes
 GH_ACCOUNT=	carvel-dev
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'carvel.dev/imgpkg/pkg/imgpkg/cmd.Version=${PORTVERSION}'"
 
 PLIST_FILES=	bin/${PORTNAME}

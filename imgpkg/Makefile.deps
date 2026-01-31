@@ -40,14 +40,14 @@ GH_TUPLE=	\
 		form3tech-oss:jwt-go:v3.2.3:form3tech_oss_jwt_go/vendor/github.com/form3tech-oss/jwt-go \
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
-		golang:crypto:v0.35.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:mod:v0.25.0:golang_mod/vendor/golang.org/x/mod \
+		golang:crypto:v0.45.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:mod:v0.29.0:golang_mod/vendor/golang.org/x/mod \
 		golang:oauth2:v0.30.0:golang_oauth2/vendor/golang.org/x/oauth2 \
-		golang:sync:v0.15.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.33.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.29.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.22.0:golang_text/vendor/golang.org/x/text \
-		golang:tools:v0.34.0:golang_tools/vendor/golang.org/x/tools \
+		golang:sync:v0.18.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.38.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.37.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.31.0:golang_text/vendor/golang.org/x/text \
+		golang:tools:v0.38.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-containerregistry:v0.20.6:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
 		googleapis:google-cloud-go:v0.99.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
 		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
