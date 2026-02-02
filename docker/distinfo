@@ -1,3 +1,3 @@
-TIMESTAMP = 1769512509
-SHA256 (docker-cli-v29.2.0_GH0.tar.gz) = f2bdc2b7ee7f7840a4d5b845f6c1fdf8bd7a123bba7cf9f1056220794b07ba9c
-SIZE (docker-cli-v29.2.0_GH0.tar.gz) = 7311060
+TIMESTAMP = 1770067810
+SHA256 (docker-cli-v29.2.1_GH0.tar.gz) = 33a5c92198a2e57a6012c6f7938d69c72adf751584bc0c98d8d91e555b1c8f0a
+SIZE (docker-cli-v29.2.1_GH0.tar.gz) = 7312585
