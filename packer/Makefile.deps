@@ -57,19 +57,19 @@ GH_TUPLE=	\
 		gobwas:glob:v0.2.3:gobwas_glob/vendor/github.com/gobwas/glob \
 		gofrs:flock:v0.8.1:gofrs_flock/vendor/github.com/gofrs/flock \
 		gofrs:uuid:v4.4.0:gofrs_uuid/vendor/github.com/gofrs/uuid \
-		golang:crypto:v0.43.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.46.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:8a7402abbf56:golang_exp/vendor/golang.org/x/exp \
 		golang:groupcache:2c02b8208cf8:golang_groupcache/vendor/github.com/golang/groupcache \
-		golang:mod:v0.28.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.45.0:golang_net/vendor/golang.org/x/net \
+		golang:mod:v0.30.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.47.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.27.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sync:v0.17.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.37.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.36.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.30.0:golang_text/vendor/golang.org/x/text \
+		golang:sync:v0.19.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.39.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.38.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.32.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.11.0:golang_time/vendor/golang.org/x/time \
-		golang:tools:v0.37.0:golang_tools/vendor/golang.org/x/tools \
+		golang:tools:v0.39.0:golang_tools/vendor/golang.org/x/tools \
 		golang:xerrors:04be3eba64a2:golang_xerrors/vendor/golang.org/x/xerrors \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-genproto:49dd2c1f3d0b:google_go_genproto/vendor/google.golang.org/genproto \

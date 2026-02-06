@@ -1,5 +1,5 @@
 PORTNAME=	packer
-PORTVERSION=	1.14.3
+PORTVERSION=	1.15.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -22,29 +22,26 @@ M2T_OFFLINE=	true
 .export	M2T_OFFLINE
 
 GIT_COMMIT=	git ls-remote \
-		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
-		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
-		${SED} -rn 's/(.{7}).*/\1/p'
+		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
+		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=${PORTVERSION}' \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.GitCommit=$$(${GIT_COMMIT})'"
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.GitCommit=${GIT_COMMIT:sh:M*:[1]}'"
 
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+	@${ECHO} ${PORTVERSION} >${WRKSRC}/version/VERSION
 	@${RM} -r ${WRKSRC}/vendor/google.golang.org/api/transport/http/internal/propagation
 	@${RM} -r ${WRKSRC}/vendor/github.com/hashicorp/go-secure-stdlib/parseutil
 	@test -z ${WRKSRC_hashicorp_go_secure_stdlib_parseutil} || ${RLN} ${WRKSRC_hashicorp_go_secure_stdlib_parseutil}/parseutil ${WRKSRC}/vendor/github.com/hashicorp/go-secure-stdlib/parseutil
 	@${MKDIR} ${WRKSRC}/vendor/github.com/hashicorp/go-getter
 	@test -z ${WRKSRC_hashicorp_go_getter_v2} || ${RLN} ${WRKSRC_hashicorp_go_getter_v2} ${WRKSRC}/vendor/github.com/hashicorp/go-getter/v2
 	@${MKDIR} ${WRKSRC}/vendor/github.com/hashicorp/go-getter/gcs
-	@test -z ${WRKSRC_hashicorp_go_getter_gcs} || ${RLN} ${WRKSRC_hashicorp_go_getter_gcs}/gcs ${WRKSRC}/vendor/github.com/hashicorp/go-getter/gcs/v2
+	@test -z ${WRKSRC_hashicorp_go_getter_v2} || ${RLN} ${WRKSRC_hashicorp_go_getter_v2}/gcs ${WRKSRC}/vendor/github.com/hashicorp/go-getter/gcs/v2
 	@${MKDIR} ${WRKSRC}/vendor/github.com/hashicorp/go-getter/s3
-	@test -z ${WRKSRC_hashicorp_go_getter_s3} || ${RLN} ${WRKSRC_hashicorp_go_getter_s3}/s3 ${WRKSRC}/vendor/github.com/hashicorp/go-getter/s3/v2
-#	@${MKDIR} ${WRKSRC}/vendor/google.golang.org/genproto
-#	@test -z ${WRKSRC_google_go_genproto} || ${RLN} ${WRKSRC_google_go_genproto}/googleapis ${WRKSRC}/vendor/google.golang.org/genproto
-#	@${RM} -r ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/api
-#	@test -z ${WRKSRC_google_go_genproto_api} || ${RLN} ${WRKSRC_google_go_genproto_api}/googleapis/api ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
+	@test -z ${WRKSRC_hashicorp_go_getter_v2} || ${RLN} ${WRKSRC_hashicorp_go_getter_v2}/s3 ${WRKSRC}/vendor/github.com/hashicorp/go-getter/s3/v2
 	@${RM} -r ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/rpc
 	@test -z ${WRKSRC_google_go_genproto_rpc} || ${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
 
@@ -92,12 +89,11 @@ GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+).*/hashicorp/go-secure-stdlib/
 GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)(.*/hashicorp/vault)/(.*)|\1\3/\2|}
 
 #-hashicorp:go-getter:v2.2.2:hashicorp_go_getter_v2/vendor/github.com/hashicorp/go-getter/gcs/v2
-#+hashicorp:go-getter:v2.2.2:hashicorp_go_getter_gcs
 #-hashicorp:go-getter:v2.2.2:hashicorp_go_getter_v2_1/vendor/github.com/hashicorp/go-getter/s3/v2
-#+hashicorp:go-getter:v2.2.2:hashicorp_go_getter_s3
 #-hashicorp:go-getter:v2.2.2:hashicorp_go_getter_v2_2/vendor/github.com/hashicorp/go-getter/v2
 #+hashicorp:go-getter:v2.2.2:hashicorp_go_getter_v2
-GH_TUPLE:=	${GH_TUPLE:C|:hashicorp_go_getter_.*/go-getter/([^/]+).*|:hashicorp_go_getter_\1|}
+GH_TUPLE:=	${GH_TUPLE:C|(:hashicorp_go_getter_v2).*/go-getter/v2$|\1|}
+GH_TUPLE:=	${GH_TUPLE:N*hashicorp_go_getter_v2?*}
 
 #-googleapis:gax-go:v2.12.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2
 #+googleapis:gax-go:v2.12.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go
@@ -107,16 +103,10 @@ GH_TUPLE:=	${GH_TUPLE:S|/gax-go/v2|/gax-go|1}
 #+ugorji:go:v1.2.6:ugorji_go_codec/vendor/github.com/ugorji/go
 GH_TUPLE:=	${GH_TUPLE:S|/go/codec|/go|1}
 
-#-google:go-genproto:49dd2c1f3d0b:google_go_genproto/vendor/google.golang.org/genproto
-#+google:go-genproto:49dd2c1f3d0b:google_go_genproto
-# * set - GH_TUPLE:=	${GH_TUPLE:S|/vendor/google.golang.org/genproto$||1}
+#-google:go-genproto:49dd2c1f3d0b:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api
 #-google:go-genproto:d783a09b4405:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc
 #+google:go-genproto:d783a09b4405:google_go_genproto_rpc
-# * set - GH_TUPLE:=	${GH_TUPLE:C|(:google_go_genproto_).*/|\1|}
 GH_TUPLE:=	${GH_TUPLE:C|(:google_go_genproto_).*/(rpc)|\1\2|}
-#-google:go-genproto:49dd2c1f3d0b:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api
-#+google:go-genproto:49dd2c1f3d0b:google_go_genproto_api
-# * set - #
 GH_TUPLE:=	${GH_TUPLE:N*google_go_genproto_[0-9]*}
 
 #-jcmturner:gokrb5:v8.4.4:jcmturner_gokrb5_v8/vendor/github.com/jcmturner/gokrb5/v8
