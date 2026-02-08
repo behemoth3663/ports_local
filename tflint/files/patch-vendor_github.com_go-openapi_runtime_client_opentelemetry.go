@@ -1,6 +1,6 @@
---- vendor/github.com/go-openapi/runtime/client/opentelemetry.go.orig	2023-12-09 18:15:16 UTC
+--- vendor/github.com/go-openapi/runtime/client/opentelemetry.go.orig	2025-11-09 19:45:35 UTC
 +++ vendor/github.com/go-openapi/runtime/client/opentelemetry.go
-@@ -2,18 +2,10 @@ import (
+@@ -5,17 +5,10 @@ import (
  
  import (
  	"fmt"
@@ -13,13 +13,12 @@
 -	"go.opentelemetry.io/otel/attribute"
 -	"go.opentelemetry.io/otel/codes"
 -	"go.opentelemetry.io/otel/propagation"
--	semconv "go.opentelemetry.io/otel/semconv/v1.17.0"
--	"go.opentelemetry.io/otel/semconv/v1.17.0/httpconv"
+-	semconv "go.opentelemetry.io/otel/semconv/v1.37.0"
 -	"go.opentelemetry.io/otel/trace"
  )
  
  const (
-@@ -22,11 +14,7 @@ type config struct {
+@@ -24,11 +17,7 @@ type config struct {
  )
  
  type config struct {
@@ -31,7 +30,7 @@
  }
  
  type OpenTelemetryOpt interface {
-@@ -39,34 +27,6 @@ func (o optionFunc) apply(c *config) {
+@@ -41,34 +30,6 @@ func (o optionFunc) apply(c *config) {
  	o(c)
  }
  
@@ -66,7 +65,7 @@
  // WithSpanNameFormatter takes a function that will be called on every
  // request and the returned string will become the Span Name.
  func WithSpanNameFormatter(f func(op *runtime.ClientOperation) string) OpenTelemetryOpt {
-@@ -86,7 +46,6 @@ type openTelemetryTransport struct {
+@@ -88,7 +49,6 @@ type openTelemetryTransport struct {
  type openTelemetryTransport struct {
  	transport runtime.ClientTransport
  	host      string
@@ -74,7 +73,7 @@
  	config    *config
  }
  
-@@ -97,10 +56,7 @@ func newOpenTelemetryTransport(transport runtime.Clien
+@@ -99,10 +59,7 @@ func newOpenTelemetryTransport(transport runtime.Clien
  	}
  
  	defaultOpts := []OpenTelemetryOpt{
@@ -85,7 +84,7 @@
  	}
  
  	c := newConfig(append(defaultOpts, opts...)...)
-@@ -117,89 +73,24 @@ func (t *openTelemetryTransport) Submit(op *runtime.Cl
+@@ -119,92 +76,25 @@ func (t *openTelemetryTransport) Submit(op *runtime.Cl
  	params := op.Params
  	reader := op.Reader
  
@@ -101,14 +100,17 @@
  		return params.WriteToRequest(req, reg)
  	})
  
- 	op.Reader = runtime.ClientResponseReaderFunc(func(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+ 	op.Reader = runtime.ClientResponseReaderFunc(func(response runtime.ClientResponse, consumer runtime.Consumer) (any, error) {
 -		if span != nil {
 -			statusCode := response.Code()
 -			// NOTE: this is replaced by semconv.HTTPResponseStatusCode in semconv v1.21
--			span.SetAttributes(semconv.HTTPStatusCode(statusCode))
+-			span.SetAttributes(semconv.HTTPResponseStatusCode(statusCode))
 -			// NOTE: the conversion from HTTP status code to trace code is no longer available with
 -			// semconv v1.21
--			span.SetStatus(httpconv.ServerStatus(statusCode))
+-			const minHTTPStatusIsError = 400
+-			if statusCode >= minHTTPStatusIsError {
+-				span.SetStatus(codes.Error, http.StatusText(statusCode))
+-			}
 -		}
 -
  		return reader.ReadResponse(response, consumer)
@@ -119,7 +121,7 @@
 -		span.RecordError(err)
 -		span.SetStatus(codes.Error, err.Error())
 -	}
--
+ 
  	return submit, err
  }
  
@@ -145,7 +147,7 @@
 -	span.SetAttributes(
 -		attribute.String("net.peer.name", t.host),
 -		attribute.String(string(semconv.HTTPRouteKey), op.PathPattern),
--		attribute.String(string(semconv.HTTPMethodKey), op.Method),
+-		attribute.String(string(semconv.HTTPRequestMethodKey), op.Method),
 -		attribute.String("span.kind", trace.SpanKindClient.String()),
 -		attribute.String("http.scheme", scheme),
 -	)

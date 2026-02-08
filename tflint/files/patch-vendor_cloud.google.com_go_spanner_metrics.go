@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/spanner/metrics.go.orig	2025-08-14 14:42:16 UTC
+--- vendor/cloud.google.com/go/spanner/metrics.go.orig	2025-09-22 16:26:20 UTC
 +++ vendor/cloud.google.com/go/spanner/metrics.go
 @@ -18,28 +18,17 @@ import (
  
@@ -29,13 +29,17 @@
  	"google.golang.org/grpc/status"
  
  	"cloud.google.com/go/spanner/internal"
-@@ -188,15 +177,6 @@ var (
+@@ -190,19 +179,6 @@ var (
  	}
  
  	detectClientLocation = func(ctx context.Context) string {
+-		if emulatorAddr, found := os.LookupEnv("SPANNER_EMULATOR_HOST"); found && emulatorAddr != "" {
+-			return defaultClientLocation
+-		}
+-
 -		resource, err := gcp.NewDetector().Detect(ctx)
 -		if err != nil {
--			return "global"
+-			return defaultClientLocation
 -		}
 -		for _, attr := range resource.Attributes() {
 -			if attr.Key == semconv.CloudRegionKey {
@@ -43,9 +47,9 @@
 -			}
 -		}
  		// If region is not found, return global
- 		return "global"
+ 		return defaultClientLocation
  	}
-@@ -239,201 +219,8 @@ type builtinMetricsTracerFactory struct {
+@@ -245,201 +221,8 @@ type builtinMetricsTracerFactory struct {
  
  	// client options passed to gRPC channels
  	clientOpts []option.ClientOption
@@ -247,7 +251,7 @@
  // builtinMetricsTracer is created one per operation.
  // It is used to store metric instruments, attribute values, and other data required to obtain and record them.
  type builtinMetricsTracer struct {
-@@ -441,19 +228,6 @@ type builtinMetricsTracer struct {
+@@ -447,19 +230,6 @@ type builtinMetricsTracer struct {
  	builtInEnabled            bool            // Indicates if built-in metrics are enabled.
  	isAFEBuiltInMetricEnabled bool
  
@@ -267,13 +271,13 @@
  	method string // The method being traced.
  
  	currOp *opTracer // The current operation tracer.
-@@ -539,85 +313,20 @@ func (tf *builtinMetricsTracerFactory) createBuiltinMe
+@@ -545,74 +315,18 @@ func (tf *builtinMetricsTracerFactory) createBuiltinMe
  		ctx:                       ctx,
  		builtInEnabled:            tf.enabled,
  		currOp:                    &currOpTracer,
 -		clientAttributes:          tf.clientAttributes,
  		isAFEBuiltInMetricEnabled: tf.isAFEBuiltInMetricEnabled,
--
+ 
 -		instrumentOperationLatencies: tf.operationLatencies,
 -		instrumentAttemptLatencies:   tf.attemptLatencies,
 -		instrumentOperationCount:     tf.operationCount,
@@ -342,18 +346,7 @@
  }
  
  func (t *builtinMetricsTracer) recordAFEError() {
--	if !t.isAFEBuiltInMetricEnabled {
--		return
--	}
--	attrs, err := t.toOtelMetricAttrs(metricNameAFEConnectivityErrorCount)
--	if err != nil {
--		return
--	}
--	t.instrumentAFEErrorCount.Add(t.ctx, 1, metric.WithAttributes(attrs...))
- }
- 
- // Convert error to grpc status error
-@@ -642,66 +351,12 @@ func recordAttemptCompletion(mt *builtinMetricsTracer)
+@@ -642,66 +356,12 @@ func recordAttemptCompletion(mt *builtinMetricsTracer)
  // Ignore errors seen while creating metric attributes since metric can still
  // be recorded with rest of the attributes
  func recordAttemptCompletion(mt *builtinMetricsTracer) {

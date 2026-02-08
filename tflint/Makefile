@@ -1,9 +1,9 @@
 # Created by: Gabriel M. Dutra <0xdutra@gmail.com>
 
 PORTNAME=	tflint
-PORTVERSION=	0.60.0
+PORTVERSION=	0.61.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	2
+#PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	dutra@FreeBSD.org
@@ -17,7 +17,8 @@ USES=		go:modules
 USE_GITHUB=	yes
 GH_ACCOUNT=	terraform-linters
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static"
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w"
 
 PLIST_FILES=	bin/${PORTNAME}
 
@@ -40,13 +41,13 @@ post-extract: .PHONY
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/auth
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/internal/trace
 	@${RM} -r ${WRKSRC}/vendor/google.golang.org/grpc/stats/opentelemetry
-	@test ! -d ${WRKSRC}/vendor/cloud.google.com/go || ${RLN} ${WRKSRC_googleapis_google_cloud_go_auth}/auth ${WRKSRC}/vendor/cloud.google.com/go
+	@${TEST} ! -d ${WRKSRC}/vendor/cloud.google.com/go || ${RLN} ${WRKSRC_googleapis_google_cloud_go_auth}/auth ${WRKSRC}/vendor/cloud.google.com/go
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
-	@test ! -d ${WRKSRC}/vendor/cloud.google.com/go/compute || ${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute
-	@${RM} -r ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/api
-	@test -z ${WRKSRC_google_go_genproto_api} || ${RLN} ${WRKSRC_google_go_genproto_api}/googleapis/api ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
+	@${TEST} ! -d ${WRKSRC}/vendor/cloud.google.com/go/compute || ${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute
 	@${RM} -r ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/rpc
-	@test -z ${WRKSRC_google_go_genproto_rpc} || ${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
+	@${TEST} -z ${WRKSRC_google_go_genproto_rpc} || ${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
+	@${MKDIR} ${WRKSRC}/vendor/go.yaml.in/yaml
+	@${TEST} ! -e ${WRKSRC}/vendor/gopkg.in/yaml.v3 || ${RLN} ${WRKSRC}/vendor/gopkg.in/yaml.v3 ${WRKSRC}/vendor/go.yaml.in/yaml/v3
 
 pre-deps: .PHONY
 	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
@@ -58,8 +59,8 @@ pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 	${RM} ${.CURDIR}/generated.deps.mk
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=google GHT_PROJ=cel-spec GHT_PATH=cel.dev/expr )
-	( make -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes GHT_PROJ=klog GHT_PATH=k8s.io/klog/v2 )
 	( make -C ${.CURDIR} make-from-deps GHT_ACNT=googleapis GHT_PROJ=google-cloud-go GHT_PATH=cloud.google.com/go/compute/metadata )
+	( make -C ${.CURDIR} make-from-deps GHT_ACNT=go-yaml GHT_PROJ=yaml GHT_PATH=go.yaml.in/yaml/v3 )
 
 make-from-deps: .PHONY
 	@${SED} -rn \
@@ -70,18 +71,16 @@ make-from-deps: .PHONY
 .sinclude "${.CURDIR}/Makefile.deps"
 
 #-GoogleCloudPlatform:opentelemetry-operations-go:d637680bde0c:googlecloudplatform_opentelemetry_operations_go_gcp
-#-census-instrumentation:opencensus-go:v0.24.0:census_instrumentation_opencensus_go/vendor/go.opencensus.io
 #-open-telemetry:opentelemetry-go-contrib:v0.54.0:open_telemetry_opentelemetry_go_contrib_1/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc
-#-opentracing:opentracing-go:v1.2.0:opentracing_opentracing_go/vendor/github.com/opentracing/opentracing-go
+#-golang:telemetry:8fff8a5912fc:golang_telemetry/vendor/golang.org/x/telemetry
 GH_TUPLE:=	${GH_TUPLE:NGoogleCloudPlatform\:opentelemetry-operations-go\:*}
-GH_TUPLE:=	${GH_TUPLE:Ncensus-instrumentation\:*}
 GH_TUPLE:=	${GH_TUPLE:Nopen-telemetry\:*}
-GH_TUPLE:=	${GH_TUPLE:Nopentracing\:*}
 GH_TUPLE:=	${GH_TUPLE:Ngolang\:telemetry\:*}
 
-#-GoogleCloudPlatform:grpc-gcp-go:v1.5.3:googlecloudplatform_grpc_gcp_go_grpcgcp/vendor/github.com/GoogleCloudPlatform/grpc-gcp-go/grpcgcp
-#+GoogleCloudPlatform:grpc-gcp-go:grpcgcp/v1.5.3:googlecloudplatform_grpc_gcp_go_grpcgcp/vendor/github.com/GoogleCloudPlatform/grpc-gcp-go
-GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+.*/GoogleCloudPlatform/grpc-gcp-go)/(grpcgcp)$|\1\3/\2|}
+#-aws:aws-sdk-go-v2:v1.3.15:aws_aws_sdk_go_v2_configsources/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources
+# aws:aws-sdk-go-v2:v1.30.3:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2
+#-aws:aws-sdk-go-v2:v1.30.3:aws_aws_sdk_go_v2_sts/vendor/github.com/aws/aws-sdk-go-v2/service/sts
+GH_TUPLE:=	${GH_TUPLE:Naws*aws_aws_sdk_go_v2_*/vendor/github.com/aws/aws-sdk-go-v2/*}
 
 #-cncf:xds:b4127c9b8d78:cncf_xds_go/vendor/github.com/cncf/xds/go
 #+cncf:xds:b4127c9b8d78:cncf_xds_go/vendor/github.com/cncf/xds
@@ -95,27 +94,22 @@ GH_TUPLE:=	${GH_TUPLE:S|/gax-go/v2|/gax-go|1}
 #+owenrumney:go-sarif:v2.3.3:owenrumney_go_sarif_v2/vendor/github.com/owenrumney/go-sarif
 GH_TUPLE:=	${GH_TUPLE:S|/go-sarif/v2|/go-sarif|1}
 
-#-spiffe:go-spiffe:v2.5.0:spiffe_go_spiffe_v2/vendor/github.com/spiffe/go-spiffe/v2
-#+spiffe:go-spiffe:v2.5.0:spiffe_go_spiffe_v2/vendor/github.com/spiffe/go-spiffe/v2
-GH_TUPLE:=	${GH_TUPLE:S|/go-spiffe/v2|/go-spiffe|1}
-
 #-envoyproxy:go-control-plane:v1.32.4:envoyproxy_go_control_plane_envoy/vendor/github.com/envoyproxy/go-control-plane/envoy
 #+envoyproxy:go-control-plane:envoy/v1.32.4:envoyproxy_go_control_plane/vendor/github.com/envoyproxy/go-control-plane
 GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+.*/envoyproxy/go-control-plane)/(envoy)$|\1\3/\2|}
 
-#-google:go-genproto:69823020774d:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc
-#+google:go-genproto:69823020774d:google_go_genproto_2
-# google:go-genproto:e639e219e697:google_go_genproto/vendor/google.golang.org/genproto
-#-google:go-genproto:e6fa225c2576:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api
-#+google:go-genproto:e6fa225c2576:google_go_genproto_1
-GH_TUPLE:=	${GH_TUPLE:C|_[[:digit:]]/vendor/google.golang.org/genproto/googleapis/|_|}
+#-google:go-genproto:49dd2c1f3d0b:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api
+#-google:go-genproto:d783a09b4405:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc
+#+google:go-genproto:d783a09b4405:google_go_genproto_rpc
+GH_TUPLE:=	${GH_TUPLE:C|(:google_go_genproto_).*/(rpc)|\1\2|}
+GH_TUPLE:=	${GH_TUPLE:N*google_go_genproto_[0-9]*}
 
 #make -V GH_TUPLE | tr ' ' '\n' | i googleapis:google-cloud-go
-#	googleapis:google-cloud-go:v0.112.1:googleapis_google_cloud_go/vendor/cloud.google.com/go
-#-	googleapis:google-cloud-go:v0.13.0:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth
-#+	googleapis:google-cloud-go:auth/v0.13.0:googleapis_google_cloud_go_auth
-#-	googleapis:google-cloud-go:v0.6.0:googleapis_google_cloud_go_2/vendor/cloud.google.com/go/compute/metadata
-#+	googleapis:google-cloud-go:compute/metadata/v0.6.0:googleapis_google_cloud_go_compute_metadata
+# googleapis:google-cloud-go:v0.112.1:googleapis_google_cloud_go/vendor/cloud.google.com/go
+#-googleapis:google-cloud-go:v0.13.0:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth
+#+googleapis:google-cloud-go:auth/v0.13.0:googleapis_google_cloud_go_auth
+#-googleapis:google-cloud-go:v0.6.0:googleapis_google_cloud_go_2/vendor/cloud.google.com/go/compute/metadata
+#+googleapis:google-cloud-go:compute/metadata/v0.6.0:googleapis_google_cloud_go_compute_metadata
 GH_TUPLE:=	${GH_TUPLE:N*\:googleapis_google_cloud_go_[b-z]*}
 GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+).*/cloud.google.com/go/(auth)$|\1\3/\2|}
 GH_TUPLE:=	${GH_TUPLE:N*/vendor/cloud.google.com/go/*}
@@ -136,5 +130,9 @@ GH_TUPLE:=	${GH_TUPLE:N*/vendor/github.com/go-openapi/swag/*}
 
 .sinclude "${.CURDIR}/generated.deps.mk"
 GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+).*/cloud.google.com/go/(compute)/(metadata)$|\1\3/\4/\2_\3_\4|}
+
+#-go-yaml:yaml:v3.0.4:go_yaml_yaml/vendor/go.yaml.in/yaml/v3
+#+go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3
+GH_TUPLE:=	${GH_TUPLE:C|[^:]+(:go_yaml_yaml/vendor/).*$|v3.0.1\1gopkg.in/yaml.v3|1}
 
 .include <bsd.port.mk>
