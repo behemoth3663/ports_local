@@ -5,37 +5,35 @@ GH_TUPLE=	\
 		davecgh:go-spew:d8f796af33cc:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		go-logr:logr:v1.4.3:go_logr_logr/vendor/github.com/go-logr/logr \
 		go-task:slim-sprig:v3.0.0:go_task_slim_sprig_v3/vendor/github.com/go-task/slim-sprig/v3 \
-		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
-		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
-		golang:mod:v0.31.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.48.0:golang_net/vendor/golang.org/x/net \
+		golang:mod:v0.32.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.49.0:golang_net/vendor/golang.org/x/net \
 		golang:sync:v0.19.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.39.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.38.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.32.0:golang_text/vendor/golang.org/x/text \
-		golang:tools:v0.40.0:golang_tools/vendor/golang.org/x/tools \
-		gonvenience:bunt:v1.4.2:gonvenience_bunt/vendor/github.com/gonvenience/bunt \
-		gonvenience:idem:v0.0.2:gonvenience_idem/vendor/github.com/gonvenience/idem \
-		gonvenience:neat:v1.3.16:gonvenience_neat/vendor/github.com/gonvenience/neat \
-		gonvenience:term:v1.0.4:gonvenience_term/vendor/github.com/gonvenience/term \
-		gonvenience:text:v1.0.9:gonvenience_text/vendor/github.com/gonvenience/text \
-		gonvenience:ytbx:v1.4.7:gonvenience_ytbx/vendor/github.com/gonvenience/ytbx \
+		golang:sys:v0.41.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.39.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.33.0:golang_text/vendor/golang.org/x/text \
+		golang:tools:v0.41.0:golang_tools/vendor/golang.org/x/tools \
+		gonvenience:bunt:v1.4.3:gonvenience_bunt/vendor/github.com/gonvenience/bunt \
+		gonvenience:idem:v0.0.3:gonvenience_idem/vendor/github.com/gonvenience/idem \
+		gonvenience:neat:v1.3.17:gonvenience_neat/vendor/github.com/gonvenience/neat \
+		gonvenience:term:v1.0.5:gonvenience_term/vendor/github.com/gonvenience/term \
+		gonvenience:text:v1.0.10:gonvenience_text/vendor/github.com/gonvenience/text \
+		gonvenience:ytbx:v1.4.8:gonvenience_ytbx/vendor/github.com/gonvenience/ytbx \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
-		google:pprof:b05bdaca462f:google_pprof/vendor/github.com/google/pprof \
+		google:pprof:cb029daf43ef:google_pprof/vendor/github.com/google/pprof \
 		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
 		lucasb-eyer:go-colorful:v1.3.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
 		mattn:go-ciede2000:782e8c62fec3:mattn_go_ciede2000/vendor/github.com/mattn/go-ciede2000 \
 		mattn:go-isatty:v0.0.20:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
 		mitchellh:go-ps:v1.0.0:mitchellh_go_ps/vendor/github.com/mitchellh/go-ps \
 		mitchellh:hashstructure:v1.1.0:mitchellh_hashstructure/vendor/github.com/mitchellh/hashstructure \
-		onsi:ginkgo:v2.27.3:onsi_ginkgo_v2/vendor/github.com/onsi/ginkgo/v2 \
-		onsi:gomega:v1.38.3:onsi_gomega/vendor/github.com/onsi/gomega \
+		onsi:ginkgo:v2.28.1:onsi_ginkgo_v2/vendor/github.com/onsi/ginkgo/v2 \
+		onsi:gomega:v1.39.1:onsi_gomega/vendor/github.com/onsi/gomega \
 		pmezard:go-difflib:5d4384ee4fb2:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		russross:blackfriday:v2.1.0:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
 		sergi:go-diff:v1.4.0:sergi_go_diff/vendor/github.com/sergi/go-diff \
 		spf13:cobra:v1.10.2:spf13_cobra/vendor/github.com/spf13/cobra \
 		spf13:pflag:v1.0.10:spf13_pflag/vendor/github.com/spf13/pflag \
-		stretchr:testify:v1.11.1:stretchr_testify/vendor/github.com/stretchr/testify \
 		texttheater:golang-levenshtein:v1.0.1:texttheater_golang_levenshtein/vendor/github.com/texttheater/golang-levenshtein \
 		virtuald:go-ordered-json:b18e6e673d74:virtuald_go_ordered_json/vendor/github.com/virtuald/go-ordered-json \
-		yaml:go-yaml:v3.0.4:yaml_go_yaml/vendor/go.yaml.in/yaml/v3
+		yaml:go-yaml:v2.4.3:yaml_go_yaml/vendor/go.yaml.in/yaml/v2 \
+		yaml:go-yaml:v3.0.4:yaml_go_yaml_1/vendor/go.yaml.in/yaml/v3
