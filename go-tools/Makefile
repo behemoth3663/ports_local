@@ -1,7 +1,7 @@
 PORTNAME=	tools
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.41.0
-PORTREVISION=	2
+DISTVERSION=	0.42.0
+#PORTREVISION=	1
 PORTEPOCH=	1
 CATEGORIES=	local devel
 PKGNAMEPREFIX=	go-
@@ -64,13 +64,13 @@ M2T_OFFLINE=	true
 .export	M2T_OFFLINE
 
 pre-deps: .PHONY
-	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
 
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 
 post-deps-all: .PHONY
-	test ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
+	${TEST} ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
 
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
