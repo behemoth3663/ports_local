@@ -226,7 +226,7 @@ github.com/hashicorp/terraform-json
 # github.com/hashicorp/terraform-registry-address v0.4.0
 ## explicit; go 1.23.0
 github.com/hashicorp/terraform-registry-address
-# github.com/hashicorp/terraform-schema v0.0.0-20251124065812-a4dd8fbff2ba
+# github.com/hashicorp/terraform-schema v0.0.0-20260205102753-cd082b91e422
 ## explicit; go 1.23.0
 github.com/hashicorp/terraform-schema/backend
 github.com/hashicorp/terraform-schema/earlydecoder
@@ -251,6 +251,7 @@ github.com/hashicorp/terraform-schema/internal/schema/1.1
 github.com/hashicorp/terraform-schema/internal/schema/1.10
 github.com/hashicorp/terraform-schema/internal/schema/1.12
 github.com/hashicorp/terraform-schema/internal/schema/1.14
+github.com/hashicorp/terraform-schema/internal/schema/1.15
 github.com/hashicorp/terraform-schema/internal/schema/1.2
 github.com/hashicorp/terraform-schema/internal/schema/1.3
 github.com/hashicorp/terraform-schema/internal/schema/1.4
