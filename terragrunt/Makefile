@@ -1,7 +1,7 @@
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.99.1
-#PORTREVISION=	1
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	dutra@FreeBSD.org
@@ -11,7 +11,7 @@ WWW=		https://terragrunt.gruntwork.io/
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
-USES=		go:modules
+USES=		go:1.26,modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	gruntwork-io
