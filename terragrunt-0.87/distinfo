@@ -1,0 +1,5 @@
+TIMESTAMP = 1770912039
+SHA256 (go/local_terragrunt-0.87/terragrunt-v0.87.7/v0.87.7.mod) = ead9388c5435df5ec1acf8ea48e934b5d4963e882ccc56ef4d54a8988a489b01
+SIZE (go/local_terragrunt-0.87/terragrunt-v0.87.7/v0.87.7.mod) = 16947
+SHA256 (go/local_terragrunt-0.87/terragrunt-v0.87.7/v0.87.7.zip) = 4dbfa0bcce20531c0993f40809ff9a5586920c045752ea91a42ce3d7f7c06ff2
+SIZE (go/local_terragrunt-0.87/terragrunt-v0.87.7/v0.87.7.zip) = 9670633
