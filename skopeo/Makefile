@@ -1,5 +1,5 @@
 PORTNAME=	skopeo
-PORTVERSION=	1.21.0
+PORTVERSION=	1.22.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -25,23 +25,23 @@ GO_BUILDFLAGS+=	-ldflags="-s -w"
 post-patch: .PHONY
 	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io
 	@${RM} -r ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/api
-	@test -z ${WRKSRC_google_go_genproto_api} || ${RLN} ${WRKSRC_google_go_genproto_api}/googleapis/api ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
+	@${TEST} -z ${WRKSRC_google_go_genproto_api} || ${RLN} ${WRKSRC_google_go_genproto_api}/googleapis/api ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
 	@${RM} -r ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/rpc
-	@test -z ${WRKSRC_google_go_genproto_rpc} || ${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
+	@${TEST} -z ${WRKSRC_google_go_genproto_rpc} || ${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
 	@${RM} -r ${WRKSRC}/vendor/go.podman.io
 	@${MKDIR} ${WRKSRC}/vendor/go.podman.io/image
-	@test -z ${WRKSRC_containers_container_libs_common} || ${RLN} ${WRKSRC_containers_container_libs_common}/common ${WRKSRC}/vendor/go.podman.io
-	@test -z ${WRKSRC_containers_container_libs_storage} || ${RLN} ${WRKSRC_containers_container_libs_storage}/storage ${WRKSRC}/vendor/go.podman.io
-	@test -z ${WRKSRC_containers_container_libs_image} || ${RLN} ${WRKSRC_containers_container_libs_image}/image ${WRKSRC}/vendor/go.podman.io/image/v5
+	@${TEST} -z ${WRKSRC_containers_container_libs_common} || ${RLN} ${WRKSRC_containers_container_libs_common}/common ${WRKSRC}/vendor/go.podman.io
+	@${TEST} -z ${WRKSRC_containers_container_libs_storage} || ${RLN} ${WRKSRC_containers_container_libs_storage}/storage ${WRKSRC}/vendor/go.podman.io
+	@${TEST} -z ${WRKSRC_containers_container_libs_image} || ${RLN} ${WRKSRC_containers_container_libs_image}/image ${WRKSRC}/vendor/go.podman.io/image/v5
 
 pre-deps: .PHONY
-	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
 
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 
 post-deps-all: .PHONY
-	test ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
+	${TEST} ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"

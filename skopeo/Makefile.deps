@@ -7,9 +7,9 @@ GH_TUPLE=	\
 		containerd:errdefs:v0.3.0:containerd_errdefs_pkg/vendor/github.com/containerd/errdefs \
 		containerd:errdefs:v1.0.0:containerd_errdefs \
 		containerd:stargz-snapshotter:v0.17.0:containerd_stargz_snapshotter_estargz/vendor/github.com/containerd/stargz-snapshotter \
-		containers:container-libs:v0.66.0:containers_container_libs/vendor/go.podman.io/common \
-		containers:container-libs:v1.61.0:containers_container_libs_2/vendor/go.podman.io/storage \
-		containers:container-libs:v5.38.0:containers_container_libs_1/vendor/go.podman.io/image/v5 \
+		containers:container-libs:v0.67.0:containers_container_libs/vendor/go.podman.io/common \
+		containers:container-libs:v1.62.0:containers_container_libs_2/vendor/go.podman.io/storage \
+		containers:container-libs:v5.39.1:containers_container_libs_1/vendor/go.podman.io/image/v5 \
 		containers:libtrust:c1716e8a8d01:containers_libtrust/vendor/github.com/containers/libtrust \
 		containers:ocicrypt:v1.2.1:containers_ocicrypt/vendor/github.com/containers/ocicrypt \
 		coreos:go-oidc:v3.14.1:coreos_go_oidc_v3/vendor/github.com/coreos/go-oidc/v3 \
