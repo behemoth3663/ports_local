@@ -1,6 +1,6 @@
 PORTNAME=	amazon-ssm-plugin
-PORTVERSION=	1.2.764.0
-PORTREVISION=	3
+PORTVERSION=	1.2.779.0
+#PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	nork@FreeBSD.org
@@ -13,7 +13,8 @@ RUN_DEPENDS=	aws:devel/py-awscli@${PY_FLAVOR}
 
 USES=		go:modules python:env
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static"
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w"
 GO_TARGET=	src/sessionmanagerplugin-main/main.go:${PREFIX}/bin/session-manager-plugin \
 		src/ssmcli-main/main.go:${PREFIX}/bin/ssmcli
 

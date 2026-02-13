@@ -45,7 +45,7 @@ github.com/aws/aws-sdk-go/service/sso/ssoiface
 github.com/aws/aws-sdk-go/service/ssooidc
 github.com/aws/aws-sdk-go/service/sts
 github.com/aws/aws-sdk-go/service/sts/stsiface
-# github.com/aws/session-manager-plugin v0.0.0-20251119232423-83812b6d1d99
+# github.com/aws/session-manager-plugin v0.0.0-20260212212525-20354200d14d
 ## explicit
 github.com/aws/session-manager-plugin/src/communicator
 github.com/aws/session-manager-plugin/src/communicator/mocks
@@ -108,21 +108,21 @@ github.com/stretchr/testify/mock
 # github.com/twinj/uuid v1.0.0
 ## explicit
 github.com/twinj/uuid
-# github.com/xtaci/smux v1.5.39
-## explicit; go 1.13
+# github.com/xtaci/smux v1.5.56
+## explicit; go 1.18
 github.com/xtaci/smux
-# golang.org/x/crypto v0.45.0
+# golang.org/x/crypto v0.48.0
 ## explicit; go 1.24.0
 golang.org/x/crypto/ssh/terminal
-# golang.org/x/sync v0.18.0
+# golang.org/x/sync v0.19.0
 ## explicit; go 1.24.0
 golang.org/x/sync/errgroup
-# golang.org/x/sys v0.38.0
+# golang.org/x/sys v0.41.0
 ## explicit; go 1.24.0
 golang.org/x/sys/plan9
 golang.org/x/sys/unix
 golang.org/x/sys/windows
-# golang.org/x/term v0.37.0
+# golang.org/x/term v0.40.0
 ## explicit; go 1.24.0
 golang.org/x/term
 # gopkg.in/stretchr/testify.v1 v1.2.2
