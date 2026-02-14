@@ -1,7 +1,7 @@
 PORTNAME=	gopls
-PORTVERSION=	0.21.0
+PORTVERSION=	0.21.1
 DISTVERSIONPREFIX=	v
-PORTREVISION=	2
+#PORTREVISION=	1
 CATEGORIES=	local devel
 
 MAINTAINER=	fuz@FreeBSD.org
@@ -30,7 +30,7 @@ M2T_OFFLINE=	true
 .export	M2T_OFFLINE
 
 pre-deps: .PHONY
-	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
 
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
@@ -44,7 +44,7 @@ make-from-deps: .PHONY
 	${.CURDIR}/Makefile.deps >>${.CURDIR}/generated.deps.mk
 
 post-deps-all: .PHONY
-	test -d ${PATCHDIR}_ && ${MV} ${PATCHDIR}_ ${PATCHDIR} || :
+	${TEST} -d ${PATCHDIR}_ && ${MV} ${PATCHDIR}_ ${PATCHDIR} || :
 
 post-extract: .PHONY
 .if "${.TARGETS:M*deps}" == ""

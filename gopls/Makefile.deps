@@ -12,7 +12,7 @@ GH_TUPLE=	\
 		golang:sys:v0.38.0:golang_sys/vendor/golang.org/x/sys \
 		golang:telemetry:bc8e575c7b54:golang_telemetry/vendor/golang.org/x/telemetry \
 		golang:text:v0.31.0:golang_text/vendor/golang.org/x/text \
-		golang:tools:907593008619:golang_tools/vendor/golang.org/x/tools \
+		golang:tools:b69ac100ecb7:golang_tools/vendor/golang.org/x/tools \
 		golang:vuln:v1.1.4:golang_vuln/vendor/golang.org/x/vuln \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:jsonschema-go:v0.3.0:google_jsonschema_go/vendor/github.com/google/jsonschema-go \
