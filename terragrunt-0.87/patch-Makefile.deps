@@ -1,17 +1,15 @@
 --- Makefile.deps.orig	2026-02-13 23:01:16 UTC
 +++ Makefile.deps
-@@ -293,3 +293,33 @@ GH_TUPLE=	\
+@@ -293,3 +293,31 @@ GH_TUPLE=	\
  		#	::v1.38.0:group_name/vendor/go.opentelemetry.io/otel/sdk/metric (from go.opentelemetry.io/otel/sdk/metric@v1.38.0)
  		#	::v1.38.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.38.0)
  		#	::v1.8.0:group_name/vendor/go.opentelemetry.io/proto/otlp (from go.opentelemetry.io/proto/otlp@v1.8.0)
 +post-extract: .PHONY
 +	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
++	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/auth
 +	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/internal/trace
 +	@${RM} -r ${WRKSRC}/vendor/google.golang.org/grpc/stats/opentelemetry
-+	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/auth
-+	@${RM} ${WRKSRC}/telemetry/meter*.go
-+	@${RM} ${WRKSRC}/telemetry/tracer*.go
-+	@${RM} ${WRKSRC}/telemetry/util.go
++	@${RM} -r ${WRKSRC}/telemetry	# ${WRKSRC}/telemetry/meter*.go ${WRKSRC}/telemetry/tracer*.go ${WRKSRC}/telemetry/util.go
 +	@${RM} ${WRKSRC}/vendor/cloud.google.com/go/storage/grpc_metrics.go
 +	@${RM} ${WRKSRC}/vendor/cloud.google.com/go/storage/trace.go
 +	@${RM} ${WRKSRC}/vendor/github.com/envoyproxy/go-control-plane/envoy/config/trace/v3/opencensus.pb.go

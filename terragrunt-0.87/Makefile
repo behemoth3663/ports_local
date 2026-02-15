@@ -3,6 +3,7 @@ DISTVERSIONPREFIX=	v
 DISTVERSION=	0.87.7
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
+PKGNAMESUFFIX?=	-${PORTVERSION:R}
 
 MAINTAINER=	dutra@FreeBSD.org
 COMMENT=	Terragrunt is a thin wrapper for Terraform
@@ -20,7 +21,13 @@ CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'github.com/${GH_ACCOUNT}/go-commons/version.Version=${PORTVERSION}'"
 
+GO_ENV+=	GOEXPERIMENT=nogreenteagc,norandomizedheapbase64
+
 PLIST_FILES=	bin/${PORTNAME}
+
+JQ_GETVER_EXPR=	[.[].name | gsub("^[a-z]+";"") | \
+		select(test("^${PORTVERSION:C/[^.]+$/[0-9]+/:S/./\\\\./g}$$"; \
+		"n"))][0]
 
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
