@@ -1,7 +1,7 @@
 PORTNAME=	goplay
 PORTVERSION=	1.0.0
 DISTVERSIONPREFIX=	v
-#PORTREVISION=	19
+PORTREVISION=	1
 CATEGORIES=	local devel
 
 MAINTAINER=	none@freebsd.org
@@ -19,7 +19,8 @@ GO_TARGET=	./cmd/${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w  -extldflags '-static'"
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w"
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 

@@ -1,6 +1,6 @@
 PORTNAME=	golint
 PORTVERSION=	g20210508
-#PORTREVISION=	19
+PORTREVISION=	1
 CATEGORIES=	local devel
 
 MAINTAINER=	yuri@FreeBSD.org
@@ -20,7 +20,8 @@ GO_TARGET=	./${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w  -extldflags '-static'"
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w"
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
