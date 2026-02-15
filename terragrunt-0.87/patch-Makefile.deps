@@ -1,0 +1,36 @@
+--- Makefile.deps.orig	2026-02-13 23:01:16 UTC
++++ Makefile.deps
+@@ -293,3 +293,33 @@ GH_TUPLE=	\
+ 		#	::v1.38.0:group_name/vendor/go.opentelemetry.io/otel/sdk/metric (from go.opentelemetry.io/otel/sdk/metric@v1.38.0)
+ 		#	::v1.38.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.38.0)
+ 		#	::v1.8.0:group_name/vendor/go.opentelemetry.io/proto/otlp (from go.opentelemetry.io/proto/otlp@v1.8.0)
++post-extract: .PHONY
++	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
++	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/internal/trace
++	@${RM} -r ${WRKSRC}/vendor/google.golang.org/grpc/stats/opentelemetry
++	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/auth
++	@${RM} ${WRKSRC}/telemetry/meter*.go
++	@${RM} ${WRKSRC}/telemetry/tracer*.go
++	@${RM} ${WRKSRC}/telemetry/util.go
++	@${RM} ${WRKSRC}/vendor/cloud.google.com/go/storage/grpc_metrics.go
++	@${RM} ${WRKSRC}/vendor/cloud.google.com/go/storage/trace.go
++	@${RM} ${WRKSRC}/vendor/github.com/envoyproxy/go-control-plane/envoy/config/trace/v3/opencensus.pb.go
++	@${RM} ${WRKSRC}/vendor/github.com/envoyproxy/go-control-plane/envoy/config/trace/v3/opencensus.pb.validate.go
++	@${RM} ${WRKSRC}/vendor/github.com/envoyproxy/go-control-plane/envoy/config/trace/v3/trace.pb.go
++	@${RLN} ${WRKSRC_googleapis_google_cloud_go_auth}/auth ${WRKSRC}/vendor/cloud.google.com/go
++	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
++	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/internal
++	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_internal_1}/sdk/security/keyvault/internal ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/internal
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azkeys
++	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_azkeys}/sdk/security/keyvault/azkeys ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/azkeys
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/internal
++	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_internal}/sdk/internal ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/internal
++	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/azidentity
++	@${RLN} ${WRKSRC_azure_azure_sdk_for_go_azidentity}/sdk/azidentity ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/azidentity
++	@${RM} -r ${WRKSRC}/vendor/github.com/hashicorp/go-secure-stdlib/parseutil
++	@${RLN} ${WRKSRC_hashicorp_go_secure_stdlib_parseutil}/parseutil ${WRKSRC}/vendor/github.com/hashicorp/go-secure-stdlib/parseutil
++	@${MKDIR} ${WRKSRC}/vendor/github.com/charmbracelet/x
++	@${RLN} ${WRKSRC_charmbracelet_x_ansi}/ansi ${WRKSRC}/vendor/github.com/charmbracelet/x
++	@${RLN} ${WRKSRC_charmbracelet_x_cellbuf}/cellbuf ${WRKSRC}/vendor/github.com/charmbracelet/x
++	@${RLN} ${WRKSRC_charmbracelet_x_term}/term ${WRKSRC}/vendor/github.com/charmbracelet/x
