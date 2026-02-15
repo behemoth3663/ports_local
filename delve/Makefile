@@ -1,7 +1,7 @@
 PORTNAME=	delve
 DISTVERSIONPREFIX=	v
 DISTVERSION=	1.26.0
-PORTREVISION=	2
+PORTREVISION=	3
 CATEGORIES=	local devel
 
 MAINTAINER=	dmitry.wagin@ya.ru
@@ -21,6 +21,7 @@ GO_PKGNAME=	github.com/${GH_ACCOUNT}/${PORTNAME}
 GO_TARGET=	./cmd/dlv
 
 GO_BUILDFLAGS+=	-ldflags="-s -w"
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 CONFLICTS_INSTALL=	dlv # bin/dlv
 
