@@ -109,7 +109,7 @@ GH_TUPLE=	\
 		gogo:protobuf:v1.3.2:gogo_protobuf/vendor/github.com/gogo/protobuf \
 		golang-jwt:jwt:v4.5.2:golang_jwt_jwt_v4/vendor/github.com/golang-jwt/jwt/v4 \
 		golang:crypto:v0.48.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:exp:2842357ff358:golang_exp/vendor/golang.org/x/exp \
+		golang:exp:81e46e3db34a:golang_exp/vendor/golang.org/x/exp \
 		golang:groupcache:2c02b8208cf8:golang_groupcache/vendor/github.com/golang/groupcache \
 		golang:mod:v0.33.0:golang_mod/vendor/golang.org/x/mod \
 		golang:net:v0.50.0:golang_net/vendor/golang.org/x/net \
@@ -170,15 +170,6 @@ GH_TUPLE=	\
 		hashicorp:terraform-plugin-log:v0.9.0:hashicorp_terraform_plugin_log/vendor/github.com/hashicorp/terraform-plugin-log \
 		hashicorp:terraform-registry-address:v0.2.5:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
 		hashicorp:terraform-svchost:v0.1.1:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
-		hashicorp:terraform:77237310aa43:hashicorp_terraform_azure_1 \
-		hashicorp:terraform:77237310aa43:hashicorp_terraform_consul \
-		hashicorp:terraform:77237310aa43:hashicorp_terraform_cos \
-		hashicorp:terraform:77237310aa43:hashicorp_terraform_gcs_1 \
-		hashicorp:terraform:77237310aa43:hashicorp_terraform_kubernetes \
-		hashicorp:terraform:77237310aa43:hashicorp_terraform_oss \
-		hashicorp:terraform:77237310aa43:hashicorp_terraform_pg \
-		hashicorp:terraform:77237310aa43:hashicorp_terraform_s3 \
-		hashicorp:terraform:77237310aa43:hashicorp_terraform_legacy \
 		hashicorp:terraform::hashicorp_terraform_azure/github.com/hashicorp/terraform/internal/backend/remote-state/azure \
 		hashicorp:terraform::hashicorp_terraform_consul_1/github.com/hashicorp/terraform/internal/backend/remote-state/consul \
 		hashicorp:terraform::hashicorp_terraform_cos_1/github.com/hashicorp/terraform/internal/backend/remote-state/cos \
@@ -188,6 +179,15 @@ GH_TUPLE=	\
 		hashicorp:terraform::hashicorp_terraform_pg_1/github.com/hashicorp/terraform/internal/backend/remote-state/pg \
 		hashicorp:terraform::hashicorp_terraform_s3_1/github.com/hashicorp/terraform/internal/backend/remote-state/s3 \
 		hashicorp:terraform::hashicorp_terraform_legacy_1/github.com/hashicorp/terraform/internal/legacy \
+		hashicorp:terraform:c7da02b4a8d6:hashicorp_terraform_azure_1 \
+		hashicorp:terraform:c7da02b4a8d6:hashicorp_terraform_consul \
+		hashicorp:terraform:c7da02b4a8d6:hashicorp_terraform_cos \
+		hashicorp:terraform:c7da02b4a8d6:hashicorp_terraform_gcs_1 \
+		hashicorp:terraform:c7da02b4a8d6:hashicorp_terraform_kubernetes \
+		hashicorp:terraform:c7da02b4a8d6:hashicorp_terraform_oss \
+		hashicorp:terraform:c7da02b4a8d6:hashicorp_terraform_pg \
+		hashicorp:terraform:c7da02b4a8d6:hashicorp_terraform_s3 \
+		hashicorp:terraform:c7da02b4a8d6:hashicorp_terraform_legacy \
 		hashicorp:yamux:v0.1.2:hashicorp_yamux/vendor/github.com/hashicorp/yamux \
 		henvic:httpretty:v0.0.6:henvic_httpretty/vendor/github.com/henvic/httpretty \
 		huandu:xstrings:v1.3.3:huandu_xstrings/vendor/github.com/huandu/xstrings \
@@ -277,8 +277,8 @@ GH_TUPLE=	\
 		zclconf:go-cty-yaml:v1.0.3:zclconf_go_cty_yaml/vendor/github.com/zclconf/go-cty-yaml \
 		zclconf:go-cty:v1.14.4:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
-		#	::2842357ff358:group_name/vendor/golang.org/x/exp/typeparams (from golang.org/x/exp/typeparams@2842357ff358)
 		#	::2d320260d730:group_name/vendor/sigs.k8s.io/json (from sigs.k8s.io/json@2d320260d730)
+		#	::81e46e3db34a:group_name/vendor/golang.org/x/exp/typeparams (from golang.org/x/exp/typeparams@81e46e3db34a)
 		#	::v0.1.0-deprecated:group_name/vendor/golang.org/x/tools/cmd/cover (from golang.org/x/tools/cmd/cover@v0.1.0-deprecated)
 		#	::v0.2.8:group_name/vendor/cloud.google.com/go/auth/oauth2adapt (from cloud.google.com/go/auth/oauth2adapt@v0.2.8)
 		#	::v0.25.1:group_name/vendor/cel.dev/expr (from cel.dev/expr@v0.25.1)

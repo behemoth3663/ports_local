@@ -1,7 +1,7 @@
 PORTNAME=	terraform
 PORTVERSION=	1.9.8
 DISTVERSIONPREFIX=	v
-PORTREVISION=	20260211
+PORTREVISION=	20260216
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX?=	-${PORTVERSION:R}
 
@@ -9,7 +9,7 @@ MAINTAINER= 	dutra@FreeBSD.org
 COMMENT=	Provides a common configuration to launch infrastructure
 WWW=		https://terraform.io/
 
-USES=		go:1.26,modules
+USES=		go:modules
 
 LICENSE_NAME=   Business Source License 1.1
 LICENSE_PERMS=	dist-mirror pkg-mirror pkg-sell auto-accept
@@ -29,6 +29,8 @@ GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=${PORTVERSION}' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.dev=no' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.VersionPrerelease='"
+
+GO_ENV+=	GOEXPERIMENT=nogreenteagc,norandomizedheapbase64
 
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE

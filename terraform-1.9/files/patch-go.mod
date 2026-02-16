@@ -4,7 +4,7 @@
  module github.com/hashicorp/terraform
  
 -go 1.22.7
-+go 1.24.11
++go 1.25.0
  
  require (
  	github.com/Netflix/go-expect v0.0.0-20220104043353-73e0943537d2
@@ -61,15 +61,15 @@
 -	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-00010101000000-000000000000
 -	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-00010101000000-000000000000
 -	github.com/hashicorp/terraform/internal/legacy v0.0.0-00010101000000-000000000000
-+	github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20260211134412-77237310aa43
-+	github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20260211134412-77237310aa43
-+	github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20260211134412-77237310aa43
-+	github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20260211134412-77237310aa43
-+	github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20260211134412-77237310aa43
-+	github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20260211134412-77237310aa43
-+	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20260211134412-77237310aa43
-+	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20260211134412-77237310aa43
-+	github.com/hashicorp/terraform/internal/legacy v0.0.0-20260211134412-77237310aa43
++	github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20260216100926-c7da02b4a8d6
++	github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20260216100926-c7da02b4a8d6
++	github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20260216100926-c7da02b4a8d6
++	github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20260216100926-c7da02b4a8d6
++	github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20260216100926-c7da02b4a8d6
++	github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20260216100926-c7da02b4a8d6
++	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20260216100926-c7da02b4a8d6
++	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20260216100926-c7da02b4a8d6
++	github.com/hashicorp/terraform/internal/legacy v0.0.0-20260216100926-c7da02b4a8d6
  	github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0
 -	github.com/masterzen/winrm v0.0.0-20200615185753-c42b5136ff88
 +	github.com/masterzen/winrm v0.0.0-20250927112105-5f8e6c707321
@@ -424,8 +424,8 @@
 +	go.opentelemetry.io/otel/metric v1.38.0 // indirect
 +	go.opentelemetry.io/otel/sdk/metric v1.38.0 // indirect
 +	go.opentelemetry.io/proto/otlp v1.7.1 // indirect
-+	golang.org/x/exp v0.0.0-20260209203927-2842357ff358 // indirect
-+	golang.org/x/exp/typeparams v0.0.0-20260209203927-2842357ff358 // indirect
++	golang.org/x/exp v0.0.0-20260212183809-81e46e3db34a // indirect
++	golang.org/x/exp/typeparams v0.0.0-20260212183809-81e46e3db34a // indirect
 +	golang.org/x/sync v0.19.0 // indirect
 +	golang.org/x/time v0.14.0 // indirect
 +	google.golang.org/api v0.256.0 // indirect
