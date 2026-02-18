@@ -46,7 +46,7 @@ GH_TUPLE=	\
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		denis-tingaikin:go-header:v0.5.0:denis_tingaikin_go_header/vendor/github.com/denis-tingaikin/go-header \
 		dlclark:regexp2:v1.11.5:dlclark_regexp2/vendor/github.com/dlclark/regexp2 \
-		dominikh:go-tools:v0.6.1:dominikh_go_tools/vendor/honnef.co/go/tools \
+		dominikh:go-tools:v0.7.0:dominikh_go_tools/vendor/honnef.co/go/tools \
 		ebitengine:purego:v0.9.1:ebitengine_purego/vendor/github.com/ebitengine/purego \
 		ettle:strcase:v0.2.0:ettle_strcase/vendor/github.com/ettle/strcase \
 		fatih:color:v1.18.0:fatih_color/vendor/github.com/fatih/color \
@@ -70,14 +70,14 @@ GH_TUPLE=	\
 		go-yaml:yaml:v2.4.0:go_yaml_yaml/vendor/gopkg.in/yaml.v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml_1/vendor/gopkg.in/yaml.v3 \
 		gobwas:glob:v0.2.3:gobwas_glob/vendor/github.com/gobwas/glob \
-		godoc-lint:godoc-lint:v0.11.1:godoc_lint_godoc_lint/vendor/github.com/godoc-lint/godoc-lint \
+		godoc-lint:godoc-lint:v0.11.2:godoc_lint_godoc_lint/vendor/github.com/godoc-lint/godoc-lint \
 		gofrs:flock:v0.13.0:gofrs_flock/vendor/github.com/gofrs/flock \
 		golang:exp:b7579e27df2b:golang_exp/vendor/golang.org/x/exp \
 		golang:mod:v0.33.0:golang_mod/vendor/golang.org/x/mod \
 		golang:protobuf:v1.5.3:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:sync:v0.19.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.41.0:golang_sys/vendor/golang.org/x/sys \
-		golang:text:v0.33.0:golang_text/vendor/golang.org/x/text \
+		golang:text:v0.34.0:golang_text/vendor/golang.org/x/text \
 		golang:tools:v0.42.0:golang_tools/vendor/golang.org/x/tools \
 		golangci:asciicheck:v0.5.0:golangci_asciicheck/vendor/github.com/golangci/asciicheck \
 		golangci:dupl:f665c8d69b32:golangci_dupl/vendor/github.com/golangci/dupl \
@@ -141,7 +141,7 @@ GH_TUPLE=	\
 		nakabonne:nestif:v0.3.1:nakabonne_nestif/vendor/github.com/nakabonne/nestif \
 		nishanths:exhaustive:v0.12.0:nishanths_exhaustive/vendor/github.com/nishanths/exhaustive \
 		nishanths:predeclared:v0.2.2:nishanths_predeclared/vendor/github.com/nishanths/predeclared \
-		nunnatsa:ginkgolinter:v0.22.0:nunnatsa_ginkgolinter/vendor/github.com/nunnatsa/ginkgolinter \
+		nunnatsa:ginkgolinter:v0.23.0:nunnatsa_ginkgolinter/vendor/github.com/nunnatsa/ginkgolinter \
 		pelletier:go-toml:v1.9.5:pelletier_go_toml/vendor/github.com/pelletier/go-toml \
 		pelletier:go-toml:v2.2.4:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
@@ -165,7 +165,7 @@ GH_TUPLE=	\
 		santhosh-tekuri:jsonschema:v6.0.2:santhosh_tekuri_jsonschema_v6/vendor/github.com/santhosh-tekuri/jsonschema/v6 \
 		sashamelentyev:interfacebloat:v1.1.0:sashamelentyev_interfacebloat/vendor/github.com/sashamelentyev/interfacebloat \
 		sashamelentyev:usestdlibvars:v1.29.0:sashamelentyev_usestdlibvars/vendor/github.com/sashamelentyev/usestdlibvars \
-		securego:gosec:v2.22.11:securego_gosec_v2/vendor/github.com/securego/gosec/v2 \
+		securego:gosec:v2.23.0:securego_gosec_v2/vendor/github.com/securego/gosec/v2 \
 		shirou:gopsutil:v4.26.1:shirou_gopsutil_v4/vendor/github.com/shirou/gopsutil/v4 \
 		sirupsen:logrus:v1.9.4:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
 		sivchari:containedctx:v1.0.3:sivchari_containedctx/vendor/github.com/sivchari/containedctx \
@@ -204,8 +204,7 @@ GH_TUPLE=	\
 		yusufpapurcu:wmi:v1.2.4:yusufpapurcu_wmi/vendor/github.com/yusufpapurcu/wmi
 GL_TUPLE=	bosi:decorder:v0.4.2:bosi_decorder/vendor/gitlab.com/bosi/decorder
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
-		#	::87e1e737ad39:group_name/vendor/golang.org/x/exp/typeparams (from golang.org/x/exp/typeparams@87e1e737ad39)
-		#	::v0.1.1-deprecated:group_name/vendor/golang.org/x/tools/go/expect (from golang.org/x/tools/go/expect@v0.1.1-deprecated)
+		#	::2842357ff358:group_name/vendor/golang.org/x/exp/typeparams (from golang.org/x/exp/typeparams@2842357ff358)
 		#	::v0.1.1-deprecated:group_name/vendor/golang.org/x/tools/go/packages/packagestest (from golang.org/x/tools/go/packages/packagestest@v0.1.1-deprecated)
 		#	::v0.11.1:group_name/vendor/go-simpler.org/sloglint (from go-simpler.org/sloglint@v0.11.1)
 		#	::v0.14.0:group_name/vendor/go-simpler.org/musttag (from go-simpler.org/musttag@v0.14.0)
