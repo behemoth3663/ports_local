@@ -1,0 +1,88 @@
+--- configure.ac.orig	2017-08-08 16:08:29 UTC
++++ configure.ac
+@@ -290,6 +290,85 @@ AC_CHECK_FUNCS(memmem)
+ AC_CHECK_FUNCS(backtrace backtrace_symbols backtrace_symbols_fd)
+ AC_CHECK_FUNCS(sys_siglist)
+ AC_CHECK_FUNCS(memmem)
++
++
++dnl ------------------------------------------------------------
++dnl FreeBSD libprocstat checks (headers + link)
++dnl ------------------------------------------------------------
++
++dnl Force C for compile tests even if project is C++
++AC_LANG_PUSH([C])
++
++dnl First, check required system headers
++AC_CHECK_HEADERS(
++  [sys/param.h sys/queue.h sys/types.h sys/user.h sys/sysctl.h],
++  [],
++  [AC_MSG_ERROR([Missing required FreeBSD system headers (sys/param.h, sys/queue.h, sys/user.h, sys/sysctl.h)])]
++)
++
++dnl Now, verify that <libprocstat.h> compiles when prerequisites are included.
++AC_MSG_CHECKING([for usable libprocstat.h])
++AC_COMPILE_IFELSE(
++  [AC_LANG_SOURCE([[
++    #include <sys/param.h>
++    #include <sys/types.h>
++    #include <sys/queue.h>
++    #include <sys/user.h>
++    #include <sys/sysctl.h>
++    #include <libprocstat.h>
++    int main(void) {
++      struct procstat *ps = procstat_open_sysctl();
++      (void)ps;
++      return 0;
++    }
++  ]])],
++  [AC_MSG_RESULT([yes])],
++  [AC_MSG_FAILURE([libprocstat.h exists but is not usable without prerequisites])])
++
++dnl Check libraries
++AC_CHECK_LIB([procstat], [procstat_open_sysctl],
++  [PROCSTAT_LIBS="-lprocstat"],
++  [AC_MSG_ERROR([libprocstat not found])]
++)
++
++AC_CHECK_LIB([kvm], [kvm_openfiles],
++  [KVM_LIBS="-lkvm"],
++  [AC_MSG_ERROR([libkvm not found])]
++)
++
++AC_SUBST([PROCSTAT_LIBS])
++AC_SUBST([KVM_LIBS])
++
++AC_LANG_POP([C])
++
++
++dnl ------------------------------------------------------------
++dnl Optional: C++ client (folly + glog + gflags)
++dnl Allow disabling if not needed
++dnl ------------------------------------------------------------
++AC_ARG_ENABLE([cppclient],
++  [AS_HELP_STRING([--enable-cppclient],[build C++ client and integration tests (default=yes)])],
++  [], [enable_cppclient=yes])
++
++AS_IF([test "x$enable_cppclient" = "xyes"], [
++  PKG_CHECK_MODULES([GLOG],[glog],[
++    GLOG_LIBS="$GLOG_LIBS"
++    GLOG_CFLAGS="$GLOG_CFLAGS"
++  ], [AC_MSG_ERROR([glog not found; install libglog or use --disable-cppclient])])
++
++  PKG_CHECK_MODULES([GFLAGS],[gflags],[
++    GFLAGS_LIBS="$GFLAGS_LIBS"
++    GFLAGS_CFLAGS="$GFLAGS_CFLAGS"
++  ], [AC_MSG_ERROR([gflags not found; install gflags or use --disable-cppclient])])
++
++  AC_SUBST([GLOG_LIBS])
++  AC_SUBST([GLOG_CFLAGS])
++  AC_SUBST([GFLAGS_LIBS])
++  AC_SUBST([GFLAGS_CFLAGS])
++], [
++  AC_DEFINE([WATCHMAN_DISABLE_CPPCLIENT],[1],[Disable building C++ client])
++])
++
+ 
+ if test -n "$ac_cv_header_sys_statvfs_h"; then
+ AC_CHECK_MEMBERS([struct statvfs.f_fstypename,struct statvfs.f_basetype],

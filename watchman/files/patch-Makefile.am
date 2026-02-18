@@ -1,0 +1,35 @@
+--- ./Makefile.am.orig	2017-08-08 16:08:29 UTC
++++ ./Makefile.am
+@@ -149,7 +148,14 @@ TESTS = \
+ 		tests/log.t \
+ 		tests/wildmatch.t
+ 
++# Linker flags for FreeBSD libprocstat users
++AM_CPPFLAGS =
++AM_LDFLAGS = $(PROCSTAT_LIBS) $(KVM_LIBS)
++
+ if ENABLE_CPPCLIENT
++# If cppclient enabled, propagate glog/gflags to anything that needs folly/glog
++AM_CPPFLAGS += $(GLOG_CFLAGS) $(GFLAGS_CFLAGS)
++AM_LDFLAGS  += $(GLOG_LIBS) $(GFLAGS_LIBS)
+ lib_LTLIBRARIES = libwatchmanclient.la
+ libwatchmanclient_ladir = $(includedir)/watchman/
+ libwatchmanclient_la_HEADERS = \
+@@ -255,7 +259,7 @@ tests_childproc_t_CPPFLAGS = $(THIRDPARTY_CPPFLAGS) @I
+ 	log.cpp
+ 
+ tests_childproc_t_CPPFLAGS = $(THIRDPARTY_CPPFLAGS) @IRONMANCFLAGS@
+-tests_childproc_t_LDADD = $(TAP_LIB) $(JSON_LIB)
++tests_childproc_t_LDADD = $(TAP_LIB) $(JSON_LIB) $(PROCSTAT_LIBS) $(KVM_LIBS)
+ tests_childproc_t_SOURCES = \
+ 	tests/childproc.cpp \
+ 	tests/log_stub.cpp \
+@@ -322,7 +326,7 @@ tests_pending_t_CPPFLAGS = $(THIRDPARTY_CPPFLAGS) @IRO
+ 	string.cpp
+ 
+ tests_pending_t_CPPFLAGS = $(THIRDPARTY_CPPFLAGS) @IRONMANCFLAGS@
+-tests_pending_t_LDADD = $(TAP_LIB) $(JSON_LIB)
++tests_pending_t_LDADD = $(TAP_LIB) $(JSON_LIB) $(PROCSTAT_LIBS) $(KVM_LIBS)
+ tests_pending_t_SOURCES = \
+ 	tests/pending_test.cpp \
+ 	tests/log_stub.cpp \

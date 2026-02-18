@@ -1,8 +1,10 @@
 PORTNAME=	watchman
 PORTVERSION=	4.9.0
-PORTEPOCH=	1
 DISTVERSIONPREFIX=	v
-CATEGORIES=	sysutils
+PORTREVISION=	2
+PORTEPOCH=	1
+CATEGORIES=	local sysutils
+PKGNAMESUFFIX=	-devel
 
 MAINTAINER=	yuri@FreeBSD.org
 COMMENT=	File alteration monitoring service
@@ -15,14 +17,15 @@ BROKEN_mips64=		fails to build: watchman.h:169: undefined reference to '__sync_a
 
 BUILD_DEPENDS=	${LOCALBASE}/include/sys/inotify.h:devel/libinotify
 
-USE_GITHUB=	yes
-GH_ACCOUNT=	facebook
-
-USES=		autoreconf gmake pkgconfig
+# llvm:21,build
+USES=		autoreconf gmake pkgconfig 
 GNU_CONFIGURE=	yes
 CONFIGURE_ENV=	ac_cv_prog_HAVE_ARC=false ac_cv_header_sys_inotify_h=no
-CONFIGURE_ARGS=	--without-python --without-ruby # in separate ports
+CONFIGURE_ARGS=	--without-python --without-ruby --disable-cppclient # in separate ports
 TEST_TARGET=	check
+
+USE_GITHUB=	yes
+GH_ACCOUNT=	facebook
 
 PLIST_FILES=	bin/${PORTNAME} \
 		"@dir(,,2777) /var/run/${PORTNAME}"
@@ -37,11 +40,34 @@ BACKTRACE_LIBS=		-lexecinfo
 PCRE_LIB_DEPENDS=	libpcre.so:devel/pcre
 PCRE_CONFIGURE_WITH=	pcre
 
+GIT_COMMIT=	git ls-remote \
+		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
+		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}^{}
+
 CPPFLAGS+=	-Wno-error
+
+#CFLAGS:=	-Oz ${CFLAGS:N-O*} -DWATCHMAN_BUILD_INFO='\"${GIT_COMMIT:sh:C/(.{7}).*/\\1/W}\"'
+CFLAGS+=	-DWATCHMAN_BUILD_INFO='\"${GIT_COMMIT:sh:C/(.{7}).*/\\1/W}\"'
+#CFLAGS+=	-fomit-frame-pointer # -fno-omit-frame-pointer
+#CFLAGS+=	-fno-unwind-tables -fno-asynchronous-unwind-tables
+#CFLAGS+=	-flto=full
+#LDFLAGS+=	-Wl,-O3
+#LDFLAGS+=	-Wl,--lto-O3
+#CFLAGS+=	-fwhole-program-vtables
+#CFLAGS+=	-fno-unique-section-names
+#CFLAGS+=	-faddrsig
+#LDFLAGS+=	-Wl,--icf=all
+#LDFLAGS+=	-Wl,--as-needed
+#LDFLAGS+=	-Wl,--build-id=none
+#LDFLAGS+=	-Wl,--sort-common
 
 PORTSCOUT=	ignore:1 # newer versions (YYYY.MM.DD.dd) use F_GETPATH that isn't currently available on FreeBSD
 
-post-patch:
+JQ_GETVER_EXPR=	[.[].name | gsub("^[a-z]+";"") | \
+		select(test("^${PORTVERSION:C/[^.]+$/[0-9]+/:S/./\\\\./g}$$"; \
+		"n"))][0]
+
+post-patch: .PHONY
 # https://www.gnu.org/prep/standards/html_node/Directory-Variables.html
 	@${REINPLACE_CMD} -e 's,xprefix/var,localstatedir,' \
 		-e '\,/etc, { s//$$sysconfdir/; /=/s/^/eval /; }' \
