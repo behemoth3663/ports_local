@@ -1,7 +1,7 @@
 PORTNAME=	rclone
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.73.0
-PORTREVISION=	2
+DISTVERSION=	1.73.1
+#PORTREVISION=	1
 CATEGORIES=	local net
 
 MAINTAINER=	tremere@cainites.net
@@ -24,6 +24,7 @@ JQ_GETVER_EXPR=	.[0].name | gsub("[-a-z]"; "")
 CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X '${GO_MODULE}/fs.VersionSuffix='"
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 OPTIONS_DEFINE=	CMOUNT
 
