@@ -1,5 +1,6 @@
 PORTNAME=	gibrash
 PORTVERSION=	0.0.2
+PORTREVISION=	1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local
 
@@ -9,7 +10,7 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	BSD3CLAUSE
 
-USES=		llvm:21,build
+USES=		llvm:22,build
 
 BUILD_DEPENDS=	git:devel/git
 
