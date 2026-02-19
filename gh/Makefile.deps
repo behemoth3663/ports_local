@@ -29,7 +29,7 @@ GH_TUPLE=	\
 		cli:browser:v1.3.0:cli_browser/vendor/github.com/cli/browser \
 		cli:go-gh:v2.13.0:cli_go_gh_v2/vendor/github.com/cli/go-gh/v2 \
 		cli:go-internal:6c48bcd5ce24:cli_go_internal/vendor/github.com/cli/go-internal \
-		cli:oauth:v1.2.1:cli_oauth/vendor/github.com/cli/oauth \
+		cli:oauth:v1.2.2:cli_oauth/vendor/github.com/cli/oauth \
 		cli:safeexec:v1.0.1:cli_safeexec/vendor/github.com/cli/safeexec \
 		cli:shurcooL-graphql:v0.0.4:cli_shurcool_graphql/vendor/github.com/cli/shurcooL-graphql \
 		containerd:stargz-snapshotter:v0.18.1:containerd_stargz_snapshotter_estargz/vendor/github.com/containerd/stargz-snapshotter/estargz \
@@ -49,16 +49,16 @@ GH_TUPLE=	\
 		fatih:color:v1.18.0:fatih_color/vendor/github.com/fatih/color \
 		gabriel-vasile:mimetype:v1.4.11:gabriel_vasile_mimetype/vendor/github.com/gabriel-vasile/mimetype \
 		gdamore:encoding:v1.0.1:gdamore_encoding/vendor/github.com/gdamore/encoding \
-		gdamore:tcell:v2.13.4:gdamore_tcell_v2/vendor/github.com/gdamore/tcell/v2 \
+		gdamore:tcell:v2.13.8:gdamore_tcell_v2/vendor/github.com/gdamore/tcell/v2 \
 		go-logr:logr:v1.4.3:go_logr_logr/vendor/github.com/go-logr/logr \
 		go-logr:stdr:v1.2.2:go_logr_stdr/vendor/github.com/go-logr/stdr \
 		go-openapi:analysis:v0.24.1:go_openapi_analysis/vendor/github.com/go-openapi/analysis \
-		go-openapi:errors:v0.22.4:go_openapi_errors/vendor/github.com/go-openapi/errors \
-		go-openapi:jsonpointer:v0.22.1:go_openapi_jsonpointer/vendor/github.com/go-openapi/jsonpointer \
-		go-openapi:jsonreference:v0.21.3:go_openapi_jsonreference/vendor/github.com/go-openapi/jsonreference \
+		go-openapi:errors:v0.22.6:go_openapi_errors/vendor/github.com/go-openapi/errors \
+		go-openapi:jsonpointer:v0.22.4:go_openapi_jsonpointer/vendor/github.com/go-openapi/jsonpointer \
+		go-openapi:jsonreference:v0.21.4:go_openapi_jsonreference/vendor/github.com/go-openapi/jsonreference \
 		go-openapi:loads:v0.23.2:go_openapi_loads/vendor/github.com/go-openapi/loads \
 		go-openapi:runtime:v0.29.2:go_openapi_runtime/vendor/github.com/go-openapi/runtime \
-		go-openapi:spec:v0.22.1:go_openapi_spec/vendor/github.com/go-openapi/spec \
+		go-openapi:spec:v0.22.3:go_openapi_spec/vendor/github.com/go-openapi/spec \
 		go-openapi:strfmt:v0.25.0:go_openapi_strfmt/vendor/github.com/go-openapi/strfmt \
 		go-openapi:swag:v0.25.4:go_openapi_swag/vendor/github.com/go-openapi/swag \
 		go-openapi:swag:v0.25.4:go_openapi_swag_cmdutils/vendor/github.com/go-openapi/swag/cmdutils \
@@ -76,26 +76,26 @@ GH_TUPLE=	\
 		go-viper:mapstructure:v2.4.0:go_viper_mapstructure_v2/vendor/github.com/go-viper/mapstructure/v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
 		godbus:dbus:v5.1.0:godbus_dbus_v5/vendor/github.com/godbus/dbus/v5 \
-		golang:crypto:v0.46.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:mod:v0.30.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.47.0:golang_net/vendor/golang.org/x/net \
+		golang:crypto:v0.47.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:mod:v0.31.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.48.0:golang_net/vendor/golang.org/x/net \
 		golang:snappy:v1.0.0:golang_snappy/vendor/github.com/golang/snappy \
 		golang:sync:v0.19.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.39.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.38.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.32.0:golang_text/vendor/golang.org/x/text \
-		golang:tools:v0.39.0:golang_tools/vendor/golang.org/x/tools \
+		golang:sys:v0.40.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.39.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.33.0:golang_text/vendor/golang.org/x/text \
+		golang:tools:v0.40.0:golang_tools/vendor/golang.org/x/tools \
 		google:certificate-transparency-go:v1.3.2:google_certificate_transparency_go/vendor/github.com/google/certificate-transparency-go \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-containerregistry:v0.20.7:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
-		google:go-genproto:3a174f9686a8:google_go_genproto/vendor/google.golang.org/genproto/googleapis/api \
-		google:go-genproto:f26f9409b101:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/rpc \
+		google:go-genproto:0a764e51fe1b:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/rpc \
+		google:go-genproto:ff82c1b0f217:google_go_genproto/vendor/google.golang.org/genproto/googleapis/api \
 		google:shlex:e7afc7fbc510:google_shlex/vendor/github.com/google/shlex \
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
 		gorilla:css:v1.0.1:gorilla_css/vendor/github.com/gorilla/css \
 		gorilla:websocket:v1.5.3:gorilla_websocket/vendor/github.com/gorilla/websocket \
 		grpc-ecosystem:grpc-gateway:v2.27.3:grpc_ecosystem_grpc_gateway_v2/vendor/github.com/grpc-ecosystem/grpc-gateway/v2 \
-		grpc:grpc-go:v1.77.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+		grpc:grpc-go:v1.78.0:grpc_grpc_go/vendor/google.golang.org/grpc \
 		h2non:gock:v1.1.2:h2non_gock/vendor/gopkg.in/h2non/gock.v1 \
 		h2non:parth:b4df798d6542:h2non_parth/vendor/github.com/h2non/parth \
 		hashicorp:go-version:v1.8.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
@@ -136,21 +136,21 @@ GH_TUPLE=	\
 		opentracing:opentracing-go:v1.2.0:opentracing_opentracing_go/vendor/github.com/opentracing/opentracing-go \
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
 		pmezard:go-difflib:5d4384ee4fb2:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
-		protocolbuffers:protobuf-go:v1.36.10:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
+		protocolbuffers:protobuf-go:v1.36.11:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		rivo:tview:v0.42.0:rivo_tview/vendor/github.com/rivo/tview \
 		rivo:uniseg:v0.4.7:rivo_uniseg/vendor/github.com/rivo/uniseg \
 		rodaine:table:v1.3.0:rodaine_table/vendor/github.com/rodaine/table \
 		russross:blackfriday:v2.1.0:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
-		secure-systems-lab:go-securesystemslib:v0.9.1:secure_systems_lab_go_securesystemslib/vendor/github.com/secure-systems-lab/go-securesystemslib \
+		secure-systems-lab:go-securesystemslib:v0.10.0:secure_systems_lab_go_securesystemslib/vendor/github.com/secure-systems-lab/go-securesystemslib \
 		shibumi:go-pathspec:v1.3.0:shibumi_go_pathspec/vendor/github.com/shibumi/go-pathspec \
 		shopspring:decimal:v1.4.0:shopspring_decimal/vendor/github.com/shopspring/decimal \
 		shurcooL:githubv4:48295856cce7:shurcool_githubv4/vendor/github.com/shurcooL/githubv4 \
 		shurcooL:graphql:ed46e5a46466:shurcool_graphql/vendor/github.com/shurcooL/graphql \
 		sigstore:protobuf-specs:v0.5.0:sigstore_protobuf_specs/vendor/github.com/sigstore/protobuf-specs \
 		sigstore:rekor-tiles:v2.0.1:sigstore_rekor_tiles_v2/vendor/github.com/sigstore/rekor-tiles/v2 \
-		sigstore:rekor:v1.4.3:sigstore_rekor/vendor/github.com/sigstore/rekor \
+		sigstore:rekor:v1.5.0:sigstore_rekor/vendor/github.com/sigstore/rekor \
 		sigstore:sigstore-go:v1.1.4:sigstore_sigstore_go/vendor/github.com/sigstore/sigstore-go \
-		sigstore:sigstore:v1.10.0:sigstore_sigstore/vendor/github.com/sigstore/sigstore \
+		sigstore:sigstore:v1.10.4:sigstore_sigstore/vendor/github.com/sigstore/sigstore \
 		sigstore:timestamp-authority:v2.0.3:sigstore_timestamp_authority_v2/vendor/github.com/sigstore/timestamp-authority/v2 \
 		sirupsen:logrus:v1.9.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
 		spf13:cast:v1.10.0:spf13_cast/vendor/github.com/spf13/cast \
@@ -158,7 +158,7 @@ GH_TUPLE=	\
 		spf13:pflag:v1.0.10:spf13_pflag/vendor/github.com/spf13/pflag \
 		stretchr:objx:v0.5.2:stretchr_objx/vendor/github.com/stretchr/objx \
 		stretchr:testify:v1.11.1:stretchr_testify/vendor/github.com/stretchr/testify \
-		theupdateframework:go-tuf:v2.3.0:theupdateframework_go_tuf_v2/vendor/github.com/theupdateframework/go-tuf/v2 \
+		theupdateframework:go-tuf:v2.4.1:theupdateframework_go_tuf_v2/vendor/github.com/theupdateframework/go-tuf/v2 \
 		thlib:go-timezone-local:v0.0.6:thlib_go_timezone_local/vendor/github.com/thlib/go-timezone-local \
 		transparency-dev:formats:404c0d5b696c:transparency_dev_formats/vendor/github.com/transparency-dev/formats \
 		transparency-dev:merkle:v0.0.2:transparency_dev_merkle/vendor/github.com/transparency-dev/merkle \

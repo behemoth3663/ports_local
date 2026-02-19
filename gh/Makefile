@@ -1,8 +1,9 @@
 PORTNAME=	gh
-PORTVERSION=	2.86.0
+PORTVERSION=	2.87.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
+PKGNAMESUFFIX?=	-local
 
 MAINTAINER=	lcook@FreeBSD.org
 COMMENT=	GitHub's official command line tool
@@ -24,6 +25,7 @@ CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/internal/build.Version=${PORTVERSION} \
 	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/internal/build.Date=${%FT%TZ:L:gmtime}"
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 _DOCS=		README.md docs/[!README]*.md
 PORTDOCS=	${_DOCS:T}
