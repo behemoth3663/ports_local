@@ -1,8 +1,9 @@
 PORTNAME=	terragrunt
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.99.2
+DISTVERSION=	0.99.3
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
+PKGNAMESUFFIX?=	-local
 
 MAINTAINER=	dutra@FreeBSD.org
 COMMENT=	Terragrunt is a thin wrapper for Terraform
@@ -19,6 +20,7 @@ GH_ACCOUNT=	gruntwork-io
 CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'github.com/${GH_ACCOUNT}/go-commons/version.Version=${PORTVERSION}'"
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 PLIST_FILES=	bin/${PORTNAME}
 
@@ -34,7 +36,7 @@ pre-post-extract: .PHONY
 	done
 
 pre-deps: .PHONY
-	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
 
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
@@ -51,7 +53,7 @@ make-from-deps: .PHONY
 	${.CURDIR}/Makefile.deps >>${.CURDIR}/generated.deps.mk
 
 post-deps-all: .PHONY
-	test ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
+	${TEST} ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
