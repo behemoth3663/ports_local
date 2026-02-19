@@ -1,6 +1,6 @@
-TIMESTAMP = 1764689135
-SHA256 (control-theory-gonzo-v0.3.0_GH0.tar.gz) = f06376ec4574a44fe5609ba65faf28c54602768aaa77cefb4d7bcfe681b73719
-SIZE (control-theory-gonzo-v0.3.0_GH0.tar.gz) = 48379640
+TIMESTAMP = 1771499374
+SHA256 (control-theory-gonzo-v0.3.1_GH0.tar.gz) = 6b574c5068e39794062663e7b897d656b59928d2b3fa282b6705a73501e5e367
+SIZE (control-theory-gonzo-v0.3.1_GH0.tar.gz) = 48383925
 SHA256 (NimbleMarkets-ntcharts-v0.3.1_GH0.tar.gz) = cc59aab577a285c21294af3e7a405493aba27b43440319f525eebe3c13c76b3e
 SIZE (NimbleMarkets-ntcharts-v0.3.1_GH0.tar.gz) = 3809528
 SHA256 (atotto-clipboard-v0.1.4_GH0.tar.gz) = cafd64dc78f293c1e774386186f3f817461a1a8940ef86d5d9e9524b58aa791e
