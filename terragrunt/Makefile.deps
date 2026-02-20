@@ -342,9 +342,7 @@ post-extract: .PHONY
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/internal/trace
 	@${RM} -r ${WRKSRC}/vendor/google.golang.org/grpc/stats/opentelemetry
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/auth
-	@${RM} ${WRKSRC}/internal/telemetry/meter*.go
-	@${RM} ${WRKSRC}/internal/telemetry/tracer*.go
-	@${RM} ${WRKSRC}/internal/telemetry/util.go
+	@${RM} -r ${WRKSRC}/internal/telemetry
 	@${RM} ${WRKSRC}/vendor/cloud.google.com/go/storage/grpc_metrics.go
 	@${RM} ${WRKSRC}/vendor/cloud.google.com/go/storage/trace.go
 	@${RM} ${WRKSRC}/vendor/github.com/envoyproxy/go-control-plane/envoy/config/trace/v3/opencensus.pb.go
