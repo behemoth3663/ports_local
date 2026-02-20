@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/storage/grpc_metrics.go.orig	2025-05-13 20:48:25 UTC
+--- vendor/cloud.google.com/go/storage/grpc_metrics.go.orig	2025-09-22 16:26:20 UTC
 +++ vendor/cloud.google.com/go/storage/grpc_metrics.go
 @@ -16,22 +16,9 @@ import (
  
@@ -101,11 +101,12 @@
  	// clean func to call when closing gRPC client
  	close func()
  }
-@@ -125,110 +46,20 @@ type metricsConfig struct {
+@@ -125,114 +46,21 @@ type metricsConfig struct {
  type metricsConfig struct {
  	project         string
  	interval        time.Duration
 -	customExporter  *metric.Exporter
+ 	meterProvider   *metric.MeterProvider
 -	manualReader    *metric.ManualReader // used by tests
  	disableExporter bool                 // used by tests disables exports
 -	resourceOpts    []resource.Option    // used by tests
@@ -152,7 +153,10 @@
 -		meterOpts = append(meterOpts, metric.WithReader(
 -			metric.NewPeriodicReader(&exporterLogSuppressor{Exporter: exporter}, metric.WithInterval(interval))))
 -	}
--	provider := metric.NewMeterProvider(meterOpts...)
+-	provider := cfg.meterProvider
+-	if provider == nil {
+-		provider = metric.NewMeterProvider(meterOpts...)
+-	}
 -	mo := opentelemetry.MetricsOptions{
 -		MeterProvider: provider,
 -		Metrics: stats.NewMetrics(
@@ -212,7 +216,7 @@
  func latencyHistogramBoundaries() []float64 {
  	boundaries := []float64{}
  	boundary := 0.0
-@@ -266,18 +97,4 @@ func sizeHistogramBoundaries() []float64 {
+@@ -270,18 +98,4 @@ func sizeHistogramBoundaries() []float64 {
  		}
  	}
  	return boundaries

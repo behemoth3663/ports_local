@@ -1,4 +1,4 @@
---- vendor/google.golang.org/api/transport/http/dial.go.orig	2025-06-17 23:12:45 UTC
+--- vendor/google.golang.org/api/transport/http/dial.go.orig	2026-02-17 16:52:11 UTC
 +++ vendor/google.golang.org/api/transport/http/dial.go
 @@ -19,7 +19,6 @@ import (
  	"cloud.google.com/go/auth/credentials"
@@ -8,7 +8,15 @@
  	"golang.org/x/net/http2"
  	"golang.org/x/oauth2"
  	"google.golang.org/api/googleapi/transport"
-@@ -303,10 +302,7 @@ func addOpenTelemetryTransport(trans http.RoundTripper
+@@ -133,7 +132,6 @@ func newClientNewAuth(ctx context.Context, base http.R
+ 			DefaultMTLSEndpoint:     ds.DefaultMTLSEndpoint,
+ 			DefaultScopes:           ds.DefaultScopes,
+ 			SkipValidation:          skipValidation,
+-			TelemetryAttributes:     ds.TelemetryAttributes,
+ 		},
+ 		UniverseDomain: ds.UniverseDomain,
+ 		Logger:         ds.Logger,
+@@ -306,10 +304,7 @@ func addOpenTelemetryTransport(trans http.RoundTripper
  }
  
  func addOpenTelemetryTransport(trans http.RoundTripper, settings *internal.DialSettings) http.RoundTripper {

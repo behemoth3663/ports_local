@@ -1,8 +1,9 @@
 PORTNAME=	cosign
-PORTVERSION=	3.0.4
+PORTVERSION=	3.0.5
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local security
+PKGNAMESUFFIX=	-local
 
 MAINTAINER=	bofh@FreeBSD.org
 COMMENT=	Signing OCI containers and other artifacts using Sigstore
@@ -30,6 +31,7 @@ GO_BUILDFLAGS=	-ldflags="-s -w -buildid= \
 	-X sigs.k8s.io/release-utils/version.gitCommit=${GIT_COMMIT:sh:M*:[1]} \
 	-X sigs.k8s.io/release-utils/version.gitTreeState=clean \
 	-X sigs.k8s.io/release-utils/version.buildDate=${%FT%TZ:L:gmtime}"
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 PLIST_FILES=	bin/${PORTNAME}
 
@@ -56,19 +58,20 @@ post-extract: .PHONY .SILENT
 	@${TEST} -z ${WRKSRC_azure_azure_sdk_for_go_internal_1} || ${RLN} ${WRKSRC_azure_azure_sdk_for_go_internal_1}/sdk/security/keyvault/internal ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault
 	@${TEST} -z ${WRKSRC_azure_azure_sdk_for_go_azkeys} || ${RLN} ${WRKSRC_azure_azure_sdk_for_go_azkeys}/sdk/security/keyvault/azkeys ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault
 	@${RM} -r ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/api
-	@test -z ${WRKSRC_google_go_genproto_api} || ${RLN} ${WRKSRC_google_go_genproto_api}/googleapis/api ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
+	# Should be WRKSRC_google_go_genproto_api, but it fails
+	@${TEST} -z ${WRKSRC_google_go_genproto_rpc} || ${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/api ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
 	@${RM} -r ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/rpc
-	@test -z ${WRKSRC_google_go_genproto_rpc} || ${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
+	@${TEST} -z ${WRKSRC_google_go_genproto_rpc} || ${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
 	@${RM} ${WRKSRC}/vendor/github.com/go-openapi/runtime/client/opentelemetry.go
 	@${RM} ${WRKSRC}/vendor/github.com/go-openapi/runtime/client/opentelemetry_test.go
 	@${RM} ${WRKSRC}/vendor/github.com/go-openapi/runtime/client/opentracing.go
 	@${RM} ${WRKSRC}/vendor/github.com/go-openapi/runtime/client/opentracing_test.go
 
 pre-deps: .PHONY
-	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
 
 post-deps-all: .PHONY
-	test ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
+	${TEST} ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
 
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_

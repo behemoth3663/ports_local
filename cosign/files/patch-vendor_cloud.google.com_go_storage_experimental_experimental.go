@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/storage/experimental/experimental.go.orig	2025-05-13 20:48:25 UTC
+--- vendor/cloud.google.com/go/storage/experimental/experimental.go.orig	2025-09-22 16:26:20 UTC
 +++ vendor/cloud.google.com/go/storage/experimental/experimental.go
 @@ -25,7 +25,6 @@ import (
  	"time"
@@ -8,17 +8,13 @@
  	"google.golang.org/api/option"
  )
  
-@@ -35,13 +34,6 @@ func WithMetricInterval(metricInterval time.Duration) 
- // When using Cloud Monitoring interval must be at minimum 1 [time.Minute].
- func WithMetricInterval(metricInterval time.Duration) option.ClientOption {
- 	return internal.WithMetricInterval.(func(time.Duration) option.ClientOption)(metricInterval)
--}
--
--// WithMetricExporter provides a [option.ClientOption] that may be passed to [storage.NewGRPCClient].
--// Set an alternate client-side metric Exporter to emit metrics through.
--// Must implement [metric.Exporter]
+@@ -41,9 +40,6 @@ func WithMetricInterval(metricInterval time.Duration) 
+ // WithMetricExporter provides a [option.ClientOption] that may be passed to [storage.NewGRPCClient].
+ // Set an alternate client-side metric Exporter to emit metrics through.
+ // Must implement [metric.Exporter]. This option is ignored if WithMeterProvider is also set.
 -func WithMetricExporter(ex *metric.Exporter) option.ClientOption {
 -	return internal.WithMetricExporter.(func(*metric.Exporter) option.ClientOption)(ex)
- }
+-}
  
- // WithReadStallTimeout provides a [option.ClientOption] that may be passed to [storage.NewClient].
+ // WithMeterProvider provides a [option.ClientOption] that may be passed to [storage.NewGRPCClient].
+ // Set an alternate client-side meter provider to emit metrics through.

@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/storage/option.go.orig	2025-05-13 20:48:25 UTC
+--- vendor/cloud.google.com/go/storage/option.go.orig	2025-09-22 16:26:20 UTC
 +++ vendor/cloud.google.com/go/storage/option.go
 @@ -21,7 +21,6 @@ import (
  
@@ -14,23 +14,23 @@
  	// initialize experimental options
 -	storageinternal.WithMetricExporter = withMetricExporter
  	storageinternal.WithMetricInterval = withMetricInterval
+ 	storageinternal.WithMeterProvider = withMeterProvider
  	storageinternal.WithReadStallTimeout = withReadStallTimeout
- 	storageinternal.WithGRPCBidiReads = withGRPCBidiReads
-@@ -79,9 +77,7 @@ type storageConfig struct {
+@@ -80,10 +78,8 @@ type storageConfig struct {
  	useJSONforReads        bool
  	readAPIWasSet          bool
  	disableClientMetrics   bool
 -	metricExporter         *metric.Exporter
  	metricInterval         time.Duration
+ 	meterProvider          *metric.MeterProvider
 -	manualReader           *metric.ManualReader
  	readStallTimeoutConfig *experimental.ReadStallTimeoutConfig
  	grpcBidiReads          bool
  	grpcAppendableUploads  bool
-@@ -185,30 +181,16 @@ type withMetricExporterConfig struct {
- 
+@@ -188,21 +184,14 @@ type withMetricExporterConfig struct {
  type withMetricExporterConfig struct {
  	internaloption.EmbeddableAdapter
--	// exporter override
+ 	// exporter override
 -	metricExporter *metric.Exporter
  }
  
@@ -44,8 +44,13 @@
  
  type withTestMetricReaderConfig struct {
  	internaloption.EmbeddableAdapter
--	// reader override
+ 	// reader override
 -	metricReader *metric.ManualReader
+ }
+ 
+ type withMeterProviderConfig struct {
+@@ -219,12 +208,7 @@ func (w *withMeterProviderConfig) ApplyStorageOpt(c *s
+ 	c.meterProvider = w.meterProvider
  }
  
 -func withTestMetricReader(ex *metric.ManualReader) option.ClientOption {
