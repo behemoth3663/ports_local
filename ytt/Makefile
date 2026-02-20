@@ -1,7 +1,8 @@
 PORTNAME=	ytt
-PORTVERSION=	0.53.1
+PORTVERSION=	0.53.2
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local textproc
+PKGNAMESUFFIX=	-local
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	YAML tool with templates and user provided values
