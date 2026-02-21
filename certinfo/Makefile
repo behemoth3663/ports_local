@@ -1,5 +1,5 @@
 PORTNAME=	certinfo
-PORTVERSION=	1.0.39
+PORTVERSION=	1.0.40
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local security
 
@@ -14,8 +14,10 @@ USES=		go:modules
 USE_GITHUB=	yes
 GH_ACCOUNT=	pete911
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'main.Version=${DISTVERSIONPREFIX}${PORTVERSION}'"
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 PLIST_FILES=	bin/${PORTNAME}
 
