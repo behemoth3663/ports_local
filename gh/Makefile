@@ -1,5 +1,5 @@
 PORTNAME=	gh
-PORTVERSION=	2.87.0
+PORTVERSION=	2.87.2
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -53,7 +53,7 @@ post-install-MANPAGES-on:
 		${STAGEDIR}${PREFIX}/share/man/man1
 
 pre-deps: .PHONY
-	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
 
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
@@ -66,7 +66,7 @@ make-from-deps: .PHONY
 	${.CURDIR}/Makefile.deps >>${.CURDIR}/generated.deps.mk
 
 post-deps-all: .PHONY
-	test ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
+	${TEST} ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
 
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
