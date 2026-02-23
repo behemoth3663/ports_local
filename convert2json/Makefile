@@ -1,5 +1,5 @@
 PORTNAME=	convert2json
-DISTVERSION=	2.4.5
+DISTVERSION=	2.4.6
 #PORTREVISION=	1
 CATEGORIES=	local converters
 
@@ -16,7 +16,7 @@ USES=		cargo
 USE_GITHUB=	yes
 GH_ACCOUNT=	simonrupf
 
-CONFLICTS=	textproc/yq
+#CONFLICTS=	textproc/yq
 
 PLIST_FILES=	\
 	bin/bson2json \
