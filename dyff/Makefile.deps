@@ -5,13 +5,13 @@ GH_TUPLE=	\
 		davecgh:go-spew:d8f796af33cc:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		go-logr:logr:v1.4.3:go_logr_logr/vendor/github.com/go-logr/logr \
 		go-task:slim-sprig:v3.0.0:go_task_slim_sprig_v3/vendor/github.com/go-task/slim-sprig/v3 \
-		golang:mod:v0.32.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.49.0:golang_net/vendor/golang.org/x/net \
+		golang:mod:v0.33.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.50.0:golang_net/vendor/golang.org/x/net \
 		golang:sync:v0.19.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.41.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.39.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.33.0:golang_text/vendor/golang.org/x/text \
-		golang:tools:v0.41.0:golang_tools/vendor/golang.org/x/tools \
+		golang:term:v0.40.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.34.0:golang_text/vendor/golang.org/x/text \
+		golang:tools:v0.42.0:golang_tools/vendor/golang.org/x/tools \
 		gonvenience:bunt:v1.4.3:gonvenience_bunt/vendor/github.com/gonvenience/bunt \
 		gonvenience:idem:v0.0.3:gonvenience_idem/vendor/github.com/gonvenience/idem \
 		gonvenience:neat:v1.3.17:gonvenience_neat/vendor/github.com/gonvenience/neat \
