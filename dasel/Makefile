@@ -1,8 +1,9 @@
 PORTNAME=	dasel
-PORTVERSION=	3.2.2
+PORTVERSION=	3.2.3
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local textproc
+PKGNAMESUFFIX?=	-local
 
 MAINTAINER=	lcook@FreeBSD.org
 COMMENT=	Query and update data structures from the command line
@@ -20,6 +21,7 @@ GO_TARGET=	./cmd/${PORTNAME}
 CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-tags noupdater -ldflags="-s -w \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/internal.Version=${PORTVERSION}'"
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 PLIST_FILES=	bin/${PORTNAME}
 PORTDOCS=	CHANGELOG.md CODE_OF_CONDUCT.md README.md
