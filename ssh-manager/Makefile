@@ -1,6 +1,6 @@
 PORTNAME=	ssh-manager
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.93.0
+DISTVERSION=	1.94.0
 CATEGORIES=	local security
 
 MAINTAINER=	none@freebsd.org
@@ -31,7 +31,7 @@ post-patch: .PHONY
 
 post-extract: .PHONY
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
-	@test -z ${WRKSRC_googleapis_google_cloud_go_storage} || ${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go/storage
+	@${TEST} -z ${WRKSRC_googleapis_google_cloud_go_storage} || ${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go/storage
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
