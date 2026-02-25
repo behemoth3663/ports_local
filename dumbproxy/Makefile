@@ -1,5 +1,5 @@
 PORTNAME=	dumbproxy
-PORTVERSION=	1.42.0
+PORTVERSION=	1.42.1
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local net
@@ -20,6 +20,7 @@ PLIST_FILES=	bin/${PORTNAME}
 CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'main.version=${PORTVERSION}'"
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
