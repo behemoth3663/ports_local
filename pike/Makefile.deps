@@ -30,7 +30,7 @@ GH_TUPLE=	\
 		fsnotify:fsnotify:v1.7.0:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
 		go-git:gcfg:3a3c6141e376:go_git_gcfg/vendor/github.com/go-git/gcfg \
 		go-git:go-billy:v5.7.0:go_git_go_billy_v5/vendor/github.com/go-git/go-billy/v5 \
-		go-git:go-git:v5.16.4:go_git_go_git_v5/vendor/github.com/go-git/go-git/v5 \
+		go-git:go-git:v5.16.5:go_git_go_git_v5/vendor/github.com/go-git/go-git/v5 \
 		go-ini:ini:v1.67.0:go_ini_ini/vendor/gopkg.in/ini.v1 \
 		go-logr:logr:v1.4.3:go_logr_logr/vendor/github.com/go-logr/logr \
 		go-logr:stdr:v1.2.2:go_logr_stdr/vendor/github.com/go-logr/stdr \
