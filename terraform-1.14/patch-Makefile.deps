@@ -1,50 +1,50 @@
---- Makefile.deps.orig	2025-11-23 13:39:04 UTC
+--- Makefile.deps.orig	2026-02-26 10:22:03 UTC
 +++ Makefile.deps
-@@ -276,49 +276,43 @@ GH_TUPLE=	\
- 		#	::v1.38.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.38.0)
+@@ -277,49 +277,43 @@ GH_TUPLE=	\
+ 		#	::v1.40.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.40.0)
  		#	::v2.130.1:group_name/vendor/k8s.io/klog/v2 (from k8s.io/klog/v2@v2.130.1)
  		#	::v4.6.0:group_name/vendor/sigs.k8s.io/structured-merge-diff/v4 (from sigs.k8s.io/structured-merge-diff/v4@v4.6.0)
 -post-extract:
 -	@${RM} -r ${WRKSRC}/internal/backend/remote-state/azure
--	@${RLN} ${WRKSRC_hashicorp_terraform_azure}/internal/backend/remote-state/azure ${WRKSRC}/internal/backend/remote-state/azure
--	@${RM} -r ${WRKSRC}/internal/backend/remote-state/azure
 -	@${RLN} ${WRKSRC_hashicorp_terraform_azure_1}/internal/backend/remote-state/azure ${WRKSRC}/internal/backend/remote-state/azure
+-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/azure
+-	@${RLN} ${WRKSRC_hashicorp_terraform_azure}/internal/backend/remote-state/azure ${WRKSRC}/internal/backend/remote-state/azure
 -	@${RM} -r ${WRKSRC}/internal/backend/remote-state/consul
 -	@${RLN} ${WRKSRC_hashicorp_terraform_consul_1}/internal/backend/remote-state/consul ${WRKSRC}/internal/backend/remote-state/consul
 -	@${RM} -r ${WRKSRC}/internal/backend/remote-state/consul
 -	@${RLN} ${WRKSRC_hashicorp_terraform_consul}/internal/backend/remote-state/consul ${WRKSRC}/internal/backend/remote-state/consul
 -	@${RM} -r ${WRKSRC}/internal/backend/remote-state/cos
--	@${RLN} ${WRKSRC_hashicorp_terraform_cos}/internal/backend/remote-state/cos ${WRKSRC}/internal/backend/remote-state/cos
--	@${RM} -r ${WRKSRC}/internal/backend/remote-state/cos
 -	@${RLN} ${WRKSRC_hashicorp_terraform_cos_1}/internal/backend/remote-state/cos ${WRKSRC}/internal/backend/remote-state/cos
--	@${RM} -r ${WRKSRC}/internal/backend/remote-state/gcs
--	@${RLN} ${WRKSRC_hashicorp_terraform_gcs_1}/internal/backend/remote-state/gcs ${WRKSRC}/internal/backend/remote-state/gcs
+-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/cos
+-	@${RLN} ${WRKSRC_hashicorp_terraform_cos}/internal/backend/remote-state/cos ${WRKSRC}/internal/backend/remote-state/cos
 -	@${RM} -r ${WRKSRC}/internal/backend/remote-state/gcs
 -	@${RLN} ${WRKSRC_hashicorp_terraform_gcs}/internal/backend/remote-state/gcs ${WRKSRC}/internal/backend/remote-state/gcs
+-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/gcs
+-	@${RLN} ${WRKSRC_hashicorp_terraform_gcs_1}/internal/backend/remote-state/gcs ${WRKSRC}/internal/backend/remote-state/gcs
 -	@${RM} -r ${WRKSRC}/internal/backend/remote-state/kubernetes
 -	@${RLN} ${WRKSRC_hashicorp_terraform_kubernetes_1}/internal/backend/remote-state/kubernetes ${WRKSRC}/internal/backend/remote-state/kubernetes
 -	@${RM} -r ${WRKSRC}/internal/backend/remote-state/kubernetes
 -	@${RLN} ${WRKSRC_hashicorp_terraform_kubernetes}/internal/backend/remote-state/kubernetes ${WRKSRC}/internal/backend/remote-state/kubernetes
 -	@${RM} -r ${WRKSRC}/internal/backend/remote-state/oci
--	@${RLN} ${WRKSRC_hashicorp_terraform_oci}/internal/backend/remote-state/oci ${WRKSRC}/internal/backend/remote-state/oci
--	@${RM} -r ${WRKSRC}/internal/backend/remote-state/oci
 -	@${RLN} ${WRKSRC_hashicorp_terraform_oci_1}/internal/backend/remote-state/oci ${WRKSRC}/internal/backend/remote-state/oci
--	@${RM} -r ${WRKSRC}/internal/backend/remote-state/oss
--	@${RLN} ${WRKSRC_hashicorp_terraform_oss_1}/internal/backend/remote-state/oss ${WRKSRC}/internal/backend/remote-state/oss
+-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/oci
+-	@${RLN} ${WRKSRC_hashicorp_terraform_oci}/internal/backend/remote-state/oci ${WRKSRC}/internal/backend/remote-state/oci
 -	@${RM} -r ${WRKSRC}/internal/backend/remote-state/oss
 -	@${RLN} ${WRKSRC_hashicorp_terraform_oss}/internal/backend/remote-state/oss ${WRKSRC}/internal/backend/remote-state/oss
--	@${RM} -r ${WRKSRC}/internal/backend/remote-state/pg
--	@${RLN} ${WRKSRC_hashicorp_terraform_pg}/internal/backend/remote-state/pg ${WRKSRC}/internal/backend/remote-state/pg
+-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/oss
+-	@${RLN} ${WRKSRC_hashicorp_terraform_oss_1}/internal/backend/remote-state/oss ${WRKSRC}/internal/backend/remote-state/oss
 -	@${RM} -r ${WRKSRC}/internal/backend/remote-state/pg
 -	@${RLN} ${WRKSRC_hashicorp_terraform_pg_1}/internal/backend/remote-state/pg ${WRKSRC}/internal/backend/remote-state/pg
--	@${RM} -r ${WRKSRC}/internal/backend/remote-state/s3
--	@${RLN} ${WRKSRC_hashicorp_terraform_s3}/internal/backend/remote-state/s3 ${WRKSRC}/internal/backend/remote-state/s3
+-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/pg
+-	@${RLN} ${WRKSRC_hashicorp_terraform_pg}/internal/backend/remote-state/pg ${WRKSRC}/internal/backend/remote-state/pg
 -	@${RM} -r ${WRKSRC}/internal/backend/remote-state/s3
 -	@${RLN} ${WRKSRC_hashicorp_terraform_s3_1}/internal/backend/remote-state/s3 ${WRKSRC}/internal/backend/remote-state/s3
--	@${RM} -r ${WRKSRC}/internal/legacy
--	@${RLN} ${WRKSRC_hashicorp_terraform_legacy_1}/internal/legacy ${WRKSRC}/internal/legacy
+-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/s3
+-	@${RLN} ${WRKSRC_hashicorp_terraform_s3}/internal/backend/remote-state/s3 ${WRKSRC}/internal/backend/remote-state/s3
 -	@${RM} -r ${WRKSRC}/internal/legacy
 -	@${RLN} ${WRKSRC_hashicorp_terraform_legacy}/internal/legacy ${WRKSRC}/internal/legacy
+-	@${RM} -r ${WRKSRC}/internal/legacy
+-	@${RLN} ${WRKSRC_hashicorp_terraform_legacy_1}/internal/legacy ${WRKSRC}/internal/legacy
 -	@${MKDIR} ${WRKSRC}/vendor/github.com/hashicorp
 -	@${RLN} ${WRKSRC_fsnotify_fsnotify} ${WRKSRC}/vendor/github.com/hashicorp/go-plugin
 -	@${RLN} ${WRKSRC_fsnotify_fsnotify} ${WRKSRC}/vendor/github.com/hashicorp/go-version
