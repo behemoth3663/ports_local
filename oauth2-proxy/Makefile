@@ -1,8 +1,9 @@
 PORTNAME=	oauth2-proxy
-PORTVERSION=	7.14.2
+PORTVERSION=	7.14.3
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local www
+PKGNAMESUFFIX=	-local
 
 MAINTAINER=	freebsd@rheinwolf.de
 COMMENT=	OAuth 2.0 proxy server
@@ -33,6 +34,7 @@ SUB_LIST+=	GROUP=${GROUP} \
 CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'version.VERSION=${PORTVERSION}'"
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 post-install: .PHONY
 	${MKDIR} ${STAGEDIR}${LOG_DIR}
