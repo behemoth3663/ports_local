@@ -1,8 +1,9 @@
 PORTNAME=	gosec
-PORTVERSION=	2.23.0
+PORTVERSION=	2.24.6
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel security
+PKGNAMESUFFIX=	-local
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Golang Security Checker
@@ -32,6 +33,7 @@ GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'main.GitTag=$$(${GIT_COMMIT})' \
 	-X 'main.Version=${PORTVERSION}' \
 	-X 'main.BuildDate=${%F %T:L:gmtime}'"
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
@@ -42,20 +44,20 @@ post-extract: .PHONY .SILENT
 	${RM} ${WRKSRC}/vendor/cloud.google.com/go/longrunning/autogen/auxiliary_go123.go
 	${RM} ${WRKSRC}/vendor/cloud.google.com/go/ai/generativelanguage/apiv1beta/auxiliary_go123.go
 	${MKDIR} ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
-	test -z ${WRKSRC_google_go_genproto_api} || ${RLN} ${WRKSRC_google_go_genproto_api}/googleapis/api ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
-	test -z ${WRKSRC_google_go_genproto_rpc} || ${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
+	${TEST} -z ${WRKSRC_google_go_genproto_api} || ${RLN} ${WRKSRC_google_go_genproto_api}/googleapis/api ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
+	${TEST} -z ${WRKSRC_google_go_genproto_rpc} || ${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
 	${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/auth
-	test -z ${WRKSRC_googleapis_google_cloud_go_auth} || ${RLN} ${WRKSRC_googleapis_google_cloud_go_auth}/auth ${WRKSRC}/vendor/cloud.google.com/go
+	${TEST} -z ${WRKSRC_googleapis_google_cloud_go_auth} || ${RLN} ${WRKSRC_googleapis_google_cloud_go_auth}/auth ${WRKSRC}/vendor/cloud.google.com/go
 	${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
-	test -z ${WRKSRC_googleapis_google_cloud_go_compute_metadata} || ${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute
+	${TEST} -z ${WRKSRC_googleapis_google_cloud_go_compute_metadata} || ${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute
 	@${MKDIR} ${WRKSRC}/vendor/go.yaml.in/yaml
 	@${TEST} ! -e ${WRKSRC}/vendor/gopkg.in/yaml.v3 || ${RLN} ${WRKSRC}/vendor/gopkg.in/yaml.v3 ${WRKSRC}/vendor/go.yaml.in/yaml/v3
 
 pre-deps: .PHONY
-	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
 
 post-deps-all: .PHONY
-	test ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
+	${TEST} ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
 
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
