@@ -1,6 +1,6 @@
 PORTNAME=	dns-q
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.19.11
+DISTVERSION=	0.19.12
 CATEGORIES=	local dns
 
 MAINTAINER=	none@freebsd.org
@@ -24,22 +24,24 @@ GIT_COMMIT=	git ls-remote \
 		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
 		${SED} -rn 's/(.{7}).*/\1/p'
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'main.version=${PORTVERSION}' \
 	-X 'main.commit=${GIT_COMMIT:sh}' \
 	-X 'main.date=${%FT%TZ:L:gmtime}'"
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 pre-patch: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor || :
 
 pre-deps: .PHONY
-	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
 
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 
 post-deps-all: .PHONY
-	test ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
+	${TEST} ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
