@@ -1,0 +1,2 @@
+Command-line tool that can execute SQL queries on CSV, LTSV, JSON, YAML,
+and TBLN files and output results to various formats.

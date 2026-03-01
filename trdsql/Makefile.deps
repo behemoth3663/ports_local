@@ -1,0 +1,45 @@
+GH_TUPLE=	\
+		FiloSottile:edwards25519:v1.1.0:filosottile_edwards25519/vendor/filippo.io/edwards25519 \
+		araddon:dateparse:6b43995a97de:araddon_dateparse/vendor/github.com/araddon/dateparse \
+		dsnet:compress:v0.0.1:dsnet_compress/vendor/github.com/dsnet/compress \
+		dustin:go-humanize:v1.0.1:dustin_go_humanize/vendor/github.com/dustin/go-humanize \
+		fatih:color:v1.16.0:fatih_color/vendor/github.com/fatih/color \
+		go-sql-driver:mysql:v1.8.1:go_sql_driver_mysql/vendor/github.com/go-sql-driver/mysql \
+		goccy:go-yaml:v1.11.3:goccy_go_yaml/vendor/github.com/goccy/go-yaml \
+		golang:crypto:v0.21.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:sys:v0.26.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.25.0:golang_term/vendor/golang.org/x/term \
+		golang:xerrors:104605ab7028:golang_xerrors/vendor/golang.org/x/xerrors \
+		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
+		hashicorp:golang-lru:v2.0.7:hashicorp_golang_lru_v2/vendor/github.com/hashicorp/golang-lru/v2 \
+		iancoleman:orderedmap:v0.3.0:iancoleman_orderedmap/vendor/github.com/iancoleman/orderedmap \
+		itchyny:gojq:v0.12.16:itchyny_gojq/vendor/github.com/itchyny/gojq \
+		itchyny:timefmt-go:v0.1.6:itchyny_timefmt_go/vendor/github.com/itchyny/timefmt-go \
+		jwalton:gchalk:v1.3.0:jwalton_gchalk/vendor/github.com/jwalton/gchalk \
+		jwalton:go-supportscolor:v1.2.0:jwalton_go_supportscolor/vendor/github.com/jwalton/go-supportscolor \
+		klauspost:compress:v1.17.8:klauspost_compress/vendor/github.com/klauspost/compress \
+		lib:pq:v1.10.9:lib_pq/vendor/github.com/lib/pq \
+		mattn:go-colorable:v0.1.13:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
+		mattn:go-isatty:v0.0.20:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
+		mattn:go-runewidth:v0.0.16:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
+		mattn:go-sqlite3:v1.14.24:mattn_go_sqlite3/vendor/github.com/mattn/go-sqlite3 \
+		multiprocessio:go-sqlite3-stdlib:9f6825a1cd25:multiprocessio_go_sqlite3_stdlib/vendor/github.com/multiprocessio/go-sqlite3-stdlib \
+		ncruces:go-strftime:v0.1.9:ncruces_go_strftime/vendor/github.com/ncruces/go-strftime \
+		noborus:guesswidth:v0.4.0:noborus_guesswidth/vendor/github.com/noborus/guesswidth \
+		noborus:sqlss:v0.1.0:noborus_sqlss/vendor/github.com/noborus/sqlss \
+		noborus:tbln:v0.0.2:noborus_tbln/vendor/github.com/noborus/tbln \
+		olekukonko:tablewriter:v0.0.5:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
+		pierrec:lz4:v4.1.21:pierrec_lz4_v4/vendor/github.com/pierrec/lz4/v4 \
+		remyoudompheng:bigfft:24d4a6f8daec:remyoudompheng_bigfft/vendor/github.com/remyoudompheng/bigfft \
+		rivo:uniseg:v0.4.7:rivo_uniseg/vendor/github.com/rivo/uniseg \
+		ulikunitz:xz:v0.5.12:ulikunitz_xz/vendor/github.com/ulikunitz/xz
+GL_TUPLE=	\
+		cznic:gc:f0dba7c97c2b9a339c26efa9f85898b1d4d62c59:cznic_gc/vendor/modernc.org/gc/v3 \
+		cznic:libc:61d91f8cded3f202ac8cd1e133c8bf883bc615f9:cznic_libc/vendor/modernc.org/libc \
+		cznic:mathutil:aabd79189264b253ce2360e80193242239022080:cznic_mathutil/vendor/modernc.org/mathutil \
+		cznic:memory:cd6b9df5067aec83c6c73e18fa974cdfc1c400dd:cznic_memory/vendor/modernc.org/memory \
+		cznic:sqlite:b0354f7c3514e4d555487e0a855cfdb64bf0e7cc:cznic_sqlite/vendor/modernc.org/sqlite \
+		cznic:strutil:f4c290107e9e43b1bb4a8bc7dcd154eb9b565cd8:cznic_strutil/vendor/modernc.org/strutil \
+		cznic:token:24e30cd78ee0f2d5d4516917d9cc1101e3ccc1ab:cznic_token/vendor/modernc.org/token
+		# Errors found during processing:
+		#	tuple.discoverMirrors https://gonum.org/v1/gonum?go-get=1: status 404
