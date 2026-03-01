@@ -1,8 +1,9 @@
 PORTNAME=	trufflehog
-PORTVERSION=	3.93.4
+PORTVERSION=	3.93.6
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
+PKGNAMESUFFIX=	-local
 
 MAINTAINER=	yuri@FreeBSD.org
 COMMENT=	Find and verify credentials
