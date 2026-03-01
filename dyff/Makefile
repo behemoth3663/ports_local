@@ -1,7 +1,8 @@
 PORTNAME=	dyff
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.10.5
+DISTVERSION=	1.11.1
 CATEGORIES=	local textproc
+PKGNAMESUFFIX=	-local
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	diff tool for YAML files, and sometimes JSON
