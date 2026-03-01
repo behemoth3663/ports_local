@@ -1,6 +1,6 @@
-TIMESTAMP = 1772376620
-SHA256 (securego-gosec-v2.24.6_GH0.tar.gz) = 8e51ad7be142764bf57c23a0033fddbcffe8163e79aaa7d41fe2cd54ce7206a9
-SIZE (securego-gosec-v2.24.6_GH0.tar.gz) = 334775
+TIMESTAMP = 1772404494
+SHA256 (securego-gosec-v2.24.7_GH0.tar.gz) = 0d5509b17bb89ca1fa8f135ff88e498400a81bbb4c6fad19cb6aa34654249db8
+SIZE (securego-gosec-v2.24.7_GH0.tar.gz) = 351192
 SHA256 (BurntSushi-toml-v0.3.1_GH0.tar.gz) = 6593da894578ba510a470735ffbdc88ce88033094dc5a8f4d3957ab87e18803f
 SIZE (BurntSushi-toml-v0.3.1_GH0.tar.gz) = 42077
 SHA256 (Masterminds-semver-v3.4.0_GH0.tar.gz) = 47f43127587cd7750f2054c9ebab8851a3ea2011aefd7cc5319624dac8810799
