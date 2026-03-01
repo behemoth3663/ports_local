@@ -1,5 +1,5 @@
 PORTNAME=	zek
-PORTVERSION=	0.1.28
+PORTVERSION=	0.1.30
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local textproc
@@ -18,7 +18,9 @@ GH_ACCOUNT=	miku
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static"
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w"
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 #const Version = "0.1.23"
 post-patch: .PHONY
@@ -28,10 +30,10 @@ post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 
 pre-deps: .PHONY
-	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
 
 post-deps-all: .PHONY
-	test -d ${PATCHDIR}_ && ${MV} ${PATCHDIR}_ ${PATCHDIR} || :
+	${TEST} -d ${PATCHDIR}_ && ${MV} ${PATCHDIR}_ ${PATCHDIR} || :
 
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
