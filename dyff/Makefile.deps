@@ -15,7 +15,7 @@ GH_TUPLE=	\
 		golang:tools:v0.42.0:golang_tools/vendor/golang.org/x/tools \
 		gonvenience:bunt:v1.4.3:gonvenience_bunt/vendor/github.com/gonvenience/bunt \
 		gonvenience:idem:v0.0.3:gonvenience_idem/vendor/github.com/gonvenience/idem \
-		gonvenience:neat:v1.3.17:gonvenience_neat/vendor/github.com/gonvenience/neat \
+		gonvenience:neat:v1.3.18:gonvenience_neat/vendor/github.com/gonvenience/neat \
 		gonvenience:term:v1.0.5:gonvenience_term/vendor/github.com/gonvenience/term \
 		gonvenience:text:v1.0.10:gonvenience_text/vendor/github.com/gonvenience/text \
 		gonvenience:ytbx:v1.4.8:gonvenience_ytbx/vendor/github.com/gonvenience/ytbx \
