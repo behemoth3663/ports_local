@@ -1,8 +1,9 @@
 PORTNAME=	trivy
-PORTVERSION=	0.69.1
+PORTVERSION=	0.69.2
 DISTVERSIONPREFIX=	v
-PORTREVISION=	2
+#PORTREVISION=	1
 CATEGORIES=	local security
+PKGNAMESUFFIX=	-local
 
 MAINTAINER=	mfechner@FreeBSD.org
 COMMENT=	Security scanner written in go
@@ -14,16 +15,19 @@ BROKEN_i386=	not supported, see https://github.com/aquasecurity/trivy/pull/9102
 
 USES=		go:modules
 
-GO_MODULE=	github.com/aquasecurity/${PORTNAME}
+USE_GITHUB=	yes
+GH_ACCOUNT=	aquasecurity
+GO_MOD_DIST=	github
+
+GO_MODULE=	github.com/${GH_ACCOUNT}/${GH_PROJECT}
 GO_TARGET=	./cmd/${PORTNAME}
 
-CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w \
+#CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
 	-X '${GO_MODULE}/pkg/version/app.ver=${PORTVERSION}'"
+GO_ENV+=	GOEXPERIMENT=jsonv2,norandomizedheapbase64
 
 PLIST_FILES=	bin/${PORTNAME}
-
-GO_ENV+=	GOEXPERIMENT=jsonv2
 
 post-install: .PHONY
 	${MKDIR} ${STAGEDIR}${DATADIR}
