@@ -1,0 +1,9 @@
+--- Makefile.deps.orig	2026-03-03 11:46:19 UTC
++++ Makefile.deps
+@@ -97,6 +97,3 @@ GH_TUPLE=	\
+ 		vektra:mockery:v2.53.5:vektra_mockery_v2/vendor/github.com/vektra/mockery/v2 \
+ 		zclconf:go-cty-debug:0d6042c53940:zclconf_go_cty_debug/vendor/github.com/zclconf/go-cty-debug \
+ 		zclconf:go-cty:v1.17.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+-post-extract:
+-	@${MKDIR} ${WRKSRC}/vendor/github.com/hashicorp
+-	@${RLN} ${WRKSRC_fsnotify_fsnotify} ${WRKSRC}/vendor/github.com/hashicorp/go-version
