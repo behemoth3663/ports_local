@@ -1,7 +1,7 @@
 PORTNAME=	hcledit
 PORTVERSION=	0.2.17
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -19,6 +19,7 @@ PLIST_FILES=	bin/${PORTNAME}
 
 CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w"
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 post-extract: .PHONY
 	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor

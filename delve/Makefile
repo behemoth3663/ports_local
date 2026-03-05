@@ -1,8 +1,9 @@
 PORTNAME=	delve
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.26.0
-PORTREVISION=	3
+DISTVERSION=	1.26.1
+#PORTREVISION=	1
 CATEGORIES=	local devel
+PKGNAMESUFFIX=	-local
 
 MAINTAINER=	dmitry.wagin@ya.ru
 COMMENT=	Debugger for the Go programming language
