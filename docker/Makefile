@@ -1,7 +1,8 @@
 PORTNAME=		docker
-PORTVERSION=		29.2.1
+PORTVERSION=		29.3.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=		local sysutils
+PKGNAMESUFFIX=		-local
 
 MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Open-source application container engine
@@ -27,9 +28,10 @@ GIT_COMMIT=	git ls-remote \
 
 CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w"
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 post-extract: .PHONY
-	# ${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io
+#	${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io
 	${MKDIR} ${WRKSRC}/vendor/github.com/docker/cli
 	${RLN} ${WRKSRC}/cli ${WRKSRC}/vendor/github.com/docker/cli
 	${RLN} ${WRKSRC}/cli-plugins ${WRKSRC}/vendor/github.com/docker/cli
