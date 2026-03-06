@@ -20,7 +20,7 @@ GH_TUPLE=	\
 		aws:aws-sdk-go-v2:v2.7.16:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 \
 		aws:smithy-go:v1.24.0:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		cespare:xxhash:v2.3.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
-		cloudflare:circl:v1.6.1:cloudflare_circl/vendor/github.com/cloudflare/circl \
+		cloudflare:circl:v1.6.3:cloudflare_circl/vendor/github.com/cloudflare/circl \
 		cpuguy83:go-md2man:v2.0.7:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
 		cyphar:filepath-securejoin:v0.6.1:cyphar_filepath_securejoin/vendor/github.com/cyphar/filepath-securejoin \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
