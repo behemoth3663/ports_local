@@ -58,7 +58,7 @@ GH_TUPLE=	\
 		aws:aws-sdk-go-v2:v1.36.6:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
 		aws:aws-sdk-go-v2:v1.6.11:aws_aws_sdk_go_v2_eventstream/vendor/github.com/aws/aws-sdk-go-v2/aws/protocol/eventstream \
 		aws:aws-sdk-go-v2:v1.60.1:aws_aws_sdk_go_v2_s3/vendor/github.com/aws/aws-sdk-go-v2/service/s3 \
-		aws:aws-sdk-go-v2:v1.8.4:aws_aws_sdk_go_v2_ini/vendor/github.com/aws/aws-sdk-go-v2/internal/ini \
+		aws:aws-sdk-go-v2:v1.8.5:aws_aws_sdk_go_v2_ini/vendor/github.com/aws/aws-sdk-go-v2/internal/ini \
 		aws:aws-sdk-go-v2:v1.9.19:aws_aws_sdk_go_v2_endpoint_discovery/vendor/github.com/aws/aws-sdk-go-v2/service/internal/endpoint-discovery \
 		aws:aws-sdk-go-v2:v2.6.37:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 \
 		aws:aws-sdk-go:v1.44.334:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
@@ -122,16 +122,16 @@ GH_TUPLE=	\
 		golang:tools:v0.42.0:golang_tools/vendor/golang.org/x/tools \
 		google:gnostic:v0.5.7-v3refs:google_gnostic/vendor/github.com/google/gnostic \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
-		google:go-genproto:2f722ef697dc:google_go_genproto/vendor/google.golang.org/genproto \
-		google:go-genproto:2f722ef697dc:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api \
-		google:go-genproto:2f722ef697dc:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc \
+		google:go-genproto:a57be14db171:google_go_genproto/vendor/google.golang.org/genproto \
+		google:go-genproto:a57be14db171:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api \
+		google:go-genproto:a57be14db171:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc \
 		google:go-github:v45.2.0:google_go_github_v45/vendor/github.com/google/go-github/v45 \
 		google:go-github:v53.0.0:google_go_github_v53/vendor/github.com/google/go-github/v53 \
 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
 		google:gofuzz:v1.1.0:google_gofuzz/vendor/github.com/google/gofuzz \
 		google:s2a-go:v0.1.9:google_s2a_go/vendor/github.com/google/s2a-go \
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
-		googleapis:enterprise-certificate-proxy:v0.3.12:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
+		googleapis:enterprise-certificate-proxy:v0.3.14:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
 		googleapis:gax-go:v2.15.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2 \
 		googleapis:google-api-go-client:v0.256.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
 		googleapis:google-cloud-go:v0.123.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
@@ -170,15 +170,15 @@ GH_TUPLE=	\
 		hashicorp:terraform-plugin-log:v0.9.0:hashicorp_terraform_plugin_log/vendor/github.com/hashicorp/terraform-plugin-log \
 		hashicorp:terraform-registry-address:v0.2.5:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
 		hashicorp:terraform-svchost:v0.1.1:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
-		hashicorp:terraform:0ce1ae7cd69b:hashicorp_terraform_azure_1 \
-		hashicorp:terraform:0ce1ae7cd69b:hashicorp_terraform_consul \
-		hashicorp:terraform:0ce1ae7cd69b:hashicorp_terraform_cos \
-		hashicorp:terraform:0ce1ae7cd69b:hashicorp_terraform_gcs_1 \
-		hashicorp:terraform:0ce1ae7cd69b:hashicorp_terraform_kubernetes \
-		hashicorp:terraform:0ce1ae7cd69b:hashicorp_terraform_oss \
-		hashicorp:terraform:0ce1ae7cd69b:hashicorp_terraform_pg \
-		hashicorp:terraform:0ce1ae7cd69b:hashicorp_terraform_s3 \
-		hashicorp:terraform:0ce1ae7cd69b:hashicorp_terraform_legacy \
+		hashicorp:terraform:2f3a862f8053:hashicorp_terraform_azure_1 \
+		hashicorp:terraform:2f3a862f8053:hashicorp_terraform_consul \
+		hashicorp:terraform:2f3a862f8053:hashicorp_terraform_cos \
+		hashicorp:terraform:2f3a862f8053:hashicorp_terraform_gcs_1 \
+		hashicorp:terraform:2f3a862f8053:hashicorp_terraform_kubernetes \
+		hashicorp:terraform:2f3a862f8053:hashicorp_terraform_oss \
+		hashicorp:terraform:2f3a862f8053:hashicorp_terraform_pg \
+		hashicorp:terraform:2f3a862f8053:hashicorp_terraform_s3 \
+		hashicorp:terraform:2f3a862f8053:hashicorp_terraform_legacy \
 		hashicorp:terraform::hashicorp_terraform_azure/github.com/hashicorp/terraform/internal/backend/remote-state/azure \
 		hashicorp:terraform::hashicorp_terraform_consul_1/github.com/hashicorp/terraform/internal/backend/remote-state/consul \
 		hashicorp:terraform::hashicorp_terraform_cos_1/github.com/hashicorp/terraform/internal/backend/remote-state/cos \

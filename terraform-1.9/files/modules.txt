@@ -340,8 +340,8 @@ github.com/aws/aws-sdk-go-v2/internal/configsources
 # github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.6.37
 ## explicit; go 1.22
 github.com/aws/aws-sdk-go-v2/internal/endpoints/v2
-# github.com/aws/aws-sdk-go-v2/internal/ini v1.8.4
-## explicit; go 1.23
+# github.com/aws/aws-sdk-go-v2/internal/ini v1.8.5
+## explicit; go 1.24
 github.com/aws/aws-sdk-go-v2/internal/ini
 # github.com/aws/aws-sdk-go-v2/internal/v4a v1.3.37
 ## explicit; go 1.22
@@ -692,7 +692,7 @@ github.com/google/s2a-go/stream
 # github.com/google/uuid v1.6.0
 ## explicit
 github.com/google/uuid
-# github.com/googleapis/enterprise-certificate-proxy v0.3.12
+# github.com/googleapis/enterprise-certificate-proxy v0.3.14
 ## explicit; go 1.24.11
 github.com/googleapis/enterprise-certificate-proxy/client
 github.com/googleapis/enterprise-certificate-proxy/client/util
@@ -712,7 +712,7 @@ github.com/googleapis/gax-go/v2/iterator
 github.com/grpc-ecosystem/grpc-gateway/v2/internal/httprule
 github.com/grpc-ecosystem/grpc-gateway/v2/runtime
 github.com/grpc-ecosystem/grpc-gateway/v2/utilities
-# github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.70 => github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.55
+# github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.71 => github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.55
 ## explicit; go 1.21
 github.com/hashicorp/aws-sdk-go-base/v2
 github.com/hashicorp/aws-sdk-go-base/v2/diag
@@ -850,31 +850,31 @@ github.com/hashicorp/terraform-registry-address
 github.com/hashicorp/terraform-svchost
 github.com/hashicorp/terraform-svchost/auth
 github.com/hashicorp/terraform-svchost/disco
-# github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20260226150514-0ce1ae7cd69b => ./internal/backend/remote-state/azure
+# github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20260306145423-2f3a862f8053 => ./internal/backend/remote-state/azure
 ## explicit; go 1.22.7
 github.com/hashicorp/terraform/internal/backend/remote-state/azure
-# github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20260226150514-0ce1ae7cd69b => ./internal/backend/remote-state/consul
+# github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20260306145423-2f3a862f8053 => ./internal/backend/remote-state/consul
 ## explicit; go 1.22.7
 github.com/hashicorp/terraform/internal/backend/remote-state/consul
-# github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20260226150514-0ce1ae7cd69b => ./internal/backend/remote-state/cos
+# github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20260306145423-2f3a862f8053 => ./internal/backend/remote-state/cos
 ## explicit; go 1.22.7
 github.com/hashicorp/terraform/internal/backend/remote-state/cos
-# github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20260226150514-0ce1ae7cd69b => ./internal/backend/remote-state/gcs
+# github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20260306145423-2f3a862f8053 => ./internal/backend/remote-state/gcs
 ## explicit; go 1.22.7
 github.com/hashicorp/terraform/internal/backend/remote-state/gcs
-# github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20260226150514-0ce1ae7cd69b => ./internal/backend/remote-state/kubernetes
+# github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20260306145423-2f3a862f8053 => ./internal/backend/remote-state/kubernetes
 ## explicit; go 1.22.7
 github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes
-# github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20260226150514-0ce1ae7cd69b => ./internal/backend/remote-state/oss
+# github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20260306145423-2f3a862f8053 => ./internal/backend/remote-state/oss
 ## explicit; go 1.22.7
 github.com/hashicorp/terraform/internal/backend/remote-state/oss
-# github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20260226150514-0ce1ae7cd69b => ./internal/backend/remote-state/pg
+# github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20260306145423-2f3a862f8053 => ./internal/backend/remote-state/pg
 ## explicit; go 1.22.7
 github.com/hashicorp/terraform/internal/backend/remote-state/pg
-# github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20260226150514-0ce1ae7cd69b => ./internal/backend/remote-state/s3
+# github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20260306145423-2f3a862f8053 => ./internal/backend/remote-state/s3
 ## explicit; go 1.22.7
 github.com/hashicorp/terraform/internal/backend/remote-state/s3
-# github.com/hashicorp/terraform/internal/legacy v0.0.0-20260226150514-0ce1ae7cd69b => ./internal/legacy
+# github.com/hashicorp/terraform/internal/legacy v0.0.0-20260306145423-2f3a862f8053 => ./internal/legacy
 ## explicit; go 1.22.7
 github.com/hashicorp/terraform/internal/legacy/helper/hashcode
 github.com/hashicorp/terraform/internal/legacy/helper/schema
@@ -1519,13 +1519,13 @@ google.golang.org/api/storage/v1
 google.golang.org/api/transport
 google.golang.org/api/transport/grpc
 google.golang.org/api/transport/http
-# google.golang.org/genproto v0.0.0-20260223185530-2f722ef697dc
+# google.golang.org/genproto v0.0.0-20260226221140-a57be14db171
 ## explicit; go 1.25.0
 google.golang.org/genproto/googleapis/type/calendarperiod
 google.golang.org/genproto/googleapis/type/date
 google.golang.org/genproto/googleapis/type/expr
 google.golang.org/genproto/googleapis/type/timeofday
-# google.golang.org/genproto/googleapis/api v0.0.0-20260223185530-2f722ef697dc
+# google.golang.org/genproto/googleapis/api v0.0.0-20260226221140-a57be14db171
 ## explicit; go 1.25.0
 google.golang.org/genproto/googleapis/api
 google.golang.org/genproto/googleapis/api/annotations
@@ -1535,7 +1535,7 @@ google.golang.org/genproto/googleapis/api/httpbody
 google.golang.org/genproto/googleapis/api/label
 google.golang.org/genproto/googleapis/api/metric
 google.golang.org/genproto/googleapis/api/monitoredres
-# google.golang.org/genproto/googleapis/rpc v0.0.0-20260223185530-2f722ef697dc
+# google.golang.org/genproto/googleapis/rpc v0.0.0-20260226221140-a57be14db171
 ## explicit; go 1.25.0
 google.golang.org/genproto/googleapis/rpc/code
 google.golang.org/genproto/googleapis/rpc/errdetails
@@ -2188,7 +2188,7 @@ k8s.io/klog/v2/internal/clock
 k8s.io/klog/v2/internal/dbg
 k8s.io/klog/v2/internal/serialize
 k8s.io/klog/v2/internal/severity
-# k8s.io/kube-openapi v0.0.0-20260127142750-a19766b6e2d4 => k8s.io/kube-openapi v0.0.0-20220803162953-67bda5d908f1
+# k8s.io/kube-openapi v0.0.0-20260304202019-5b3e3fdb0acf => k8s.io/kube-openapi v0.0.0-20220803162953-67bda5d908f1
 ## explicit; go 1.18
 k8s.io/kube-openapi/pkg/builder3/util
 k8s.io/kube-openapi/pkg/common
