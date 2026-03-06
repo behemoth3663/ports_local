@@ -1,6 +1,6 @@
 PORTNAME=	amazon-ssm-plugin
 PORTVERSION=	1.2.779.0
-#PORTREVISION=	1
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	nork@FreeBSD.org
@@ -17,6 +17,7 @@ CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w"
 GO_TARGET=	src/sessionmanagerplugin-main/main.go:${PREFIX}/bin/session-manager-plugin \
 		src/ssmcli-main/main.go:${PREFIX}/bin/ssmcli
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	aws

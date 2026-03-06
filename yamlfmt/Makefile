@@ -1,7 +1,7 @@
 PORTNAME=	yamlfmt
 PORTVERSION=	0.21.0
 DISTVERSIONPREFIX=	v
-#PORTREVISION=	1
+PORTREVISION=	1
 CATEGORIES=	local textproc
 
 MAINTAINER=	meta@FreeBSD.org
@@ -28,6 +28,7 @@ CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'main.version=${PORTVERSION}' \
 	-X 'main.commit=${GIT_COMMIT:sh}'"
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 

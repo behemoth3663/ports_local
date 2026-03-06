@@ -1,7 +1,7 @@
 PORTNAME=	govulncheck
 PORTVERSION=	1.1.4
 DISTVERSIONPREFIX=	v
-PORTREVISION=	11
+PORTREVISION=	13
 CATEGORIES=	local security
 DISTNAME=	vuln
 
@@ -22,6 +22,7 @@ PLIST_FILES=	bin/${PORTNAME}
 GO_TARGET=	./cmd/${PORTNAME}
 CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w"
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 post-patch: .PHONY
 	@${REINPLACE_CMD} -e 's|%%GO_CMD%%|${GO_CMD}|g' ${WRKSRC}/internal/scan/util.go

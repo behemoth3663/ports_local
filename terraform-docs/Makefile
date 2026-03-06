@@ -1,7 +1,7 @@
 PORTNAME=	terraform-docs
 PORTVERSION=	0.21.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	3
+PORTREVISION=	4
 CATEGORIES=	local sysutils textproc
 
 MAINTAINER=	0xdutra@gmail.com
@@ -18,5 +18,6 @@ GO_MODULE=	github.com/${PORTNAME}/${PORTNAME}
 
 CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w"
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 .include <bsd.port.mk>
