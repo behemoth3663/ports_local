@@ -1,7 +1,7 @@
 PORTNAME=	obsolete-packages
 PORTVERSION=	0.0.5
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	local devel
 
 MAINTAINER=	none@freebsd.org
@@ -19,14 +19,14 @@ PLIST_FILES=	bin/${PORTNAME}
 
 GIT_COMMIT=	git ls-remote \
 		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
-		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
+		refs/tags/${DISTVERSIONFULL}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'main.version=${PORTVERSION}' \
 	-X 'main.gitCommit=${GIT_COMMIT:sh:C/(.{7}).*/\\1/W}' \
 	-X main.makeBin=/usr/bin/make"
-
-GO_ENV+=	GOEXPERIMENT=greenteagc
+GO_ENV+=	GOEXPERIMENT=greenteagc,norandomizedheapbase64
 
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
