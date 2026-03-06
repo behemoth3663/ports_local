@@ -1,8 +1,9 @@
 PORTNAME=	golangci-lint
-PORTVERSION=	2.10.1
+PORTVERSION=	2.11.1
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
+PKGNAMESUFFIX=	-local
 
 MAINTAINER=	lcook@FreeBSD.org
 COMMENT=	Linters Runner for Go
@@ -20,16 +21,15 @@ GH_ACCOUNT=	golangci
 USE_GITLAB=	nodefault
 
 GIT_COMMIT=	git ls-remote \
-		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
-		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
-		${SED} -rn 's/(.{7}).*/\1/p'
+		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
+		refs/tags/${DISTVERSIONFULL}
 
 GO_TARGET=	./cmd/${PORTNAME}
 
 CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X main.version=${PORTVERSION} \
-	-X main.commit=$$(${GIT_COMMIT}) \
+	-X main.commit=${GIT_COMMIT:sh:C/(.{7}).*/\\1/W} \
 	-X main.date=${%FT%TZ:L:gmtime}"
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
