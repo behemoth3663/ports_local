@@ -1,8 +1,9 @@
 PORTNAME=	rclone
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.73.1
-PORTREVISION=	1
+DISTVERSION=	1.73.2
+#PORTREVISION=	1
 CATEGORIES=	local net
+PKGNAMESUFFIX=	-local
 
 MAINTAINER=	tremere@cainites.net
 COMMENT=	Sync files to and from various cloud services
