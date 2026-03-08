@@ -1,5 +1,5 @@
 PORTNAME=	rad
-PORTVERSION=	0.8.0
+PORTVERSION=	0.8.1
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local lang
@@ -18,22 +18,23 @@ GH_ACCOUNT=	amterp
 PLIST_FILES=	bin/${PORTNAME}
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static"
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
 
 pre-deps: .PHONY
-	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
 
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 
 post-deps-all: .PHONY
-	test ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
+	${TEST} ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
 
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
-	@test ! -f ${WRKSRC}/vendor/github.com/tree-sitter/go-tree-sitter/dup_unix.go || ${REINPLACE_CMD} 's/go:build/& freebsd ||/' ${WRKSRC}/vendor/github.com/tree-sitter/go-tree-sitter/dup_unix.go
+	@${TEST} ! -f ${WRKSRC}/vendor/github.com/tree-sitter/go-tree-sitter/dup_unix.go || ${REINPLACE_CMD} 's/go:build/& freebsd ||/' ${WRKSRC}/vendor/github.com/tree-sitter/go-tree-sitter/dup_unix.go
 	@if [ -d ${WRKSRC}/vendor ]; then \
 		${MKDIR} ${WRKSRC}/vendor/github.com/charmbracelet/x/exp; \
 		${RLN} ${WRKSRC_charmbracelet_x_strings}/exp/strings ${WRKSRC}/vendor/github.com/charmbracelet/x/exp; \
