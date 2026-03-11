@@ -2,10 +2,11 @@ GH_TUPLE=	\
 		BurntSushi:toml:v1.5.0:burntsushi_toml/vendor/github.com/BurntSushi/toml \
 		amterp:color:v1.20.1:amterp_color/vendor/github.com/amterp/color \
 		amterp:flexid:v1.3.0:amterp_flexid/vendor/github.com/amterp/flexid \
+		amterp:go-delta:v0.1.5:amterp_go_delta/vendor/github.com/amterp/go-delta \
 		amterp:go-tbl:v0.12.0:amterp_go_tbl/vendor/github.com/amterp/go-tbl \
 		amterp:jsoncolor:v0.4.0:amterp_jsoncolor/vendor/github.com/amterp/jsoncolor \
-		amterp:ra:v0.4.3:amterp_ra/vendor/github.com/amterp/ra \
-		amterp:tree-sitter-rad:v0.1.18:amterp_tree_sitter_rad/vendor/github.com/amterp/tree-sitter-rad \
+		amterp:ra:v0.5.1:amterp_ra/vendor/github.com/amterp/ra \
+		amterp:tree-sitter-rad:v0.4.0:amterp_tree_sitter_rad/vendor/github.com/amterp/tree-sitter-rad \
 		atotto:clipboard:v0.1.4:atotto_clipboard/vendor/github.com/atotto/clipboard \
 		aymanbagabas:go-osc52:v2.0.1:aymanbagabas_go_osc52_v2/vendor/github.com/aymanbagabas/go-osc52/v2 \
 		catppuccin:go:v0.3.0:catppuccin_go/vendor/github.com/catppuccin/go \
@@ -18,22 +19,22 @@ GH_TUPLE=	\
 		charmbracelet:x:v0.0.13:charmbracelet_x_cellbuf/vendor/github.com/charmbracelet/x/cellbuf \
 		charmbracelet:x:v0.10.1:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x/ansi \
 		charmbracelet:x:v0.2.1:charmbracelet_x_term/vendor/github.com/charmbracelet/x/term \
+		clipperhouse:stringish:v0.1.1:clipperhouse_stringish/vendor/github.com/clipperhouse/stringish \
+		clipperhouse:uax29:v2.5.0:clipperhouse_uax29_v2/vendor/github.com/clipperhouse/uax29/v2 \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		dustin:go-humanize:v1.0.1:dustin_go_humanize/vendor/github.com/dustin/go-humanize \
 		erikgeiser:coninput:1c3628e74d0f:erikgeiser_coninput/vendor/github.com/erikgeiser/coninput \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
-		golang:crypto:v0.43.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:sys:v0.38.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.36.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.30.0:golang_text/vendor/golang.org/x/text \
+		golang:sys:v0.41.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.40.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.34.0:golang_text/vendor/golang.org/x/text \
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
-		lithammer:fuzzysearch:v1.1.8:lithammer_fuzzysearch/vendor/github.com/lithammer/fuzzysearch \
 		lucasb-eyer:go-colorful:v1.2.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
 		mattn:go-colorable:v0.1.14:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
 		mattn:go-isatty:v0.0.20:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
 		mattn:go-localereader:v0.0.1:mattn_go_localereader/vendor/github.com/mattn/go-localereader \
 		mattn:go-pointer:v0.0.1:mattn_go_pointer/vendor/github.com/mattn/go-pointer \
-		mattn:go-runewidth:v0.0.16:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
+		mattn:go-runewidth:v0.0.19:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
 		mitchellh:hashstructure:v2.0.2:mitchellh_hashstructure_v2/vendor/github.com/mitchellh/hashstructure/v2 \
 		muesli:ansi:276c6243b2f6:muesli_ansi/vendor/github.com/muesli/ansi \
 		muesli:cancelreader:v0.2.2:muesli_cancelreader/vendor/github.com/muesli/cancelreader \

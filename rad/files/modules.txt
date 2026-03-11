@@ -8,16 +8,22 @@ github.com/amterp/color
 # github.com/amterp/flexid v1.3.0
 ## explicit; go 1.24.2
 github.com/amterp/flexid
+# github.com/amterp/go-delta v0.1.5
+## explicit; go 1.25.6
+github.com/amterp/go-delta
+github.com/amterp/go-delta/internal/align
+github.com/amterp/go-delta/internal/diff
+github.com/amterp/go-delta/internal/render
 # github.com/amterp/go-tbl v0.12.0
 ## explicit; go 1.24.1
 github.com/amterp/go-tbl
 # github.com/amterp/jsoncolor v0.4.0
 ## explicit; go 1.24.2
 github.com/amterp/jsoncolor
-# github.com/amterp/ra v0.4.3
+# github.com/amterp/ra v0.5.1
 ## explicit; go 1.24.1
 github.com/amterp/ra
-# github.com/amterp/tree-sitter-rad v0.1.18
+# github.com/amterp/tree-sitter-rad v0.4.0
 ## explicit; go 1.22
 github.com/amterp/tree-sitter-rad/bindings/go
 # github.com/atotto/clipboard v0.1.4
@@ -68,6 +74,12 @@ github.com/charmbracelet/x/exp/strings
 # github.com/charmbracelet/x/term v0.2.1
 ## explicit; go 1.18
 github.com/charmbracelet/x/term
+# github.com/clipperhouse/stringish v0.1.1
+## explicit; go 1.18
+github.com/clipperhouse/stringish
+# github.com/clipperhouse/uax29/v2 v2.5.0
+## explicit; go 1.18
+github.com/clipperhouse/uax29/v2/graphemes
 # github.com/davecgh/go-spew v1.1.1
 ## explicit
 github.com/davecgh/go-spew/spew
@@ -81,9 +93,6 @@ github.com/erikgeiser/coninput
 # github.com/google/uuid v1.6.0
 ## explicit
 github.com/google/uuid
-# github.com/lithammer/fuzzysearch v1.1.8
-## explicit; go 1.15
-github.com/lithammer/fuzzysearch/fuzzy
 # github.com/lucasb-eyer/go-colorful v1.2.0
 ## explicit; go 1.12
 github.com/lucasb-eyer/go-colorful
@@ -99,8 +108,8 @@ github.com/mattn/go-localereader
 # github.com/mattn/go-pointer v0.0.1
 ## explicit
 github.com/mattn/go-pointer
-# github.com/mattn/go-runewidth v0.0.16
-## explicit; go 1.9
+# github.com/mattn/go-runewidth v0.0.19
+## explicit; go 1.20
 github.com/mattn/go-runewidth
 # github.com/mitchellh/hashstructure/v2 v2.0.2
 ## explicit; go 1.14
@@ -137,6 +146,7 @@ github.com/scylladb/go-set/strset
 ## explicit; go 1.17
 github.com/stretchr/testify/assert
 github.com/stretchr/testify/assert/yaml
+github.com/stretchr/testify/require
 # github.com/tree-sitter/go-tree-sitter v0.25.0
 ## explicit; go 1.23
 github.com/tree-sitter/go-tree-sitter
@@ -157,17 +167,15 @@ go.uber.org/zap/internal/exit
 go.uber.org/zap/internal/pool
 go.uber.org/zap/internal/stacktrace
 go.uber.org/zap/zapcore
-# golang.org/x/crypto v0.43.0
-## explicit; go 1.24.0
-# golang.org/x/sys v0.38.0
+# golang.org/x/sys v0.41.0
 ## explicit; go 1.24.0
 golang.org/x/sys/plan9
 golang.org/x/sys/unix
 golang.org/x/sys/windows
-# golang.org/x/term v0.36.0
+# golang.org/x/term v0.40.0
 ## explicit; go 1.24.0
 golang.org/x/term
-# golang.org/x/text v0.30.0
+# golang.org/x/text v0.34.0
 ## explicit; go 1.24.0
 golang.org/x/text/cases
 golang.org/x/text/internal
@@ -175,7 +183,6 @@ golang.org/x/text/internal/language
 golang.org/x/text/internal/language/compact
 golang.org/x/text/internal/tag
 golang.org/x/text/language
-golang.org/x/text/runes
 golang.org/x/text/transform
 golang.org/x/text/unicode/norm
 # gopkg.in/yaml.v3 v3.0.1
