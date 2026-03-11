@@ -15,6 +15,7 @@ GH_TUPLE=	\
 		catppuccin:go:v0.3.0:catppuccin_go/vendor/github.com/catppuccin/go \
 		cenkalti:backoff:v4.3.0:cenkalti_backoff_v4/vendor/github.com/cenkalti/backoff/v4 \
 		cenkalti:backoff:v5.0.3:cenkalti_backoff_v5/vendor/github.com/cenkalti/backoff/v5 \
+		cespare:xxhash:v2.3.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
 		charmbracelet:bubbles:23b8fd6302d7:charmbracelet_bubbles/vendor/github.com/charmbracelet/bubbles \
 		charmbracelet:bubbletea:v1.3.10:charmbracelet_bubbletea/vendor/github.com/charmbracelet/bubbletea \
 		charmbracelet:colorprofile:v0.3.1:charmbracelet_colorprofile/vendor/github.com/charmbracelet/colorprofile \
@@ -42,12 +43,12 @@ GH_TUPLE=	\
 		digitorus:timestamp:c45532741eea:digitorus_timestamp/vendor/github.com/digitorus/timestamp \
 		distribution:reference:v0.6.0:distribution_reference/vendor/github.com/distribution/reference \
 		dlclark:regexp2:v1.11.5:dlclark_regexp2/vendor/github.com/dlclark/regexp2 \
-		docker:cli:v29.0.3:docker_cli/vendor/github.com/docker/cli \
+		docker:cli:v29.2.0:docker_cli/vendor/github.com/docker/cli \
 		docker:distribution:v2.8.3:docker_distribution/vendor/github.com/docker/distribution \
 		dustin:go-humanize:v1.0.1:dustin_go_humanize/vendor/github.com/dustin/go-humanize \
 		erikgeiser:coninput:1c3628e74d0f:erikgeiser_coninput/vendor/github.com/erikgeiser/coninput \
 		fatih:color:v1.18.0:fatih_color/vendor/github.com/fatih/color \
-		gabriel-vasile:mimetype:v1.4.11:gabriel_vasile_mimetype/vendor/github.com/gabriel-vasile/mimetype \
+		gabriel-vasile:mimetype:v1.4.13:gabriel_vasile_mimetype/vendor/github.com/gabriel-vasile/mimetype \
 		gdamore:encoding:v1.0.1:gdamore_encoding/vendor/github.com/gdamore/encoding \
 		gdamore:tcell:v2.13.8:gdamore_tcell_v2/vendor/github.com/gdamore/tcell/v2 \
 		go-logr:logr:v1.4.3:go_logr_logr/vendor/github.com/go-logr/logr \
@@ -80,7 +81,7 @@ GH_TUPLE=	\
 		golang:mod:v0.32.0:golang_mod/vendor/golang.org/x/mod \
 		golang:net:v0.49.0:golang_net/vendor/golang.org/x/net \
 		golang:snappy:v1.0.0:golang_snappy/vendor/github.com/golang/snappy \
-		golang:sync:v0.19.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sync:v0.20.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.41.0:golang_sys/vendor/golang.org/x/sys \
 		golang:term:v0.40.0:golang_term/vendor/golang.org/x/term \
 		golang:text:v0.34.0:golang_text/vendor/golang.org/x/text \
@@ -95,7 +96,7 @@ GH_TUPLE=	\
 		gorilla:css:v1.0.1:gorilla_css/vendor/github.com/gorilla/css \
 		gorilla:websocket:v1.5.3:gorilla_websocket/vendor/github.com/gorilla/websocket \
 		grpc-ecosystem:grpc-gateway:v2.27.3:grpc_ecosystem_grpc_gateway_v2/vendor/github.com/grpc-ecosystem/grpc-gateway/v2 \
-		grpc:grpc-go:v1.78.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+		grpc:grpc-go:v1.79.2:grpc_grpc_go/vendor/google.golang.org/grpc \
 		h2non:gock:v1.1.2:h2non_gock/vendor/gopkg.in/h2non/gock.v1 \
 		h2non:parth:b4df798d6542:h2non_parth/vendor/github.com/h2non/parth \
 		hashicorp:go-version:v1.8.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
@@ -172,8 +173,8 @@ GH_TUPLE=	\
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
 		#	::v1.0.2:group_name/vendor/dario.cat/mergo (from dario.cat/mergo@v1.0.2)
 		#	::v1.2.1:group_name/vendor/go.opentelemetry.io/auto/sdk (from go.opentelemetry.io/auto/sdk@v1.2.1)
-		#	::v1.38.0:group_name/vendor/go.opentelemetry.io/otel (from go.opentelemetry.io/otel@v1.38.0)
-		#	::v1.38.0:group_name/vendor/go.opentelemetry.io/otel/metric (from go.opentelemetry.io/otel/metric@v1.38.0)
-		#	::v1.38.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.38.0)
+		#	::v1.39.0:group_name/vendor/go.opentelemetry.io/otel (from go.opentelemetry.io/otel@v1.39.0)
+		#	::v1.39.0:group_name/vendor/go.opentelemetry.io/otel/metric (from go.opentelemetry.io/otel/metric@v1.39.0)
+		#	::v1.39.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.39.0)
 		#	::v1.6.0:group_name/vendor/al.essio.dev/pkg/shellescape (from al.essio.dev/pkg/shellescape@v1.6.0)
 		#	::v3.0.4:group_name/vendor/go.yaml.in/yaml/v3 (from go.yaml.in/yaml/v3@v3.0.4)
