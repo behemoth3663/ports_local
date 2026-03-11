@@ -75,7 +75,7 @@ GH_TUPLE=	\
 		golang:exp:b7579e27df2b:golang_exp/vendor/golang.org/x/exp \
 		golang:mod:v0.33.0:golang_mod/vendor/golang.org/x/mod \
 		golang:protobuf:v1.5.3:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sync:v0.19.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sync:v0.20.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.41.0:golang_sys/vendor/golang.org/x/sys \
 		golang:text:v0.34.0:golang_text/vendor/golang.org/x/text \
 		golang:tools:v0.42.0:golang_tools/vendor/golang.org/x/tools \
@@ -165,7 +165,7 @@ GH_TUPLE=	\
 		santhosh-tekuri:jsonschema:v6.0.2:santhosh_tekuri_jsonschema_v6/vendor/github.com/santhosh-tekuri/jsonschema/v6 \
 		sashamelentyev:interfacebloat:v1.1.0:sashamelentyev_interfacebloat/vendor/github.com/sashamelentyev/interfacebloat \
 		sashamelentyev:usestdlibvars:v1.29.0:sashamelentyev_usestdlibvars/vendor/github.com/sashamelentyev/usestdlibvars \
-		securego:gosec:v2.24.7:securego_gosec_v2/vendor/github.com/securego/gosec/v2 \
+		securego:gosec:619ce2117e08:securego_gosec_v2/vendor/github.com/securego/gosec/v2 \
 		shirou:gopsutil:v4.26.2:shirou_gopsutil_v4/vendor/github.com/shirou/gopsutil/v4 \
 		sirupsen:logrus:v1.9.4:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
 		sivchari:containedctx:v1.0.3:sivchari_containedctx/vendor/github.com/sivchari/containedctx \

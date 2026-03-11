@@ -1,5 +1,5 @@
 PORTNAME=	golangci-lint
-PORTVERSION=	2.11.2
+PORTVERSION=	2.11.3
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -67,16 +67,16 @@ pre-deps: .PHONY
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 	${RM} ${.CURDIR}/generated.deps.mk
-	( make -C ${.CURDIR} make-from-deps GHT_ACNT=go-simpler GHT_PROJ=musttag GHT_PATH=go-simpler.org/musttag )
-	( make -C ${.CURDIR} make-from-deps GHT_ACNT=go-simpler GHT_PROJ=sloglint GHT_PATH=go-simpler.org/sloglint )
-	( make -C ${.CURDIR} make-from-deps GHT_ACNT=leighmcculloch GHT_PROJ=gocheckcompilerdirectives GHT_PATH=4d63.com/gocheckcompilerdirectives )
-	( make -C ${.CURDIR} make-from-deps GHT_ACNT=leighmcculloch GHT_PROJ=gochecknoglobals GHT_PATH=4d63.com/gochecknoglobals )
-	( make -C ${.CURDIR} make-from-deps GHT_ACNT=Crocmagnon GHT_PROJ=fatcontext GHT_PATH=go.augendre.info/fatcontext )
-	( make -C ${.CURDIR} make-from-deps GHT_ACNT=Crocmagnon GHT_PROJ=arangolint GHT_PATH=go.augendre.info/arangolint )
-	( make -C ${.CURDIR} make-from-deps GHT_ACNT=chavacava GHT_PROJ=garif GHT_PATH=codeberg.org/chavacava/garif )
-	( make -C ${.CURDIR} make-from-deps GHT_ACNT=polyfloyd GHT_PROJ=go-errorlint GHT_PATH=codeberg.org/polyfloyd/go-errorlint )
-	( make -C ${.CURDIR} make-from-deps GHT_ACNT=GaijinEntertainment GHT_PROJ=golib GHT_PATH=dev.gaijin.team/go/golib )
-	( make -C ${.CURDIR} make-from-deps GHT_ACNT=GaijinEntertainment GHT_PROJ=go-exhaustruct GHT_PATH=dev.gaijin.team/go/exhaustruct/v4 )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=go-simpler GHT_PROJ=musttag GHT_PATH=go-simpler.org/musttag )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=go-simpler GHT_PROJ=sloglint GHT_PATH=go-simpler.org/sloglint )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=leighmcculloch GHT_PROJ=gocheckcompilerdirectives GHT_PATH=4d63.com/gocheckcompilerdirectives )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=leighmcculloch GHT_PROJ=gochecknoglobals GHT_PATH=4d63.com/gochecknoglobals )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=Crocmagnon GHT_PROJ=fatcontext GHT_PATH=go.augendre.info/fatcontext )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=Crocmagnon GHT_PROJ=arangolint GHT_PATH=go.augendre.info/arangolint )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=chavacava GHT_PROJ=garif GHT_PATH=codeberg.org/chavacava/garif )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=polyfloyd GHT_PROJ=go-errorlint GHT_PATH=codeberg.org/polyfloyd/go-errorlint )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=GaijinEntertainment GHT_PROJ=golib GHT_PATH=dev.gaijin.team/go/golib )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=GaijinEntertainment GHT_PROJ=go-exhaustruct GHT_PATH=dev.gaijin.team/go/exhaustruct/v4 )
 
 make-from-deps: .PHONY
 	@${SED} -rn \
