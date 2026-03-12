@@ -1,1 +1,3 @@
-Terraform's variable definitions template generator
+Terraform's variable definitions template generator. It scans your Terraform
+configurations or modules and extracts the variables into formats of your
+choice for editing, e.g., tfvar, environment variables, etc.
