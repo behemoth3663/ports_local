@@ -111,6 +111,12 @@ github.com/tg123/go-htpasswd
 github.com/things-go/go-socks5
 github.com/things-go/go-socks5/bufferpool
 github.com/things-go/go-socks5/statute
+# go.etcd.io/bbolt v1.4.3
+## explicit; go 1.23
+go.etcd.io/bbolt
+go.etcd.io/bbolt/errors
+go.etcd.io/bbolt/internal/common
+go.etcd.io/bbolt/internal/freelist
 # go.uber.org/atomic v1.11.0
 ## explicit; go 1.18
 go.uber.org/atomic
