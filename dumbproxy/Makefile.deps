@@ -7,16 +7,16 @@ GH_TUPLE=	\
 		coreos:go-systemd:v22.7.0:coreos_go_systemd_v22/vendor/github.com/coreos/go-systemd/v22 \
 		dgryski:go-rendezvous:9f7001d12a5f:dgryski_go_rendezvous/vendor/github.com/dgryski/go-rendezvous \
 		dlclark:regexp2:v1.11.5:dlclark_regexp2/vendor/github.com/dlclark/regexp2 \
-		dop251:goja:913bd86fb70c:dop251_goja/vendor/github.com/dop251/goja \
+		dop251:goja:065cd970411c:dop251_goja/vendor/github.com/dop251/goja \
 		etcd-io:bbolt:v1.4.3:etcd_io_bbolt/vendor/go.etcd.io/bbolt \
 		go-sourcemap:sourcemap:v2.1.4:go_sourcemap_sourcemap/vendor/github.com/go-sourcemap/sourcemap \
-		golang:crypto:v0.48.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:net:v0.51.0:golang_net/vendor/golang.org/x/net \
-		golang:sync:v0.19.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.41.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.40.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.34.0:golang_text/vendor/golang.org/x/text \
-		google:pprof:cb029daf43ef:google_pprof/vendor/github.com/google/pprof \
+		golang:crypto:v0.49.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:net:v0.52.0:golang_net/vendor/golang.org/x/net \
+		golang:sync:v0.20.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.42.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.41.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.35.0:golang_text/vendor/golang.org/x/text \
+		google:pprof:a15ffb7f9dcc:google_pprof/vendor/github.com/google/pprof \
 		hashicorp:errwrap:v1.1.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
 		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
 		klauspost:compress:v1.18.4:klauspost_compress/vendor/github.com/klauspost/compress \
@@ -29,4 +29,4 @@ GH_TUPLE=	\
 		things-go:go-socks5:v0.1.0:things_go_go_socks5/vendor/github.com/things-go/go-socks5 \
 		uber-go:atomic:v1.11.0:uber_go_atomic/vendor/go.uber.org/atomic
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
-		#	::a408498e5541:group_name/vendor/golang.org/x/crypto/x509roots/fallback (from go.googlesource.com/crypto@a408498e5541)
+		#	::982eaa62dfb7:group_name/vendor/golang.org/x/crypto/x509roots/fallback (from go.googlesource.com/crypto@982eaa62dfb7)
