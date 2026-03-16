@@ -1,6 +1,6 @@
-TIMESTAMP = 1773052434
-SHA256 (omegion-ssh-manager-v1.96.0_GH0.tar.gz) = 1887717a2cb93bff88047d95ae9a1382317cbd63dfb503c9680a30290b69ff96
-SIZE (omegion-ssh-manager-v1.96.0_GH0.tar.gz) = 60120
+TIMESTAMP = 1773659415
+SHA256 (omegion-ssh-manager-v1.97.0_GH0.tar.gz) = e3323121d4096e52eeabb1ca43efc901c4d9378363f1f92c0456f04ce9a959ad
+SIZE (omegion-ssh-manager-v1.97.0_GH0.tar.gz) = 60127
 SHA256 (aws-aws-sdk-go-v2-v1.30.3_GH0.tar.gz) = 5f8002fce2fa6d31a3b9c81b15d7796d98984135e78ea05e757debd262662310
 SIZE (aws-aws-sdk-go-v2-v1.30.3_GH0.tar.gz) = 46970311
 SHA256 (aws-smithy-go-v1.20.3_GH0.tar.gz) = 7a409cd74ffb0d15eaef12922bab143698ebdbd743e390c8fb48cee44165407f
