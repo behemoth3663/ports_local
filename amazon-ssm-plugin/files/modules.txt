@@ -45,7 +45,7 @@ github.com/aws/aws-sdk-go/service/sso/ssoiface
 github.com/aws/aws-sdk-go/service/ssooidc
 github.com/aws/aws-sdk-go/service/sts
 github.com/aws/aws-sdk-go/service/sts/stsiface
-# github.com/aws/session-manager-plugin v0.0.0-20260212212525-20354200d14d
+# github.com/aws/session-manager-plugin v0.0.0-20260317185859-1fc63e3f5a01
 ## explicit
 github.com/aws/session-manager-plugin/src/communicator
 github.com/aws/session-manager-plugin/src/communicator/mocks
@@ -62,6 +62,7 @@ github.com/aws/session-manager-plugin/src/sdkutil
 github.com/aws/session-manager-plugin/src/sdkutil/retryer
 github.com/aws/session-manager-plugin/src/service
 github.com/aws/session-manager-plugin/src/sessionmanagerplugin/session
+github.com/aws/session-manager-plugin/src/sessionmanagerplugin/session/keyboard
 github.com/aws/session-manager-plugin/src/sessionmanagerplugin/session/portsession
 github.com/aws/session-manager-plugin/src/sessionmanagerplugin/session/sessionutil
 github.com/aws/session-manager-plugin/src/sessionmanagerplugin/session/shellsession
@@ -79,9 +80,6 @@ github.com/cihub/seelog/archive/zip
 # github.com/davecgh/go-spew v1.1.1
 ## explicit
 github.com/davecgh/go-spew/spew
-# github.com/eiannone/keyboard v0.0.0-20220611211555-0d226195f203
-## explicit; go 1.18
-github.com/eiannone/keyboard
 # github.com/fsnotify/fsnotify v1.9.0
 ## explicit; go 1.17
 github.com/fsnotify/fsnotify
@@ -108,22 +106,22 @@ github.com/stretchr/testify/mock
 # github.com/twinj/uuid v1.0.0
 ## explicit
 github.com/twinj/uuid
-# github.com/xtaci/smux v1.5.56
+# github.com/xtaci/smux v1.5.57
 ## explicit; go 1.18
 github.com/xtaci/smux
-# golang.org/x/crypto v0.48.0
-## explicit; go 1.24.0
+# golang.org/x/crypto v0.49.0
+## explicit; go 1.25.0
 golang.org/x/crypto/ssh/terminal
-# golang.org/x/sync v0.19.0
-## explicit; go 1.24.0
+# golang.org/x/sync v0.20.0
+## explicit; go 1.25.0
 golang.org/x/sync/errgroup
-# golang.org/x/sys v0.41.0
-## explicit; go 1.24.0
+# golang.org/x/sys v0.42.0
+## explicit; go 1.25.0
 golang.org/x/sys/plan9
 golang.org/x/sys/unix
 golang.org/x/sys/windows
-# golang.org/x/term v0.40.0
-## explicit; go 1.24.0
+# golang.org/x/term v0.41.0
+## explicit; go 1.25.0
 golang.org/x/term
 # gopkg.in/stretchr/testify.v1 v1.2.2
 ## explicit

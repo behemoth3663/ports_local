@@ -1,7 +1,8 @@
 PORTNAME=	amazon-ssm-plugin
-PORTVERSION=	1.2.779.0
-PORTREVISION=	1
+PORTVERSION=	1.2.792.0
+#PORTREVISION=	1
 CATEGORIES=	local sysutils
+PKGNAMESUFFIX=	-local
 
 MAINTAINER=	nork@FreeBSD.org
 COMMENT=	Amazon AWS Manages shell experience using SSM APIs
@@ -67,7 +68,7 @@ post-deps-all: .PHONY
 
 _OPTIONS_extract+=	750:post-post-extract
 post-post-extract: .PHONY
-	test -f ${WRKSRC}/vendor/modules.txt || test ! -f ${PATCHDIR}/modules.txt || ${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+	${TEST} -f ${WRKSRC}/vendor/modules.txt || ${TEST} ! -f ${PATCHDIR}/modules.txt || ${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
