@@ -1,6 +1,6 @@
-TIMESTAMP = 1772377832
-SHA256 (oauth2-proxy-oauth2-proxy-v7.14.3_GH0.tar.gz) = 2e89d0aa778e55fbd92c66c9fdb91cdc960da9a7a4d0f0180418f733a925d5d8
-SIZE (oauth2-proxy-oauth2-proxy-v7.14.3_GH0.tar.gz) = 1754117
+TIMESTAMP = 1773937474
+SHA256 (oauth2-proxy-oauth2-proxy-v7.15.0_GH0.tar.gz) = 9f1e4f1635e9cec604969bcd24f6a37755330f605986da8f72d6c47a43970fc6
+SIZE (oauth2-proxy-oauth2-proxy-v7.15.0_GH0.tar.gz) = 1826662
 SHA256 (Bose-minisentinel-917c5a9223bb_GH0.tar.gz) = c765c12a0ed631ae864f74ee606279a0962f3a87c4274cea6e8d922b0ad8a98e
 SIZE (Bose-minisentinel-917c5a9223bb_GH0.tar.gz) = 8352
 SHA256 (Masterminds-semver-v3.4.0_GH0.tar.gz) = 47f43127587cd7750f2054c9ebab8851a3ea2011aefd7cc5319624dac8810799
