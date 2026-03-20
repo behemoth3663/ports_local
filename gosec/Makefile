@@ -1,5 +1,5 @@
 PORTNAME=	gosec
-PORTVERSION=	2.24.7
+PORTVERSION=	2.25.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel security
@@ -24,13 +24,12 @@ GO_TARGET=	./cmd/${PORTNAME}
 PLIST_FILES=	bin/${PORTNAME}
 
 GIT_COMMIT=	git ls-remote \
-		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
-		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
-		${SED} -rn 's/(.{7}).*/\1/p'
+		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
+		refs/tags/${DISTVERSIONFULL}
 
 CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X 'main.GitTag=$$(${GIT_COMMIT})' \
+	-X 'main.GitTag=${GIT_COMMIT:sh:C/(.{7}).*/\\1/W}' \
 	-X 'main.Version=${PORTVERSION}' \
 	-X 'main.BuildDate=${%F %T:L:gmtime}'"
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
