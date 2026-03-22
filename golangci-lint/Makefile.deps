@@ -49,7 +49,7 @@ GH_TUPLE=	\
 		dominikh:go-tools:v0.7.0:dominikh_go_tools/vendor/honnef.co/go/tools \
 		ebitengine:purego:v0.10.0:ebitengine_purego/vendor/github.com/ebitengine/purego \
 		ettle:strcase:v0.2.0:ettle_strcase/vendor/github.com/ettle/strcase \
-		fatih:color:v1.18.0:fatih_color/vendor/github.com/fatih/color \
+		fatih:color:v1.19.0:fatih_color/vendor/github.com/fatih/color \
 		fatih:structtag:v1.2.0:fatih_structtag/vendor/github.com/fatih/structtag \
 		firefart:nonamedreturns:v1.0.6:firefart_nonamedreturns/vendor/github.com/firefart/nonamedreturns \
 		fsnotify:fsnotify:v1.5.4:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
@@ -73,12 +73,12 @@ GH_TUPLE=	\
 		godoc-lint:godoc-lint:v0.11.2:godoc_lint_godoc_lint/vendor/github.com/godoc-lint/godoc-lint \
 		gofrs:flock:v0.13.0:gofrs_flock/vendor/github.com/gofrs/flock \
 		golang:exp:b7579e27df2b:golang_exp/vendor/golang.org/x/exp \
-		golang:mod:v0.33.0:golang_mod/vendor/golang.org/x/mod \
+		golang:mod:v0.34.0:golang_mod/vendor/golang.org/x/mod \
 		golang:protobuf:v1.5.3:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:sync:v0.20.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.41.0:golang_sys/vendor/golang.org/x/sys \
+		golang:sys:v0.42.0:golang_sys/vendor/golang.org/x/sys \
 		golang:text:v0.34.0:golang_text/vendor/golang.org/x/text \
-		golang:tools:v0.42.0:golang_tools/vendor/golang.org/x/tools \
+		golang:tools:v0.43.0:golang_tools/vendor/golang.org/x/tools \
 		golangci:asciicheck:v0.5.0:golangci_asciicheck/vendor/github.com/golangci/asciicheck \
 		golangci:dupl:f665c8d69b32:golangci_dupl/vendor/github.com/golangci/dupl \
 		golangci:go-printf-func-name:v0.1.1:golangci_go_printf_func_name/vendor/github.com/golangci/go-printf-func-name \
@@ -160,7 +160,7 @@ GH_TUPLE=	\
 		rivo:uniseg:v0.4.7:rivo_uniseg/vendor/github.com/rivo/uniseg \
 		rogpeppe:go-internal:v1.14.1:rogpeppe_go_internal/vendor/github.com/rogpeppe/go-internal \
 		ryancurrah:gomodguard:v1.4.1:ryancurrah_gomodguard/vendor/github.com/ryancurrah/gomodguard \
-		ryanrolds:sqlclosecheck:v0.5.1:ryanrolds_sqlclosecheck/vendor/github.com/ryanrolds/sqlclosecheck \
+		ryanrolds:sqlclosecheck:v0.6.0:ryanrolds_sqlclosecheck/vendor/github.com/ryanrolds/sqlclosecheck \
 		sanposhiho:wastedassign:v2.1.0:sanposhiho_wastedassign_v2/vendor/github.com/sanposhiho/wastedassign/v2 \
 		santhosh-tekuri:jsonschema:v6.0.2:santhosh_tekuri_jsonschema_v6/vendor/github.com/santhosh-tekuri/jsonschema/v6 \
 		sashamelentyev:interfacebloat:v1.1.0:sashamelentyev_interfacebloat/vendor/github.com/sashamelentyev/interfacebloat \
@@ -169,7 +169,7 @@ GH_TUPLE=	\
 		shirou:gopsutil:v4.26.2:shirou_gopsutil_v4/vendor/github.com/shirou/gopsutil/v4 \
 		sirupsen:logrus:v1.9.4:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
 		sivchari:containedctx:v1.0.3:sivchari_containedctx/vendor/github.com/sivchari/containedctx \
-		sonatard:noctx:v0.5.0:sonatard_noctx/vendor/github.com/sonatard/noctx \
+		sonatard:noctx:v0.5.1:sonatard_noctx/vendor/github.com/sonatard/noctx \
 		sourcegraph:go-diff:v0.7.0:sourcegraph_go_diff/vendor/github.com/sourcegraph/go-diff \
 		spf13:afero:v1.15.0:spf13_afero/vendor/github.com/spf13/afero \
 		spf13:cast:v1.5.0:spf13_cast/vendor/github.com/spf13/cast \
