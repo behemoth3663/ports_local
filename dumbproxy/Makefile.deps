@@ -19,7 +19,7 @@ GH_TUPLE=	\
 		google:pprof:a15ffb7f9dcc:google_pprof/vendor/github.com/google/pprof \
 		hashicorp:errwrap:v1.1.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
 		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
-		klauspost:compress:v1.18.4:klauspost_compress/vendor/github.com/klauspost/compress \
+		klauspost:compress:v1.18.5:klauspost_compress/vendor/github.com/klauspost/compress \
 		libp2p:go-reuseport:v0.4.0:libp2p_go_reuseport/vendor/github.com/libp2p/go-reuseport \
 		ncruces:go-dns:v1.3.2:ncruces_go_dns/vendor/github.com/ncruces/go-dns \
 		pires:go-proxyproto:v0.11.0:pires_go_proxyproto/vendor/github.com/pires/go-proxyproto \
@@ -29,4 +29,4 @@ GH_TUPLE=	\
 		things-go:go-socks5:v0.1.0:things_go_go_socks5/vendor/github.com/things-go/go-socks5 \
 		uber-go:atomic:v1.11.0:uber_go_atomic/vendor/go.uber.org/atomic
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
-		#	::982eaa62dfb7:group_name/vendor/golang.org/x/crypto/x509roots/fallback (from go.googlesource.com/crypto@982eaa62dfb7)
+		#	::81c6cb34a8fc:group_name/vendor/golang.org/x/crypto/x509roots/fallback (from go.googlesource.com/crypto@81c6cb34a8fc)
