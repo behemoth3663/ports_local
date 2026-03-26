@@ -1,5 +1,5 @@
 PORTNAME=		docker
-PORTVERSION=		29.3.0
+PORTVERSION=		29.3.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=		local sysutils
 PKGNAMESUFFIX=		-local
@@ -23,8 +23,8 @@ GH_PROJECT=	cli
 GO_TARGET=	./cmd/${PORTNAME}
 
 GIT_COMMIT=	git ls-remote \
-		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
-		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}^{}
+	https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
+	refs/tags/${DISTVERSIONFULL}^{}
 
 CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w"
