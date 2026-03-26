@@ -1,6 +1,6 @@
 PORTNAME=	rclone
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.73.2
+DISTVERSION=	1.73.3
 #PORTREVISION=	1
 CATEGORIES=	local net
 PKGNAMESUFFIX=	-local
@@ -33,7 +33,7 @@ CMOUNT_DESC=		Enable cmount command (depends on fusefs-libs)
 CMOUNT_LIB_DEPENDS=	libfuse.so:filesystems/fusefs-libs
 CMOUNT_VARS=		GO_BUILDFLAGS+="-tags cmount"
 
-post-install:
+post-install: .PHONY
 	${INSTALL_MAN} ${WRKSRC}/${PORTNAME}.1 ${STAGEDIR}${PREFIX}/share/man/man1
 
 .include <bsd.port.mk>
