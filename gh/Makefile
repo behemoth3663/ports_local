@@ -1,5 +1,5 @@
 PORTNAME=	gh
-PORTVERSION=	2.88.1
+PORTVERSION=	2.89.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -59,6 +59,10 @@ pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 	${RM} ${.CURDIR}/generated.deps.mk
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=imdario GHT_PROJ=mergo GHT_PATH=dario.cat/mergo )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=charmbracelet GHT_PROJ=bubbles GHT_PATH=charm.land/bubbles/v2 )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=charmbracelet GHT_PROJ=bubbletea GHT_PATH=charm.land/bubbletea/v2 )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=charmbracelet GHT_PROJ=lipgloss GHT_PATH=charm.land/lipgloss/v2 )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=charmbracelet GHT_PROJ=huh GHT_PATH=charm.land/huh/v2 )
 
 make-from-deps: .PHONY
 	@${SED} -rn \
@@ -74,12 +78,17 @@ post-extract: .PHONY
 	@${MKDIR} ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
 	@${TEST} -z ${WRKSRC_google_go_genproto_api} || ${RLN} ${WRKSRC_google_go_genproto_api}/googleapis/api ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
 	@${TEST} -z ${WRKSRC_google_go_genproto_rpc} || ${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
-	@${RM} -r ${WRKSRC}/vendor/github.com/charmbracelet/x/ansi
+	@${MKDIR} ${WRKSRC}/vendor/github.com/charmbracelet/x/exp
 	@${TEST} -z ${WRKSRC_charmbracelet_x_ansi} || ${RLN} ${WRKSRC_charmbracelet_x_ansi}/ansi ${WRKSRC}/vendor/github.com/charmbracelet/x
-	@${RM} -r ${WRKSRC}/vendor/github.com/charmbracelet/x/cellbuf
 	@${TEST} -z ${WRKSRC_charmbracelet_x_cellbuf} || ${RLN} ${WRKSRC_charmbracelet_x_cellbuf}/cellbuf ${WRKSRC}/vendor/github.com/charmbracelet/x
-	@${RM} -r ${WRKSRC}/vendor/github.com/charmbracelet/x/term
 	@${TEST} -z ${WRKSRC_charmbracelet_x_term} || ${RLN} ${WRKSRC_charmbracelet_x_term}/term ${WRKSRC}/vendor/github.com/charmbracelet/x
+	@${TEST} -z ${WRKSRC_charmbracelet_x_termios} || ${RLN} ${WRKSRC_charmbracelet_x_termios}/termios ${WRKSRC}/vendor/github.com/charmbracelet/x
+	@${TEST} -z ${WRKSRC_charmbracelet_x_windows} || ${RLN} ${WRKSRC_charmbracelet_x_windows}/windows ${WRKSRC}/vendor/github.com/charmbracelet/x
+	@${TEST} -z ${WRKSRC_charmbracelet_x_strings} || ${RLN} ${WRKSRC_charmbracelet_x_strings}/exp/strings ${WRKSRC}/vendor/github.com/charmbracelet/x/exp
+	@${TEST} -z ${WRKSRC_charmbracelet_x_strings} || ${RLN} ${WRKSRC_charmbracelet_x_strings}/exp/slice ${WRKSRC}/vendor/github.com/charmbracelet/x/exp
+	@${TEST} -z ${WRKSRC_charmbracelet_x_ordered} || ${RLN} ${WRKSRC_charmbracelet_x_ordered}/exp/ordered ${WRKSRC}/vendor/github.com/charmbracelet/x/exp
+	@${MKDIR} ${WRKSRC}/vendor/charm.land/lipgloss
+	@${TEST} -z ${WRKSRC_charmbracelet_lipgloss_charm} || ${RLN} ${WRKSRC_charmbracelet_lipgloss_charm} ${WRKSRC}/vendor/charm.land/lipgloss/v2
 	@${MKDIR} ${WRKSRC}/vendor/go.yaml.in/yaml
 	@${TEST} ! -e ${WRKSRC}/vendor/gopkg.in/yaml.v3 || ${RLN} ${WRKSRC}/vendor/gopkg.in/yaml.v3 ${WRKSRC}/vendor/go.yaml.in/yaml/v3
 
@@ -103,12 +112,13 @@ GH_TUPLE:=	${GH_TUPLE:C,(_.)?/vendor/google\.golang\.org/genproto/googleapis/(ap
 # charmbracelet:x:v0.2.1:charmbracelet_x_term/vendor/github.com/charmbracelet/x/term
 #-charmbracelet:x:v0.8.0:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x/ansi
 #+charmbracelet:x:ansi/v0.8.0:charmbracelet_x_ansi
-GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+).*/charmbracelet/x/(ansi\|cellbuf\|term)|\1\3/\2|}
+GH_TUPLE:=	${GH_TUPLE:C,([^:]+:[^:]+:)([^:]+[^/]+).*/charmbracelet/x/(ansi|cellbuf|term|termios|windows|exp/ordered),\1\3/\2,g}
 
 #-charmbracelet:x:821143405392:charmbracelet_x_slice/vendor/github.com/charmbracelet/x/exp/slice
 #-charmbracelet:x:821143405392:charmbracelet_x_strings/vendor/github.com/charmbracelet/x/exp/strings
-#+charmbracelet:x:821143405392:charmbracelet_x/vendor/github.com/charmbracelet/x
-GH_TUPLE:=	${GH_TUPLE:C|(.*:charmbracelet_x)_.*(/vendor/github.com/charmbracelet/x)/exp/.*|\1\2|:u}
+#+charmbracelet:x:821143405392:charmbracelet_x_strings
+GH_TUPLE:=	${GH_TUPLE:C,([^:]+:[^:]+:)([^:]+[^/]+).*/charmbracelet/x/exp/strings,\1\2,1}
+GH_TUPLE:=	${GH_TUPLE:N*/charmbracelet/x/exp/slice}
 
 #-containerd:stargz-snapshotter:v0.16.3:containerd_stargz_snapshotter_estargz/vendor/github.com/containerd/stargz-snapshotter/estargz
 #+containerd:stargz-snapshotter:v0.16.3:containerd_stargz_snapshotter_estargz/vendor/github.com/containerd/stargz-snapshotter
@@ -129,4 +139,9 @@ GH_TUPLE:=	${GH_TUPLE:S|/estargz||1}
 GH_TUPLE:=	${GH_TUPLE:N*/go-openapi/swag/*}
 
 .sinclude "${.CURDIR}/generated.deps.mk"
+
+#-charmbracelet:lipgloss:v2.0.2:charmbracelet_lipgloss/vendor/charm.land/lipgloss/v2
+#+charmbracelet:lipgloss:v2.0.2:charmbracelet_lipgloss_charm
+GH_TUPLE:=	${GH_TUPLE:C,([^:]+:[^:]+:)([^:]+[^/]+).*/charm.land/lipgloss/v2,\1\2_charm,1}
+
 .include <bsd.port.mk>

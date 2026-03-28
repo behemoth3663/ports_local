@@ -16,37 +16,39 @@ GH_TUPLE=	\
 		cenkalti:backoff:v4.3.0:cenkalti_backoff_v4/vendor/github.com/cenkalti/backoff/v4 \
 		cenkalti:backoff:v5.0.3:cenkalti_backoff_v5/vendor/github.com/cenkalti/backoff/v5 \
 		cespare:xxhash:v2.3.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
-		charmbracelet:bubbles:23b8fd6302d7:charmbracelet_bubbles/vendor/github.com/charmbracelet/bubbles \
-		charmbracelet:bubbletea:v1.3.10:charmbracelet_bubbletea/vendor/github.com/charmbracelet/bubbletea \
-		charmbracelet:colorprofile:v0.3.1:charmbracelet_colorprofile/vendor/github.com/charmbracelet/colorprofile \
+		charmbracelet:colorprofile:v0.4.2:charmbracelet_colorprofile/vendor/github.com/charmbracelet/colorprofile \
 		charmbracelet:glamour:v0.10.0:charmbracelet_glamour/vendor/github.com/charmbracelet/glamour \
-		charmbracelet:huh:v0.8.0:charmbracelet_huh/vendor/github.com/charmbracelet/huh \
 		charmbracelet:lipgloss:76690c660834:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
+		charmbracelet:ultraviolet:524a6607adb8:charmbracelet_ultraviolet/vendor/github.com/charmbracelet/ultraviolet \
 		charmbracelet:x:821143405392:charmbracelet_x_slice/vendor/github.com/charmbracelet/x/exp/slice \
 		charmbracelet:x:821143405392:charmbracelet_x_strings/vendor/github.com/charmbracelet/x/exp/strings \
-		charmbracelet:x:v0.0.13:charmbracelet_x_cellbuf/vendor/github.com/charmbracelet/x/cellbuf \
-		charmbracelet:x:v0.10.2:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x/ansi \
-		charmbracelet:x:v0.2.1:charmbracelet_x_term/vendor/github.com/charmbracelet/x/term \
+		charmbracelet:x:v0.0.15:charmbracelet_x_cellbuf/vendor/github.com/charmbracelet/x/cellbuf \
+		charmbracelet:x:v0.1.0:charmbracelet_x_ordered/vendor/github.com/charmbracelet/x/exp/ordered \
+		charmbracelet:x:v0.1.1:charmbracelet_x_termios/vendor/github.com/charmbracelet/x/termios \
+		charmbracelet:x:v0.11.6:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x/ansi \
+		charmbracelet:x:v0.2.2:charmbracelet_x_term/vendor/github.com/charmbracelet/x/term \
+		charmbracelet:x:v0.2.2:charmbracelet_x_windows/vendor/github.com/charmbracelet/x/windows \
 		cli:browser:v1.3.0:cli_browser/vendor/github.com/cli/browser \
 		cli:go-gh:v2.13.0:cli_go_gh_v2/vendor/github.com/cli/go-gh/v2 \
 		cli:go-internal:6c48bcd5ce24:cli_go_internal/vendor/github.com/cli/go-internal \
 		cli:oauth:v1.2.2:cli_oauth/vendor/github.com/cli/oauth \
 		cli:safeexec:v1.0.1:cli_safeexec/vendor/github.com/cli/safeexec \
 		cli:shurcooL-graphql:v0.0.4:cli_shurcool_graphql/vendor/github.com/cli/shurcooL-graphql \
-		containerd:stargz-snapshotter:v0.18.1:containerd_stargz_snapshotter_estargz/vendor/github.com/containerd/stargz-snapshotter/estargz \
+		clipperhouse:displaywidth:v0.11.0:clipperhouse_displaywidth/vendor/github.com/clipperhouse/displaywidth \
+		clipperhouse:uax29:v2.7.0:clipperhouse_uax29_v2/vendor/github.com/clipperhouse/uax29/v2 \
+		containerd:stargz-snapshotter:v0.18.2:containerd_stargz_snapshotter_estargz/vendor/github.com/containerd/stargz-snapshotter/estargz \
 		cpuguy83:go-md2man:v2.0.7:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
 		creack:pty:v1.1.24:creack_pty/vendor/github.com/creack/pty \
 		cyberphone:json-canonicalization:19d51d7fe467:cyberphone_json_canonicalization/vendor/github.com/cyberphone/json-canonicalization \
-		danieljoos:wincred:v1.2.2:danieljoos_wincred/vendor/github.com/danieljoos/wincred \
+		danieljoos:wincred:v1.2.3:danieljoos_wincred/vendor/github.com/danieljoos/wincred \
 		davecgh:go-spew:d8f796af33cc:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		digitorus:pkcs7:3a137a874352:digitorus_pkcs7/vendor/github.com/digitorus/pkcs7 \
 		digitorus:timestamp:c45532741eea:digitorus_timestamp/vendor/github.com/digitorus/timestamp \
 		distribution:reference:v0.6.0:distribution_reference/vendor/github.com/distribution/reference \
 		dlclark:regexp2:v1.11.5:dlclark_regexp2/vendor/github.com/dlclark/regexp2 \
-		docker:cli:v29.2.0:docker_cli/vendor/github.com/docker/cli \
+		docker:cli:v29.3.0:docker_cli/vendor/github.com/docker/cli \
 		docker:distribution:v2.8.3:docker_distribution/vendor/github.com/docker/distribution \
 		dustin:go-humanize:v1.0.1:dustin_go_humanize/vendor/github.com/dustin/go-humanize \
-		erikgeiser:coninput:1c3628e74d0f:erikgeiser_coninput/vendor/github.com/erikgeiser/coninput \
 		fatih:color:v1.18.0:fatih_color/vendor/github.com/fatih/color \
 		gabriel-vasile:mimetype:v1.4.13:gabriel_vasile_mimetype/vendor/github.com/gabriel-vasile/mimetype \
 		gdamore:encoding:v1.0.1:gdamore_encoding/vendor/github.com/gdamore/encoding \
@@ -76,19 +78,19 @@ GH_TUPLE=	\
 		go-openapi:validate:v0.25.1:go_openapi_validate/vendor/github.com/go-openapi/validate \
 		go-viper:mapstructure:v2.4.0:go_viper_mapstructure_v2/vendor/github.com/go-viper/mapstructure/v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
-		godbus:dbus:v5.1.0:godbus_dbus_v5/vendor/github.com/godbus/dbus/v5 \
-		golang:crypto:v0.48.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:mod:v0.32.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.49.0:golang_net/vendor/golang.org/x/net \
+		godbus:dbus:v5.2.2:godbus_dbus_v5/vendor/github.com/godbus/dbus/v5 \
+		golang:crypto:v0.49.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:mod:v0.34.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.52.0:golang_net/vendor/golang.org/x/net \
 		golang:snappy:v1.0.0:golang_snappy/vendor/github.com/golang/snappy \
 		golang:sync:v0.20.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.41.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.40.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.34.0:golang_text/vendor/golang.org/x/text \
-		golang:tools:v0.41.0:golang_tools/vendor/golang.org/x/tools \
+		golang:sys:v0.42.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.41.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.35.0:golang_text/vendor/golang.org/x/text \
+		golang:tools:v0.43.0:golang_tools/vendor/golang.org/x/tools \
 		google:certificate-transparency-go:v1.3.2:google_certificate_transparency_go/vendor/github.com/google/certificate-transparency-go \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
-		google:go-containerregistry:v0.20.7:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
+		google:go-containerregistry:v0.21.3:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
 		google:go-genproto:0a764e51fe1b:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/rpc \
 		google:go-genproto:ff82c1b0f217:google_go_genproto/vendor/google.golang.org/genproto/googleapis/api \
 		google:shlex:e7afc7fbc510:google_shlex/vendor/github.com/google/shlex \
@@ -96,7 +98,7 @@ GH_TUPLE=	\
 		gorilla:css:v1.0.1:gorilla_css/vendor/github.com/gorilla/css \
 		gorilla:websocket:v1.5.3:gorilla_websocket/vendor/github.com/gorilla/websocket \
 		grpc-ecosystem:grpc-gateway:v2.27.3:grpc_ecosystem_grpc_gateway_v2/vendor/github.com/grpc-ecosystem/grpc-gateway/v2 \
-		grpc:grpc-go:v1.79.2:grpc_grpc_go/vendor/google.golang.org/grpc \
+		grpc:grpc-go:v1.79.3:grpc_grpc_go/vendor/google.golang.org/grpc \
 		h2non:gock:v1.1.2:h2non_gock/vendor/gopkg.in/h2non/gock.v1 \
 		h2non:parth:b4df798d6542:h2non_parth/vendor/github.com/h2non/parth \
 		hashicorp:go-version:v1.8.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
@@ -111,12 +113,11 @@ GH_TUPLE=	\
 		jedisct1:go-minisign:d2f9f49435c7:jedisct1_go_minisign/vendor/github.com/jedisct1/go-minisign \
 		joho:godotenv:v1.5.1:joho_godotenv/vendor/github.com/joho/godotenv \
 		kballard:go-shellquote:95032a82bc51:kballard_go_shellquote/vendor/github.com/kballard/go-shellquote \
-		klauspost:compress:v1.18.1:klauspost_compress/vendor/github.com/klauspost/compress \
+		klauspost:compress:v1.18.4:klauspost_compress/vendor/github.com/klauspost/compress \
 		lucasb-eyer:go-colorful:v1.3.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
 		mattn:go-colorable:v0.1.14:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
 		mattn:go-isatty:v0.0.20:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
-		mattn:go-localereader:v0.0.1:mattn_go_localereader/vendor/github.com/mattn/go-localereader \
-		mattn:go-runewidth:v0.0.17:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
+		mattn:go-runewidth:v0.0.20:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
 		mgutz:ansi:d51e80ef957d:mgutz_ansi/vendor/github.com/mgutz/ansi \
 		microcosm-cc:bluemonday:v1.0.27:microcosm_cc_bluemonday/vendor/github.com/microcosm-cc/bluemonday \
 		microsoft:dev-tunnels:v0.1.19:microsoft_dev_tunnels/vendor/github.com/microsoft/dev-tunnels \
@@ -126,7 +127,6 @@ GH_TUPLE=	\
 		mitchellh:reflectwalk:v1.0.2:mitchellh_reflectwalk/vendor/github.com/mitchellh/reflectwalk \
 		moby:moby:v0.9.3:moby_moby/vendor/github.com/docker/docker-credential-helpers \
 		mongodb:mongo-go-driver:v1.17.6:mongodb_mongo_go_driver/vendor/go.mongodb.org/mongo-driver \
-		muesli:ansi:276c6243b2f6:muesli_ansi/vendor/github.com/muesli/ansi \
 		muesli:cancelreader:v0.2.2:muesli_cancelreader/vendor/github.com/muesli/cancelreader \
 		muesli:reflow:v0.3.0:muesli_reflow/vendor/github.com/muesli/reflow \
 		muesli:termenv:v0.16.0:muesli_termenv/vendor/github.com/muesli/termenv \
@@ -153,7 +153,7 @@ GH_TUPLE=	\
 		sigstore:sigstore-go:v1.1.4:sigstore_sigstore_go/vendor/github.com/sigstore/sigstore-go \
 		sigstore:sigstore:v1.10.4:sigstore_sigstore/vendor/github.com/sigstore/sigstore \
 		sigstore:timestamp-authority:v2.0.3:sigstore_timestamp_authority_v2/vendor/github.com/sigstore/timestamp-authority/v2 \
-		sirupsen:logrus:v1.9.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
+		sirupsen:logrus:v1.9.4:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
 		spf13:cast:v1.10.0:spf13_cast/vendor/github.com/spf13/cast \
 		spf13:cobra:v1.10.2:spf13_cobra/vendor/github.com/spf13/cobra \
 		spf13:pflag:v1.0.10:spf13_pflag/vendor/github.com/spf13/pflag \
@@ -169,12 +169,16 @@ GH_TUPLE=	\
 		xo:terminfo:abceb7e1c41e:xo_terminfo/vendor/github.com/xo/terminfo \
 		yuin:goldmark-emoji:v1.0.6:yuin_goldmark_emoji/vendor/github.com/yuin/goldmark-emoji \
 		yuin:goldmark:v1.7.16:yuin_goldmark/vendor/github.com/yuin/goldmark \
-		zalando:go-keyring:v0.2.6:zalando_go_keyring/vendor/github.com/zalando/go-keyring
+		zalando:go-keyring:v0.2.8:zalando_go_keyring/vendor/github.com/zalando/go-keyring
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
 		#	::v1.0.2:group_name/vendor/dario.cat/mergo (from dario.cat/mergo@v1.0.2)
 		#	::v1.2.1:group_name/vendor/go.opentelemetry.io/auto/sdk (from go.opentelemetry.io/auto/sdk@v1.2.1)
 		#	::v1.39.0:group_name/vendor/go.opentelemetry.io/otel (from go.opentelemetry.io/otel@v1.39.0)
 		#	::v1.39.0:group_name/vendor/go.opentelemetry.io/otel/metric (from go.opentelemetry.io/otel/metric@v1.39.0)
 		#	::v1.39.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.39.0)
-		#	::v1.6.0:group_name/vendor/al.essio.dev/pkg/shellescape (from al.essio.dev/pkg/shellescape@v1.6.0)
+		#	::v2.0.0:group_name/vendor/charm.land/bubbles/v2 (from charm.land/bubbles/v2@v2.0.0)
+		#	::v2.0.2:group_name/vendor/charm.land/bubbletea/v2 (from charm.land/bubbletea/v2@v2.0.2)
+		#	::v2.0.2:group_name/vendor/charm.land/lipgloss/v2 (from charm.land/lipgloss/v2@v2.0.2)
+		#	::v2.0.3:group_name/vendor/charm.land/huh/v2 (from charm.land/huh/v2@v2.0.3)
 		#	::v3.0.4:group_name/vendor/go.yaml.in/yaml/v3 (from go.yaml.in/yaml/v3@v3.0.4)
+		#	::v3.5.2:group_name/vendor/gotest.tools/v3 (from gotest.tools/v3@v3.5.2)
