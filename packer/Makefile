@@ -36,7 +36,7 @@ post-extract: .PHONY
 	@${ECHO} ${PORTVERSION} >${WRKSRC}/version/VERSION
 	@${RM} -r ${WRKSRC}/vendor/google.golang.org/api/transport/http/internal/propagation
 	@${RM} -r ${WRKSRC}/vendor/github.com/hashicorp/go-secure-stdlib/parseutil
-	@${RM} -r ${WRKSRC}/vendor/github.com/containerd/containerd/v2/pkg/tracing
+#	@${RM} -r ${WRKSRC}/vendor/github.com/containerd/containerd/v2/pkg/tracing
 	@${RM} ${WRKSRC}/vendor/github.com/go-openapi/runtime/client/opentelemetry.go
 	@${RLN} ${WRKSRC}/vendor/github.com/mikelolasagasti/xz ${WRKSRC}/vendor/github.com/therootcompany/xz
 	@${TEST} -z ${WRKSRC_hashicorp_go_secure_stdlib_parseutil} || ${RLN} ${WRKSRC_hashicorp_go_secure_stdlib_parseutil}/parseutil ${WRKSRC}/vendor/github.com/hashicorp/go-secure-stdlib/parseutil
