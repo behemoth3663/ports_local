@@ -9,7 +9,7 @@ GH_TUPLE=	\
 		go-viper:mapstructure:v2.4.0:go_viper_mapstructure_v2/vendor/github.com/go-viper/mapstructure/v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
 		golang:crypto:v0.46.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:oauth2:v0.35.0:golang_oauth2/vendor/golang.org/x/oauth2 \
+		golang:oauth2:v0.36.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:sys:v0.39.0:golang_sys/vendor/golang.org/x/sys \
 		golang:text:v0.32.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.14.0:golang_time/vendor/golang.org/x/time \
