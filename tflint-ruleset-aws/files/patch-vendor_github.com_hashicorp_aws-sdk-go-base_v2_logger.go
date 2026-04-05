@@ -1,4 +1,4 @@
---- vendor/github.com/hashicorp/aws-sdk-go-base/v2/logger.go.orig	2025-04-04 12:31:04 UTC
+--- vendor/github.com/hashicorp/aws-sdk-go-base/v2/logger.go.orig	2026-03-20 17:11:45 UTC
 +++ vendor/github.com/hashicorp/aws-sdk-go-base/v2/logger.go
 @@ -4,31 +4,20 @@ import (
  package awsbase
@@ -52,7 +52,7 @@
  type logAttributeExtractor struct{}
  
  func (l *logAttributeExtractor) ID() string {
-@@ -71,32 +56,6 @@ func (l *logAttributeExtractor) HandleInitialize(ctx c
+@@ -71,31 +56,6 @@ func (l *logAttributeExtractor) HandleInitialize(ctx c
  
  func (l *logAttributeExtractor) HandleInitialize(ctx context.Context, in middleware.InitializeInput, next middleware.InitializeHandler) (
  	out middleware.InitializeOutput, metadata middleware.Metadata, err error) {
@@ -63,9 +63,8 @@
 -
 -	attributes := []attribute.KeyValue{
 -		otelaws.SystemAttr(),
--		otelaws.ServiceAttr(serviceID),
+-		otelaws.MethodAttr(serviceID, awsmiddleware.GetOperationName(ctx)),
 -		otelaws.RegionAttr(region),
--		otelaws.OperationAttr(awsmiddleware.GetOperationName(ctx)),
 -		awsSDKv2Attr(),
 -	}
 -
@@ -85,7 +84,7 @@
  	return next.HandleInitialize(ctx, in)
  }
  
-@@ -120,10 +79,10 @@ func (r *requestResponseLogger) HandleDeserialize(ctx 
+@@ -119,10 +79,10 @@ func (r *requestResponseLogger) HandleDeserialize(ctx 
  	region := awsmiddleware.GetRegion(ctx)
  
  	if signingRegion := awsmiddleware.GetSigningRegion(ctx); signingRegion != region { //nolint:staticcheck // Not retrievable elsewhere
@@ -98,7 +97,7 @@
  	}
  
  	smithyRequest, ok := in.Request.(*smithyhttp.Request)
-@@ -168,25 +127,7 @@ func decomposeHTTPResponse(ctx context.Context, resp *
+@@ -167,25 +127,7 @@ func decomposeHTTPResponse(ctx context.Context, resp *
  }
  
  func decomposeHTTPResponse(ctx context.Context, resp *http.Response, elapsed time.Duration) (map[string]any, error) {
@@ -125,7 +124,7 @@
  	return result, nil
  }
  
-@@ -203,108 +144,6 @@ type defaultResponseBodyLogger struct{}
+@@ -202,108 +144,6 @@ type defaultResponseBodyLogger struct{}
  var _ logging.ResponseBodyLogger = &defaultResponseBodyLogger{}
  
  type defaultResponseBodyLogger struct{}
