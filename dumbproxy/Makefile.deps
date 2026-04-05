@@ -1,8 +1,7 @@
 GH_TUPLE=	\
 		GehirnInc:crypt:8cc1b52080c5:gehirninc_crypt/vendor/github.com/GehirnInc/crypt \
-		Snawoot:secache:v0.2.1:snawoot_secache/vendor/github.com/Snawoot/secache \
 		Snawoot:uniqueslice:v0.1.1:snawoot_uniqueslice/vendor/github.com/Snawoot/uniqueslice \
-		andybalholm:brotli:v1.2.0:andybalholm_brotli/vendor/github.com/andybalholm/brotli \
+		andybalholm:brotli:v1.2.1:andybalholm_brotli/vendor/github.com/andybalholm/brotli \
 		cespare:xxhash:v2.3.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
 		coreos:go-systemd:v22.7.0:coreos_go_systemd_v22/vendor/github.com/coreos/go-systemd/v22 \
 		dgryski:go-rendezvous:9f7001d12a5f:dgryski_go_rendezvous/vendor/github.com/dgryski/go-rendezvous \
@@ -16,17 +15,18 @@ GH_TUPLE=	\
 		golang:sys:v0.42.0:golang_sys/vendor/golang.org/x/sys \
 		golang:term:v0.41.0:golang_term/vendor/golang.org/x/term \
 		golang:text:v0.35.0:golang_text/vendor/golang.org/x/text \
-		google:pprof:a15ffb7f9dcc:google_pprof/vendor/github.com/google/pprof \
+		google:pprof:545e8a4df936:google_pprof/vendor/github.com/google/pprof \
 		hashicorp:errwrap:v1.1.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
 		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
 		klauspost:compress:v1.18.5:klauspost_compress/vendor/github.com/klauspost/compress \
 		libp2p:go-reuseport:v0.4.0:libp2p_go_reuseport/vendor/github.com/libp2p/go-reuseport \
-		ncruces:go-dns:v1.3.2:ncruces_go_dns/vendor/github.com/ncruces/go-dns \
+		ncruces:go-dns:v1.3.3:ncruces_go_dns/vendor/github.com/ncruces/go-dns \
 		pires:go-proxyproto:v0.11.0:pires_go_proxyproto/vendor/github.com/pires/go-proxyproto \
 		redis:go-redis:v9.18.0:redis_go_redis_v9/vendor/github.com/redis/go-redis/v9 \
 		refraction-networking:utls:v1.8.2:refraction_networking_utls/vendor/github.com/refraction-networking/utls \
 		tg123:go-htpasswd:v1.2.4:tg123_go_htpasswd/vendor/github.com/tg123/go-htpasswd \
-		things-go:go-socks5:v0.1.0:things_go_go_socks5/vendor/github.com/things-go/go-socks5 \
+		things-go:go-socks5:v0.1.1:things_go_go_socks5/vendor/github.com/things-go/go-socks5 \
 		uber-go:atomic:v1.11.0:uber_go_atomic/vendor/go.uber.org/atomic
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
-		#	::81c6cb34a8fc:group_name/vendor/golang.org/x/crypto/x509roots/fallback (from go.googlesource.com/crypto@81c6cb34a8fc)
+		#	::8400f4a93807:group_name/vendor/golang.org/x/crypto/x509roots/fallback (from go.googlesource.com/crypto@8400f4a93807)
+		#	::v0.2.4:group_name/vendor/codeberg.org/yarmak/secache (from codeberg.org/yarmak/secache@v0.2.4)

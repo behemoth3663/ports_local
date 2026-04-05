@@ -1,3 +1,7 @@
+# codeberg.org/yarmak/secache v0.2.4
+## explicit; go 1.23
+codeberg.org/yarmak/secache
+codeberg.org/yarmak/secache/randmap
 # github.com/GehirnInc/crypt v0.0.0-20230320061759-8cc1b52080c5
 ## explicit; go 1.19
 github.com/GehirnInc/crypt
@@ -5,16 +9,13 @@ github.com/GehirnInc/crypt/common
 github.com/GehirnInc/crypt/internal
 github.com/GehirnInc/crypt/sha256_crypt
 github.com/GehirnInc/crypt/sha512_crypt
-# github.com/Snawoot/secache v0.2.1
-## explicit; go 1.23
-github.com/Snawoot/secache
-github.com/Snawoot/secache/randmap
 # github.com/Snawoot/uniqueslice v0.1.1
 ## explicit; go 1.23.0
 github.com/Snawoot/uniqueslice
-# github.com/andybalholm/brotli v1.2.0
+# github.com/andybalholm/brotli v1.2.1
 ## explicit; go 1.22
 github.com/andybalholm/brotli
+github.com/andybalholm/brotli/flate
 github.com/andybalholm/brotli/matchfinder
 # github.com/cespare/xxhash/v2 v2.3.0
 ## explicit; go 1.11
@@ -43,7 +44,7 @@ github.com/dop251/goja/unistring
 ## explicit
 github.com/go-sourcemap/sourcemap
 github.com/go-sourcemap/sourcemap/internal/base64vlq
-# github.com/google/pprof v0.0.0-20260302011040-a15ffb7f9dcc
+# github.com/google/pprof v0.0.0-20260402051712-545e8a4df936
 ## explicit; go 1.24.0
 github.com/google/pprof/profile
 # github.com/hashicorp/errwrap v1.1.0
@@ -65,7 +66,7 @@ github.com/klauspost/compress/zstd/internal/xxhash
 # github.com/libp2p/go-reuseport v0.4.0
 ## explicit; go 1.20
 github.com/libp2p/go-reuseport
-# github.com/ncruces/go-dns v1.3.2
+# github.com/ncruces/go-dns v1.3.3
 ## explicit; go 1.24.0
 github.com/ncruces/go-dns
 # github.com/pires/go-proxyproto v0.11.0
@@ -106,7 +107,7 @@ github.com/refraction-networking/utls/internal/tls13
 # github.com/tg123/go-htpasswd v1.2.4
 ## explicit; go 1.23.0
 github.com/tg123/go-htpasswd
-# github.com/things-go/go-socks5 v0.1.0
+# github.com/things-go/go-socks5 v0.1.1
 ## explicit; go 1.18
 github.com/things-go/go-socks5
 github.com/things-go/go-socks5/bufferpool
@@ -135,7 +136,7 @@ golang.org/x/crypto/internal/alias
 golang.org/x/crypto/internal/poly1305
 golang.org/x/crypto/sha3
 golang.org/x/crypto/ssh/terminal
-# golang.org/x/crypto/x509roots/fallback v0.0.0-20260320152806-81c6cb34a8fc
+# golang.org/x/crypto/x509roots/fallback v0.0.0-20260323153451-8400f4a93807
 ## explicit; go 1.25.0
 golang.org/x/crypto/x509roots/fallback
 golang.org/x/crypto/x509roots/fallback/bundle
