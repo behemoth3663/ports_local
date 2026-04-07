@@ -1,8 +1,9 @@
 PORTNAME=	infracost
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.10.43
+DISTVERSION=	0.10.44
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
+PKGNAMESUFFIX=	-local
 
 MAINTAINER=	dutra@FreeBSD.org
 COMMENT=	Cloud cost estimates for Terraform
@@ -19,8 +20,9 @@ GO_MODULE=	github.com/${PORTNAME}/${PORTNAME}
 GO_TARGET=	./cmd/${PORTNAME}
 
 CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X ${GO_MODULE}/internal/version.Version=v${PORTVERSION}"
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 PLIST_FILES=	bin/${PORTNAME}
 
