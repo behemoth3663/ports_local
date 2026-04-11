@@ -17,7 +17,9 @@ GH_TAGNAME=	e55c48c
 
 PLIST_FILES=	bin/${PORTNAME}
 
+CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.version=${PORTVERSION}'"
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 fetch-version: .PHONY get-version
 
