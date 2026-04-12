@@ -1,7 +1,8 @@
 PORTNAME=	skopeo
-PORTVERSION=	1.22.0
+PORTVERSION=	1.22.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
+PKGNAMESUFFIX=	-local
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Utility for various operations on container images and repositories

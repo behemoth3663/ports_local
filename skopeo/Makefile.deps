@@ -4,12 +4,13 @@ GH_TUPLE=	\
 		Microsoft:go-winio:v0.6.2:microsoft_go_winio/vendor/github.com/Microsoft/go-winio \
 		VividCortex:ewma:v1.2.0:vividcortex_ewma/vendor/github.com/VividCortex/ewma \
 		acarl005:stripansi:5a71ef0e047d:acarl005_stripansi/vendor/github.com/acarl005/stripansi \
+		cespare:xxhash:v2.3.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
 		containerd:errdefs:v0.3.0:containerd_errdefs_pkg/vendor/github.com/containerd/errdefs \
 		containerd:errdefs:v1.0.0:containerd_errdefs \
 		containerd:stargz-snapshotter:v0.17.0:containerd_stargz_snapshotter_estargz/vendor/github.com/containerd/stargz-snapshotter \
-		containers:container-libs:v0.67.0:containers_container_libs/vendor/go.podman.io/common \
+		containers:container-libs:v0.67.1:containers_container_libs/vendor/go.podman.io/common \
 		containers:container-libs:v1.62.0:containers_container_libs_2/vendor/go.podman.io/storage \
-		containers:container-libs:v5.39.1:containers_container_libs_1/vendor/go.podman.io/image/v5 \
+		containers:container-libs:v5.39.2:containers_container_libs_1/vendor/go.podman.io/image/v5 \
 		containers:libtrust:c1716e8a8d01:containers_libtrust/vendor/github.com/containers/libtrust \
 		containers:ocicrypt:v1.2.1:containers_ocicrypt/vendor/github.com/containers/ocicrypt \
 		coreos:go-oidc:v3.14.1:coreos_go_oidc_v3/vendor/github.com/coreos/go-oidc/v3 \
@@ -22,25 +23,25 @@ GH_TUPLE=	\
 		docker:go-units:v0.5.0:docker_go_units/vendor/github.com/docker/go-units \
 		dsnet:compress:39efe44ab707:dsnet_compress/vendor/github.com/dsnet/compress \
 		felixge:httpsnoop:v1.0.4:felixge_httpsnoop/vendor/github.com/felixge/httpsnoop \
-		go-jose:go-jose:v4.0.5:go_jose_go_jose_v4/vendor/github.com/go-jose/go-jose/v4 \
+		go-jose:go-jose:v4.1.4:go_jose_go_jose_v4/vendor/github.com/go-jose/go-jose/v4 \
 		go-logr:logr:v1.4.3:go_logr_logr/vendor/github.com/go-logr/logr \
 		go-logr:stdr:v1.2.2:go_logr_stdr/vendor/github.com/go-logr/stdr \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
-		golang:crypto:v0.43.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:net:v0.45.0:golang_net/vendor/golang.org/x/net \
-		golang:oauth2:v0.32.0:golang_oauth2/vendor/golang.org/x/oauth2 \
+		golang:crypto:v0.46.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:net:v0.48.0:golang_net/vendor/golang.org/x/net \
+		golang:oauth2:v0.34.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sync:v0.17.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.37.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.36.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.30.0:golang_text/vendor/golang.org/x/text \
+		golang:sync:v0.19.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.39.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.38.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.32.0:golang_text/vendor/golang.org/x/text \
 		google:go-containerregistry:v0.20.6:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
-		google:go-genproto:207652e42e2e:google_go_genproto/vendor/google.golang.org/genproto/googleapis/api \
-		google:go-genproto:207652e42e2e:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/rpc \
+		google:go-genproto:ff82c1b0f217:google_go_genproto/vendor/google.golang.org/genproto/googleapis/api \
+		google:go-genproto:ff82c1b0f217:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/rpc \
 		google:go-intervals:v0.0.2:google_go_intervals/vendor/github.com/google/go-intervals \
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
 		gorilla:mux:v1.8.1:gorilla_mux/vendor/github.com/gorilla/mux \
-		grpc:grpc-go:v1.72.2:grpc_grpc_go/vendor/google.golang.org/grpc \
+		grpc:grpc-go:v1.79.3:grpc_grpc_go/vendor/google.golang.org/grpc \
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
 		hashicorp:go-multierror:1ee6e1a1957a:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
 		hashicorp:go-retryablehttp:v0.7.8:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
@@ -63,8 +64,8 @@ GH_TUPLE=	\
 		modern-go:concurrent:bacd9c7ef1dd:modern_go_concurrent/vendor/github.com/modern-go/concurrent \
 		modern-go:reflect2:v1.0.2:modern_go_reflect2/vendor/github.com/modern-go/reflect2 \
 		open-telemetry:opentelemetry-go-contrib:v0.61.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp \
-		open-telemetry:opentelemetry-go-instrumentation:v1.1.0:open_telemetry_opentelemetry_go_instrumentation/vendor/go.opentelemetry.io/auto/sdk \
-		open-telemetry:opentelemetry-go:v1.36.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
+		open-telemetry:opentelemetry-go-instrumentation:v1.2.1:open_telemetry_opentelemetry_go_instrumentation/vendor/go.opentelemetry.io/auto/sdk \
+		open-telemetry:opentelemetry-go:v1.39.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
 		opencontainers:go-digest:v1.0.0:opencontainers_go_digest/vendor/github.com/opencontainers/go-digest \
 		opencontainers:image-spec:26647a49f642:opencontainers_image_spec/vendor/github.com/opencontainers/image-spec \
 		opencontainers:image-spec:ab80ff15c2dd:opencontainers_image_spec_schema \
@@ -74,7 +75,7 @@ GH_TUPLE=	\
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
 		pmezard:go-difflib:5d4384ee4fb2:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		proglottis:gpgme:v0.1.5:proglottis_gpgme/vendor/github.com/proglottis/gpgme \
-		protocolbuffers:protobuf-go:v1.36.9:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
+		protocolbuffers:protobuf-go:v1.36.10:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		rivo:uniseg:v0.4.7:rivo_uniseg/vendor/github.com/rivo/uniseg \
 		santhosh-tekuri:jsonschema:v6.0.2:santhosh_tekuri_jsonschema_v6/vendor/github.com/santhosh-tekuri/jsonschema/v6 \
 		secure-systems-lab:go-securesystemslib:v0.9.1:secure_systems_lab_go_securesystemslib/vendor/github.com/secure-systems-lab/go-securesystemslib \
