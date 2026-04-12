@@ -1,6 +1,6 @@
 PORTNAME=	tools
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.43.0
+DISTVERSION=	0.44.0
 #PORTREVISION=	1
 PORTEPOCH=	1
 CATEGORIES=	local devel
@@ -21,10 +21,6 @@ GH_PROJECT=	${PORTNAME}
 
 # find $(make -V WRKSRC)/cmd -name '*.go' -type f | sed -r -e '/\/testdata\//d' -e '/\/internal\//d' -e 's,.*/cmd/,\t./cmd/,' -e 's,/[^/]+$, \\,' | sort --unique
 GO_TARGET=	\
-	./cmd/auth/authtest \
-	./cmd/auth/cookieauth \
-	./cmd/auth/gitauth \
-	./cmd/auth/netrcauth \
 	./cmd/benchcmp \
 	./cmd/bisect \
 	./cmd/bundle \
