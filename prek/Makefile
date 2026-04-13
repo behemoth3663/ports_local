@@ -1,8 +1,8 @@
 PORTNAME=	prek
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.3.8
+DISTVERSION=	0.3.9
 #PORTREVISION=	1
-CATEGORIES=	textproc
+CATEGORIES=	local devel
 
 MAINTAINER=	none@FreeBSD.org
 COMMENT=	Better pre-commit, re-engineered in Rust
