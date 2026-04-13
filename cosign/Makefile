@@ -1,5 +1,5 @@
 PORTNAME=	cosign
-PORTVERSION=	3.0.5
+PORTVERSION=	3.0.6
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local security
@@ -23,7 +23,7 @@ GO_TARGET=	./cmd/${PORTNAME}
 
 GIT_COMMIT=	git ls-remote \
 		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
-		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}^{}
+		refs/tags/${DISTVERSIONFULL}^{}
 
 CGO_ENABLED=	0
 GO_BUILDFLAGS=	-ldflags="-s -w -buildid= \
@@ -49,8 +49,6 @@ post-extract: .PHONY .SILENT
 	@${MKDIR} ${WRKSRC}/vendor/go.yaml.in/yaml
 	@${TEST} ! -e ${WRKSRC}/vendor/gopkg.in/yaml.v2 || ${RLN} ${WRKSRC}/vendor/gopkg.in/yaml.v2 ${WRKSRC}/vendor/go.yaml.in/yaml/v2
 	@${TEST} ! -e ${WRKSRC}/vendor/gopkg.in/yaml.v3 || ${RLN} ${WRKSRC}/vendor/gopkg.in/yaml.v3 ${WRKSRC}/vendor/go.yaml.in/yaml/v3
-	@${MKDIR} ${WRKSRC}/vendor/gopkg.in
-	@${TEST} ! -e ${WRKSRC}/vendor/github.com/go-ini/ini || ${RLN} ${WRKSRC}/vendor/github.com/go-ini/ini ${WRKSRC}/vendor/gopkg.in/ini.v1
 	@${MKDIR} ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault
 	@${TEST} -z ${WRKSRC_azure_azure_sdk_for_go_azcore} || ${RLN} ${WRKSRC_azure_azure_sdk_for_go_azcore}/sdk/azcore ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk
 	@${TEST} -z ${WRKSRC_azure_azure_sdk_for_go_internal} || ${RLN} ${WRKSRC_azure_azure_sdk_for_go_internal}/sdk/internal ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk
@@ -58,8 +56,7 @@ post-extract: .PHONY .SILENT
 	@${TEST} -z ${WRKSRC_azure_azure_sdk_for_go_internal_1} || ${RLN} ${WRKSRC_azure_azure_sdk_for_go_internal_1}/sdk/security/keyvault/internal ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault
 	@${TEST} -z ${WRKSRC_azure_azure_sdk_for_go_azkeys} || ${RLN} ${WRKSRC_azure_azure_sdk_for_go_azkeys}/sdk/security/keyvault/azkeys ${WRKSRC}/vendor/github.com/Azure/azure-sdk-for-go/sdk/security/keyvault
 	@${RM} -r ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/api
-	# Should be WRKSRC_google_go_genproto_api, but it fails
-	@${TEST} -z ${WRKSRC_google_go_genproto_rpc} || ${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/api ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
+	@${TEST} -z ${WRKSRC_google_go_genproto_api} || ${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/api ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
 	@${RM} -r ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/rpc
 	@${TEST} -z ${WRKSRC_google_go_genproto_rpc} || ${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
 	@${RM} ${WRKSRC}/vendor/github.com/go-openapi/runtime/client/opentelemetry.go
@@ -221,10 +218,6 @@ GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+.*/envoyproxy/go-control-plane)
 #-cncf:xds:d92e9ce0af51:cncf_xds_go/vendor/github.com/cncf/xds/go
 #+cncf:xds:d92e9ce0af51:cncf_xds_go/vendor/github.com/cncf/xds
 GH_TUPLE:=	${GH_TUPLE:S|/xds/go|/xds|1}
-
-# go-ini:ini:v1.67.0:go_ini_ini/vendor/github.com/go-ini/ini
-#-go-ini:ini:v1.67.0:go_ini_ini_1/vendor/gopkg.in/ini.v1
-GH_TUPLE:=	${GH_TUPLE:N*/vendor/gopkg.in/ini.v1}
 
 #-gitlab-org:api:v1.11.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
 #+gitlab-org-api:client-go:v1.11.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
