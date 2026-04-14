@@ -1,9 +1,10 @@
 PORTNAME=	govulncheck
-PORTVERSION=	1.1.4
+PORTVERSION=	1.2.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	13
+#PORTREVISION=	1
 CATEGORIES=	local security
-DISTNAME=	vuln
+#DISTNAME=	vuln
+PKGNAMESUFFIX=	-local
 
 MAINTAINER=	einar@isnic.is
 COMMENT=	Database client and tools for Go vulnerability database
@@ -11,7 +12,7 @@ WWW=		https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck
 
 LICENSE=	BSD3CLAUSE
 
-USES=		go:modules
+USES=		go:modules,run
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	golang
@@ -33,16 +34,25 @@ post-patch: .PHONY
 	@${REINPLACE_CMD} -e 's|%%GO_CMD%%|${GO_CMD}|g' ${WRKSRC}/internal/testenv/testenv.go
 	@${REINPLACE_CMD} -e 's|%%GO_CMD%%|${GO_CMD}|g' ${WRKSRC}/internal/vulncheck/packages.go
 	@${REINPLACE_CMD} -e 's|%%GO_CMD%%|${GO_CMD}|g' ${WRKSRC}/vendor/golang.org/x/tools/go/gcexportdata/gcexportdata.go
-	@${REINPLACE_CMD} -e 's|%%GO_CMD%%|${GO_CMD}|g' ${WRKSRC}/vendor/golang.org/x/tools/go/packages/packagestest/export.go
 	@${REINPLACE_CMD} -e 's|%%GO_CMD%%|${GO_CMD}|g' ${WRKSRC}/vendor/golang.org/x/tools/internal/gcimporter/exportdata.go
 	@${REINPLACE_CMD} -e 's|%%GO_CMD%%|${GO_CMD}|g' ${WRKSRC}/vendor/golang.org/x/tools/internal/gocommand/invoke.go
-	@${REINPLACE_CMD} -e 's|%%GO_CMD%%|${GO_CMD}|g' ${WRKSRC}/vendor/golang.org/x/tools/internal/goroot/importcfg.go
 	@${REINPLACE_CMD} -e 's|%%GO_CMD%%|${GO_CMD}|g' ${WRKSRC}/vendor/golang.org/x/tools/internal/testenv/testenv.go
 
 #internal/scan/run.go
 #buf.WriteString("v0.0.0")
 #post-extract: .PHONY
-pre-deps post-deps-all pre-deps-all: .PHONY
+
+pre-deps: .PHONY
+	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+
+pre-deps-all: .PHONY
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
+
+post-deps-all: .PHONY
+	${TEST} ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
+
+post-extract: .PHONY
+	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
