@@ -1,9 +1,9 @@
 PORTNAME=	gh
-PORTVERSION=	2.89.0
+PORTVERSION=	2.90.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
-PKGNAMESUFFIX?=	-local
+PKGNAMESUFFIX=	-local
 
 MAINTAINER=	lcook@FreeBSD.org
 COMMENT=	GitHub's official command line tool
