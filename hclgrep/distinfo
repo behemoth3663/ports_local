@@ -1,12 +1,12 @@
-TIMESTAMP = 1669673488
-SHA256 (magodo-hclgrep-v0.0.2-1b2b24c_GH0.tar.gz) = 77b5a4383c5b51f2ba4ddcd650224656f37a36ffaf62cd11bebe21ca92143dde
-SIZE (magodo-hclgrep-v0.0.2-1b2b24c_GH0.tar.gz) = 18524
+TIMESTAMP = 1776527178
+SHA256 (magodo-hclgrep-v20240307-00059cb_GH0.tar.gz) = 49ba893668f8b0bfc81e4429f581c0cdda34e865a164894264a371128fd44a8c
+SIZE (magodo-hclgrep-v20240307-00059cb_GH0.tar.gz) = 19648
 SHA256 (agext-levenshtein-v1.2.1_GH0.tar.gz) = c6e4bc2db1f0d9bc57fd3f1887567d527f6df1bcfbb079d1d1c4eab17f320b50
 SIZE (agext-levenshtein-v1.2.1_GH0.tar.gz) = 12728
 SHA256 (apparentlymart-go-textseg-v13.0.0_GH0.tar.gz) = 7479ac3309883e2bdb6f562004f2044d3d13d19b78c41db12957aa573fdf3556
 SIZE (apparentlymart-go-textseg-v13.0.0_GH0.tar.gz) = 133786
-SHA256 (golang-text-v0.3.5_GH0.tar.gz) = f85d1185ba116cd40ef8cf702fe1d960ed41d039c08fd314dbeb5866f3166f27
-SIZE (golang-text-v0.3.5_GH0.tar.gz) = 8348127
+SHA256 (golang-text-v0.14.0_GH0.tar.gz) = c80295e75bda599d17ccf74038139b0957b9915fae4e60d8b46f89454ef171a0
+SIZE (golang-text-v0.14.0_GH0.tar.gz) = 8974094
 SHA256 (hashicorp-hcl-v2.11.1_GH0.tar.gz) = 42d7db704b311a84e455061e221a4326f996e266ebce29514714118d2a204dab
 SIZE (hashicorp-hcl-v2.11.1_GH0.tar.gz) = 407591
 SHA256 (mitchellh-go-wordwrap-ad45545899c7_GH0.tar.gz) = 917005b52e496fda7f702a88fb65a90cc5f2c8d5a569cf39aeaf1b536dd582d9
