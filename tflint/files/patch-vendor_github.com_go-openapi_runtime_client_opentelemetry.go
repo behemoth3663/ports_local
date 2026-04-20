@@ -1,4 +1,4 @@
---- vendor/github.com/go-openapi/runtime/client/opentelemetry.go.orig	2025-11-09 19:45:35 UTC
+--- vendor/github.com/go-openapi/runtime/client/opentelemetry.go.orig	2026-03-08 20:42:25 UTC
 +++ vendor/github.com/go-openapi/runtime/client/opentelemetry.go
 @@ -5,17 +5,10 @@ import (
  
@@ -73,18 +73,18 @@
  	config    *config
  }
  
-@@ -99,10 +59,7 @@ func newOpenTelemetryTransport(transport runtime.Clien
- 	}
- 
- 	defaultOpts := []OpenTelemetryOpt{
+@@ -101,10 +61,7 @@ func newOpenTelemetryTransport(transport runtime.Clien
+ 	const baseOptions = 4
+ 	defaultOpts := make([]OpenTelemetryOpt, 0, len(opts)+baseOptions)
+ 	defaultOpts = append(defaultOpts,
 -		WithSpanOptions(trace.WithSpanKind(trace.SpanKindClient)),
  		WithSpanNameFormatter(defaultTransportFormatter),
 -		WithPropagators(otel.GetTextMapPropagator()),
 -		WithTracerProvider(otel.GetTracerProvider()),
- 	}
+ 	)
  
  	c := newConfig(append(defaultOpts, opts...)...)
-@@ -119,92 +76,25 @@ func (t *openTelemetryTransport) Submit(op *runtime.Cl
+@@ -121,92 +78,25 @@ func (t *openTelemetryTransport) Submit(op *runtime.Cl
  	params := op.Params
  	reader := op.Reader
  

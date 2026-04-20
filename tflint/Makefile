@@ -1,10 +1,9 @@
-# Created by: Gabriel M. Dutra <0xdutra@gmail.com>
-
 PORTNAME=	tflint
-PORTVERSION=	0.61.0
+PORTVERSION=	0.62.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
+PKGNAMESUFFIX=	-local
 
 MAINTAINER=	dutra@FreeBSD.org
 COMMENT=	Terraform Linter
@@ -19,6 +18,7 @@ GH_ACCOUNT=	terraform-linters
 
 CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w"
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 PLIST_FILES=	bin/${PORTNAME}
 
@@ -28,10 +28,11 @@ M2T_OFFLINE=	true
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 	@${RM} ${WRKSRC}/vendor/cloud.google.com/go/storage/grpc_metrics.go
+	@${RM} ${WRKSRC}/vendor/cloud.google.com/go/storage/trace.go
 	@${RM} ${WRKSRC}/vendor/github.com/envoyproxy/go-control-plane/envoy/config/trace/v3/opencensus.pb.go
 	@${RM} ${WRKSRC}/vendor/github.com/envoyproxy/go-control-plane/envoy/config/trace/v3/opencensus.pb.validate.go
 	@${RM} ${WRKSRC}/vendor/github.com/envoyproxy/go-control-plane/envoy/config/trace/v3/trace.pb.go
-	@${RM} ${WRKSRC}/vendor/cloud.google.com/go/storage/trace.go
+	@${RM} ${WRKSRC}/vendor/github.com/googleapis/gax-go/v2/telemetry.go
 	@${RM} ${WRKSRC}/vendor/github.com/transparency-dev/tessera/client/otel.go
 	@${RM} ${WRKSRC}/vendor/github.com/transparency-dev/tessera/internal/stream/otel.go
 	@${RM} ${WRKSRC}/vendor/github.com/transparency-dev/tessera/otel.go
@@ -44,23 +45,21 @@ post-extract: .PHONY
 	@${TEST} ! -d ${WRKSRC}/vendor/cloud.google.com/go || ${RLN} ${WRKSRC_googleapis_google_cloud_go_auth}/auth ${WRKSRC}/vendor/cloud.google.com/go
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
 	@${TEST} ! -d ${WRKSRC}/vendor/cloud.google.com/go/compute || ${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute
-	@${RM} -r ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/rpc
-	@${TEST} -z ${WRKSRC_google_go_genproto_rpc} || ${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
 	@${MKDIR} ${WRKSRC}/vendor/go.yaml.in/yaml
 	@${TEST} ! -e ${WRKSRC}/vendor/gopkg.in/yaml.v3 || ${RLN} ${WRKSRC}/vendor/gopkg.in/yaml.v3 ${WRKSRC}/vendor/go.yaml.in/yaml/v3
 
 pre-deps: .PHONY
-	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
 
 post-deps-all: .PHONY
-	test ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
+	${TEST} ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
 
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 	${RM} ${.CURDIR}/generated.deps.mk
-	( make -C ${.CURDIR} make-from-deps GHT_ACNT=google GHT_PROJ=cel-spec GHT_PATH=cel.dev/expr )
-	( make -C ${.CURDIR} make-from-deps GHT_ACNT=googleapis GHT_PROJ=google-cloud-go GHT_PATH=cloud.google.com/go/compute/metadata )
-	( make -C ${.CURDIR} make-from-deps GHT_ACNT=go-yaml GHT_PROJ=yaml GHT_PATH=go.yaml.in/yaml/v3 )
+	( ${MAKE}  -C ${.CURDIR} make-from-deps GHT_ACNT=google GHT_PROJ=cel-spec GHT_PATH=cel.dev/expr )
+	( ${MAKE}  -C ${.CURDIR} make-from-deps GHT_ACNT=googleapis GHT_PROJ=google-cloud-go GHT_PATH=cloud.google.com/go/compute/metadata )
+	( ${MAKE}  -C ${.CURDIR} make-from-deps GHT_ACNT=go-yaml GHT_PROJ=yaml GHT_PATH=go.yaml.in/yaml/v3 )
 
 make-from-deps: .PHONY
 	@${SED} -rn \
@@ -101,7 +100,6 @@ GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+.*/envoyproxy/go-control-plane)
 #-google:go-genproto:49dd2c1f3d0b:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api
 #-google:go-genproto:d783a09b4405:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc
 #+google:go-genproto:d783a09b4405:google_go_genproto_rpc
-GH_TUPLE:=	${GH_TUPLE:C|(:google_go_genproto_).*/(rpc)|\1\2|}
 GH_TUPLE:=	${GH_TUPLE:N*google_go_genproto_[0-9]*}
 
 #make -V GH_TUPLE | tr ' ' '\n' | i googleapis:google-cloud-go
