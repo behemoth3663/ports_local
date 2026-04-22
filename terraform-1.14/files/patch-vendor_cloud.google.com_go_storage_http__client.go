@@ -1,50 +1,39 @@
---- vendor/cloud.google.com/go/storage/http_client.go.orig	2023-03-21 19:34:12 UTC
+--- vendor/cloud.google.com/go/storage/http_client.go.orig	2026-03-13 06:41:11 UTC
 +++ vendor/cloud.google.com/go/storage/http_client.go
-@@ -31,7 +31,6 @@ import (
+@@ -129,18 +129,6 @@ func newHTTPStorageClient(ctx context.Context, opts ..
+ 	}
  
- 	"cloud.google.com/go/iam/apiv1/iampb"
- 	"cloud.google.com/go/internal/optional"
--	"cloud.google.com/go/internal/trace"
- 	"golang.org/x/oauth2/google"
- 	"google.golang.org/api/googleapi"
- 	"google.golang.org/api/iterator"
-@@ -777,9 +776,6 @@ func (c *httpStorageClient) NewRangeReader(ctx context
+ 	var bd *bucketDelayManager
+-	if config.readStallTimeoutConfig != nil {
+-		drrstConfig := config.readStallTimeoutConfig
+-		bd, err = newBucketDelayManager(
+-			drrstConfig.TargetPercentile,
+-			getDynamicReadReqIncreaseRateFromEnv(),
+-			getDynamicReadReqInitialTimeoutSecFromEnv(drrstConfig.Min),
+-			drrstConfig.Min,
+-			defaultDynamicReqdReqMaxTimeout)
+-		if err != nil {
+-			return nil, fmt.Errorf("creating dynamic-delay: %w", err)
+-		}
+-	}
+ 
+ 	return &httpStorageClient{
+ 		creds:                      creds,
+@@ -346,8 +334,6 @@ func (c *httpStorageClient) ListObjects(ctx context.Co
+ 	fetch := func(pageSize int, pageToken string) (string, error) {
+ 		var err error
+ 		// Add trace span around List API call within the fetch.
+-		ctx, _ = startSpan(ctx, "httpStorageClient.ObjectsListCall")
+-		defer func() { endSpan(ctx, err) }()
+ 		req := c.raw.Objects.List(bucket)
+ 		if it.query.SoftDeleted {
+ 			req.SoftDeleted(it.query.SoftDeleted)
+@@ -867,8 +853,6 @@ func (c *httpStorageClient) NewRangeReader(ctx context
  }
  
  func (c *httpStorageClient) NewRangeReader(ctx context.Context, params *newRangeReaderParams, opts ...storageOption) (r *Reader, err error) {
--	ctx = trace.StartSpan(ctx, "cloud.google.com/go/storage.httpStorageClient.NewRangeReader")
--	defer func() { trace.EndSpan(ctx, err) }()
--
+-	ctx, _ = startSpan(ctx, "httpStorageClient.NewRangeReader")
+-	defer func() { endSpan(ctx, err) }()
+ 
  	s := callSettings(c.settings, opts...)
  
- 	if c.config.useJSONforReads {
-@@ -1139,9 +1135,6 @@ func (c *httpStorageClient) ListNotifications(ctx cont
- // Note: This API does not support pagination. However, entity limits cap the number of notifications on a single bucket,
- // so all results will be returned in the first response. See https://cloud.google.com/storage/quotas#buckets.
- func (c *httpStorageClient) ListNotifications(ctx context.Context, bucket string, opts ...storageOption) (n map[string]*Notification, err error) {
--	ctx = trace.StartSpan(ctx, "cloud.google.com/go/storage.httpStorageClient.ListNotifications")
--	defer func() { trace.EndSpan(ctx, err) }()
--
- 	s := callSettings(c.settings, opts...)
- 	call := c.raw.Notifications.List(bucket)
- 	if s.userProject != "" {
-@@ -1159,9 +1152,6 @@ func (c *httpStorageClient) CreateNotification(ctx con
- }
- 
- func (c *httpStorageClient) CreateNotification(ctx context.Context, bucket string, n *Notification, opts ...storageOption) (ret *Notification, err error) {
--	ctx = trace.StartSpan(ctx, "cloud.google.com/go/storage.httpStorageClient.CreateNotification")
--	defer func() { trace.EndSpan(ctx, err) }()
--
- 	s := callSettings(c.settings, opts...)
- 	call := c.raw.Notifications.Insert(bucket, toRawNotification(n))
- 	if s.userProject != "" {
-@@ -1179,9 +1169,6 @@ func (c *httpStorageClient) DeleteNotification(ctx con
- }
- 
- func (c *httpStorageClient) DeleteNotification(ctx context.Context, bucket string, id string, opts ...storageOption) (err error) {
--	ctx = trace.StartSpan(ctx, "cloud.google.com/go/storage.httpStorageClient.DeleteNotification")
--	defer func() { trace.EndSpan(ctx, err) }()
--
- 	s := callSettings(c.settings, opts...)
- 	call := c.raw.Notifications.Delete(bucket, id)
- 	if s.userProject != "" {
