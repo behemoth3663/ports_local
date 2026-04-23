@@ -160,6 +160,7 @@ GH_TUPLE=	\
 		thlib:go-timezone-local:v0.0.6:thlib_go_timezone_local/vendor/github.com/thlib/go-timezone-local \
 		transparency-dev:formats:404c0d5b696c:transparency_dev_formats/vendor/github.com/transparency-dev/formats \
 		transparency-dev:merkle:v0.0.2:transparency_dev_merkle/vendor/github.com/transparency-dev/merkle \
+		twitchtv:twirp:v8.1.3:twitchtv_twirp/vendor/github.com/twitchtv/twirp \
 		vbatts:tar-split:v0.12.2:vbatts_tar_split/vendor/github.com/vbatts/tar-split \
 		vmihailenco:msgpack:v5.4.1:vmihailenco_msgpack_v5/vendor/github.com/vmihailenco/msgpack/v5 \
 		vmihailenco:tagparser:v2.0.0:vmihailenco_tagparser_v2/vendor/github.com/vmihailenco/tagparser/v2 \
