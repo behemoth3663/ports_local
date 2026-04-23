@@ -1,6 +1,6 @@
-TIMESTAMP = 1776188966
-SHA256 (golang-vuln-v1.2.0_GH0.tar.gz) = f9477f4467198c4164fc7c25e61e974e2a0f791407a9b090862c5e760e1fc3ee
-SIZE (golang-vuln-v1.2.0_GH0.tar.gz) = 6446541
+TIMESTAMP = 1776961232
+SHA256 (golang-vuln-v1.3.0_GH0.tar.gz) = 57965af14e2579ea44928070aa04251ecbb1fb4e206c208b4aec6f803ca36b5a
+SIZE (golang-vuln-v1.3.0_GH0.tar.gz) = 6446911
 SHA256 (golang-mod-v0.35.0_GH0.tar.gz) = 2267c3c122d5079e51869803d23beae9a80f924637020cbdd5cadafa9b46ec5a
 SIZE (golang-mod-v0.35.0_GH0.tar.gz) = 126356
 SHA256 (golang-sync-v0.20.0_GH0.tar.gz) = 88df3ee79150580ca7cb51a7f54f9648c414ab04ea63f1ccff24cc5a41144b46
