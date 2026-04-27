@@ -1,15 +1,15 @@
 GH_TUPLE=	\
-		aws:aws-sdk-go-v2:v1.41.5:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
-		aws:session-manager-plugin:b79d06c1d3a2:aws_session_manager_plugin/vendor/github.com/aws/session-manager-plugin \
-		aws:smithy-go:v1.24.2:aws_smithy_go/vendor/github.com/aws/smithy-go \
+		aws:aws-sdk-go-v2:v1.41.6:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+		aws:session-manager-plugin:dcff8da8cdec:aws_session_manager_plugin/vendor/github.com/aws/session-manager-plugin \
+		aws:smithy-go:v1.25.0:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		cihub:seelog:f561c5e57575:cihub_seelog/vendor/github.com/cihub/seelog \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		fsnotify:fsnotify:v1.9.0:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
-		golang:crypto:v0.49.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.50.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:sync:v0.20.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.42.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.41.0:golang_term/vendor/golang.org/x/term \
+		golang:sys:v0.43.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.42.0:golang_term/vendor/golang.org/x/term \
 		gorilla:websocket:v1.5.3:gorilla_websocket/vendor/github.com/gorilla/websocket \
 		myesui:uuid:v1.0.0:myesui_uuid/vendor/github.com/myesui/uuid \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
