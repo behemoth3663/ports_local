@@ -1,7 +1,7 @@
 PORTNAME=	rage
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.11.2
-#PORTREVISION=	1
+PORTREVISION=	1
 CATEGORIES=	local security
 PKGNAMESUFFIX=	-encryption
 
@@ -41,8 +41,8 @@ post-install: .PHONY
 #https://www.freebsd.org/doc/en_US.ISO8859-1/books/porters-handbook/building.html#using-cargo
 deps: .PHONY
 	${RM} Makefile.crates
-	${MAKE} -C ${.CURDIR} makesum
-	set -o pipefail && ${MAKE} -C ${.CURDIR} cargo-crates | ${GREP} --extended-regexp --invert-match '^=' > Makefile.crates
-	${MAKE} -C ${.CURDIR} makesum
+	( ${MAKE} -C ${.CURDIR} makesum )
+	( set -o pipefail && ${MAKE} -C ${.CURDIR} cargo-crates | ${GREP} --extended-regexp --invert-match '^=' > ${.CURDIR}/Makefile.crates )
+	( ${MAKE} -C ${.CURDIR} makesum )
 
 .include <bsd.port.mk>

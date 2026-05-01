@@ -1,8 +1,9 @@
 PORTNAME=	wstunnel
-PORTVERSION=	10.5.2
+PORTVERSION=	10.5.3
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+#PORTREVISION=	1
 CATEGORIES=	local net
+PKGNAMESUFFIX=	-local
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Traffic tunnel over Websocket or HTTP2 to bypass firewalls/DPI
@@ -32,7 +33,7 @@ PLIST_FILES=	bin/${PORTNAME}
 deps: .PHONY
 	${RM} Makefile.crates
 	( ${MAKE} -C ${.CURDIR} makesum )
-	( set -o pipefail && ${MAKE} -C ${.CURDIR} cargo-crates | ${GREP} --extended-regexp --invert-match '^=' > Makefile.crates )
+	( set -o pipefail && ${MAKE} -C ${.CURDIR} cargo-crates | ${GREP} --extended-regexp --invert-match '^=' > ${.CURDIR}/Makefile.crates )
 	( ${MAKE} -C ${.CURDIR} makesum )
 
 .sinclude "${.CURDIR}/Makefile.crates"

@@ -1,7 +1,7 @@
 PORTNAME=	bat
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.26.1
-#PORTREVISION=	1
+PORTREVISION=	1
 CATEGORIES=	textproc
 
 MAINTAINER=	pizzamig@FreeBSD.org
@@ -33,9 +33,9 @@ post-install:
 #https://www.freebsd.org/doc/en_US.ISO8859-1/books/porters-handbook/building.html#using-cargo
 deps: .PHONY
 	${RM} Makefile.crates
-	${MAKE} -C ${.CURDIR} makesum
-	set -o pipefail && ${MAKE} -C ${.CURDIR} cargo-crates | ${GREP} --extended-regexp --invert-match '^=' > Makefile.crates
-	${MAKE} -C ${.CURDIR} makesum
+	( ${MAKE} -C ${.CURDIR} makesum )
+	( set -o pipefail && ${MAKE} -C ${.CURDIR} cargo-crates | ${GREP} --extended-regexp --invert-match '^=' > ${.CURDIR}/Makefile.crates )
+	( ${MAKE} -C ${.CURDIR} makesum )
 
 .sinclude "${.CURDIR}/Makefile.crates"
 .include <bsd.port.mk>
