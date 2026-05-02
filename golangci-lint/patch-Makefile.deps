@@ -1,9 +1,0 @@
---- Makefile.deps.orig	2026-01-08 09:54:34 UTC
-+++ Makefile.deps
-@@ -219,6 +219,3 @@ GL_TUPLE=	bosi:decorder:v0.4.2:bosi_decorder/vendor/gi
- 		#	::v1.9.0:group_name/vendor/codeberg.org/polyfloyd/go-errorlint (from codeberg.org/polyfloyd/go-errorlint@v1.9.0)
- 		#	::v3.0.4:group_name/vendor/go.yaml.in/yaml/v3 (from go.yaml.in/yaml/v3@v3.0.4)
- 		#	::v4.0.0:group_name/vendor/dev.gaijin.team/go/exhaustruct/v4 (from dev.gaijin.team/go/exhaustruct/v4@v4.0.0)
--post-extract:
--	@${MKDIR} ${WRKSRC}/vendor/github.com/tetafro
--	@${RLN} ${WRKSRC_fsnotify_fsnotify} ${WRKSRC}/vendor/github.com/tetafro/godot

@@ -1,5 +1,5 @@
 PORTNAME=	golangci-lint
-PORTVERSION=	2.11.4
+PORTVERSION=	2.12.1
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -13,7 +13,7 @@ LICENSE=	GPLv3
 
 BUILD_DEPENDS=	git:devel/git
 
-USES=		go:1.26,modules
+USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	golangci
@@ -51,6 +51,12 @@ post-extract: .PHONY
 	@${TEST} -z ${WRKSRC_charmbracelet_x_cellbuf} || ${RLN} ${WRKSRC_charmbracelet_x_cellbuf}/cellbuf ${WRKSRC}/vendor/github.com/charmbracelet/x
 	@${RM} -r ${WRKSRC}/vendor/github.com/charmbracelet/x/term
 	@${TEST} -z ${WRKSRC_charmbracelet_x_term} || ${RLN} ${WRKSRC_charmbracelet_x_term}/term ${WRKSRC}/vendor/github.com/charmbracelet/x
+	@${RM} -r ${WRKSRC}/vendor/github.com/charmbracelet/x/termios
+	@${TEST} -z ${WRKSRC_charmbracelet_x_termios} || ${RLN} ${WRKSRC_charmbracelet_x_termios}/termios ${WRKSRC}/vendor/github.com/charmbracelet/x
+	@${RM} -r ${WRKSRC}/vendor/github.com/charmbracelet/x/windows
+	@${TEST} -z ${WRKSRC_charmbracelet_x_windows} || ${RLN} ${WRKSRC_charmbracelet_x_windows}/windows ${WRKSRC}/vendor/github.com/charmbracelet/x
+	@${MKDIR} ${WRKSRC}/vendor/charm.land/lipgloss
+	@${TEST} -z ${WRKSRC_charmbracelet_lipgloss_charm} || ${RLN} ${WRKSRC_charmbracelet_lipgloss_charm} ${WRKSRC}/vendor/charm.land/lipgloss/v2
 	@${MKDIR} ${WRKSRC}/vendor/codeberg.org/chavacava
 	@${TEST} -z ${WRKSRC_chavacava_garif} || ${RLN} ${WRKSRC_chavacava_garif:H}/garif ${WRKSRC}/vendor/codeberg.org/chavacava
 	@${MKDIR} ${WRKSRC}/vendor/codeberg.org/polyfloyd
@@ -69,12 +75,14 @@ pre-deps-all: .PHONY
 	${RM} ${.CURDIR}/generated.deps.mk
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=go-simpler GHT_PROJ=musttag GHT_PATH=go-simpler.org/musttag )
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=go-simpler GHT_PROJ=sloglint GHT_PATH=go-simpler.org/sloglint )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=charmbracelet GHT_PROJ=bubbles GHT_PATH=charm.land/bubbles/v2 )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=charmbracelet GHT_PROJ=lipgloss GHT_PATH=charm.land/lipgloss/v2 )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=chavacava GHT_PROJ=garif GHT_PATH=codeberg.org/chavacava/garif )
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=leighmcculloch GHT_PROJ=gocheckcompilerdirectives GHT_PATH=4d63.com/gocheckcompilerdirectives )
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=leighmcculloch GHT_PROJ=gochecknoglobals GHT_PATH=4d63.com/gochecknoglobals )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=polyfloyd GHT_PROJ=go-errorlint GHT_PATH=codeberg.org/polyfloyd/go-errorlint )
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=Crocmagnon GHT_PROJ=fatcontext GHT_PATH=go.augendre.info/fatcontext )
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=Crocmagnon GHT_PROJ=arangolint GHT_PATH=go.augendre.info/arangolint )
-	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=chavacava GHT_PROJ=garif GHT_PATH=codeberg.org/chavacava/garif )
-	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=polyfloyd GHT_PROJ=go-errorlint GHT_PATH=codeberg.org/polyfloyd/go-errorlint )
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=GaijinEntertainment GHT_PROJ=golib GHT_PATH=dev.gaijin.team/go/golib )
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=GaijinEntertainment GHT_PROJ=go-exhaustruct GHT_PATH=dev.gaijin.team/go/exhaustruct/v4 )
 
@@ -89,29 +97,21 @@ post-deps-all: .PHONY
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 
-#-quasilyte:go-ruleguard:0fe6f58b47b1:quasilyte_go_ruleguard/vendor/github.com/quasilyte/go-ruleguard
-#+quasilyte:go-ruleguard:0fe6f58b47b1:quasilyte_go_ruleguard
-#GH_TUPLE:=	${GH_TUPLE:S|/vendor/github.com/quasilyte/go-ruleguard$||1}
-
 #-quasilyte:go-ruleguard:    v0.3.22:quasilyte_go_ruleguard_dsl/vendor/github.com/quasilyte/go-ruleguard/dsl
 #+quasilyte:go-ruleguard:dsl/v0.3.22:quasilyte_go_ruleguard_dsl/vendor/github.com/quasilyte/go-ruleguard
-#GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+/vendor/github.com/quasilyte/go-ruleguard)/(dsl)|\1\3/\2|}
 GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+).*/quasilyte/go-ruleguard/(dsl)|\1\3/\2|1}
-
-#-		charmbracelet:x:     v0.1.4:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x/ansi
-#+		charmbracelet:x:ansi/v0.1.4:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x
-GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+):(.*/charmbracelet/x)/(ansi)|\1:\3/\2|1}
-
-#-charmbracelet:x:     v0.2.1:charmbracelet_x_term/vendor/github.com/charmbracelet/x/term
-#+charmbracelet:x:term/v0.2.1:charmbracelet_x_term
-GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+).*/charmbracelet/x/(term)|\1\3/\2|1}
-GH_TUPLE:=	${GH_TUPLE:S|/vendor/github.com/charmbracelet/x/cellbuf$||1}
 
 #-quasilyte:regex:b3f0c404a727:quasilyte_regex_syntax/vendor/github.com/quasilyte/regex/syntax
 #+quasilyte:regex:b3f0c404a727:quasilyte_regex_syntax/vendor/github.com/quasilyte/regex
 GH_TUPLE:=	${GH_TUPLE:C|(.*/quasilyte/regex)/syntax$|\1|1}
 
-GH_TUPLE+=	tetafro:godot:v1.5.4:tetafro_godot/vendor/github.com/tetafro/godot
+#-charmbracelet:x:v0.1.4:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x/ansi
+#+charmbracelet:x:ansi/v0.1.4:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x
+GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+):(.*/charmbracelet/x)/(ansi)$|\1:\3/\2|1}
+
+#-charmbracelet:x:v0.2.1:charmbracelet_x_term/vendor/github.com/charmbracelet/x/term
+#+charmbracelet:x:term/v0.2.1:charmbracelet_x_term
+GH_TUPLE:=	${GH_TUPLE:C,([^:]+:[^:]+:)([^:]+[^/]+).*/charmbracelet/x/(term|termios|windows)$,\1\3/\2,}
 
 .sinclude "${.CURDIR}/generated.deps.mk"
 
