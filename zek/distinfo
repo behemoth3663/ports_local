@@ -1,9 +1,9 @@
-TIMESTAMP = 1772360396
-SHA256 (miku-zek-v0.1.30_GH0.tar.gz) = 2b81df70aa6f03c63122b838936d02b9266d9e6d5c4e365924d31b59b83b670f
-SIZE (miku-zek-v0.1.30_GH0.tar.gz) = 625717
-SHA256 (golang-net-v0.40.0_GH0.tar.gz) = 1bc71dac542f6b56acda25d9833243c9221ce902193504c114676503ac0e3c51
-SIZE (golang-net-v0.40.0_GH0.tar.gz) = 1503810
-SHA256 (golang-text-v0.25.0_GH0.tar.gz) = 96708562f9aaa6492da53d22d137cd90259a276c3c7201749ac02deba54fd4f1
-SIZE (golang-text-v0.25.0_GH0.tar.gz) = 8969128
+TIMESTAMP = 1777834060
+SHA256 (miku-zek-v0.1.31_GH0.tar.gz) = c9e596b53c75b18dd56894ddeac211914c47a85e7a69b2b03dfdd4497a87b75c
+SIZE (miku-zek-v0.1.31_GH0.tar.gz) = 624594
+SHA256 (golang-net-v0.53.0_GH0.tar.gz) = dde4377de949f539eb137ec1ff2bf2e15f4063f9e20427616e5fbcbc8b45c231
+SIZE (golang-net-v0.53.0_GH0.tar.gz) = 1561839
+SHA256 (golang-text-v0.36.0_GH0.tar.gz) = e4afcc00931e641196193b149ff9130a29aabd72cab620721dd6d84698a7d5fe
+SIZE (golang-text-v0.36.0_GH0.tar.gz) = 6772591
 SHA256 (sethgrid-pester-v1.2.0_GH0.tar.gz) = 7d573b79135a019e3c1cfc013784937e6015e17a66a20e39ce131196de112b79
 SIZE (sethgrid-pester-v1.2.0_GH0.tar.gz) = 15137
