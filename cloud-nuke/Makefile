@@ -1,5 +1,5 @@
 PORTNAME=	cloud-nuke
-PORTVERSION=	0.48.0
+PORTVERSION=	0.50.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -62,6 +62,11 @@ post-deps-all: .PHONY
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 
+#-GoogleCloudPlatform:opentelemetry-operations-go:v0.50.0:googlecloudplatform_opentelemetry_operations_go_metric/vendor/github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/metric
+#-GoogleCloudPlatform:opentelemetry-operations-go:v0.50.0:googlecloudplatform_opentelemetry_operations_go_resourcemapping/vendor/github.com/GoogleCloudPlatform/opentelemetry-operations-go/internal/resourcemapping
+#-GoogleCloudPlatform:opentelemetry-operations-go:v1.30.0:googlecloudplatform_opentelemetry_operations_go_gcp/vendor/github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp
+GH_TUPLE:=	${GH_TUPLE:NGoogleCloudPlatform\:opentelemetry-operations-go\:*}
+
 #-aws:aws-sdk-go-v2:v1.55.8:aws_aws_sdk_go_v2_securityhub/vendor/github.com/aws/aws-sdk-go-v2/service/securityhub
 #+aws:aws-sdk-go-v2:service/securityhub/v1.55.8:aws_aws_sdk_go_v2_securityhub
 GH_TUPLE:=	${GH_TUPLE:C,^([^:]+:[^:]+:)([^:]+:[^/]+).*/(service/securityhub)$,\1\3/\2,1}
@@ -80,8 +85,9 @@ GH_TUPLE:=	${GH_TUPLE:Ngoogleapis\:google-cloud-go\:*/cloud.google.com/go/*}
 #+googleapis:gax-go:v2.13.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go
 GH_TUPLE:=	${GH_TUPLE:S|/gax-go/v2|/gax-go|1}
 
-#-census-instrumentation:opencensus-go:v0.24.0:census_instrumentation_opencensus_go/vendor/go.opencensus.io
-GH_TUPLE:=	${GH_TUPLE:Ncensus-instrumentation\:opencensus-go\:*}
+#-envoyproxy:go-control-plane:v1.32.4:envoyproxy_go_control_plane_envoy/vendor/github.com/envoyproxy/go-control-plane/envoy
+#+envoyproxy:go-control-plane:envoy/v1.32.4:envoyproxy_go_control_plane/vendor/github.com/envoyproxy/go-control-plane
+GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+.*/envoyproxy/go-control-plane)/(envoy)$|\1\3/\2|}
 
 .sinclude "${.CURDIR}/generated.deps.mk"
 .include <bsd.port.mk>
