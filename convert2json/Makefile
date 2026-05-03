@@ -1,5 +1,5 @@
 PORTNAME=	convert2json
-DISTVERSION=	2.4.7
+DISTVERSION=	2.5.0
 #PORTREVISION=	1
 CATEGORIES=	local converters
 
@@ -49,7 +49,7 @@ post-install: .PHONY
 deps: .PHONY
 	${RM} Makefile.crates
 	( ${MAKE} -C ${.CURDIR} makesum )
-	( set -o pipefail && ${MAKE} -C ${.CURDIR} cargo-crates | ${GREP} --extended-regexp --invert-match '^=' > Makefile.crates )
+	( set -o pipefail && ${MAKE} -C ${.CURDIR} cargo-crates | ${GREP} --extended-regexp --invert-match '^=' > ${.CURDIR}/Makefile.crates )
 	( ${MAKE} -C ${.CURDIR} makesum )
 
 .sinclude "${.CURDIR}/Makefile.crates"
