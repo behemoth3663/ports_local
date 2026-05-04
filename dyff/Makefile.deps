@@ -6,25 +6,25 @@ GH_TUPLE=	\
 		davecgh:go-spew:d8f796af33cc:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		go-logr:logr:v1.4.3:go_logr_logr/vendor/github.com/go-logr/logr \
 		go-task:slim-sprig:v3.0.0:go_task_slim_sprig_v3/vendor/github.com/go-task/slim-sprig/v3 \
-		golang:mod:v0.34.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.52.0:golang_net/vendor/golang.org/x/net \
+		golang:mod:v0.35.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.53.0:golang_net/vendor/golang.org/x/net \
 		golang:sync:v0.20.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.42.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.41.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.35.0:golang_text/vendor/golang.org/x/text \
-		golang:tools:v0.43.0:golang_tools/vendor/golang.org/x/tools \
+		golang:sys:v0.43.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.42.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.36.0:golang_text/vendor/golang.org/x/text \
+		golang:tools:v0.44.0:golang_tools/vendor/golang.org/x/tools \
 		gonvenience:bunt:v1.4.3:gonvenience_bunt/vendor/github.com/gonvenience/bunt \
 		gonvenience:idem:v0.0.3:gonvenience_idem/vendor/github.com/gonvenience/idem \
-		gonvenience:neat:v1.3.18:gonvenience_neat/vendor/github.com/gonvenience/neat \
+		gonvenience:neat:v1.3.20:gonvenience_neat/vendor/github.com/gonvenience/neat \
 		gonvenience:term:v1.0.5:gonvenience_term/vendor/github.com/gonvenience/term \
 		gonvenience:text:v1.0.10:gonvenience_text/vendor/github.com/gonvenience/text \
-		gonvenience:ytbx:v1.4.9:gonvenience_ytbx/vendor/github.com/gonvenience/ytbx \
+		gonvenience:ytbx:v1.5.0:gonvenience_ytbx/vendor/github.com/gonvenience/ytbx \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:pprof:cb029daf43ef:google_pprof/vendor/github.com/google/pprof \
 		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
-		lucasb-eyer:go-colorful:v1.3.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
+		lucasb-eyer:go-colorful:v1.4.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
 		mattn:go-ciede2000:782e8c62fec3:mattn_go_ciede2000/vendor/github.com/mattn/go-ciede2000 \
-		mattn:go-isatty:v0.0.20:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
+		mattn:go-isatty:v0.0.21:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
 		mitchellh:go-ps:v1.0.0:mitchellh_go_ps/vendor/github.com/mitchellh/go-ps \
 		mitchellh:hashstructure:v2.0.2:mitchellh_hashstructure_v2/vendor/github.com/mitchellh/hashstructure/v2 \
 		onsi:ginkgo:v2.28.1:onsi_ginkgo_v2/vendor/github.com/onsi/ginkgo/v2 \
