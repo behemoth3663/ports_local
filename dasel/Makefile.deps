@@ -16,7 +16,7 @@ GH_TUPLE=	\
 		clipperhouse:uax29:v2.5.0:clipperhouse_uax29_v2/vendor/github.com/clipperhouse/uax29/v2 \
 		erikgeiser:coninput:1c3628e74d0f:erikgeiser_coninput/vendor/github.com/erikgeiser/coninput \
 		go-ini:ini:v1.67.0:go_ini_ini/vendor/gopkg.in/ini.v1 \
-		goccy:go-json:v0.10.5:goccy_go_json/vendor/github.com/goccy/go-json \
+		goccy:go-json:v0.10.6:goccy_go_json/vendor/github.com/goccy/go-json \
 		golang:mod:v0.26.0:golang_mod/vendor/golang.org/x/mod \
 		golang:sync:v0.16.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.38.0:golang_sys/vendor/golang.org/x/sys \
