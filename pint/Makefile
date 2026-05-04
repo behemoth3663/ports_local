@@ -1,5 +1,5 @@
 PORTNAME=	pint
-PORTVERSION=	0.79.0
+PORTVERSION=	0.80.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -22,18 +22,19 @@ PLIST_FILES=	bin/${PORTNAME}
 
 GIT_COMMIT=	git ls-remote \
 		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
-		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
-		${SED} -rn 's/(.{7}).*/\1/p'
+		refs/tags/${DISTVERSIONFULL}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'main.version=${PORTVERSION}' \
-	-X 'main.commit=${GIT_COMMIT:sh}'"
+	-X 'main.commit=${GIT_COMMIT:sh:C/(.{7}).*/\\1/W}'"
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 pre-deps: .PHONY
-	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
 
 post-deps-all: .PHONY
-	test -d ${PATCHDIR}_ && ${MV} ${PATCHDIR}_ ${PATCHDIR} || :
+	${TEST} -d ${PATCHDIR}_ && ${MV} ${PATCHDIR}_ ${PATCHDIR} || :
 
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
