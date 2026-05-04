@@ -1,5 +1,5 @@
 PORTNAME=	wstunnel
-PORTVERSION=	10.5.3
+PORTVERSION=	10.5.4
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local net
@@ -11,7 +11,7 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	BSD3CLAUSE
 
-USES=		cargo llvm:21,build
+USES=		cargo llvm:22,build
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	erebe
