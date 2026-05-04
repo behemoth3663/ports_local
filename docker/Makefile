@@ -1,8 +1,8 @@
-PORTNAME=		docker
-PORTVERSION=		29.4.1
+PORTNAME=	docker
+PORTVERSION=	29.4.2
 DISTVERSIONPREFIX=	v
-CATEGORIES=		local sysutils
-PKGNAMESUFFIX=		-local
+CATEGORIES=	local sysutils
+PKGNAMESUFFIX=	-local
 
 MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Open-source application container engine
