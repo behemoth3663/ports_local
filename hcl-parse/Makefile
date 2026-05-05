@@ -1,6 +1,6 @@
 PORTNAME=	hcl-parse
 PORTVERSION=	20240727
-PORTREVISION=	20251127
+PORTREVISION=	20260505
 CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
@@ -18,7 +18,8 @@ GH_TAGNAME=	51f141e413f85cb439f0ed4fe4c04d7e47d883c4
 PLIST_FILES=	bin/${PORTNAME}
 
 CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
+GO_BUILDFLAGS+=	-ldflags="-s -w"
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
@@ -31,7 +32,7 @@ post-extract: .PHONY
 	${WRKSRC}/main.go
 
 pre-deps: .PHONY
-	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
 	cd ${WRKSRC} && \
 		${CP} -a go.mod go.mod.orig && \
 		${CP} -a go.sum go.sum.orig && \
@@ -46,7 +47,7 @@ pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 
 post-deps-all: .PHONY
-	test -d ${PATCHDIR}_ && ${MV} ${PATCHDIR}_ ${PATCHDIR} || :
+	${TEST} -d ${PATCHDIR}_ && ${MV} ${PATCHDIR}_ ${PATCHDIR} || :
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
