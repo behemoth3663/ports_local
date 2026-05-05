@@ -1,6 +1,6 @@
-TIMESTAMP = 1763748799
-SHA256 (minamijoyo-tfupdate-v0.9.3_GH0.tar.gz) = 282c5d0cb02d5bc43a4f0e7093e3ddc65ee04acf45ba9d47ec7bafbee19f7208
-SIZE (minamijoyo-tfupdate-v0.9.3_GH0.tar.gz) = 97200
+TIMESTAMP = 1778006142
+SHA256 (minamijoyo-tfupdate-v0.9.4_GH0.tar.gz) = 3c30f3e240ae081617ca14fbe006d3fd768149b1b0b5ae944787e9df1b7bbbdf
+SIZE (minamijoyo-tfupdate-v0.9.4_GH0.tar.gz) = 97487
 SHA256 (agext-levenshtein-v1.2.2_GH0.tar.gz) = b238bfd1dce6da173913c27cf2e172d58a55e7e6b7fc11736c7e45bd1af4818f
 SIZE (agext-levenshtein-v1.2.2_GH0.tar.gz) = 13098
 SHA256 (apparentlymart-go-textseg-v15.0.0_GH0.tar.gz) = d73ee2bce8c1a8e35b0355a8cb66d05cd65a07099b7edaf1e44edc51cf33210d
