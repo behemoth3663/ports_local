@@ -1,9 +1,9 @@
 PORTNAME=	terraform-docs
-PORTVERSION=	0.22.0
+PORTVERSION=	0.23.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils textproc
-PKGNAMESUFFIX?=	-local
+PKGNAMESUFFIX=	-local
 
 MAINTAINER=	0xdutra@gmail.com
 COMMENT=	Generate documentation from Terraform modules
