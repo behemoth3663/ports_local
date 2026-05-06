@@ -1,0 +1,3 @@
+GH_TUPLE=	golang:sys:v0.43.0:golang_sys/vendor/golang.org/x/sys \
+		mattn:go-isatty:v0.0.22:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
+		omilevskyi:go:4492cf9be0a7:omilevskyi_go/vendor/github.com/omilevskyi/go

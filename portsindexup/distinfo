@@ -1,0 +1,9 @@
+TIMESTAMP = 1778070268
+SHA256 (omilevskyi-portsindexup-v0.0.13_GH0.tar.gz) = 92e524999fd3325c2a13dc77b812ed2d19dcebd60e19269668c3ca9b510a7c1f
+SIZE (omilevskyi-portsindexup-v0.0.13_GH0.tar.gz) = 11102
+SHA256 (golang-sys-v0.43.0_GH0.tar.gz) = 180ea0b92c2392afe123273fa0d650eb376a23aa5befed795601341adb64e5a0
+SIZE (golang-sys-v0.43.0_GH0.tar.gz) = 1538751
+SHA256 (mattn-go-isatty-v0.0.22_GH0.tar.gz) = b99e23171c0a990b47a0057c093fdfcf5a32bf242ba47485cf45971960093951
+SIZE (mattn-go-isatty-v0.0.22_GH0.tar.gz) = 4802
+SHA256 (omilevskyi-go-4492cf9be0a7_GH0.tar.gz) = 4456e0fce16a49bec3ec7dae9cd2296cc33f595bc32a6b9a31022790ffb4e648
+SIZE (omilevskyi-go-4492cf9be0a7_GH0.tar.gz) = 13597
