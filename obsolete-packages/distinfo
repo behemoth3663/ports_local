@@ -1,5 +1,5 @@
-TIMESTAMP = 1762553055
-SHA256 (omilevskyi-obsolete-packages-v0.0.5_GH0.tar.gz) = 2f600e4e443d2e41ce6728a4ac4dd1d8c2d750752aabba8cd7189a445774da72
-SIZE (omilevskyi-obsolete-packages-v0.0.5_GH0.tar.gz) = 7839
-SHA256 (omilevskyi-go-94d67e5c3c23_GH0.tar.gz) = a8799d8277198597d214dff3df92be9d2b7e5feb247cfd20726837073468d266
-SIZE (omilevskyi-go-94d67e5c3c23_GH0.tar.gz) = 12728
+TIMESTAMP = 1778062432
+SHA256 (omilevskyi-obsolete-packages-v0.0.6_GH0.tar.gz) = bcf9392f065a4aa7a9c1af2d646dd96e89bd408a27f0d5d4b95be350fe2c5d72
+SIZE (omilevskyi-obsolete-packages-v0.0.6_GH0.tar.gz) = 9094
+SHA256 (omilevskyi-go-4492cf9be0a7_GH0.tar.gz) = 4456e0fce16a49bec3ec7dae9cd2296cc33f595bc32a6b9a31022790ffb4e648
+SIZE (omilevskyi-go-4492cf9be0a7_GH0.tar.gz) = 13597
