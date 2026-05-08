@@ -1,6 +1,5 @@
 GH_TUPLE=	\
 		agext:levenshtein:v1.2.1:agext_levenshtein/vendor/github.com/agext/levenshtein \
-		akedrou:textdiff:v0.1.0:akedrou_textdiff/vendor/github.com/akedrou/textdiff \
 		apparentlymart:go-textseg:v15.0.0:apparentlymart_go_textseg_v15/vendor/github.com/apparentlymart/go-textseg/v15 \
 		benbjohnson:clock:v1.3.0:benbjohnson_clock/vendor/github.com/benbjohnson/clock \
 		beorn7:perks:v1.0.1:beorn7_perks/vendor/github.com/beorn7/perks \
@@ -29,7 +28,7 @@ GH_TUPLE=	\
 		golang:time:v0.15.0:golang_time/vendor/golang.org/x/time \
 		golang:tools:v0.42.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
-		google:go-github:v82.0.0:google_go_github_v82/vendor/github.com/google/go-github/v82 \
+		google:go-github:v85.0.0:google_go_github_v85/vendor/github.com/google/go-github/v85 \
 		google:go-querystring:v1.2.0:google_go_querystring/vendor/github.com/google/go-querystring \
 		grafana:regexp:f7b3be9d1853:grafana_regexp/vendor/github.com/grafana/regexp \
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
@@ -38,7 +37,7 @@ GH_TUPLE=	\
 		iancoleman:orderedmap:v0.2.0:iancoleman_orderedmap/vendor/github.com/iancoleman/orderedmap \
 		itchyny:json2yaml:v0.1.5:itchyny_json2yaml/vendor/github.com/itchyny/json2yaml \
 		json-iterator:go:v1.1.12:json_iterator_go/vendor/github.com/json-iterator/go \
-		klauspost:compress:v1.18.5:klauspost_compress/vendor/github.com/klauspost/compress \
+		klauspost:compress:v1.18.6:klauspost_compress/vendor/github.com/klauspost/compress \
 		kr:pretty:v0.3.1:kr_pretty/vendor/github.com/kr/pretty \
 		kr:text:v0.2.0:kr_text/vendor/github.com/kr/text \
 		kubernetes-sigs:json:2d320260d730:kubernetes_sigs_json/vendor/sigs.k8s.io/json \
@@ -67,7 +66,7 @@ GH_TUPLE=	\
 		prometheus:client_model:v0.6.2:prometheus_client_model/vendor/github.com/prometheus/client_model \
 		prometheus:common:v0.67.5:prometheus_common/vendor/github.com/prometheus/common \
 		prometheus:procfs:v0.16.1:prometheus_procfs/vendor/github.com/prometheus/procfs \
-		prometheus:prometheus:v0.311.2:prometheus_prometheus/vendor/github.com/prometheus/prometheus \
+		prometheus:prometheus:v0.311.3:prometheus_prometheus/vendor/github.com/prometheus/prometheus \
 		protocolbuffers:protobuf-go:v1.36.11:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		rogpeppe:go-internal:v1.14.1:rogpeppe_go_internal/vendor/github.com/rogpeppe/go-internal \
 		sergi:go-diff:v1.4.0:sergi_go_diff/vendor/github.com/sergi/go-diff \
