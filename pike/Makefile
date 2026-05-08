@@ -1,5 +1,5 @@
 PORTNAME=	pike
-PORTVERSION=	0.4.3
+PORTVERSION=	0.4.4
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -41,7 +41,7 @@ pre-deps: .PHONY
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 	${RM} ${.CURDIR}/generated.deps.mk
-	( make -C ${.CURDIR} make-from-deps GHT_ACNT=imdario GHT_PROJ=mergo GHT_PATH=dario.cat/mergo )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=imdario GHT_PROJ=mergo GHT_PATH=dario.cat/mergo )
 
 make-from-deps: .PHONY
 	@${SED} -rn \
@@ -72,7 +72,4 @@ GH_TUPLE:=	${GH_TUPLE:S|/gax-go/v2|/gax-go|1}
 GH_TUPLE:=	${GH_TUPLE:C,/vendor/google\.golang\.org/genproto/googleapis/(rpc),_\1,}
 
 .sinclude "${.CURDIR}/generated.deps.mk"
-
-GH_TUPLE+=	hashicorp:go-version:v1.7.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version
-
 .include <bsd.port.mk>
