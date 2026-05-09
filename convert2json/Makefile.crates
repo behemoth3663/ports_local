@@ -24,13 +24,13 @@ CARGO_CRATES=	ahash-0.8.12 \
 		getrandom-0.4.2 \
 		half-2.7.1 \
 		hashbrown-0.15.5 \
-		hashbrown-0.17.0 \
+		hashbrown-0.17.1 \
 		heck-0.5.0 \
 		hex-0.4.3 \
 		id-arena-2.3.0 \
 		indexmap-2.14.0 \
 		itoa-1.0.18 \
-		js-sys-0.3.97 \
+		js-sys-0.3.98 \
 		leb128fmt-0.1.0 \
 		libc-0.2.186 \
 		log-0.4.29 \
@@ -45,7 +45,7 @@ CARGO_CRATES=	ahash-0.8.12 \
 		ppv-lite86-0.2.21 \
 		prettyplease-0.2.37 \
 		proc-macro2-1.0.106 \
-		quick-xml-0.39.2 \
+		quick-xml-0.39.4 \
 		quote-1.0.45 \
 		r-efi-5.3.0 \
 		r-efi-6.0.0 \
@@ -91,10 +91,10 @@ CARGO_CRATES=	ahash-0.8.12 \
 		void-1.0.2 \
 		wasip2-1.0.3+wasi-0.2.9 \
 		wasip3-0.4.0+wasi-0.3.0-rc-2026-01-06 \
-		wasm-bindgen-0.2.120 \
-		wasm-bindgen-macro-0.2.120 \
-		wasm-bindgen-macro-support-0.2.120 \
-		wasm-bindgen-shared-0.2.120 \
+		wasm-bindgen-0.2.121 \
+		wasm-bindgen-macro-0.2.121 \
+		wasm-bindgen-macro-support-0.2.121 \
+		wasm-bindgen-shared-0.2.121 \
 		wasm-encoder-0.244.0 \
 		wasm-metadata-0.244.0 \
 		wasmparser-0.244.0 \

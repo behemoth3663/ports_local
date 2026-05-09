@@ -1,5 +1,5 @@
 PORTNAME=	convert2json
-DISTVERSION=	2.5.1
+DISTVERSION=	2.5.2
 #PORTREVISION=	1
 CATEGORIES=	local converters
 
@@ -16,7 +16,7 @@ USES=		cargo
 USE_GITHUB=	yes
 GH_ACCOUNT=	simonrupf
 
-#CONFLICTS=	textproc/yq
+CONFLICTS=	textproc/yq
 
 PLIST_FILES=	\
 	bin/bson2json \
@@ -48,9 +48,9 @@ post-install: .PHONY
 #https://www.freebsd.org/doc/en_US.ISO8859-1/books/porters-handbook/building.html#using-cargo
 deps: .PHONY
 	${RM} Makefile.crates
-	( ${MAKE} -C ${.CURDIR} makesum )
-	( set -o pipefail && ${MAKE} -C ${.CURDIR} cargo-crates | ${GREP} --extended-regexp --invert-match '^=' > ${.CURDIR}/Makefile.crates )
-	( ${MAKE} -C ${.CURDIR} makesum )
+	( ${MAKE} -C ${MASTERDIR} makesum )
+	( set -o pipefail && ${MAKE} -C ${MASTERDIR} cargo-crates | ${GREP} --extended-regexp --invert-match '^=' > ${MASTERDIR}/Makefile.crates )
+	( ${MAKE} -C ${MASTERDIR} makesum )
 
-.sinclude "${.CURDIR}/Makefile.crates"
+.sinclude "${MASTERDIR}/Makefile.crates"
 .include <bsd.port.mk>
