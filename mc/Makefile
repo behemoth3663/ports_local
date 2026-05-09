@@ -1,6 +1,6 @@
 PORTNAME=	mc
 PORTVERSION=	4.8.33
-#PORTREVISION=	1
+PORTREVISION=	1
 CATEGORIES=	misc shells
 MASTER_SITES=	http://ftp.midnight-commander.org/ \
 		https://ftp.osuosl.org/pub/midnightcommander/
@@ -19,7 +19,7 @@ EXTRA_PATCHES+=	${FILESDIR}/extra-patch-src_diffviewer_ydiff.c
 RUN_DEPENDS+=	gdiff:textproc/diffutils
 .endif
 
-USES=		gmake gnome libtool perl5 pkgconfig python shebangfix tar:xz llvm:21,build
+USES=		gmake gnome libtool perl5 pkgconfig python shebangfix tar:xz llvm:22,build
 SHEBANG_FILES=	${WRKSRC}/src/vfs/extfs/helpers/s3+.in \
 		${WRKSRC}/src/vfs/extfs/helpers/uc1541.in
 python_OLD_CMD=	@PYTHON@
@@ -51,7 +51,7 @@ ASPELL_CONFIGURE_ENABLE=aspell
 
 EDITOR_CONFIGURE_WITH=	internal-edit
 
-EXTATTR_LIB_DEPENDS=	libe2p.so:sysutils/e2fsprogs-core
+EXTATTR_LIB_DEPENDS=	libe2p.so:filesystems/e2fsprogs-core
 
 ICONV_USES=		iconv
 ICONV_CONFIGURE_ENABLE=	charset
@@ -88,22 +88,17 @@ CFLAGS:=	-Oz ${CFLAGS:N-O*}
 CFLAGS+=	-fomit-frame-pointer -fno-unwind-tables -fno-asynchronous-unwind-tables
 
 CFLAGS+=	-flto=full
-LDFLAGS+=	-Wl,--lto-O2
+LDFLAGS+=	-Wl,--lto-O3
 
 CFLAGS+=	-faddrsig
 LDFLAGS+=	-Wl,--icf=all
-#LDFLAGS+=	-Wl,--print-icf-sections
 
 CFLAGS+=	-ffunction-sections
 CFLAGS+=	-fdata-sections
 LDFLAGS+=	-Wl,--gc-sections
 
-LDFLAGS+=	-Wl,--hash-style=gnu
-#LDFLAGS+=	-fuse-ld=lld
+#LDFLAGS+=	-Wl,--hash-style=gnu
 
-#no compile LDFLAGS+=	-Wl,--pack-dyn-relocs=relr
-
-#no effect
 LDFLAGS+=	-Wl,--as-needed
 LDFLAGS+=	-Wl,--build-id=none
 LDFLAGS+=	-Wl,--sort-common

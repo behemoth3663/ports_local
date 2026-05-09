@@ -1,8 +1,9 @@
-PORTNAME=	pet-cli
+PORTNAME=	pet
 DISTVERSIONPREFIX=	v
 DISTVERSION=	2024.16.0
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	local devel
+PKGNAMESUFFIX=	-cli
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Python environment tools for Visual Studio Code
