@@ -1,7 +1,8 @@
 GH_TUPLE=	\
 		davecgh:go-spew:v1.1.0:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		go-yaml:yaml:9f266ea9e77c:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
-		golang:mod:v0.14.0:golang_mod/vendor/golang.org/x/mod \
-		golang:tools:v0.17.0:golang_tools/vendor/golang.org/x/tools \
+		golang:mod:v0.23.0:golang_mod/vendor/golang.org/x/mod \
+		golang:sync:v0.11.0:golang_sync/vendor/golang.org/x/sync \
+		golang:tools:v0.30.0:golang_tools/vendor/golang.org/x/tools \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		stretchr:testify:v1.6.1:stretchr_testify/vendor/github.com/stretchr/testify
