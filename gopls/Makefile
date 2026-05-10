@@ -1,7 +1,7 @@
 PORTNAME=	gopls
 PORTVERSION=	0.21.1
 DISTVERSIONPREFIX=	v
-PORTREVISION=	2
+PORTREVISION=	3
 CATEGORIES=	local devel
 
 MAINTAINER=	fuz@FreeBSD.org
@@ -35,8 +35,8 @@ pre-deps: .PHONY
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 	${RM} ${.CURDIR}/generated.deps.mk
-	( make -C ${.CURDIR} make-from-deps GHT_ACNT=mvdan GHT_PROJ=xurls GHT_PATH=mvdan.cc/xurls/v2 )
-	( make -C ${.CURDIR} make-from-deps GHT_ACNT=golang GHT_PROJ=exp GHT_PATH=golang.org/x/exp/typeparams )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=mvdan GHT_PROJ=xurls GHT_PATH=mvdan.cc/xurls/v2 )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=golang GHT_PROJ=exp GHT_PATH=golang.org/x/exp/typeparams )
 
 make-from-deps: .PHONY
 	@${SED} -rn \

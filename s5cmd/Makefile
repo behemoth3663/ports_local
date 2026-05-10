@@ -1,7 +1,7 @@
 PORTNAME=	s5cmd
 PORTVERSION=	2.3.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	16
+PORTREVISION=	17
 CATEGORIES=	local net
 
 MAINTAINER=	none@freebsd.org
@@ -20,14 +20,13 @@ GH_ACCOUNT=	peak
 PLIST_FILES=	bin/${PORTNAME}
 
 GIT_COMMIT=	git ls-remote \
-		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
-		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
-		${SED} -rn 's/(.{7}).*/\1/p'
+		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
+		refs/tags/${DISTVERSIONFULL}
 
 CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/version.Version=${DISTVERSIONPREFIX}${PORTVERSION}' \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/version.GitCommit=$$(${GIT_COMMIT})'"
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/version.Version=${DISTVERSIONFULL}' \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/version.GitCommit=${GIT_COMMIT:sh:C/(.{7}).*/\\1/W})'"
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 pre-deps pre-deps-all post-deps-all: .PHONY

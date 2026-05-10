@@ -1,7 +1,7 @@
 PORTNAME=	yamlfmt
 PORTVERSION=	0.21.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	2
+PORTREVISION=	3
 CATEGORIES=	local textproc
 
 MAINTAINER=	meta@FreeBSD.org
@@ -21,13 +21,12 @@ PLIST_FILES=	bin/${PORTNAME}
 
 GIT_COMMIT=	git ls-remote \
 		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
-		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}^{} | \
-		${SED} -rn 's/(.{7}).*/\1/p'
+		refs/tags/${DISTVERSIONFULL}
 
 CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'main.version=${PORTVERSION}' \
-	-X 'main.commit=${GIT_COMMIT:sh}'"
+	-X 'main.commit=${GIT_COMMIT:sh:C/(.{7}).*/\\1/W}'"
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 pre-deps pre-deps-all post-deps-all: .PHONY
