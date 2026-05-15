@@ -1,6 +1,6 @@
 PORTNAME=	prek
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.3.13
+DISTVERSION=	0.4.0
 #PORTREVISION=	1
 CATEGORIES=	local devel
 
@@ -23,9 +23,9 @@ CARGO_INSTALL_PATH=	crates/${PORTNAME}
 #https://www.freebsd.org/doc/en_US.ISO8859-1/books/porters-handbook/building.html#using-cargo
 deps: .PHONY
 	${RM} Makefile.crates
-	( ${MAKE} -C ${.CURDIR} makesum )
-	( set -o pipefail && ${MAKE} -C ${.CURDIR} cargo-crates | ${GREP} --extended-regexp --invert-match '^=' > ${.CURDIR}/Makefile.crates )
-	( ${MAKE} -C ${.CURDIR} makesum )
+	( ${MAKE} -C ${MASTERDIR} makesum )
+	( set -o pipefail && ${MAKE} -C ${MASTERDIR} cargo-crates | ${GREP} --extended-regexp --invert-match '^=' > ${MASTERDIR}/Makefile.crates )
+	( ${MAKE} -C ${MASTERDIR} makesum )
 
 .sinclude "${.CURDIR}/Makefile.crates"
 .include <bsd.port.mk>
