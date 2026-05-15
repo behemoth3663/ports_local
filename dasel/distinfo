@@ -1,6 +1,6 @@
-TIMESTAMP = 1777897300
-SHA256 (tomwright-dasel-v3.8.1_GH0.tar.gz) = 92711ddecfad9a1e97a41011d12ea88e9bb3c37827e5d5a718c3a8e8eaa88eaa
-SIZE (tomwright-dasel-v3.8.1_GH0.tar.gz) = 3139511
+TIMESTAMP = 1778873743
+SHA256 (tomwright-dasel-v3.10.1_GH0.tar.gz) = 7241a92414991211b5e58130bd4613c960d610f0255279ee5993654fd026e3cb
+SIZE (tomwright-dasel-v3.10.1_GH0.tar.gz) = 3177182
 SHA256 (agext-levenshtein-v1.2.1_GH0.tar.gz) = c6e4bc2db1f0d9bc57fd3f1887567d527f6df1bcfbb079d1d1c4eab17f320b50
 SIZE (agext-levenshtein-v1.2.1_GH0.tar.gz) = 12728
 SHA256 (alecthomas-kong-v1.14.0_GH0.tar.gz) = d4a4dc4844d033730c1fb4d2a8f93fd260bfd096db925e1936c196d667b96541
