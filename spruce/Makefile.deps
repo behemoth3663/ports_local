@@ -3,8 +3,7 @@ GH_TUPLE=	\
 		Knetic:govaluate:v3.0.0:knetic_govaluate/vendor/github.com/Knetic/govaluate \
 		Masterminds:semver:v3.4.0:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
 		anthropics:anthropic-sdk-go:v1.26.0:anthropics_anthropic_sdk_go/vendor/github.com/anthropics/anthropic-sdk-go \
-		aws:aws-sdk-go-v2:v1.41.6:aws_aws_sdk_go_v2_secretsmanager/vendor/github.com/aws/aws-sdk-go-v2 \
-		aws:aws-sdk-go-v2:v1.41.7:aws_aws_sdk_go_v2 \
+		aws:aws-sdk-go-v2:v1.41.7:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
 		aws:smithy-go:v1.25.1:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		ccojocar:zxcvbn-go:v1.0.4:ccojocar_zxcvbn_go/vendor/github.com/ccojocar/zxcvbn-go \
 		cespare:xxhash:v2.3.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
@@ -28,10 +27,10 @@ GH_TUPLE=	\
 		golang:tools:v0.44.0:golang_tools/vendor/golang.org/x/tools \
 		gonvenience:bunt:v1.4.3:gonvenience_bunt/vendor/github.com/gonvenience/bunt \
 		gonvenience:idem:v0.0.3:gonvenience_idem/vendor/github.com/gonvenience/idem \
-		gonvenience:neat:v1.3.18:gonvenience_neat/vendor/github.com/gonvenience/neat \
+		gonvenience:neat:v1.3.20:gonvenience_neat/vendor/github.com/gonvenience/neat \
 		gonvenience:term:v1.0.5:gonvenience_term/vendor/github.com/gonvenience/term \
 		gonvenience:text:v1.0.10:gonvenience_text/vendor/github.com/gonvenience/text \
-		gonvenience:ytbx:v1.4.9:gonvenience_ytbx/vendor/github.com/gonvenience/ytbx \
+		gonvenience:ytbx:v1.5.0:gonvenience_ytbx/vendor/github.com/gonvenience/ytbx \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-genproto:ff82c1b0f217:google_go_genproto/vendor/google.golang.org/genproto/googleapis/rpc \
 		google:pprof:545e8a4df936:google_pprof/vendor/github.com/google/pprof \
@@ -51,8 +50,8 @@ GH_TUPLE=	\
 		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
 		hashicorp:go-secure-stdlib:base62/v0.1.2:hashicorp_go_secure_stdlib_base62/vendor/github.com/hashicorp/go-secure-stdlib \
 		hashicorp:go-uuid:v1.0.3:hashicorp_go_uuid/vendor/github.com/hashicorp/go-uuid \
-		homeport:dyff:v1.11.3:homeport_dyff/vendor/github.com/homeport/dyff \
-		lucasb-eyer:go-colorful:v1.3.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
+		homeport:dyff:v1.12.0:homeport_dyff/vendor/github.com/homeport/dyff \
+		lucasb-eyer:go-colorful:v1.4.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
 		mattn:go-ciede2000:782e8c62fec3:mattn_go_ciede2000/vendor/github.com/mattn/go-ciede2000 \
 		mattn:go-isatty:v0.0.22:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
 		maxbrunsfeld:counterfeiter:v6.12.2:maxbrunsfeld_counterfeiter_v6/vendor/github.com/maxbrunsfeld/counterfeiter/v6 \
@@ -84,4 +83,3 @@ GH_TUPLE=	\
 post-extract:
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/auth
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_auth}/auth ${WRKSRC}/vendor/cloud.google.com/go/auth
-	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2} ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2

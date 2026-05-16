@@ -1,6 +1,6 @@
 PORTNAME=	spruce
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.35.1
+DISTVERSION=	1.35.3
 CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
@@ -20,6 +20,8 @@ PLIST_FILES=	bin/${PORTNAME}
 
 GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'main.Version=${DISTVERSIONFULL}'"
+
+pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
