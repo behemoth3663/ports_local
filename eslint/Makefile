@@ -1,5 +1,6 @@
 PORTNAME=	eslint
 PORTVERSION=	10.4.0
+PORTREVISION=	1
 CATEGORIES=	local devel
 MASTER_SITES=	LOCAL/o1vm/:npm
 DISTFILES=	${PORTNAME}-${DISTVERSION}${EXTRACT_SUFX}
@@ -31,14 +32,14 @@ do-fetch: .PHONY
 			${DISTDIR}/${PORTNAME}-${DISTVERSION}${EXTRACT_SUFX}; \
 	fi
 
-do-install:
+do-install: .PHONY
 	@${MKDIR} ${STAGEDIR}${PREFIX}/lib
 	@cd ${WRKSRC} && ${COPYTREE_SHARE} node_modules ${STAGEDIR}${PREFIX}/lib
 	@${CHMOD} +x ${STAGEDIR}${PREFIX}/lib/node_modules/${PACKAGE_NAME}/bin/eslint.js
-	# create wrapper script
 	@${MKDIR} ${STAGEDIR}${PREFIX}/bin
-	@${ECHO_CMD} '#!/bin/sh' > ${STAGEDIR}${PREFIX}/bin/eslint
-	@${ECHO_CMD} 'exec ${SETENV} NODE_PATH=${PREFIX}/lib/node_modules ${PREFIX}/lib/node_modules/${PACKAGE_NAME}/bin/eslint.js "$${@}"' >> ${STAGEDIR}${PREFIX}/bin/eslint
-	@${CHMOD} +x ${STAGEDIR}${PREFIX}/bin/eslint
+	@${RLN} ${STAGEDIR}${PREFIX}/lib/node_modules/${PACKAGE_NAME}/bin/eslint.js ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
+	${REINPLACE_CMD} -i '' \
+		-e "s|#!/usr/bin/env[[:blank:]].*|#!${SETENV} -S NODE_PATH=${PREFIX}/lib/node_modules node|" \
+		${STAGEDIR}${PREFIX}/lib/node_modules/${PACKAGE_NAME}/bin/eslint.js
 
 .include <bsd.port.mk>
