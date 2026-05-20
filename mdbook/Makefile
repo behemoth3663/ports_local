@@ -1,8 +1,9 @@
 PORTNAME=	mdbook
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.5.2
+DISTVERSION=	0.5.3
 #PORTREVISION=	1
 CATEGORIES=	local textproc
+PKGNAMESUFFIX=	-local
 
 MAINTAINER=	eduardo@FreeBSD.org
 COMMENT=	Create book from markdown files
@@ -22,10 +23,10 @@ post-install: .PHONY
 
 #https://www.freebsd.org/doc/en_US.ISO8859-1/books/porters-handbook/building.html#using-cargo
 deps: .PHONY
-	${RM} Makefile.deps
-	${MAKE} -C ${.CURDIR} makesum
-	set -o errexit && set -o pipefail && ${MAKE} -C ${.CURDIR} cargo-crates | ${GREP} --extended-regexp --invert-match '^=' > Makefile.deps
-	${MAKE} -C ${.CURDIR} makesum
+	${RM} Makefile.crates
+	( ${MAKE} -C ${MASTERDIR} makesum )
+	( set -o pipefail && ${MAKE} -C ${MASTERDIR} cargo-crates | ${GREP} --extended-regexp --invert-match '^=' > ${MASTERDIR}/Makefile.crates )
+	( ${MAKE} -C ${MASTERDIR} makesum )
 
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
