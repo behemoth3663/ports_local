@@ -17,6 +17,9 @@ FETCH_DEPENDS=	npm:www/npm \
 
 USES=		nodejs:run
 
+GH_ACCOUNT=	eslint
+GH_PROJECT=	js
+
 NO_BUILD=	yes
 NO_ARCH=	yes
 

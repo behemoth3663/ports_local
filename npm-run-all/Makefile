@@ -16,6 +16,9 @@ FETCH_DEPENDS=	npm:www/npm \
 
 USES=		nodejs:run
 
+GH_ACCOUNT=	mysticatea
+GH_PROJECT=	npm-run-all
+
 NO_BUILD=	yes
 NO_ARCH=	yes
 
