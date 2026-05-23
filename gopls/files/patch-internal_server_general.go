@@ -1,6 +1,6 @@
---- internal/server/general.go.orig	2025-12-05 20:12:17 UTC
+--- internal/server/general.go.orig	2026-05-15 14:53:57 UTC
 +++ internal/server/general.go
-@@ -20,14 +20,12 @@ import (
+@@ -21,7 +21,6 @@ import (
  	"strings"
  	"sync"
  
@@ -8,6 +8,7 @@
  	"golang.org/x/tools/gopls/internal/cache"
  	"golang.org/x/tools/gopls/internal/debug"
  	debuglog "golang.org/x/tools/gopls/internal/debug/log"
+@@ -31,7 +30,6 @@ import (
  	"golang.org/x/tools/gopls/internal/protocol"
  	"golang.org/x/tools/gopls/internal/protocol/semtok"
  	"golang.org/x/tools/gopls/internal/settings"
@@ -15,7 +16,20 @@
  	"golang.org/x/tools/gopls/internal/util/bug"
  	"golang.org/x/tools/gopls/internal/util/goversion"
  	"golang.org/x/tools/gopls/internal/util/moremaps"
-@@ -252,9 +250,6 @@ func (s *server) checkViewGoVersions() {
+@@ -45,12 +43,6 @@ func (s *server) Initialize(ctx context.Context, param
+ 	ctx, done := event.Start(ctx, "server.Initialize")
+ 	defer done()
+ 
+-	var clientName string
+-	if params != nil && params.ClientInfo != nil {
+-		clientName = params.ClientInfo.Name
+-	}
+-	recordClientInfo(clientName)
+-
+ 	s.stateMu.Lock()
+ 	if s.state >= serverInitializing {
+ 		defer s.stateMu.Unlock()
+@@ -280,9 +272,6 @@ func (s *server) checkViewGoVersions() {
  		if oldestVersion == -1 || viewVersion < oldestVersion {
  			oldestVersion, fromBuild = viewVersion, false
  		}
@@ -25,7 +39,7 @@
  	}
  
  	if msg, isError := goversion.Message(oldestVersion, fromBuild); msg != "" {
-@@ -490,18 +485,6 @@ func (s *server) newFolder(ctx context.Context, folder
+@@ -593,18 +582,6 @@ func (s *server) newFolder(ctx context.Context, folder
  		return nil, err
  	}
  
@@ -44,7 +58,7 @@
  	// Record whether a driver is in use so that it appears in the
  	// user's telemetry upload. Although we can't correlate the
  	// driver information with the crash or bug.Report at the
-@@ -509,9 +492,6 @@ func (s *server) newFolder(ctx context.Context, folder
+@@ -612,9 +589,6 @@ func (s *server) newFolder(ctx context.Context, folder
  	// driver tend to do so most of the time, so we'll get a
  	// strong clue. See #60890 for an example of an issue where
  	// this information would have been helpful.
@@ -54,7 +68,7 @@
  
  	return &cache.Folder{
  		Dir:     folder,
-@@ -563,10 +543,9 @@ func (s *server) eventuallyShowMessage(ctx context.Con
+@@ -666,10 +640,9 @@ func (s *server) eventuallyShowMessage(ctx context.Con
  	s.notifications = append(s.notifications, msg)
  }
  
@@ -66,10 +80,14 @@
  	}
  
  	var warnings, errs []string
-@@ -654,49 +633,4 @@ func recordClientInfo(clientName string) {
- 
- // recordClientInfo records gopls client info.
- func recordClientInfo(clientName string) {
+@@ -753,54 +726,4 @@ func (s *server) Exit(ctx context.Context) error {
+ 	// We don't terminate the process on a normal exit, we just allow it to
+ 	// close naturally if needed after the connection is closed.
+ 	return nil
+-}
+-
+-// recordClientInfo records gopls client info.
+-func recordClientInfo(clientName string) {
 -	key := "gopls/client:other"
 -	switch clientName {
 -	case "Visual Studio Code":
@@ -92,6 +110,7 @@
 -		key = "gopls/client:helix"
 -	case "Neovim":
 -		// https://github.com/neovim/neovim/blob/42333ea98dfcd2994ee128a3467dfe68205154cd/runtime/lua/vim/lsp.lua#L1361
+-		// https://github.com/neovim/neovim/blob/fe6026825883b44b09a8d3a03f2d49bfc8ed4725/runtime/lua/vim/lsp/client.lua#564
 -		key = "gopls/client:neovim"
 -	case "coc.nvim":
 -		// https://github.com/neoclide/coc.nvim/blob/3dc6153a85ed0f185abec1deb972a66af3fbbfb4/src/language-client/client.ts#L994

@@ -1,6 +1,6 @@
---- main.go.orig	2025-02-24 17:39:34 UTC
+--- main.go.orig	2026-05-15 14:53:57 UTC
 +++ main.go
-@@ -16,8 +16,6 @@ import (
+@@ -15,8 +15,6 @@ import (
  	"log"
  	"os"
  
@@ -9,7 +9,7 @@
  	"golang.org/x/tools/gopls/internal/cmd"
  	"golang.org/x/tools/gopls/internal/filecache"
  	versionpkg "golang.org/x/tools/gopls/internal/version"
-@@ -29,11 +27,6 @@ func main() {
+@@ -28,11 +26,6 @@ func main() {
  func main() {
  	versionpkg.VersionOverride = version
  
@@ -21,10 +21,10 @@
  	// Force early creation of the filecache and refuse to start
  	// if there were unexpected errors such as ENOSPC. This
  	// minimizes the window of exposure to deletion of the
-@@ -48,7 +41,6 @@ func main() {
+@@ -47,7 +40,6 @@ func main() {
  	// either re-create it or just fail the RPC with an
  	// informative error and terminate the process.
- 	if _, err := filecache.Get("nonesuch", [32]byte{}); err != nil && err != filecache.ErrNotFound {
+ 	if _, err := filecache.Get("nonesuch", [32]byte{}, filecache.Bytes); err != nil && err != filecache.ErrNotFound {
 -		counter.Inc("gopls/nocache")
  		log.Fatalf("gopls cannot access its persistent index (disk full?): %v", err)
  	}
