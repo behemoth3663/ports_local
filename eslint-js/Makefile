@@ -1,9 +1,10 @@
 PORTNAME=	js
 PORTVERSION=	10.0.1
+PORTREVISION=	1
 CATEGORIES=	local devel
 MASTER_SITES=	LOCAL/o1vm/:npm
 PKGNAMEPREFIX=	eslint-
-DISTFILES=	${PORTNAME}-${DISTVERSION}${EXTRACT_SUFX}
+DISTFILES=	${PORTNAME}-${PORTVERSION}${EXTRACT_SUFX}
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	ESLint JavaScript Plugin
@@ -28,15 +29,11 @@ PACKAGE_NAME=	@eslint/js
 FETCH_SCRIPT=	${PORTSDIR}/Tools/scripts/npmjs-fetch-with-dependencies.sh
 
 do-fetch: .PHONY
-	@if ! [ -f ${DISTDIR}/${PORTNAME}-${DISTVERSION}${EXTRACT_SUFX} ]; then \
-		${SETENV} TMPDIR=${WRKDIR} LOCALBASE=${LOCALBASE} ${FETCH_SCRIPT} \
-			${PACKAGE_NAME} ${DISTVERSION} \
-			${FILESDIR}/package.json \
-			${DISTDIR}/${PORTNAME}-${DISTVERSION}${EXTRACT_SUFX}; \
-	fi
+	test -f ${DISTDIR}/${DISTFILES} || ${SETENV} TMPDIR=${WRKDIR} LOCALBASE=${LOCALBASE} \
+		${FETCH_SCRIPT} ${PACKAGE_NAME} ${PORTVERSION} ${FILESDIR}/package.json ${DISTDIR}/${DISTFILES}
 
-do-install:
-	@${MKDIR} ${STAGEDIR}${PREFIX}/lib
-	@cd ${WRKSRC} && ${COPYTREE_SHARE} node_modules ${STAGEDIR}${PREFIX}/lib
+do-install: .PHONY
+	${MKDIR} ${STAGEDIR}${PREFIX}/lib
+	cd ${WRKSRC} && ${COPYTREE_SHARE} node_modules ${STAGEDIR}${PREFIX}/lib
 
 .include <bsd.port.mk>
