@@ -1,13 +1,13 @@
 PORTNAME=	gopls
 PORTVERSION=	0.22.0
 DISTVERSIONPREFIX=	v
-#PORTREVISION=	1
+PORTREVISION=	1
 CATEGORIES=	local devel
 PKGNAMESUFFIX=	-local
 
 MAINTAINER=	fuz@FreeBSD.org
 COMMENT=	Go language LSP server
-WWW=		https://pkg.go.dev/golang.org/x/tools/gopls
+WWW=		https://pkg.go.dev/golang.org/x/tools/gopls https://github.com/golang/tools/tree/master/gopls
 
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC:H}/LICENSE
@@ -17,7 +17,12 @@ USES=		go:modules
 USE_GITHUB=	yes
 GH_ACCOUNT=	golang
 GH_PROJECT=	tools
-GH_TAGNAME=	${PORTNAME}/${DISTVERSIONPREFIX}${PORTVERSION}
+GH_TAGNAME=	${PORTNAME}/${DISTVERSIONFULL}
+
+#[.[].name | select(test("^${PORTNAME}/v"; "n")) | sub("^${PORTNAME}/v"; "")][0]
+#[.[].name | select(startswith("${PORTNAME}/v")) | ltrimstr("${PORTNAME}/v")][0]
+#first(.[].name | select(startswith("${PORTNAME}/v")) | ltrimstr("${PORTNAME}/v"))
+JQ_GETVER_EXPR=	first(.[].name | select(startswith("${PORTNAME}/v"))) | ltrimstr("${PORTNAME}/v")
 
 WRKSRC_SUBDIR=	${PORTNAME}
 
@@ -41,7 +46,7 @@ pre-deps-all: .PHONY
 
 make-from-deps: .PHONY
 	@${SED} -rn \
-		's|^[[:space:]]*#[[:space:]]*::([v0-9.a-f]+):.*/(vendor/${GHT_PATH})[[:space:]].*$$|GH_TUPLE+=${GHT_ACNT}:${GHT_PROJ}:\1:${GHT_ACNT:tl:S/-/_/g}_${GHT_PROJ:tl:S/-/_/g}/\2|p' \
+		's|^[[:blank:]]*#[[:blank:]]*::([v0-9.a-f]+):.*/(vendor/${GHT_PATH})[[:blank:]].*$$|GH_TUPLE+=${GHT_ACNT}:${GHT_PROJ}:\1:${GHT_ACNT:tl:S/-/_/g}_${GHT_PROJ:tl:S/-/_/g}/\2|p' \
 	${.CURDIR}/Makefile.deps >>${.CURDIR}/generated.deps.mk
 
 post-deps-all: .PHONY
@@ -52,10 +57,7 @@ post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 	@${RM} -r ${WRKSRC}/vendor/golang.org/x/tools/gopls
 	@${RM} -r ${WRKSRC}/internal/telemetry
-	@${RM} ${WRKSRC}/internal/cmd/counters.go
-	@${RM} ${WRKSRC}/internal/golang/counters.go
-	@${RM} ${WRKSRC}/internal/mcp/counters.go
-	@${RM} ${WRKSRC}/internal/server/counters.go
+	@${FIND} ${WRKSRC} -name counters.go -type f -delete
 .endif
 
 .include "${}/etc/make.d/go-deps.mk"
