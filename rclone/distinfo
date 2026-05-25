@@ -1,5 +1,5 @@
-TIMESTAMP = 1778696644
-SHA256 (go/local_rclone/rclone-v1.74.1/v1.74.1.mod) = 7a76689d0eda8119641aeb96f01bfbbd5b1b0605dd53ff9f2a96cbbd4f96daf7
-SIZE (go/local_rclone/rclone-v1.74.1/v1.74.1.mod) = 13855
-SHA256 (go/local_rclone/rclone-v1.74.1/v1.74.1.zip) = 4752a4886b539f282a128fa3d3fc4aa4a24a98d1a43818024e69502274c9d38b
-SIZE (go/local_rclone/rclone-v1.74.1/v1.74.1.zip) = 17623586
+TIMESTAMP = 1779728799
+SHA256 (go/local_rclone/rclone-v1.74.2/v1.74.2.mod) = 9d451c6c1aaf31067a069ea4f60bcb3f89f28a28985aa66e237980829e7339c6
+SIZE (go/local_rclone/rclone-v1.74.2/v1.74.2.mod) = 13855
+SHA256 (go/local_rclone/rclone-v1.74.2/v1.74.2.zip) = 72fe8989e5a3d82226c502e85ccd8c6895c1d3c87dfe13d3f257ecc53bfcae7f
+SIZE (go/local_rclone/rclone-v1.74.2/v1.74.2.zip) = 17631470
