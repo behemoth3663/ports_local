@@ -1,5 +1,5 @@
 PORTNAME=	pike
-PORTVERSION=	0.4.4
+PORTVERSION=	0.4.5
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -45,7 +45,7 @@ pre-deps-all: .PHONY
 
 make-from-deps: .PHONY
 	@${SED} -rn \
-		's|^[[:space:]]*#[[:space:]]*::([v0-9.a-f]+):.*/(vendor/${GHT_PATH})[[:space:]].*$$|GH_TUPLE+=${GHT_ACNT}:${GHT_PROJ}:\1:${GHT_ACNT:tl:S/-/_/g}_${GHT_PROJ:tl:S/-/_/g}/\2|p' \
+		's|^[[:blank:]]*#[[:blank:]]*::([v0-9.a-f]+):.*/(vendor/${GHT_PATH})[[:blank:]].*$$|GH_TUPLE+=${GHT_ACNT}:${GHT_PROJ}:\1:${GHT_ACNT:tl:S/-/_/g}_${GHT_PROJ:tl:S/-/_/g}/\2|p' \
 	${.CURDIR}/Makefile.deps >>${.CURDIR}/generated.deps.mk
 
 post-deps-all: .PHONY
@@ -69,7 +69,7 @@ GH_TUPLE:=	${GH_TUPLE:S|/gax-go/v2|/gax-go|1}
 
 #-google:go-genproto:513f23925822:google_go_genproto/vendor/google.golang.org/genproto/googleapis/rpc
 #+google:go-genproto:513f23925822:google_go_genproto_rpc
-GH_TUPLE:=	${GH_TUPLE:C,/vendor/google\.golang\.org/genproto/googleapis/(rpc),_\1,}
+GH_TUPLE:=	${GH_TUPLE:C,/.*/genproto/googleapis/rpc,,}
 
 .sinclude "${.CURDIR}/generated.deps.mk"
 .include <bsd.port.mk>
