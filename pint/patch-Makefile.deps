@@ -1,18 +1,10 @@
---- Makefile.deps.orig	2026-05-04 21:17:33 UTC
+--- Makefile.deps.orig	2026-05-25 16:58:45 UTC
 +++ Makefile.deps
-@@ -60,7 +60,7 @@ GH_TUPLE=	\
- 		nhatthm:go-matcher:v2.0.0:nhatthm_go_matcher/vendor/go.nhat.io/matcher/v2 \
- 		nhatthm:go-wait:v0.1.0:nhatthm_go_wait/vendor/go.nhat.io/wait \
- 		nhatthm:httpmock:v0.11.0:nhatthm_httpmock/vendor/go.nhat.io/httpmock \
--		open-telemetry:opentelemetry-go-instrumentation:v1.2.1:open_telemetry_opentelemetry_go_instrumentation/vendor/go.opentelemetry.io/auto/sdk \
-+		open-telemetry:opentelemetry-go-instrumentation:sdk/v1.2.1:open_telemetry_opentelemetry_go_instrumentation/vendor/go.opentelemetry.io/auto \
- 		open-telemetry:opentelemetry-go:v1.42.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
- 		pmezard:go-difflib:5d4384ee4fb2:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
- 		prometheus:client_golang:v1.23.2:prometheus_client_golang/vendor/github.com/prometheus/client_golang \
-@@ -88,3 +88,10 @@ GH_TUPLE=	\
+@@ -89,7 +89,13 @@ GH_TUPLE=	\
  		zclconf:go-cty:v1.18.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
  		# Errors found during processing:
  		#	error getting commit v1.46.0 for gitlab-org/api: not found
+-post-extract:
 +GL_TUPLE=	\
 +		gitlab-org-api:client-go:v1.46.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
 +
@@ -20,3 +12,6 @@
 +	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 +	${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/exporters
 +	${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/sdk
+ 	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/metric
+ 	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_metric}/metric ${WRKSRC}/vendor/go.opentelemetry.io/otel/metric
+ 	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/trace
