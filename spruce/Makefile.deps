@@ -3,6 +3,20 @@ GH_TUPLE=	\
 		Knetic:govaluate:v3.0.0:knetic_govaluate/vendor/github.com/Knetic/govaluate \
 		Masterminds:semver:v3.4.0:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
 		anthropics:anthropic-sdk-go:v1.26.0:anthropics_anthropic_sdk_go/vendor/github.com/anthropics/anthropic-sdk-go \
+		aws:aws-sdk-go-v2:config/v1.32.18:aws_aws_sdk_go_v2_config \
+		aws:aws-sdk-go-v2:credentials/v1.19.17:aws_aws_sdk_go_v2_credentials \
+		aws:aws-sdk-go-v2:feature/ec2/imds/v1.18.23:aws_aws_sdk_go_v2_imds \
+		aws:aws-sdk-go-v2:internal/configsources/v1.4.23:aws_aws_sdk_go_v2_configsources \
+		aws:aws-sdk-go-v2:internal/endpoints/v2.7.23:aws_aws_sdk_go_v2_v2 \
+		aws:aws-sdk-go-v2:internal/v4a/v1.4.24:aws_aws_sdk_go_v2_v4a \
+		aws:aws-sdk-go-v2:service/internal/accept-encoding/v1.13.9:aws_aws_sdk_go_v2_accept_encoding \
+		aws:aws-sdk-go-v2:service/internal/presigned-url/v1.13.23:aws_aws_sdk_go_v2_presigned_url \
+		aws:aws-sdk-go-v2:service/secretsmanager/v1.41.7:aws_aws_sdk_go_v2_secretsmanager \
+		aws:aws-sdk-go-v2:service/signin/v1.0.11:aws_aws_sdk_go_v2_signin \
+		aws:aws-sdk-go-v2:service/ssm/v1.68.6:aws_aws_sdk_go_v2_ssm \
+		aws:aws-sdk-go-v2:service/sso/v1.30.17:aws_aws_sdk_go_v2_sso \
+		aws:aws-sdk-go-v2:service/ssooidc/v1.36.0:aws_aws_sdk_go_v2_ssooidc \
+		aws:aws-sdk-go-v2:service/sts/v1.42.1:aws_aws_sdk_go_v2_sts \
 		aws:aws-sdk-go-v2:v1.41.7:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
 		aws:smithy-go:v1.25.1:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		ccojocar:zxcvbn-go:v1.0.4:ccojocar_zxcvbn_go/vendor/github.com/ccojocar/zxcvbn-go \
@@ -32,7 +46,6 @@ GH_TUPLE=	\
 		gonvenience:text:v1.0.10:gonvenience_text/vendor/github.com/gonvenience/text \
 		gonvenience:ytbx:v1.5.0:gonvenience_ytbx/vendor/github.com/gonvenience/ytbx \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
-		google:go-genproto:ff82c1b0f217:google_go_genproto/vendor/google.golang.org/genproto/googleapis/rpc \
 		google:pprof:545e8a4df936:google_pprof/vendor/github.com/google/pprof \
 		google:s2a-go:v0.1.9:google_s2a_go/vendor/github.com/google/s2a-go \
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
@@ -40,8 +53,8 @@ GH_TUPLE=	\
 		googleapis:gax-go:v2.15.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go \
 		googleapis:go-genai:v1.50.0:googleapis_go_genai/vendor/google.golang.org/genai \
 		googleapis:google-cloud-go:auth/v0.16.5:googleapis_google_cloud_go_auth \
+		googleapis:google-cloud-go:compute/metadata/v0.9.0:googleapis_google_cloud_go_metadata \
 		googleapis:google-cloud-go:v0.121.2:googleapis_google_cloud_go/vendor/cloud.google.com/go \
-		googleapis:google-cloud-go:v0.9.0:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata \
 		gookit:color:v1.6.0:gookit_color/vendor/github.com/gookit/color \
 		gorilla:websocket:v1.5.3:gorilla_websocket/vendor/github.com/gorilla/websocket \
 		grpc:grpc-go:v1.79.3:grpc_grpc_go/vendor/google.golang.org/grpc \
@@ -57,14 +70,11 @@ GH_TUPLE=	\
 		maxbrunsfeld:counterfeiter:v6.12.2:maxbrunsfeld_counterfeiter_v6/vendor/github.com/maxbrunsfeld/counterfeiter/v6 \
 		mitchellh:go-ps:v1.0.0:mitchellh_go_ps/vendor/github.com/mitchellh/go-ps \
 		mitchellh:hashstructure:v2.0.2:mitchellh_hashstructure_v2/vendor/github.com/mitchellh/hashstructure/v2 \
-		onsi:ginkgo:v2.28.3:onsi_ginkgo_v2/vendor/github.com/onsi/ginkgo/v2 \
-		onsi:gomega:v1.40.0:onsi_gomega/vendor/github.com/onsi/gomega \
-		open-telemetry:opentelemetry-go-contrib:v0.61.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp \
-		open-telemetry:opentelemetry-go-instrumentation:v1.2.1:open_telemetry_opentelemetry_go_instrumentation/vendor/go.opentelemetry.io/auto/sdk \
+		onsi:ginkgo:v2.29.0:onsi_ginkgo_v2/vendor/github.com/onsi/ginkgo/v2 \
+		onsi:gomega:v1.41.0:onsi_gomega/vendor/github.com/onsi/gomega \
 		open-telemetry:opentelemetry-go:v1.41.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
 		openai:openai-go:v3.28.0:openai_openai_go_v3/vendor/github.com/openai/openai-go/v3 \
 		protocolbuffers:protobuf-go:v1.36.10:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
-		securego:gosec:v2.25.0:securego_gosec_v2/vendor/github.com/securego/gosec/v2 \
 		sergi:go-diff:v1.4.0:sergi_go_diff/vendor/github.com/sergi/go-diff \
 		starkandwayne:goutils:896b8a6904be:starkandwayne_goutils/vendor/github.com/starkandwayne/goutils \
 		texttheater:golang-levenshtein:v1.0.1:texttheater_golang_levenshtein/vendor/github.com/texttheater/golang-levenshtein \
@@ -79,7 +89,40 @@ GH_TUPLE=	\
 		yaml:go-yaml:v3.0.4:yaml_go_yaml_1/vendor/go.yaml.in/yaml/v3 \
 		ziutek:utils:eb2a3b364d6c:ziutek_utils/vendor/github.com/ziutek/utils
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
-		#	::2478ac86f678:group_name/vendor/golang.org/x/exp/typeparams (from go.googlesource.com/exp@2478ac86f678)
+		#	::2478ac86f678:group_name/vendor/golang.org/x/exp/typeparams (from go.googlesource.com/exp/typeparams@2478ac86f678)
+		# Errors found during processing:
+		#	apis.get https://api.github.com/repos/securego/gosec/contents/v2?ref=v2.25.0: 403, body: {"message":"API rate limit exceeded for 194.56.81.12. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)","documentation_url":"https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting"}
+		#	Github API rate limit exceeded. Please either:
 post-extract:
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/auth
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_auth}/auth ${WRKSRC}/vendor/cloud.google.com/go/auth
+	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
+	@${RLN} ${WRKSRC_googleapis_google_cloud_go_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/config
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_config}/config ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/config
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/credentials
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_credentials}/credentials ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/credentials
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_imds}/feature/ec2/imds ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_configsources}/internal/configsources ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_v2}/internal/endpoints/v2 ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/v4a
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_v4a}/internal/v4a ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/v4a
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_accept_encoding}/service/internal/accept-encoding ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_presigned_url}/service/internal/presigned-url ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/secretsmanager
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_secretsmanager}/service/secretsmanager ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/secretsmanager
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/signin
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_signin}/service/signin ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/signin
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/ssm
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_ssm}/service/ssm ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/ssm
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sso
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_sso}/service/sso ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sso
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_ssooidc}/service/ssooidc ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sts
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_sts}/service/sts ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sts

@@ -1,6 +1,6 @@
 PORTNAME=	spruce
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.35.3
+DISTVERSION=	1.35.5
 CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
@@ -24,9 +24,10 @@ GO_BUILDFLAGS+=	-ldflags="-s -w \
 pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${}/etc/make.d/go-deps.mk"
-.sinclude "${.CURDIR}/Makefile.deps"
 
 # The vendor directory is inside geofffranks-spruce-v1.35.1_GH0.tar.gz, so there's no need to copy modules.txt for now.
+#.sinclude "${.CURDIR}/Makefile.deps"
+
 #-aws:aws-sdk-go-v2:v1.41.6:aws_aws_sdk_go_v2_secretsmanager/vendor/github.com/aws/aws-sdk-go-v2
 #-aws:aws-sdk-go-v2:v1.41.7:aws_aws_sdk_go_v2
 #+aws:aws-sdk-go-v2:v1.41.7:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2
