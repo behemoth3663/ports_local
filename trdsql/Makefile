@@ -1,7 +1,7 @@
 PORTNAME=	trdsql
-PORTVERSION=	1.1.0
+PORTVERSION=	1.2.1
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+#PORTREVISION=	1
 CATEGORIES=	local textproc
 PKGNAMESUFFIX=	-local
 
@@ -29,9 +29,9 @@ PORTDOCS=	README.md
 
 OPTIONS_DEFINE=	DOCS
 
-post-install-DOCS-on:
+post-install-DOCS-on: .PHONY
 	@${MKDIR} ${STAGEDIR}${DOCSDIR}
-	@${INSTALL_DATA} ${WRKSRC}/${PORTDOCS} ${STAGEDIR}${DOCSDIR}
+	${INSTALL_DATA} ${WRKSRC}/${PORTDOCS} ${STAGEDIR}${DOCSDIR}
 
 pre-deps: .PHONY
 	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
@@ -50,6 +50,6 @@ post-extract: .PHONY
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 
-GH_TUPLE+=	gonum:gonum:v0.14.0:gonum_gonum/vendor/github.com/gonum/gonum
+GH_TUPLE+=	gonum:gonum:v0.17.0:gonum_gonum/vendor/github.com/gonum/gonum
 
 .include <bsd.port.mk>
