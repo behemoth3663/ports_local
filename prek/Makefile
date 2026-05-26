@@ -1,6 +1,6 @@
 PORTNAME=	prek
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.4.1
+DISTVERSION=	0.4.2
 #PORTREVISION=	1
 CATEGORIES=	local devel
 
@@ -27,5 +27,5 @@ deps: .PHONY
 	( set -o pipefail && ${MAKE} -C ${MASTERDIR} cargo-crates | ${GREP} --extended-regexp --invert-match '^=' > ${MASTERDIR}/Makefile.crates )
 	( ${MAKE} -C ${MASTERDIR} makesum )
 
-.sinclude "${.CURDIR}/Makefile.crates"
+.sinclude "${MASTERDIR}/Makefile.crates"
 .include <bsd.port.mk>
