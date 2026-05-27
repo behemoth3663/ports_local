@@ -32,7 +32,7 @@ GH_TUPLE=	\
 		golang:oauth2:v0.34.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:sys:v0.39.0:golang_sys/vendor/golang.org/x/sys \
 		golang:text:v0.32.0:golang_text/vendor/golang.org/x/text \
-		google:go-genproto:ff82c1b0f217:google_go_genproto/vendor/google.golang.org/genproto/googleapis/rpc \
+		google:go-genproto:ff82c1b0f217:google_go_genproto_rpc/vendor/google.golang.org/genproto/googleapis/rpc \
 		google:s2a-go:v0.1.9:google_s2a_go/vendor/github.com/google/s2a-go \
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
 		googleapis:enterprise-certificate-proxy:v0.3.6:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
