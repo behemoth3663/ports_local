@@ -1,5 +1,5 @@
 PORTNAME=	gh
-PORTVERSION=	2.92.0
+PORTVERSION=	2.93.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -37,20 +37,17 @@ OPTIONS_SUB=		yes
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
 
-do-build-MANPAGES-on:
+do-build-MANPAGES-on: .PHONY
 	(cd ${WRKSRC} && \
 		${SETENV} ${MAKE_ENV} ${GO_ENV} ${GO_CMD} run ${GO_BUILDFLAGS} \
 		./cmd/gen-docs --man-page --doc-path docs/man 2>/dev/null)
 
-post-install-DOCS-on:
+post-install-DOCS-on: .PHONY
 	@${MKDIR} ${STAGEDIR}${DOCSDIR}
-	(cd ${WRKSRC} && \
-		${INSTALL_DATA} ${_DOCS} \
-		${STAGEDIR}${DOCSDIR})
+	(cd ${WRKSRC} && ${INSTALL_DATA} ${_DOCS} ${STAGEDIR}${DOCSDIR})
 
-post-install-MANPAGES-on:
-	${INSTALL_MAN} ${WRKSRC}/docs/man/*.1 \
-		${STAGEDIR}${PREFIX}/share/man/man1
+post-install-MANPAGES-on: .PHONY
+	${INSTALL_MAN} ${WRKSRC}/docs/man/*.1 ${STAGEDIR}${PREFIX}/share/man/man1
 
 pre-deps: .PHONY
 	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
@@ -61,12 +58,12 @@ pre-deps-all: .PHONY
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=imdario GHT_PROJ=mergo GHT_PATH=dario.cat/mergo )
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=charmbracelet GHT_PROJ=bubbles GHT_PATH=charm.land/bubbles/v2 )
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=charmbracelet GHT_PROJ=bubbletea GHT_PATH=charm.land/bubbletea/v2 )
-	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=charmbracelet GHT_PROJ=lipgloss GHT_PATH=charm.land/lipgloss/v2 )
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=charmbracelet GHT_PROJ=huh GHT_PATH=charm.land/huh/v2 )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=charmbracelet GHT_PROJ=lipgloss GHT_PATH=charm.land/lipgloss/v2 )
 
 make-from-deps: .PHONY
 	@${SED} -rn \
-		's|^[[:space:]]*#[[:space:]]*::(v[0-9.]+):.*/(vendor/${GHT_PATH})[[:space:]].*$$|GH_TUPLE+=${GHT_ACNT}:${GHT_PROJ}:\1:${GHT_ACNT:tl:S/-/_/}_${GHT_PROJ:tl:S/-/_/}/\2|p' \
+		's|^[[:blank:]]*#[[:blank:]]*::([v0-9.a-f]+):.*/(vendor/${GHT_PATH})[[:blank:]].*$$|GH_TUPLE+=${GHT_ACNT}:${GHT_PROJ}:\1:${GHT_ACNT:tl:S/-/_/g}_${GHT_PROJ:tl:S/-/_/g}/\2|p' \
 	${.CURDIR}/Makefile.deps >>${.CURDIR}/generated.deps.mk
 
 post-deps-all: .PHONY
@@ -106,7 +103,7 @@ GH_TUPLE:=	${GH_TUPLE:C|^moby:moby(:.*/docker-credential-helpers)$|docker:docker
 #-google:go-genproto:f26f9409b101:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/rpc
 #+google:go-genproto:3a174f9686a8:google_go_genproto/vendor/google.golang.org/genproto/googleapis/api
 #+google:go-genproto:f26f9409b101:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/rpc
-GH_TUPLE:=	${GH_TUPLE:C,(_.)?/vendor/google\.golang\.org/genproto/googleapis/(api|rpc),_\2,}
+GH_TUPLE:=	${GH_TUPLE:C,(_.)?/vendor/google\.golang\.org/genproto/googleapis/(api|rpc),,}
 
 # charmbracelet:x:v0.0.13:charmbracelet_x_cellbuf/vendor/github.com/charmbracelet/x/cellbuf
 # charmbracelet:x:v0.2.1:charmbracelet_x_term/vendor/github.com/charmbracelet/x/term
