@@ -1,0 +1,12 @@
+--- Makefile.deps.orig	2026-05-27 18:01:18 UTC
++++ Makefile.deps
+@@ -110,9 +110,5 @@ post-extract:
+ 	@${RLN} ${WRKSRC_moby_sys_mountinfo}/mountinfo ${WRKSRC}/vendor/github.com/moby/sys/mountinfo
+ 	@${RM} -r ${WRKSRC}/vendor/github.com/opencontainers/image-spec/schema
+ 	@${RLN} ${WRKSRC_opencontainers_image_spec_schema}/schema ${WRKSRC}/vendor/github.com/opencontainers/image-spec/schema
+-	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/metric
+-	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_metric}/metric ${WRKSRC}/vendor/go.opentelemetry.io/otel/metric
+-	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/trace
+-	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_trace}/trace ${WRKSRC}/vendor/go.opentelemetry.io/otel/trace
+ 	@${RM} -r ${WRKSRC}/vendor/go.podman.io/storage
+ 	@${RLN} ${WRKSRC_containers_container_libs_storage}/storage ${WRKSRC}/vendor/go.podman.io/storage

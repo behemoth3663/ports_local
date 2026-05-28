@@ -1,5 +1,5 @@
 PORTNAME=	skopeo
-PORTVERSION=	1.22.2
+PORTVERSION=	1.23.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX=	-local
@@ -68,6 +68,6 @@ GH_TUPLE:=	${GH_TUPLE:C,_genproto.*/vendor/google\.golang\.org/genproto/googleap
 #+containers:container-libs:storage/v1.61.0:containers_container_libs_storage
 #-containers:container-libs:v5.38.0:containers_container_libs_1/vendor/go.podman.io/image/v5
 #+containers:container-libs:image/v5.38.0:containers_container_libs_image
-GH_TUPLE:=	${GH_TUPLE:C,^(containers):(container)-(libs):([^:]+).*/go\.podman\.io/(common|storage|image).*,\1:\2-\3:\5/\4:\1_\2_\3_\5,}
+GH_TUPLE:=	${GH_TUPLE:C,^(containers):(container)-(libs):([^:]+).*/go\.podman\.io/(common|storage).*,\1:\2-\3:\5/\4:\1_\2_\3_\5,}
 
 .include <bsd.port.mk>

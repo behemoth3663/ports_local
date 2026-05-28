@@ -1,25 +1,27 @@
 GH_TUPLE=	\
-		BurntSushi:toml:v1.5.0:burntsushi_toml/vendor/github.com/BurntSushi/toml \
-		Masterminds:semver:v3.4.0:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
+		BurntSushi:toml:v1.6.0:burntsushi_toml/vendor/github.com/BurntSushi/toml \
+		Masterminds:semver:v3.5.0:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
 		Microsoft:go-winio:v0.6.2:microsoft_go_winio/vendor/github.com/Microsoft/go-winio \
 		VividCortex:ewma:v1.2.0:vividcortex_ewma/vendor/github.com/VividCortex/ewma \
 		acarl005:stripansi:5a71ef0e047d:acarl005_stripansi/vendor/github.com/acarl005/stripansi \
 		cespare:xxhash:v2.3.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
-		containerd:errdefs:v0.3.0:containerd_errdefs_pkg/vendor/github.com/containerd/errdefs \
-		containerd:errdefs:v1.0.0:containerd_errdefs \
-		containerd:stargz-snapshotter:v0.17.0:containerd_stargz_snapshotter_estargz/vendor/github.com/containerd/stargz-snapshotter \
-		containers:container-libs:v0.67.1:containers_container_libs/vendor/go.podman.io/common \
-		containers:container-libs:v1.62.0:containers_container_libs_2/vendor/go.podman.io/storage \
-		containers:container-libs:v5.39.2:containers_container_libs_1/vendor/go.podman.io/image/v5 \
+		clipperhouse:uax29:v2.7.0:clipperhouse_uax29_v2/vendor/github.com/clipperhouse/uax29/v2 \
+		containerd:errdefs:pkg/v0.3.0:containerd_errdefs_pkg \
+		containerd:errdefs:v1.0.0:containerd_errdefs/vendor/github.com/containerd/errdefs \
+		containerd:stargz-snapshotter:estargz/v0.18.2:containerd_stargz_snapshotter_estargz/vendor/github.com/containerd/stargz-snapshotter \
+		containers:container-libs:common/v0.68.0:containers_container_libs_common/vendor/go.podman.io \
+		containers:container-libs:image/v5.40.0:containers_container_libs_v5/vendor/go.podman.io/image/v5 \
+		containers:container-libs:storage/v1.63.0:containers_container_libs_storage \
 		containers:libtrust:c1716e8a8d01:containers_libtrust/vendor/github.com/containers/libtrust \
-		containers:ocicrypt:v1.2.1:containers_ocicrypt/vendor/github.com/containers/ocicrypt \
-		coreos:go-oidc:v3.14.1:coreos_go_oidc_v3/vendor/github.com/coreos/go-oidc/v3 \
+		containers:ocicrypt:v1.3.0:containers_ocicrypt/vendor/github.com/containers/ocicrypt \
+		coreos:go-oidc:v3.17.0:coreos_go_oidc_v3/vendor/github.com/coreos/go-oidc/v3 \
 		cyberphone:json-canonicalization:19d51d7fe467:cyberphone_json_canonicalization/vendor/github.com/cyberphone/json-canonicalization \
-		cyphar:filepath-securejoin:v0.4.1:cyphar_filepath_securejoin/vendor/github.com/cyphar/filepath-securejoin \
+		cyphar:filepath-securejoin:v0.6.1:cyphar_filepath_securejoin/vendor/github.com/cyphar/filepath-securejoin \
 		davecgh:go-spew:d8f796af33cc:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		distribution:reference:v0.6.0:distribution_reference/vendor/github.com/distribution/reference \
 		docker:distribution:v2.8.3:docker_distribution/vendor/github.com/docker/distribution \
-		docker:go-connections:v0.6.0:docker_go_connections/vendor/github.com/docker/go-connections \
+		docker:docker-credential-helpers:v0.9.7:docker_docker_credential_helpers/vendor/github.com/docker/docker-credential-helpers \
+		docker:go-connections:v0.7.0:docker_go_connections/vendor/github.com/docker/go-connections \
 		docker:go-units:v0.5.0:docker_go_units/vendor/github.com/docker/go-units \
 		dsnet:compress:39efe44ab707:dsnet_compress/vendor/github.com/dsnet/compress \
 		felixge:httpsnoop:v1.0.4:felixge_httpsnoop/vendor/github.com/felixge/httpsnoop \
@@ -27,80 +29,86 @@ GH_TUPLE=	\
 		go-logr:logr:v1.4.3:go_logr_logr/vendor/github.com/go-logr/logr \
 		go-logr:stdr:v1.2.2:go_logr_stdr/vendor/github.com/go-logr/stdr \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
-		golang:crypto:v0.46.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:net:v0.48.0:golang_net/vendor/golang.org/x/net \
-		golang:oauth2:v0.34.0:golang_oauth2/vendor/golang.org/x/oauth2 \
+		golang:crypto:v0.51.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:net:v0.54.0:golang_net/vendor/golang.org/x/net \
+		golang:oauth2:v0.36.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf \
-		golang:sync:v0.19.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.39.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.38.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.32.0:golang_text/vendor/golang.org/x/text \
-		google:go-containerregistry:v0.20.6:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
-		google:go-genproto:ff82c1b0f217:google_go_genproto/vendor/google.golang.org/genproto/googleapis/api \
-		google:go-genproto:ff82c1b0f217:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/rpc \
+		golang:sync:v0.20.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.44.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.43.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.37.0:golang_text/vendor/golang.org/x/text \
+		google:go-containerregistry:v0.21.1:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
 		google:go-intervals:v0.0.2:google_go_intervals/vendor/github.com/google/go-intervals \
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
 		gorilla:mux:v1.8.1:gorilla_mux/vendor/github.com/gorilla/mux \
-		grpc:grpc-go:v1.79.3:grpc_grpc_go/vendor/google.golang.org/grpc \
+		grpc:grpc-go:v1.80.0:grpc_grpc_go/vendor/google.golang.org/grpc \
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
 		hashicorp:go-multierror:1ee6e1a1957a:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
 		hashicorp:go-retryablehttp:v0.7.8:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
 		imdario:mergo:v1.0.2:imdario_mergo/vendor/dario.cat/mergo \
 		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
 		json-iterator:go:v1.1.12:json_iterator_go/vendor/github.com/json-iterator/go \
-		klauspost:compress:v1.18.0:klauspost_compress/vendor/github.com/klauspost/compress \
+		klauspost:compress:v1.18.6:klauspost_compress/vendor/github.com/klauspost/compress \
 		klauspost:pgzip:v1.2.6:klauspost_pgzip/vendor/github.com/klauspost/pgzip \
-		letsencrypt:boulder:de9c06129bec:letsencrypt_boulder/vendor/github.com/letsencrypt/boulder \
-		mattn:go-runewidth:v0.0.16:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
-		mattn:go-sqlite3:v1.14.32:mattn_go_sqlite3/vendor/github.com/mattn/go-sqlite3 \
+		mattn:go-runewidth:v0.0.23:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
+		mattn:go-sqlite3:v1.14.44:mattn_go_sqlite3/vendor/github.com/mattn/go-sqlite3 \
 		miekg:pkcs11:v1.1.1:miekg_pkcs11/vendor/github.com/miekg/pkcs11 \
-		mistifyio:go-zfs:v3.1.0:mistifyio_go_zfs_v3/vendor/github.com/mistifyio/go-zfs/v3 \
+		mistifyio:go-zfs:v4.0.0:mistifyio_go_zfs_v4/vendor/github.com/mistifyio/go-zfs/v4 \
 		moby:docker-image-spec:v1.3.1:moby_docker_image_spec/vendor/github.com/moby/docker-image-spec \
-		moby:moby:v0.9.4:moby_moby_1/vendor/github.com/docker/docker-credential-helpers \
-		moby:moby:v28.5.1:moby_moby/vendor/github.com/docker/docker \
+		moby:moby:api/v1.54.2:moby_moby_api/vendor/github.com/moby/moby \
+		moby:moby:client/v0.4.1:moby_moby_client \
 		moby:sys:capability/v0.4.0:moby_sys_capability \
 		moby:sys:mountinfo/v0.7.2:moby_sys_mountinfo \
 		moby:sys:user/v0.4.0:moby_sys_user/vendor/github.com/moby/sys \
 		modern-go:concurrent:bacd9c7ef1dd:modern_go_concurrent/vendor/github.com/modern-go/concurrent \
-		modern-go:reflect2:v1.0.2:modern_go_reflect2/vendor/github.com/modern-go/reflect2 \
-		open-telemetry:opentelemetry-go-contrib:v0.61.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp \
-		open-telemetry:opentelemetry-go-instrumentation:v1.2.1:open_telemetry_opentelemetry_go_instrumentation/vendor/go.opentelemetry.io/auto/sdk \
-		open-telemetry:opentelemetry-go:v1.39.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
+		modern-go:reflect2:35a7c28c31ee:modern_go_reflect2/vendor/github.com/modern-go/reflect2 \
+		open-telemetry:opentelemetry-go-contrib:instrumentation/net/http/otelhttp/v0.68.0:open_telemetry_opentelemetry_go_contrib_otelhttp/vendor/go.opentelemetry.io/contrib \
+		open-telemetry:opentelemetry-go-instrumentation:sdk/v1.2.1:open_telemetry_opentelemetry_go_instrumentation_sdk/vendor/go.opentelemetry.io/auto \
+		open-telemetry:opentelemetry-go:metric/v1.43.0:open_telemetry_opentelemetry_go_metric \
+		open-telemetry:opentelemetry-go:trace/v1.43.0:open_telemetry_opentelemetry_go_trace \
+		open-telemetry:opentelemetry-go:v1.43.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
 		opencontainers:go-digest:v1.0.0:opencontainers_go_digest/vendor/github.com/opencontainers/go-digest \
-		opencontainers:image-spec:26647a49f642:opencontainers_image_spec/vendor/github.com/opencontainers/image-spec \
+		opencontainers:image-spec:a4c6ade7bb82:opencontainers_image_spec/vendor/github.com/opencontainers/image-spec \
 		opencontainers:image-spec:ab80ff15c2dd:opencontainers_image_spec_schema \
 		opencontainers:image-tools:v1.0.0-rc3:opencontainers_image_tools/vendor/github.com/opencontainers/image-tools \
-		opencontainers:runtime-spec:v1.2.1:opencontainers_runtime_spec/vendor/github.com/opencontainers/runtime-spec \
-		opencontainers:selinux:v1.12.0:opencontainers_selinux/vendor/github.com/opencontainers/selinux \
+		opencontainers:runtime-spec:v1.3.0:opencontainers_runtime_spec/vendor/github.com/opencontainers/runtime-spec \
+		opencontainers:selinux:v1.14.1:opencontainers_selinux/vendor/github.com/opencontainers/selinux \
+		pkg:browser:5ac0b6a4141c:pkg_browser/vendor/github.com/pkg/browser \
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
 		pmezard:go-difflib:5d4384ee4fb2:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
-		proglottis:gpgme:v0.1.5:proglottis_gpgme/vendor/github.com/proglottis/gpgme \
-		protocolbuffers:protobuf-go:v1.36.10:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
-		rivo:uniseg:v0.4.7:rivo_uniseg/vendor/github.com/rivo/uniseg \
+		proglottis:gpgme:v0.1.6:proglottis_gpgme/vendor/github.com/proglottis/gpgme \
+		protocolbuffers:protobuf-go:v1.36.11:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		santhosh-tekuri:jsonschema:v6.0.2:santhosh_tekuri_jsonschema_v6/vendor/github.com/santhosh-tekuri/jsonschema/v6 \
-		secure-systems-lab:go-securesystemslib:v0.9.1:secure_systems_lab_go_securesystemslib/vendor/github.com/secure-systems-lab/go-securesystemslib \
-		segmentio:ksuid:v1.0.4:segmentio_ksuid/vendor/github.com/segmentio/ksuid \
-		sigstore:fulcio:v1.7.1:sigstore_fulcio/vendor/github.com/sigstore/fulcio \
-		sigstore:protobuf-specs:v0.4.1:sigstore_protobuf_specs/vendor/github.com/sigstore/protobuf-specs \
-		sigstore:sigstore:v1.9.5:sigstore_sigstore/vendor/github.com/sigstore/sigstore \
-		sirupsen:logrus:v1.9.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
-		skratchdot:open-golang:eef842397966:skratchdot_open_golang/vendor/github.com/skratchdot/open-golang \
+		secure-systems-lab:go-securesystemslib:v0.11.0:secure_systems_lab_go_securesystemslib/vendor/github.com/secure-systems-lab/go-securesystemslib \
+		sigstore:fulcio:v1.8.5:sigstore_fulcio/vendor/github.com/sigstore/fulcio \
+		sigstore:protobuf-specs:v0.5.0:sigstore_protobuf_specs/vendor/github.com/sigstore/protobuf-specs \
+		sigstore:sigstore:v1.10.6:sigstore_sigstore/vendor/github.com/sigstore/sigstore \
+		sirupsen:logrus:v1.9.4:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
 		smallstep:pkcs7:v0.1.1:smallstep_pkcs7/vendor/github.com/smallstep/pkcs7 \
-		spf13:cobra:v1.10.1:spf13_cobra/vendor/github.com/spf13/cobra \
+		spf13:cobra:v1.10.2:spf13_cobra/vendor/github.com/spf13/cobra \
 		spf13:pflag:v1.0.10:spf13_pflag/vendor/github.com/spf13/pflag \
 		stefanberger:go-pkcs11uri:78284954bff6:stefanberger_go_pkcs11uri/vendor/github.com/stefanberger/go-pkcs11uri \
 		stretchr:testify:v1.11.1:stretchr_testify/vendor/github.com/stretchr/testify \
-		sylabs:sif:v2.22.0:sylabs_sif_v2/vendor/github.com/sylabs/sif/v2 \
+		sylabs:sif:v2.24.0:sylabs_sif_v2/vendor/github.com/sylabs/sif/v2 \
 		tchap:go-patricia:v2.3.3:tchap_go_patricia_v2/vendor/github.com/tchap/go-patricia/v2 \
-		titanous:rocacheck:afe73141d399:titanous_rocacheck/vendor/github.com/titanous/rocacheck \
 		ulikunitz:xz:v0.5.15:ulikunitz_xz/vendor/github.com/ulikunitz/xz \
-		vbatts:tar-split:v0.12.1:vbatts_tar_split/vendor/github.com/vbatts/tar-split \
-		vbauerster:mpb:v8.10.2:vbauerster_mpb_v8/vendor/github.com/vbauerster/mpb/v8
+		vbatts:tar-split:v0.12.3:vbatts_tar_split/vendor/github.com/vbatts/tar-split \
+		vbauerster:mpb:v8.12.0:vbauerster_mpb_v8/vendor/github.com/vbauerster/mpb/v8
+		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
+		#	::v0.2.4:group_name/vendor/cyphar.com/go-pathrs (from @v0.2.4)
+		# Errors found during processing:
+		#	apis.get https://api.github.com/repos/google/go-genproto/contents/googleapis/api?ref=9d38bb4040a9: 403, body: {"message":"API rate limit exceeded for 194.56.81.12. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)","documentation_url":"https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting"}
+		#	apis.get https://api.github.com/repos/google/go-genproto/contents/googleapis/rpc?ref=9d38bb4040a9: 403, body: {"message":"API rate limit exceeded for 194.56.81.12. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)","documentation_url":"https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting"}
 post-extract:
-	@${RLN} ${WRKSRC_containerd_errdefs} ${WRKSRC}/vendor/github.com/containerd/errdefs
+	@${RM} -r ${WRKSRC}/vendor/github.com/containerd/errdefs/pkg
+	@${RLN} ${WRKSRC_containerd_errdefs_pkg}/pkg ${WRKSRC}/vendor/github.com/containerd/errdefs/pkg
+	@${RM} -r ${WRKSRC}/vendor/github.com/moby/moby/client
+	@${RLN} ${WRKSRC_moby_moby_client}/client ${WRKSRC}/vendor/github.com/moby/moby/client
 	@${RM} -r ${WRKSRC}/vendor/github.com/moby/sys/capability
 	@${RLN} ${WRKSRC_moby_sys_capability}/capability ${WRKSRC}/vendor/github.com/moby/sys/capability
 	@${RM} -r ${WRKSRC}/vendor/github.com/moby/sys/mountinfo
 	@${RLN} ${WRKSRC_moby_sys_mountinfo}/mountinfo ${WRKSRC}/vendor/github.com/moby/sys/mountinfo
 	@${RM} -r ${WRKSRC}/vendor/github.com/opencontainers/image-spec/schema
 	@${RLN} ${WRKSRC_opencontainers_image_spec_schema}/schema ${WRKSRC}/vendor/github.com/opencontainers/image-spec/schema
+	@${RM} -r ${WRKSRC}/vendor/go.podman.io/storage
+	@${RLN} ${WRKSRC_containers_container_libs_storage}/storage ${WRKSRC}/vendor/go.podman.io/storage
