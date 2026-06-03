@@ -2,7 +2,7 @@ GH_TUPLE=	\
 		GoogleCloudPlatform:opentelemetry-operations-go:v0.55.0:googlecloudplatform_opentelemetry_operations_go_metric/vendor/github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/metric \
 		GoogleCloudPlatform:opentelemetry-operations-go:v0.55.0:googlecloudplatform_opentelemetry_operations_go_resourcemapping/vendor/github.com/GoogleCloudPlatform/opentelemetry-operations-go/internal/resourcemapping \
 		GoogleCloudPlatform:opentelemetry-operations-go:v1.31.0:googlecloudplatform_opentelemetry_operations_go_gcp/vendor/github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp \
-		Masterminds:semver:v3.4.0:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
+		Masterminds:semver:v3.5.0:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
 		agext:levenshtein:v1.2.3:agext_levenshtein/vendor/github.com/agext/levenshtein \
 		apparentlymart:go-cidr:v1.1.1:apparentlymart_go_cidr/vendor/github.com/apparentlymart/go-cidr \
 		apparentlymart:go-textseg:v15.0.0:apparentlymart_go_textseg_v15/vendor/github.com/apparentlymart/go-textseg/v15 \
@@ -65,25 +65,25 @@ GH_TUPLE=	\
 		go-openapi:validate:v0.25.2:go_openapi_validate/vendor/github.com/go-openapi/validate \
 		go-test:deep:v1.1.1:go_test_deep/vendor/github.com/go-test/deep \
 		go-viper:mapstructure:v2.5.0:go_viper_mapstructure_v2/vendor/github.com/go-viper/mapstructure/v2 \
-		golang:crypto:v0.50.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:mod:v0.34.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.53.0:golang_net/vendor/golang.org/x/net \
+		golang:crypto:v0.52.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:mod:v0.36.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.55.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.36.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf \
 		golang:sync:v0.20.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.43.0:golang_sys/vendor/golang.org/x/sys \
-		golang:telemetry:579e4da9a98c:golang_telemetry/vendor/golang.org/x/telemetry \
-		golang:term:v0.42.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.36.0:golang_text/vendor/golang.org/x/text \
+		golang:sys:v0.45.0:golang_sys/vendor/golang.org/x/sys \
+		golang:telemetry:42602be52be6:golang_telemetry/vendor/golang.org/x/telemetry \
+		golang:term:v0.43.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.37.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.15.0:golang_time/vendor/golang.org/x/time \
-		golang:tools:v0.43.0:golang_tools/vendor/golang.org/x/tools \
+		golang:tools:v0.45.0:golang_tools/vendor/golang.org/x/tools \
 		golang:vuln:v1.1.4:golang_vuln/vendor/golang.org/x/vuln \
 		google:certificate-transparency-go:v1.3.2:google_certificate_transparency_go/vendor/github.com/google/certificate-transparency-go \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-containerregistry:v0.20.7:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
 		google:go-genproto:0b37fe3546d5:google_go_genproto/vendor/google.golang.org/genproto \
-		google:go-genproto:0b37fe3546d5:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api \
-		google:go-genproto:0b37fe3546d5:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc \
+		google:go-genproto:0b37fe3546d5:google_go_genproto_api/vendor/google.golang.org/genproto/googleapis/api \
+		google:go-genproto:0b37fe3546d5:google_go_genproto_rpc/vendor/google.golang.org/genproto/googleapis/rpc \
 		google:go-github:v81.0.0:google_go_github_v81/vendor/github.com/google/go-github/v81 \
 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
 		google:s2a-go:v0.1.9:google_s2a_go/vendor/github.com/google/s2a-go \
@@ -97,7 +97,7 @@ GH_TUPLE=	\
 		googleapis:google-cloud-go:v1.5.3:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go/iam \
 		googleapis:google-cloud-go:v1.61.3:googleapis_google_cloud_go_storage/vendor/cloud.google.com/go/storage \
 		grpc-ecosystem:grpc-gateway:v2.27.3:grpc_ecosystem_grpc_gateway_v2/vendor/github.com/grpc-ecosystem/grpc-gateway/v2 \
-		grpc:grpc-go:v1.81.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+		grpc:grpc-go:v1.81.1:grpc_grpc_go/vendor/google.golang.org/grpc \
 		hashicorp:aws-sdk-go-base:v2.0.0-beta.72:hashicorp_aws_sdk_go_base_v2/vendor/github.com/hashicorp/aws-sdk-go-base/v2 \
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
 		hashicorp:go-getter:v1.8.6:hashicorp_go_getter/vendor/github.com/hashicorp/go-getter \
@@ -138,8 +138,8 @@ GH_TUPLE=	\
 		sourcegraph:jsonrpc2:v0.2.1:sourcegraph_jsonrpc2/vendor/github.com/sourcegraph/jsonrpc2 \
 		spf13:afero:v1.15.0:spf13_afero/vendor/github.com/spf13/afero \
 		spiffe:go-spiffe:v2.6.0:spiffe_go_spiffe_v2/vendor/github.com/spiffe/go-spiffe/v2 \
-		terraform-linters:tflint-plugin-sdk:v0.24.0:terraform_linters_tflint_plugin_sdk/vendor/github.com/terraform-linters/tflint-plugin-sdk \
-		terraform-linters:tflint-ruleset-terraform:v0.14.1:terraform_linters_tflint_ruleset_terraform/vendor/github.com/terraform-linters/tflint-ruleset-terraform \
+		terraform-linters:tflint-plugin-sdk:v0.25.0:terraform_linters_tflint_plugin_sdk/vendor/github.com/terraform-linters/tflint-plugin-sdk \
+		terraform-linters:tflint-ruleset-terraform:v0.15.0:terraform_linters_tflint_ruleset_terraform/vendor/github.com/terraform-linters/tflint-ruleset-terraform \
 		theupdateframework:go-tuf:v2.4.1:theupdateframework_go_tuf_v2/vendor/github.com/theupdateframework/go-tuf/v2 \
 		transparency-dev:formats:404c0d5b696c:transparency_dev_formats/vendor/github.com/transparency-dev/formats \
 		transparency-dev:merkle:v0.0.2:transparency_dev_merkle/vendor/github.com/transparency-dev/merkle \
