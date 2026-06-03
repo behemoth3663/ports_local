@@ -1,5 +1,5 @@
 PORTNAME=	gosec
-PORTVERSION=	2.26.1
+PORTVERSION=	2.27.1
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel security
@@ -42,6 +42,7 @@ post-extract: .PHONY .SILENT
 	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 	${RM} ${WRKSRC}/vendor/cloud.google.com/go/longrunning/autogen/auxiliary_go123.go
 	${RM} ${WRKSRC}/vendor/cloud.google.com/go/ai/generativelanguage/apiv1beta/auxiliary_go123.go
+	${RM} ${WRKSRC}/vendor/github.com/googleapis/gax-go/v2/telemetry.go
 	${MKDIR} ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
 	${TEST} -z ${WRKSRC_google_go_genproto_api} || ${RLN} ${WRKSRC_google_go_genproto_api}/googleapis/api ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
 	${TEST} -z ${WRKSRC_google_go_genproto_rpc} || ${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
@@ -61,12 +62,12 @@ post-deps-all: .PHONY
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 	${RM} ${.CURDIR}/generated.deps.mk
-	( make -C ${.CURDIR} make-from-deps GHT_ACNT=googleapis GHT_PROJ=google-cloud-go GHT_PATH=cloud.google.com/go/compute/metadata )
-	( make -C ${.CURDIR} make-from-deps GHT_ACNT=googleapis GHT_PROJ=go-genai GHT_PATH=google.golang.org/genai )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=googleapis GHT_PROJ=google-cloud-go GHT_PATH=cloud.google.com/go/compute/metadata )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=googleapis GHT_PROJ=go-genai GHT_PATH=google.golang.org/genai )
 
 make-from-deps: .PHONY
 	@${SED} -rn \
-		's|^[[:space:]]*#[[:space:]]*::([v0-9.a-f]+):.*/(vendor/${GHT_PATH})[[:space:]].*$$|GH_TUPLE+=${GHT_ACNT}:${GHT_PROJ}:\1:${GHT_ACNT:tl:S/-/_/g}_${GHT_PROJ:tl:S/-/_/g}/\2|p' \
+		's|^[[:blank:]]*#[[:blank:]]*::([v0-9.a-f]+):.*/(vendor/${GHT_PATH})[[:blank:]].*$$|GH_TUPLE+=${GHT_ACNT}:${GHT_PROJ}:\1:${GHT_ACNT:tl:S/-/_/g}_${GHT_PROJ:tl:S/-/_/g}/\2|p' \
 	${.CURDIR}/Makefile.deps >>${.CURDIR}/generated.deps.mk
 
 .include "${}/etc/make.d/go-deps.mk"
@@ -92,6 +93,10 @@ GH_TUPLE:=	${GH_TUPLE:N*\:googleapis_google_cloud_go_[b-z]*}
 GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+).*/cloud.google.com/go/(auth)$|\1\3/\2|}
 GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/0-9]+).*/cloud.google.com/go/(compute)/(metadata)$|\1\3/\4/\2\3_\4|}
 GH_TUPLE:=	${GH_TUPLE:N*/vendor/cloud.google.com/go/*}
+
+#-standard-webhooks:standard-webhooks:v0.0.1:standard_webhooks_standard_webhooks_libraries/vendor/github.com/standard-webhooks/standard-webhooks/libraries
+#+standard-webhooks:standard-webhooks:libraries/v0.0.1:standard_webhooks_standard_webhooks_libraries/vendor/github.com/standard-webhooks/standard-webhooks
+GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)(.*/standard-webhooks/standard-webhooks)/(libraries)$|\1\3/\2|1}
 
 .sinclude "${.CURDIR}/generated.deps.mk"
 
