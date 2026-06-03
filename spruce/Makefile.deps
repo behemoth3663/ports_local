@@ -3,22 +3,22 @@ GH_TUPLE=	\
 		Knetic:govaluate:v3.0.0:knetic_govaluate/vendor/github.com/Knetic/govaluate \
 		Masterminds:semver:v3.4.0:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
 		anthropics:anthropic-sdk-go:v1.26.0:anthropics_anthropic_sdk_go/vendor/github.com/anthropics/anthropic-sdk-go \
-		aws:aws-sdk-go-v2:config/v1.32.18:aws_aws_sdk_go_v2_config \
-		aws:aws-sdk-go-v2:credentials/v1.19.17:aws_aws_sdk_go_v2_credentials \
-		aws:aws-sdk-go-v2:feature/ec2/imds/v1.18.23:aws_aws_sdk_go_v2_imds \
-		aws:aws-sdk-go-v2:internal/configsources/v1.4.23:aws_aws_sdk_go_v2_configsources \
-		aws:aws-sdk-go-v2:internal/endpoints/v2.7.23:aws_aws_sdk_go_v2_v2 \
-		aws:aws-sdk-go-v2:internal/v4a/v1.4.24:aws_aws_sdk_go_v2_v4a \
-		aws:aws-sdk-go-v2:service/internal/accept-encoding/v1.13.9:aws_aws_sdk_go_v2_accept_encoding \
-		aws:aws-sdk-go-v2:service/internal/presigned-url/v1.13.23:aws_aws_sdk_go_v2_presigned_url \
-		aws:aws-sdk-go-v2:service/secretsmanager/v1.41.7:aws_aws_sdk_go_v2_secretsmanager \
-		aws:aws-sdk-go-v2:service/signin/v1.0.11:aws_aws_sdk_go_v2_signin \
-		aws:aws-sdk-go-v2:service/ssm/v1.68.6:aws_aws_sdk_go_v2_ssm \
-		aws:aws-sdk-go-v2:service/sso/v1.30.17:aws_aws_sdk_go_v2_sso \
-		aws:aws-sdk-go-v2:service/ssooidc/v1.36.0:aws_aws_sdk_go_v2_ssooidc \
-		aws:aws-sdk-go-v2:service/sts/v1.42.1:aws_aws_sdk_go_v2_sts \
-		aws:aws-sdk-go-v2:v1.41.7:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
-		aws:smithy-go:v1.25.1:aws_smithy_go/vendor/github.com/aws/smithy-go \
+		aws:aws-sdk-go-v2:config/v1.32.20:aws_aws_sdk_go_v2_config \
+		aws:aws-sdk-go-v2:credentials/v1.19.19:aws_aws_sdk_go_v2_credentials \
+		aws:aws-sdk-go-v2:feature/ec2/imds/v1.18.25:aws_aws_sdk_go_v2_imds \
+		aws:aws-sdk-go-v2:internal/configsources/v1.4.25:aws_aws_sdk_go_v2_configsources \
+		aws:aws-sdk-go-v2:internal/endpoints/v2.7.25:aws_aws_sdk_go_v2_v2 \
+		aws:aws-sdk-go-v2:internal/v4a/v1.4.26:aws_aws_sdk_go_v2_v4a \
+		aws:aws-sdk-go-v2:service/internal/accept-encoding/v1.13.10:aws_aws_sdk_go_v2_accept_encoding \
+		aws:aws-sdk-go-v2:service/internal/presigned-url/v1.13.25:aws_aws_sdk_go_v2_presigned_url \
+		aws:aws-sdk-go-v2:service/secretsmanager/v1.41.9:aws_aws_sdk_go_v2_secretsmanager \
+		aws:aws-sdk-go-v2:service/signin/v1.1.1:aws_aws_sdk_go_v2_signin \
+		aws:aws-sdk-go-v2:service/ssm/v1.68.8:aws_aws_sdk_go_v2_ssm \
+		aws:aws-sdk-go-v2:service/sso/v1.30.19:aws_aws_sdk_go_v2_sso \
+		aws:aws-sdk-go-v2:service/ssooidc/v1.36.2:aws_aws_sdk_go_v2_ssooidc \
+		aws:aws-sdk-go-v2:service/sts/v1.42.3:aws_aws_sdk_go_v2_sts \
+		aws:aws-sdk-go-v2:v1.41.9:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+		aws:smithy-go:v1.26.0:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		ccojocar:zxcvbn-go:v1.0.4:ccojocar_zxcvbn_go/vendor/github.com/ccojocar/zxcvbn-go \
 		cespare:xxhash:v2.3.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
 		cloudfoundry-community:vaultkv:v0.7.0:cloudfoundry_community_vaultkv/vendor/github.com/cloudfoundry-community/vaultkv \
@@ -70,10 +70,8 @@ GH_TUPLE=	\
 		maxbrunsfeld:counterfeiter:v6.12.2:maxbrunsfeld_counterfeiter_v6/vendor/github.com/maxbrunsfeld/counterfeiter/v6 \
 		mitchellh:go-ps:v1.0.0:mitchellh_go_ps/vendor/github.com/mitchellh/go-ps \
 		mitchellh:hashstructure:v2.0.2:mitchellh_hashstructure_v2/vendor/github.com/mitchellh/hashstructure/v2 \
-		onsi:ginkgo:v2.29.0:onsi_ginkgo_v2/vendor/github.com/onsi/ginkgo/v2 \
 		onsi:gomega:v1.41.0:onsi_gomega/vendor/github.com/onsi/gomega \
 		open-telemetry:opentelemetry-go:v1.41.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
-		openai:openai-go:v3.28.0:openai_openai_go_v3/vendor/github.com/openai/openai-go/v3 \
 		protocolbuffers:protobuf-go:v1.36.10:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		sergi:go-diff:v1.4.0:sergi_go_diff/vendor/github.com/sergi/go-diff \
 		starkandwayne:goutils:896b8a6904be:starkandwayne_goutils/vendor/github.com/starkandwayne/goutils \
@@ -90,9 +88,6 @@ GH_TUPLE=	\
 		ziutek:utils:eb2a3b364d6c:ziutek_utils/vendor/github.com/ziutek/utils
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
 		#	::2478ac86f678:group_name/vendor/golang.org/x/exp/typeparams (from go.googlesource.com/exp/typeparams@2478ac86f678)
-		# Errors found during processing:
-		#	apis.get https://api.github.com/repos/securego/gosec/contents/v2?ref=v2.25.0: 403, body: {"message":"API rate limit exceeded for 194.56.81.12. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)","documentation_url":"https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting"}
-		#	Github API rate limit exceeded. Please either:
 post-extract:
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/auth
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_auth}/auth ${WRKSRC}/vendor/cloud.google.com/go/auth

@@ -1,6 +1,6 @@
 PORTNAME=	spruce
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.35.5
+DISTVERSION=	1.35.6
 CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
@@ -18,12 +18,15 @@ GO_TARGET=	./cmd/${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME}
 
+CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'main.Version=${DISTVERSIONFULL}'"
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 pre-deps pre-deps-all post-deps-all: .PHONY
 
 .include "${}/etc/make.d/go-deps.mk"
+.sinclude "${.CURDIR}/Makefile.deps"
 
 # The vendor directory is inside geofffranks-spruce-v1.35.1_GH0.tar.gz, so there's no need to copy modules.txt for now.
 #.sinclude "${.CURDIR}/Makefile.deps"
