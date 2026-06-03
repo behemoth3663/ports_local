@@ -1,6 +1,6 @@
-TIMESTAMP = 1779801710
-SHA256 (noborus-trdsql-v1.2.1_GH0.tar.gz) = 58a4b5987e80ed313bf878b070b4d94768fae658f2cf56f353284d762937a84a
-SIZE (noborus-trdsql-v1.2.1_GH0.tar.gz) = 2475197
+TIMESTAMP = 1780499261
+SHA256 (noborus-trdsql-v1.2.3_GH0.tar.gz) = 23a80d1c7cf44f458440ad9b6ffc5dc9305e98f191fbce102f47bf6be2c4fb17
+SIZE (noborus-trdsql-v1.2.3_GH0.tar.gz) = 2474314
 SHA256 (FiloSottile-edwards25519-v1.2.0_GH0.tar.gz) = f77655cabfb1b5e599f32fc81459540c20743613c687961a173efe4e9f6c917f
 SIZE (FiloSottile-edwards25519-v1.2.0_GH0.tar.gz) = 46969
 SHA256 (araddon-dateparse-6b43995a97de_GH0.tar.gz) = 524d8c247f16af21b602ad57a7c73fd1ef44cf26f492b2ad2d7b66ea25635ed0
