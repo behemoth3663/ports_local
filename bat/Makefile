@@ -1,8 +1,9 @@
 PORTNAME=	bat
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.26.1
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	textproc
+PKGNAMESUFFIX=	-local
 
 MAINTAINER=	pizzamig@FreeBSD.org
 COMMENT=	Clone of cat with syntax highlighting
