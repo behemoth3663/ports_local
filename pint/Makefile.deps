@@ -7,35 +7,34 @@ GH_TUPLE=	\
 		cespare:xxhash:v2.3.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
 		davecgh:go-spew:d8f796af33cc:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		dennwc:varint:v1.0.0:dennwc_varint/vendor/github.com/dennwc/varint \
-		edsrzf:mmap-go:v1.2.0:edsrzf_mmap_go/vendor/github.com/edsrzf/mmap-go \
+		edsrzf:mmap-go:fad1cd13edbd:edsrzf_mmap_go/vendor/github.com/edsrzf/mmap-go \
 		facette:natsort:2cd4dd1e2dcb:facette_natsort/vendor/github.com/facette/natsort \
 		fxamacker:cbor:v2.9.0:fxamacker_cbor_v2/vendor/github.com/fxamacker/cbor/v2 \
-		gkampitakis:ciinfo:v0.3.2:gkampitakis_ciinfo/vendor/github.com/gkampitakis/ciinfo \
-		gkampitakis:go-snaps:v0.5.21:gkampitakis_go_snaps/vendor/github.com/gkampitakis/go-snaps \
+		gkampitakis:ciinfo:v0.3.4:gkampitakis_ciinfo/vendor/github.com/gkampitakis/ciinfo \
+		gkampitakis:go-snaps:v0.5.22:gkampitakis_go_snaps/vendor/github.com/gkampitakis/go-snaps \
 		go-inf:inf:v0.9.1:go_inf_inf/vendor/gopkg.in/inf.v0 \
-		go-json-experiment:json:e40f80bf6836:go_json_experiment_json/vendor/github.com/go-json-experiment/json \
+		go-json-experiment:json:00ed12fed2a6:go_json_experiment_json/vendor/github.com/go-json-experiment/json \
 		go-logr:logr:v1.4.3:go_logr_logr/vendor/github.com/go-logr/logr \
 		go-logr:stdr:v1.2.2:go_logr_stdr/vendor/github.com/go-logr/stdr \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
-		goccy:go-yaml:v1.18.0:goccy_go_yaml/vendor/github.com/goccy/go-yaml \
-		golang:mod:v0.33.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.52.0:golang_net/vendor/golang.org/x/net \
+		goccy:go-yaml:v1.19.2:goccy_go_yaml/vendor/github.com/goccy/go-yaml \
+		golang:mod:v0.36.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.55.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.36.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:sync:v0.20.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.42.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.41.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.35.0:golang_text/vendor/golang.org/x/text \
+		golang:sys:v0.45.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.43.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.37.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.15.0:golang_time/vendor/golang.org/x/time \
-		golang:tools:v0.42.0:golang_tools/vendor/golang.org/x/tools \
+		golang:tools:v0.45.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
-		google:go-github:v87.0.0:google_go_github_v87/vendor/github.com/google/go-github/v87 \
+		google:go-github:v88.0.0:google_go_github_v88/vendor/github.com/google/go-github/v88 \
 		google:go-querystring:v1.2.0:google_go_querystring/vendor/github.com/google/go-querystring \
 		grafana:regexp:f7b3be9d1853:grafana_regexp/vendor/github.com/grafana/regexp \
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
 		hashicorp:go-retryablehttp:v0.7.8:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
 		hashicorp:hcl:v2.24.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
 		iancoleman:orderedmap:v0.2.0:iancoleman_orderedmap/vendor/github.com/iancoleman/orderedmap \
-		itchyny:json2yaml:v0.1.5:itchyny_json2yaml/vendor/github.com/itchyny/json2yaml \
 		json-iterator:go:v1.1.12:json_iterator_go/vendor/github.com/json-iterator/go \
 		klauspost:compress:v1.18.6:klauspost_compress/vendor/github.com/klauspost/compress \
 		kr:pretty:v0.3.1:kr_pretty/vendor/github.com/kr/pretty \
@@ -50,31 +49,31 @@ GH_TUPLE=	\
 		kubernetes:kube-openapi:589584f1c912:kubernetes_kube_openapi/vendor/k8s.io/kube-openapi \
 		kubernetes:utils:bc988d571ff4:kubernetes_utils/vendor/k8s.io/utils \
 		kylelemons:godebug:v1.1.0:kylelemons_godebug/vendor/github.com/kylelemons/godebug \
-		maruel:natural:v1.1.1:maruel_natural/vendor/github.com/maruel/natural \
+		maruel:natural:v1.3.0:maruel_natural/vendor/github.com/maruel/natural \
 		mitchellh:go-wordwrap:v1.0.1:mitchellh_go_wordwrap/vendor/github.com/mitchellh/go-wordwrap \
 		modern-go:concurrent:bacd9c7ef1dd:modern_go_concurrent/vendor/github.com/modern-go/concurrent \
 		modern-go:reflect2:35a7c28c31ee:modern_go_reflect2/vendor/github.com/modern-go/reflect2 \
 		munnerz:goautoneg:a7dc8b61c822:munnerz_goautoneg/vendor/github.com/munnerz/goautoneg \
-		neilotoole:slogt:v1.1.0:neilotoole_slogt/vendor/github.com/neilotoole/slogt \
+		neilotoole:slogt:v2.0.0:neilotoole_slogt_v2/vendor/github.com/neilotoole/slogt/v2 \
 		nhatthm:go-matcher:v2.0.0:nhatthm_go_matcher_v2/vendor/go.nhat.io/matcher/v2 \
 		nhatthm:go-wait:v0.1.0:nhatthm_go_wait/vendor/go.nhat.io/wait \
 		nhatthm:httpmock:v0.11.0:nhatthm_httpmock/vendor/go.nhat.io/httpmock \
 		open-telemetry:opentelemetry-go-instrumentation:sdk/v1.2.1:open_telemetry_opentelemetry_go_instrumentation_sdk/vendor/go.opentelemetry.io/auto \
-		open-telemetry:opentelemetry-go:metric/v1.42.0:open_telemetry_opentelemetry_go_metric \
-		open-telemetry:opentelemetry-go:trace/v1.42.0:open_telemetry_opentelemetry_go_trace \
-		open-telemetry:opentelemetry-go:v1.42.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
+		open-telemetry:opentelemetry-go:metric/v1.44.0:open_telemetry_opentelemetry_go_metric \
+		open-telemetry:opentelemetry-go:trace/v1.44.0:open_telemetry_opentelemetry_go_trace \
+		open-telemetry:opentelemetry-go:v1.44.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
 		pmezard:go-difflib:5d4384ee4fb2:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		prometheus:client_golang:v1.23.2:prometheus_client_golang/vendor/github.com/prometheus/client_golang \
 		prometheus:client_model:v0.6.2:prometheus_client_model/vendor/github.com/prometheus/client_model \
-		prometheus:common:v0.67.5:prometheus_common/vendor/github.com/prometheus/common \
+		prometheus:common:v0.68.1:prometheus_common/vendor/github.com/prometheus/common \
 		prometheus:procfs:v0.16.1:prometheus_procfs/vendor/github.com/prometheus/procfs \
-		prometheus:prometheus:v0.311.3:prometheus_prometheus/vendor/github.com/prometheus/prometheus \
+		prometheus:prometheus:v0.312.0:prometheus_prometheus/vendor/github.com/prometheus/prometheus \
 		protocolbuffers:protobuf-go:v1.36.11:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
-		rogpeppe:go-internal:v1.14.1:rogpeppe_go_internal/vendor/github.com/rogpeppe/go-internal \
+		rogpeppe:go-internal:v1.15.0:rogpeppe_go_internal/vendor/github.com/rogpeppe/go-internal \
 		sergi:go-diff:v1.4.0:sergi_go_diff/vendor/github.com/sergi/go-diff \
 		stretchr:testify:v1.11.1:stretchr_testify/vendor/github.com/stretchr/testify \
 		swaggest:assertjson:v1.7.0:swaggest_assertjson/vendor/github.com/swaggest/assertjson \
-		tidwall:gjson:v1.18.0:tidwall_gjson/vendor/github.com/tidwall/gjson \
+		tidwall:gjson:v1.19.0:tidwall_gjson/vendor/github.com/tidwall/gjson \
 		tidwall:match:v1.1.1:tidwall_match/vendor/github.com/tidwall/match \
 		tidwall:pretty:v1.2.1:tidwall_pretty/vendor/github.com/tidwall/pretty \
 		tidwall:sjson:v1.2.5:tidwall_sjson/vendor/github.com/tidwall/sjson \
@@ -88,15 +87,9 @@ GH_TUPLE=	\
 		yudai:golcs:ecda9a501e82:yudai_golcs/vendor/github.com/yudai/golcs \
 		zclconf:go-cty:v1.18.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 		# Errors found during processing:
-		#	error getting commit v1.46.0 for gitlab-org/api: not found
+		#	error getting commit v2.36.0 for gitlab-org/api: not found
 GL_TUPLE=	\
-		gitlab-org-api:client-go:v1.46.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go
+		gitlab-org-api:client-go:v2.36.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go/v2
 
 post-extract: .PHONY
 	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
-	${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/exporters
-	${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/sdk
-	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/metric
-	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_metric}/metric ${WRKSRC}/vendor/go.opentelemetry.io/otel/metric
-	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/trace
-	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_trace}/trace ${WRKSRC}/vendor/go.opentelemetry.io/otel/trace
