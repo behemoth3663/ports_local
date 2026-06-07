@@ -1,5 +1,5 @@
 PORTNAME=	cosign
-PORTVERSION=	3.0.6
+PORTVERSION=	3.1.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local security
@@ -71,16 +71,18 @@ post-deps-all: .PHONY
 	${TEST} ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
 
 pre-deps-all: .PHONY
-	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
+#	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 	${RM} ${.CURDIR}/generated.deps.mk
-	( make -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes-sigs GHT_PROJ=json GHT_PATH=sigs.k8s.io/json )
-	( make -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes-sigs GHT_PROJ=randfill GHT_PATH=sigs.k8s.io/randfill )
-	( make -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes-sigs GHT_PROJ=release-utils GHT_PATH=sigs.k8s.io/release-utils )
-	( make -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes-sigs GHT_PROJ=structured-merge-diff GHT_PATH=sigs.k8s.io/structured-merge-diff/v6 )
-	( make -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes GHT_PROJ=klog GHT_PATH=k8s.io/klog/v2 )
-	( make -C ${.CURDIR} make-from-deps GHT_ACNT=go-yaml GHT_PROJ=yaml GHT_PATH=go.yaml.in/yaml/v2 )
-	( make -C ${.CURDIR} make-from-deps GHT_ACNT=cue-lang GHT_PROJ=cue GHT_PATH=cuelang.org/go )
-	( make -C ${.CURDIR} make-from-deps GHT_ACNT=cue-labs GHT_PROJ=oci GHT_PATH=cuelabs.dev/go/oci/ociregistry )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes-sigs GHT_PROJ=json GHT_PATH=sigs.k8s.io/json )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes-sigs GHT_PROJ=randfill GHT_PATH=sigs.k8s.io/randfill )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes-sigs GHT_PROJ=release-utils GHT_PATH=sigs.k8s.io/release-utils )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes-sigs GHT_PROJ=structured-merge-diff GHT_PATH=sigs.k8s.io/structured-merge-diff/v6 )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes GHT_PROJ=klog GHT_PATH=k8s.io/klog/v2 )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=go-yaml GHT_PROJ=yaml GHT_PATH=go.yaml.in/yaml/v2 )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=cue-lang GHT_PROJ=cue GHT_PATH=cuelang.org/go )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=cue-labs GHT_PROJ=oci GHT_PATH=cuelabs.dev/go/oci/ociregistry )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=connectrpc GHT_PROJ=connect-go GHT_PATH=connectrpc.com/connect )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=bufbuild GHT_PROJ=protovalidate-go GHT_PATH=buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go )
 
 make-from-deps: .PHONY
 	@${SED} -rn \
@@ -176,7 +178,7 @@ GH_TUPLE:=	${GH_TUPLE:N*/sigstore/sigstore/*}
 #-google:go-genproto:513f23925822:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc
 #+google:go-genproto:513f23925822:google_go_genproto_rpc
 # google:go-genproto:f936aa4a68b2:google_go_genproto/vendor/google.golang.org/genproto
-GH_TUPLE:=	${GH_TUPLE:C,_./vendor/google\.golang\.org/genproto/googleapis/(api|rpc),_\1,}
+GH_TUPLE:=	${GH_TUPLE:C,/vendor/google\.golang\.org/genproto/googleapis/(api|rpc),,}
 
 #-hashicorp:go-secure-stdlib:v0.1.2:hashicorp_go_secure_stdlib_mlock/vendor/github.com/hashicorp/go-secure-stdlib/mlock
 #-hashicorp:go-secure-stdlib:v0.1.2:hashicorp_go_secure_stdlib_strutil/vendor/github.com/hashicorp/go-secure-stdlib/strutil
