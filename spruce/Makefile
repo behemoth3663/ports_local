@@ -1,6 +1,6 @@
 PORTNAME=	spruce
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.35.6
+DISTVERSION=	1.35.7
 CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
