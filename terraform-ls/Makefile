@@ -1,5 +1,5 @@
 PORTNAME=	terraform-ls
-PORTVERSION=	0.38.6
+PORTVERSION=	0.38.7
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -46,6 +46,6 @@ GH_TUPLE:=	${GH_TUPLE:Nopen-telemetry\:opentelemetry-go*}
 #+chigopher:pathlib:v1.0.1:chigopher_pathlib/vendor/github.com/chigopher/pathlib
 GH_TUPLE:=	${GH_TUPLE:C|^(chigopher:pathlib:)[^:]+|\1v1.0.1|1}
 
-GH_TUPLE+=	hashicorp:go-version:v1.8.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version
+GH_TUPLE+=	hashicorp:go-version:v1.9.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version
 
 .include <bsd.port.mk>
