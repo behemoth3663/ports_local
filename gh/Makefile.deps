@@ -19,7 +19,7 @@ GH_TUPLE=	\
 		charmbracelet:colorprofile:v0.4.3:charmbracelet_colorprofile/vendor/github.com/charmbracelet/colorprofile \
 		charmbracelet:glamour:v0.10.0:charmbracelet_glamour/vendor/github.com/charmbracelet/glamour \
 		charmbracelet:lipgloss:76690c660834:charmbracelet_lipgloss/vendor/github.com/charmbracelet/lipgloss \
-		charmbracelet:ultraviolet:489999b90468:charmbracelet_ultraviolet/vendor/github.com/charmbracelet/ultraviolet \
+		charmbracelet:ultraviolet:948f4557a654:charmbracelet_ultraviolet/vendor/github.com/charmbracelet/ultraviolet \
 		charmbracelet:x:821143405392:charmbracelet_x_slice/vendor/github.com/charmbracelet/x/exp/slice \
 		charmbracelet:x:821143405392:charmbracelet_x_strings/vendor/github.com/charmbracelet/x/exp/strings \
 		charmbracelet:x:v0.0.15:charmbracelet_x_cellbuf/vendor/github.com/charmbracelet/x/cellbuf \
@@ -51,7 +51,7 @@ GH_TUPLE=	\
 		fatih:color:v1.18.0:fatih_color/vendor/github.com/fatih/color \
 		gabriel-vasile:mimetype:v1.4.13:gabriel_vasile_mimetype/vendor/github.com/gabriel-vasile/mimetype \
 		gdamore:encoding:v1.0.1:gdamore_encoding/vendor/github.com/gdamore/encoding \
-		gdamore:tcell:v2.13.9:gdamore_tcell_v2/vendor/github.com/gdamore/tcell/v2 \
+		gdamore:tcell:v2.13.10:gdamore_tcell_v2/vendor/github.com/gdamore/tcell/v2 \
 		go-logr:logr:v1.4.3:go_logr_logr/vendor/github.com/go-logr/logr \
 		go-logr:stdr:v1.2.2:go_logr_stdr/vendor/github.com/go-logr/stdr \
 		go-openapi:analysis:v0.24.3:go_openapi_analysis/vendor/github.com/go-openapi/analysis \
@@ -113,7 +113,7 @@ GH_TUPLE=	\
 		kballard:go-shellquote:95032a82bc51:kballard_go_shellquote/vendor/github.com/kballard/go-shellquote \
 		klauspost:compress:v1.18.6:klauspost_compress/vendor/github.com/klauspost/compress \
 		lucasb-eyer:go-colorful:v1.4.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
-		mattn:go-colorable:v0.1.14:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
+		mattn:go-colorable:v0.1.15:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
 		mattn:go-isatty:v0.0.22:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
 		mattn:go-runewidth:v0.0.23:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
 		mgutz:ansi:d51e80ef957d:mgutz_ansi/vendor/github.com/mgutz/ansi \
@@ -173,7 +173,7 @@ GH_TUPLE=	\
 		#	::v1.43.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.43.0)
 		#	::v2.0.3:group_name/vendor/charm.land/huh/v2 (from charm.land/huh/v2@v2.0.3)
 		#	::v2.0.3:group_name/vendor/charm.land/lipgloss/v2 (from charm.land/lipgloss/v2@v2.0.3)
-		#	::v2.0.6:group_name/vendor/charm.land/bubbletea/v2 (from charm.land/bubbletea/v2@v2.0.6)
+		#	::v2.0.7:group_name/vendor/charm.land/bubbletea/v2 (from charm.land/bubbletea/v2@v2.0.7)
 		#	::v2.1.0:group_name/vendor/charm.land/bubbles/v2 (from charm.land/bubbles/v2@v2.1.0)
 		#	::v3.0.4:group_name/vendor/go.yaml.in/yaml/v3 (from go.yaml.in/yaml/v3@v3.0.4)
 		#	::v3.5.2:group_name/vendor/gotest.tools/v3 (from gotest.tools/v3@v3.5.2)
