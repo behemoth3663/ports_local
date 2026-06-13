@@ -79,7 +79,7 @@ GH_TUPLE=	\
 		tidwall:sjson:v1.2.5:tidwall_sjson/vendor/github.com/tidwall/sjson \
 		uber-go:atomic:v1.11.0:uber_go_atomic/vendor/go.uber.org/atomic \
 		uber-go:ratelimit:v0.3.1:uber_go_ratelimit/vendor/go.uber.org/ratelimit \
-		urfave:cli:v3.9.0:urfave_cli_v3/vendor/github.com/urfave/cli/v3 \
+		urfave:cli:v3.9.1:urfave_cli_v3/vendor/github.com/urfave/cli/v3 \
 		x448:float16:v0.8.4:x448_float16/vendor/github.com/x448/float16 \
 		yaml:go-yaml:v2.4.4:yaml_go_yaml/vendor/go.yaml.in/yaml/v2 \
 		yaml:go-yaml:v3.0.4:yaml_go_yaml_1/vendor/go.yaml.in/yaml/v3 \
@@ -87,9 +87,9 @@ GH_TUPLE=	\
 		yudai:golcs:ecda9a501e82:yudai_golcs/vendor/github.com/yudai/golcs \
 		zclconf:go-cty:v1.18.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 		# Errors found during processing:
-		#	error getting commit v2.36.0 for gitlab-org/api: not found
+		#	error getting commit v2.38.0 for gitlab-org/api: not found
 GL_TUPLE=	\
-		gitlab-org-api:client-go:v2.36.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go/v2
+		gitlab-org-api:client-go:v2.38.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go/v2
 
 post-extract: .PHONY
 	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
