@@ -1,5 +1,5 @@
 PORTNAME=	oauth2-proxy
-PORTVERSION=	7.15.2
+PORTVERSION=	7.15.3
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local www
@@ -36,13 +36,20 @@ GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'version.VERSION=${PORTVERSION}'"
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
+M2T_OFFLINE=	true
+.export	M2T_OFFLINE
+
 post-install: .PHONY
 	${MKDIR} ${STAGEDIR}${LOG_DIR}
 	${MKDIR} ${STAGEDIR}${RUN_DIR}
 	${INSTALL_DATA} ${WRKSRC}/contrib/${PORTNAME}.cfg.example ${STAGEDIR}${PREFIX}/etc/${PORTNAME}.cfg.sample
 
-post-extract: .PHONY
+_OPTIONS_extract=	750:post-post-extract
+post-post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+	@${RM} ${WRKSRC}/vendor/github.com/googleapis/gax-go/v2/telemetry.go
+	@${MKDIR} ${WRKSRC}/vendor/go.yaml.in/yaml
+	@${TEST} ! -e ${WRKSRC}/vendor/gopkg.in/yaml.v3 || ${RLN} ${WRKSRC}/vendor/gopkg.in/yaml.v3 ${WRKSRC}/vendor/go.yaml.in/yaml/v3
 
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
@@ -55,6 +62,10 @@ pre-deps post-deps-all: .PHONY
 #-google:go-genproto:6ceb2ff114de:google_go_genproto/vendor/google.golang.org/genproto/googleapis/rpc
 #+google:go-genproto:6ceb2ff114de:google_go_genproto/vendor/google.golang.org/genproto
 GH_TUPLE:=	${GH_TUPLE:S|/googleapis/rpc$||}
+
+#-googleapis:gax-go:v2.11.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2
+#+googleapis:gax-go:v2.11.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go
+GH_TUPLE:=	${GH_TUPLE:S|/gax-go/v2$|/gax-go|1}
 
 #-googleapis:google-cloud-go:v0.2.5:googleapis_google_cloud_go/vendor/cloud.google.com/go/auth/oauth2adapt
 #+googleapis:google-cloud-go:auth/oauth2adapt/v0.2.5:googleapis_google_cloud_go/vendor/cloud.google.com/go
