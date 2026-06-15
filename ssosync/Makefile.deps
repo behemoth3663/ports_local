@@ -11,13 +11,15 @@ GH_TUPLE=	\
 		aws:aws-sdk-go-v2:v1.32.0:aws_aws_sdk_go_v2_ssooidc/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc \
 		aws:aws-sdk-go-v2:v1.36.0:aws_aws_sdk_go_v2_sts/vendor/github.com/aws/aws-sdk-go-v2/service/sts \
 		aws:aws-sdk-go-v2:v1.37.0:aws_aws_sdk_go_v2_secretsmanager/vendor/github.com/aws/aws-sdk-go-v2/service/secretsmanager \
-		aws:aws-sdk-go-v2:v1.38.0:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
-		aws:aws-sdk-go-v2:v1.4.3:aws_aws_sdk_go_v2_configsources/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources \
+		aws:aws-sdk-go-v2:v1.39.6:aws_aws_sdk_go_v2_ssoadmin/vendor/github.com/aws/aws-sdk-go-v2/service/ssoadmin \
+		aws:aws-sdk-go-v2:v1.4.29:aws_aws_sdk_go_v2_configsources/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources \
+		aws:aws-sdk-go-v2:v1.42.0:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
 		aws:aws-sdk-go-v2:v1.44.0:aws_aws_sdk_go_v2_codepipeline/vendor/github.com/aws/aws-sdk-go-v2/service/codepipeline \
+		aws:aws-sdk-go-v2:v1.69.3:aws_aws_sdk_go_v2_ssm/vendor/github.com/aws/aws-sdk-go-v2/service/ssm \
 		aws:aws-sdk-go-v2:v1.8.3:aws_aws_sdk_go_v2_ini/vendor/github.com/aws/aws-sdk-go-v2/internal/ini \
-		aws:aws-sdk-go-v2:v2.7.3:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 \
+		aws:aws-sdk-go-v2:v2.7.29:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 \
 		aws:aws-secretsmanager-caching-go:v2.1.1:aws_aws_secretsmanager_caching_go_v2/vendor/github.com/aws/aws-secretsmanager-caching-go/v2 \
-		aws:smithy-go:v1.22.5:aws_smithy_go/vendor/github.com/aws/smithy-go \
+		aws:smithy-go:v1.27.1:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		cespare:xxhash:v2.3.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
 		davecgh:go-spew:d8f796af33cc:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		felixge:httpsnoop:v1.0.4:felixge_httpsnoop/vendor/github.com/felixge/httpsnoop \
@@ -27,7 +29,6 @@ GH_TUPLE=	\
 		go-viper:mapstructure:v2.4.0:go_viper_mapstructure_v2/vendor/github.com/go-viper/mapstructure/v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
 		golang:crypto:v0.46.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:mock:v1.6.0:golang_mock/vendor/github.com/golang/mock \
 		golang:net:v0.48.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.34.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:sys:v0.39.0:golang_sys/vendor/golang.org/x/sys \

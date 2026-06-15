@@ -1,5 +1,5 @@
 PORTNAME=	ssosync
-PORTVERSION=	2.4.0
+PORTVERSION=	2.6.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -37,6 +37,10 @@ GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 	@${FIND} ${WRKSRC} -name '*_test.go' -type f -delete
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/config/internal/ini
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/credentials/logincreds
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/signin
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/v4a
 
 pre-deps: .PHONY
 	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
