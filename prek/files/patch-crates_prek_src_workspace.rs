@@ -1,6 +1,6 @@
---- crates/prek/src/workspace.rs.orig	2026-02-15 13:20:37 UTC
+--- crates/prek/src/workspace.rs.orig	2026-06-15 11:20:08 UTC
 +++ crates/prek/src/workspace.rs
-@@ -121,7 +121,13 @@ impl Project {
+@@ -263,7 +263,12 @@ impl Project {
              "Loading project configuration"
          );
  
@@ -11,7 +11,6 @@
 +            }
 +            other => other?,
 +        };
-+
-         let size = config.repos.len();
  
          let config_dir = config_path
+             .parent()
