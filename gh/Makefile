@@ -1,5 +1,5 @@
 PORTNAME=	gh
-PORTVERSION=	2.94.0
+PORTVERSION=	2.95.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -60,6 +60,7 @@ pre-deps-all: .PHONY
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=charmbracelet GHT_PROJ=bubbletea GHT_PATH=charm.land/bubbletea/v2 )
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=charmbracelet GHT_PROJ=huh GHT_PATH=charm.land/huh/v2 )
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=charmbracelet GHT_PROJ=lipgloss GHT_PATH=charm.land/lipgloss/v2 )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes GHT_PROJ=klog GHT_PATH=k8s.io/klog/v2 )
 
 make-from-deps: .PHONY
 	@${SED} -rn \
