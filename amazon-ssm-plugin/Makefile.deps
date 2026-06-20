@@ -1,15 +1,29 @@
 GH_TUPLE=	\
-		aws:aws-sdk-go-v2:v1.41.6:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
-		aws:session-manager-plugin:dcff8da8cdec:aws_session_manager_plugin/vendor/github.com/aws/session-manager-plugin \
-		aws:smithy-go:v1.25.0:aws_smithy_go/vendor/github.com/aws/smithy-go \
+		aws:aws-sdk-go-v2:config/v1.32.25:aws_aws_sdk_go_v2_config \
+		aws:aws-sdk-go-v2:credentials/v1.19.24:aws_aws_sdk_go_v2_credentials \
+		aws:aws-sdk-go-v2:feature/ec2/imds/v1.18.29:aws_aws_sdk_go_v2_imds \
+		aws:aws-sdk-go-v2:internal/configsources/v1.4.29:aws_aws_sdk_go_v2_configsources \
+		aws:aws-sdk-go-v2:internal/endpoints/v2.7.29:aws_aws_sdk_go_v2_v2 \
+		aws:aws-sdk-go-v2:internal/v4a/v1.4.30:aws_aws_sdk_go_v2_v4a \
+		aws:aws-sdk-go-v2:service/internal/accept-encoding/v1.13.12:aws_aws_sdk_go_v2_accept_encoding \
+		aws:aws-sdk-go-v2:service/internal/presigned-url/v1.13.29:aws_aws_sdk_go_v2_presigned_url \
+		aws:aws-sdk-go-v2:service/kms/v1.53.4:aws_aws_sdk_go_v2_kms \
+		aws:aws-sdk-go-v2:service/signin/v1.2.0:aws_aws_sdk_go_v2_signin \
+		aws:aws-sdk-go-v2:service/ssm/v1.69.3:aws_aws_sdk_go_v2_ssm \
+		aws:aws-sdk-go-v2:service/sso/v1.31.3:aws_aws_sdk_go_v2_sso \
+		aws:aws-sdk-go-v2:service/ssooidc/v1.36.6:aws_aws_sdk_go_v2_ssooidc \
+		aws:aws-sdk-go-v2:service/sts/v1.43.3:aws_aws_sdk_go_v2_sts \
+		aws:aws-sdk-go-v2:v1.42.0:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+		aws:session-manager-plugin:930a08e65d3a:aws_session_manager_plugin/vendor/github.com/aws/session-manager-plugin \
+		aws:smithy-go:v1.27.1:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		cihub:seelog:f561c5e57575:cihub_seelog/vendor/github.com/cihub/seelog \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
-		fsnotify:fsnotify:v1.9.0:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
+		fsnotify:fsnotify:v1.10.1:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
-		golang:crypto:v0.50.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:sync:v0.20.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.43.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.42.0:golang_term/vendor/golang.org/x/term \
+		golang:crypto:v0.53.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:sync:v0.21.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.46.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.44.0:golang_term/vendor/golang.org/x/term \
 		gorilla:websocket:v1.5.3:gorilla_websocket/vendor/github.com/gorilla/websocket \
 		myesui:uuid:v1.0.0:myesui_uuid/vendor/github.com/myesui/uuid \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
@@ -19,5 +33,33 @@ GH_TUPLE=	\
 		twinj:uuid:v1.0.0:twinj_uuid \
 		xtaci:smux:v1.5.57:xtaci_smux/vendor/github.com/xtaci/smux
 post-extract:
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/config
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_config}/config ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/config
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/credentials
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_credentials}/credentials ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/credentials
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_imds}/feature/ec2/imds ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_configsources}/internal/configsources ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_v2}/internal/endpoints/v2 ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/v4a
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_v4a}/internal/v4a ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/v4a
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_accept_encoding}/service/internal/accept-encoding ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_presigned_url}/service/internal/presigned-url ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/kms
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_kms}/service/kms ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/kms
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/signin
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_signin}/service/signin ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/signin
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/ssm
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_ssm}/service/ssm ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/ssm
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sso
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_sso}/service/sso ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sso
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_ssooidc}/service/ssooidc ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sts
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_sts}/service/sts ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sts
 	@${MKDIR} ${WRKSRC}/vendor/github.com/twinj
 	@${RLN} ${WRKSRC_myesui_uuid} ${WRKSRC}/vendor/github.com/twinj/uuid
