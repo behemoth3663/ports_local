@@ -3,13 +3,15 @@ GH_TUPLE=	\
 		Knetic:govaluate:v3.0.0:knetic_govaluate/vendor/github.com/Knetic/govaluate \
 		Masterminds:semver:v3.4.0:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
 		anthropics:anthropic-sdk-go:v1.26.0:anthropics_anthropic_sdk_go/vendor/github.com/anthropics/anthropic-sdk-go \
-		aws:aws-sdk-go-v2:config/v1.32.23:aws_aws_sdk_go_v2_config \
-		aws:aws-sdk-go-v2:credentials/v1.19.22:aws_aws_sdk_go_v2_credentials \
-		aws:aws-sdk-go-v2:feature/ec2/imds/v1.18.28:aws_aws_sdk_go_v2_imds \
-		aws:aws-sdk-go-v2:internal/configsources/v1.4.28:aws_aws_sdk_go_v2_configsources \
-		aws:aws-sdk-go-v2:internal/endpoints/v2.7.28:aws_aws_sdk_go_v2_v2 \
-		aws:aws-sdk-go-v2:internal/v4a/v1.4.29:aws_aws_sdk_go_v2_v4a \
-		aws:aws-sdk-go-v2:v1.41.12:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+		aws:aws-sdk-go-v2:config/v1.32.25:aws_aws_sdk_go_v2_config \
+		aws:aws-sdk-go-v2:credentials/v1.19.24:aws_aws_sdk_go_v2_credentials \
+		aws:aws-sdk-go-v2:feature/ec2/imds/v1.18.29:aws_aws_sdk_go_v2_imds \
+		aws:aws-sdk-go-v2:internal/configsources/v1.4.29:aws_aws_sdk_go_v2_configsources \
+		aws:aws-sdk-go-v2:internal/endpoints/v2.7.29:aws_aws_sdk_go_v2_v2 \
+		aws:aws-sdk-go-v2:internal/v4a/v1.4.30:aws_aws_sdk_go_v2_v4a \
+		aws:aws-sdk-go-v2:service/internal/accept-encoding/v1.13.12:aws_aws_sdk_go_v2_accept_encoding \
+		aws:aws-sdk-go-v2:service/internal/presigned-url/v1.13.29:aws_aws_sdk_go_v2_presigned_url \
+		aws:aws-sdk-go-v2:v1.42.0:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
 		aws:smithy-go:v1.27.1:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		ccojocar:zxcvbn-go:v1.0.4:ccojocar_zxcvbn_go/vendor/github.com/ccojocar/zxcvbn-go \
 		cloudfoundry-community:vaultkv:v0.7.0:cloudfoundry_community_vaultkv/vendor/github.com/cloudfoundry-community/vaultkv \
@@ -91,3 +93,7 @@ post-extract:
 	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_v2}/internal/endpoints/v2 ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2
 	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/v4a
 	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_v4a}/internal/v4a ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/v4a
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_accept_encoding}/service/internal/accept-encoding ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_presigned_url}/service/internal/presigned-url ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url
