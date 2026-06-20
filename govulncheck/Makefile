@@ -1,5 +1,5 @@
 PORTNAME=	govulncheck
-PORTVERSION=	1.3.0
+PORTVERSION=	1.4.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local security
@@ -33,10 +33,10 @@ post-patch: .PHONY
 	@${REINPLACE_CMD} -e 's|%%GO_CMD%%|${GO_CMD}|g' ${WRKSRC}/internal/test/testenv.go
 	@${REINPLACE_CMD} -e 's|%%GO_CMD%%|${GO_CMD}|g' ${WRKSRC}/internal/testenv/testenv.go
 	@${REINPLACE_CMD} -e 's|%%GO_CMD%%|${GO_CMD}|g' ${WRKSRC}/internal/vulncheck/packages.go
-	@${REINPLACE_CMD} -e 's|%%GO_CMD%%|${GO_CMD}|g' ${WRKSRC}/vendor/golang.org/x/tools/go/gcexportdata/gcexportdata.go
-	@${REINPLACE_CMD} -e 's|%%GO_CMD%%|${GO_CMD}|g' ${WRKSRC}/vendor/golang.org/x/tools/internal/gcimporter/exportdata.go
-	@${REINPLACE_CMD} -e 's|%%GO_CMD%%|${GO_CMD}|g' ${WRKSRC}/vendor/golang.org/x/tools/internal/gocommand/invoke.go
-	@${REINPLACE_CMD} -e 's|%%GO_CMD%%|${GO_CMD}|g' ${WRKSRC}/vendor/golang.org/x/tools/internal/testenv/testenv.go
+	@${REINPLACE_CMD} -e 's|%%GO_CMD%%|${GO_CMD}|g' ${WRKSRC}/vendor/golang.org/x/tools/go/gcexportdata/gcexportdata.go || :
+	@${REINPLACE_CMD} -e 's|%%GO_CMD%%|${GO_CMD}|g' ${WRKSRC}/vendor/golang.org/x/tools/internal/gcimporter/exportdata.go || :
+	@${REINPLACE_CMD} -e 's|%%GO_CMD%%|${GO_CMD}|g' ${WRKSRC}/vendor/golang.org/x/tools/internal/gocommand/invoke.go || :
+	@${REINPLACE_CMD} -e 's|%%GO_CMD%%|${GO_CMD}|g' ${WRKSRC}/vendor/golang.org/x/tools/internal/testenv/testenv.go || :
 
 #internal/scan/run.go
 #buf.WriteString("v0.0.0")
