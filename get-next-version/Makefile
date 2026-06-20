@@ -1,5 +1,5 @@
 PORTNAME=	get-next-version
-PORTVERSION=	2.7.1
+PORTVERSION=	2.7.2
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
 
@@ -18,25 +18,24 @@ GH_ACCOUNT=	thenativeweb
 PLIST_FILES=	bin/${PORTNAME}
 
 GIT_COMMIT=	git ls-remote \
-		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
-		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
-		${SED} -rn 's/(.{7}).*/\1/p'
+		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
+		refs/tags/${DISTVERSIONFULL}
 
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=${DISTVERSIONPREFIX}${PORTVERSION}' \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.GitVersion=$$(${GIT_COMMIT})'"
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=${DISTVERSIONFULL}' \
+	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.GitVersion=${GIT_COMMIT:sh:C/(.{7}).*/\\1/W}'"
 
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 
 pre-deps: .PHONY
-	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
 
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 
 post-deps-all: .PHONY
-	test ! -d '${PATCHDIR}_' || ${MV} ${PATCHDIR}_ ${PATCHDIR}
+	${TEST} ! -d '${PATCHDIR}_' || ${MV} ${PATCHDIR}_ ${PATCHDIR}
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
