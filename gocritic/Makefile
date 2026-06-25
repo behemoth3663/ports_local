@@ -1,7 +1,7 @@
 PORTNAME=	gocritic
-PORTVERSION=	0.14.3
+PORTVERSION=	0.14.4
 DISTVERSIONPREFIX=	v
-#PORTREVISION=	7
+#PORTREVISION=	1
 CATEGORIES=	local devel
 
 MAINTAINER=	fuz@FreeBSD.org
@@ -32,23 +32,23 @@ M2T_OFFLINE=	true
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 	@${RM} -r ${WRKSRC}/vendor/github.com/quasilyte/go-ruleguard/dsl
-	@test -z '${WRKSRC_quasilyte_go_ruleguard_dsl}' || ${RLN} ${WRKSRC_quasilyte_go_ruleguard_dsl}/dsl ${WRKSRC}/vendor/github.com/quasilyte/go-ruleguard/dsl
+	@${TEST} -z '${WRKSRC_quasilyte_go_ruleguard_dsl}' || ${RLN} ${WRKSRC_quasilyte_go_ruleguard_dsl}/dsl ${WRKSRC}/vendor/github.com/quasilyte/go-ruleguard/dsl
 
 pre-deps: .PHONY
-	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
 
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 	${RM} ${.CURDIR}/generated.deps.mk
-	( make -C ${.CURDIR} make-from-deps GHT_ACNT=golang GHT_PROJ=exp GHT_PATH=golang.org/x/exp/typeparams )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=golang GHT_PROJ=exp GHT_PATH=golang.org/x/exp/typeparams )
 
 make-from-deps: .PHONY
 	@${SED} -rn \
-		's|^[[:space:]]*#[[:space:]]*::([v0-9.a-f]+):.*/(vendor/${GHT_PATH})[[:space:]].*$$|GH_TUPLE+=${GHT_ACNT}:${GHT_PROJ}:\1:${GHT_ACNT:tl:S/-/_/g}_${GHT_PROJ:tl:S/-/_/g}/\2|p' \
+		's|^[[:blank:]]*#[[:blank:]]*::([v0-9.a-f]+):.*/(vendor/${GHT_PATH})[[:blank:]].*$$|GH_TUPLE+=${GHT_ACNT}:${GHT_PROJ}:\1:${GHT_ACNT:tl:S/-/_/g}_${GHT_PROJ:tl:S/-/_/g}/\2|p' \
 	${.CURDIR}/Makefile.deps >>${.CURDIR}/generated.deps.mk
 
 post-deps-all: .PHONY
-	test -d '${PATCHDIR}_' && ${MV} ${PATCHDIR}_ ${PATCHDIR} || :
+	${TEST} -d '${PATCHDIR}_' && ${MV} ${PATCHDIR}_ ${PATCHDIR} || :
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
