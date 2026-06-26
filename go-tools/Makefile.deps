@@ -3,6 +3,6 @@ GH_TUPLE=	\
 		golang:net:v0.56.0:golang_net/vendor/golang.org/x/net \
 		golang:sync:v0.21.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.46.0:golang_sys/vendor/golang.org/x/sys \
-		golang:telemetry:fb80ec83bdd9:golang_telemetry/vendor/golang.org/x/telemetry \
+		golang:telemetry:59b4966ccb57:golang_telemetry/vendor/golang.org/x/telemetry \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		yuin:goldmark:v1.4.13:yuin_goldmark/vendor/github.com/yuin/goldmark
