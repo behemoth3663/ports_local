@@ -28,14 +28,14 @@ GH_TUPLE=	\
 		go-logr:stdr:v1.2.2:go_logr_stdr/vendor/github.com/go-logr/stdr \
 		go-viper:mapstructure:v2.5.0:go_viper_mapstructure_v2/vendor/github.com/go-viper/mapstructure/v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
-		golang:crypto:v0.52.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:mod:v0.36.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.55.0:golang_net/vendor/golang.org/x/net \
-		golang:sync:v0.20.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.45.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.43.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.37.0:golang_text/vendor/golang.org/x/text \
-		golang:tools:v0.45.0:golang_tools/vendor/golang.org/x/tools \
+		golang:crypto:v0.53.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:mod:v0.37.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.56.0:golang_net/vendor/golang.org/x/net \
+		golang:sync:v0.21.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.46.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.44.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.38.0:golang_text/vendor/golang.org/x/text \
+		golang:tools:v0.46.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
 		hashicorp:errwrap:v1.0.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
@@ -53,7 +53,7 @@ GH_TUPLE=	\
 		hashicorp:terraform-exec:v0.25.2:hashicorp_terraform_exec/vendor/github.com/hashicorp/terraform-exec \
 		hashicorp:terraform-json:v0.27.2:hashicorp_terraform_json/vendor/github.com/hashicorp/terraform-json \
 		hashicorp:terraform-registry-address:v0.4.0:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
-		hashicorp:terraform-schema:a9772d0b05cf:hashicorp_terraform_schema/vendor/github.com/hashicorp/terraform-schema \
+		hashicorp:terraform-schema:601ca1352962:hashicorp_terraform_schema/vendor/github.com/hashicorp/terraform-schema \
 		hashicorp:terraform-svchost:v0.1.1:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
 		huandu:xstrings:v1.4.0:huandu_xstrings/vendor/github.com/huandu/xstrings \
 		iancoleman:strcase:v0.3.0:iancoleman_strcase/vendor/github.com/iancoleman/strcase \
@@ -72,12 +72,12 @@ GH_TUPLE=	\
 		mitchellh:mapstructure:v1.5.0:mitchellh_mapstructure/vendor/github.com/mitchellh/mapstructure \
 		mitchellh:reflectwalk:v1.0.2:mitchellh_reflectwalk/vendor/github.com/mitchellh/reflectwalk \
 		olekukonko:tablewriter:v0.0.5:olekukonko_tablewriter/vendor/github.com/olekukonko/tablewriter \
-		open-telemetry:opentelemetry-go-contrib:instrumentation/net/http/httptrace/otelhttptrace/v0.67.0:open_telemetry_opentelemetry_go_contrib_otelhttptrace \
-		open-telemetry:opentelemetry-go-contrib:instrumentation/net/http/otelhttp/v0.68.0:open_telemetry_opentelemetry_go_contrib_otelhttp/vendor/go.opentelemetry.io/contrib \
+		open-telemetry:opentelemetry-go-contrib:instrumentation/net/http/httptrace/otelhttptrace/v0.69.0:open_telemetry_opentelemetry_go_contrib_otelhttptrace \
+		open-telemetry:opentelemetry-go-contrib:instrumentation/net/http/otelhttp/v0.69.0:open_telemetry_opentelemetry_go_contrib_otelhttp/vendor/go.opentelemetry.io/contrib \
 		open-telemetry:opentelemetry-go-instrumentation:sdk/v1.2.1:open_telemetry_opentelemetry_go_instrumentation_sdk/vendor/go.opentelemetry.io/auto \
-		open-telemetry:opentelemetry-go:metric/v1.43.0:open_telemetry_opentelemetry_go_metric \
-		open-telemetry:opentelemetry-go:trace/v1.43.0:open_telemetry_opentelemetry_go_trace \
-		open-telemetry:opentelemetry-go:v1.43.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
+		open-telemetry:opentelemetry-go:metric/v1.44.0:open_telemetry_opentelemetry_go_metric \
+		open-telemetry:opentelemetry-go:trace/v1.44.0:open_telemetry_opentelemetry_go_trace \
+		open-telemetry:opentelemetry-go:v1.44.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
 		otiai10:copy:v1.14.1:otiai10_copy/vendor/github.com/otiai10/copy \
 		otiai10:mint:v1.6.3:otiai10_mint/vendor/github.com/otiai10/mint \
 		pelletier:go-toml:v2.2.4:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
