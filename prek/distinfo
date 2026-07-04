@@ -1,4 +1,4 @@
-TIMESTAMP = 1782974597
+TIMESTAMP = 1783189943
 SHA256 (rust/crates/addr2line-0.25.1.crate) = 1b5d307320b3181d6d7954e663bd7c774a838b8220fe0593c86d9fb09f498b4b
 SIZE (rust/crates/addr2line-0.25.1.crate) = 43134
 SHA256 (rust/crates/adler2-2.0.1.crate) = 320119579fcad9c21884f5c4861d16174d0e06250625266f50fe6898340abefa
@@ -803,5 +803,5 @@ SHA256 (rust/crates/zerovec-derive-0.11.3.crate) = 625dc425cab0dca6dc3c3319506e6
 SIZE (rust/crates/zerovec-derive-0.11.3.crate) = 22115
 SHA256 (rust/crates/zmij-1.0.21.crate) = b8848ee67ecc8aedbaf3e4122217aff892639231befc6a1b58d29fff4c2cabaa
 SIZE (rust/crates/zmij-1.0.21.crate) = 26665
-SHA256 (j178-prek-v0.4.6_GH0.tar.gz) = 7bfb877c1474df5c362a6d0ee5c0d32d072307b0927c64c8a600e8a24c80b66b
-SIZE (j178-prek-v0.4.6_GH0.tar.gz) = 1144871
+SHA256 (j178-prek-v0.4.8_GH0.tar.gz) = b3affb81a468dee2394acda7d20f9b08a49452c74600b9dc279e36b770517a3e
+SIZE (j178-prek-v0.4.8_GH0.tar.gz) = 1147592
