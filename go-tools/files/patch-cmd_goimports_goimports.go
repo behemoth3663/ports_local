@@ -1,17 +1,17 @@
---- cmd/goimports/goimports.go.orig	2025-09-10 14:57:49 UTC
+--- cmd/goimports/goimports.go.orig	2026-07-09 02:42:41 UTC
 +++ cmd/goimports/goimports.go
-@@ -20,7 +20,6 @@ import (
- 	"runtime/pprof"
+@@ -21,7 +21,6 @@ import (
  	"strings"
+ 	"testing"
  
 -	"golang.org/x/telemetry/counter"
  	"golang.org/x/tools/internal/gocommand"
  	"golang.org/x/tools/internal/imports"
  )
-@@ -200,8 +199,6 @@ func main() {
- 
+@@ -202,8 +201,6 @@ func main() {
  func main() {
- 	// is anyone using this command?
+ 	// Measure how many people still use goimports.
+ 	// (See https://go.dev/issue/78671 for one.)
 -	counter.Open()
 -	counter.Inc("tools/cmd:goimports")
  	runtime.GOMAXPROCS(runtime.NumCPU())
