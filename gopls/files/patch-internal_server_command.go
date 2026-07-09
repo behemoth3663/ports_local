@@ -1,4 +1,4 @@
---- internal/server/command.go.orig	2025-12-05 20:12:17 UTC
+--- internal/server/command.go.orig	2026-07-07 18:53:34 UTC
 +++ internal/server/command.go
 @@ -25,7 +25,6 @@ import (
  
@@ -8,7 +8,7 @@
  	"golang.org/x/tools/go/ast/astutil"
  	"golang.org/x/tools/gopls/internal/cache"
  	"golang.org/x/tools/gopls/internal/cache/metadata"
-@@ -71,9 +70,6 @@ func (s *server) ExecuteCommand(ctx context.Context, p
+@@ -70,19 +69,10 @@ func (s *server) ExecuteCommand(ctx context.Context, p
  			Source string `json:"source"`
  		}
  		if err := json.Unmarshal(last, &meta); err == nil && meta.Source != "" {
@@ -18,7 +18,17 @@
  			params.Arguments = params.Arguments[:len(params.Arguments)-1]
  		}
  	}
-@@ -292,7 +288,6 @@ func (*commandHandler) AddTelemetryCounters(_ context.
+ 
+-	if len(params.FormAnswers) != 0 {
+-		commandName := strings.TrimPrefix(params.Command, "gopls.")
+-		counterName := fmt.Sprintf("gopls/interactive/command:%s", commandName)
+-		counter.New(counterName).Inc()
+-	}
+-
+ 	handler := &commandHandler{
+ 		s:      s,
+ 		params: params,
+@@ -297,7 +287,6 @@ func (*commandHandler) AddTelemetryCounters(_ context.
  		if n == "" || v < 0 {
  			continue
  		}
@@ -26,7 +36,7 @@
  	}
  	return nil
  }
-@@ -1641,7 +1636,6 @@ func (c *commandHandler) ChangeSignature(ctx context.C
+@@ -1638,7 +1627,6 @@ func (c *commandHandler) ChangeSignature(ctx context.C
  }
  
  func (c *commandHandler) ChangeSignature(ctx context.Context, args command.ChangeSignatureArgs) (*protocol.WorkspaceEdit, error) {
@@ -34,7 +44,7 @@
  	var result *protocol.WorkspaceEdit
  	err := c.run(ctx, commandConfig{
  		forURI: args.Location.URI,
-@@ -1838,10 +1832,8 @@ func (c *commandHandler) ModifyTags(ctx context.Contex
+@@ -1882,10 +1870,8 @@ func (c *commandHandler) ModifyTags(ctx context.Contex
  		// Each command involves either adding or removing tags, depending on
  		// whether Add or Clear is set.
  		if args.Add != "" {
