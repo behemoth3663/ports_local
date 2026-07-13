@@ -1,9 +1,9 @@
 PORTNAME=	rage
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.11.2
-PORTREVISION=	2
+DISTVERSION=	0.12.0
+#PORTREVISION=	1
 CATEGORIES=	local security
-PKGNAMESUFFIX=	-encryption
+PKGNAMESUFFIX=	-encryption-local
 
 MAINTAINER=	ehaupt@FreeBSD.org
 COMMENT=	Simple, modern, and secure file encryption tool, using the age format
@@ -45,4 +45,5 @@ deps: .PHONY
 	( set -o pipefail && ${MAKE} -C ${.CURDIR} cargo-crates | ${GREP} --extended-regexp --invert-match '^=' > ${.CURDIR}/Makefile.crates )
 	( ${MAKE} -C ${.CURDIR} makesum )
 
+.sinclude "${.CURDIR}/Makefile.crates"
 .include <bsd.port.mk>
