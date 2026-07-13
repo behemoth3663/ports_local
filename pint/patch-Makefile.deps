@@ -1,16 +1,14 @@
---- Makefile.deps.orig	2026-06-06 14:21:13 UTC
+--- Makefile.deps.orig	2026-07-13 10:17:30 UTC
 +++ Makefile.deps
-@@ -88,8 +88,8 @@ GH_TUPLE=	\
- 		zclconf:go-cty:v1.18.1:zclconf_go_cty/vendor/github.com/zclconf/go-cty
+@@ -89,7 +89,11 @@ GH_TUPLE=	\
+ 		zclconf:go-cty:v1.19.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
  		# Errors found during processing:
- 		#	error getting commit v2.36.0 for gitlab-org/api: not found
--post-extract:
--	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/metric
--	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_metric}/metric ${WRKSRC}/vendor/go.opentelemetry.io/otel/metric
--	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/trace
--	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_trace}/trace ${WRKSRC}/vendor/go.opentelemetry.io/otel/trace
+ 		#	error getting commit v2.46.0 for gitlab-org/api: not found
 +GL_TUPLE=	\
-+		gitlab-org-api:client-go:v2.36.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go/v2
++		gitlab-org-api:client-go:v2.46.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go/v2
 +
-+post-extract: .PHONY
+ post-extract:
 +	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+ 	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/metric
+ 	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_metric}/metric ${WRKSRC}/vendor/go.opentelemetry.io/otel/metric
+ 	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/trace
