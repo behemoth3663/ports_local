@@ -1,5 +1,5 @@
 PORTNAME=	gosec
-PORTVERSION=	2.27.1
+PORTVERSION=	2.28.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel security
@@ -64,10 +64,11 @@ pre-deps-all: .PHONY
 	${RM} ${.CURDIR}/generated.deps.mk
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=googleapis GHT_PROJ=google-cloud-go GHT_PATH=cloud.google.com/go/compute/metadata )
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=googleapis GHT_PROJ=go-genai GHT_PATH=google.golang.org/genai )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=yaml GHT_PROJ=go-yaml GHT_PATH=go.yaml.in/yaml/v4 )
 
 make-from-deps: .PHONY
 	@${SED} -rn \
-		's|^[[:blank:]]*#[[:blank:]]*::([v0-9.a-f]+):.*/(vendor/${GHT_PATH})[[:blank:]].*$$|GH_TUPLE+=${GHT_ACNT}:${GHT_PROJ}:\1:${GHT_ACNT:tl:S/-/_/g}_${GHT_PROJ:tl:S/-/_/g}/\2|p' \
+		's|^[[:blank:]]*#[[:blank:]]*::([-v0-9.a-frc]+):.*/(vendor/${GHT_PATH})[[:blank:]].*$$|GH_TUPLE+=${GHT_ACNT}:${GHT_PROJ}:\1:${GHT_ACNT:tl:S/-/_/g}_${GHT_PROJ:tl:S/-/_/g}/\2|p' \
 	${.CURDIR}/Makefile.deps >>${.CURDIR}/generated.deps.mk
 
 .include "${}/etc/make.d/go-deps.mk"

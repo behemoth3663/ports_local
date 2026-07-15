@@ -1,6 +1,6 @@
---- vendor/cloud.google.com/go/auth/grpctransport/grpctransport.go.orig	2026-03-23 17:47:48 UTC
+--- vendor/cloud.google.com/go/auth/grpctransport/grpctransport.go.orig	2026-07-07 20:38:34 UTC
 +++ vendor/cloud.google.com/go/auth/grpctransport/grpctransport.go
-@@ -34,9 +34,6 @@ import (
+@@ -36,9 +36,6 @@ import (
  	"github.com/googleapis/gax-go/v2"
  	"github.com/googleapis/gax-go/v2/callctx"
  	"github.com/googleapis/gax-go/v2/internallog"
@@ -8,38 +8,71 @@
 -	"go.opentelemetry.io/otel/attribute"
 -	"go.opentelemetry.io/otel/trace"
  	"google.golang.org/grpc"
- 	"google.golang.org/grpc/codes"
  	grpccreds "google.golang.org/grpc/credentials"
-@@ -459,22 +456,7 @@ func addOpenTelemetryStatsHandler(dialOpts []grpc.Dial
+ 	grpcinsecure "google.golang.org/grpc/credentials/insecure"
+@@ -371,7 +368,6 @@ func dial(ctx context.Context, secure bool, opts *Opti
+ 	// Add tracing, but before the other options, so that clients can override the
+ 	// gRPC stats handler.
+ 	// This assumes that gRPC options are processed in order, left to right.
+-	grpcOpts = addOpenTelemetryStatsHandler(grpcOpts, opts, transportCreds.Endpoint)
+ 	grpcOpts = append(grpcOpts, opts.GRPCDialOpts...)
+ 
+ 	return grpc.DialContext(ctx, transportCreds.Endpoint, grpcOpts...)
+@@ -461,41 +457,7 @@ func addOpenTelemetryStatsHandler(dialOpts []grpc.Dial
  }
  
- func addOpenTelemetryStatsHandler(dialOpts []grpc.DialOption, opts *Options) []grpc.DialOption {
+ func addOpenTelemetryStatsHandler(dialOpts []grpc.DialOption, opts *Options, endpoint string) []grpc.DialOption {
 -	if opts.DisableTelemetry {
  		return dialOpts
 -	}
--	if !gax.IsFeatureEnabled("TRACING") {
+-	if gax.IsFeatureEnabled("METRICS") {
+-		host, port := extractHostPort(endpoint)
+-		dialOpts = append(dialOpts, grpc.WithChainUnaryInterceptor(openTelemetryUnaryClientInterceptor(host, port)))
+-	}
+-	if !gax.IsFeatureEnabled("TRACING") && !gax.IsFeatureEnabled("LOGGING") {
 -		return append(dialOpts, grpc.WithStatsHandler(otelgrpc.NewClientHandler()))
 -	}
 -	var staticAttrs []attribute.KeyValue
+-	var scopedLogger *slog.Logger
+-
+-	if gax.IsFeatureEnabled("LOGGING") && opts.Logger != nil {
+-		scopedLogger = opts.Logger
+-	}
+-
 -	if opts.InternalOptions != nil {
 -		staticAttrs = transport.StaticTelemetryAttributes(opts.InternalOptions.TelemetryAttributes)
+-		if scopedLogger != nil {
+-			var staticLogAttrs []any
+-			for _, attr := range staticAttrs {
+-				staticLogAttrs = append(staticLogAttrs, slog.String(string(attr.Key), attr.Value.AsString()))
+-			}
+-			scopedLogger = scopedLogger.With(staticLogAttrs...)
+-		}
 -	}
--	otelOpts := []otelgrpc.Option{
--		otelgrpc.WithSpanAttributes(staticAttrs...),
+-	var otelOpts []otelgrpc.Option
+-	if gax.IsFeatureEnabled("TRACING") {
+-		otelOpts = append(otelOpts, otelgrpc.WithSpanAttributes(staticAttrs...))
 -	}
 -	return append(dialOpts, grpc.WithStatsHandler(&otelHandler{
 -		Handler: otelgrpc.NewClientHandler(otelOpts...),
+-		logger:  scopedLogger,
 -	}))
  }
  
- // otelHandler is a wrapper around the OpenTelemetry gRPC client handler that
-@@ -487,80 +469,12 @@ func (h *otelHandler) TagRPC(ctx context.Context, info
- // name and retry count from the outgoing context metadata and attach them to
+ // Extract the host and port from a target address
+@@ -550,29 +512,6 @@ func (h *otelHandler) TagRPC(ctx context.Context, info
  // the current span.
  func (h *otelHandler) TagRPC(ctx context.Context, info *stats.RPCTagInfo) context.Context {
--	ctx = h.Handler.TagRPC(ctx, info)
--	span := trace.SpanFromContext(ctx)
--	if !span.IsRecording() {
+ 	ctx = h.Handler.TagRPC(ctx, info)
+-
+-	var span trace.Span
+-	if gax.IsFeatureEnabled("TRACING") {
+-		if s := trace.SpanFromContext(ctx); s != nil && s.IsRecording() {
+-			span = s
+-		}
+-	}
+-
+-	if span == nil {
 -		return ctx
 -	}
 -	var attrs []attribute.KeyValue
@@ -55,62 +88,5 @@
 -		span.SetAttributes(attrs...)
 -	}
  	return ctx
- }
- 
- // HandleRPC intercepts the RPC completion to capture and format error-related
- // attributes ensuring they conform to Google Cloud observability standards.
- func (h *otelHandler) HandleRPC(ctx context.Context, s stats.RPCStats) {
--	end, ok := s.(*stats.End)
--	if !ok {
--		h.Handler.HandleRPC(ctx, s)
--		return
--	}
--	span := trace.SpanFromContext(ctx)
--	if !span.IsRecording() {
--		h.Handler.HandleRPC(ctx, s)
--		return
--	}
--
--	var attrs []attribute.KeyValue
--	if end.Error != nil {
--		st, ok := status.FromError(end.Error)
--		rpcStatusCode := codeToCanonicalStr(st.Code())
--
--		var errorType string
--		// 1. Check if the local context expired or was cancelled. This is the only
--		// reliable way to distinguish a local client timeout from a server timeout
--		// because gRPC does not wrap context errors in its status.Error types.
--		if errors.Is(ctx.Err(), context.DeadlineExceeded) {
--			errorType = "CLIENT_TIMEOUT"
--		} else if errors.Is(ctx.Err(), context.Canceled) {
--			errorType = "CLIENT_CANCELLED"
--		} else if !ok || st.Code() == codes.Unknown || st.Code() == codes.Internal {
--			// 2. If the error isn't a context breakdown and the gRPC framework
--			// doesn't "understand" it (returning ok=false or a generic catch-all
--			// bucket like Unknown/Internal), we "pack" the actual Go error type
--			// name into error.type (e.g., "*net.OpError"). This is per the error.type
--			// [spec](https://opentelemetry.io/docs/specs/semconv/registry/attributes/error/#error-type).
--			// "When error.type is set to a type (e.g., an exception type), its canonical
--			// class name identifying the type within the artifact SHOULD be used."
--			errorType = fmt.Sprintf("%T", end.Error)
--		} else {
--			// 3. Otherwise, it is a well-understood gRPC protocol error (e.g.,
--			// PERMISSION_DENIED) likely returned by the server.
--			errorType = rpcStatusCode
--		}
--
--		attrs = []attribute.KeyValue{
--			attribute.String("error.type", errorType),
--			attribute.String("status.message", st.Message()),
--			attribute.String("rpc.response.status_code", rpcStatusCode),
--			attribute.String("exception.type", fmt.Sprintf("%T", end.Error)),
--		}
--	} else {
--		attrs = []attribute.KeyValue{
--			attribute.String("rpc.response.status_code", "OK"),
--		}
--	}
--	span.SetAttributes(attrs...)
- 	h.Handler.HandleRPC(ctx, s)
  }
  

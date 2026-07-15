@@ -1,45 +1,45 @@
 GH_TUPLE=	\
 		BurntSushi:toml:v1.6.0:burntsushi_toml/vendor/github.com/BurntSushi/toml \
 		Masterminds:semver:v3.5.0:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
-		anthropics:anthropic-sdk-go:v1.46.0:anthropics_anthropic_sdk_go/vendor/github.com/anthropics/anthropic-sdk-go \
+		anthropics:anthropic-sdk-go:v1.57.0:anthropics_anthropic_sdk_go/vendor/github.com/anthropics/anthropic-sdk-go \
 		bahlo:generic-list-go:v0.2.0:bahlo_generic_list_go/vendor/github.com/bahlo/generic-list-go \
 		buger:jsonparser:v1.2.0:buger_jsonparser/vendor/github.com/buger/jsonparser \
 		ccojocar:zxcvbn-go:v1.0.4:ccojocar_zxcvbn_go/vendor/github.com/ccojocar/zxcvbn-go \
 		cespare:xxhash:v2.3.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
-		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
-		felixge:httpsnoop:v1.0.4:felixge_httpsnoop/vendor/github.com/felixge/httpsnoop \
+		davecgh:go-spew:d8f796af33cc:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
+		felixge:httpsnoop:v1.1.0:felixge_httpsnoop/vendor/github.com/felixge/httpsnoop \
 		go-logr:logr:v1.4.3:go_logr_logr/vendor/github.com/go-logr/logr \
 		go-logr:stdr:v1.2.2:go_logr_stdr/vendor/github.com/go-logr/stdr \
 		go-task:slim-sprig:v3.0.0:go_task_slim_sprig_v3/vendor/github.com/go-task/slim-sprig/v3 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
-		golang:crypto:v0.52.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:mod:v0.36.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.55.0:golang_net/vendor/golang.org/x/net \
-		golang:sync:v0.20.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.45.0:golang_sys/vendor/golang.org/x/sys \
-		golang:text:v0.37.0:golang_text/vendor/golang.org/x/text \
-		golang:tools:v0.45.0:golang_tools/vendor/golang.org/x/tools \
+		golang:crypto:v0.54.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:mod:v0.38.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.57.0:golang_net/vendor/golang.org/x/net \
+		golang:sync:v0.22.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.47.0:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.40.0:golang_text/vendor/golang.org/x/text \
+		golang:tools:v0.48.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
-		google:go-genproto:3dc84a4a5aaa:google_go_genproto_rpc/vendor/google.golang.org/genproto/googleapis/rpc \
-		google:pprof:92041b743c96:google_pprof/vendor/github.com/google/pprof \
+		google:go-genproto:f0a921348800:google_go_genproto_rpc/vendor/google.golang.org/genproto/googleapis/rpc \
+		google:pprof:b9395ee17fa0:google_pprof/vendor/github.com/google/pprof \
 		google:s2a-go:v0.1.9:google_s2a_go/vendor/github.com/google/s2a-go \
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
-		googleapis:enterprise-certificate-proxy:v0.3.14:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
-		googleapis:gax-go:v2.22.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2 \
-		googleapis:google-api-go-client:v0.274.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+		googleapis:enterprise-certificate-proxy:v0.3.18:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
+		googleapis:gax-go:v2.23.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2 \
+		googleapis:google-api-go-client:v0.288.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
 		googleapis:google-cloud-go:v0.123.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
-		googleapis:google-cloud-go:v0.19.0:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth \
+		googleapis:google-cloud-go:v0.21.0:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth \
 		gookit:color:v1.6.1:gookit_color/vendor/github.com/gookit/color \
 		gorilla:websocket:v1.5.3:gorilla_websocket/vendor/github.com/gorilla/websocket \
-		grpc:grpc-go:v1.81.1:grpc_grpc_go/vendor/google.golang.org/grpc \
-		invopop:jsonschema:v0.13.0:invopop_jsonschema/vendor/github.com/invopop/jsonschema \
+		grpc:grpc-go:v1.82.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+		invopop:jsonschema:v0.14.0:invopop_jsonschema/vendor/github.com/invopop/jsonschema \
 		lib:pq:v1.12.3:lib_pq/vendor/github.com/lib/pq \
-		mailru:easyjson:v0.9.2:mailru_easyjson/vendor/github.com/mailru/easyjson \
 		mozilla:tls-observatory:eef96233227e:mozilla_tls_observatory/vendor/github.com/mozilla/tls-observatory \
-		onsi:ginkgo:v2.29.0:onsi_ginkgo_v2/vendor/github.com/onsi/ginkgo/v2 \
-		onsi:gomega:v1.41.0:onsi_gomega/vendor/github.com/onsi/gomega \
-		openai:openai-go:v3.37.0:openai_openai_go_v3/vendor/github.com/openai/openai-go/v3 \
-		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
+		onsi:ginkgo:v2.32.0:onsi_ginkgo_v2/vendor/github.com/onsi/ginkgo/v2 \
+		onsi:gomega:v1.42.1:onsi_gomega/vendor/github.com/onsi/gomega \
+		openai:openai-go:v3.42.0:openai_openai_go_v3/vendor/github.com/openai/openai-go/v3 \
+		pb33f:ordered-map:v2.3.1:pb33f_ordered_map_v2/vendor/github.com/pb33f/ordered-map/v2 \
+		pmezard:go-difflib:5d4384ee4fb2:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		protocolbuffers:protobuf-go:v1.36.11:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		santhosh-tekuri:jsonschema:v6.0.2:santhosh_tekuri_jsonschema_v6/vendor/github.com/santhosh-tekuri/jsonschema/v6 \
 		standard-webhooks:standard-webhooks:v0.0.1:standard_webhooks_standard_webhooks_libraries/vendor/github.com/standard-webhooks/standard-webhooks/libraries \
@@ -49,7 +49,6 @@ GH_TUPLE=	\
 		tidwall:match:v1.2.0:tidwall_match/vendor/github.com/tidwall/match \
 		tidwall:pretty:v1.2.1:tidwall_pretty/vendor/github.com/tidwall/pretty \
 		tidwall:sjson:v1.2.5:tidwall_sjson/vendor/github.com/tidwall/sjson \
-		wk8:go-ordered-map:v2.1.8:wk8_go_ordered_map_v2/vendor/github.com/wk8/go-ordered-map/v2 \
 		xo:terminfo:abceb7e1c41e:xo_terminfo/vendor/github.com/xo/terminfo
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
 		#	::v0.69.0:group_name/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp (from go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp@v0.69.0)
@@ -58,5 +57,6 @@ GH_TUPLE=	\
 		#	::v1.44.0:group_name/vendor/go.opentelemetry.io/otel (from go.opentelemetry.io/otel@v1.44.0)
 		#	::v1.44.0:group_name/vendor/go.opentelemetry.io/otel/metric (from go.opentelemetry.io/otel/metric@v1.44.0)
 		#	::v1.44.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.44.0)
-		#	::v1.58.0:group_name/vendor/google.golang.org/genai (from google.golang.org/genai@v1.58.0)
+		#	::v1.63.0:group_name/vendor/google.golang.org/genai (from google.golang.org/genai@v1.63.0)
 		#	::v3.0.4:group_name/vendor/go.yaml.in/yaml/v3 (from go.yaml.in/yaml/v3@v3.0.4)
+		#	::v4.0.0-rc.6:group_name/vendor/go.yaml.in/yaml/v4 (from go.yaml.in/yaml/v4@v4.0.0-rc.6)
