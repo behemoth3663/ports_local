@@ -1,5 +1,5 @@
 PORTNAME=	cdk-notifier
-PORTVERSION=	2.14.20
+PORTVERSION=	2.14.21
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -36,7 +36,7 @@ post-deps-all: .PHONY
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 
-GL_TUPLE=	gitlab-org-api:client-go:v2.39.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go/v2
+GL_TUPLE=	gitlab-org-api:client-go:v2.42.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go/v2
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"

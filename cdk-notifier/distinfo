@@ -1,6 +1,6 @@
-TIMESTAMP = 1781471248
-SHA256 (karlderkaefer-cdk-notifier-v2.14.20_GH0.tar.gz) = 981153127a60839493c9466ca2917d215f4c60a96f992e31b2393a9332e53d32
-SIZE (karlderkaefer-cdk-notifier-v2.14.20_GH0.tar.gz) = 157408
+TIMESTAMP = 1784128091
+SHA256 (karlderkaefer-cdk-notifier-v2.14.21_GH0.tar.gz) = bf9bfdb374c20964dea29baffe033fbca15bef18e95a6bc5c81bf71db3e63ccd
+SIZE (karlderkaefer-cdk-notifier-v2.14.21_GH0.tar.gz) = 157469
 SHA256 (Masterminds-goutils-v1.1.1_GH0.tar.gz) = 6eed023c54f386a71f360e19d34f7a43e640ac44dfc39c22ad4afd7ae04aaa3d
 SIZE (Masterminds-goutils-v1.1.1_GH0.tar.gz) = 14847
 SHA256 (Masterminds-semver-v3.4.0_GH0.tar.gz) = 47f43127587cd7750f2054c9ebab8851a3ea2011aefd7cc5319624dac8810799
@@ -81,5 +81,5 @@ SHA256 (subosito-gotenv-v1.6.0_GH0.tar.gz) = 51a5a8e36f30ddd97866779e93c4e93b0d4
 SIZE (subosito-gotenv-v1.6.0_GH0.tar.gz) = 11470
 SHA256 (yaml-go-yaml-v3.0.4_GH0.tar.gz) = 1b3eeb663eb0c09b462dc3383fccc99164fab8f6818a7046336f2fe2c45c764b
 SIZE (yaml-go-yaml-v3.0.4_GH0.tar.gz) = 92661
-SHA256 (client-go-v2.39.0.tar.bz2) = 57cefb9efb4718f7beee53662aa5698174c6aedc7335e0529f6deb8bc970143a
-SIZE (client-go-v2.39.0.tar.bz2) = 642202
+SHA256 (client-go-v2.42.0.tar.bz2) = e1807f93d9a8983d7ca29e3a43e1fe521b06bc6af3aff13c480c5fb5a9a22ea9
+SIZE (client-go-v2.42.0.tar.bz2) = 959313

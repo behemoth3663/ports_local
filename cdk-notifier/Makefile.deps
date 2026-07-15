@@ -40,4 +40,4 @@ GH_TUPLE=	\
 		subosito:gotenv:v1.6.0:subosito_gotenv/vendor/github.com/subosito/gotenv \
 		yaml:go-yaml:v3.0.4:yaml_go_yaml/vendor/go.yaml.in/yaml/v3
 		# Errors found during processing:
-		#	error getting commit v2.39.0 for gitlab-org/api: not found
+		#	error getting commit v2.42.0 for gitlab-org/api: not found
