@@ -1,25 +1,24 @@
---- vendor/github.com/go-openapi/runtime/client/opentelemetry.go.orig	2026-03-08 20:42:25 UTC
+--- vendor/github.com/go-openapi/runtime/client/opentelemetry.go.orig	2026-06-19 07:30:21 UTC
 +++ vendor/github.com/go-openapi/runtime/client/opentelemetry.go
-@@ -5,17 +5,10 @@ import (
- 
+@@ -6,16 +6,8 @@ import (
  import (
+ 	"context"
  	"fmt"
 -	"net/http"
  	"strings"
  
- 	"github.com/go-openapi/runtime"
- 	"github.com/go-openapi/strfmt"
 -	"go.opentelemetry.io/otel"
 -	"go.opentelemetry.io/otel/attribute"
 -	"go.opentelemetry.io/otel/codes"
 -	"go.opentelemetry.io/otel/propagation"
 -	semconv "go.opentelemetry.io/otel/semconv/v1.37.0"
 -	"go.opentelemetry.io/otel/trace"
+-
+ 	"github.com/go-openapi/runtime"
+ 	"github.com/go-openapi/strfmt"
  )
- 
- const (
-@@ -24,11 +17,7 @@ type config struct {
- )
+@@ -72,11 +64,7 @@ type config struct {
+ }
  
  type config struct {
 -	Tracer            trace.Tracer
@@ -30,7 +29,7 @@
  }
  
  type OpenTelemetryOpt interface {
-@@ -41,34 +30,6 @@ func (o optionFunc) apply(c *config) {
+@@ -89,34 +77,6 @@ func (o optionFunc) apply(c *config) {
  	o(c)
  }
  
@@ -65,7 +64,7 @@
  // WithSpanNameFormatter takes a function that will be called on every
  // request and the returned string will become the Span Name.
  func WithSpanNameFormatter(f func(op *runtime.ClientOperation) string) OpenTelemetryOpt {
-@@ -88,7 +49,6 @@ type openTelemetryTransport struct {
+@@ -136,7 +96,6 @@ type openTelemetryTransport struct {
  type openTelemetryTransport struct {
  	transport runtime.ClientTransport
  	host      string
@@ -73,7 +72,7 @@
  	config    *config
  }
  
-@@ -101,10 +61,7 @@ func newOpenTelemetryTransport(transport runtime.Clien
+@@ -149,10 +108,7 @@ func newOpenTelemetryTransport(transport runtime.Clien
  	const baseOptions = 4
  	defaultOpts := make([]OpenTelemetryOpt, 0, len(opts)+baseOptions)
  	defaultOpts = append(defaultOpts,
@@ -84,7 +83,7 @@
  	)
  
  	c := newConfig(append(defaultOpts, opts...)...)
-@@ -121,92 +78,25 @@ func (t *openTelemetryTransport) Submit(op *runtime.Cl
+@@ -189,39 +145,15 @@ func (t *openTelemetryTransport) SubmitContext(ctx con
  	params := op.Params
  	reader := op.Reader
  
@@ -96,7 +95,7 @@
 -	}()
 -
  	op.Params = runtime.ClientRequestWriterFunc(func(req runtime.ClientRequest, reg strfmt.Registry) error {
--		span = t.newOpenTelemetrySpan(op, req.GetHeaderParams())
+-		span = t.newOpenTelemetrySpan(ctx, op, req.GetHeaderParams())
  		return params.WriteToRequest(req, reg)
  	})
  
@@ -116,7 +115,7 @@
  		return reader.ReadResponse(response, consumer)
  	})
  
- 	submit, err := t.transport.Submit(op)
+ 	submit, err := t.submitWrapped(ctx, op)
 -	if err != nil && span != nil {
 -		span.RecordError(err)
 -		span.SetStatus(codes.Error, err.Error())
@@ -124,10 +123,11 @@
  
  	return submit, err
  }
+@@ -237,53 +169,12 @@ func (t *openTelemetryTransport) submitWrapped(ctx con
+ 	return t.transport.Submit(op)
+ }
  
--func (t *openTelemetryTransport) newOpenTelemetrySpan(op *runtime.ClientOperation, header http.Header) trace.Span {
--	ctx := op.Context
--
+-func (t *openTelemetryTransport) newOpenTelemetrySpan(ctx context.Context, op *runtime.ClientOperation, header http.Header) trace.Span {
 -	tracer := t.tracer
 -	if tracer == nil {
 -		if span := trace.SpanFromContext(ctx); span.SpanContext().IsValid() {
