@@ -1,6 +1,6 @@
 PORTNAME=	convert2json
 DISTVERSION=	2.6.3
-#PORTREVISION=	1
+PORTREVISION=	1
 CATEGORIES=	local converters
 
 MAINTAINER=	none@freebsd.org
