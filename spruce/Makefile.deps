@@ -3,22 +3,22 @@ GH_TUPLE=	\
 		Knetic:govaluate:v3.0.0:knetic_govaluate/vendor/github.com/Knetic/govaluate \
 		Masterminds:semver:v3.4.0:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
 		anthropics:anthropic-sdk-go:v1.26.0:anthropics_anthropic_sdk_go/vendor/github.com/anthropics/anthropic-sdk-go \
-		aws:aws-sdk-go-v2:config/v1.32.25:aws_aws_sdk_go_v2_config \
-		aws:aws-sdk-go-v2:credentials/v1.19.24:aws_aws_sdk_go_v2_credentials \
-		aws:aws-sdk-go-v2:feature/ec2/imds/v1.18.29:aws_aws_sdk_go_v2_imds \
-		aws:aws-sdk-go-v2:internal/configsources/v1.4.29:aws_aws_sdk_go_v2_configsources \
-		aws:aws-sdk-go-v2:internal/endpoints/v2.7.29:aws_aws_sdk_go_v2_v2 \
-		aws:aws-sdk-go-v2:internal/v4a/v1.4.30:aws_aws_sdk_go_v2_v4a \
-		aws:aws-sdk-go-v2:service/internal/accept-encoding/v1.13.12:aws_aws_sdk_go_v2_accept_encoding \
-		aws:aws-sdk-go-v2:service/internal/presigned-url/v1.13.29:aws_aws_sdk_go_v2_presigned_url \
-		aws:aws-sdk-go-v2:service/secretsmanager/v1.42.3:aws_aws_sdk_go_v2_secretsmanager \
-		aws:aws-sdk-go-v2:service/signin/v1.2.0:aws_aws_sdk_go_v2_signin \
-		aws:aws-sdk-go-v2:service/ssm/v1.69.3:aws_aws_sdk_go_v2_ssm \
-		aws:aws-sdk-go-v2:service/sso/v1.31.3:aws_aws_sdk_go_v2_sso \
-		aws:aws-sdk-go-v2:service/ssooidc/v1.36.6:aws_aws_sdk_go_v2_ssooidc \
-		aws:aws-sdk-go-v2:service/sts/v1.43.3:aws_aws_sdk_go_v2_sts \
-		aws:aws-sdk-go-v2:v1.42.0:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
-		aws:smithy-go:v1.27.1:aws_smithy_go/vendor/github.com/aws/smithy-go \
+		aws:aws-sdk-go-v2:config/v1.32.30:aws_aws_sdk_go_v2_config \
+		aws:aws-sdk-go-v2:credentials/v1.19.29:aws_aws_sdk_go_v2_credentials \
+		aws:aws-sdk-go-v2:feature/ec2/imds/v1.18.30:aws_aws_sdk_go_v2_imds \
+		aws:aws-sdk-go-v2:internal/configsources/v1.4.30:aws_aws_sdk_go_v2_configsources \
+		aws:aws-sdk-go-v2:internal/endpoints/v2.7.30:aws_aws_sdk_go_v2_v2 \
+		aws:aws-sdk-go-v2:internal/v4a/v1.4.31:aws_aws_sdk_go_v2_v4a \
+		aws:aws-sdk-go-v2:service/internal/accept-encoding/v1.13.13:aws_aws_sdk_go_v2_accept_encoding \
+		aws:aws-sdk-go-v2:service/internal/presigned-url/v1.13.30:aws_aws_sdk_go_v2_presigned_url \
+		aws:aws-sdk-go-v2:service/secretsmanager/v1.43.1:aws_aws_sdk_go_v2_secretsmanager \
+		aws:aws-sdk-go-v2:service/signin/v1.4.1:aws_aws_sdk_go_v2_signin \
+		aws:aws-sdk-go-v2:service/ssm/v1.72.0:aws_aws_sdk_go_v2_ssm \
+		aws:aws-sdk-go-v2:service/sso/v1.32.1:aws_aws_sdk_go_v2_sso \
+		aws:aws-sdk-go-v2:service/ssooidc/v1.37.1:aws_aws_sdk_go_v2_ssooidc \
+		aws:aws-sdk-go-v2:service/sts/v1.44.1:aws_aws_sdk_go_v2_sts \
+		aws:aws-sdk-go-v2:v1.42.1:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+		aws:smithy-go:v1.27.3:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		ccojocar:zxcvbn-go:v1.0.4:ccojocar_zxcvbn_go/vendor/github.com/ccojocar/zxcvbn-go \
 		cespare:xxhash:v2.3.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
 		cloudfoundry-community:vaultkv:v0.7.0:cloudfoundry_community_vaultkv/vendor/github.com/cloudfoundry-community/vaultkv \
@@ -66,7 +66,7 @@ GH_TUPLE=	\
 		homeport:dyff:v1.12.0:homeport_dyff/vendor/github.com/homeport/dyff \
 		lucasb-eyer:go-colorful:v1.4.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
 		mattn:go-ciede2000:782e8c62fec3:mattn_go_ciede2000/vendor/github.com/mattn/go-ciede2000 \
-		mattn:go-isatty:v0.0.22:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
+		mattn:go-isatty:v0.0.23:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
 		maxbrunsfeld:counterfeiter:v6.12.2:maxbrunsfeld_counterfeiter_v6/vendor/github.com/maxbrunsfeld/counterfeiter/v6 \
 		mitchellh:go-ps:v1.0.0:mitchellh_go_ps/vendor/github.com/mitchellh/go-ps \
 		mitchellh:hashstructure:v2.0.2:mitchellh_hashstructure_v2/vendor/github.com/mitchellh/hashstructure/v2 \

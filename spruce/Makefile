@@ -1,6 +1,6 @@
 PORTNAME=	spruce
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.35.10
+DISTVERSION=	1.35.13
 CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
@@ -9,7 +9,7 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MIT
 
-USES=	go:modules
+USES=		go:modules
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	geofffranks
