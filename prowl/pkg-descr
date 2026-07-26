@@ -1,0 +1,7 @@
+A tiny terminal dashboard that watches a GitHub repo's open PRs, its merge
+queue, your recently merged PRs, and the commits you've shipped per release.
+It refreshes on an interval and rings the terminal bell the moment one of
+your PRs merges or an open PR's CI/merge status changes — and flags whatever
+changed. On startup it paints instantly from a local cache, then refreshes in
+the background. A PR that's in the merge queue is listed only there, not also
+under your open PRs.
