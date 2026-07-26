@@ -22,7 +22,7 @@ GH_TUPLE=	\
 		kevinburke:ssh_config:v1.2.0:kevinburke_ssh_config/vendor/github.com/kevinburke/ssh_config \
 		klauspost:cpuid:v2.3.0:klauspost_cpuid_v2/vendor/github.com/klauspost/cpuid/v2 \
 		mattn:go-colorable:v0.1.14:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
-		mattn:go-isatty:v0.0.22:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
+		mattn:go-isatty:v0.0.23:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
 		pjbgf:sha1cd:v0.6.0:pjbgf_sha1cd/vendor/github.com/pjbgf/sha1cd \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		rs:zerolog:v1.35.1:rs_zerolog/vendor/github.com/rs/zerolog \

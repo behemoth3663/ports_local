@@ -1,5 +1,5 @@
 PORTNAME=	get-next-version
-PORTVERSION=	2.7.4
+PORTVERSION=	2.7.5
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
 
@@ -21,9 +21,11 @@ GIT_COMMIT=	git ls-remote \
 		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
 		refs/tags/${DISTVERSIONFULL}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=${DISTVERSIONFULL}' \
 	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.GitVersion=${GIT_COMMIT:sh:C/(.{7}).*/\\1/W}'"
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
