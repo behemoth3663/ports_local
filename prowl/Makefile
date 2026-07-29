@@ -1,6 +1,6 @@
 PORTNAME=	prowl
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.7.0
+DISTVERSION=	1.8.0
 #PORTREVISION=	1
 CATEGORIES=	local devel
 
@@ -17,7 +17,7 @@ GH_ACCOUNT=	caarlos0
 
 PLIST_FILES=	bin/${PORTNAME}
 
-post-extract: .PHONY
+post-extract: .PHONY .SILENT
 	${REINPLACE_CMD} -r 's/^(version[[:blank:]]*=[[:blank:]]*).*/\1"${DISTVERSION}"/' ${WRKSRC}/Cargo.toml
 
 #https://www.freebsd.org/doc/en_US.ISO8859-1/books/porters-handbook/building.html#using-cargo
