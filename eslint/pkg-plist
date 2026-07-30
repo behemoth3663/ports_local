@@ -262,6 +262,7 @@ lib/node_modules/eslint/lib/rules/utils/unicode/index.js
 lib/node_modules/eslint/lib/rules/utils/unicode/is-combining-character.js
 lib/node_modules/eslint/lib/rules/utils/fix-tracker.js
 lib/node_modules/eslint/lib/rules/utils/regular-expressions.js
+lib/node_modules/eslint/lib/rules/utils/code-path-utils.js
 lib/node_modules/eslint/lib/rules/utils/char-source.js
 lib/node_modules/eslint/lib/rules/utils/ast-utils.js
 lib/node_modules/eslint/lib/rules/utils/keywords.js
@@ -961,6 +962,7 @@ lib/node_modules/eslint/node_modules/@eslint/config-helpers/package.json
 lib/node_modules/eslint/node_modules/@eslint/plugin-kit/dist/cjs/types.cts
 lib/node_modules/eslint/node_modules/@eslint/plugin-kit/dist/cjs/index.cjs
 lib/node_modules/eslint/node_modules/@eslint/plugin-kit/dist/cjs/index.d.cts
+lib/node_modules/eslint/node_modules/@eslint/plugin-kit/dist/cjs/types.d.cts
 lib/node_modules/eslint/node_modules/@eslint/plugin-kit/dist/esm/types.d.ts
 lib/node_modules/eslint/node_modules/@eslint/plugin-kit/dist/esm/index.d.ts
 lib/node_modules/eslint/node_modules/@eslint/plugin-kit/dist/esm/types.ts
