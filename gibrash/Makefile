@@ -1,6 +1,6 @@
 PORTNAME=	gibrash
 PORTVERSION=	0.0.2
-PORTREVISION=	1
+PORTREVISION=	2
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local
 
@@ -17,12 +17,12 @@ BUILD_DEPENDS=	git:devel/git
 USE_GITHUB=	yes
 GH_ACCOUNT=	omilevskyi
 
-# GH_PROJECT below is not expanded, so PORTNAME is used instead
-GIT_COMMIT=	git ls-remote \
+# GH_PROJECT is not expanded, use PORTNAME instead
+COMMIT_CMD=	git ls-remote \
 		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
-		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION}
+		refs/tags/${DISTVERSIONFULL}
 
-CFLAGS+=	-DVERSION='\"${PORTVERSION}\"' -DCOMMIT_HASH='\"${GIT_COMMIT:sh:C/(.{7}).*/\\1/W}\"'
+CFLAGS+=       -DVERSION='\"${PORTVERSION}\"' -DCOMMIT_HASH='\"${COMMIT_CMD:sh:C/(.{7}).*/\\1/W}\"'
 
 PLIST_FILES=	bin/${PORTNAME}
 
