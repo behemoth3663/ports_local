@@ -1,13 +1,12 @@
 PORTNAME=	globals
-PORTVERSION=	17.7.0
+PORTVERSION=	17.8.0
 CATEGORIES=	local devel
 MASTER_SITES=	LOCAL/o1vm/:npm
 PKGNAMEPREFIX=	npm-
-DISTFILES=	${PORTNAME}-${DISTVERSION}${EXTRACT_SUFX}
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Global identifiers from different JavaScript environments
-WWW=		https://github.com/sindresorhus/globals
+WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	MIT
 
@@ -18,26 +17,23 @@ FETCH_DEPENDS=	npm:www/npm \
 USES=		nodejs:run
 
 GH_ACCOUNT=	sindresorhus
-#GH_PROJECT=	globals
+GH_PROJECT=	${PORTNAME}
 
 NO_BUILD=	yes
 NO_ARCH=	yes
 
-PACKAGE_NAME=	globals
+PACKAGE_NAME=	${PORTNAME}
 
 FETCH_SCRIPT=	${PORTSDIR}/Tools/scripts/npmjs-fetch-with-dependencies.sh
 
 do-fetch: .PHONY
 .for _f in ${DISTFILES}
-	@test -f ${DISTDIR}/${_f} || \
-		${SETENV} TMPDIR=${WRKDIR} LOCALBASE=${LOCALBASE} ${FETCH_SCRIPT} \
-			${PACKAGE_NAME} ${DISTVERSION} \
-			${FILESDIR}/package.json \
-			${DISTDIR}/${_f}
+	@test -f ${DISTDIR}/${_f} || ${SETENV} TMPDIR=${WRKDIR} LOCALBASE=${LOCALBASE} \
+			${FETCH_SCRIPT} ${PACKAGE_NAME} ${DISTVERSION} ${FILESDIR}/package.json ${DISTDIR}/${_f}
 .endfor
 
-do-install: .PHONY
-	@${MKDIR} ${STAGEDIR}${PREFIX}/lib
-	@cd ${WRKSRC} && ${COPYTREE_SHARE} node_modules ${STAGEDIR}${PREFIX}/lib
+do-install: .PHONY .SILENT
+	${MKDIR} ${STAGEDIR}${PREFIX}/lib
+	cd ${WRKSRC} && ${COPYTREE_SHARE} node_modules ${STAGEDIR}${PREFIX}/lib
 
 .include <bsd.port.mk>
