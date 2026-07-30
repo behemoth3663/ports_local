@@ -1,0 +1,4 @@
+A Newman HTML reporter that has been extended to include the separation of
+the iteration runs so these are no longer aggregated together and also some
+additional handlebars helpers to enable users to create better custom
+templates.
