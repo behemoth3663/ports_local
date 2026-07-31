@@ -1,5 +1,5 @@
 PORTNAME=	gh
-PORTVERSION=	2.96.0
+PORTVERSION=	2.97.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -38,8 +38,7 @@ M2T_OFFLINE=	true
 .export	M2T_OFFLINE
 
 do-build-MANPAGES-on: .PHONY
-	(cd ${WRKSRC} && \
-		${SETENV} ${MAKE_ENV} ${GO_ENV} ${GO_CMD} run ${GO_BUILDFLAGS} \
+	(cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${GO_ENV} ${GO_CMD} run ${GO_BUILDFLAGS} \
 		./cmd/gen-docs --man-page --doc-path docs/man 2>/dev/null)
 
 post-install-DOCS-on: .PHONY
