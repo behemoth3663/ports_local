@@ -1,5 +1,5 @@
 PORTNAME=	get-next-version
-PORTVERSION=	2.7.5
+PORTVERSION=	2.7.6
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
 
@@ -17,14 +17,14 @@ GH_ACCOUNT=	thenativeweb
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GIT_COMMIT=	git ls-remote \
-		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
-		refs/tags/${DISTVERSIONFULL}
+COMMIT_CMD=	git ls-remote \
+		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
+		refs/tags/${DISTVERSIONFULL} | cut -c1-7
 
 CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=${DISTVERSIONFULL}' \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.GitVersion=${GIT_COMMIT:sh:C/(.{7}).*/\\1/W}'"
+	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=${DISTVERSIONFULL} \
+	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.GitVersion=$$(${COMMIT_CMD})"
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 post-extract: .PHONY
