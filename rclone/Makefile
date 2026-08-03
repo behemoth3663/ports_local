@@ -1,6 +1,6 @@
 PORTNAME=	rclone
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.74.4
+DISTVERSION=	1.75.0
 #PORTREVISION=	1
 CATEGORIES=	local net
 PKGNAMESUFFIX=	-local
@@ -24,7 +24,7 @@ JQ_GETVER_EXPR=	.[0].name | gsub("[-a-z]"; "")
 
 CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X '${GO_MODULE}/fs.VersionSuffix='"
+	-X ${GO_MODULE}/fs.VersionSuffix="
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 OPTIONS_DEFINE=	CMOUNT
