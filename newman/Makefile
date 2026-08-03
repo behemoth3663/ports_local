@@ -1,5 +1,6 @@
 PORTNAME=	newman
 PORTVERSION=	6.2.2
+PORTREVISION=	1
 CATEGORIES=	local devel
 MASTER_SITES=	LOCAL/o1vm/:npm
 
@@ -31,7 +32,7 @@ do-fetch: .PHONY
 		${FETCH_SCRIPT} ${PACKAGE_NAME} ${DISTVERSION} ${FILESDIR}/package.json ${DISTDIR}/${_f}
 .endfor
 
-do-install: .PHONY .SILENT
+do-install: .PHONY
 	@${MKDIR} ${STAGEDIR}${PREFIX}/lib
 	@cd ${WRKSRC} && ${COPYTREE_SHARE} node_modules ${STAGEDIR}${PREFIX}/lib
 	@${CHMOD} +x ${STAGEDIR}${PREFIX}/lib/node_modules/${PACKAGE_NAME}/bin/${PACKAGE_NAME}.js
