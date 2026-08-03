@@ -1,5 +1,5 @@
 PORTNAME=	skopeo
-PORTVERSION=	1.23.0
+PORTVERSION=	1.24.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX=	-local
@@ -21,6 +21,7 @@ PLIST_FILES=	bin/${PORTNAME}
 #CGO_ENABLED=0 -> imports github.com/proglottis/gpgme: build constraints exclude all Go files
 #-extldflags -static -> ld: error: unable to find library -lgpgme
 GO_BUILDFLAGS+=	-ldflags="-s -w"
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 # vendor directory appears to be pre-populated
 post-patch: .PHONY
