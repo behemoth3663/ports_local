@@ -1,0 +1,6 @@
+Lint, format and auto-fix Groovy, Jenkinsfile, Gradle files using command
+line. Based on CodeNarc, this out of the box package allows to track groovy
+errors and correct a part of them:
+ - Use option --format to format & prettify source code
+ - Use option --fix to activate autofixing of fixable rules
+Easy to integrate in a CI/CD process (Jenkins Pipeline, CircleCI).
