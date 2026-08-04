@@ -1,5 +1,5 @@
 PORTNAME=	docker
-PORTVERSION=	29.6.2
+PORTVERSION=	29.7.1
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -23,9 +23,9 @@ GH_PROJECT=	cli
 
 GO_TARGET=	./cmd/${PORTNAME}
 
-GIT_COMMIT=	git ls-remote \
-	https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
-	refs/tags/${DISTVERSIONFULL}^{}
+COMMIT_CMD=	git ls-remote \
+		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
+		refs/tags/${DISTVERSIONFULL}^{} | cut -c1-7
 
 CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w"
@@ -43,7 +43,7 @@ post-extract: .PHONY
 	${RLN} ${WRKSRC}/templates ${WRKSRC}/vendor/github.com/docker/cli
 	${REINPLACE_CMD} -r \
 		-e 's/^([[:blank:]]*Version[[:blank:]]*=[[:blank:]]*).*/\1"${PORTVERSION}"/' \
-		-e 's/^([[:blank:]]*GitCommit[[:blank:]]*=[[:blank:]]*).*/\1"${GIT_COMMIT:sh:C/(.{7}).*/\\1/W}"/' \
+		-e "s/^([[:blank:]]*GitCommit[[:blank:]]*=[[:blank:]]*).*/\1\"$$(${COMMIT_CMD})\"/" \
 		-e 's/^([[:blank:]]*BuildTime[[:blank:]]*=[[:blank:]]*).*/\1"${%FT%TZ:L:gmtime}"/' \
 	${WRKSRC}/cli/version/version.go
 
