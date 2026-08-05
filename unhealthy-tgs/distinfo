@@ -1,6 +1,6 @@
-TIMESTAMP = 1785909798
-SHA256 (omilevskyi-go-v0.1.10_GH0.tar.gz) = befb54c78c9e3f91e50098542ecd67c142d3375f5931293223bbe47d6dcb10a3
-SIZE (omilevskyi-go-v0.1.10_GH0.tar.gz) = 124541
+TIMESTAMP = 1785918856
+SHA256 (omilevskyi-go-v0.1.11_GH0.tar.gz) = 1e0c0e7c50f67344cd5110ff0e21e41e37104acc8dd65d8ff0fd4626e79041fb
+SIZE (omilevskyi-go-v0.1.11_GH0.tar.gz) = 124543
 SHA256 (aws-aws-sdk-go-v2-v1.43.3_GH0.tar.gz) = 1a6fe7fbdd91580fd0ff3b474cbd79dd3fa73adfc0c391609b8a1df3d3374e80
 SIZE (aws-aws-sdk-go-v2-v1.43.3_GH0.tar.gz) = 73651626
 SHA256 (aws-smithy-go-v1.27.6_GH0.tar.gz) = 6945a929cc05a55ae157033c24e891bc68f56629e674ba2f6a8c968bc44d6226
