@@ -1,7 +1,7 @@
 PORTNAME=	markdown2html
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.1.12
-PORTREVISION=	2
+DISTVERSION=	2.0.0
+#PORTREVISION=	1
 CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
@@ -21,6 +21,11 @@ post-install: .PHONY
 	${MV} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-converter ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
 
 #https://www.freebsd.org/doc/en_US.ISO8859-1/books/porters-handbook/building.html#using-cargo
-#rm -f Makefile.deps && make makesum cargo-crates | grep -Ev '^=' >Makefile.deps && make makesum
-.sinclude "${.CURDIR}/Makefile.deps"
+deps: .PHONY
+	${RM} Makefile.crates
+	( ${MAKE} -C ${.CURDIR} makesum )
+	( set -o pipefail && ${MAKE} -C ${.CURDIR} cargo-crates | ${GREP} --extended-regexp --invert-match '^=' > ${.CURDIR}/Makefile.crates )
+	( ${MAKE} -C ${.CURDIR} makesum )
+
+.sinclude "${.CURDIR}/Makefile.crates"
 .include <bsd.port.mk>
