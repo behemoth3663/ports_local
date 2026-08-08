@@ -8,7 +8,7 @@ GH_TUPLE=	\
 		emirpasic:gods:v1.18.1:emirpasic_gods/vendor/github.com/emirpasic/gods \
 		go-git:gcfg:3a3c6141e376:go_git_gcfg/vendor/github.com/go-git/gcfg \
 		go-git:go-billy:v5.9.1:go_git_go_billy_v5/vendor/github.com/go-git/go-billy/v5 \
-		go-git:go-git:v5.19.1:go_git_go_git_v5/vendor/github.com/go-git/go-git/v5 \
+		go-git:go-git:v5.19.2:go_git_go_git_v5/vendor/github.com/go-git/go-git/v5 \
 		go-warnings:warnings:v0.1.2:go_warnings_warnings/vendor/gopkg.in/warnings.v0 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
 		golang:crypto:v0.53.0:golang_crypto/vendor/golang.org/x/crypto \
