@@ -1,5 +1,5 @@
 PORTNAME=	eslint
-PORTVERSION=	10.8.0
+PORTVERSION=	10.8.1
 CATEGORIES=	local devel
 MASTER_SITES=	LOCAL/o1vm/:npm
 
@@ -31,13 +31,13 @@ do-fetch: .PHONY
 			${FETCH_SCRIPT} ${PACKAGE_NAME} ${DISTVERSION} ${FILESDIR}/package.json ${DISTDIR}/${_f}
 .endfor
 
-do-install: .PHONY .SILENT
-	${MKDIR} ${STAGEDIR}${PREFIX}/lib
-	cd ${WRKSRC} && ${COPYTREE_SHARE} node_modules ${STAGEDIR}${PREFIX}/lib
-	${CHMOD} +x ${STAGEDIR}${PREFIX}/lib/node_modules/${PACKAGE_NAME}/bin/eslint.js
-	${MKDIR} ${STAGEDIR}${PREFIX}/bin
-	${RLN} ${STAGEDIR}${PREFIX}/lib/node_modules/${PACKAGE_NAME}/bin/eslint.js ${STAGEDIR}${PREFIX}/bin/${PACKAGE_NAME}
-	${REINPLACE_CMD} -i '' \
+do-install: .PHONY
+	@${MKDIR} ${STAGEDIR}${PREFIX}/lib
+	@cd ${WRKSRC} && ${COPYTREE_SHARE} node_modules ${STAGEDIR}${PREFIX}/lib
+	@${CHMOD} +x ${STAGEDIR}${PREFIX}/lib/node_modules/${PACKAGE_NAME}/bin/eslint.js
+	@${MKDIR} ${STAGEDIR}${PREFIX}/bin
+	@${RLN} ${STAGEDIR}${PREFIX}/lib/node_modules/${PACKAGE_NAME}/bin/eslint.js ${STAGEDIR}${PREFIX}/bin/${PACKAGE_NAME}
+	@${REINPLACE_CMD} -i '' \
 		-e "s|#!/usr/bin/env[[:blank:]].*|#!${SETENV} -S NODE_PATH=${PREFIX}/lib/node_modules node|" \
 		${STAGEDIR}${PREFIX}/lib/node_modules/${PACKAGE_NAME}/bin/eslint.js
 
