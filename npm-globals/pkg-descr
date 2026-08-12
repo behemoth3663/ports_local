@@ -1,1 +1,2 @@
-Global identifiers from different JavaScript environments
+Global identifiers from different JavaScript environments. It is just a JSON
+file, so it can be used in any environment. It is used by ESLint.
