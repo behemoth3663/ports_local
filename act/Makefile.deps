@@ -1,0 +1,118 @@
+GH_TUPLE=	\
+		AlecAivazis:survey:v2.3.7:alecaivazis_survey_v2/vendor/github.com/AlecAivazis/survey/v2 \
+		Masterminds:semver:v1.5.0:masterminds_semver/vendor/github.com/Masterminds/semver \
+		Microsoft:go-winio:v0.6.2:microsoft_go_winio/vendor/github.com/Microsoft/go-winio \
+		ProtonMail:go-crypto:v1.1.6:protonmail_go_crypto/vendor/github.com/ProtonMail/go-crypto \
+		adrg:xdg:v0.5.3:adrg_xdg/vendor/github.com/adrg/xdg \
+		andreaskoch:go-fswatch:v1.0.0:andreaskoch_go_fswatch/vendor/github.com/andreaskoch/go-fswatch \
+		bmatcuk:doublestar:v4.8.0:bmatcuk_doublestar_v4/vendor/github.com/bmatcuk/doublestar/v4 \
+		cespare:xxhash:v2.3.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
+		cloudflare:circl:v1.6.3:cloudflare_circl/vendor/github.com/cloudflare/circl \
+		cncf-tags:container-device-interface:v1.1.0:cncf_tags_container_device_interface/vendor/tags.cncf.io/container-device-interface \
+		containerd:errdefs:pkg/v0.3.0:containerd_errdefs_pkg \
+		containerd:errdefs:v1.0.0:containerd_errdefs/vendor/github.com/containerd/errdefs \
+		containerd:log:v0.1.0:containerd_log/vendor/github.com/containerd/log \
+		cpuguy83:go-md2man:v2.0.6:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
+		creack:pty:v1.1.24:creack_pty/vendor/github.com/creack/pty \
+		cyphar:filepath-securejoin:v0.6.1:cyphar_filepath_securejoin/vendor/github.com/cyphar/filepath-securejoin \
+		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
+		distribution:reference:v0.6.0:distribution_reference/vendor/github.com/distribution/reference \
+		docker:cli:v29.3.0:docker_cli/vendor/github.com/docker/cli \
+		docker:docker-credential-helpers:v0.8.2:docker_docker_credential_helpers/vendor/github.com/docker/docker-credential-helpers \
+		docker:go-connections:v0.6.0:docker_go_connections/vendor/github.com/docker/go-connections \
+		docker:go-units:v0.5.0:docker_go_units/vendor/github.com/docker/go-units \
+		emirpasic:gods:v1.18.1:emirpasic_gods/vendor/github.com/emirpasic/gods \
+		etcd-io:bbolt:v1.4.3:etcd_io_bbolt/vendor/go.etcd.io/bbolt \
+		fatih:color:v1.18.0:fatih_color/vendor/github.com/fatih/color \
+		felixge:httpsnoop:v1.0.4:felixge_httpsnoop/vendor/github.com/felixge/httpsnoop \
+		go-git:gcfg:3a3c6141e376:go_git_gcfg/vendor/github.com/go-git/gcfg \
+		go-git:go-billy:v5.9.0:go_git_go_billy_v5/vendor/github.com/go-git/go-billy/v5 \
+		go-git:go-git:v5.16.5:go_git_go_git_v5/vendor/github.com/go-git/go-git/v5 \
+		go-logr:logr:v1.4.3:go_logr_logr/vendor/github.com/go-logr/logr \
+		go-logr:stdr:v1.2.2:go_logr_stdr/vendor/github.com/go-logr/stdr \
+		go-viper:mapstructure:v2.4.0:go_viper_mapstructure_v2/vendor/github.com/go-viper/mapstructure/v2 \
+		go-warnings:warnings:v0.1.2:go_warnings_warnings/vendor/gopkg.in/warnings.v0 \
+		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
+		golang-jwt:jwt:v5.3.0:golang_jwt_jwt_v5/vendor/github.com/golang-jwt/jwt/v5 \
+		golang:crypto:v0.50.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:groupcache:2c02b8208cf8:golang_groupcache/vendor/github.com/golang/groupcache \
+		golang:net:v0.53.0:golang_net/vendor/golang.org/x/net \
+		golang:sync:v0.20.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.43.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.42.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.36.0:golang_text/vendor/golang.org/x/text \
+		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
+		google:shlex:e7afc7fbc510:google_shlex/vendor/github.com/google/shlex \
+		gotestyourself:gotest.tools:v3.5.2:gotestyourself_gotest_tools/vendor/gotest.tools/v3 \
+		imdario:mergo:v1.0.2:imdario_mergo/vendor/dario.cat/mergo \
+		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
+		jbenet:go-context:d14ea06fba99:jbenet_go_context/vendor/github.com/jbenet/go-context \
+		joho:godotenv:v1.5.1:joho_godotenv/vendor/github.com/joho/godotenv \
+		julienschmidt:httprouter:v1.3.0:julienschmidt_httprouter/vendor/github.com/julienschmidt/httprouter \
+		kballard:go-shellquote:95032a82bc51:kballard_go_shellquote/vendor/github.com/kballard/go-shellquote \
+		kevinburke:ssh_config:v1.2.0:kevinburke_ssh_config/vendor/github.com/kevinburke/ssh_config \
+		klauspost:compress:v1.18.0:klauspost_compress/vendor/github.com/klauspost/compress \
+		mattn:go-colorable:v0.1.14:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
+		mattn:go-isatty:v0.0.20:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
+		mattn:go-runewidth:v0.0.16:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
+		mattn:go-shellwords:v1.0.12:mattn_go_shellwords/vendor/github.com/mattn/go-shellwords \
+		mgutz:ansi:d51e80ef957d:mgutz_ansi/vendor/github.com/mgutz/ansi \
+		moby:docker-image-spec:v1.3.1:moby_docker_image_spec/vendor/github.com/moby/docker-image-spec \
+		moby:go-archive:v0.1.0:moby_go_archive/vendor/github.com/moby/go-archive \
+		moby:moby:api/v1.54.0:moby_moby_api/vendor/github.com/moby/moby \
+		moby:moby:client/v0.3.0:moby_moby_client \
+		moby:patternmatcher:v0.6.0:moby_patternmatcher/vendor/github.com/moby/patternmatcher \
+		moby:sys:sequential/v0.6.0:moby_sys_sequential \
+		moby:sys:user/v0.4.0:moby_sys_user/vendor/github.com/moby/sys \
+		moby:sys:userns/v0.1.0:moby_sys_userns \
+		open-telemetry:opentelemetry-go-contrib:instrumentation/net/http/otelhttp/v0.60.0:open_telemetry_opentelemetry_go_contrib_otelhttp/vendor/go.opentelemetry.io/contrib \
+		open-telemetry:opentelemetry-go-instrumentation:sdk/v1.2.1:open_telemetry_opentelemetry_go_instrumentation_sdk/vendor/go.opentelemetry.io/auto \
+		open-telemetry:opentelemetry-go:metric/v1.43.0:open_telemetry_opentelemetry_go_metric \
+		open-telemetry:opentelemetry-go:sdk/metric/v1.43.0:open_telemetry_opentelemetry_go_metric_1 \
+		open-telemetry:opentelemetry-go:sdk/v1.43.0:open_telemetry_opentelemetry_go_sdk \
+		open-telemetry:opentelemetry-go:trace/v1.43.0:open_telemetry_opentelemetry_go_trace \
+		open-telemetry:opentelemetry-go:v1.43.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
+		opencontainers:go-digest:v1.0.0:opencontainers_go_digest/vendor/github.com/opencontainers/go-digest \
+		opencontainers:image-spec:v1.1.1:opencontainers_image_spec/vendor/github.com/opencontainers/image-spec \
+		opencontainers:selinux:v1.13.1:opencontainers_selinux/vendor/github.com/opencontainers/selinux \
+		pjbgf:sha1cd:v0.3.2:pjbgf_sha1cd/vendor/github.com/pjbgf/sha1cd \
+		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
+		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
+		protocolbuffers:protobuf-go:v1.36.9:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
+		rhysd:actionlint:v1.7.7:rhysd_actionlint/vendor/github.com/rhysd/actionlint \
+		rivo:uniseg:v0.4.7:rivo_uniseg/vendor/github.com/rivo/uniseg \
+		robfig:cron:v3.0.1:robfig_cron_v3/vendor/github.com/robfig/cron/v3 \
+		russross:blackfriday:v2.1.0:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
+		sabhiram:go-gitignore:525f6e181f06:sabhiram_go_gitignore/vendor/github.com/sabhiram/go-gitignore \
+		sergi:go-diff:5b0b94c5c0d3:sergi_go_diff/vendor/github.com/sergi/go-diff \
+		sirupsen:logrus:v1.9.3:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
+		skeema:knownhosts:v1.3.1:skeema_knownhosts/vendor/github.com/skeema/knownhosts \
+		spf13:cobra:v1.10.1:spf13_cobra/vendor/github.com/spf13/cobra \
+		spf13:pflag:v1.0.9:spf13_pflag/vendor/github.com/spf13/pflag \
+		stretchr:objx:v0.5.2:stretchr_objx/vendor/github.com/stretchr/objx \
+		stretchr:testify:v1.11.1:stretchr_testify/vendor/github.com/stretchr/testify \
+		timshannon:bolthold:30aac6950928:timshannon_bolthold/vendor/github.com/timshannon/bolthold \
+		xanzy:ssh-agent:v0.3.3:xanzy_ssh_agent/vendor/github.com/xanzy/ssh-agent \
+		xeipuuv:gojsonpointer:02993c407bfb:xeipuuv_gojsonpointer/vendor/github.com/xeipuuv/gojsonpointer \
+		xeipuuv:gojsonreference:bd5ef7bd5415:xeipuuv_gojsonreference/vendor/github.com/xeipuuv/gojsonreference \
+		xeipuuv:gojsonschema:v1.2.0:xeipuuv_gojsonschema/vendor/github.com/xeipuuv/gojsonschema \
+		yaml:go-yaml:v3.0.4:yaml_go_yaml/vendor/go.yaml.in/yaml/v3
+		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
+		#	::v0.2.1:group_name/vendor/cyphar.com/go-pathrs (from @v0.2.1)
+post-extract:
+	@${RM} -r ${WRKSRC}/vendor/github.com/containerd/errdefs/pkg
+	@${RLN} ${WRKSRC_containerd_errdefs_pkg}/pkg ${WRKSRC}/vendor/github.com/containerd/errdefs/pkg
+	@${RM} -r ${WRKSRC}/vendor/github.com/moby/moby/client
+	@${RLN} ${WRKSRC_moby_moby_client}/client ${WRKSRC}/vendor/github.com/moby/moby/client
+	@${RM} -r ${WRKSRC}/vendor/github.com/moby/sys/sequential
+	@${RLN} ${WRKSRC_moby_sys_sequential}/sequential ${WRKSRC}/vendor/github.com/moby/sys/sequential
+	@${RM} -r ${WRKSRC}/vendor/github.com/moby/sys/userns
+	@${RLN} ${WRKSRC_moby_sys_userns}/userns ${WRKSRC}/vendor/github.com/moby/sys/userns
+	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/metric
+	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_metric}/metric ${WRKSRC}/vendor/go.opentelemetry.io/otel/metric
+	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/sdk
+	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_sdk}/sdk ${WRKSRC}/vendor/go.opentelemetry.io/otel/sdk
+	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/sdk/metric
+	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_metric_1}/sdk/metric ${WRKSRC}/vendor/go.opentelemetry.io/otel/sdk/metric
+	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/trace
+	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_trace}/trace ${WRKSRC}/vendor/go.opentelemetry.io/otel/trace
