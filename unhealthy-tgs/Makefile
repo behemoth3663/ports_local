@@ -1,7 +1,7 @@
 PORTNAME=	unhealthy-tgs
-PORTVERSION=	0.1.12
+PORTVERSION=	0.1.13
 DISTVERSIONPREFIX=	v
-#PORTREVISION=	1
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -33,10 +33,13 @@ GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
 
-post-extract: .PHONY
-	@${RM} ${WRKSRC}/../../go.work
-	@${MKDIR} ${WRKSRC}/vendor
-	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+post-extract: .PHONY .SILENT
+	${RM} ${WRKSRC}/../../go.work
+	${MKDIR} ${WRKSRC}/vendor
+	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+
+post-patch: .PHONY .SILENT
+	test ! -f ${PATCHDIR}/go-spew.patch || ${PATCH} --directory ${WRKSRC}/../.. --strip 1 < ${PATCHDIR}/go-spew.patch
 
 pre-deps: .PHONY
 	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
@@ -51,5 +54,6 @@ pre-deps-all: .PHONY
 .sinclude "${.CURDIR}/Makefile.deps"
 
 GH_TUPLE:=	${GH_TUPLE:Naws*aws_aws_sdk_go_v2_*/vendor/github.com/aws/aws-sdk-go-v2/*}
+GH_TUPLE:=	${GH_TUPLE:Ndavecgh\:go-spew\:*}
 
 .include <bsd.port.mk>
