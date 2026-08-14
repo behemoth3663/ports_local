@@ -1,8 +1,9 @@
 PORTNAME=	cli53
-PORTVERSION=	0.8.25
+PORTVERSION=	0.9.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	9
+#PORTREVISION=	1
 CATEGORIES=	local dns
+PKGNAMESUFFIX=	-local
 
 MAINTAINER=	meta@FreeBSD.org
 COMMENT=	Command line tool for Amazon Route 53
@@ -41,4 +42,7 @@ post-deps-all: .PHONY
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
+
+GH_TUPLE:=	${GH_TUPLE:Naws*aws_aws_sdk_go_v2_*/vendor/github.com/aws/aws-sdk-go-v2/*}
+
 .include <bsd.port.mk>
