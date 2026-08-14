@@ -1,10 +1,10 @@
-TIMESTAMP = 1783591180
-SHA256 (golang-tools-v0.48.0_GH0.tar.gz) = 26829576e4bb8e3fee60d2da2fcfb5f5b6c4780154b76cf73a667cd33a664a3c
-SIZE (golang-tools-v0.48.0_GH0.tar.gz) = 8548825
-SHA256 (golang-mod-v0.38.0_GH0.tar.gz) = 7c22fba238102903b6ecf26ea4f93b145da42dabd6b00077a7d7fea6ac3f045b
-SIZE (golang-mod-v0.38.0_GH0.tar.gz) = 128398
-SHA256 (golang-net-v0.57.0_GH0.tar.gz) = 8d94cc12a28bda29f81b3e1836f8b16961348a9209fcdcc0016b5a319ca0e17a
-SIZE (golang-net-v0.57.0_GH0.tar.gz) = 1443298
+TIMESTAMP = 1786708150
+SHA256 (golang-tools-v0.49.0_GH0.tar.gz) = df7f087706730d85ced76f5f2e3d1a51703de3beb305acc72d1170d405f5a21e
+SIZE (golang-tools-v0.49.0_GH0.tar.gz) = 8584345
+SHA256 (golang-mod-v0.39.0_GH0.tar.gz) = ba9fb713105a787c6c3e337db7548a37c79ad31a001c0bc651559ecc1838294e
+SIZE (golang-mod-v0.39.0_GH0.tar.gz) = 128398
+SHA256 (golang-net-v0.58.0_GH0.tar.gz) = ebdf5119e472856e8ad8063994def0f816d0683b6a5e819d268a772b74a786a1
+SIZE (golang-net-v0.58.0_GH0.tar.gz) = 1447893
 SHA256 (golang-sync-v0.22.0_GH0.tar.gz) = de9a6936f62055bdae1dd1e79fe92d057ce5a5f59b84c2019b0a0545055c5dca
 SIZE (golang-sync-v0.22.0_GH0.tar.gz) = 18244
 SHA256 (golang-sys-v0.47.0_GH0.tar.gz) = 85733c6da0f8db2f380a4487f6229d44affcb69d7d4fc0e102b53214a248b14d
