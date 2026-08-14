@@ -1,4 +1,4 @@
-TIMESTAMP = 1734391232
+TIMESTAMP = 1786702541
 SHA256 (peak-s5cmd-v2.3.0_GH0.tar.gz) = 6910763a7320010aa75fe9ef26f622e440c2bd6de41afdbfd64e78c158ca19d4
 SIZE (peak-s5cmd-v2.3.0_GH0.tar.gz) = 3985656
 SHA256 (BurntSushi-toml-v1.2.1_GH0.tar.gz) = a11c32390eba5e34cc0d54e2993b9a444c8d59933ff1bd6a2b541fc5462d6f91
@@ -33,8 +33,6 @@ SHA256 (golang-tools-v0.21.0_GH0.tar.gz) = 9dfd56edbc1cfd3883a716152b9189ab0403b
 SIZE (golang-tools-v0.21.0_GH0.tar.gz) = 3803531
 SHA256 (google-go-cmp-v0.6.0_GH0.tar.gz) = d14f7d57b0f6d25771bee3d7d5d038f532539e71bfc934772b1c0467ab90fa86
 SIZE (google-go-cmp-v0.6.0_GH0.tar.gz) = 104784
-SHA256 (gotestyourself-gotest.tools-v3.0.3_GH0.tar.gz) = a9b13a102405961e2e7f81d0999ac3ec38b118c9db16e0d957967aabef5e2e80
-SIZE (gotestyourself-gotest.tools-v3.0.3_GH0.tar.gz) = 63489
 SHA256 (hashicorp-errwrap-v1.0.0_GH0.tar.gz) = 26afc0e5895c6ce87c881c5c02c682ccc9a08174a9c27ca26d4a1e72dbf78128
 SIZE (hashicorp-errwrap-v1.0.0_GH0.tar.gz) = 8346
 SHA256 (hashicorp-go-multierror-v1.1.1_GH0.tar.gz) = 8d1bb3377310e8ffe4c7b5672c5de1eaed153402aebd15d6e5b9673c356a065f

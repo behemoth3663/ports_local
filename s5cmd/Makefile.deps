@@ -2,7 +2,7 @@ GH_TUPLE=	\
 		BurntSushi:toml:v1.2.1:burntsushi_toml/vendor/github.com/BurntSushi/toml \
 		VividCortex:ewma:v1.2.0:vividcortex_ewma/vendor/github.com/VividCortex/ewma \
 		aws:aws-sdk-go:v1.44.298:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
-		cheggaaa:pb:v3.1.4:cheggaaa_pb_v3/vendor/github.com/cheggaaa/pb \
+		cheggaaa:pb:v3.1.4:cheggaaa_pb_v3/vendor/github.com/cheggaaa/pb/v3 \
 		cpuguy83:go-md2man:v2.0.2:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		dominikh:go-tools:v0.4.7:dominikh_go_tools/vendor/honnef.co/go/tools \
@@ -15,7 +15,6 @@ GH_TUPLE=	\
 		golang:sys:v0.20.0:golang_sys/vendor/golang.org/x/sys \
 		golang:tools:v0.21.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.6.0:google_go_cmp/vendor/github.com/google/go-cmp \
-		gotestyourself:gotest.tools:v3.0.3:gotestyourself_gotest_tools/vendor/gotest.tools/v3 \
 		hashicorp:errwrap:v1.0.0:hashicorp_errwrap/vendor/github.com/hashicorp/errwrap \
 		hashicorp:go-multierror:v1.1.1:hashicorp_go_multierror/vendor/github.com/hashicorp/go-multierror \
 		iancoleman:strcase:16388991a334:iancoleman_strcase/vendor/github.com/iancoleman/strcase \
@@ -39,4 +38,5 @@ GH_TUPLE=	\
 		urfave:cli:v2.11.2:urfave_cli_v2/vendor/github.com/urfave/cli/v2 \
 		xrash:smetrics:039620a65673:xrash_smetrics/vendor/github.com/xrash/smetrics
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
-		#	::732eee02a75a:group_name/vendor/golang.org/x/exp/typeparams (from go.googlesource.com/exp@732eee02a75a)
+		#	::732eee02a75a:group_name/vendor/golang.org/x/exp/typeparams (from golang.org/x/exp/typeparams@732eee02a75a)
+		#	::v3.0.3:group_name/vendor/gotest.tools/v3 (from gotest.tools/v3@v3.0.3)
