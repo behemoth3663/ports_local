@@ -1,8 +1,9 @@
 PORTNAME=	gotestsum
 PORTVERSION=	1.13.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	12
+PORTREVISION=	13
 CATEGORIES=	local devel
+PKGNAMESUFFIX=	-local
 
 MAINTAINER=	adamw@FreeBSD.org
 COMMENT=	Go test runner with output for humans and CI

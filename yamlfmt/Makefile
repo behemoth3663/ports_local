@@ -1,8 +1,9 @@
 PORTNAME=	yamlfmt
 PORTVERSION=	0.21.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	5
+PORTREVISION=	6
 CATEGORIES=	local textproc
+PKGNAMESUFFIX=	-local
 
 MAINTAINER=	meta@FreeBSD.org
 COMMENT=	Simple command line tool for formatting yaml files
@@ -19,14 +20,14 @@ GO_TARGET=	./cmd/${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GIT_COMMIT=	git ls-remote \
-		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
-		refs/tags/${DISTVERSIONFULL}
+COMMIT_CMD=	git ls-remote \
+		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
+		refs/tags/${DISTVERSIONFULL} | cut -c1-7
 
 CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X 'main.version=${PORTVERSION}' \
-	-X 'main.commit=${GIT_COMMIT:sh:C/(.{7}).*/\\1/W}'"
+	-X main.version=${PORTVERSION} \
+	-X main.commit=$$(${COMMIT_CMD})"
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 pre-deps pre-deps-all post-deps-all: .PHONY
