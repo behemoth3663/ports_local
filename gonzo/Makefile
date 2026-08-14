@@ -1,5 +1,5 @@
 PORTNAME=	gonzo
-PORTVERSION=	0.3.2
+PORTVERSION=	0.4.3
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -45,11 +45,9 @@ post-deps-all: .PHONY
 # charmbracelet:x:term/v0.2.1:charmbracelet_x_term
 GH_TUPLE:=	${GH_TUPLE:C,(:charmbracelet_x_(ansi|cellbuf|term)).*,\1,}
 
-#-google:go-genproto:200df99c418a:google_go_genproto/vendor/google.golang.org/genproto/googleapis/api
-#+google:go-genproto:200df99c418a:google_go_genproto_api
-#-google:go-genproto:5f3141c8851a:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/rpc
-#+google:go-genproto:5f3141c8851a:google_go_genproto_rpc
-GH_TUPLE:=	${GH_TUPLE:C,(:google_go_genproto).*/(api|rpc),\1_\2,}
+#-charmbracelet:x:2fdc97757edf:charmbracelet_x_slice
+#+charmbracelet:x:2fdc97757edf:charmbracelet_x_slice/vendor/github.com/charmbracelet/x/exp/slice
+GH_TUPLE:=	${GH_TUPLE:S,:charmbracelet_x_slice$,&/vendor/github.com/charmbracelet/x,1}
 
 #-open-telemetry:opentelemetry-proto-go:v1.7.0:open_telemetry_opentelemetry_proto_go/vendor/go.opentelemetry.io/proto
 #+open-telemetry:opentelemetry-proto-go:v1.7.0:open_telemetry_opentelemetry_proto_go/vendor/go.opentelemetry.io/proto/otlp
