@@ -1,8 +1,9 @@
 PORTNAME=	s5cmd
 PORTVERSION=	2.3.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	20
+PORTREVISION=	21
 CATEGORIES=	local net
+PKGNAMESUFFIX=	-local
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Parallel S3 and local filesystem execution tool
@@ -32,8 +33,22 @@ GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
 
+post-extract: .PHONY
+	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+
 pre-deps: .PHONY
 	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+	cd ${WRKSRC} && \
+		${CP} -a go.mod go.mod.orig && \
+		${CP} -a go.sum go.sum.orig && \
+		${PRINTF} '//go:build tools\npackage tools\nimport _ "github.com/rivo/uniseg"\n' >require.go && \
+		${GO_CMD} mod edit -replace=github.com/rivo/uniseg=github.com/rivo/uniseg@v0.2.0 && \
+		${GO_CMD} get -u=patch && \
+		${GO_CMD} mod tidy && \
+		${SETENV} TZ=UTC ${DIFF} -u --minimal -- go.mod.orig go.mod | \
+			${SED} -e '/^---/s|\.[0-9]* +0000$$| UTC|' -e '/^+++/s|\([[:blank:]][-0-9:.+]*\)*$$||' >${PATCHDIR}_/patch-go.mod && \
+		${SETENV} TZ=UTC ${DIFF} -u --minimal -- go.sum.orig go.sum | \
+			${SED} -e '/^---/s|\.[0-9]* +0000$$| UTC|' -e '/^+++/s|\([[:blank:]][-0-9:.+]*\)*$$||' >${PATCHDIR}_/patch-go.sum
 
 post-deps-all: .PHONY
 	${TEST} ! -d '${PATCHDIR}_' || ${MV} ${PATCHDIR}_ ${PATCHDIR}
