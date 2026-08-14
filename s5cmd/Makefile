@@ -1,7 +1,7 @@
 PORTNAME=	s5cmd
 PORTVERSION=	2.3.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	21
+PORTREVISION=	22
 CATEGORIES=	local net
 PKGNAMESUFFIX=	-local
 
@@ -43,7 +43,8 @@ pre-deps: .PHONY
 		${CP} -a go.sum go.sum.orig && \
 		${PRINTF} '//go:build tools\npackage tools\nimport _ "github.com/rivo/uniseg"\n' >require.go && \
 		${GO_CMD} mod edit -replace=github.com/rivo/uniseg=github.com/rivo/uniseg@v0.2.0 && \
-		${GO_CMD} get -u=patch && \
+		${GO_CMD} mod edit -replace=github.com/lanrat/extsort=github.com/lanrat/extsort@v1.0.3 && \
+		${GO_CMD} get -u && \
 		${GO_CMD} mod tidy && \
 		${SETENV} TZ=UTC ${DIFF} -u --minimal -- go.mod.orig go.mod | \
 			${SED} -e '/^---/s|\.[0-9]* +0000$$| UTC|' -e '/^+++/s|\([[:blank:]][-0-9:.+]*\)*$$||' >${PATCHDIR}_/patch-go.mod && \
