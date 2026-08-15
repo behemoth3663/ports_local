@@ -1,5 +1,5 @@
 PORTNAME=	ytt
-PORTVERSION=	0.55.1
+PORTVERSION=	0.55.2
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local textproc
 PKGNAMESUFFIX=	-local
@@ -21,7 +21,7 @@ PLIST_FILES=	bin/${PORTNAME}
 
 CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X 'github.com/vmware-tanzu/carvel-ytt/pkg/version.Version=${PORTVERSION}'"
+	-X github.com/vmware-tanzu/carvel-ytt/pkg/version.Version=${PORTVERSION}"
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 pre-deps pre-deps-all post-deps-all: .PHONY
