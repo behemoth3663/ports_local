@@ -1,5 +1,5 @@
 PORTNAME=	trivy
-PORTVERSION=	0.73.0
+PORTVERSION=	0.74.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local security
@@ -11,7 +11,8 @@ WWW=		https://${GO_MODULE}
 
 LICENSE=	APACHE20
 
-BROKEN_i386=	not supported, see https://github.com/aquasecurity/trivy/pull/9102
+ONLY_FOR_ARCHS=		aarch64 amd64
+ONLY_FOR_ARCHS_REASON=	module modernc.org/sqlite only supported on aarch64 and amd64
 
 USES=		go:modules
 
@@ -24,7 +25,7 @@ GO_TARGET=	./cmd/${PORTNAME}
 
 #CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
-	-X '${GO_MODULE}/pkg/version/app.ver=${PORTVERSION}'"
+	-X ${GO_MODULE}/pkg/version/app.ver=${PORTVERSION}"
 GO_ENV+=	GOEXPERIMENT=jsonv2,norandomizedheapbase64
 
 PLIST_FILES=	bin/${PORTNAME}
