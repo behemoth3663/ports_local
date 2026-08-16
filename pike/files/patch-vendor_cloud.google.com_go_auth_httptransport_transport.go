@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/auth/httptransport/transport.go.orig	2026-04-06 22:09:02 UTC
+--- vendor/cloud.google.com/go/auth/httptransport/transport.go.orig	2026-07-13 21:28:25 UTC
 +++ vendor/cloud.google.com/go/auth/httptransport/transport.go
 @@ -18,13 +18,11 @@ import (
  	"bytes"
@@ -74,7 +74,7 @@
  }
  
  // otelAttributeTransport is a wrapper around an http.RoundTripper that adds
-@@ -236,176 +189,15 @@ func (t *otelAttributeTransport) RoundTrip(req *http.R
+@@ -236,181 +189,14 @@ func (t *otelAttributeTransport) RoundTrip(req *http.R
  // OpenTelemetry span with static and dynamic attributes, as well as detailed
  // error information.
  func (t *otelAttributeTransport) RoundTrip(req *http.Request) (*http.Response, error) {
@@ -126,7 +126,12 @@
 -	}
 -
  	resp, err := t.base.RoundTrip(req)
- 
+-	if gax.IsFeatureEnabled("METRICS") {
+-		if data != nil && resp != nil {
+-			data.SetHTTPStatusCode(resp.StatusCode)
+-		}
+-	}
+-
 -	var logger *slog.Logger
 -	if gax.IsFeatureEnabled("LOGGING") {
 -		if l := t.logger; l != nil && l.Enabled(req.Context(), slog.LevelDebug) {
@@ -251,7 +256,7 @@
  	logger *slog.Logger
  	t      *otelAttributeTransport
  
-@@ -463,11 +255,6 @@ func (b *errorTrackingBody) recordError() {
+@@ -468,11 +254,6 @@ func (b *errorTrackingBody) recordError() {
  }
  
  func (b *errorTrackingBody) recordError() {
@@ -263,7 +268,7 @@
  	if b.buf.Len() > 0 {
  		clone := *b.resp
  		clone.Body = io.NopCloser(bytes.NewReader(b.buf.Bytes()))
-@@ -476,17 +263,10 @@ func (b *errorTrackingBody) recordError() {
+@@ -481,17 +262,10 @@ func (b *errorTrackingBody) recordError() {
  				if gErr.Message == "" {
  					gErr.Message = b.resp.Status
  				}
