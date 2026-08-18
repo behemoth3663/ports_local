@@ -1,1 +1,2 @@
-Get unhealthy target groups of Load Balancers within EI environments.
+Get unhealthy Target Groups of Load Balancers within EI environments
+or from stdin.
