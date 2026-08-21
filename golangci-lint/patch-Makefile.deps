@@ -1,0 +1,9 @@
+--- Makefile.deps.orig	2026-08-21 10:25:00 UTC
++++ Makefile.deps
+@@ -222,6 +222,3 @@ GL_TUPLE=	bosi:decorder:v0.4.2:bosi_decorder/vendor/gi
+ 		#	::v3.0.5:group_name/vendor/go.yaml.in/yaml/v3 (from go.yaml.in/yaml/v3@v3.0.5)
+ 		#	::v4.0.0:group_name/vendor/dev.gaijin.team/go/exhaustruct/v4 (from dev.gaijin.team/go/exhaustruct/v4@v4.0.0)
+ 		#	::v5.0.3:group_name/vendor/dev.gaijin.team/go/exhaustruct/v5 (from dev.gaijin.team/go/exhaustruct/v5@v5.0.3)
+-post-extract:
+-	@${MKDIR} ${WRKSRC}/vendor/github.com/hashicorp
+-	@${RLN} ${WRKSRC_fsnotify_fsnotify} ${WRKSRC}/vendor/github.com/hashicorp/go-version

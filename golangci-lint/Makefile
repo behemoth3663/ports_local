@@ -1,5 +1,5 @@
 PORTNAME=	golangci-lint
-PORTVERSION=	2.12.2
+PORTVERSION=	2.13.1
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -20,16 +20,16 @@ GH_ACCOUNT=	golangci
 
 USE_GITLAB=	nodefault
 
-GIT_COMMIT=	git ls-remote \
-		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
-		refs/tags/${DISTVERSIONFULL}
+COMMIT_CMD=	git ls-remote \
+		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
+		refs/tags/${DISTVERSIONFULL} | cut -c1-7
 
 GO_TARGET=	./cmd/${PORTNAME}
 
 CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X main.version=${PORTVERSION} \
-	-X main.commit=${GIT_COMMIT:sh:C/(.{7}).*/\\1/W} \
+	-X main.commit=$$(${COMMIT_CMD}) \
 	-X main.date=${%FT%TZ:L:gmtime}"
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
@@ -39,11 +39,12 @@ PORTEXAMPLES=	.golangci.reference.yml
 
 OPTIONS_DEFINE=	EXAMPLES
 
-post-install-EXAMPLES-on:
+post-install-EXAMPLES-on: .PHONY
 	@${MKDIR} ${STAGEDIR}${EXAMPLESDIR}
 	${INSTALL_DATA} ${WRKSRC}/${PORTEXAMPLES} ${STAGEDIR}${EXAMPLESDIR}
 
-post-extract: .PHONY
+_OPTIONS_extract+=	750:post-post-extract
+post-post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 	@${RM} -r ${WRKSRC}/vendor/github.com/quasilyte/go-ruleguard/dsl
 	@${TEST} -z ${WRKSRC_quasilyte_go_ruleguard_dsl} || ${RLN} ${WRKSRC_quasilyte_go_ruleguard_dsl}/dsl ${WRKSRC}/vendor/github.com/quasilyte/go-ruleguard
@@ -63,6 +64,9 @@ post-extract: .PHONY
 	@${TEST} -z ${WRKSRC_polyfloyd_go_errorlint} || ${RLN} ${WRKSRC_polyfloyd_go_errorlint:H}/go-errorlint ${WRKSRC}/vendor/codeberg.org/polyfloyd
 	@${MKDIR} ${WRKSRC}/vendor/go.yaml.in/yaml
 	@${TEST} ! -e ${WRKSRC}/vendor/gopkg.in/yaml.v3 || ${RLN} ${WRKSRC}/vendor/gopkg.in/yaml.v3 ${WRKSRC}/vendor/go.yaml.in/yaml/v3
+	@${MKDIR} ${WRKSRC}/vendor/dev.gaijin.team/go/exhaustruct
+	@${TEST} -z ${WRKSRC_gaijinentertainment_go_exhaustruct_v4} || ${RLN} ${WRKSRC_gaijinentertainment_go_exhaustruct_v4} ${WRKSRC}/vendor/dev.gaijin.team/go/exhaustruct/v4
+	@${TEST} -z ${WRKSRC_gaijinentertainment_go_exhaustruct_v5} || ${RLN} ${WRKSRC_gaijinentertainment_go_exhaustruct_v5} ${WRKSRC}/vendor/dev.gaijin.team/go/exhaustruct/v5
 
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
@@ -71,7 +75,7 @@ pre-deps: .PHONY
 	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
 
 pre-deps-all: .PHONY
-	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
+#	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 	${RM} ${.CURDIR}/generated.deps.mk
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=go-simpler GHT_PROJ=musttag GHT_PATH=go-simpler.org/musttag )
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=go-simpler GHT_PROJ=sloglint GHT_PATH=go-simpler.org/sloglint )
@@ -85,6 +89,7 @@ pre-deps-all: .PHONY
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=Crocmagnon GHT_PROJ=arangolint GHT_PATH=go.augendre.info/arangolint )
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=GaijinEntertainment GHT_PROJ=golib GHT_PATH=dev.gaijin.team/go/golib )
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=GaijinEntertainment GHT_PROJ=go-exhaustruct GHT_PATH=dev.gaijin.team/go/exhaustruct/v4 )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=GaijinEntertainment GHT_PROJ=go-exhaustruct GHT_PATH=dev.gaijin.team/go/exhaustruct/v5 )
 
 make-from-deps: .PHONY
 	@${SED} -rn \
@@ -107,7 +112,7 @@ GH_TUPLE:=	${GH_TUPLE:C|(.*/quasilyte/regex)/syntax$|\1|1}
 
 #-charmbracelet:x:v0.1.4:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x/ansi
 #+charmbracelet:x:ansi/v0.1.4:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x
-GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+):(.*/charmbracelet/x)/(ansi)$|\1:\3/\2|1}
+GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)(.*/charmbracelet/x)/(ansi)$|\1\3/\2|1}
 
 #-charmbracelet:x:v0.2.1:charmbracelet_x_term/vendor/github.com/charmbracelet/x/term
 #+charmbracelet:x:term/v0.2.1:charmbracelet_x_term
@@ -118,5 +123,14 @@ GH_TUPLE:=	${GH_TUPLE:C,([^:]+:[^:]+:)([^:]+[^/]+).*/charmbracelet/x/(term|termi
 #-chavacava:garif:v0.2.0:chavacava_garif/vendor/codeberg.org/chavacava/garif
 #+chavacava:garif:v0.2.0:chavacava_garif
 GH_TUPLE:=	${GH_TUPLE:C|/vendor/codeberg\.org/.*||}
+
+#-GaijinEntertainment:go-exhaustruct:v4.0.0:gaijinentertainment_go_exhaustruct/vendor/dev.gaijin.team/go/exhaustruct/v4
+#-GaijinEntertainment:go-exhaustruct:v5.0.3:gaijinentertainment_go_exhaustruct/vendor/dev.gaijin.team/go/exhaustruct/v5
+#+GaijinEntertainment:go-exhaustruct:v4.0.0:gaijinentertainment_go_exhaustruct_v4
+#+GaijinEntertainment:go-exhaustruct:v5.0.3:gaijinentertainment_go_exhaustruct_v5
+GH_TUPLE:=	${GH_TUPLE:S|/vendor/dev.gaijin.team/go/exhaustruct/|_|}
+
+# Missing in Makefile.deps, but present in modules.txt
+GH_TUPLE+=	hashicorp:go-version:v1.9.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version
 
 .include <bsd.port.mk>
