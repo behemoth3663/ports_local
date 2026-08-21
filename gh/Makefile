@@ -1,5 +1,5 @@
 PORTNAME=	gh
-PORTVERSION=	2.97.0
+PORTVERSION=	2.98.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -95,14 +95,10 @@ post-extract: .PHONY
 #-opentracing:opentracing-go:v1.2.0:opentracing_opentracing_go/vendor/github.com/opentracing/opentracing-go
 GH_TUPLE:=	${GH_TUPLE:Nopentracing\:*}
 
-#-moby:moby:v0.7.0:moby_moby_1/vendor/github.com/docker/docker-credential-helpers
-#+docker:docker-credential-helpers:v0.7.0:docker_docker_credential_helpers/vendor/github.com/docker/docker-credential-helpers
-GH_TUPLE:=	${GH_TUPLE:C|^moby:moby(:.*/docker-credential-helpers)$|docker:docker-credential-helpers\1|}
-
 #-google:go-genproto:3a174f9686a8:google_go_genproto/vendor/google.golang.org/genproto/googleapis/api
 #-google:go-genproto:f26f9409b101:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/rpc
-#+google:go-genproto:3a174f9686a8:google_go_genproto/vendor/google.golang.org/genproto/googleapis/api
-#+google:go-genproto:f26f9409b101:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/rpc
+#+google:go-genproto:3a174f9686a8:google_go_genproto_api
+#+google:go-genproto:f26f9409b101:google_go_genproto_rpc
 GH_TUPLE:=	${GH_TUPLE:C,(_.)?/vendor/google\.golang\.org/genproto/googleapis/(api|rpc),,}
 
 # charmbracelet:x:v0.0.13:charmbracelet_x_cellbuf/vendor/github.com/charmbracelet/x/cellbuf
@@ -116,10 +112,6 @@ GH_TUPLE:=	${GH_TUPLE:C,([^:]+:[^:]+:)([^:]+[^/]+).*/charmbracelet/x/(ansi|cellb
 #+charmbracelet:x:821143405392:charmbracelet_x_strings
 GH_TUPLE:=	${GH_TUPLE:C,([^:]+:[^:]+:)([^:]+[^/]+).*/charmbracelet/x/exp/strings,\1\2,1}
 GH_TUPLE:=	${GH_TUPLE:N*/charmbracelet/x/exp/slice}
-
-#-containerd:stargz-snapshotter:v0.16.3:containerd_stargz_snapshotter_estargz/vendor/github.com/containerd/stargz-snapshotter/estargz
-#+containerd:stargz-snapshotter:v0.16.3:containerd_stargz_snapshotter_estargz/vendor/github.com/containerd/stargz-snapshotter
-GH_TUPLE:=	${GH_TUPLE:S|/estargz||1}
 
 #-go-openapi:swag:v0.24.0:go_openapi_swag_cmdutils/vendor/github.com/go-openapi/swag/cmdutils
 #-go-openapi:swag:v0.24.0:go_openapi_swag_conv/vendor/github.com/go-openapi/swag/conv
