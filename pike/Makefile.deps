@@ -5,21 +5,21 @@ GH_TUPLE=	\
 		agext:levenshtein:v1.2.3:agext_levenshtein/vendor/github.com/agext/levenshtein \
 		apparentlymart:go-textseg:v15.0.0:apparentlymart_go_textseg_v15/vendor/github.com/apparentlymart/go-textseg/v15 \
 		apparentlymart:go-textseg:v17.0.1:apparentlymart_go_textseg_v17/vendor/github.com/apparentlymart/go-textseg/v17 \
-		aws:aws-sdk-go-v2:v1.13.15:aws_aws_sdk_go_v2_accept_encoding/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding \
-		aws:aws-sdk-go-v2:v1.13.35:aws_aws_sdk_go_v2_presigned_url/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url \
-		aws:aws-sdk-go-v2:v1.18.35:aws_aws_sdk_go_v2_imds/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds \
-		aws:aws-sdk-go-v2:v1.19.34:aws_aws_sdk_go_v2_credentials/vendor/github.com/aws/aws-sdk-go-v2/credentials \
-		aws:aws-sdk-go-v2:v1.32.35:aws_aws_sdk_go_v2_config/vendor/github.com/aws/aws-sdk-go-v2/config \
-		aws:aws-sdk-go-v2:v1.33.4:aws_aws_sdk_go_v2_sso/vendor/github.com/aws/aws-sdk-go-v2/service/sso \
-		aws:aws-sdk-go-v2:v1.38.4:aws_aws_sdk_go_v2_ssooidc/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc \
-		aws:aws-sdk-go-v2:v1.4.35:aws_aws_sdk_go_v2_configsources/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources \
-		aws:aws-sdk-go-v2:v1.4.36:aws_aws_sdk_go_v2_v4a/vendor/github.com/aws/aws-sdk-go-v2/internal/v4a \
-		aws:aws-sdk-go-v2:v1.43.4:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
-		aws:aws-sdk-go-v2:v1.45.4:aws_aws_sdk_go_v2_sts/vendor/github.com/aws/aws-sdk-go-v2/service/sts \
-		aws:aws-sdk-go-v2:v1.5.4:aws_aws_sdk_go_v2_signin/vendor/github.com/aws/aws-sdk-go-v2/service/signin \
-		aws:aws-sdk-go-v2:v1.58.1:aws_aws_sdk_go_v2_iam/vendor/github.com/aws/aws-sdk-go-v2/service/iam \
-		aws:aws-sdk-go-v2:v2.7.35:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 \
-		aws:smithy-go:v1.27.6:aws_smithy_go/vendor/github.com/aws/smithy-go \
+		aws:aws-sdk-go-v2:v1.13.16:aws_aws_sdk_go_v2_accept_encoding/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding \
+		aws:aws-sdk-go-v2:v1.13.36:aws_aws_sdk_go_v2_presigned_url/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url \
+		aws:aws-sdk-go-v2:v1.18.36:aws_aws_sdk_go_v2_imds/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds \
+		aws:aws-sdk-go-v2:v1.19.35:aws_aws_sdk_go_v2_credentials/vendor/github.com/aws/aws-sdk-go-v2/credentials \
+		aws:aws-sdk-go-v2:v1.32.36:aws_aws_sdk_go_v2_config/vendor/github.com/aws/aws-sdk-go-v2/config \
+		aws:aws-sdk-go-v2:v1.33.5:aws_aws_sdk_go_v2_sso/vendor/github.com/aws/aws-sdk-go-v2/service/sso \
+		aws:aws-sdk-go-v2:v1.38.5:aws_aws_sdk_go_v2_ssooidc/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc \
+		aws:aws-sdk-go-v2:v1.4.36:aws_aws_sdk_go_v2_configsources/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources \
+		aws:aws-sdk-go-v2:v1.4.37:aws_aws_sdk_go_v2_v4a/vendor/github.com/aws/aws-sdk-go-v2/internal/v4a \
+		aws:aws-sdk-go-v2:v1.43.5:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+		aws:aws-sdk-go-v2:v1.45.5:aws_aws_sdk_go_v2_sts/vendor/github.com/aws/aws-sdk-go-v2/service/sts \
+		aws:aws-sdk-go-v2:v1.5.5:aws_aws_sdk_go_v2_signin/vendor/github.com/aws/aws-sdk-go-v2/service/signin \
+		aws:aws-sdk-go-v2:v1.59.0:aws_aws_sdk_go_v2_iam/vendor/github.com/aws/aws-sdk-go-v2/service/iam \
+		aws:aws-sdk-go-v2:v2.7.36:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 \
+		aws:smithy-go:v1.27.7:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		cespare:xxhash:v2.3.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
 		cloudflare:circl:v1.6.4:cloudflare_circl/vendor/github.com/cloudflare/circl \
 		cpuguy83:go-md2man:v2.0.7:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
@@ -37,25 +37,25 @@ GH_TUPLE=	\
 		go-logr:stdr:v1.2.2:go_logr_stdr/vendor/github.com/go-logr/stdr \
 		go-warnings:warnings:v0.1.2:go_warnings_warnings/vendor/gopkg.in/warnings.v0 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
-		golang:crypto:v0.54.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.55.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:groupcache:2c02b8208cf8:golang_groupcache/vendor/github.com/golang/groupcache \
 		golang:mod:v0.38.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.57.0:golang_net/vendor/golang.org/x/net \
+		golang:net:v0.58.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.36.0:golang_oauth2/vendor/golang.org/x/oauth2 \
 		golang:sync:v0.22.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.47.0:golang_sys/vendor/golang.org/x/sys \
-		golang:text:v0.40.0:golang_text/vendor/golang.org/x/text \
+		golang:text:v0.41.0:golang_text/vendor/golang.org/x/text \
 		golang:tools:v0.48.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
-		google:go-genproto:6ac0973c030d:google_go_genproto_rpc/vendor/google.golang.org/genproto/googleapis/rpc \
+		google:go-genproto:c8921c73eeea:google_go_genproto_rpc/vendor/google.golang.org/genproto/googleapis/rpc \
 		google:go-github:v74.0.0:google_go_github_v74/vendor/github.com/google/go-github/v74 \
 		google:go-querystring:v1.2.0:google_go_querystring/vendor/github.com/google/go-querystring \
 		google:s2a-go:v0.1.9:google_s2a_go/vendor/github.com/google/s2a-go \
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
-		googleapis:enterprise-certificate-proxy:v0.3.19:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
+		googleapis:enterprise-certificate-proxy:v0.3.20:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
 		googleapis:gax-go:v2.23.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2 \
-		googleapis:google-api-go-client:v0.292.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
-		googleapis:google-cloud-go:v0.22.0:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth \
+		googleapis:google-api-go-client:v0.293.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
+		googleapis:google-cloud-go:v0.23.0:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth \
 		grpc:grpc-go:v1.83.0:grpc_grpc_go/vendor/google.golang.org/grpc \
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
 		hashicorp:go-retryablehttp:v0.7.8:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
