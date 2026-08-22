@@ -1,6 +1,6 @@
-TIMESTAMP = 1787309303
-SHA256 (dominikh-go-tools-v0.8.0_GH0.tar.gz) = 24b77a7bb107476dcec214a5feb8fbe04c7b1b9f254f7c8fcdd418b918f53a87
-SIZE (dominikh-go-tools-v0.8.0_GH0.tar.gz) = 937069
+TIMESTAMP = 1787378318
+SHA256 (dominikh-go-tools-v0.8.1_GH0.tar.gz) = 7f16b3c7450f7ab62791dfb2e6d40d57d3b74dd01eef30f24a71822db8d45848
+SIZE (dominikh-go-tools-v0.8.1_GH0.tar.gz) = 937342
 SHA256 (BurntSushi-toml-a339e1f7089c_GH0.tar.gz) = f050d926e2cecf55badbed861fd8883aee85723688c140d19bb408654eca08d1
 SIZE (BurntSushi-toml-a339e1f7089c_GH0.tar.gz) = 117614
 SHA256 (golang-exp-9a3e6036ecaa_GH0.tar.gz) = 82019916ef2f9f05654814466f69eb84e5394a59c154ee9121300ed5b6a70e6c
