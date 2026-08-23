@@ -1,4 +1,4 @@
-TIMESTAMP = 1787330706
+TIMESTAMP = 1787498937
 SHA256 (rust/crates/allocator-api2-0.2.21.crate) = 683d7910e743518b0e34f1186f92494becacb047c7b6bf616c96772180fef923
 SIZE (rust/crates/allocator-api2-0.2.21.crate) = 63622
 SHA256 (rust/crates/android_system_properties-0.1.5.crate) = 819e7219dbd41043ac279b19830f2efc897156490d7fd6ea916720117ee66311
@@ -407,5 +407,5 @@ SHA256 (rust/crates/wrapcenum-derive-0.4.1.crate) = a76ff259533532054cfbaefb115c
 SIZE (rust/crates/wrapcenum-derive-0.4.1.crate) = 7400
 SHA256 (rust/crates/zmij-1.0.21.crate) = b8848ee67ecc8aedbaf3e4122217aff892639231befc6a1b58d29fff4c2cabaa
 SIZE (rust/crates/zmij-1.0.21.crate) = 26665
-SHA256 (matthart1983-syswatch-v0.9.0_GH0.tar.gz) = 3f0129defa91da788730d1d30fe0d25cff99f62338b9028f7b2ad6a3de67e1c8
-SIZE (matthart1983-syswatch-v0.9.0_GH0.tar.gz) = 4084860
+SHA256 (matthart1983-syswatch-v0.10.0_GH0.tar.gz) = 2d8086cf67b3a5cf661d2c2ee552e29c40a1f46b655170360d9f8aae9cd097e8
+SIZE (matthart1983-syswatch-v0.10.0_GH0.tar.gz) = 9086477
