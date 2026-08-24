@@ -19,4 +19,4 @@ GH_TUPLE=	\
 		golang:sync:v0.22.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.47.0:golang_sys/vendor/golang.org/x/sys \
 		mattn:go-isatty:v0.0.24:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
-		omilevskyi:go:v0.1.15:omilevskyi_go/vendor/github.com/omilevskyi/go
+		omilevskyi:go:v0.1.17:omilevskyi_go/vendor/github.com/omilevskyi/go
