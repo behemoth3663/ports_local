@@ -1,6 +1,6 @@
-TIMESTAMP = 1787597632
-SHA256 (omilevskyi-go-v0.1.18_GH0.tar.gz) = e29a492436dd3125cc3d4ebdec37a7fd37e0d4740839eba628ccfa6db91f55d2
-SIZE (omilevskyi-go-v0.1.18_GH0.tar.gz) = 133588
+TIMESTAMP = 1787607478
+SHA256 (omilevskyi-go-v0.1.21_GH0.tar.gz) = 7381a4f296191e2d5c8766afb99c0048ddab5a21032fcb5a818c7b86b6a617c3
+SIZE (omilevskyi-go-v0.1.21_GH0.tar.gz) = 134006
 SHA256 (aws-aws-sdk-go-v2-v1.43.7_GH0.tar.gz) = e8792fa27444077b9ed02eeedd4e0aecc9b7a9e6ce64ca226b6b0234ff33b37f
 SIZE (aws-aws-sdk-go-v2-v1.43.7_GH0.tar.gz) = 76590719
 SHA256 (aws-smithy-go-v1.27.9_GH0.tar.gz) = ddc73570d7db94b359c003e533a9b1e193810b738a72dd6b4a1fd813fb6190e8
@@ -15,5 +15,5 @@ SHA256 (golang-sys-v0.47.0_GH0.tar.gz) = 85733c6da0f8db2f380a4487f6229d44affcb69
 SIZE (golang-sys-v0.47.0_GH0.tar.gz) = 1550584
 SHA256 (mattn-go-isatty-v0.0.24_GH0.tar.gz) = b4fe77aff60d7e9d2e6b626dd8acfbf63a651df72724318931f6ba0b4b7d3273
 SIZE (mattn-go-isatty-v0.0.24_GH0.tar.gz) = 4964
-SHA256 (omilevskyi-go-v0.1.17_GH0.tar.gz) = 661c56d9a0c44579527035564c42f87a08ec2277450f7e142aba5918673fc6c7
-SIZE (omilevskyi-go-v0.1.17_GH0.tar.gz) = 133583
+SHA256 (omilevskyi-go-v0.1.19_GH0.tar.gz) = 8e3c8656bc649e0c73c9b1103e403c692da5f6cd2145e88fdd9e4818eae93993
+SIZE (omilevskyi-go-v0.1.19_GH0.tar.gz) = 134006
