@@ -1,5 +1,5 @@
 PORTNAME=	oauth2-proxy
-PORTVERSION=	7.15.3
+PORTVERSION=	7.15.4
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local www
@@ -33,7 +33,7 @@ SUB_LIST+=	GROUP=${GROUP} \
 
 CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X 'version.VERSION=${PORTVERSION}'"
+	-X version.VERSION=${PORTVERSION}"
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 M2T_OFFLINE=	true
@@ -49,12 +49,16 @@ post-post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 	@${RM} ${WRKSRC}/vendor/github.com/googleapis/gax-go/v2/telemetry.go
 	@${MKDIR} ${WRKSRC}/vendor/go.yaml.in/yaml
-	@${TEST} ! -e ${WRKSRC}/vendor/gopkg.in/yaml.v3 || ${RLN} ${WRKSRC}/vendor/gopkg.in/yaml.v3 ${WRKSRC}/vendor/go.yaml.in/yaml/v3
+	@${RLN} ${WRKSRC}/vendor/gopkg.in/yaml.v3 ${WRKSRC}/vendor/go.yaml.in/yaml/v3
+
+pre-deps: .PHONY
+	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+
+post-deps-all: .PHONY
+	${TEST} ! -d '${PATCHDIR}_' || ${MV} ${PATCHDIR}_ ${PATCHDIR}
 
 pre-deps-all: .PHONY
-	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
-
-pre-deps post-deps-all: .PHONY
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
@@ -72,13 +76,5 @@ GH_TUPLE:=	${GH_TUPLE:S|/gax-go/v2$|/gax-go|1}
 #-googleapis:google-cloud-go:v0.5.2:googleapis_google_cloud_go_1/vendor/cloud.google.com/go/compute/metadata
 #+googleapis:google-cloud-go:compute/metadata/v0.5.2:googleapis_google_cloud_go_1/vendor/cloud.google.com/go
 GH_TUPLE:=	${GH_TUPLE:C|^(googleapis:google-cloud-go:)(.*/go)/(.*)$|\1\3/\2|}
-
-#-open-telemetry:opentelemetry-go-contrib:v0.55.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp
-#+open-telemetry:opentelemetry-go-contrib:instrumentation/net/http/otelhttp/v0.55.0:open_telemetry_opentelemetry_go_contrib/vendor/go.opentelemetry.io/contrib
-GH_TUPLE:=	${GH_TUPLE:C|^(open-telemetry:opentelemetry-go-contrib:)(.*/contrib)/(.*)$|\1\3/\2|1}
-
-#-open-telemetry:opentelemetry-go-instrumentation:v1.1.0:open_telemetry_opentelemetry_go_instrumentation/vendor/go.opentelemetry.io/auto/sdk
-#+open-telemetry:opentelemetry-go-instrumentation:sdk/v1.1.0:open_telemetry_opentelemetry_go_instrumentation/vendor/go.opentelemetry.io/auto
-GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)(.*/go.opentelemetry.io/auto)/(sdk)|\1\3/\2|1}
 
 .include <bsd.port.mk>
