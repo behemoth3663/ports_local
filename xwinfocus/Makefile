@@ -1,5 +1,6 @@
 PORTNAME=	xwinfocus
 PORTVERSION=	0.0.5
+PORTREVISION=	1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local
 
@@ -9,7 +10,7 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	BSD3CLAUSE
 
-USES=		xorg llvm:21,build
+USES=		xorg llvm:23,build
 USE_XORG=	x11 xcb xau xdmcp
 
 BUILD_DEPENDS=	git:devel/git
