@@ -1,6 +1,6 @@
---- crates/prek/src/config.rs.orig	2026-02-15 13:20:37 UTC
-+++ crates/prek/src/config.rs
-@@ -1014,6 +1014,37 @@ pub(crate) fn read_config(path: &Path) -> Result<Confi
+--- crates/prek/src/config/mod.rs.orig	2026-08-27 03:27:58 UTC
++++ crates/prek/src/config/mod.rs
+@@ -289,6 +289,37 @@ pub(crate) fn read_config(path: &Path) -> Result<Confi
  
  /// Read the configuration file from the given path, and warn about certain issues.
  pub(crate) fn read_config(path: &Path) -> Result<Config, Error> {
