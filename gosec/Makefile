@@ -1,5 +1,5 @@
 PORTNAME=	gosec
-PORTVERSION=	2.28.0
+PORTVERSION=	2.29.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel security
@@ -23,13 +23,13 @@ GO_TARGET=	./cmd/${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GIT_COMMIT=	git ls-remote \
-		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
-		refs/tags/${DISTVERSIONFULL}
+COMMIT_CMD=	git ls-remote \
+		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
+		refs/tags/${DISTVERSIONFULL} | cut -c1-7
 
 CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X 'main.GitTag=${GIT_COMMIT:sh:C/(.{7}).*/\\1/W}' \
+	-X 'main.GitTag=$$(${COMMIT_CMD})' \
 	-X 'main.Version=${PORTVERSION}' \
 	-X 'main.BuildDate=${%F %T:L:gmtime}'"
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
@@ -38,20 +38,11 @@ M2T_OFFLINE=	true
 .export	M2T_OFFLINE
 
 post-extract: .PHONY .SILENT
-	${MKDIR} ${WRKSRC}/vendor/cloud.google.com/go
 	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
-	${RM} ${WRKSRC}/vendor/cloud.google.com/go/longrunning/autogen/auxiliary_go123.go
-	${RM} ${WRKSRC}/vendor/cloud.google.com/go/ai/generativelanguage/apiv1beta/auxiliary_go123.go
-	${RM} ${WRKSRC}/vendor/github.com/googleapis/gax-go/v2/telemetry.go
-	${MKDIR} ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
-	${TEST} -z ${WRKSRC_google_go_genproto_api} || ${RLN} ${WRKSRC_google_go_genproto_api}/googleapis/api ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
-	${TEST} -z ${WRKSRC_google_go_genproto_rpc} || ${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
 	${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/auth
 	${TEST} -z ${WRKSRC_googleapis_google_cloud_go_auth} || ${RLN} ${WRKSRC_googleapis_google_cloud_go_auth}/auth ${WRKSRC}/vendor/cloud.google.com/go
 	${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
 	${TEST} -z ${WRKSRC_googleapis_google_cloud_go_compute_metadata} || ${RLN} ${WRKSRC_googleapis_google_cloud_go_compute_metadata}/compute/metadata ${WRKSRC}/vendor/cloud.google.com/go/compute
-	@${MKDIR} ${WRKSRC}/vendor/go.yaml.in/yaml
-	@${TEST} ! -e ${WRKSRC}/vendor/gopkg.in/yaml.v3 || ${RLN} ${WRKSRC}/vendor/gopkg.in/yaml.v3 ${WRKSRC}/vendor/go.yaml.in/yaml/v3
 
 pre-deps: .PHONY
 	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
@@ -64,6 +55,7 @@ pre-deps-all: .PHONY
 	${RM} ${.CURDIR}/generated.deps.mk
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=googleapis GHT_PROJ=google-cloud-go GHT_PATH=cloud.google.com/go/compute/metadata )
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=googleapis GHT_PROJ=go-genai GHT_PATH=google.golang.org/genai )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=yaml GHT_PROJ=go-yaml GHT_PATH=go.yaml.in/yaml/v3 )
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=yaml GHT_PROJ=go-yaml GHT_PATH=go.yaml.in/yaml/v4 )
 
 make-from-deps: .PHONY
@@ -74,26 +66,17 @@ make-from-deps: .PHONY
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 
-#-google:go-genproto:29210b9bc287:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/rpc
-#-google:go-genproto:e6fa225c2576:google_go_genproto/vendor/google.golang.org/genproto/googleapis/api
-#+google:go-genproto:29210b9bc287:google_go_genproto_rpc
-#+google:go-genproto:e6fa225c2576:google_go_genproto_api
-GH_TUPLE:=	${GH_TUPLE:C|(:google_go_genproto).*/|\1_|}
+#-google:go-genproto:08b0e4226688:google_go_genproto_rpc/vendor/google.golang.org/genproto/googleapis/rpc
+#+google:go-genproto:08b0e4226688:google_go_genproto_rpc/vendor/google.golang.org/genproto
+GH_TUPLE:=	${GH_TUPLE:S|/googleapis/rpc||1}
 
 #-googleapis:gax-go:v2.14.1:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2
 #+googleapis:gax-go:v2.14.1:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go
 GH_TUPLE:=	${GH_TUPLE:S|/gax-go/v2|/gax-go|1}
 
-#make -V GH_TUPLE | tr ' ' '\n' | i googleapis:google-cloud-go
-#	googleapis:google-cloud-go:v0.112.1:googleapis_google_cloud_go/vendor/cloud.google.com/go
-#-	googleapis:google-cloud-go:v0.13.0:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth
-#+	googleapis:google-cloud-go:auth/v0.13.0:googleapis_google_cloud_go_auth
-#-	googleapis:google-cloud-go:v0.6.0:googleapis_google_cloud_go_2/vendor/cloud.google.com/go/compute/metadata
-#+	googleapis:google-cloud-go:compute/metadata/v0.6.0:googleapis_google_cloud_go_compute_metadata
-GH_TUPLE:=	${GH_TUPLE:N*\:googleapis_google_cloud_go_[b-z]*}
+#-googleapis:google-cloud-go:v0.23.2:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth
+#+googleapis:google-cloud-go:v0.23.2:googleapis_google_cloud_go_auth
 GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+).*/cloud.google.com/go/(auth)$|\1\3/\2|}
-GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/0-9]+).*/cloud.google.com/go/(compute)/(metadata)$|\1\3/\4/\2\3_\4|}
-GH_TUPLE:=	${GH_TUPLE:N*/vendor/cloud.google.com/go/*}
 
 #-standard-webhooks:standard-webhooks:v0.0.1:standard_webhooks_standard_webhooks_libraries/vendor/github.com/standard-webhooks/standard-webhooks/libraries
 #+standard-webhooks:standard-webhooks:libraries/v0.0.1:standard_webhooks_standard_webhooks_libraries/vendor/github.com/standard-webhooks/standard-webhooks
@@ -102,5 +85,11 @@ GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)(.*/standard-webhooks/standard-webhooks)/(
 .sinclude "${.CURDIR}/generated.deps.mk"
 
 GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+).*/cloud.google.com/go/(compute)/(metadata)$|\1\3/\4/\2_\3_\4|}
+
+#-yaml:go-yaml:v3.0.5:yaml_go_yaml/vendor/go.yaml.in/yaml/v3
+#+yaml:go-yaml:v3.0.5:yaml_go_yaml/vendor/go.yaml.in/yaml/v3
+#-yaml:go-yaml:v4.0.0-rc.6:yaml_go_yaml/vendor/go.yaml.in/yaml/v4
+#+yaml:go-yaml:v4.0.0-rc.6:yaml_go_yaml/vendor/go.yaml.in/yaml/v4
+GH_TUPLE:=	${GH_TUPLE:C|(/vendor/go.yaml.in/yaml/)(.*)|_\2\1\2|}
 
 .include <bsd.port.mk>
