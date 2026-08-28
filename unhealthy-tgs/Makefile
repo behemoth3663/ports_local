@@ -1,5 +1,5 @@
 PORTNAME=	unhealthy-tgs
-PORTVERSION=	0.1.21
+PORTVERSION=	0.1.25
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	2
 CATEGORIES=	local sysutils
@@ -22,7 +22,7 @@ PLIST_FILES=	bin/${PORTNAME}
 
 COMMIT_CMD=	git ls-remote \
 		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
-		refs/tags/${DISTVERSIONFULL} | cut -c1-7
+		refs/tags/${DISTVERSIONFULL}^{} | cut -c1-7
 
 CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w \
