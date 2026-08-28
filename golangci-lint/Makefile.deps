@@ -49,7 +49,7 @@ GH_TUPLE=	\
 		denis-tingaikin:go-header:v0.5.0:denis_tingaikin_go_header/vendor/github.com/denis-tingaikin/go-header \
 		dlclark:regexp2:v1.12.0:dlclark_regexp2/vendor/github.com/dlclark/regexp2 \
 		dlclark:regexp2:v2.2.1:dlclark_regexp2_v2/vendor/github.com/dlclark/regexp2/v2 \
-		dominikh:go-tools:v0.8.0:dominikh_go_tools/vendor/honnef.co/go/tools \
+		dominikh:go-tools:v0.8.1:dominikh_go_tools/vendor/honnef.co/go/tools \
 		ebitengine:purego:v0.10.2:ebitengine_purego/vendor/github.com/ebitengine/purego \
 		ettle:strcase:v0.2.0:ettle_strcase/vendor/github.com/ettle/strcase \
 		fatih:color:v1.19.0:fatih_color/vendor/github.com/fatih/color \
@@ -83,6 +83,7 @@ GH_TUPLE=	\
 		golang:text:v0.40.0:golang_text/vendor/golang.org/x/text \
 		golang:tools:v0.49.0:golang_tools/vendor/golang.org/x/tools \
 		golangci:asciicheck:v0.5.0:golangci_asciicheck/vendor/github.com/golangci/asciicheck \
+		golangci:canonicalheader:a25c71c521f6:golangci_canonicalheader/vendor/github.com/golangci/canonicalheader \
 		golangci:dupl:c99c5cf5c202:golangci_dupl/vendor/github.com/golangci/dupl \
 		golangci:go-printf-func-name:v0.1.1:golangci_go_printf_func_name/vendor/github.com/golangci/go-printf-func-name \
 		golangci:gofmt:e84e05053792:golangci_gofmt/vendor/github.com/golangci/gofmt \
@@ -112,7 +113,6 @@ GH_TUPLE=	\
 		kkHAIKE:contextcheck:v1.1.6:kkhaike_contextcheck/vendor/github.com/kkHAIKE/contextcheck \
 		kulti:thelper:v0.7.1:kulti_thelper/vendor/github.com/kulti/thelper \
 		kunwardeep:paralleltest:v1.0.15:kunwardeep_paralleltest/vendor/github.com/kunwardeep/paralleltest \
-		lasiar:canonicalheader:v1.1.2:lasiar_canonicalheader/vendor/github.com/lasiar/canonicalheader \
 		ldez:exptostd:v0.4.5:ldez_exptostd/vendor/github.com/ldez/exptostd \
 		ldez:gomoddirectives:v0.9.0:ldez_gomoddirectives/vendor/github.com/ldez/gomoddirectives \
 		ldez:grignotin:v0.10.1:ldez_grignotin/vendor/github.com/ldez/grignotin \
@@ -139,7 +139,7 @@ GH_TUPLE=	\
 		moricho:tparallel:v0.3.2:moricho_tparallel/vendor/github.com/moricho/tparallel \
 		muesli:cancelreader:v0.2.2:muesli_cancelreader/vendor/github.com/muesli/cancelreader \
 		mvdan:gofumpt:v0.11.0:mvdan_gofumpt/vendor/mvdan.cc/gofumpt \
-		mvdan:unparam:3f964bcb5673:mvdan_unparam/vendor/mvdan.cc/unparam \
+		mvdan:unparam:2fa3d841b0c8:mvdan_unparam/vendor/mvdan.cc/unparam \
 		nakabonne:nestif:v0.3.1:nakabonne_nestif/vendor/github.com/nakabonne/nestif \
 		nishanths:exhaustive:v0.12.0:nishanths_exhaustive/vendor/github.com/nishanths/exhaustive \
 		nishanths:predeclared:v0.2.2:nishanths_predeclared/vendor/github.com/nishanths/predeclared \
@@ -196,7 +196,7 @@ GH_TUPLE=	\
 		ultraware:funlen:v0.2.0:ultraware_funlen/vendor/github.com/ultraware/funlen \
 		ultraware:whitespace:v0.2.0:ultraware_whitespace/vendor/github.com/ultraware/whitespace \
 		uudashr:gocognit:v1.2.1:uudashr_gocognit/vendor/github.com/uudashr/gocognit \
-		uudashr:iface:v1.5.0:uudashr_iface/vendor/github.com/uudashr/iface \
+		uudashr:iface:v1.5.1:uudashr_iface/vendor/github.com/uudashr/iface \
 		valyala:bytebufferpool:v1.0.0:valyala_bytebufferpool/vendor/github.com/valyala/bytebufferpool \
 		valyala:quicktemplate:v1.8.0:valyala_quicktemplate/vendor/github.com/valyala/quicktemplate \
 		xen0n:gosmopolitan:v1.3.0:xen0n_gosmopolitan/vendor/github.com/xen0n/gosmopolitan \
