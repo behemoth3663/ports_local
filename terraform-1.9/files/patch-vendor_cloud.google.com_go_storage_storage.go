@@ -1,10 +1,6 @@
---- vendor/cloud.google.com/go/storage/storage.go.orig	2025-05-30 06:48:19 UTC
+--- vendor/cloud.google.com/go/storage/storage.go.orig	2026-06-04 04:52:32 UTC
 +++ vendor/cloud.google.com/go/storage/storage.go
-@@ -40,21 +40,15 @@ import (
- 
- 	"cloud.google.com/go/auth"
- 	"cloud.google.com/go/internal/optional"
--	"cloud.google.com/go/internal/trace"
+@@ -43,17 +43,12 @@ import (
  	"cloud.google.com/go/storage/internal"
  	"cloud.google.com/go/storage/internal/apiv2/storagepb"
  	"github.com/googleapis/gax-go/v2"
@@ -22,7 +18,7 @@
  	"google.golang.org/grpc/status"
  	"google.golang.org/protobuf/proto"
  	"google.golang.org/protobuf/reflect/protoreflect"
-@@ -266,23 +260,7 @@ func CheckDirectConnectivitySupported(ctx context.Cont
+@@ -267,23 +262,7 @@ func CheckDirectConnectivitySupported(ctx context.Cont
  //
  // You can pass in [option.ClientOption] you plan on passing to [NewGRPCClient]
  func CheckDirectConnectivitySupported(ctx context.Context, bucket string, opts ...option.ClientOption) error {
@@ -47,7 +43,7 @@
  	client, err := NewGRPCClient(ctx, combinedOpts...)
  	if err != nil {
  		return fmt.Errorf("storage.NewGRPCClient: %w", err)
-@@ -291,25 +269,7 @@ func CheckDirectConnectivitySupported(ctx context.Cont
+@@ -292,25 +271,7 @@ func CheckDirectConnectivitySupported(ctx context.Cont
  	if _, err = client.Bucket(bucket).Attrs(ctx); err != nil {
  		return fmt.Errorf("Bucket.Attrs: %w", err)
  	}
@@ -73,7 +69,7 @@
  }
  
  // Close closes the Client.
-@@ -1037,8 +997,6 @@ func (o *ObjectHandle) Attrs(ctx context.Context) (att
+@@ -1038,8 +999,6 @@ func (o *ObjectHandle) Attrs(ctx context.Context) (att
  // Attrs returns meta information about the object.
  // ErrObjectNotExist will be returned if the object is not found.
  func (o *ObjectHandle) Attrs(ctx context.Context) (attrs *ObjectAttrs, err error) {
@@ -82,7 +78,7 @@
  
  	if err := o.validate(); err != nil {
  		return nil, err
-@@ -1051,8 +1009,6 @@ func (o *ObjectHandle) Update(ctx context.Context, uat
+@@ -1052,8 +1011,6 @@ func (o *ObjectHandle) Update(ctx context.Context, uat
  // ObjectAttrsToUpdate docs for details on treatment of zero values.
  // ErrObjectNotExist will be returned if the object is not found.
  func (o *ObjectHandle) Update(ctx context.Context, uattrs ObjectAttrsToUpdate) (oa *ObjectAttrs, err error) {
@@ -91,7 +87,7 @@
  
  	if err := o.validate(); err != nil {
  		return nil, err
-@@ -1122,8 +1078,6 @@ func (o *ObjectHandle) Delete(ctx context.Context) (er
+@@ -1130,8 +1087,6 @@ func (o *ObjectHandle) Delete(ctx context.Context) (er
  
  // Delete deletes the single specified object.
  func (o *ObjectHandle) Delete(ctx context.Context) (err error) {
@@ -100,19 +96,19 @@
  	if err := o.validate(); err != nil {
  		return err
  	}
-@@ -1247,7 +1201,6 @@ func (o *ObjectHandle) NewWriter(ctx context.Context) 
+@@ -1252,7 +1207,6 @@ func (o *ObjectHandle) NewWriter(ctx context.Context) 
  // It is the caller's responsibility to call Close when writing is done. To
  // stop writing without saving the data, cancel the context.
  func (o *ObjectHandle) NewWriter(ctx context.Context) *Writer {
--	ctx = trace.StartSpan(ctx, "cloud.google.com/go/storage.Object.Writer")
+-	ctx, _ = startSpan(ctx, "Object.Writer")
  	return &Writer{
  		ctx:         ctx,
  		o:           o,
-@@ -1283,7 +1236,6 @@ func (o *ObjectHandle) NewWriterFromAppendableObject(c
+@@ -1288,7 +1242,6 @@ func (o *ObjectHandle) NewWriterFromAppendableObject(c
  // objects which were created append semantics and not finalized.
  // This feature is in preview and is not yet available for general use.
  func (o *ObjectHandle) NewWriterFromAppendableObject(ctx context.Context, opts *AppendableWriterOpts) (*Writer, int64, error) {
--	ctx = trace.StartSpan(ctx, "cloud.google.com/go/storage.Object.Writer")
+-	ctx, _ = startSpan(ctx, "Object.WriterFromAppendableObject")
  	if o.gen < 0 {
  		return nil, 0, errors.New("storage: ObjectHandle.Generation must be set to use NewWriterFromAppendableObject")
  	}

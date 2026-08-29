@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/storage/option.go.orig	2025-03-12 21:31:11 UTC
+--- vendor/cloud.google.com/go/storage/option.go.orig	2026-06-04 04:52:32 UTC
 +++ vendor/cloud.google.com/go/storage/option.go
 @@ -19,9 +19,7 @@ import (
  	"strconv"
@@ -10,28 +10,30 @@
  	"google.golang.org/api/option"
  	"google.golang.org/api/option/internaloption"
  )
-@@ -37,9 +35,7 @@ func init() {
+@@ -37,10 +35,7 @@ func init() {
  
  func init() {
  	// initialize experimental options
 -	storageinternal.WithMetricExporter = withMetricExporter
  	storageinternal.WithMetricInterval = withMetricInterval
+-	storageinternal.WithMeterProvider = withMeterProvider
 -	storageinternal.WithReadStallTimeout = withReadStallTimeout
  	storageinternal.WithGRPCBidiReads = withGRPCBidiReads
- }
- 
-@@ -78,10 +74,7 @@ type storageConfig struct {
+ 	storageinternal.WithZonalBucketAPIs = withZonalBucketAPIs
+ 	storageinternal.WithDirectConnectivityEnforced = withDirectConnectivityEnforced
+@@ -81,11 +76,7 @@ type storageConfig struct {
  	useJSONforReads        bool
  	readAPIWasSet          bool
  	disableClientMetrics   bool
 -	metricExporter         *metric.Exporter
  	metricInterval         time.Duration
+-	meterProvider          *metric.MeterProvider
 -	manualReader           *metric.ManualReader
 -	readStallTimeoutConfig *experimental.ReadStallTimeoutConfig
  	grpcBidiReads          bool
- }
- 
-@@ -184,29 +177,17 @@ type withMetricExporterConfig struct {
+ 	grpcAppendableUploads  bool
+ 	grpcDirectPathEnforced bool
+@@ -202,43 +193,25 @@ type withMetricExporterConfig struct {
  type withMetricExporterConfig struct {
  	internaloption.EmbeddableAdapter
  	// exporter override
@@ -52,6 +54,20 @@
 -	metricReader *metric.ManualReader
  }
  
+ type withMeterProviderConfig struct {
+ 	internaloption.EmbeddableAdapter
+ 	// meter provider override
+-	meterProvider *metric.MeterProvider
+ }
+ 
+-func withMeterProvider(provider *metric.MeterProvider) option.ClientOption {
+-	return &withMeterProviderConfig{meterProvider: provider}
+-}
+-
+ func (w *withMeterProviderConfig) ApplyStorageOpt(c *storageConfig) {
+-	c.meterProvider = w.meterProvider
+ }
+ 
 -func withTestMetricReader(ex *metric.ManualReader) option.ClientOption {
 -	return &withTestMetricReaderConfig{metricReader: ex}
 -}
@@ -61,7 +77,7 @@
  }
  
  // WithReadStallTimeout is an option that may be passed to [NewClient].
-@@ -216,31 +197,18 @@ func (w *withTestMetricReaderConfig) ApplyStorageOpt(c
+@@ -248,31 +221,18 @@ func (w *withTestMetricReaderConfig) ApplyStorageOpt(c
  //
  // This is only supported for the read operation and that too for http(XML) client.
  // Grpc read-operation will be supported soon.

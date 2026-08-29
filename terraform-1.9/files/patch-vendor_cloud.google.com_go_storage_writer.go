@@ -1,19 +1,18 @@
---- vendor/cloud.google.com/go/storage/writer.go.orig	2025-10-15 02:58:16 UTC
+--- vendor/cloud.google.com/go/storage/writer.go.orig	2026-06-04 04:52:32 UTC
 +++ vendor/cloud.google.com/go/storage/writer.go
-@@ -22,8 +22,6 @@ import (
- 	"sync"
- 	"time"
- 	"unicode/utf8"
--
--	"cloud.google.com/go/internal/trace"
- )
- 
- // Interface internalWriter wraps low-level implementations which may vary
-@@ -267,7 +265,6 @@ func (w *Writer) Close() error {
- 	if w.obj == nil && w.err == nil {
- 		w.err = errors.New("storage: write succeeded but no object attributes returned from the server")
+@@ -372,7 +372,6 @@ func (w *Writer) Close() error {
+ 			if w.err == nil && err != nil {
+ 				w.err = err
+ 			}
+-			endSpan(w.ctx, w.err)
+ 			return w.err
+ 		}
  	}
--	trace.EndSpan(w.ctx, w.err)
+@@ -391,7 +390,6 @@ func (w *Writer) Close() error {
+ 	w.mu.Lock()
+ 	defer w.mu.Unlock()
+ 	w.closed = true
+-	endSpan(w.ctx, w.err)
  	return w.err
  }
  

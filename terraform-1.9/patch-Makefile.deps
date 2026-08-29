@@ -1,18 +1,18 @@
---- Makefile.deps.orig	2026-07-30 09:36:51 UTC
+--- Makefile.deps.orig	2026-08-29 19:37:21 UTC
 +++ Makefile.deps
-@@ -300,42 +300,56 @@ GH_TUPLE=	\
+@@ -300,42 +300,60 @@ GH_TUPLE=	\
  		#	::v1.9.0:group_name/vendor/go.opentelemetry.io/proto/otlp (from go.opentelemetry.io/proto/otlp@v1.9.0)
  		#	::v2.80.1:group_name/vendor/k8s.io/klog/v2 (from k8s.io/klog/v2@v2.80.1)
  		#	::v4.2.3:group_name/vendor/sigs.k8s.io/structured-merge-diff/v4 (from sigs.k8s.io/structured-merge-diff/v4@v4.2.3)
 -post-extract:
 -	@${RM} -r ${WRKSRC}/internal/backend/remote-state/azure
--	@${RLN} ${WRKSRC_hashicorp_terraform_azure_1}/internal/backend/remote-state/azure ${WRKSRC}/internal/backend/remote-state/azure
--	@${RM} -r ${WRKSRC}/internal/backend/remote-state/azure
 -	@${RLN} ${WRKSRC_hashicorp_terraform_azure}/internal/backend/remote-state/azure ${WRKSRC}/internal/backend/remote-state/azure
--	@${RM} -r ${WRKSRC}/internal/backend/remote-state/consul
--	@${RLN} ${WRKSRC_hashicorp_terraform_consul_1}/internal/backend/remote-state/consul ${WRKSRC}/internal/backend/remote-state/consul
+-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/azure
+-	@${RLN} ${WRKSRC_hashicorp_terraform_azure_1}/internal/backend/remote-state/azure ${WRKSRC}/internal/backend/remote-state/azure
 -	@${RM} -r ${WRKSRC}/internal/backend/remote-state/consul
 -	@${RLN} ${WRKSRC_hashicorp_terraform_consul}/internal/backend/remote-state/consul ${WRKSRC}/internal/backend/remote-state/consul
+-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/consul
+-	@${RLN} ${WRKSRC_hashicorp_terraform_consul_1}/internal/backend/remote-state/consul ${WRKSRC}/internal/backend/remote-state/consul
 -	@${RM} -r ${WRKSRC}/internal/backend/remote-state/cos
 -	@${RLN} ${WRKSRC_hashicorp_terraform_cos_1}/internal/backend/remote-state/cos ${WRKSRC}/internal/backend/remote-state/cos
 -	@${RM} -r ${WRKSRC}/internal/backend/remote-state/cos
@@ -34,9 +34,9 @@
 -	@${RM} -r ${WRKSRC}/internal/backend/remote-state/pg
 -	@${RLN} ${WRKSRC_hashicorp_terraform_pg}/internal/backend/remote-state/pg ${WRKSRC}/internal/backend/remote-state/pg
 -	@${RM} -r ${WRKSRC}/internal/backend/remote-state/s3
--	@${RLN} ${WRKSRC_hashicorp_terraform_s3_1}/internal/backend/remote-state/s3 ${WRKSRC}/internal/backend/remote-state/s3
--	@${RM} -r ${WRKSRC}/internal/backend/remote-state/s3
 -	@${RLN} ${WRKSRC_hashicorp_terraform_s3}/internal/backend/remote-state/s3 ${WRKSRC}/internal/backend/remote-state/s3
+-	@${RM} -r ${WRKSRC}/internal/backend/remote-state/s3
+-	@${RLN} ${WRKSRC_hashicorp_terraform_s3_1}/internal/backend/remote-state/s3 ${WRKSRC}/internal/backend/remote-state/s3
 -	@${RM} -r ${WRKSRC}/internal/legacy
 -	@${RLN} ${WRKSRC_hashicorp_terraform_legacy_1}/internal/legacy ${WRKSRC}/internal/legacy
 -	@${RM} -r ${WRKSRC}/internal/legacy
@@ -96,3 +96,7 @@
 +	@${RLN} ${WRKSRC_tencentcloud_tencentcloud_sdk_go_common}/tencentcloud/common ${WRKSRC}/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud
 +	@${RLN} ${WRKSRC_tencentcloud_tencentcloud_sdk_go_common}/tencentcloud/sts ${WRKSRC}/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud
 +	@${RLN} ${WRKSRC_tencentcloud_tencentcloud_sdk_go_common}/tencentcloud/tag ${WRKSRC}/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud
++	@${RM} -r ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/api
++	@${RLN} ${WRKSRC_google_go_genproto_api}/googleapis/api ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
++	@${RM} -r ${WRKSRC}/vendor/google.golang.org/genproto/googleapis/rpc
++	@${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis

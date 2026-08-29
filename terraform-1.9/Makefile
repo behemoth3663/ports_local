@@ -1,7 +1,7 @@
 PORTNAME=	terraform
 PORTVERSION=	1.9.8
 DISTVERSIONPREFIX=	v
-PORTREVISION=	20260730
+PORTREVISION=	20260829
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX=	-${PORTVERSION:R}
 
@@ -26,9 +26,9 @@ JQ_GETVER_EXPR=	[.[].name | gsub("^[a-z]+";"") | \
 
 CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=${PORTVERSION}' \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.dev=no' \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.VersionPrerelease='"
+	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=${PORTVERSION} \
+	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.dev=no \
+	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.VersionPrerelease="
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 M2T_OFFLINE=	true
@@ -46,10 +46,11 @@ pre-deps: .PHONY
 	cd ${WRKSRC} && \
 		${CP} -a go.mod go.mod.orig && \
 		${CP} -a go.sum go.sum.orig && \
-		${ECHO} 'replace k8s.io/kube-openapi => k8s.io/kube-openapi v0.0.0-20220803162953-67bda5d908f1' >> go.mod && \
-		${ECHO} 'replace github.com/google/gnostic => github.com/google/gnostic v0.5.7-v3refs' >> go.mod && \
-		${ECHO} 'replace github.com/hashicorp/aws-sdk-go-base/v2 => github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.55' >> go.mod && \
-		${ECHO} 'replace github.com/hashicorp/go-getter => github.com/hashicorp/go-getter v1.7.9' >> go.mod && \
+		${GO_CMD} mod edit -replace=k8s.io/kube-openapi=k8s.io/kube-openapi@v0.0.0-20220803162953-67bda5d908f1 && \
+		${GO_CMD} mod edit -replace=github.com/google/gnostic=github.com/google/gnostic@v0.5.7-v3refs && \
+		${GO_CMD} mod edit -replace=github.com/hashicorp/aws-sdk-go-base/v2=github.com/hashicorp/aws-sdk-go-base/v2@v2.0.0-beta.55 && \
+		${GO_CMD} mod edit -replace=github.com/hashicorp/go-getter=github.com/hashicorp/go-getter@v1.7.9 && \
+		${GO_CMD} mod edit -replace=google.golang.org/genproto=google.golang.org/genproto@v0.0.0-20260803160001-6ac0973c030d && \
 		${GO_CMD} get -u=patch && \
 		${GO_CMD} mod tidy && \
 		${SETENV} TZ=UTC ${DIFF} -udp go.mod.orig go.mod | \
@@ -75,10 +76,6 @@ make-from-deps: .PHONY
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
-
-# XXX: Work around ports framework inability to regenerate GH_TUPLE for Go
-# modules for modules with embedded slashes in version numbers.
-GH_TUPLE:=	${GH_TUPLE:S|v1.1.0:grpc_grpc_go_1|cmd%2Fprotoc-gen-go-grpc%2Fv1.1.0:grpc_grpc_go_1/|1}
 
 # Azure:azure-sdk-for-go:v59.2.0:azure_azure_sdk_for_go/vendor/github.com/Azure/azure-sdk-for-go
 #-Azure:go-autorest:v0.11.27:azure_go_autorest_autorest/vendor/github.com/Azure/go-autorest/autorest
@@ -125,15 +122,17 @@ GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+)/vendor/github.com/Azure/go-au
 # aws:aws-sdk-go:v1.44.122:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go
 GH_TUPLE:=	${GH_TUPLE:Naws*aws_aws_sdk_go_v2_*/vendor/github.com/aws/aws-sdk-go-v2/*}
 
-# google:go-genproto:b8732ec3820d:google_go_genproto/vendor/google.golang.org/genproto
-#-google:go-genproto:b8732ec3820d:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api
-#-google:go-genproto:b8732ec3820d:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc
-# google:go-github:v45.2.0:google_go_github_v45/vendor/github.com/google/go-github/v45
-GH_TUPLE:=	${GH_TUPLE:N*/google.golang.org/genproto/*}
+#-google:go-genproto:da73d73af1c5:google_go_genproto_api/vendor/google.golang.org/genproto/googleapis/api
+#+google:go-genproto:da73d73af1c5:google_go_genproto_api
+GH_TUPLE:=	${GH_TUPLE:S,/vendor/google.golang.org/genproto/googleapis/api$,,1}
+
+#-google:go-genproto:da73d73af1c5:google_go_genproto_rpc/vendor/google.golang.org/genproto/googleapis/rpc
+#+google:go-genproto:da73d73af1c5:google_go_genproto_rpc
+GH_TUPLE:=	${GH_TUPLE:S,/vendor/google.golang.org/genproto/googleapis/rpc$,,1}
 
 #-googleapis:gax-go:v2.11.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2
 #+googleapis:gax-go:v2.11.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go
-GH_TUPLE:=	${GH_TUPLE:S|/gax-go/v2|/gax-go|}
+GH_TUPLE:=	${GH_TUPLE:S|/gax-go/v2|/gax-go|1}
 
 # googleapis:google-cloud-go:v0.110.7:googleapis_google_cloud_go/vendor/cloud.google.com/go
 #-googleapis:google-cloud-go:v1.1.1:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go/iam
@@ -187,10 +186,6 @@ GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+.*/envoyproxy/go-control-plane)
 #-cncf:xds:d92e9ce0af51:cncf_xds_go/vendor/github.com/cncf/xds/go
 #+cncf:xds:d92e9ce0af51:cncf_xds_go/vendor/github.com/cncf/xds
 GH_TUPLE:=	${GH_TUPLE:S|/xds/go|/xds|1}
-
-#-spiffe:go-spiffe:v2.5.0:spiffe_go_spiffe_v2/vendor/github.com/spiffe/go-spiffe/v2
-#+spiffe:go-spiffe:v2.5.0:spiffe_go_spiffe_v2/vendor/github.com/spiffe/go-spiffe
-#GH_TUPLE:=	${GH_TUPLE:S|/go-spiffe/v2|/go-spiffe|1}
 
 #-jcmturner:gokrb5:v8.4.4:jcmturner_gokrb5_v8/vendor/github.com/jcmturner/gokrb5/v8
 #+jcmturner:gokrb5:v8.4.4:jcmturner_gokrb5_v8/vendor/github.com/jcmturner/gokrb5
