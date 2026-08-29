@@ -1,6 +1,6 @@
-TIMESTAMP = 1788018372
-SHA256 (accurics-terrascan-v1.19.9_GH0.tar.gz) = 13c120a63d7024ca8c54422e047424e318622625336ed77b2c1a36ef5fb1441c
-SIZE (accurics-terrascan-v1.19.9_GH0.tar.gz) = 1923503
+TIMESTAMP = 1788029092
+SHA256 (tenable-terrascan-v1.19.9_GH0.tar.gz) = 13c120a63d7024ca8c54422e047424e318622625336ed77b2c1a36ef5fb1441c
+SIZE (tenable-terrascan-v1.19.9_GH0.tar.gz) = 1923503
 SHA256 (Azure-azure-sdk-for-go-v56.3.0_GH0.tar.gz) = 7ed6cfb811b40f8e2201dc902a77376f342050adbd18c5714dc66ccd08c555e0
 SIZE (Azure-azure-sdk-for-go-v56.3.0_GH0.tar.gz) = 41238155
 SHA256 (Azure-go-autorest-autorest-adal-v0.9.18_GH0.tar.gz) = dda706dab1e346cb0d216b44cd2851d1c6074ce7ee7a914bb4fa78324d0c893b

@@ -212,6 +212,7 @@ GL_TUPLE=	\
 		cznic:strutil:dbc88fcb642d7337518b6f7cc925fedd5436f88f:cznic_strutil/vendor/modernc.org/strutil \
 		cznic:token:46658f20d51b8d0b6c4c551c363c8510c30c2a72:cznic_token/vendor/modernc.org/token
 post-extract:
+	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_compute}/compute ${WRKSRC}/vendor/cloud.google.com/go/compute
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
