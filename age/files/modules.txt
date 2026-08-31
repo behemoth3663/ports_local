@@ -1,8 +1,8 @@
-# c2sp.org/CCTV/age v0.0.0-20251208015420-e9274a7bdbfd
+# c2sp.org/CCTV/age v0.0.0-20260829155415-4448f2097b2d
 ## explicit; go 1.24rc2
 c2sp.org/CCTV/age
-# filippo.io/edwards25519 v1.1.0
-## explicit; go 1.20
+# filippo.io/edwards25519 v1.2.0
+## explicit; go 1.24.0
 filippo.io/edwards25519
 filippo.io/edwards25519/field
 # filippo.io/hpke v0.4.0
@@ -17,8 +17,8 @@ filippo.io/nistec
 filippo.io/nistec/internal/byteorder
 filippo.io/nistec/internal/fiat
 filippo.io/nistec/internal/subtle
-# github.com/rogpeppe/go-internal v1.14.1
-## explicit; go 1.23
+# github.com/rogpeppe/go-internal v1.16.0
+## explicit; go 1.25
 github.com/rogpeppe/go-internal/diff
 github.com/rogpeppe/go-internal/imports
 github.com/rogpeppe/go-internal/internal/misspell
@@ -28,8 +28,8 @@ github.com/rogpeppe/go-internal/testenv
 github.com/rogpeppe/go-internal/testscript
 github.com/rogpeppe/go-internal/testscript/internal/pty
 github.com/rogpeppe/go-internal/txtar
-# golang.org/x/crypto v0.45.0
-## explicit; go 1.24.0
+# golang.org/x/crypto v0.55.0
+## explicit; go 1.25.0
 golang.org/x/crypto/blowfish
 golang.org/x/crypto/chacha20
 golang.org/x/crypto/chacha20poly1305
@@ -43,16 +43,16 @@ golang.org/x/crypto/pbkdf2
 golang.org/x/crypto/scrypt
 golang.org/x/crypto/ssh
 golang.org/x/crypto/ssh/internal/bcrypt_pbkdf
-# golang.org/x/sys v0.38.0
-## explicit; go 1.24.0
+# golang.org/x/sys v0.47.0
+## explicit; go 1.25.0
 golang.org/x/sys/cpu
 golang.org/x/sys/execabs
 golang.org/x/sys/plan9
 golang.org/x/sys/unix
 golang.org/x/sys/windows
-# golang.org/x/term v0.37.0
-## explicit; go 1.24.0
+# golang.org/x/term v0.45.0
+## explicit; go 1.25.0
 golang.org/x/term
-# golang.org/x/tools v0.39.0
-## explicit; go 1.24.0
+# golang.org/x/tools v0.49.0
+## explicit; go 1.25.0
 golang.org/x/tools/txtar

@@ -1,8 +1,9 @@
 PORTNAME=	age
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.3.1
+DISTVERSION=	1.3.2
 #PORTREVISION=	1
 CATEGORIES=	local security
+PKGNAMESUFFIX=	-local
 
 MAINTAINER=	dmgk@FreeBSD.org
 COMMENT=	Simple, modern and secure file encryption tool
@@ -20,7 +21,7 @@ GH_ACCOUNT=	FiloSottile
 
 CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X 'main.Version=${DISTVERSIONPREFIX}${PORTVERSION}'"
+	-X main.Version=${DISTVERSIONFULL}"
 
 PLIST_FILES=	bin/age \
 		bin/age-keygen \
@@ -28,16 +29,16 @@ PLIST_FILES=	bin/age \
 		share/man/man1/age.1.gz
 
 post-install: .PHONY
-	${INSTALL_MAN} ${WRKSRC}/doc/*.1 ${STAGEDIR}${PREFIX}/share/man/man1/
+	${INSTALL_MAN} ${WRKSRC}/doc/*.1 ${STAGEDIR}${PREFIX}/share/man/man1
 
 pre-deps: .PHONY
-	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
 
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 
 post-deps-all: .PHONY
-	test ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
+	${TEST} ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
 
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
