@@ -1,0 +1,20 @@
+Tailcat is a remix of Tailscale open source pieces to act like netcat, but
+over Tailscale's data plane, without Tailscale's control plane. Tailscale's
+data plane (magicsock, internally) gives you point-to-point
+WireGuard-encrypted tunnels between two machines with DERP as the
+NAT-hole-punching communication side channel and the ultimate
+relay-of-last-resort if NAT traversal fails. Instead of using the Tailscale
+control plane, all tailcat connection metadata is exchanged out of band,
+however you want.
+
+Whether you use tailcat as a CLI tool or library, one side runs a tailcat
+server (listener) and gets back a short connection token. The other side
+passes that token to tailcat's client side to connect. All traffic between
+the two is encrypted end-to-end with WireGuard. The initial connection
+bootstraps through a DERP server (see below), and then magicsock performs NAT
+traversal to upgrade to a direct peer-to-peer UDP connection when possible
+(usually!).
+
+You don't need a Tailscale account, root/admin access on the machine (it
+doesn't alter your machine's routing tables, DNS, etc.). It's just a
+userspace library and CLI tool.
