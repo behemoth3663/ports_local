@@ -1,6 +1,6 @@
 PORTNAME=	ssh-manager
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.120.0
+DISTVERSION=	1.121.0
 CATEGORIES=	local security
 
 MAINTAINER=	none@freebsd.org
@@ -57,6 +57,6 @@ GH_TUPLE:=	${GH_TUPLE:S|/gax-go/v2|/gax-go|1}
 
 #-googleapis:google-cloud-go:        v1.18.2:googleapis_google_cloud_go_storage/vendor/cloud.google.com/go/storage
 #+googleapis:google-cloud-go:storage/v1.18.2:googleapis_google_cloud_go_storage
-GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+).*/cloud.google.com/go/(storage)|\1\3/\2|}
+GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+).*/cloud.google.com/go/(storage)|\1\3/\2|1}
 
 .include <bsd.port.mk>
