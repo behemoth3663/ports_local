@@ -1,6 +1,6 @@
---- internal/communicator/ssh/communicator.go.orig	2019-12-02 18:18:41 UTC
+--- internal/communicator/ssh/communicator.go.orig	2024-10-16 12:28:59 UTC
 +++ internal/communicator/ssh/communicator.go
-@@ -184,6 +184,16 @@ func (c *Communicator) Connect(o terraform.UIOutput) (
+@@ -205,6 +205,16 @@ func (c *Communicator) Connect(o provisioners.UIOutput
  		return err
  	}
  

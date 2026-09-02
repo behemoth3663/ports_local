@@ -1,6 +1,6 @@
---- internal/rpcapi/stacks.go.orig	2025-03-05 11:51:16 UTC
+--- internal/rpcapi/stacks.go.orig	2024-10-16 12:28:59 UTC
 +++ internal/rpcapi/stacks.go
-@@ -11,9 +11,6 @@ import (
+@@ -9,9 +9,6 @@ import (
  
  	"github.com/hashicorp/go-slug/sourceaddrs"
  	"github.com/hashicorp/go-slug/sourcebundle"
@@ -10,7 +10,7 @@
  	"google.golang.org/grpc/codes"
  	"google.golang.org/grpc/status"
  
-@@ -811,11 +808,7 @@ func stackChangeHooks(send func(*stacks.StackChangePro
+@@ -629,11 +626,7 @@ func stackChangeHooks(send func(*terraform1.StackChang
  		// span, we'll wrap it in a context so that the runtime's downstream
  		// operations will appear as children of it.
  		ContextAttach: func(parent context.Context, tracking any) context.Context {
@@ -23,7 +23,7 @@
  		},
  
  		// For the overall plan operation we don't emit any events to the client,
-@@ -823,13 +816,9 @@ func stackChangeHooks(send func(*stacks.StackChangePro
+@@ -641,13 +634,9 @@ func stackChangeHooks(send func(*terraform1.StackChang
  		// a root tracing span for all of the downstream planning operations to
  		// attach themselves to.
  		BeginPlan: func(ctx context.Context, s struct{}) any {
@@ -38,7 +38,7 @@
  			return nil
  		},
  
-@@ -838,13 +827,9 @@ func stackChangeHooks(send func(*stacks.StackChangePro
+@@ -656,13 +645,9 @@ func stackChangeHooks(send func(*terraform1.StackChang
  		// a root tracing span for all of the downstream planning operations to
  		// attach themselves to.
  		BeginApply: func(ctx context.Context, s struct{}) any {
@@ -53,7 +53,7 @@
  			return nil
  		},
  
-@@ -874,27 +859,18 @@ func stackChangeHooks(send func(*stacks.StackChangePro
+@@ -692,21 +677,14 @@ func stackChangeHooks(send func(*terraform1.StackChang
  		},
  		BeginComponentInstancePlan: func(ctx context.Context, ci stackaddrs.AbsComponentInstance) any {
  			send(evtComponentInstanceStatus(ci, hooks.ComponentInstancePlanning))
@@ -75,14 +75,8 @@
 -			span.(trace.Span).End()
  			return nil
  		},
- 		DeferComponentInstancePlan: func(ctx context.Context, span any, ci stackaddrs.AbsComponentInstance) any {
- 			send(evtComponentInstanceStatus(ci, hooks.ComponentInstanceDeferred))
--			span.(trace.Span).SetStatus(otelCodes.Error, "planning succeeded, but deferred")
--			span.(trace.Span).End()
- 			return nil
- 		},
  		PendingComponentInstanceApply: func(ctx context.Context, ci stackaddrs.AbsComponentInstance) {
-@@ -902,21 +878,14 @@ func stackChangeHooks(send func(*stacks.StackChangePro
+@@ -714,21 +692,14 @@ func stackChangeHooks(send func(*terraform1.StackChang
  		},
  		BeginComponentInstanceApply: func(ctx context.Context, ci stackaddrs.AbsComponentInstance) any {
  			send(evtComponentInstanceStatus(ci, hooks.ComponentInstanceApplying))
@@ -105,27 +99,15 @@
  			return nil
  		},
  
-@@ -946,11 +915,6 @@ func stackChangeHooks(send func(*stacks.StackChangePro
- 		// Upon completion of a component instance plan, we emit a planned
- 		// change sumary event to the client for each resource instance.
- 		ReportResourceInstancePlanned: func(ctx context.Context, span any, ric *hooks.ResourceInstanceChange) any {
+@@ -763,11 +734,6 @@ func stackChangeHooks(send func(*terraform1.StackChang
+ 				// TODO: what do we do?
+ 				return span
+ 			}
+-
 -			span.(trace.Span).AddEvent("planned resource instance", trace.WithAttributes(
 -				attribute.String("component_instance", ric.Addr.Component.String()),
 -				attribute.String("resource_instance", ric.Addr.Item.String()),
 -			))
--
- 			ripc, err := resourceInstancePlanned(ric)
- 			if err != nil {
- 				return span
-@@ -965,11 +929,6 @@ func stackChangeHooks(send func(*stacks.StackChangePro
- 		},
  
- 		ReportResourceInstanceDeferred: func(ctx context.Context, span any, change *hooks.DeferredResourceInstanceChange) any {
--			span.(trace.Span).AddEvent("deferred resource instance", trace.WithAttributes(
--				attribute.String("component_instance", change.Change.Addr.Component.String()),
--				attribute.String("resource_instance", change.Change.Addr.Item.String()),
--			))
--
- 			ripc, err := resourceInstancePlanned(change.Change)
- 			if err != nil {
- 				return span
+ 			var moved *terraform1.StackChangeProgress_ResourceInstancePlannedChange_Moved
+ 			if !ric.Change.PrevRunAddr.Equal(ric.Change.Addr) {

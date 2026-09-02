@@ -1,19 +1,18 @@
---- vendor/cloud.google.com/go/storage/writer.go.orig	2025-03-12 21:31:11 UTC
+--- vendor/cloud.google.com/go/storage/writer.go.orig	2026-06-04 04:52:32 UTC
 +++ vendor/cloud.google.com/go/storage/writer.go
-@@ -22,8 +22,6 @@ import (
- 	"sync"
- 	"time"
- 	"unicode/utf8"
--
--	"cloud.google.com/go/internal/trace"
- )
- 
- // A Writer writes a Cloud Storage object.
-@@ -233,7 +231,6 @@ func (w *Writer) Close() error {
- 	w.closed = true
+@@ -372,7 +372,6 @@ func (w *Writer) Close() error {
+ 			if w.err == nil && err != nil {
+ 				w.err = err
+ 			}
+-			endSpan(w.ctx, w.err)
+ 			return w.err
+ 		}
+ 	}
+@@ -391,7 +390,6 @@ func (w *Writer) Close() error {
  	w.mu.Lock()
  	defer w.mu.Unlock()
--	trace.EndSpan(w.ctx, w.err)
+ 	w.closed = true
+-	endSpan(w.ctx, w.err)
  	return w.err
  }
  
