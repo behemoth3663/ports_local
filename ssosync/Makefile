@@ -1,5 +1,5 @@
 PORTNAME=	ssosync
-PORTVERSION=	2.4.0
+PORTVERSION=	2.6.3
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -22,21 +22,24 @@ PLIST_FILES=	bin/${PORTNAME}
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
 
-GIT_COMMIT=	git ls-remote \
-		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
-		refs/tags/${DISTVERSIONFULL}
+COMMIT_CMD=	git ls-remote \
+		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
+		refs/tags/${DISTVERSIONFULL} | cut -c1-7
 
 CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.version=${PORTVERSION}' \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.commit=${GIT_COMMIT:sh:C/(.{7}).*/\\1/W}' \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.date=${%FT%TZ:L:gmtime}' \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.builtBy=${OPSYS}'"
+	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.version=${PORTVERSION} \
+	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.commit=$$(${COMMIT_CMD}) \
+	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.date=${%FT%TZ:L:gmtime} \
+	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.builtBy=${OPSYS}"
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 	@${FIND} ${WRKSRC} -name '*_test.go' -type f -delete
+	@${RM} ${WRKSRC}/vendor/github.com/googleapis/gax-go/v2/telemetry.go
+	@${MKDIR} ${WRKSRC}/vendor/go.yaml.in/yaml
+	@${TEST} ! -e ${WRKSRC}/vendor/gopkg.in/yaml.v3 || ${RLN} ${WRKSRC}/vendor/gopkg.in/yaml.v3 ${WRKSRC}/vendor/go.yaml.in/yaml/v3
 
 pre-deps: .PHONY
 	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
