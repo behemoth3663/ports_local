@@ -1,5 +1,5 @@
 PORTNAME=	ratchet
-PORTVERSION=	0.11.4
+PORTVERSION=	0.12.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -19,22 +19,27 @@ GH_ACCOUNT=	sethvargo
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GIT_COMMIT=	git ls-remote \
+COMMIT_CMD=	git ls-remote \
 		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
-		refs/tags/${DISTVERSIONPREFIX}${PORTVERSION} | \
-		${SED} -rn 's/(.{7}).*/\1/p'
+		refs/tags/${DISTVERSIONFULL} | cut -c1-7
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal/version.version=${PORTVERSION}' \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal/version.commit=$$(${GIT_COMMIT})'"
+CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-ldflags="-s -w \
+	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal/version.version=${PORTVERSION} \
+	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/internal/version.commit=$$(${COMMIT_CMD})"
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 
-pre-deps-all: .PHONY
-	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
+pre-deps: .PHONY
+	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
 
-pre-deps post-deps-all: .PHONY
+post-deps-all: .PHONY
+	${TEST} ! -d '${PATCHDIR}_' || ${MV} ${PATCHDIR}_ ${PATCHDIR}
+
+pre-deps-all: .PHONY
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
