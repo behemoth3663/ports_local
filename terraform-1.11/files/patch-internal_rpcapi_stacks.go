@@ -1,4 +1,4 @@
---- internal/rpcapi/stacks.go.orig	2025-03-05 11:51:16 UTC
+--- internal/rpcapi/stacks.go.orig	2025-04-09 13:10:05 UTC
 +++ internal/rpcapi/stacks.go
 @@ -11,9 +11,6 @@ import (
  

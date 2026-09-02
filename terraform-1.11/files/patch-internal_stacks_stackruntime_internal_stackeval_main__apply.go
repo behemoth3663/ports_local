@@ -1,4 +1,4 @@
---- internal/stacks/stackruntime/internal/stackeval/main_apply.go.orig	2025-03-05 11:51:16 UTC
+--- internal/stacks/stackruntime/internal/stackeval/main_apply.go.orig	2025-04-09 13:10:05 UTC
 +++ internal/stacks/stackruntime/internal/stackeval/main_apply.go
 @@ -9,9 +9,6 @@ import (
  	"log"

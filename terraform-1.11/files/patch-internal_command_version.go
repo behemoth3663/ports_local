@@ -1,4 +1,4 @@
---- internal/command/version.go.orig	2021-01-06 19:16:17 UTC
+--- internal/command/version.go.orig	2024-10-16 12:28:59 UTC
 +++ internal/command/version.go
 @@ -105,21 +105,6 @@ func (c *VersionCommand) Run(args []string) int {
  		}
