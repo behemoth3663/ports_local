@@ -53,9 +53,6 @@ github.com/cloudflare/circl/sign/ed448
 ## explicit; go 1.18
 github.com/cyphar/filepath-securejoin
 github.com/cyphar/filepath-securejoin/internal/consts
-# github.com/davecgh/go-spew v1.1.1
-## explicit
-github.com/davecgh/go-spew/spew
 # github.com/emirpasic/gods v1.18.1
 ## explicit; go 1.2
 github.com/emirpasic/gods/containers
@@ -142,26 +139,11 @@ github.com/kevinburke/ssh_config
 # github.com/klauspost/cpuid/v2 v2.3.0
 ## explicit; go 1.22
 github.com/klauspost/cpuid/v2
-# github.com/mattn/go-colorable v0.1.14
-## explicit; go 1.18
-github.com/mattn/go-colorable
-# github.com/mattn/go-isatty v0.0.24
-## explicit; go 1.20
-github.com/mattn/go-isatty
 # github.com/pjbgf/sha1cd v0.6.0
 ## explicit; go 1.22
 github.com/pjbgf/sha1cd
 github.com/pjbgf/sha1cd/internal
 github.com/pjbgf/sha1cd/ubc
-# github.com/pmezard/go-difflib v1.0.0
-## explicit
-github.com/pmezard/go-difflib/difflib
-# github.com/rs/zerolog v1.35.1
-## explicit; go 1.23
-github.com/rs/zerolog
-github.com/rs/zerolog/internal/cbor
-github.com/rs/zerolog/internal/json
-github.com/rs/zerolog/log
 # github.com/sergi/go-diff v1.3.2-0.20230802210424-5b0b94c5c0d3
 ## explicit; go 1.13
 github.com/sergi/go-diff/diffmatchpatch
@@ -174,10 +156,12 @@ github.com/spf13/cobra
 # github.com/spf13/pflag v1.0.9
 ## explicit; go 1.12
 github.com/spf13/pflag
-# github.com/stretchr/testify v1.11.1
+# github.com/stretchr/testify v1.12.0
 ## explicit; go 1.17
 github.com/stretchr/testify/assert
 github.com/stretchr/testify/assert/yaml
+github.com/stretchr/testify/internal/difflib
+github.com/stretchr/testify/internal/spew
 github.com/stretchr/testify/require
 # github.com/xanzy/ssh-agent v0.3.3
 ## explicit; go 1.16
