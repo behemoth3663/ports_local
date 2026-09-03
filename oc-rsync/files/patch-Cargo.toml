@@ -1,0 +1,15 @@
+--- Cargo.toml.orig	2026-07-18 10:25:51 UTC
++++ Cargo.toml
+@@ -25,12 +25,10 @@ default = [
+ default = [
+     "zstd",
+     "lz4",
+-    "acl",
+     "xattr",
+     "iconv",
+     "parallel",
+     "copy_file_range",
+-    "io_uring",
+     "iocp",
+     "async",
+     "embedded-ssh",
