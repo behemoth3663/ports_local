@@ -1,6 +1,6 @@
-TIMESTAMP = 1788269113
-SHA256 (tailscale-tailcat-v0.4.0_GH0.tar.gz) = f3e87753aa45f8be249a2708a4220748fd8613f9ea0d0435a48ffedf8d724247
-SIZE (tailscale-tailcat-v0.4.0_GH0.tar.gz) = 135690
+TIMESTAMP = 1788420605
+SHA256 (tailscale-tailcat-v0.5.0_GH0.tar.gz) = a2177d257ac7a02d8ba0fdfcfa341113d97ea0cf7597dbb0fff851d8c341d8e9
+SIZE (tailscale-tailcat-v0.5.0_GH0.tar.gz) = 144693
 SHA256 (9fans-go-96bdba94b63f_GH0.tar.gz) = f7dc0e11d7193e76153828042c37b788c1a202e5dd2e8477c2c228c3aad4cb2c
 SIZE (9fans-go-96bdba94b63f_GH0.tar.gz) = 411078
 SHA256 (BurntSushi-toml-v1.6.0_GH0.tar.gz) = eecda85357b0df8b623191a027de3ce43282cceb403f412200a6c5f9776b2098
