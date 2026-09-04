@@ -5,7 +5,7 @@ GH_TUPLE=	\
 		Masterminds:semver:v3.4.0:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
 		Masterminds:sprig:v3.3.0:masterminds_sprig_v3/vendor/github.com/Masterminds/sprig/v3 \
 		Netflix:go-expect:73e0943537d2:netflix_go_expect/vendor/github.com/Netflix/go-expect \
-		alecthomas:chroma:v2.19.0:alecthomas_chroma_v2/vendor/github.com/alecthomas/chroma/v2 \
+		alecthomas:chroma:v2.27.0:alecthomas_chroma_v2/vendor/github.com/alecthomas/chroma/v2 \
 		asaskevich:govalidator:a9d515a09cc2:asaskevich_govalidator/vendor/github.com/asaskevich/govalidator \
 		atotto:clipboard:v0.1.4:atotto_clipboard/vendor/github.com/atotto/clipboard \
 		aymanbagabas:go-osc52:v2.0.1:aymanbagabas_go_osc52_v2/vendor/github.com/aymanbagabas/go-osc52/v2 \
@@ -29,7 +29,7 @@ GH_TUPLE=	\
 		charmbracelet:x:v0.2.2:charmbracelet_x_term/vendor/github.com/charmbracelet/x/term \
 		charmbracelet:x:v0.2.2:charmbracelet_x_windows/vendor/github.com/charmbracelet/x/windows \
 		cli:browser:v1.3.0:cli_browser/vendor/github.com/cli/browser \
-		cli:go-gh:v2.13.0:cli_go_gh_v2/vendor/github.com/cli/go-gh/v2 \
+		cli:go-gh:v2.16.0:cli_go_gh_v2/vendor/github.com/cli/go-gh/v2 \
 		cli:go-internal:6c48bcd5ce24:cli_go_internal/vendor/github.com/cli/go-internal \
 		cli:oauth:v1.2.2:cli_oauth/vendor/github.com/cli/oauth \
 		cli:safeexec:v1.0.1:cli_safeexec/vendor/github.com/cli/safeexec \
@@ -43,7 +43,7 @@ GH_TUPLE=	\
 		digitorus:pkcs7:3a137a874352:digitorus_pkcs7/vendor/github.com/digitorus/pkcs7 \
 		digitorus:timestamp:c45532741eea:digitorus_timestamp/vendor/github.com/digitorus/timestamp \
 		distribution:reference:v0.6.0:distribution_reference/vendor/github.com/distribution/reference \
-		dlclark:regexp2:v1.11.5:dlclark_regexp2/vendor/github.com/dlclark/regexp2 \
+		dlclark:regexp2:v2.2.1:dlclark_regexp2_v2/vendor/github.com/dlclark/regexp2/v2 \
 		docker:cli:v29.7.2:docker_cli/vendor/github.com/docker/cli \
 		docker:docker-credential-helpers:v0.9.3:docker_docker_credential_helpers/vendor/github.com/docker/docker-credential-helpers \
 		dustin:go-humanize:v1.0.1:dustin_go_humanize/vendor/github.com/dustin/go-humanize \
@@ -79,7 +79,7 @@ GH_TUPLE=	\
 		go-viper:mapstructure:v2.5.0:go_viper_mapstructure_v2/vendor/github.com/go-viper/mapstructure/v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
 		godbus:dbus:v5.2.2:godbus_dbus_v5/vendor/github.com/godbus/dbus/v5 \
-		golang:crypto:v0.55.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.56.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:mod:v0.39.0:golang_mod/vendor/golang.org/x/mod \
 		golang:net:v0.58.0:golang_net/vendor/golang.org/x/net \
 		golang:sync:v0.22.0:golang_sync/vendor/golang.org/x/sync \
@@ -101,14 +101,14 @@ GH_TUPLE=	\
 		h2non:gock:v1.1.2:h2non_gock/vendor/gopkg.in/h2non/gock.v1 \
 		h2non:parth:b4df798d6542:h2non_parth/vendor/github.com/h2non/parth \
 		hashicorp:go-version:v1.9.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
-		henvic:httpretty:v0.1.4:henvic_httpretty/vendor/github.com/henvic/httpretty \
+		henvic:httpretty:v0.2.0:henvic_httpretty/vendor/github.com/henvic/httpretty \
 		hinshun:vt10x:820417d04eec:hinshun_vt10x/vendor/github.com/hinshun/vt10x \
 		huandu:xstrings:v1.5.0:huandu_xstrings/vendor/github.com/huandu/xstrings \
 		in-toto:attestation:v1.2.0:in_toto_attestation/vendor/github.com/in-toto/attestation \
 		in-toto:in-toto-golang:v0.11.0:in_toto_in_toto_golang/vendor/github.com/in-toto/in-toto-golang \
 		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
-		itchyny:gojq:v0.12.17:itchyny_gojq/vendor/github.com/itchyny/gojq \
-		itchyny:timefmt-go:v0.1.6:itchyny_timefmt_go/vendor/github.com/itchyny/timefmt-go \
+		itchyny:gojq:v0.12.19:itchyny_gojq/vendor/github.com/itchyny/gojq \
+		itchyny:timefmt-go:v0.1.8:itchyny_timefmt_go/vendor/github.com/itchyny/timefmt-go \
 		jedisct1:go-minisign:d2f9f49435c7:jedisct1_go_minisign/vendor/github.com/jedisct1/go-minisign \
 		joho:godotenv:v1.5.1:joho_godotenv/vendor/github.com/joho/godotenv \
 		kballard:go-shellquote:95032a82bc51:kballard_go_shellquote/vendor/github.com/kballard/go-shellquote \
@@ -155,7 +155,7 @@ GH_TUPLE=	\
 		stretchr:objx:v0.5.3:stretchr_objx/vendor/github.com/stretchr/objx \
 		stretchr:testify:v1.12.1:stretchr_testify/vendor/github.com/stretchr/testify \
 		theupdateframework:go-tuf:v2.4.2:theupdateframework_go_tuf_v2/vendor/github.com/theupdateframework/go-tuf/v2 \
-		thlib:go-timezone-local:v0.0.6:thlib_go_timezone_local/vendor/github.com/thlib/go-timezone-local \
+		thlib:go-timezone-local:v0.0.8:thlib_go_timezone_local/vendor/github.com/thlib/go-timezone-local \
 		transparency-dev:formats:v0.1.1:transparency_dev_formats/vendor/github.com/transparency-dev/formats \
 		transparency-dev:merkle:v0.0.2:transparency_dev_merkle/vendor/github.com/transparency-dev/merkle \
 		twitchtv:twirp:v8.1.3:twitchtv_twirp/vendor/github.com/twitchtv/twirp \
