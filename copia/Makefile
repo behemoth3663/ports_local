@@ -1,27 +1,28 @@
-PORTNAME=	rsync
+PORTNAME=	copia
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.6.4
+DISTVERSION=	0.3.0
 CATEGORIES=	local net
-PKGNAMEPREFIX=	oc-
 
 MAINTAINER=	none@FreeBSD.org
-COMMENT=	Classic rsync re-implementation in pure Rust
+COMMENT=	Pure Rust rsync-style delta synchronization library
 WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 
 LICENSE=	GPLv3
 
-USES=		cargo pkgconfig ssl llvm:23
+USES=		cargo
+# pkgconfig ssl llvm:23
 
 USE_GITHUB=	yes
-GH_ACCOUNT=	oferchen
+GH_ACCOUNT=	paiml
 
-PLIST_FILES=	bin/${PKGNAMEPREFIX}${PORTNAME}
+PLIST_FILES=	bin/${PORTNAME}
 
-XARCH=		${ARCH:S/amd64/x86_64/:tu}
+CARGO_FEATURES=	cli
 
-MAKE_ENV+=	${XARCH}_UNKNOWN_FREEBSD_OPENSSL_INCLUDE_DIR=${OPENSSLINC}
-MAKE_ENV+=	${XARCH}_UNKNOWN_FREEBSD_OPENSSL_LIB_DIR=${OPENSSLLIB}
-MAKE_ENV+=	CARGO_WORKSPACE_DIR=${WRKSRC}
+post-install: .PHONY
+.for _f in ${PLIST_FILES}
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/${_f}
+.endfor
 
 #https://www.freebsd.org/doc/en_US.ISO8859-1/books/porters-handbook/building.html#using-cargo
 deps: .PHONY

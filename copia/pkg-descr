@@ -1,0 +1,8 @@
+copia is two things in one binary:
+
+ 1. A pure-Rust rsync replacement - the classic rolling-checksum + BLAKE3
+    delta-transfer engine, with no C dependencies (no librsync, no OpenSSL),
+    no unsafe in copia itself, and native async I/O.
+ 2. A distributed file-sync system - one-way incremental mirroring, two-way
+    (bidirectional) sync with conflict-safe reconciliation, and a hub daemon
+    for star-topology sync across many clients.
