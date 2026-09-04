@@ -1,5 +1,5 @@
 PORTNAME=	gocritic
-PORTVERSION=	0.14.4
+PORTVERSION=	0.15.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -22,9 +22,9 @@ GO_TARGET=	./cmd/gocritic \
 CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w \
 	-X main.Version=v${PORTVERSION}"
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
-PLIST_FILES=	bin/gocritic \
-		bin/gocritic-analysis
+PLIST_FILES=	${GO_TARGET:T:S|^|bin/|}
 
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
