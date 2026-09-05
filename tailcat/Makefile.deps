@@ -88,10 +88,10 @@ GH_TUPLE=	\
 		tailscale:hujson:ecc657c15afd:tailscale_hujson/vendor/github.com/tailscale/hujson \
 		tailscale:netlink:4d49adab4de7:tailscale_netlink/vendor/github.com/tailscale/netlink \
 		tailscale:peercred:35a0c7bd7edc:tailscale_peercred/vendor/github.com/tailscale/peercred \
-		tailscale:tailscale:72780705eda8:tailscale_tailscale/vendor/tailscale.com \
+		tailscale:tailscale:31d8badb3bfb:tailscale_tailscale/vendor/tailscale.com \
 		tailscale:web-client-prebuilt:d4cd19a26976:tailscale_web_client_prebuilt/vendor/github.com/tailscale/web-client-prebuilt \
 		tailscale:wf:6fbb0a674ee6:tailscale_wf/vendor/github.com/tailscale/wf \
-		tailscale:wireguard-go:23d18d66172c:tailscale_wireguard_go/vendor/github.com/tailscale/wireguard-go \
+		tailscale:wireguard-go:e855235c55a2:tailscale_wireguard_go/vendor/github.com/tailscale/wireguard-go \
 		tailscale:xnet:8497ac4dab2e:tailscale_xnet/vendor/github.com/tailscale/xnet \
 		u-root:u-root:v0.14.0:u_root_u_root/vendor/github.com/u-root/u-root \
 		u-root:uio:d2acac8f3701:u_root_uio/vendor/github.com/u-root/uio \

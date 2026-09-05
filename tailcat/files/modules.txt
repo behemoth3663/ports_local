@@ -437,8 +437,8 @@ github.com/tailscale/web-client-prebuilt
 # github.com/tailscale/wf v0.0.0-20240214030419-6fbb0a674ee6
 ## explicit; go 1.18
 github.com/tailscale/wf
-# github.com/tailscale/wireguard-go v0.0.0-20260821191448-23d18d66172c
-## explicit; go 1.25.0
+# github.com/tailscale/wireguard-go v0.0.0-20260904023712-e855235c55a2
+## explicit; go 1.26.0
 github.com/tailscale/wireguard-go/conn
 github.com/tailscale/wireguard-go/conn/winrio
 github.com/tailscale/wireguard-go/device
@@ -448,6 +448,7 @@ github.com/tailscale/wireguard-go/ratelimiter
 github.com/tailscale/wireguard-go/replay
 github.com/tailscale/wireguard-go/rwcancel
 github.com/tailscale/wireguard-go/tai64n
+github.com/tailscale/wireguard-go/tsasm/amd64/chacha20poly1305
 github.com/tailscale/wireguard-go/tsasm/arm/chacha20
 github.com/tailscale/wireguard-go/tsasm/arm/chacha20poly1305
 github.com/tailscale/wireguard-go/tsasm/arm/poly1305
@@ -608,6 +609,7 @@ gvisor.dev/gvisor/pkg/tcpip/hash/jenkins
 gvisor.dev/gvisor/pkg/tcpip/header
 gvisor.dev/gvisor/pkg/tcpip/header/parse
 gvisor.dev/gvisor/pkg/tcpip/internal/tcp
+gvisor.dev/gvisor/pkg/tcpip/link/channel
 gvisor.dev/gvisor/pkg/tcpip/network/hash
 gvisor.dev/gvisor/pkg/tcpip/network/internal/fragmentation
 gvisor.dev/gvisor/pkg/tcpip/network/internal/ip
@@ -843,8 +845,8 @@ honnef.co/go/tools/stylecheck/st1021
 honnef.co/go/tools/stylecheck/st1022
 honnef.co/go/tools/stylecheck/st1023
 honnef.co/go/tools/unused
-# tailscale.com v1.103.0-pre.0.20260830144538-72780705eda8
-## explicit; go 1.27.0
+# tailscale.com v1.103.0-pre.0.20260904030409-31d8badb3bfb
+## explicit; go 1.27.1
 tailscale.com
 tailscale.com/appc
 tailscale.com/atomicfile
