@@ -1,0 +1,5 @@
+Strip merge() from inputs in a terragrunt.hcl. This tool is a small
+command-line utility written that simplifies HCL/Terragrunt configuration
+files by rewriting merge(...) expressions into their final object form when
+possible. It is designed for safe, syntax-aware transformation of HCL,
+without relying on regexes or string hacks.
