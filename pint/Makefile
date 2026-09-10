@@ -1,5 +1,5 @@
 PORTNAME=	pint
-PORTVERSION=	0.87.0
+PORTVERSION=	0.88.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -20,14 +20,14 @@ USE_GITLAB=	nodefault
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GIT_COMMIT=	git ls-remote \
-		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
-		refs/tags/${DISTVERSIONFULL}
+COMMIT_CMD=	git ls-remote \
+		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
+		refs/tags/${DISTVERSIONFULL} | cut -c1-7
 
 CGO_ENABLED=	0
 GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X 'main.version=${PORTVERSION}' \
-	-X 'main.commit=${GIT_COMMIT:sh:C/(.{7}).*/\\1/W}'"
+	-X main.version=${PORTVERSION} \
+	-X main.commit=$$(${COMMIT_CMD})"
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 pre-deps: .PHONY

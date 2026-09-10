@@ -1,13 +1,13 @@
---- Makefile.deps.orig	2026-07-13 10:17:30 UTC
+--- Makefile.deps.orig	2026-09-10 06:19:42 UTC
 +++ Makefile.deps
-@@ -89,7 +89,11 @@ GH_TUPLE=	\
+@@ -85,7 +85,10 @@ GH_TUPLE=	\
  		zclconf:go-cty:v1.19.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
  		# Errors found during processing:
- 		#	error getting commit v2.46.0 for gitlab-org/api: not found
+ 		#	error getting commit v3.0.0 for gitlab-org/api: not found
+-post-extract:
 +GL_TUPLE=	\
-+		gitlab-org-api:client-go:v2.46.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go/v2
-+
- post-extract:
++		gitlab-org-api:client-go:v3.0.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go/v3
++post-extract: .PHONY
 +	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
  	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io/otel/metric
  	@${RLN} ${WRKSRC_open_telemetry_opentelemetry_go_metric}/metric ${WRKSRC}/vendor/go.opentelemetry.io/otel/metric
