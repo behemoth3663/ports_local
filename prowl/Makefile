@@ -17,7 +17,8 @@ GH_ACCOUNT=	caarlos0
 
 PLIST_FILES=	bin/${PORTNAME}
 
-FETCH_ENV=	SSL_NO_VERIFY_PEER=1 SSL_NO_VERIFY_HOSTNAME=1 HTTP_USER_AGENT='Mozilla/5.0 (X11; Linux x86_64; rv:155.0) Gecko/20100101 Firefox/155.0'
+FIREFOX_VERSION!=	pkg-static query --evaluate %n=firefox %v | sed -r 's/^([^.]+\.[^.]+).*/\1/'
+FETCH_ENV=	HTTP_USER_AGENT='Mozilla/5.0 (X11; Linux x86_64; rv:${FIREFOX_VERSION}) Gecko/20100101 Firefox/${FIREFOX_VERSION}'
 
 post-extract: .PHONY .SILENT
 	${REINPLACE_CMD} -r 's/^(version[[:blank:]]*=[[:blank:]]*).*/\1"${DISTVERSION}"/' ${WRKSRC}/Cargo.toml
