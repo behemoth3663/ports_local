@@ -17,8 +17,8 @@ GH_ACCOUNT=	caarlos0
 
 PLIST_FILES=	bin/${PORTNAME}
 
-FIREFOX_VERSION!=	pkg-static query --evaluate %n=firefox %v | sed -r 's/^([0-9]+\.[0-9]+).*/\1/'
-FETCH_ENV=	HTTP_USER_AGENT='Mozilla/5.0 (X11; Linux x86_64; rv:${FIREFOX_VERSION}) Gecko/20100101 Firefox/${FIREFOX_VERSION}'
+FIREFOX_VERSION_CMD=	${PKG_QUERY} --evaluate %n=firefox %v | ${SED} -r 's/^([0-9]+\.[0-9]+).*/\1/'
+FETCH_ENV=	HTTP_USER_AGENT='Mozilla/5.0 (X11; Linux x86_64; rv:$$(${FIREFOX_VERSION_CMD})) Gecko/20100101 Firefox/$$(${FIREFOX_VERSION_CMD})'
 
 post-extract: .PHONY .SILENT
 	${REINPLACE_CMD} -r 's/^(version[[:blank:]]*=[[:blank:]]*).*/\1"${DISTVERSION}"/' ${WRKSRC}/Cargo.toml
