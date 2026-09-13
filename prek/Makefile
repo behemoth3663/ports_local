@@ -1,6 +1,6 @@
 PORTNAME=	prek
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.5.2
+DISTVERSION=	0.5.3
 CATEGORIES=	local devel
 
 MAINTAINER=	none@FreeBSD.org
@@ -20,7 +20,7 @@ PLIST_FILES=	bin/${PORTNAME}
 CARGO_INSTALL_PATH=	crates/${PORTNAME}
 
 FIREFOX_VERSION_CMD=	${PKG_QUERY} --evaluate %n=firefox %v | ${SED} -r 's/^([0-9]+\.[0-9]+).*/\1/'
-FETCH_ENV=	HTTP_USER_AGENT='Mozilla/5.0 (X11; Linux x86_64; rv:$$(${FIREFOX_VERSION_CMD})) Gecko/20100101 Firefox/$$(${FIREFOX_VERSION_CMD})'
+FETCH_ENV=	HTTP_USER_AGENT='Mozilla/5.0 (X11; Linux x86_64; rv:${FIREFOX_VERSION_CMD:sh}) Gecko/20100101 Firefox/${FIREFOX_VERSION_CMD:sh}'
 
 #https://www.freebsd.org/doc/en_US.ISO8859-1/books/porters-handbook/building.html#using-cargo
 deps: .PHONY
