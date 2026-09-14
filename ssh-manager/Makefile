@@ -1,6 +1,6 @@
 PORTNAME=	ssh-manager
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.122.0
+DISTVERSION=	1.123.0
 CATEGORIES=	local security
 
 MAINTAINER=	none@freebsd.org
