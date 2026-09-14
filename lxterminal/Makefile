@@ -1,6 +1,6 @@
 PORTNAME=	lxterminal
 PORTVERSION=	0.4.1
-PORTREVISION=	5
+PORTREVISION=	6
 CATEGORIES=	local sysutils
 
 MAINTAINER=	portmaster@BSDforge.com
@@ -13,7 +13,7 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 LIB_DEPENDS=	libfontconfig.so:x11-fonts/fontconfig \
 		libfreetype.so:print/freetype2
 
-USES=		cpe gmake gnome localbase pkgconfig tar:xz xorg autoreconf:2.69 llvm:21,build # instead of pre-configure: ${SH} autogen.sh
+USES=		cpe gmake gnome localbase pkgconfig tar:xz xorg autoreconf:2.69 llvm:23,build # instead of pre-configure: ${SH} autogen.sh
 CPE_VENDOR=	${PORTNAME}_project
 USE_GNOME=	gtk30 glib20 cairo vte3 intltool
 USE_XORG=	x11 xext
