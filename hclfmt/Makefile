@@ -1,5 +1,5 @@
 PORTNAME=	hclfmt
-PORTVERSION=	2.24.0
+PORTVERSION=	2.25.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local textproc
 
@@ -19,24 +19,26 @@ GO_TARGET=	./cmd/${PORTNAME}
 
 PLIST_FILES=	bin/${PORTNAME}
 
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags '-static'"
+CGO_ENABLED=	0
+GO_LDFLAGS+=	-w
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 #const versionStr = "0.0.1-dev"
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 	@${REINPLACE_CMD} -r \
-		-e 's|^([[:space:]]*const[[:space:]]+versionStr[[:space:]]*=[[:space:]]*)".*"[[:space:]]*$$|\1"${PORTVERSION}"|' \
+		-e 's|^([[:blank:]]*const[[:blank:]]+versionStr[[:blank:]]*=[[:blank:]]*)".*"[[:blank:]]*$$|\1"${PORTVERSION}"|' \
 	${WRKSRC}/${GO_TARGET}/main.go
 
 pre-deps: .PHONY
-	test -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
 
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 
 post-deps-all: .PHONY
-	test -d ${PATCHDIR}_ && ${MV} ${PATCHDIR}_ ${PATCHDIR} || :
+	${TEST} -d ${PATCHDIR}_ && ${MV} ${PATCHDIR}_ ${PATCHDIR} || :
 
-.include "/etc/make.d/go-deps.mk"
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 .include <bsd.port.mk>
