@@ -1,7 +1,7 @@
 PORTNAME=	terraform
 PORTVERSION=	1.9.8
 DISTVERSIONPREFIX=	v
-PORTREVISION=	20260829
+PORTREVISION=	20260915
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX=	-${PORTVERSION:R}
 
@@ -25,10 +25,10 @@ JQ_GETVER_EXPR=	[.[].name | gsub("^[a-z]+";"") | \
 		"n"))][0]
 
 CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=${PORTVERSION} \
-	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.dev=no \
-	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.VersionPrerelease="
+GO_LDFLAGS+=	-w
+GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=${PORTVERSION}
+GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.dev=no
+GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.VersionPrerelease=
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 M2T_OFFLINE=	true
@@ -46,11 +46,11 @@ pre-deps: .PHONY
 	cd ${WRKSRC} && \
 		${CP} -a go.mod go.mod.orig && \
 		${CP} -a go.sum go.sum.orig && \
-		${GO_CMD} mod edit -replace=k8s.io/kube-openapi=k8s.io/kube-openapi@v0.0.0-20220803162953-67bda5d908f1 && \
 		${GO_CMD} mod edit -replace=github.com/google/gnostic=github.com/google/gnostic@v0.5.7-v3refs && \
 		${GO_CMD} mod edit -replace=github.com/hashicorp/aws-sdk-go-base/v2=github.com/hashicorp/aws-sdk-go-base/v2@v2.0.0-beta.55 && \
 		${GO_CMD} mod edit -replace=github.com/hashicorp/go-getter=github.com/hashicorp/go-getter@v1.7.9 && \
 		${GO_CMD} mod edit -replace=google.golang.org/genproto=google.golang.org/genproto@v0.0.0-20260803160001-6ac0973c030d && \
+		${GO_CMD} mod edit -replace=k8s.io/kube-openapi=k8s.io/kube-openapi@v0.0.0-20220803162953-67bda5d908f1 && \
 		${GO_CMD} get -u=patch && \
 		${GO_CMD} mod tidy && \
 		${SETENV} TZ=UTC ${DIFF} -udp go.mod.orig go.mod | \
@@ -196,13 +196,6 @@ GH_TUPLE:=	${GH_TUPLE:S|/gokrb5/v8|/gokrb5|1}
 GH_TUPLE:=	${GH_TUPLE:S|/jcmturner/rpc/v2|/jcmturner/rpc|1}
 
 GH_TUPLE+=	golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf
-
-#It's ok if `make deps-all` finishes with:
-## github.com/hashicorp/terraform/internal/rpcapi
-#internal/rpcapi/grpc_testing.go:29:34: undefined: otelgrpc.UnaryServerInterceptor
-#internal/rpcapi/grpc_testing.go:52:38: undefined: otelgrpc.UnaryClientInterceptor
-#internal/rpcapi/server.go:42:36: undefined: otelgrpc.UnaryServerInterceptor
-#DO: mv files_ files && make clean all
 
 .sinclude "${.CURDIR}/generated.deps.mk"
 .include <bsd.port.mk>
