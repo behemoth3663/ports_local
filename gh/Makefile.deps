@@ -29,7 +29,7 @@ GH_TUPLE=	\
 		charmbracelet:x:v0.2.2:charmbracelet_x_term/vendor/github.com/charmbracelet/x/term \
 		charmbracelet:x:v0.2.2:charmbracelet_x_windows/vendor/github.com/charmbracelet/x/windows \
 		cli:browser:v1.3.0:cli_browser/vendor/github.com/cli/browser \
-		cli:go-gh:v2.16.0:cli_go_gh_v2/vendor/github.com/cli/go-gh/v2 \
+		cli:go-gh:v2.16.1:cli_go_gh_v2/vendor/github.com/cli/go-gh/v2 \
 		cli:go-internal:6c48bcd5ce24:cli_go_internal/vendor/github.com/cli/go-internal \
 		cli:oauth:v1.2.2:cli_oauth/vendor/github.com/cli/oauth \
 		cli:safeexec:v1.0.1:cli_safeexec/vendor/github.com/cli/safeexec \
@@ -79,17 +79,17 @@ GH_TUPLE=	\
 		go-viper:mapstructure:v2.5.0:go_viper_mapstructure_v2/vendor/github.com/go-viper/mapstructure/v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
 		godbus:dbus:v5.2.2:godbus_dbus_v5/vendor/github.com/godbus/dbus/v5 \
-		golang:crypto:v0.56.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:mod:v0.39.0:golang_mod/vendor/golang.org/x/mod \
+		golang:crypto:v0.57.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:mod:v0.41.0:golang_mod/vendor/golang.org/x/mod \
 		golang:net:v0.58.0:golang_net/vendor/golang.org/x/net \
-		golang:sync:v0.22.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.47.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.45.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.41.0:golang_text/vendor/golang.org/x/text \
+		golang:sync:v0.23.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.48.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.46.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.42.0:golang_text/vendor/golang.org/x/text \
 		golang:tools:v0.49.0:golang_tools/vendor/golang.org/x/tools \
 		google:certificate-transparency-go:v1.3.3:google_certificate_transparency_go/vendor/github.com/google/certificate-transparency-go \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
-		google:go-containerregistry:v0.22.0:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
+		google:go-containerregistry:v0.22.1:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
 		google:go-genproto:3dc84a4a5aaa:google_go_genproto_api/vendor/google.golang.org/genproto/googleapis/api \
 		google:go-genproto:3dc84a4a5aaa:google_go_genproto_rpc/vendor/google.golang.org/genproto/googleapis/rpc \
 		google:shlex:e7afc7fbc510:google_shlex/vendor/github.com/google/shlex \
@@ -112,14 +112,14 @@ GH_TUPLE=	\
 		jedisct1:go-minisign:d2f9f49435c7:jedisct1_go_minisign/vendor/github.com/jedisct1/go-minisign \
 		joho:godotenv:v1.5.1:joho_godotenv/vendor/github.com/joho/godotenv \
 		kballard:go-shellquote:95032a82bc51:kballard_go_shellquote/vendor/github.com/kballard/go-shellquote \
-		klauspost:compress:v1.19.2:klauspost_compress/vendor/github.com/klauspost/compress \
+		klauspost:compress:v1.20.0:klauspost_compress/vendor/github.com/klauspost/compress \
 		lucasb-eyer:go-colorful:v1.4.1:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
 		mattn:go-colorable:v0.1.15:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
 		mattn:go-isatty:v0.0.24:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
 		mattn:go-runewidth:v0.0.27:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
 		mgutz:ansi:d51e80ef957d:mgutz_ansi/vendor/github.com/mgutz/ansi \
 		microcosm-cc:bluemonday:v1.0.27:microcosm_cc_bluemonday/vendor/github.com/microcosm-cc/bluemonday \
-		microsoft:dev-tunnels:v0.1.27:microsoft_dev_tunnels/vendor/github.com/microsoft/dev-tunnels \
+		microsoft:dev-tunnels:v0.2.0:microsoft_dev_tunnels/vendor/github.com/microsoft/dev-tunnels \
 		mitchellh:copystructure:v1.2.0:mitchellh_copystructure/vendor/github.com/mitchellh/copystructure \
 		mitchellh:hashstructure:v2.0.2:mitchellh_hashstructure_v2/vendor/github.com/mitchellh/hashstructure/v2 \
 		mitchellh:reflectwalk:v1.0.2:mitchellh_reflectwalk/vendor/github.com/mitchellh/reflectwalk \
@@ -164,7 +164,7 @@ GH_TUPLE=	\
 		xo:terminfo:abceb7e1c41e:xo_terminfo/vendor/github.com/xo/terminfo \
 		youmark:pkcs8:a2c0da244d78:youmark_pkcs8/vendor/github.com/youmark/pkcs8 \
 		yuin:goldmark-emoji:v1.0.6:yuin_goldmark_emoji/vendor/github.com/yuin/goldmark-emoji \
-		yuin:goldmark:v1.8.5:yuin_goldmark/vendor/github.com/yuin/goldmark \
+		yuin:goldmark:v1.8.6:yuin_goldmark/vendor/github.com/yuin/goldmark \
 		zalando:go-keyring:v0.2.8:zalando_go_keyring/vendor/github.com/zalando/go-keyring
 		# Mirrors for the following packages are not currently known, please look them up and handle these tuples manually:
 		#	::v1.0.2:group_name/vendor/dario.cat/mergo (from dario.cat/mergo@v1.0.2)

@@ -1,5 +1,5 @@
 PORTNAME=	gh
-PORTVERSION=	2.100.0
+PORTVERSION=	2.101.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -22,9 +22,9 @@ GH_PROJECT=	${GH_ACCOUNT}
 GO_TARGET=	./cmd/${PORTNAME}
 
 CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/internal/build.Version=${PORTVERSION} \
-	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/internal/build.Date=${%FT%TZ:L:gmtime}"
+GO_LDFLAGS+=	-w
+GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/internal/build.Version=${PORTVERSION}
+GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/internal/build.Date=${%FT%TZ:L:gmtime}
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 _DOCS=		README.md docs/[!README]*.md
