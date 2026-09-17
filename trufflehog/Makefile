@@ -1,5 +1,5 @@
 PORTNAME=	trufflehog
-PORTVERSION=	3.97.4
+PORTVERSION=	3.97.5
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -16,8 +16,8 @@ USES=		go:modules
 GO_MODULE=	github.com/trufflesecurity/${PORTNAME}/v3
 
 CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X ${GO_MODULE}/pkg/version.BuildVersion=${PORTVERSION}"
+GO_LDFLAGS+=	-w
+GO_LDFLAGS+=	-X ${GO_MODULE}/pkg/version.BuildVersion=${PORTVERSION}
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 PLIST_FILES=	bin/${PORTNAME}
