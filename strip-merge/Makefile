@@ -1,7 +1,6 @@
 PORTNAME=	strip-merge
-PORTVERSION=	0.1.28
+PORTVERSION=	0.1.32
 DISTVERSIONPREFIX=	v
-#PORTREVISION=	1
 CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
@@ -25,9 +24,9 @@ COMMIT_CMD=	git ls-remote \
 		refs/tags/${DISTVERSIONFULL}^{} | cut -c1-7
 
 CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w \
-		-X main.version=${PORTVERSION} \
-		-X main.gitCommit=$$(${COMMIT_CMD})"
+GO_LDFLAGS+=	-w
+GO_LDFLAGS+=	-X main.version=${PORTVERSION}
+GO_LDFLAGS+=	-X main.gitCommit=2ce9733
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 M2T_OFFLINE=	true

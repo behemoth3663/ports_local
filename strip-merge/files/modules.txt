@@ -16,17 +16,18 @@ github.com/google/go-cmp/cmp/internal/diff
 github.com/google/go-cmp/cmp/internal/flags
 github.com/google/go-cmp/cmp/internal/function
 github.com/google/go-cmp/cmp/internal/value
-# github.com/hashicorp/hcl/v2 v2.24.0
-## explicit; go 1.23.0
+# github.com/hashicorp/hcl/v2 v2.25.0
+## explicit; go 1.25.0
 github.com/hashicorp/hcl/v2
 github.com/hashicorp/hcl/v2/ext/customdecode
 github.com/hashicorp/hcl/v2/hclsyntax
 github.com/hashicorp/hcl/v2/hclwrite
+github.com/hashicorp/hcl/v2/internal/unicodeutil
 # github.com/mitchellh/go-wordwrap v1.0.1
 ## explicit; go 1.14
 github.com/mitchellh/go-wordwrap
-# github.com/omilevskyi/go v0.1.27 => github.com/omilevskyi/go v0.1.26
-## explicit; go 1.26
+# github.com/omilevskyi/go v0.1.31 => github.com/omilevskyi/go v0.1.31
+## explicit; go 1.27
 github.com/omilevskyi/go/pkg/utils
 # github.com/zclconf/go-cty v1.19.0
 ## explicit; go 1.25
@@ -40,18 +41,18 @@ github.com/zclconf/go-cty/cty/gocty
 github.com/zclconf/go-cty/cty/internal/graphemes
 github.com/zclconf/go-cty/cty/json
 github.com/zclconf/go-cty/cty/set
-# golang.org/x/mod v0.40.0
-## explicit; go 1.25.0
+# golang.org/x/mod v0.41.0
+## explicit; go 1.26.0
 golang.org/x/mod/semver
-# golang.org/x/sync v0.22.0
-## explicit; go 1.25.0
+# golang.org/x/sync v0.23.0
+## explicit; go 1.26.0
 golang.org/x/sync/errgroup
-# golang.org/x/text v0.41.0
-## explicit; go 1.25.0
+# golang.org/x/text v0.42.0
+## explicit; go 1.26.0
 golang.org/x/text/transform
 golang.org/x/text/unicode/norm
-# golang.org/x/tools v0.49.0
-## explicit; go 1.25.0
+# golang.org/x/tools v0.50.0
+## explicit; go 1.26.0
 golang.org/x/tools/cmd/stringer
 golang.org/x/tools/go/ast/edge
 golang.org/x/tools/go/ast/inspector
@@ -71,4 +72,4 @@ golang.org/x/tools/internal/pkgbits
 golang.org/x/tools/internal/stdlib
 golang.org/x/tools/internal/typesinternal
 golang.org/x/tools/internal/versions
-# github.com/omilevskyi/go => github.com/omilevskyi/go v0.1.26
+# github.com/omilevskyi/go => github.com/omilevskyi/go v0.1.31
