@@ -1,5 +1,5 @@
 PORTNAME=	docker
-PORTVERSION=	29.8.0
+PORTVERSION=	29.8.1
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -28,7 +28,7 @@ COMMIT_CMD=	git ls-remote \
 		refs/tags/${DISTVERSIONFULL}^{} | cut -c1-7
 
 CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w"
+GO_LDFLAGS+=	-w
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 post-extract: .PHONY
