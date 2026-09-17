@@ -1,5 +1,5 @@
 PORTNAME=	unhealthy-tgs
-PORTVERSION=	0.1.28
+PORTVERSION=	0.1.32
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	2
 CATEGORIES=	local sysutils
@@ -25,9 +25,9 @@ COMMIT_CMD=	git ls-remote \
 		refs/tags/${DISTVERSIONFULL}^{} | cut -c1-7
 
 CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w \
-		-X main.version=${PORTVERSION} \
-		-X main.commit=$$(${COMMIT_CMD})"
+GO_LDFLAGS+=	-w
+GO_LDFLAGS+=	-X main.version=${PORTVERSION}
+GO_LDFLAGS+=	-X main.commit=f9ff39c
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 M2T_OFFLINE=	true
