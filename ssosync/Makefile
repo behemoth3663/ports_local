@@ -1,5 +1,5 @@
 PORTNAME=	ssosync
-PORTVERSION=	2.6.3
+PORTVERSION=	2.7.1
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -27,14 +27,15 @@ COMMIT_CMD=	git ls-remote \
 		refs/tags/${DISTVERSIONFULL} | cut -c1-7
 
 CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.version=${PORTVERSION} \
-	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.commit=$$(${COMMIT_CMD}) \
-	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.date=${%FT%TZ:L:gmtime} \
-	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.builtBy=${OPSYS}"
+GO_LDFLAGS+=	-w
+GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.version=${PORTVERSION}
+GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.commit=862cf24
+GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.date=${%FT%TZ:L:gmtime}
+GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.builtBy=${OPSYS}
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 post-extract: .PHONY
+	@${MKDIR} ${WRKSRC}/vendor
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 	@${FIND} ${WRKSRC} -name '*_test.go' -type f -delete
 	@${RM} ${WRKSRC}/vendor/github.com/googleapis/gax-go/v2/telemetry.go

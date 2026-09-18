@@ -18,10 +18,11 @@ GH_TUPLE=	\
 		aws:aws-sdk-go-v2:v1.44.0:aws_aws_sdk_go_v2_sts/vendor/github.com/aws/aws-sdk-go-v2/service/sts \
 		aws:aws-sdk-go-v2:v1.48.0:aws_aws_sdk_go_v2_codepipeline/vendor/github.com/aws/aws-sdk-go-v2/service/codepipeline \
 		aws:aws-sdk-go-v2:v1.70.0:aws_aws_sdk_go_v2_ssm/vendor/github.com/aws/aws-sdk-go-v2/service/ssm \
-		aws:aws-sdk-go-v2:v1.8.6:aws_aws_sdk_go_v2_ini/vendor/github.com/aws/aws-sdk-go-v2/internal/ini \
 		aws:aws-sdk-go-v2:v2.7.30:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 \
+		aws:aws-sdk-go:v1.38.36:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go \
 		aws:aws-secretsmanager-caching-go:v2.2.0:aws_aws_secretsmanager_caching_go_v2/vendor/github.com/aws/aws-secretsmanager-caching-go/v2 \
 		aws:smithy-go:v1.27.3:aws_smithy_go/vendor/github.com/aws/smithy-go \
+		awslabs:ssosync:v1.1.0:awslabs_ssosync/vendor/github.com/awslabs/ssosync \
 		cespare:xxhash:v2.3.0:cespare_xxhash_v2/vendor/github.com/cespare/xxhash/v2 \
 		davecgh:go-spew:d8f796af33cc:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		felixge:httpsnoop:v1.1.0:felixge_httpsnoop/vendor/github.com/felixge/httpsnoop \
@@ -30,29 +31,29 @@ GH_TUPLE=	\
 		go-logr:stdr:v1.2.2:go_logr_stdr/vendor/github.com/go-logr/stdr \
 		go-viper:mapstructure:v2.5.0:go_viper_mapstructure_v2/vendor/github.com/go-viper/mapstructure/v2 \
 		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
-		golang:crypto:v0.53.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:net:v0.56.0:golang_net/vendor/golang.org/x/net \
+		golang:crypto:v0.56.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:net:v0.57.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.36.0:golang_oauth2/vendor/golang.org/x/oauth2 \
-		golang:sys:v0.46.0:golang_sys/vendor/golang.org/x/sys \
-		golang:text:v0.39.0:golang_text/vendor/golang.org/x/text \
+		golang:sys:v0.47.0:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.41.0:golang_text/vendor/golang.org/x/text \
 		google:go-genproto:f0a921348800:google_go_genproto_rpc/vendor/google.golang.org/genproto/googleapis/rpc \
 		google:s2a-go:v0.1.9:google_s2a_go/vendor/github.com/google/s2a-go \
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
-		googleapis:enterprise-certificate-proxy:v0.3.18:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
+		googleapis:enterprise-certificate-proxy:v0.3.20:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
 		googleapis:gax-go:v2.22.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2 \
 		googleapis:google-api-go-client:v0.287.0:googleapis_google_api_go_client/vendor/google.golang.org/api \
 		googleapis:google-cloud-go:v0.20.0:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth \
-		grpc:grpc-go:v1.82.0:grpc_grpc_go/vendor/google.golang.org/grpc \
+		grpc:grpc-go:v1.83.1:grpc_grpc_go/vendor/google.golang.org/grpc \
 		hashicorp:go-cleanhttp:v0.5.2:hashicorp_go_cleanhttp/vendor/github.com/hashicorp/go-cleanhttp \
 		hashicorp:go-retryablehttp:v0.7.8:hashicorp_go_retryablehttp/vendor/github.com/hashicorp/go-retryablehttp \
 		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
+		jmespath:go-jmespath:v0.4.0:jmespath_go_jmespath/vendor/github.com/jmespath/go-jmespath \
 		pelletier:go-toml:v2.4.3:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
 		pmezard:go-difflib:5d4384ee4fb2:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
 		protocolbuffers:protobuf-go:v1.36.11:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		sagikazarmark:locafero:v0.12.0:sagikazarmark_locafero/vendor/github.com/sagikazarmark/locafero \
 		sirupsen:logrus:v1.9.4:sirupsen_logrus/vendor/github.com/sirupsen/logrus \
-		sourcegraph:conc:5f936abd7ae8:sourcegraph_conc/vendor/github.com/sourcegraph/conc \
 		spf13:afero:v1.15.0:spf13_afero/vendor/github.com/spf13/afero \
 		spf13:cast:v1.10.0:spf13_cast/vendor/github.com/spf13/cast \
 		spf13:cobra:v1.10.2:spf13_cobra/vendor/github.com/spf13/cobra \
