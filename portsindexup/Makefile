@@ -1,6 +1,7 @@
 PORTNAME=	portsindexup
 PORTVERSION=	0.1.32
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local ports-mgmt
 
 MAINTAINER=	none@freebsd.org
@@ -27,7 +28,7 @@ CGO_ENABLED=	0
 GO_LDFLAGS+=	-w
 GO_LDFLAGS+=	-X main.version=${PORTVERSION}
 GO_LDFLAGS+=	-X main.gitCommit=2ce9733
-GO_LDFLAGS+=	-X main.makeBin=/usr/bin/make"
+GO_LDFLAGS+=	-X main.makeBin=/usr/bin/make
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 M2T_OFFLINE=	true
