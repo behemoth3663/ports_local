@@ -1,5 +1,5 @@
 PORTNAME=	checkip
-PORTVERSION=	0.53.3
+PORTVERSION=	0.54.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local net
 
@@ -17,7 +17,7 @@ GH_ACCOUNT=	jreisinger
 PLIST_FILES=	bin/${PORTNAME}
 
 CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w"
+GO_LDFLAGS+=	-w
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 post-extract: .PHONY
