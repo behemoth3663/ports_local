@@ -1,5 +1,5 @@
 PORTNAME=	eslint
-PORTVERSION=	10.10.0
+PORTVERSION=	10.11.0
 CATEGORIES=	local devel
 MASTER_SITES=	LOCAL/o1vm/:npm
 
@@ -26,10 +26,12 @@ PACKAGE_NAME=	${PORTNAME}
 FETCH_SCRIPT=	${PORTSDIR}/Tools/scripts/npmjs-fetch-with-dependencies.sh
 
 do-fetch: .PHONY
-.for _f in ${DISTFILES}
-	@${TEST} -f ${DISTDIR}/${_f} || ${SETENV} TMPDIR=${WRKDIR} LOCALBASE=${LOCALBASE} \
-			${FETCH_SCRIPT} ${PACKAGE_NAME} ${DISTVERSION} ${FILESDIR}/package.json ${DISTDIR}/${_f}
-.endfor
+	for f in ${DISTFILES}; do \
+		${TEST} -f "${DISTDIR}/$${f}" && continue; \
+		${RM} -fv -- ${FILESDIR}/package.json; \
+		${SETENV} TMPDIR=${WRKDIR} LOCALBASE=${LOCALBASE} \
+			${FETCH_SCRIPT} ${PACKAGE_NAME} ${DISTVERSION} ${FILESDIR}/package.json "${DISTDIR}/$${f}"; \
+	done
 
 do-install: .PHONY
 	@${MKDIR} ${STAGEDIR}${PREFIX}/lib
