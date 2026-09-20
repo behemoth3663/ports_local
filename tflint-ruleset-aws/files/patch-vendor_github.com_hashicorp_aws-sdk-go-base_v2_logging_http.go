@@ -1,18 +1,14 @@
---- vendor/github.com/hashicorp/aws-sdk-go-base/v2/logging/http.go.orig	2024-09-23 18:15:31 UTC
+--- vendor/github.com/hashicorp/aws-sdk-go-base/v2/logging/http.go.orig	2026-07-29 05:02:03 UTC
 +++ vendor/github.com/hashicorp/aws-sdk-go-base/v2/logging/http.go
-@@ -4,24 +4,15 @@ import (
- package logging
+@@ -5,20 +5,12 @@ import (
  
  import (
--	"bufio"
+ 	"bufio"
 -	"bytes"
  	"context"
- 	"errors"
  	"fmt"
- 	"io"
+-	"io"
  	"net/http"
--	"net/http/httputil"
- 	"net/textproto"
 -	"regexp"
 -	"strconv"
  	"strings"
@@ -25,7 +21,7 @@
  	"golang.org/x/text/message"
  )
  
-@@ -32,73 +23,14 @@ func DecomposeHTTPRequest(ctx context.Context, req *ht
+@@ -29,73 +21,14 @@ func DecomposeHTTPRequest(ctx context.Context, req *ht
  )
  
  func DecomposeHTTPRequest(ctx context.Context, req *http.Request) (map[string]any, error) {
@@ -34,7 +30,7 @@
 -	attributes = append(attributes, httpconv.ClientRequest(req)...)
 -	// Remove empty `http.flavor`
 -	attributes = slices.Filter(attributes, func(attr attribute.KeyValue) bool {
--		return attr.Key != semconv.HTTPFlavorKey || attr.Value.Emit() != ""
+-		return attr.Key != semconv.HTTPFlavorKey || attr.Value.String() != ""
 -	})
 -
 -	attributes = append(attributes, decomposeRequestHeaders(req)...)
@@ -50,7 +46,7 @@
 -		result[string(attribute.Key)] = attribute.Value.AsInterface()
 -	}
 -
-+	result := make(map[string]any, 0)
++	result := make(map[string]any)
  	return result, nil
  }
  
@@ -100,32 +96,32 @@
  }
  
  func requestBodyLogger(ctx context.Context) RequestBodyLogger {
-@@ -115,62 +47,14 @@ type defaultRequestBodyLogger struct{}
+@@ -112,62 +45,14 @@ type defaultRequestBodyLogger struct{}
  
  type defaultRequestBodyLogger struct{}
  
 -func (l *defaultRequestBodyLogger) Log(ctx context.Context, req *http.Request, attrs *[]attribute.KeyValue) error {
--	reqBytes, err := httputil.DumpRequestOut(req, true)
--	if err != nil {
--		return err
+-	if req.Body == nil || req.Body == http.NoBody {
+-		*attrs = append(*attrs, attribute.String("http.request.body", ""))
+-		return nil
 -	}
 -
--	reader := textproto.NewReader(bufio.NewReader(bytes.NewReader(reqBytes)))
+-	original := BufferPool.Get()
+-	defer BufferPool.Put(original)
 -
--	if _, err = reader.ReadLine(); err != nil {
--		return err
--	}
+-	tee := io.TeeReader(req.Body, original)
 -
--	if _, err = reader.ReadMIMEHeader(); err != nil {
--		return err
--	}
+-	scanner := bufio.NewScanner(tee)
 -
--	body, err := ReadTruncatedBody(reader, maxRequestBodyLen)
+-	body, err := ReadTruncatedBody(scanner, maxRequestBodyLen)
 -	if err != nil {
 -		return err
 -	}
 -
 -	*attrs = append(*attrs, attribute.String("http.request.body", body))
+-
+-	// Restore the full body for the SDK serialiser.
+-	req.Body = io.NopCloser(io.MultiReader(bytes.NewReader(original.Bytes()), req.Body))
 -
 -	return nil
 -}
@@ -163,7 +159,7 @@
  func s3BodyRedacted(length int64, contentType string) string {
  	body := fmt.Sprintf("[Redacted: %s", formatByteSize(length))
  
-@@ -215,10 +99,6 @@ func outgoingLength(req *http.Request) int64 {
+@@ -212,10 +97,6 @@ func outgoingLength(req *http.Request) int64 {
  	return -1
  }
  
@@ -174,7 +170,7 @@
  func requestHeaderAttributeName(k string) string {
  	return fmt.Sprintf("http.request.header.%s", normalizeHeaderName(k))
  }
-@@ -229,95 +109,8 @@ func normalizeHeaderName(k string) string {
+@@ -226,95 +107,8 @@ func normalizeHeaderName(k string) string {
  	return strings.ReplaceAll(lower, "-", "_")
  }
  
@@ -269,4 +265,4 @@
 -	})
  }
  
- func ReadTruncatedBody(reader *textproto.Reader, len int) (string, error) {
+ func ReadTruncatedBody(scanner *bufio.Scanner, len int) (string, error) {

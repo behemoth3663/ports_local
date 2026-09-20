@@ -1,7 +1,6 @@
 PORTNAME=	tflint-ruleset-aws
-PORTVERSION=	0.48.0
+PORTVERSION=	0.49.0
 DISTVERSIONPREFIX=	v
-#PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -21,7 +20,7 @@ M2T_OFFLINE=	true
 .export	M2T_OFFLINE
 
 CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w"
+GO_LDFLAGS+=	-w
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 post-extract: .PHONY

@@ -1,6 +1,6 @@
---- vendor/github.com/hashicorp/aws-sdk-go-base/v2/logger.go.orig	2026-03-20 17:11:45 UTC
+--- vendor/github.com/hashicorp/aws-sdk-go-base/v2/logger.go.orig	2026-07-29 05:02:03 UTC
 +++ vendor/github.com/hashicorp/aws-sdk-go-base/v2/logger.go
-@@ -4,31 +4,20 @@ import (
+@@ -4,11 +4,8 @@ import (
  package awsbase
  
  import (
@@ -11,9 +11,8 @@
 -	"io"
  	"log"
  	"net/http"
--	"net/textproto"
  	"strings"
- 	"time"
+@@ -16,18 +13,11 @@ import (
  
  	"github.com/aws/aws-sdk-go-v2/aws"
  	awsmiddleware "github.com/aws/aws-sdk-go-v2/aws/middleware"
@@ -32,7 +31,7 @@
  )
  
  type debugLogger struct {
-@@ -47,7 +36,7 @@ func (l debugLogger) Logf(classification smithylogging
+@@ -46,7 +36,7 @@ func (l debugLogger) Logf(classification smithylogging
  		}
  	} else {
  		s = strings.ReplaceAll(s, "\r", "") // Works around https://github.com/jen20/teamcity-go-test/pull/2
@@ -41,7 +40,7 @@
  	}
  }
  
-@@ -59,10 +48,6 @@ const awsSdkGoV2Val = "aws-sdk-go-v2"
+@@ -58,10 +48,6 @@ const awsSdkGoV2Val = "aws-sdk-go-v2"
  
  const awsSdkGoV2Val = "aws-sdk-go-v2"
  
@@ -52,7 +51,7 @@
  type logAttributeExtractor struct{}
  
  func (l *logAttributeExtractor) ID() string {
-@@ -71,31 +56,6 @@ func (l *logAttributeExtractor) HandleInitialize(ctx c
+@@ -70,31 +56,6 @@ func (l *logAttributeExtractor) HandleInitialize(ctx c
  
  func (l *logAttributeExtractor) HandleInitialize(ctx context.Context, in middleware.InitializeInput, next middleware.InitializeHandler) (
  	out middleware.InitializeOutput, metadata middleware.Metadata, err error) {
@@ -84,7 +83,7 @@
  	return next.HandleInitialize(ctx, in)
  }
  
-@@ -119,10 +79,10 @@ func (r *requestResponseLogger) HandleDeserialize(ctx 
+@@ -119,10 +80,10 @@ func (r *requestResponseLogger) HandleDeserialize(ctx 
  	region := awsmiddleware.GetRegion(ctx)
  
  	if signingRegion := awsmiddleware.GetSigningRegion(ctx); signingRegion != region { //nolint:staticcheck // Not retrievable elsewhere
@@ -97,7 +96,7 @@
  	}
  
  	smithyRequest, ok := in.Request.(*smithyhttp.Request)
-@@ -167,25 +127,7 @@ func decomposeHTTPResponse(ctx context.Context, resp *
+@@ -183,25 +144,7 @@ func decomposeHTTPResponse(ctx context.Context, resp *
  }
  
  func decomposeHTTPResponse(ctx context.Context, resp *http.Response, elapsed time.Duration) (map[string]any, error) {
@@ -124,28 +123,27 @@
  	return result, nil
  }
  
-@@ -202,108 +144,6 @@ type defaultResponseBodyLogger struct{}
- var _ logging.ResponseBodyLogger = &defaultResponseBodyLogger{}
+@@ -219,107 +162,6 @@ type defaultResponseBodyLogger struct{}
  
  type defaultResponseBodyLogger struct{}
--
+ 
 -func (l *defaultResponseBodyLogger) Log(ctx context.Context, resp *http.Response, attrs *[]attribute.KeyValue) error {
--	content, err := io.ReadAll(resp.Body)
--	if err != nil {
--		return err
--	}
+-	original := logging.BufferPool.Get()
+-	defer logging.BufferPool.Put(original)
 -
--	// Restore the body reader
--	resp.Body = io.NopCloser(bytes.NewBuffer(content))
+-	tee := io.TeeReader(resp.Body, original)
 -
--	reader := textproto.NewReader(bufio.NewReader(bytes.NewReader(content)))
+-	scanner := bufio.NewScanner(tee)
 -
--	body, err := logging.ReadTruncatedBody(reader, logging.MaxResponseBodyLen)
+-	body, err := logging.ReadTruncatedBody(scanner, logging.MaxResponseBodyLen)
 -	if err != nil {
 -		return err
 -	}
 -
 -	*attrs = append(*attrs, attribute.String("http.response.body", body))
+-
+-	// Restore the full body for the SDK deserialiser.
+-	resp.Body = io.NopCloser(io.MultiReader(bytes.NewReader(original.Bytes()), resp.Body))
 -
 -	return nil
 -}
