@@ -123,13 +123,13 @@ GH_TUPLE=	\
 		google:gnostic:v0.5.7-v3refs:google_gnostic/vendor/github.com/google/gnostic \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-genproto:6ac0973c030d:google_go_genproto/vendor/google.golang.org/genproto \
-		google:go-genproto:f61a6ca850bd:google_go_genproto_api/vendor/google.golang.org/genproto/googleapis/api \
-		google:go-genproto:f61a6ca850bd:google_go_genproto_rpc/vendor/google.golang.org/genproto/googleapis/rpc \
+		google:go-genproto:cecb64721679:google_go_genproto_api/vendor/google.golang.org/genproto/googleapis/api \
+		google:go-genproto:cecb64721679:google_go_genproto_rpc/vendor/google.golang.org/genproto/googleapis/rpc \
 		google:go-github:v45.2.0:google_go_github_v45/vendor/github.com/google/go-github/v45 \
 		google:go-github:v53.0.0:google_go_github_v53/vendor/github.com/google/go-github/v53 \
 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
 		google:gofuzz:v1.1.0:google_gofuzz/vendor/github.com/google/gofuzz \
-		google:s2a-go:v0.1.9:google_s2a_go/vendor/github.com/google/s2a-go \
+		google:s2a-go:v0.1.10:google_s2a_go/vendor/github.com/google/s2a-go \
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
 		googleapis:enterprise-certificate-proxy:v0.3.22:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
 		googleapis:gax-go:v2.23.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2 \
@@ -170,15 +170,15 @@ GH_TUPLE=	\
 		hashicorp:terraform-plugin-log:v0.9.0:hashicorp_terraform_plugin_log/vendor/github.com/hashicorp/terraform-plugin-log \
 		hashicorp:terraform-registry-address:v0.2.5:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
 		hashicorp:terraform-svchost:v0.1.1:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
-		hashicorp:terraform:4c9023a874f5:hashicorp_terraform_azure \
-		hashicorp:terraform:4c9023a874f5:hashicorp_terraform_consul_1 \
-		hashicorp:terraform:4c9023a874f5:hashicorp_terraform_cos \
-		hashicorp:terraform:4c9023a874f5:hashicorp_terraform_gcs_1 \
-		hashicorp:terraform:4c9023a874f5:hashicorp_terraform_kubernetes \
-		hashicorp:terraform:4c9023a874f5:hashicorp_terraform_oss \
-		hashicorp:terraform:4c9023a874f5:hashicorp_terraform_pg \
-		hashicorp:terraform:4c9023a874f5:hashicorp_terraform_s3_1 \
-		hashicorp:terraform:4c9023a874f5:hashicorp_terraform_legacy \
+		hashicorp:terraform:78194be60cda:hashicorp_terraform_azure \
+		hashicorp:terraform:78194be60cda:hashicorp_terraform_consul_1 \
+		hashicorp:terraform:78194be60cda:hashicorp_terraform_cos \
+		hashicorp:terraform:78194be60cda:hashicorp_terraform_gcs_1 \
+		hashicorp:terraform:78194be60cda:hashicorp_terraform_kubernetes \
+		hashicorp:terraform:78194be60cda:hashicorp_terraform_oss \
+		hashicorp:terraform:78194be60cda:hashicorp_terraform_pg \
+		hashicorp:terraform:78194be60cda:hashicorp_terraform_s3_1 \
+		hashicorp:terraform:78194be60cda:hashicorp_terraform_legacy \
 		hashicorp:terraform::hashicorp_terraform_azure_1/github.com/hashicorp/terraform/internal/backend/remote-state/azure \
 		hashicorp:terraform::hashicorp_terraform_consul/github.com/hashicorp/terraform/internal/backend/remote-state/consul \
 		hashicorp:terraform::hashicorp_terraform_cos_1/github.com/hashicorp/terraform/internal/backend/remote-state/cos \
@@ -268,7 +268,7 @@ GH_TUPLE=	\
 		tidwall:transform:32f242e2dbde:tidwall_transform/vendor/github.com/tidwall/transform \
 		tombuildsstuff:giovanni:v0.15.1:tombuildsstuff_giovanni/vendor/github.com/tombuildsstuff/giovanni \
 		uber-go:mock:v0.4.0:uber_go_mock/vendor/go.uber.org/mock \
-		ulikunitz:xz:v0.5.16:ulikunitz_xz/vendor/github.com/ulikunitz/xz \
+		ulikunitz:xz:v0.5.17:ulikunitz_xz/vendor/github.com/ulikunitz/xz \
 		vmihailenco:msgpack:v5.3.6:vmihailenco_msgpack_v5/vendor/github.com/vmihailenco/msgpack/v5 \
 		vmihailenco:tagparser:v2.0.0:vmihailenco_tagparser_v2/vendor/github.com/vmihailenco/tagparser/v2 \
 		xanzy:ssh-agent:v0.3.3:xanzy_ssh_agent/vendor/github.com/xanzy/ssh-agent \
@@ -286,7 +286,7 @@ GH_TUPLE=	\
 		#	::v0.53.0:group_name/vendor/go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2/otelaws (from go.opentelemetry.io/contrib/instrumentation/github.com/aws/aws-sdk-go-v2/otelaws@v0.53.0)
 		#	::v0.67.0:group_name/vendor/go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc (from go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc@v0.67.0)
 		#	::v0.67.0:group_name/vendor/go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp (from go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp@v0.67.0)
-		#	::v0.9.0:group_name/vendor/cloud.google.com/go/compute/metadata (from cloud.google.com/go/compute/metadata@v0.9.0)
+		#	::v0.9.1:group_name/vendor/cloud.google.com/go/compute/metadata (from cloud.google.com/go/compute/metadata@v0.9.1)
 		#	::v1.19.0:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace (from go.opentelemetry.io/otel/exporters/otlp/otlptrace@v1.19.0)
 		#	::v1.19.0:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc (from go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc@v1.19.0)
 		#	::v1.19.0:group_name/vendor/go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp (from go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp@v1.19.0)

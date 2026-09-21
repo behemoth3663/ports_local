@@ -64,15 +64,15 @@
 -	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-00010101000000-000000000000
 -	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-00010101000000-000000000000
 -	github.com/hashicorp/terraform/internal/legacy v0.0.0-00010101000000-000000000000
-+	github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20260915085059-4c9023a874f5
-+	github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20260915085059-4c9023a874f5
-+	github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20260915085059-4c9023a874f5
-+	github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20260915085059-4c9023a874f5
-+	github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20260915085059-4c9023a874f5
-+	github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20260915085059-4c9023a874f5
-+	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20260915085059-4c9023a874f5
-+	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20260915085059-4c9023a874f5
-+	github.com/hashicorp/terraform/internal/legacy v0.0.0-20260915085059-4c9023a874f5
++	github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20260918155000-78194be60cda
++	github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20260918155000-78194be60cda
++	github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20260918155000-78194be60cda
++	github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20260918155000-78194be60cda
++	github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20260918155000-78194be60cda
++	github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20260918155000-78194be60cda
++	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20260918155000-78194be60cda
++	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20260918155000-78194be60cda
++	github.com/hashicorp/terraform/internal/legacy v0.0.0-20260918155000-78194be60cda
  	github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0
 -	github.com/masterzen/winrm v0.0.0-20200615185753-c42b5136ff88
 -	github.com/mattn/go-isatty v0.0.20
@@ -142,7 +142,7 @@
 +	cloud.google.com/go v0.123.0 // indirect
 +	cloud.google.com/go/auth v0.20.0 // indirect
 +	cloud.google.com/go/auth/oauth2adapt v0.2.8 // indirect
-+	cloud.google.com/go/compute/metadata v0.9.0 // indirect
++	cloud.google.com/go/compute/metadata v0.9.1 // indirect
 +	cloud.google.com/go/iam v1.12.0 // indirect
 +	cloud.google.com/go/monitoring v1.30.0 // indirect
 +	cloud.google.com/go/storage v1.62.3 // indirect
@@ -307,7 +307,7 @@
 -	github.com/grpc-ecosystem/grpc-gateway/v2 v2.16.0 // indirect
 -	github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.45 // indirect
 -	github.com/hashicorp/consul/api v1.13.0 // indirect
-+	github.com/google/s2a-go v0.1.9 // indirect
++	github.com/google/s2a-go v0.1.10 // indirect
 +	github.com/googleapis/enterprise-certificate-proxy v0.3.22 // indirect
 +	github.com/googleapis/gax-go/v2 v2.23.0 // indirect
 +	github.com/grpc-ecosystem/grpc-gateway/v2 v2.27.8 // indirect
@@ -403,7 +403,7 @@
  	github.com/tombuildsstuff/giovanni v0.15.1 // indirect
 -	github.com/ulikunitz/xz v0.5.10 // indirect
 -	github.com/vmihailenco/msgpack/v5 v5.3.5 // indirect
-+	github.com/ulikunitz/xz v0.5.16 // indirect
++	github.com/ulikunitz/xz v0.5.17 // indirect
 +	github.com/vmihailenco/msgpack/v5 v5.3.6 // indirect
  	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
 -	go.mongodb.org/mongo-driver v1.10.0 // indirect
@@ -437,9 +437,9 @@
 +	golang.org/x/sync v0.23.0 // indirect
 +	golang.org/x/time v0.15.0 // indirect
 +	google.golang.org/api v0.287.1 // indirect
-+	google.golang.org/genproto v0.0.0-20260911204522-f61a6ca850bd // indirect
-+	google.golang.org/genproto/googleapis/api v0.0.0-20260911204522-f61a6ca850bd // indirect
-+	google.golang.org/genproto/googleapis/rpc v0.0.0-20260911204522-f61a6ca850bd // indirect
++	google.golang.org/genproto v0.0.0-20260918162117-cecb64721679 // indirect
++	google.golang.org/genproto/googleapis/api v0.0.0-20260918162117-cecb64721679 // indirect
++	google.golang.org/genproto/googleapis/rpc v0.0.0-20260918162117-cecb64721679 // indirect
  	gopkg.in/inf.v0 v0.9.1 // indirect
 -	gopkg.in/ini.v1 v1.66.2 // indirect
 +	gopkg.in/ini.v1 v1.66.6 // indirect
