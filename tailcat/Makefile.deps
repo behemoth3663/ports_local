@@ -45,21 +45,21 @@ GH_TUPLE=	\
 		gobwas:pool:v0.2.1:gobwas_pool/vendor/github.com/gobwas/pool \
 		gobwas:ws:v1.4.0:gobwas_ws/vendor/github.com/gobwas/ws \
 		godbus:dbus:v5.2.2:godbus_dbus_v5/vendor/github.com/godbus/dbus/v5 \
-		golang:crypto:v0.55.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:crypto:v0.57.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:exp:746e56fc9e2f:golang_exp/vendor/golang.org/x/exp \
 		golang:groupcache:2c02b8208cf8:golang_groupcache/vendor/github.com/golang/groupcache \
-		golang:mod:v0.38.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.58.0:golang_net/vendor/golang.org/x/net \
-		golang:sync:v0.22.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.47.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.45.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.41.0:golang_text/vendor/golang.org/x/text \
+		golang:mod:v0.41.0:golang_mod/vendor/golang.org/x/mod \
+		golang:net:v0.59.0:golang_net/vendor/golang.org/x/net \
+		golang:sync:v0.23.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.48.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.46.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.42.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.15.0:golang_time/vendor/golang.org/x/time \
-		golang:tools:v0.48.0:golang_tools/vendor/golang.org/x/tools \
+		golang:tools:v0.50.0:golang_tools/vendor/golang.org/x/tools \
 		google:btree:v1.1.3:google_btree/vendor/github.com/google/btree \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-tpm:v0.9.4:google_go_tpm/vendor/github.com/google/go-tpm \
-		google:gvisor:573d5e7127a8:google_gvisor/vendor/gvisor.dev/gvisor \
+		google:gvisor:a6f909f08a72:google_gvisor/vendor/gvisor.dev/gvisor \
 		google:nftables:5e242ec57806:google_nftables/vendor/github.com/google/nftables \
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
 		hdevalence:ed25519consensus:v0.2.0:hdevalence_ed25519consensus/vendor/github.com/hdevalence/ed25519consensus \
@@ -88,11 +88,12 @@ GH_TUPLE=	\
 		tailscale:hujson:ecc657c15afd:tailscale_hujson/vendor/github.com/tailscale/hujson \
 		tailscale:netlink:4d49adab4de7:tailscale_netlink/vendor/github.com/tailscale/netlink \
 		tailscale:peercred:35a0c7bd7edc:tailscale_peercred/vendor/github.com/tailscale/peercred \
-		tailscale:tailscale:31d8badb3bfb:tailscale_tailscale/vendor/tailscale.com \
+		tailscale:tailscale:a2263542f260:tailscale_tailscale/vendor/tailscale.com \
 		tailscale:web-client-prebuilt:d4cd19a26976:tailscale_web_client_prebuilt/vendor/github.com/tailscale/web-client-prebuilt \
 		tailscale:wf:6fbb0a674ee6:tailscale_wf/vendor/github.com/tailscale/wf \
-		tailscale:wireguard-go:e855235c55a2:tailscale_wireguard_go/vendor/github.com/tailscale/wireguard-go \
+		tailscale:wireguard-go:e3222a3340cd:tailscale_wireguard_go/vendor/github.com/tailscale/wireguard-go \
 		tailscale:xnet:8497ac4dab2e:tailscale_xnet/vendor/github.com/tailscale/xnet \
+		toqueteos:webbrowser:v1.2.1:toqueteos_webbrowser/vendor/github.com/toqueteos/webbrowser \
 		u-root:u-root:v0.14.0:u_root_u_root/vendor/github.com/u-root/u-root \
 		u-root:uio:d2acac8f3701:u_root_uio/vendor/github.com/u-root/uio \
 		vishvananda:netns:v0.0.5:vishvananda_netns/vendor/github.com/vishvananda/netns \

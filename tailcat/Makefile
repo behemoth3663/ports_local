@@ -1,5 +1,5 @@
 PORTNAME=	tailcat
-PORTVERSION=	0.6.0
+PORTVERSION=	0.7.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local net
@@ -21,7 +21,7 @@ GO_TARGET=	./cmd/${PORTNAME}
 PLIST_FILES=	bin/${PORTNAME}
 
 CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w"
+GO_LDFLAGS+=	-w
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 _OPTIONS_extract=	750:post-post-extract
