@@ -49,7 +49,8 @@
 +	github.com/hashicorp/go-retryablehttp v0.7.8
 +	github.com/hashicorp/go-slug v0.16.8
  	github.com/hashicorp/go-tfe v1.70.0
- 	github.com/hashicorp/go-uuid v1.0.3
+-	github.com/hashicorp/go-uuid v1.0.3
++	github.com/hashicorp/go-uuid v1.0.4
  	github.com/hashicorp/go-version v1.7.0
  	github.com/hashicorp/hcl v1.0.0
  	github.com/hashicorp/hcl/v2 v2.23.0
@@ -67,15 +68,15 @@
 -	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-00010101000000-000000000000
 -	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-00010101000000-000000000000
 -	github.com/hashicorp/terraform/internal/legacy v0.0.0-00010101000000-000000000000
-+	github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20260914130715-6a34d000f7e0
-+	github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20260914130715-6a34d000f7e0
-+	github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20260914130715-6a34d000f7e0
-+	github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20260914130715-6a34d000f7e0
-+	github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20260914130715-6a34d000f7e0
-+	github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20260914130715-6a34d000f7e0
-+	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20260914130715-6a34d000f7e0
-+	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20260914130715-6a34d000f7e0
-+	github.com/hashicorp/terraform/internal/legacy v0.0.0-20260914130715-6a34d000f7e0
++	github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20260922112953-7dd5b3394b44
++	github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20260922112953-7dd5b3394b44
++	github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20260922112953-7dd5b3394b44
++	github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20260922112953-7dd5b3394b44
++	github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20260922112953-7dd5b3394b44
++	github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20260922112953-7dd5b3394b44
++	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20260922112953-7dd5b3394b44
++	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20260922112953-7dd5b3394b44
++	github.com/hashicorp/terraform/internal/legacy v0.0.0-20260922112953-7dd5b3394b44
  	github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0
 -	github.com/masterzen/winrm v0.0.0-20200615185753-c42b5136ff88
 -	github.com/mattn/go-isatty v0.0.20
@@ -143,7 +144,7 @@
 +	cloud.google.com/go v0.123.0 // indirect
 +	cloud.google.com/go/auth v0.20.0 // indirect
 +	cloud.google.com/go/auth/oauth2adapt v0.2.8 // indirect
-+	cloud.google.com/go/compute/metadata v0.9.0 // indirect
++	cloud.google.com/go/compute/metadata v0.9.1 // indirect
 +	cloud.google.com/go/iam v1.12.0 // indirect
 +	cloud.google.com/go/monitoring v1.30.0 // indirect
 +	cloud.google.com/go/storage v1.62.3 // indirect
@@ -235,7 +236,7 @@
 +	github.com/aws/aws-sdk-go-v2/service/sso v1.34.0 // indirect
 +	github.com/aws/aws-sdk-go-v2/service/ssooidc v1.39.0 // indirect
 +	github.com/aws/aws-sdk-go-v2/service/sts v1.46.0 // indirect
-+	github.com/aws/smithy-go v1.28.1 // indirect
++	github.com/aws/smithy-go v1.28.2 // indirect
  	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
  	github.com/bgentry/go-netrc v0.0.0-20140422174119-9fd32a8b3d3d // indirect
  	github.com/bmatcuk/doublestar/v4 v4.6.1 // indirect
@@ -292,7 +293,7 @@
 -	github.com/grpc-ecosystem/grpc-gateway/v2 v2.16.0 // indirect
 -	github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.62 // indirect
 -	github.com/hashicorp/consul/api v1.13.0 // indirect
-+	github.com/google/s2a-go v0.1.9 // indirect
++	github.com/google/s2a-go v0.1.10 // indirect
 +	github.com/googleapis/enterprise-certificate-proxy v0.3.22 // indirect
 +	github.com/googleapis/gax-go/v2 v2.23.0 // indirect
 +	github.com/grpc-ecosystem/grpc-gateway/v2 v2.27.8 // indirect
@@ -394,7 +395,7 @@
 -	github.com/ulikunitz/xz v0.5.10 // indirect
 +	github.com/thlib/go-timezone-local v0.0.8 // indirect
 +	github.com/tidwall/transform v0.0.0-20201103190739-32f242e2dbde // indirect
-+	github.com/ulikunitz/xz v0.5.16 // indirect
++	github.com/ulikunitz/xz v0.5.17 // indirect
  	github.com/vmihailenco/msgpack v4.0.4+incompatible // indirect
 -	github.com/vmihailenco/msgpack/v4 v4.3.12 // indirect
 -	github.com/vmihailenco/msgpack/v5 v5.3.5 // indirect
@@ -431,9 +432,9 @@
 -	google.golang.org/genproto v0.0.0-20230822172742-b8732ec3820d // indirect
 -	google.golang.org/genproto/googleapis/api v0.0.0-20230822172742-b8732ec3820d // indirect
 -	google.golang.org/genproto/googleapis/rpc v0.0.0-20230822172742-b8732ec3820d // indirect
-+	google.golang.org/genproto v0.0.0-20260911204522-f61a6ca850bd // indirect
-+	google.golang.org/genproto/googleapis/api v0.0.0-20260911204522-f61a6ca850bd // indirect
-+	google.golang.org/genproto/googleapis/rpc v0.0.0-20260911204522-f61a6ca850bd // indirect
++	google.golang.org/genproto v0.0.0-20260921155816-b14227669459 // indirect
++	google.golang.org/genproto/googleapis/api v0.0.0-20260921155816-b14227669459 // indirect
++	google.golang.org/genproto/googleapis/rpc v0.0.0-20260921155816-b14227669459 // indirect
  	gopkg.in/inf.v0 v0.9.1 // indirect
 -	gopkg.in/ini.v1 v1.66.2 // indirect
 +	gopkg.in/ini.v1 v1.66.6 // indirect
