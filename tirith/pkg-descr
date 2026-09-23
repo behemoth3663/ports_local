@@ -1,0 +1,3 @@
+Terminal security for developers and AI agents. Intercepts homograph URLs,
+pipe-to-shell, ANSI injection, obfuscated payloads, data exfiltration, and
+malicious AI skills/configs before they execute.
