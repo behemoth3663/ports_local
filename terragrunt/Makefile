@@ -1,7 +1,7 @@
 PORTNAME=	terragrunt
 PORTVERSION=	1.1.6
 DISTVERSIONPREFIX=	v
-PORTREVISION=	2
+PORTREVISION=	3
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX?=	-local
 
@@ -23,12 +23,14 @@ GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 PLIST_FILES=	bin/${PORTNAME}
 
-EXTRA_PATCHES=	${FILESDIR}/patch.diff:-p1
-
-post-patch: .PHONY
+pre-patch: .PHONY
+	${RM} -r ${WRKSRC}/internal/telemetry
 	${RM} -r ${WRKSRC}/vendor/github.com/GoogleCloudPlatform
 	${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io
-	${RM} -r ${WRKSRC}/internal/telemetry/*_test.go
-	${RM} -r ${WRKSRC}/internal/cas/probeorigin_test.go
+	${RM} -r ${WRKSRC}/vendor/google.golang.org/grpc/experimental/opentelemetry
+	${RM} ${WRKSRC}/vendor/github.com/googleapis/gax-go/v2/telemetry.go
+	${FIND} ${WRKSRC} -name '*_test.go' -type f -delete
+	${MKDIR} ${WRKSRC}/internal/traceopts
+	${CP} -r ${FILESDIR}/options.go ${WRKSRC}/internal/traceopts
 
 .include <bsd.port.mk>
