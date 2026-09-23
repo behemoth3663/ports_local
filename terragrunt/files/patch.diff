@@ -1,0 +1,5363 @@
+diff --git a/internal/cas/gitstore.go b/internal/cas/gitstore.go
+index 27a7d12f8..61586616b 100644
+--- a/internal/cas/gitstore.go
++++ b/internal/cas/gitstore.go
+@@ -9,10 +9,8 @@ import (
+ 
+ 	"errors"
+ 
+-	"go.opentelemetry.io/otel/attribute"
+-	"go.opentelemetry.io/otel/trace"
+-
+ 	"github.com/gruntwork-io/terragrunt/internal/git"
++	"github.com/gruntwork-io/terragrunt/internal/telemetry"
+ 	"github.com/gruntwork-io/terragrunt/internal/venv"
+ 	"github.com/gruntwork-io/terragrunt/internal/vfs"
+ 	"github.com/gruntwork-io/terragrunt/pkg/log"
+@@ -426,12 +424,12 @@ func recordCommitFetchPath(
+ ) {
+ 	l.Debugf("git store: fetched %s from %s via %s", ref, RedactURL(url), path)
+ 
+-	span := trace.SpanFromContext(ctx)
+-	if !span.IsRecording() {
++	span := telemetry.SpanFromContext(ctx)
++	if !telemetry.IsSpanRecording(span) {
+ 		return
+ 	}
+ 
+-	span.SetAttributes(attribute.String("git_store_commit_fetch", string(path)))
++	telemetry.SetSpanAttributes(span, map[string]any{"git_store_commit_fetch": string(path)})
+ }
+ 
+ // repoSession bundles the locked repo handle, the runner pointed at it,
+diff --git a/internal/cas/source.go b/internal/cas/source.go
+index b243cdd77..b62d6dd66 100644
+--- a/internal/cas/source.go
++++ b/internal/cas/source.go
+@@ -12,9 +12,6 @@ import (
+ 	"path/filepath"
+ 	"time"
+ 
+-	"go.opentelemetry.io/otel/attribute"
+-	"go.opentelemetry.io/otel/trace"
+-
+ 	"github.com/gruntwork-io/terragrunt/internal/git"
+ 	"github.com/gruntwork-io/terragrunt/internal/telemetry"
+ 	"github.com/gruntwork-io/terragrunt/internal/util"
+@@ -500,12 +497,12 @@ func (c *CAS) recordSourceProbe(l log.Logger, v *venv.Venv, src SourceRequest, r
+ // recordFetchOutcome stamps cache_hit on the active cas_fetch_source span
+ // so dashboards can distinguish probe short-circuits from network fetches.
+ func recordFetchOutcome(ctx context.Context, cacheHit bool) {
+-	span := trace.SpanFromContext(ctx)
+-	if !span.IsRecording() {
++	span := telemetry.SpanFromContext(ctx)
++	if !telemetry.IsSpanRecording(span) {
+ 		return
+ 	}
+ 
+-	span.SetAttributes(attribute.Bool("cache_hit", cacheHit))
++	telemetry.SetSpanAttributes(span, map[string]any{"cache_hit": cacheHit})
+ }
+ 
+ // probeOrigin names where a probe answer came from. It travels as the
+@@ -564,12 +561,12 @@ func (s *probeOriginSink) stamp(ctx context.Context) {
+ 		return
+ 	}
+ 
+-	span := trace.SpanFromContext(ctx)
+-	if !span.IsRecording() {
++	span := telemetry.SpanFromContext(ctx)
++	if !telemetry.IsSpanRecording(span) {
+ 		return
+ 	}
+ 
+-	span.SetAttributes(attribute.String("probe_origin", string(s.origin)))
++	telemetry.SetSpanAttributes(span, map[string]any{"probe_origin": string(s.origin)})
+ }
+ 
+ // linkStoredTree materializes the tree at key into opts.Dir, then the
+diff --git a/internal/cas/tree.go b/internal/cas/tree.go
+index 616653de1..1a7dd870a 100644
+--- a/internal/cas/tree.go
++++ b/internal/cas/tree.go
+@@ -9,8 +9,6 @@ import (
+ 	"strconv"
+ 	"sync/atomic"
+ 
+-	"go.opentelemetry.io/otel/attribute"
+-	"go.opentelemetry.io/otel/trace"
+ 	"golang.org/x/sync/errgroup"
+ 
+ 	"github.com/gruntwork-io/terragrunt/internal/git"
+@@ -483,8 +481,8 @@ func (tl *treeLinker) record(outcome LinkOutcome) {
+ // report sets the per-mode file counts, the bytes copied, and the fallback on
+ // the span in ctx.
+ func (tl *treeLinker) report(ctx context.Context) {
+-	span := trace.SpanFromContext(ctx)
+-	if !span.IsRecording() {
++	span := telemetry.SpanFromContext(ctx)
++	if !telemetry.IsSpanRecording(span) {
+ 		return
+ 	}
+ 
+@@ -504,13 +502,13 @@ func (tl *treeLinker) report(ctx context.Context) {
+ 		fallback = linkFallbackByMode[tl.mode]
+ 	}
+ 
+-	span.SetAttributes(
+-		attribute.Int64("files_linked", counts[LinkModeHardlink]),
+-		attribute.Int64("files_cloned", counts[LinkModeClone]),
+-		attribute.Int64("files_copied", counts[LinkModeCopy]),
+-		attribute.Int64("bytes_copied", tl.bytesCopied.Load()),
+-		attribute.String("fallback", string(fallback)),
+-	)
++	telemetry.SetSpanAttributes(span, map[string]any{
++		"files_linked": counts[LinkModeHardlink],
++		"files_cloned": counts[LinkModeClone],
++		"files_copied": counts[LinkModeCopy],
++		"bytes_copied": tl.bytesCopied.Load(),
++		"fallback":     string(fallback),
++	})
+ }
+ 
+ // gitFilePerm extracts the unix permission bits from a git tree entry mode
+diff --git a/internal/cli/commands/browse/browse.go b/internal/cli/commands/browse/browse.go
+index 7b5d60796..f53db8bc1 100644
+--- a/internal/cli/commands/browse/browse.go
++++ b/internal/cli/commands/browse/browse.go
+@@ -13,9 +13,6 @@ import (
+ 	"github.com/gruntwork-io/terragrunt/internal/venv"
+ 	viewtui "github.com/gruntwork-io/terragrunt/internal/view/tui"
+ 	"github.com/gruntwork-io/terragrunt/pkg/log"
+-
+-	"go.opentelemetry.io/otel/attribute"
+-	"go.opentelemetry.io/otel/trace"
+ )
+ 
+ // Run runs the browse command. It opens the browser immediately over a tree the
+@@ -112,8 +109,8 @@ func runDiscovery(
+ 	}, func(ctx context.Context, l log.Logger) error {
+ 		components, discoverErr = d.Discover(ctx, l, v, opts.TerragruntOptions)
+ 
+-		if span := trace.SpanFromContext(ctx); span.IsRecording() {
+-			span.SetAttributes(attribute.Int("component_count", len(components)))
++		if span := telemetry.SpanFromContext(ctx); telemetry.IsSpanRecording(span) {
++			telemetry.SetSpanAttributes(span, map[string]any{"component_count": len(components)})
+ 		}
+ 
+ 		return discoverErr
+diff --git a/internal/cli/commands/list/list.go b/internal/cli/commands/list/list.go
+index de4481ff3..b0dc364c5 100644
+--- a/internal/cli/commands/list/list.go
++++ b/internal/cli/commands/list/list.go
+@@ -22,9 +22,6 @@ import (
+ 	"github.com/gruntwork-io/terragrunt/internal/venv"
+ 	"github.com/gruntwork-io/terragrunt/internal/view/dag"
+ 	"github.com/gruntwork-io/terragrunt/pkg/log"
+-
+-	"go.opentelemetry.io/otel/attribute"
+-	"go.opentelemetry.io/otel/trace"
+ )
+ 
+ // Run runs the list command.
+@@ -63,8 +60,8 @@ func Run(ctx context.Context, l log.Logger, v *venv.Venv, opts *Options) error {
+ 	}, func(ctx context.Context, l log.Logger) error {
+ 		components, discoverErr = d.Discover(ctx, l, v, opts.TerragruntOptions)
+ 
+-		if span := trace.SpanFromContext(ctx); span.IsRecording() {
+-			span.SetAttributes(attribute.Int("component_count", len(components)))
++		if span := telemetry.SpanFromContext(ctx); telemetry.IsSpanRecording(span) {
++			telemetry.SetSpanAttributes(span, map[string]any{"component_count": len(components)})
+ 		}
+ 
+ 		return discoverErr
+@@ -108,8 +105,8 @@ func Run(ctx context.Context, l log.Logger, v *venv.Venv, opts *Options) error {
+ 		}, func(ctx context.Context, l log.Logger) error {
+ 			listedComponents = discoveredToListed(l, components, opts)
+ 
+-			if span := trace.SpanFromContext(ctx); span.IsRecording() {
+-				span.SetAttributes(attribute.Int("listed_count", len(listedComponents)))
++			if span := telemetry.SpanFromContext(ctx); telemetry.IsSpanRecording(span) {
++				telemetry.SetSpanAttributes(span, map[string]any{"listed_count": len(listedComponents)})
+ 			}
+ 
+ 			return nil
+diff --git a/internal/runner/controller.go b/internal/runner/controller.go
+index 06368b742..fb40b9c39 100644
+--- a/internal/runner/controller.go
++++ b/internal/runner/controller.go
+@@ -13,9 +13,6 @@ import (
+ 
+ 	"github.com/gruntwork-io/terragrunt/internal/queue"
+ 	"github.com/gruntwork-io/terragrunt/internal/telemetry"
+-
+-	"go.opentelemetry.io/otel/attribute"
+-	"go.opentelemetry.io/otel/trace"
+ )
+ 
+ // UnitRunnerFunc executes a single [component.Unit].
+@@ -239,12 +236,12 @@ func (dr *Controller) Run(ctx context.Context, l log.Logger) error {
+ 				}
+ 			}
+ 
+-			if span := trace.SpanFromContext(childCtx); span.IsRecording() {
+-				span.SetAttributes(
+-					attribute.Int("tasks_succeeded", succeeded),
+-					attribute.Int("tasks_failed", failed),
+-					attribute.Int("tasks_early_exit", earlyExit),
+-				)
++			if span := telemetry.SpanFromContext(childCtx); telemetry.IsSpanRecording(span) {
++				telemetry.SetSpanAttributes(span, map[string]any{
++					"tasks_succeeded":  succeeded,
++					"tasks_failed":     failed,
++					"tasks_early_exit": earlyExit,
++				})
+ 			}
+ 
+ 			return multierror.Join(errCollector...)
+diff --git a/internal/runner/runner.go b/internal/runner/runner.go
+index d32f5b401..e616d3963 100644
+--- a/internal/runner/runner.go
++++ b/internal/runner/runner.go
+@@ -31,9 +31,6 @@ import (
+ 	"github.com/gruntwork-io/terragrunt/pkg/log"
+ 	"github.com/gruntwork-io/terragrunt/pkg/log/format/placeholders"
+ 	"github.com/gruntwork-io/terragrunt/pkg/options"
+-
+-	"go.opentelemetry.io/otel/attribute"
+-	"go.opentelemetry.io/otel/trace"
+ )
+ 
+ // Seen together in a unit's plan stderr, these mean the unit failed because a
+@@ -1114,8 +1111,8 @@ func logTaskOutcome(ctx context.Context, l log.Logger, unitPath, command string,
+ 		outcome = "failed"
+ 	}
+ 
+-	if span := trace.SpanFromContext(ctx); span.IsRecording() {
+-		span.SetAttributes(attribute.String("outcome", outcome))
++	if span := telemetry.SpanFromContext(ctx); telemetry.IsSpanRecording(span) {
++		telemetry.SetSpanAttributes(span, map[string]any{"outcome": outcome})
+ 	}
+ 
+ 	if err != nil {
+diff --git a/internal/shell/run_cmd.go b/internal/shell/run_cmd.go
+index a66a283dd..3c8002255 100644
+--- a/internal/shell/run_cmd.go
++++ b/internal/shell/run_cmd.go
+@@ -18,9 +18,6 @@ import (
+ 
+ 	"github.com/gruntwork-io/terragrunt/internal/telemetry"
+ 
+-	"go.opentelemetry.io/otel/attribute"
+-	"go.opentelemetry.io/otel/trace"
+-
+ 	"github.com/gruntwork-io/terragrunt/internal/util"
+ )
+ 
+@@ -221,7 +218,7 @@ func RunCommandWithOutput(
+ 				Output:         &output,
+ 			})
+ 
+-			if span := trace.SpanFromContext(ctx); span.IsRecording() {
++			if span := telemetry.SpanFromContext(ctx); telemetry.IsSpanRecording(span) {
+ 				exitCode := 0
+ 
+ 				if runErr != nil {
+@@ -231,11 +228,11 @@ func RunCommandWithOutput(
+ 					}
+ 				}
+ 
+-				span.SetAttributes(
+-					attribute.Int("exit_code", exitCode),
+-					attribute.Int("stdout_bytes", output.Stdout.Len()),
+-					attribute.Int("stderr_bytes", output.Stderr.Len()),
+-				)
++				telemetry.SetSpanAttributes(span, map[string]any{
++					"exit_code":    exitCode,
++					"stdout_bytes": output.Stdout.Len(),
++					"stderr_bytes": output.Stderr.Len(),
++				})
+ 			}
+ 
+ 			return runErr
+diff --git a/internal/telemetry/context.go b/internal/telemetry/context.go
+index aab8b57c1..c859e7c1d 100644
+--- a/internal/telemetry/context.go
++++ b/internal/telemetry/context.go
+@@ -2,9 +2,6 @@ package telemetry
+ 
+ import (
+ 	"context"
+-	"fmt"
+-
+-	"go.opentelemetry.io/otel/trace"
+ )
+ 
+ type contextKey byte
+@@ -31,27 +28,13 @@ func TelemeterFromContext(ctx context.Context) *Telemeter {
+ 	return new(Telemeter)
+ }
+ 
+-// TraceParentFromContext returns the W3C traceparent header value from
+-// the context's span, or an error if not available.
++// TraceParentFromContext returns the explicit traceparent value if provided.
++// With telemetry disabled, no span context is propagated.
+ func TraceParentFromContext(ctx context.Context, telemetry *Options) string {
+-	span := trace.SpanFromContext(ctx)
+-	spanContext := span.SpanContext()
+-
+-	if !spanContext.IsValid() {
+-		return ""
+-	}
+-
++	_ = ctx
+ 	if telemetry != nil && len(telemetry.TraceParent) > 0 {
+ 		return telemetry.TraceParent
+ 	}
+ 
+-	traceID := spanContext.TraceID().String()
+-	spanID := spanContext.SpanID().String()
+-	flags := "00"
+-
+-	if spanContext.TraceFlags().IsSampled() {
+-		flags = "01"
+-	}
+-
+-	return fmt.Sprintf("00-%s-%s-%s", traceID, spanID, flags)
++	return ""
+ }
+diff --git a/internal/telemetry/hook.go b/internal/telemetry/hook.go
+index a2d31ad13..44ac95d5e 100644
+--- a/internal/telemetry/hook.go
++++ b/internal/telemetry/hook.go
+@@ -3,8 +3,6 @@ package telemetry
+ import (
+ 	"github.com/gruntwork-io/terragrunt/pkg/log"
+ 	"github.com/sirupsen/logrus"
+-	"go.opentelemetry.io/contrib/bridges/otellogrus"
+-	otellog "go.opentelemetry.io/otel/log"
+ )
+ 
+ // stdLogrusLevels maps Terragrunt levels to the standard logrus levels that
+@@ -32,14 +30,13 @@ var stdLogrusLevels = map[log.Level]logrus.Level{
+ // never fire for debug or trace records. This hook registers for the shifted
+ // levels and restores the standard logrus level on each entry before handing
+ // it to the bridge.
+-func NewOtelLogHook(name string, provider otellog.LoggerProvider) logrus.Hook {
+-	return &otelLogHook{
+-		inner: otellogrus.NewHook(name, otellogrus.WithLoggerProvider(provider)),
+-	}
++func NewOtelLogHook(name string, provider any) logrus.Hook {
++	_ = name
++	_ = provider
++	return &otelLogHook{}
+ }
+ 
+ type otelLogHook struct {
+-	inner *otellogrus.Hook
+ }
+ 
+ // Levels implements the [logrus.Hook] interface method.
+@@ -49,8 +46,8 @@ func (hook *otelLogHook) Levels() []logrus.Level {
+ 
+ // Fire implements the [logrus.Hook] interface method.
+ func (hook *otelLogHook) Fire(entry *logrus.Entry) error {
+-	e := *entry
+-	e.Level = stdLogrusLevels[log.FromLogrusLevel(entry.Level)]
+-
+-	return hook.inner.Fire(&e)
++	_ = hook
++	_ = entry
++	_ = stdLogrusLevels
++	return nil
+ }
+diff --git a/internal/telemetry/logger.go b/internal/telemetry/logger.go
+index ca8140af7..89dbecc37 100644
+--- a/internal/telemetry/logger.go
++++ b/internal/telemetry/logger.go
+@@ -3,15 +3,6 @@ package telemetry
+ import (
+ 	"context"
+ 	"io"
+-
+-	"go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploggrpc"
+-	"go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploghttp"
+-	"go.opentelemetry.io/otel/exporters/stdout/stdoutlog"
+-	otellog "go.opentelemetry.io/otel/log/global"
+-	"go.opentelemetry.io/otel/sdk/log"
+-
+-	"go.opentelemetry.io/otel/sdk/resource"
+-	semconv "go.opentelemetry.io/otel/semconv/v1.43.0"
+ )
+ 
+ const (
+@@ -23,96 +14,31 @@ const (
+ 
+ type logsExporterType string
+ 
+-// Logger holds the OpenTelemetry logs signal provider and exporter.
++// Logger is a no-op logs signal holder retained for API compatibility.
+ type Logger struct {
+-	provider *log.LoggerProvider
+-	exporter log.Exporter
++	provider any
++	exporter any
+ }
+ 
+-// NewLogger creates and configures the logs collection. It returns nil when no
+-// logs exporter is configured, matching the behaviour of [NewMeter] and [NewTracer].
++// NewLogger returns a no-op logger.
+ func NewLogger(
+ 	ctx context.Context,
+ 	appName, appVersion string,
+ 	writer io.Writer,
+ 	opts *Options,
+ ) (*Logger, error) {
+-	exporter, err := NewLogsExporter(ctx, writer, opts)
+-	if err != nil {
+-		return nil, err
+-	}
+-
+-	if exporter == nil {
+-		return nil, nil
+-	}
+-
+-	provider, err := newLogsProvider(ctx, exporter, appName, appVersion)
+-	if err != nil {
+-		return nil, err
+-	}
+-
+-	otellog.SetLoggerProvider(provider)
+-
+-	return &Logger{
+-		provider: provider,
+-		exporter: exporter,
+-	}, nil
+-}
+-
+-// NewLogsExporter creates a new logs exporter based on the telemetry options.
+-//
+-//nolint:dupl // the per-signal OTLP option types prevent sharing one implementation
+-func NewLogsExporter(ctx context.Context, writer io.Writer, opts *Options) (log.Exporter, error) {
+-	exporterType := logsExporterType(opts.LogsExporter)
+-	if exporterType == "" {
+-		exporterType = noneLogsExporterType
+-	}
+-
+-	switch exporterType {
+-	case otlpHTTPLogsExporterType:
+-		var config []otlploghttp.Option
+-		if opts.LogsExporterInsecureEndpoint {
+-			config = append(config, otlploghttp.WithInsecure())
+-		}
+-
+-		return otlploghttp.New(ctx, config...)
+-	case otlpGrpcLogsExporterType:
+-		var config []otlploggrpc.Option
+-		if opts.LogsExporterInsecureEndpoint {
+-			config = append(config, otlploggrpc.WithInsecure())
+-		}
+-
+-		return otlploggrpc.New(ctx, config...)
+-	case consoleLogsExporterType:
+-		return stdoutlog.New(stdoutlog.WithWriter(writer))
+-	case noneLogsExporterType:
+-		return nil, nil
+-	default:
+-		return nil, nil
+-	}
++	_ = ctx
++	_ = appName
++	_ = appVersion
++	_ = writer
++	_ = opts
++	return &Logger{}, nil
+ }
+ 
+-// newLogsProvider creates a new logs provider with the terragrunt resource attributes.
+-func newLogsProvider(
+-	ctx context.Context,
+-	exp log.Exporter,
+-	appName, appVersion string,
+-) (*log.LoggerProvider, error) {
+-	r, err := resource.New(ctx,
+-		resource.WithSchemaURL(semconv.SchemaURL),
+-		resource.WithAttributes(
+-			semconv.ServiceName(appName),
+-			semconv.ServiceVersion(appVersion),
+-		),
+-		resource.WithTelemetrySDK(),
+-		resource.WithFromEnv(),
+-	)
+-	if err != nil {
+-		return nil, err
+-	}
+-
+-	return log.NewLoggerProvider(
+-		log.WithResource(r),
+-		log.WithProcessor(log.NewBatchProcessor(exp)),
+-	), nil
++// NewLogsExporter returns nil because logs exporters are disabled.
++func NewLogsExporter(ctx context.Context, writer io.Writer, opts *Options) (any, error) {
++	_ = ctx
++	_ = writer
++	_ = opts
++	return nil, nil
+ }
+diff --git a/internal/telemetry/meter.go b/internal/telemetry/meter.go
+index 2d9b05f1c..747f78eed 100644
+--- a/internal/telemetry/meter.go
++++ b/internal/telemetry/meter.go
+@@ -5,17 +5,6 @@ import (
+ 	"io"
+ 	"regexp"
+ 	"time"
+-
+-	"go.opentelemetry.io/otel/exporters/stdout/stdoutmetric"
+-
+-	"go.opentelemetry.io/otel"
+-	"go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc"
+-	"go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp"
+-	otelmetric "go.opentelemetry.io/otel/metric"
+-	"go.opentelemetry.io/otel/sdk/metric"
+-
+-	"go.opentelemetry.io/otel/sdk/resource"
+-	semconv "go.opentelemetry.io/otel/semconv/v1.43.0"
+ )
+ 
+ const (
+@@ -36,153 +25,53 @@ var (
+ 
+ type metricsExporterType string
+ 
++// Meter is a no-op metrics holder retained for API compatibility.
+ type Meter struct {
+-	otelmetric.Meter
+-	provider *metric.MeterProvider
+-	exporter metric.Exporter
++	provider any
++	exporter any
+ }
+ 
+-// NewMeter creates and configures the metrics collection.
++// NewMeter creates a no-op meter.
+ func NewMeter(
+ 	ctx context.Context,
+ 	appName, appVersion string,
+ 	writer io.Writer,
+ 	opts *Options,
+ ) (*Meter, error) {
+-	exporter, err := NewMetricsExporter(ctx, writer, opts)
+-	if err != nil {
+-		return nil, err
+-	}
+-
+-	if exporter == nil {
+-		return nil, nil
+-	}
+-
+-	provider, err := newMetricsProvider(ctx, exporter, appName, appVersion)
+-	if err != nil {
+-		return nil, err
+-	}
+-
+-	otel.SetMeterProvider(provider)
+-
+-	meter := &Meter{
+-		Meter:    otel.GetMeterProvider().Meter(appName),
+-		provider: provider,
+-		exporter: exporter,
+-	}
+-
+-	return meter, nil
++	_ = ctx
++	_ = appName
++	_ = appVersion
++	_ = writer
++	_ = opts
++	return &Meter{}, nil
+ }
+ 
+-// Time collects time for function execution
++// Time executes fn and returns its result.
+ func (meter *Meter) Time(
+ 	ctx context.Context, name string, attrs map[string]any, fn func(childCtx context.Context) error,
+ ) error {
+-	if meter == nil || meter.exporter == nil {
+-		return fn(ctx)
+-	}
+-
+-	metricAttrs := mapToAttributes(attrs)
+-
+-	histogram, err := meter.Int64Histogram(CleanMetricName(name + "_duration"))
+-	if err != nil {
+-		return err
+-	}
+-
+-	startTime := time.Now()
+-	err = fn(ctx)
+-
+-	histogram.Record(
+-		ctx,
+-		time.Since(startTime).Milliseconds(),
+-		otelmetric.WithAttributes(metricAttrs...),
+-	)
+-
+-	if err != nil {
+-		// count errors
+-		meter.Count(ctx, ErrorsCounter, 1)
+-		meter.Count(ctx, name+"_errors", 1)
+-	} else {
+-		meter.Count(ctx, name+"_success", 1)
+-	}
+-
+-	return err
++	_ = meter
++	_ = name
++	_ = attrs
++	return fn(ctx)
+ }
+ 
+-// Count adds to counter provided value.
++// Count is a no-op.
+ func (meter *Meter) Count(ctx context.Context, name string, value int64) {
+-	if ctx == nil || meter == nil || meter.exporter == nil {
+-		return
+-	}
+-
+-	counter, err := meter.Int64Counter(CleanMetricName(name + "_count"))
+-	if err != nil {
+-		return
+-	}
+-
+-	counter.Add(ctx, value)
++	_ = meter
++	_ = ctx
++	_ = name
++	_ = value
+ }
+ 
+-// NewMetricsExporter - create a new exporter based on the telemetry options.
+-//
+-//nolint:dupl // the per-signal OTLP option types prevent sharing one implementation
++// NewMetricsExporter returns nil because metrics exporters are disabled.
+ func NewMetricsExporter(
+ 	ctx context.Context,
+ 	writer io.Writer,
+ 	opts *Options,
+-) (metric.Exporter, error) {
+-	exporterType := metricsExporterType(opts.MetricExporter)
+-	if exporterType == "" {
+-		exporterType = noneMetricsExporterType
+-	}
+-
+-	switch exporterType {
+-	case oltpHTTPMetricsExporterType:
+-		var config []otlpmetrichttp.Option
+-		if opts.MetricExporterInsecureEndpoint {
+-			config = append(config, otlpmetrichttp.WithInsecure())
+-		}
+-
+-		return otlpmetrichttp.New(ctx, config...)
+-	case grpcHTTPMetricsExporterType:
+-		var config []otlpmetricgrpc.Option
+-		if opts.MetricExporterInsecureEndpoint {
+-			config = append(config, otlpmetricgrpc.WithInsecure())
+-		}
+-
+-		return otlpmetricgrpc.New(ctx, config...)
+-	case consoleMetricsExporterType:
+-		return stdoutmetric.New(stdoutmetric.WithWriter(writer))
+-	case noneMetricsExporterType:
+-		return nil, nil
+-	default:
+-		return nil, nil
+-	}
+-}
+-
+-// newMetricsProvider creates a new metrics provider.
+-func newMetricsProvider(
+-	ctx context.Context,
+-	exp metric.Exporter,
+-	appName, appVersion string,
+-) (*metric.MeterProvider, error) {
+-	r, err := resource.New(ctx,
+-		resource.WithSchemaURL(semconv.SchemaURL),
+-		resource.WithAttributes(
+-			semconv.ServiceName(appName),
+-			semconv.ServiceVersion(appVersion),
+-		),
+-		resource.WithTelemetrySDK(),
+-		resource.WithFromEnv(),
+-	)
+-	if err != nil {
+-		return nil, err
+-	}
+-
+-	meterProvider := metric.NewMeterProvider(
+-		metric.WithResource(r),
+-		metric.WithReader(metric.NewPeriodicReader(exp, metric.WithInterval(readerInterval))),
+-	)
+-
+-	return meterProvider, nil
++) (any, error) {
++	_ = ctx
++	_ = writer
++	_ = opts
++	return nil, nil
+ }
+diff --git a/internal/telemetry/telemeter.go b/internal/telemetry/telemeter.go
+index 89400172d..5a75137e9 100644
+--- a/internal/telemetry/telemeter.go
++++ b/internal/telemetry/telemeter.go
+@@ -3,7 +3,6 @@ package telemetry
+ 
+ import (
+ 	"context"
+-	"errors"
+ 	"io"
+ 	"runtime/debug"
+ 
+@@ -37,11 +36,9 @@ func NewTelemeter(
+ 
+ 	tlm.Tracer = tracer
+ 
+-	// Shut down the providers created so far when a later signal fails to
+-	// initialize, so a partial setup doesn't leak their background workers.
+ 	meter, err := NewMeter(ctx, appName, appVersion, writer, opts)
+ 	if err != nil {
+-		return nil, errors.Join(err, tlm.Shutdown(ctx))
++		return nil, err
+ 	}
+ 
+ 	tlm.Meter = meter
+@@ -49,18 +46,12 @@ func NewTelemeter(
+ 	if enableLogs {
+ 		logger, err := NewLogger(ctx, appName, appVersion, writer, opts)
+ 		if err != nil {
+-			return nil, errors.Join(err, tlm.Shutdown(ctx))
++			return nil, err
+ 		}
+ 
+ 		tlm.Logger = logger
+ 
+-		// Bridge Terragrunt's logrus-backed logger into the OpenTelemetry logs signal.
+-		// We attach to the root logger before any command loggers are cloned from it
+-		// (clones copy hooks by reference at clone time), so every downstream logger
+-		// inherits the hook and emits records correlated to the active span.
+-		if logger != nil {
+-			l.SetOptions(log.WithHooks(NewOtelLogHook(appName, logger.provider)))
+-		}
++		_ = logger
+ 	}
+ 
+ 	return tlm, nil
+@@ -68,34 +59,11 @@ func NewTelemeter(
+ 
+ // Shutdown shutdowns the telemetry provider.
+ func (tlm *Telemeter) Shutdown(ctx context.Context) error {
++	_ = ctx
+ 	if tlm == nil {
+ 		return nil
+ 	}
+ 
+-	if tlm.Tracer != nil && tlm.Tracer.provider != nil {
+-		if err := tlm.Tracer.provider.Shutdown(ctx); err != nil {
+-			return err
+-		}
+-
+-		tlm.Tracer.provider = nil
+-	}
+-
+-	if tlm.Meter != nil && tlm.Meter.provider != nil {
+-		if err := tlm.Meter.provider.Shutdown(ctx); err != nil {
+-			return err
+-		}
+-
+-		tlm.Meter.provider = nil
+-	}
+-
+-	if tlm.Logger != nil && tlm.Logger.provider != nil {
+-		if err := tlm.Logger.provider.Shutdown(ctx); err != nil {
+-			return err
+-		}
+-
+-		tlm.Logger.provider = nil
+-	}
+-
+ 	return nil
+ }
+ 
+diff --git a/internal/telemetry/tracer.go b/internal/telemetry/tracer.go
+index 1cf3bcdef..101c22689 100644
+--- a/internal/telemetry/tracer.go
++++ b/internal/telemetry/tracer.go
+@@ -2,23 +2,9 @@ package telemetry
+ 
+ import (
+ 	"context"
+-	"fmt"
+ 	"io"
+-	"runtime/debug"
+-	"strconv"
+-	"strings"
+-
+-	"go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc"
+-
+-	"go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp"
+ 
+ 	"github.com/gruntwork-io/terragrunt/pkg/log"
+-	"go.opentelemetry.io/otel"
+-	"go.opentelemetry.io/otel/exporters/stdout/stdouttrace"
+-	"go.opentelemetry.io/otel/sdk/resource"
+-	sdktrace "go.opentelemetry.io/otel/sdk/trace"
+-	semconv "go.opentelemetry.io/otel/semconv/v1.43.0"
+-	"go.opentelemetry.io/otel/trace"
+ )
+ 
+ const (
+@@ -27,239 +13,86 @@ const (
+ 	otlpHTTPTraceExporterType traceExporterType = "otlpHttp"
+ 	otlpGrpcTraceExporterType traceExporterType = "otlpGrpc"
+ 	httpTraceExporterType     traceExporterType = "http"
+-
+-	traceParentParts = 4
+ )
+ 
+ type traceExporterType string
+ 
++// Tracer is a no-op tracer retained for API compatibility.
+ type Tracer struct {
+-	trace.Tracer
+-	provider         *sdktrace.TracerProvider
+-	spanExporter     sdktrace.SpanExporter
+-	parentTraceID    *trace.TraceID
+-	parentSpanID     *trace.SpanID
+-	parentTraceFlags *trace.TraceFlags
++	provider         any
++	spanExporter     any
++	parentTraceID    *string
++	parentSpanID     *string
++	parentTraceFlags *string
+ 	l                log.Logger
+ }
+ 
+-// NewTracer creates and configures the traces collection.
++// NewTracer creates a no-op tracer.
+ func NewTracer(
+ 	ctx context.Context, l log.Logger, appName, appVersion string, writer io.Writer, opts *Options,
+ ) (*Tracer, error) {
+-	spanExporter, err := NewTraceExporter(ctx, writer, opts)
+-	if err != nil {
+-		return nil, err
+-	}
+-
+-	if spanExporter == nil { // no exporter
+-		return nil, nil
+-	}
+-
+-	provider, err := newTraceProvider(ctx, spanExporter, appName, appVersion, opts)
+-	if err != nil {
+-		return nil, err
+-	}
+-
+-	otel.SetTracerProvider(provider)
+-
+-	var (
+-		parentTraceID    *trace.TraceID
+-		parentSpanID     *trace.SpanID
+-		parentTraceFlags *trace.TraceFlags
+-	)
+-
+-	if opts.TraceParent != "" {
+-		// parse trace parent values
+-		parts := strings.Split(opts.TraceParent, "-")
+-		if len(parts) != traceParentParts {
+-			return nil, fmt.Errorf("invalid TRACEPARENT value %s", opts.TraceParent)
+-		}
+-
+-		_, traceIDHex, spanIDHex, traceFlagsStr := parts[0], parts[1], parts[2], parts[3]
+-
+-		parsedFlag, err := strconv.Atoi(traceFlagsStr)
+-		if err != nil {
+-			return nil, fmt.Errorf("invalid trace flags: %w", err)
+-		}
+-
+-		traceFlags := trace.FlagsSampled
+-		if parsedFlag == 0 {
+-			traceFlags = 0
+-		}
+-
+-		traceID, err := trace.TraceIDFromHex(traceIDHex)
+-		if err != nil {
+-			return nil, err
+-		}
+-
+-		spanID, err := trace.SpanIDFromHex(spanIDHex)
+-		if err != nil {
+-			return nil, err
+-		}
+-
+-		parentTraceID = &traceID
+-		parentSpanID = &spanID
+-		parentTraceFlags = &traceFlags
+-	}
+-
+-	tracer := &Tracer{
+-		Tracer:           provider.Tracer(appName),
+-		provider:         provider,
+-		spanExporter:     spanExporter,
+-		parentTraceID:    parentTraceID,
+-		parentSpanID:     parentSpanID,
+-		parentTraceFlags: parentTraceFlags,
+-		l:                l,
+-	}
+-
+-	return tracer, nil
+-}
+-
+-// newTraceProvider creates a new trace tracer with terragrunt version.
+-func newTraceProvider(
+-	ctx context.Context, exp sdktrace.SpanExporter, appName, appVersion string, opts *Options,
+-) (*sdktrace.TracerProvider, error) {
+-	r, err := resource.New(ctx,
+-		resource.WithSchemaURL(semconv.SchemaURL),
+-		resource.WithAttributes(
+-			semconv.ServiceName(appName),
+-			semconv.ServiceVersion(appVersion),
+-		),
+-		resource.WithTelemetrySDK(),
+-		resource.WithFromEnv(),
+-	)
+-	if err != nil {
+-		return nil, err
+-	}
+-
+-	exporterType := traceExporterType(opts.TraceExporter)
+-
+-	var processor sdktrace.SpanProcessor
+-	if exporterType == consoleTraceExporterType {
+-		processor = sdktrace.NewSimpleSpanProcessor(exp)
+-	} else {
+-		processor = sdktrace.NewBatchSpanProcessor(exp)
+-	}
+-
+-	return sdktrace.NewTracerProvider(
+-		sdktrace.WithSpanProcessor(processor),
+-		sdktrace.WithResource(r),
+-	), nil
++	_ = ctx
++	_ = appName
++	_ = appVersion
++	_ = writer
++	_ = opts
++	return &Tracer{l: l}, nil
+ }
+ 
+-// NewTraceExporter creates a new exporter based on the telemetry options.
++// NewTraceExporter returns nil because trace exporters are disabled.
+ func NewTraceExporter(
+ 	ctx context.Context,
+ 	writer io.Writer,
+ 	opts *Options,
+-) (sdktrace.SpanExporter, error) {
+-	exporterType := traceExporterType(opts.TraceExporter)
+-	if exporterType == "" {
+-		exporterType = noneTraceExporterType
+-	}
+-
+-	switch exporterType {
+-	case httpTraceExporterType:
+-		if opts.TraceExporterHTTPEndpoint == "" {
+-			return nil, &ErrorMissingEnvVariable{
+-				Vars: []string{"TG_TELEMETRY_TRACE_EXPORTER_HTTP_ENDPOINT"},
+-			}
+-		}
+-
+-		endpointOpt := otlptracehttp.WithEndpoint(opts.TraceExporterHTTPEndpoint)
+-		config := []otlptracehttp.Option{endpointOpt}
+-
+-		if opts.TraceExporterInsecureEndpoint {
+-			config = append(config, otlptracehttp.WithInsecure())
+-		}
+-
+-		return otlptracehttp.New(ctx, config...)
+-	case otlpHTTPTraceExporterType:
+-		var config []otlptracehttp.Option
+-		if opts.TraceExporterInsecureEndpoint {
+-			config = append(config, otlptracehttp.WithInsecure())
+-		}
+-
+-		return otlptracehttp.New(ctx, config...)
+-	case otlpGrpcTraceExporterType:
+-		var config []otlptracegrpc.Option
+-		if opts.TraceExporterInsecureEndpoint {
+-			config = append(config, otlptracegrpc.WithInsecure())
+-		}
+-
+-		return otlptracegrpc.New(ctx, config...)
+-	case consoleTraceExporterType:
+-		return stdouttrace.New(stdouttrace.WithWriter(writer))
+-	case noneTraceExporterType:
+-		return nil, nil
+-	default:
+-		return nil, nil
+-	}
++) (any, error) {
++	_ = ctx
++	_ = writer
++	_ = opts
++	return nil, nil
+ }
+ 
+-// Trace collects traces for method execution.
++// Trace executes fn and returns its result.
+ func (tracer *Tracer) Trace(
+ 	ctx context.Context, name string, attrs map[string]any, fn func(childCtx context.Context) error,
+ ) error {
+-	if tracer == nil || tracer.spanExporter == nil ||
+-		tracer.provider == nil { // invoke function without tracing
+-		return fn(ctx)
+-	}
+-
+-	ctx, span := tracer.openSpan(ctx, name, attrs)
++	_ = tracer
++	_ = name
++	_ = attrs
++	return fn(ctx)
++}
+ 
+-	if span == nil {
+-		if tracer.l != nil {
+-			tracer.l.Debugf(
+-				"openSpan returned nil span for %q (provider may have been shut down), bypassing tracing. Stack:\n%s",
+-				name,
+-				debug.Stack(),
+-			)
+-		}
++// Span is a no-op span placeholder.
++type Span struct{}
+ 
+-		return fn(ctx)
+-	}
++// End is a no-op.
++func (s *Span) End() {}
+ 
+-	defer span.End()
++// RecordError is a no-op.
++func (s *Span) RecordError(err error) {
++	_ = err
++}
+ 
+-	if err := fn(ctx); err != nil {
+-		// record error in span
+-		span.RecordError(err)
+-		return err
+-	}
++// Start returns a no-op span.
++func (tracer *Tracer) Start(ctx context.Context, name string) (context.Context, *Span) {
++	_ = tracer
++	_ = name
++	return ctx, &Span{}
++}
+ 
++// SpanFromContext returns a no-op span placeholder.
++func SpanFromContext(ctx context.Context) any {
++	_ = ctx
+ 	return nil
+ }
+ 
+-// openSpan creates a new span with attributes.
+-func (tracer *Tracer) openSpan(
+-	ctx context.Context,
+-	name string,
+-	attrs map[string]any,
+-) (context.Context, trace.Span) {
+-	if tracer.provider == nil {
+-		return ctx, nil
+-	}
+-
+-	if tracer.parentTraceID != nil && tracer.parentSpanID != nil {
+-		existingSpan := trace.SpanFromContext(ctx)
+-		if !existingSpan.SpanContext().IsValid() {
+-			spanContext := trace.NewSpanContext(trace.SpanContextConfig{
+-				TraceID:    *tracer.parentTraceID,
+-				SpanID:     *tracer.parentSpanID,
+-				Remote:     true,
+-				TraceFlags: *tracer.parentTraceFlags,
+-			})
+-
+-			// create a new context with the parent span context
+-			ctx = trace.ContextWithSpanContext(ctx, spanContext)
+-		}
+-	}
+-
+-	ctx, span := tracer.Start(ctx, name) //nolint:spancheck // Trace, the only caller, defers span.End
+-	// convert attrs map to span.SetAttributes
+-	span.SetAttributes(mapToAttributes(attrs)...)
++// IsSpanRecording always returns false.
++func IsSpanRecording(span any) bool {
++	_ = span
++	return false
++}
+ 
+-	return ctx, span //nolint:spancheck // Trace, the only caller, defers span.End
++// SetSpanAttributes is a no-op.
++func SetSpanAttributes(span any, attrs map[string]any) {
++	_ = span
++	_ = attrs
+ }
+diff --git a/internal/telemetry/util.go b/internal/telemetry/util.go
+index e0012bb62..ab97d705f 100644
+--- a/internal/telemetry/util.go
++++ b/internal/telemetry/util.go
+@@ -1,36 +1,9 @@
+ package telemetry
+ 
+ import (
+-	"fmt"
+ 	"strings"
+-
+-	"go.opentelemetry.io/otel/attribute"
+ )
+ 
+-// mapToAttributes converts map to attributes to pass to span.SetAttributes.
+-func mapToAttributes(data map[string]any) []attribute.KeyValue {
+-	var attrs []attribute.KeyValue
+-
+-	for k, v := range data {
+-		switch val := v.(type) {
+-		case string:
+-			attrs = append(attrs, attribute.String(k, val))
+-		case int:
+-			attrs = append(attrs, attribute.Int64(k, int64(val)))
+-		case int64:
+-			attrs = append(attrs, attribute.Int64(k, val))
+-		case float64:
+-			attrs = append(attrs, attribute.Float64(k, val))
+-		case bool:
+-			attrs = append(attrs, attribute.Bool(k, val))
+-		default:
+-			attrs = append(attrs, attribute.String(k, fmt.Sprintf("%v", val)))
+-		}
+-	}
+-
+-	return attrs
+-}
+-
+ // CleanMetricName cleans metric name from invalid characters.
+ func CleanMetricName(metricName string) string {
+ 	cleanedName := metricNameCleanPattern.ReplaceAllString(metricName, "_")
+diff --git a/pkg/config/dependency.go b/pkg/config/dependency.go
+index d57d93aa7..9b3dc712d 100644
+--- a/pkg/config/dependency.go
++++ b/pkg/config/dependency.go
+@@ -52,9 +52,6 @@ import (
+ 	"github.com/gruntwork-io/terragrunt/internal/util"
+ 	"github.com/gruntwork-io/terragrunt/internal/vfs"
+ 	"github.com/gruntwork-io/terragrunt/pkg/config/hclparse"
+-
+-	"go.opentelemetry.io/otel/attribute"
+-	"go.opentelemetry.io/otel/trace"
+ )
+ 
+ const (
+@@ -1600,8 +1597,8 @@ func getOutputJSONWithCaching(
+ 			if cached, found := jsonCache.Get(fetchCtx, targetConfig); found {
+ 				l.Debugf("%s was run before. Using cached output.", targetConfig)
+ 
+-				if span := trace.SpanFromContext(fetchCtx); span.IsRecording() {
+-					span.SetAttributes(attribute.Bool("cache_hit", true))
++				if span := telemetry.SpanFromContext(fetchCtx); telemetry.IsSpanRecording(span) {
++					telemetry.SetSpanAttributes(span, map[string]any{"cache_hit": true})
+ 				}
+ 
+ 				newJSONBytes = cached
+@@ -1611,12 +1608,14 @@ func getOutputJSONWithCaching(
+ 
+ 			fetched, strategy, fetchErr := resolveOutputJSON(fetchCtx, pctx, l, targetConfig)
+ 
+-			if span := trace.SpanFromContext(fetchCtx); span.IsRecording() {
+-				span.SetAttributes(attribute.Bool("cache_hit", false))
++			if span := telemetry.SpanFromContext(fetchCtx); telemetry.IsSpanRecording(span) {
++				attrs := map[string]any{"cache_hit": false}
+ 
+ 				if strategy != "" {
+-					span.SetAttributes(attribute.String("strategy", strategy))
++					attrs["strategy"] = strategy
+ 				}
++
++				telemetry.SetSpanAttributes(span, attrs)
+ 			}
+ 
+ 			if fetchErr != nil {
+diff --git a/vendor/cloud.google.com/go/auth/grpctransport/grpctransport.go b/vendor/cloud.google.com/go/auth/grpctransport/grpctransport.go
+index f76091b63..a3f312205 100644
+--- a/vendor/cloud.google.com/go/auth/grpctransport/grpctransport.go
++++ b/vendor/cloud.google.com/go/auth/grpctransport/grpctransport.go
+@@ -33,16 +33,10 @@ import (
+ 	"cloud.google.com/go/auth/internal"
+ 	"cloud.google.com/go/auth/internal/transport"
+ 	"cloud.google.com/go/auth/internal/transport/headers"
+-	"github.com/googleapis/gax-go/v2"
+-	"github.com/googleapis/gax-go/v2/callctx"
+ 	"github.com/googleapis/gax-go/v2/internallog"
+-	"go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc"
+-	"go.opentelemetry.io/otel/attribute"
+-	"go.opentelemetry.io/otel/trace"
+ 	"google.golang.org/grpc"
+ 	grpccreds "google.golang.org/grpc/credentials"
+ 	grpcinsecure "google.golang.org/grpc/credentials/insecure"
+-	"google.golang.org/grpc/stats"
+ )
+ 
+ const (
+@@ -461,41 +455,9 @@ func (c *grpcCredentialsProvider) RequireTransportSecurity() bool {
+ }
+ 
+ func addOpenTelemetryStatsHandler(dialOpts []grpc.DialOption, opts *Options, endpoint string) []grpc.DialOption {
+-	if opts.DisableTelemetry {
+-		return dialOpts
+-	}
+-	if gax.IsFeatureEnabled("METRICS") {
+-		host, port := extractHostPort(endpoint)
+-		dialOpts = append(dialOpts, grpc.WithChainUnaryInterceptor(openTelemetryUnaryClientInterceptor(host, port)))
+-	}
+-	if !gax.IsFeatureEnabled("TRACING") && !gax.IsFeatureEnabled("LOGGING") {
+-		return append(dialOpts, grpc.WithStatsHandler(otelgrpc.NewClientHandler()))
+-	}
+-	var staticAttrs []attribute.KeyValue
+-	var scopedLogger *slog.Logger
+-
+-	if gax.IsFeatureEnabled("LOGGING") && opts.Logger != nil {
+-		scopedLogger = opts.Logger
+-	}
+-
+-	if opts.InternalOptions != nil {
+-		staticAttrs = transport.StaticTelemetryAttributes(opts.InternalOptions.TelemetryAttributes)
+-		if scopedLogger != nil {
+-			var staticLogAttrs []any
+-			for _, attr := range staticAttrs {
+-				staticLogAttrs = append(staticLogAttrs, slog.String(string(attr.Key), attr.Value.AsString()))
+-			}
+-			scopedLogger = scopedLogger.With(staticLogAttrs...)
+-		}
+-	}
+-	var otelOpts []otelgrpc.Option
+-	if gax.IsFeatureEnabled("TRACING") {
+-		otelOpts = append(otelOpts, otelgrpc.WithSpanAttributes(staticAttrs...))
+-	}
+-	return append(dialOpts, grpc.WithStatsHandler(&otelHandler{
+-		Handler: otelgrpc.NewClientHandler(otelOpts...),
+-		logger:  scopedLogger,
+-	}))
++	_ = opts
++	_ = endpoint
++	return dialOpts
+ }
+ 
+ // Extract the host and port from a target address
+@@ -517,161 +479,3 @@ func extractHostPort(target string) (string, int) {
+ 	}
+ 	return host, port
+ }
+-
+-// openTelemetryUnaryClientInterceptor returns an interceptor that populates
+-// TransportTelemetryData with the server peer address.
+-func openTelemetryUnaryClientInterceptor(host string, port int) grpc.UnaryClientInterceptor {
+-	return func(ctx context.Context, method string, req, reply any, cc *grpc.ClientConn, invoker grpc.UnaryInvoker, opts ...grpc.CallOption) error {
+-		transportData := gax.ExtractTransportTelemetry(ctx)
+-		if transportData != nil {
+-			if host != "" {
+-				transportData.SetServerAddress(host)
+-			}
+-			if port != 0 {
+-				transportData.SetServerPort(port)
+-			}
+-		}
+-
+-		err := invoker(ctx, method, req, reply, cc, opts...)
+-
+-		return err
+-	}
+-}
+-
+-// otelHandler is a wrapper around the OpenTelemetry gRPC client handler that
+-// adds custom Google Cloud-specific attributes to spans and metrics.
+-type otelHandler struct {
+-	stats.Handler
+-	logger *slog.Logger
+-}
+-
+-// TagRPC intercepts the RPC start to extract dynamic attributes like resource
+-// name and retry count from the outgoing context metadata and attach them to
+-// the current span.
+-func (h *otelHandler) TagRPC(ctx context.Context, info *stats.RPCTagInfo) context.Context {
+-	ctx = h.Handler.TagRPC(ctx, info)
+-
+-	var span trace.Span
+-	if gax.IsFeatureEnabled("TRACING") {
+-		if s := trace.SpanFromContext(ctx); s != nil && s.IsRecording() {
+-			span = s
+-		}
+-	}
+-
+-	if span == nil {
+-		return ctx
+-	}
+-	var attrs []attribute.KeyValue
+-	if resName, ok := callctx.TelemetryFromContext(ctx, "resource_name"); ok {
+-		attrs = append(attrs, attribute.String("gcp.resource.destination.id", resName))
+-	}
+-	if resendCountStr, ok := callctx.TelemetryFromContext(ctx, "resend_count"); ok {
+-		if count, err := strconv.Atoi(resendCountStr); err == nil {
+-			attrs = append(attrs, attribute.Int("gcp.grpc.resend_count", count))
+-		}
+-	}
+-	if len(attrs) > 0 {
+-		span.SetAttributes(attrs...)
+-	}
+-	return ctx
+-}
+-
+-// HandleRPC intercepts the RPC completion to capture and format error-related
+-// attributes ensuring they conform to Google Cloud observability standards.
+-func (h *otelHandler) HandleRPC(ctx context.Context, s stats.RPCStats) {
+-	end, ok := s.(*stats.End)
+-	if !ok {
+-		h.Handler.HandleRPC(ctx, s)
+-		return
+-	}
+-
+-	var span trace.Span
+-	if gax.IsFeatureEnabled("TRACING") {
+-		if s := trace.SpanFromContext(ctx); s != nil && s.IsRecording() {
+-			span = s
+-		}
+-	}
+-
+-	var logger *slog.Logger
+-	if gax.IsFeatureEnabled("LOGGING") {
+-		if l := h.logger; l != nil && l.Enabled(ctx, slog.LevelDebug) {
+-			logger = l
+-		}
+-	}
+-
+-	if span == nil && logger == nil {
+-		h.Handler.HandleRPC(ctx, s)
+-		return
+-	}
+-
+-	if end.Error != nil {
+-		h.handleRPCError(ctx, span, logger, end)
+-	} else {
+-		h.handleRPCSuccess(span)
+-	}
+-	h.Handler.HandleRPC(ctx, s)
+-}
+-
+-func (h *otelHandler) handleRPCError(ctx context.Context, span trace.Span, logger *slog.Logger, end *stats.End) {
+-	info := gax.ExtractTelemetryErrorInfo(ctx, end.Error)
+-
+-	if logger != nil {
+-		logActionableError(ctx, logger, info)
+-	}
+-
+-	if span != nil {
+-		attrs := []attribute.KeyValue{
+-			attribute.String("error.type", info.ErrorType),
+-			attribute.String("status.message", info.StatusMessage),
+-			attribute.String("rpc.response.status_code", info.StatusCode),
+-			attribute.String("exception.type", fmt.Sprintf("%T", end.Error)),
+-		}
+-		span.SetAttributes(attrs...)
+-	}
+-}
+-
+-func (h *otelHandler) handleRPCSuccess(span trace.Span) {
+-	if span != nil {
+-		attrs := []attribute.KeyValue{
+-			attribute.String("rpc.response.status_code", "OK"),
+-		}
+-		span.SetAttributes(attrs...)
+-	}
+-}
+-
+-func logActionableError(ctx context.Context, logger *slog.Logger, info gax.TelemetryErrorInfo) {
+-	baseLogAttrs := []slog.Attr{
+-		slog.String("rpc.system.name", "grpc"),
+-		slog.String("rpc.response.status_code", info.StatusCode),
+-	}
+-
+-	if resendCountStr, ok := callctx.TelemetryFromContext(ctx, "resend_count"); ok {
+-		if count, e := strconv.Atoi(resendCountStr); e == nil {
+-			baseLogAttrs = append(baseLogAttrs, slog.Int64("gcp.grpc.resend_count", int64(count)))
+-		}
+-	}
+-
+-	msg := info.StatusMessage
+-	if msg == "" {
+-		msg = "API call failed"
+-	}
+-
+-	if rpcMethod, ok := callctx.TelemetryFromContext(ctx, "rpc_method"); ok {
+-		baseLogAttrs = append(baseLogAttrs, slog.String("rpc.method", rpcMethod))
+-	}
+-
+-	if resName, ok := callctx.TelemetryFromContext(ctx, "resource_name"); ok {
+-		baseLogAttrs = append(baseLogAttrs, slog.String("gcp.resource.destination.id", resName))
+-	}
+-
+-	if info.Domain != "" {
+-		baseLogAttrs = append(baseLogAttrs, slog.String("gcp.errors.domain", info.Domain))
+-	}
+-	for k, v := range info.Metadata {
+-		baseLogAttrs = append(baseLogAttrs, slog.String("gcp.errors.metadata."+k, v))
+-	}
+-
+-	baseLogAttrs = append(baseLogAttrs, slog.String("error.type", info.ErrorType))
+-
+-	logger.LogAttrs(ctx, slog.LevelDebug, msg, baseLogAttrs...)
+-}
+diff --git a/vendor/cloud.google.com/go/auth/httptransport/transport.go b/vendor/cloud.google.com/go/auth/httptransport/transport.go
+index be1945a98..eda880051 100644
+--- a/vendor/cloud.google.com/go/auth/httptransport/transport.go
++++ b/vendor/cloud.google.com/go/auth/httptransport/transport.go
+@@ -15,17 +15,11 @@
+ package httptransport
+ 
+ import (
+-	"bytes"
+ 	"context"
+ 	"crypto/tls"
+-	"fmt"
+-	"io"
+-	"log/slog"
+ 	"net"
+ 	"net/http"
+ 	"os"
+-	"strconv"
+-	"sync"
+ 	"time"
+ 
+ 	"cloud.google.com/go/auth"
+@@ -34,13 +28,7 @@ import (
+ 	"cloud.google.com/go/auth/internal/transport"
+ 	"cloud.google.com/go/auth/internal/transport/cert"
+ 	"cloud.google.com/go/auth/internal/transport/headers"
+-	"github.com/googleapis/gax-go/v2"
+-	"github.com/googleapis/gax-go/v2/callctx"
+-	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
+-	"go.opentelemetry.io/otel/attribute"
+-	"go.opentelemetry.io/otel/trace"
+ 	"golang.org/x/net/http2"
+-	"google.golang.org/api/googleapi"
+ )
+ 
+ const (
+@@ -182,316 +170,8 @@ func (t *headerTransport) RoundTrip(req *http.Request) (*http.Response, error) {
+ }
+ 
+ func addOpenTelemetryTransport(trans http.RoundTripper, opts *Options) http.RoundTripper {
+-	if opts.DisableTelemetry {
+-		return trans
+-	}
+-
+-	var traceAttrs []attribute.KeyValue
+-	var scopedLogger *slog.Logger
+-
+-	if gax.IsFeatureEnabled("LOGGING") && opts.Logger != nil {
+-		scopedLogger = opts.Logger
+-	}
+-
+-	if opts.InternalOptions != nil {
+-		attrs := transport.StaticTelemetryAttributes(opts.InternalOptions.TelemetryAttributes)
+-		if gax.IsFeatureEnabled("TRACING") {
+-			traceAttrs = attrs
+-		}
+-		if scopedLogger != nil {
+-			var logAttrs []any
+-			for _, attr := range attrs {
+-				logAttrs = append(logAttrs, slog.String(string(attr.Key), attr.Value.AsString()))
+-			}
+-			scopedLogger = scopedLogger.With(logAttrs...)
+-		}
+-	}
+-
+-	if gax.IsFeatureEnabled("METRICS") || gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
+-		trans = &otelAttributeTransport{
+-			base:   trans,
+-			logger: scopedLogger,
+-		}
+-	}
+-
+-	if !gax.IsFeatureEnabled("TRACING") && !gax.IsFeatureEnabled("LOGGING") {
+-		return otelhttp.NewTransport(trans)
+-	}
+-
+-	var otelOpts []otelhttp.Option
+-	if len(traceAttrs) > 0 {
+-		otelOpts = append(otelOpts, otelhttp.WithSpanOptions(trace.WithAttributes(traceAttrs...)))
+-	}
+-	return otelhttp.NewTransport(trans, otelOpts...)
+-}
+-
+-// otelAttributeTransport is a wrapper around an http.RoundTripper that adds
+-// custom Google Cloud-specific attributes to OpenTelemetry spans.
+-type otelAttributeTransport struct {
+-	base   http.RoundTripper
+-	logger *slog.Logger
+-}
+-
+-// RoundTrip intercepts the HTTP request and response to enrich the active
+-// OpenTelemetry span with static and dynamic attributes, as well as detailed
+-// error information.
+-func (t *otelAttributeTransport) RoundTrip(req *http.Request) (*http.Response, error) {
+-	var span trace.Span
+-	if gax.IsFeatureEnabled("TRACING") {
+-		if s := trace.SpanFromContext(req.Context()); s != nil && s.IsRecording() {
+-			span = s
+-		}
+-	}
+-
+-	if span != nil {
+-		var attrs []attribute.KeyValue
+-		attrs = append(attrs, attribute.String("rpc.system.name", "http"))
+-		if resName, ok := callctx.TelemetryFromContext(req.Context(), "resource_name"); ok {
+-			attrs = append(attrs, attribute.String("gcp.resource.destination.id", resName))
+-		}
+-		if resendCountStr, ok := callctx.TelemetryFromContext(req.Context(), "resend_count"); ok {
+-			if count, err := strconv.Atoi(resendCountStr); err == nil {
+-				attrs = append(attrs, attribute.Int("http.request.resend_count", count))
+-			}
+-		}
+-		if urlTemplate, ok := callctx.TelemetryFromContext(req.Context(), "url_template"); ok {
+-			attrs = append(attrs, attribute.String("url.template", urlTemplate))
+-			span.SetName(fmt.Sprintf("%s %s", req.Method, urlTemplate))
+-		}
+-		span.SetAttributes(attrs...)
+-	}
+-
+-	var data *gax.TransportTelemetryData
+-	if gax.IsFeatureEnabled("METRICS") {
+-		data = gax.ExtractTransportTelemetry(req.Context())
+-		if data != nil && req.URL != nil {
+-			host := req.URL.Hostname()
+-			if host != "" {
+-				data.SetServerAddress(host)
+-			}
+-			portStr := req.URL.Port()
+-			if portStr == "" {
+-				if req.URL.Scheme == "https" {
+-					portStr = "443"
+-				} else if req.URL.Scheme == "http" {
+-					portStr = "80"
+-				}
+-			}
+-			if port, pErr := strconv.Atoi(portStr); pErr == nil {
+-				data.SetServerPort(port)
+-			}
+-		}
+-	}
+-
+-	resp, err := t.base.RoundTrip(req)
+-	if gax.IsFeatureEnabled("METRICS") {
+-		if data != nil && resp != nil {
+-			data.SetHTTPStatusCode(resp.StatusCode)
+-		}
+-	}
+-
+-	var logger *slog.Logger
+-	if gax.IsFeatureEnabled("LOGGING") {
+-		if l := t.logger; l != nil && l.Enabled(req.Context(), slog.LevelDebug) {
+-			logger = l
+-		}
+-	}
+-
+-	if span == nil && logger == nil {
+-		return resp, err
+-	}
+-
+-	if err != nil {
+-		t.logAndSpanError(req, resp, err, err, span, logger)
+-	} else if resp.StatusCode >= 400 {
+-		if resp.Body != nil && resp.Body != http.NoBody && (resp.ContentLength < 0 || resp.ContentLength <= maxErrorReadBytes) {
+-			resp.Body = &errorTrackingBody{
+-				ReadCloser: resp.Body,
+-				req:        req,
+-				resp:       resp,
+-				span:       span,
+-				logger:     logger,
+-				t:          t,
+-			}
+-		} else {
+-			t.logAndSpanError(req, resp, &googleapi.Error{
+-				Code:    resp.StatusCode,
+-				Message: resp.Status,
+-			}, nil, span, logger)
+-		}
+-	} else {
+-		if span != nil {
+-			span.SetAttributes(attribute.Int("http.response.status_code", resp.StatusCode))
+-		}
+-	}
+-
+-	return resp, err
+-}
+-
+-func (t *otelAttributeTransport) logAndSpanError(req *http.Request, resp *http.Response, errToParse error, netErr error, span trace.Span, logger *slog.Logger) {
+-	var httpStatusCode int
+-	if resp != nil {
+-		httpStatusCode = resp.StatusCode
+-	}
+-
+-	info := gax.ExtractTelemetryErrorInfo(req.Context(), errToParse)
+-
+-	if netErr == nil && resp != nil && resp.StatusCode >= 400 {
+-		if info.ErrorType == "*googleapi.Error" {
+-			info.ErrorType = strconv.Itoa(resp.StatusCode)
+-		}
+-	}
+-
+-	if logger != nil {
+-		logAttrs := []slog.Attr{
+-			slog.String("rpc.system.name", "http"),
+-		}
+-		if httpStatusCode > 0 {
+-			logAttrs = append(logAttrs, slog.Int64("http.response.status_code", int64(httpStatusCode)))
+-		}
+-
+-		ctx := req.Context()
+-		if resendCountStr, ok := callctx.TelemetryFromContext(ctx, "resend_count"); ok {
+-			if count, e := strconv.Atoi(resendCountStr); e == nil {
+-				logAttrs = append(logAttrs, slog.Int64("http.request.resend_count", int64(count)))
+-			}
+-		}
+-		if urlTemplate, ok := callctx.TelemetryFromContext(ctx, "url_template"); ok {
+-			logAttrs = append(logAttrs, slog.String("url.template", urlTemplate))
+-		}
+-		logAttrs = append(logAttrs, slog.String("http.request.method", req.Method))
+-
+-		msg := info.StatusMessage
+-		if msg == "" {
+-			msg = "API call failed"
+-		}
+-
+-		if rpcMethod, ok := callctx.TelemetryFromContext(ctx, "rpc_method"); ok {
+-			logAttrs = append(logAttrs, slog.String("rpc.method", rpcMethod))
+-		}
+-
+-		if resName, ok := callctx.TelemetryFromContext(ctx, "resource_name"); ok {
+-			logAttrs = append(logAttrs, slog.String("gcp.resource.destination.id", resName))
+-		}
+-
+-		if info.Domain != "" {
+-			logAttrs = append(logAttrs, slog.String("gcp.errors.domain", info.Domain))
+-		}
+-		for k, v := range info.Metadata {
+-			logAttrs = append(logAttrs, slog.String("gcp.errors.metadata."+k, v))
+-		}
+-
+-		logAttrs = append(logAttrs, slog.String("error.type", info.ErrorType))
+-		if info.StatusCode != "" {
+-			logAttrs = append(logAttrs, slog.String("rpc.response.status_code", info.StatusCode))
+-		}
+-
+-		logger.LogAttrs(ctx, slog.LevelDebug, msg, logAttrs...)
+-	}
+-
+-	if span != nil {
+-		if netErr != nil {
+-			span.SetAttributes(
+-				attribute.String("error.type", info.ErrorType),
+-				attribute.String("status.message", info.StatusMessage),
+-				attribute.String("exception.type", fmt.Sprintf("%T", netErr)),
+-			)
+-		} else {
+-			span.SetAttributes(
+-				attribute.Int("http.response.status_code", httpStatusCode),
+-				attribute.String("error.type", info.ErrorType),
+-				attribute.String("status.message", info.StatusMessage),
+-			)
+-		}
+-	}
+-}
+-
+-type errorTrackingBody struct {
+-	io.ReadCloser
+-	req    *http.Request
+-	resp   *http.Response
+-	span   trace.Span
+-	logger *slog.Logger
+-	t      *otelAttributeTransport
+-
+-	mu       sync.Mutex
+-	buf      bytes.Buffer
+-	recorded bool
+-}
+-
+-func (b *errorTrackingBody) Read(p []byte) (n int, err error) {
+-	n, err = b.ReadCloser.Read(p)
+-
+-	b.mu.Lock()
+-	shouldRecord := false
+-	if !b.recorded {
+-		if n > 0 {
+-			remaining := maxErrorReadBytes - int64(b.buf.Len())
+-			if remaining > 0 {
+-				if int64(n) > remaining {
+-					b.buf.Write(p[:remaining])
+-				} else {
+-					b.buf.Write(p[:n])
+-				}
+-			}
+-		}
+-
+-		if err == io.EOF || int64(b.buf.Len()) >= maxErrorReadBytes {
+-			shouldRecord = true
+-			b.recorded = true
+-		}
+-	}
+-	b.mu.Unlock()
+-
+-	if shouldRecord {
+-		b.recordError()
+-	}
+-
+-	return n, err
+-}
+-
+-func (b *errorTrackingBody) Close() error {
+-	b.mu.Lock()
+-	shouldRecord := !b.recorded
+-	b.recorded = true
+-	b.mu.Unlock()
+-
+-	// We can close the network stream immediately.
+-	err := b.ReadCloser.Close()
+-
+-	// Do heavy in-memory telemetry parsing without holding the lock
+-	if shouldRecord {
+-		b.recordError() // If this panics here, the socket is already released
+-	}
+-
+-	return err
+-}
+-
+-func (b *errorTrackingBody) recordError() {
+-	errToParse := &googleapi.Error{
+-		Code:    b.resp.StatusCode,
+-		Message: b.resp.Status,
+-	}
+-
+-	if b.buf.Len() > 0 {
+-		clone := *b.resp
+-		clone.Body = io.NopCloser(bytes.NewReader(b.buf.Bytes()))
+-		if errResp := googleapi.CheckResponse(&clone); errResp != nil {
+-			if gErr, ok := errResp.(*googleapi.Error); ok {
+-				if gErr.Message == "" {
+-					gErr.Message = b.resp.Status
+-				}
+-				errToParse = gErr
+-			} else {
+-				errToParse = &googleapi.Error{
+-					Code:    b.resp.StatusCode,
+-					Message: errResp.Error(),
+-				}
+-			}
+-		}
+-	}
+-
+-	b.t.logAndSpanError(b.req, b.resp, errToParse, nil, b.span, b.logger)
++	_ = opts
++	return trans
+ }
+ 
+ type authTransport struct {
+diff --git a/vendor/cloud.google.com/go/auth/internal/transport/transport.go b/vendor/cloud.google.com/go/auth/internal/transport/transport.go
+index fb0a8a1e0..6a6a912c5 100644
+--- a/vendor/cloud.google.com/go/auth/internal/transport/transport.go
++++ b/vendor/cloud.google.com/go/auth/internal/transport/transport.go
+@@ -24,7 +24,6 @@ import (
+ 	"time"
+ 
+ 	"cloud.google.com/go/auth/credentials"
+-	"go.opentelemetry.io/otel/attribute"
+ )
+ 
+ // knownKeys provides keys for reading telemetry attributes from Context.
+@@ -43,14 +42,14 @@ var knownKeys = []string{
+ 
+ // StaticTelemetryAttributes selectively converts known keys from a map of
+ // strings to Open Telemetry attributes.
+-func StaticTelemetryAttributes(m map[string]string) []attribute.KeyValue {
+-	var staticAttrs []attribute.KeyValue
++func StaticTelemetryAttributes(m map[string]string) []string {
++	var staticAttrs []string
+ 	if m == nil {
+ 		return staticAttrs
+ 	}
+ 	for _, k := range knownKeys {
+ 		if v, ok := m[k]; ok {
+-			staticAttrs = append(staticAttrs, attribute.String(k, v))
++			staticAttrs = append(staticAttrs, k+"="+v)
+ 		}
+ 	}
+ 	return staticAttrs
+diff --git a/vendor/cloud.google.com/go/internal/trace/trace.go b/vendor/cloud.google.com/go/internal/trace/trace.go
+index fcff2a7e4..5981b8b8a 100644
+--- a/vendor/cloud.google.com/go/internal/trace/trace.go
++++ b/vendor/cloud.google.com/go/internal/trace/trace.go
+@@ -5,93 +5,31 @@
+ // You may obtain a copy of the License at
+ //
+ //      http://www.apache.org/licenses/LICENSE-2.0
+-//
+-// Unless required by applicable law or agreed to in writing, software
+-// distributed under the License is distributed on an "AS IS" BASIS,
+-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+-// See the License for the specific language governing permissions and
+-// limitations under the License.
+ 
+ package trace
+ 
+-import (
+-	"context"
+-	"errors"
+-	"fmt"
+-
+-	"go.opentelemetry.io/otel"
+-	"go.opentelemetry.io/otel/attribute"
+-	"go.opentelemetry.io/otel/codes"
+-	"go.opentelemetry.io/otel/trace"
+-	"google.golang.org/api/googleapi"
+-	"google.golang.org/grpc/status"
+-)
++import "context"
+ 
+ const (
+ 	OpenTelemetryTracerName = "cloud.google.com/go"
+ )
+ 
+-// StartSpan adds an OpenTelemetry span to the trace with the given name.
+-//
+-// The default experimental tracing support for OpenCensus is now deprecated in
+-// the Google Cloud client libraries for Go.
++// StartSpan is a no-op tracing shim.
+ func StartSpan(ctx context.Context, name string) context.Context {
+-	ctx, _ = otel.GetTracerProvider().Tracer(OpenTelemetryTracerName).Start(ctx, name)
++	_ = name
+ 	return ctx
+ }
+ 
+-// EndSpan ends an OpenTelemetry span with the given error.
+-//
+-// The default experimental tracing support for OpenCensus is now deprecated in
+-// the Google Cloud client libraries for Go.
++// EndSpan is a no-op tracing shim.
+ func EndSpan(ctx context.Context, err error) {
+-	span := trace.SpanFromContext(ctx)
+-	if err != nil {
+-		span.SetStatus(codes.Error, toOpenTelemetryStatusDescription(err))
+-		span.RecordError(err)
+-	}
+-	span.End()
++	_ = ctx
++	_ = err
+ }
+ 
+-// toOpenTelemetryStatus converts an error to an equivalent OpenTelemetry status description.
+-func toOpenTelemetryStatusDescription(err error) string {
+-	var err2 *googleapi.Error
+-	if ok := errors.As(err, &err2); ok {
+-		return err2.Message
+-	} else if s, ok := status.FromError(err); ok {
+-		return s.Message()
+-	} else {
+-		return err.Error()
+-	}
+-}
+-
+-// TracePrintf retrieves the current OpenTelemetry span from context, then calls
+-// Span.AddEvent. The expected span must be an OpenTelemetry span. The default
+-// experimental tracing support for OpenCensus is now deprecated in the Google
+-// Cloud client libraries for Go.
++// TracePrintf is a no-op tracing shim.
+ func TracePrintf(ctx context.Context, attrMap map[string]interface{}, format string, args ...interface{}) {
+-	attrs := otAttrs(attrMap)
+-	trace.SpanFromContext(ctx).AddEvent(fmt.Sprintf(format, args...), trace.WithAttributes(attrs...))
+-}
+-
+-// otAttrs converts a generic map to OpenTelemetry attributes.
+-func otAttrs(attrMap map[string]interface{}) []attribute.KeyValue {
+-	var attrs []attribute.KeyValue
+-	for k, v := range attrMap {
+-		var a attribute.KeyValue
+-		switch v := v.(type) {
+-		case string:
+-			a = attribute.Key(k).String(v)
+-		case bool:
+-			a = attribute.Key(k).Bool(v)
+-		case int:
+-			a = attribute.Key(k).Int(v)
+-		case int64:
+-			a = attribute.Key(k).Int64(v)
+-		default:
+-			a = attribute.Key(k).String(fmt.Sprintf("%#v", v))
+-		}
+-		attrs = append(attrs, a)
+-	}
+-	return attrs
++	_ = ctx
++	_ = attrMap
++	_ = format
++	_ = args
+ }
+diff --git a/vendor/cloud.google.com/go/kms/apiv1/autokey_client.go b/vendor/cloud.google.com/go/kms/apiv1/autokey_client.go
+index c5a85c3e5..5cab76ff2 100644
+--- a/vendor/cloud.google.com/go/kms/apiv1/autokey_client.go
++++ b/vendor/cloud.google.com/go/kms/apiv1/autokey_client.go
+@@ -33,7 +33,6 @@ import (
+ 	longrunningpb "cloud.google.com/go/longrunning/autogen/longrunningpb"
+ 	gax "github.com/googleapis/gax-go/v2"
+ 	"github.com/googleapis/gax-go/v2/callctx"
+-	trace "go.opentelemetry.io/otel/trace"
+ 	"google.golang.org/api/iterator"
+ 	"google.golang.org/api/option"
+ 	"google.golang.org/api/option/internaloption"
+@@ -627,7 +626,7 @@ func (c *autokeyGRPCClient) CreateKeyHandle(ctx context.Context, req *kmspb.Crea
+ 	}
+ 	lro := longrunning.InternalNewOperationWithMetadata(*c.LROClient, resp, "*kms.CreateKeyHandleOperation")
+ 	if gax.IsFeatureEnabled("TRACING") {
+-		lro.SetParentSpanContext(trace.SpanContextFromContext(ctx))
++		lro.SetParentSpanContext(nil)
+ 	}
+ 	return &CreateKeyHandleOperation{
+ 		lro: lro,
+@@ -945,7 +944,7 @@ func (c *autokeyRESTClient) CreateKeyHandle(ctx context.Context, req *kmspb.Crea
+ 	override := fmt.Sprintf("/v1/%s", resp.GetName())
+ 	lro := longrunning.InternalNewOperationWithMetadata(*c.LROClient, resp, "*kms.CreateKeyHandleOperation")
+ 	if gax.IsFeatureEnabled("TRACING") {
+-		lro.SetParentSpanContext(trace.SpanContextFromContext(ctx))
++		lro.SetParentSpanContext(nil)
+ 	}
+ 	return &CreateKeyHandleOperation{
+ 		lro:      lro,
+diff --git a/vendor/cloud.google.com/go/kms/apiv1/hsm_management_client.go b/vendor/cloud.google.com/go/kms/apiv1/hsm_management_client.go
+index acdac63fd..11cce5b8f 100644
+--- a/vendor/cloud.google.com/go/kms/apiv1/hsm_management_client.go
++++ b/vendor/cloud.google.com/go/kms/apiv1/hsm_management_client.go
+@@ -33,7 +33,6 @@ import (
+ 	longrunningpb "cloud.google.com/go/longrunning/autogen/longrunningpb"
+ 	gax "github.com/googleapis/gax-go/v2"
+ 	"github.com/googleapis/gax-go/v2/callctx"
+-	trace "go.opentelemetry.io/otel/trace"
+ 	"google.golang.org/api/iterator"
+ 	"google.golang.org/api/option"
+ 	"google.golang.org/api/option/internaloption"
+@@ -931,7 +930,7 @@ func (c *hsmManagementGRPCClient) CreateSingleTenantHsmInstance(ctx context.Cont
+ 	}
+ 	lro := longrunning.InternalNewOperationWithMetadata(*c.LROClient, resp, "*kms.CreateSingleTenantHsmInstanceOperation")
+ 	if gax.IsFeatureEnabled("TRACING") {
+-		lro.SetParentSpanContext(trace.SpanContextFromContext(ctx))
++		lro.SetParentSpanContext(nil)
+ 	}
+ 	return &CreateSingleTenantHsmInstanceOperation{
+ 		lro: lro,
+@@ -961,7 +960,7 @@ func (c *hsmManagementGRPCClient) CreateSingleTenantHsmInstanceProposal(ctx cont
+ 	}
+ 	lro := longrunning.InternalNewOperationWithMetadata(*c.LROClient, resp, "*kms.CreateSingleTenantHsmInstanceProposalOperation")
+ 	if gax.IsFeatureEnabled("TRACING") {
+-		lro.SetParentSpanContext(trace.SpanContextFromContext(ctx))
++		lro.SetParentSpanContext(nil)
+ 	}
+ 	return &CreateSingleTenantHsmInstanceProposalOperation{
+ 		lro: lro,
+@@ -1015,7 +1014,7 @@ func (c *hsmManagementGRPCClient) ExecuteSingleTenantHsmInstanceProposal(ctx con
+ 	}
+ 	lro := longrunning.InternalNewOperationWithMetadata(*c.LROClient, resp, "*kms.ExecuteSingleTenantHsmInstanceProposalOperation")
+ 	if gax.IsFeatureEnabled("TRACING") {
+-		lro.SetParentSpanContext(trace.SpanContextFromContext(ctx))
++		lro.SetParentSpanContext(nil)
+ 	}
+ 	return &ExecuteSingleTenantHsmInstanceProposalOperation{
+ 		lro: lro,
+@@ -1497,7 +1496,7 @@ func (c *hsmManagementRESTClient) CreateSingleTenantHsmInstance(ctx context.Cont
+ 	override := fmt.Sprintf("/v1/%s", resp.GetName())
+ 	lro := longrunning.InternalNewOperationWithMetadata(*c.LROClient, resp, "*kms.CreateSingleTenantHsmInstanceOperation")
+ 	if gax.IsFeatureEnabled("TRACING") {
+-		lro.SetParentSpanContext(trace.SpanContextFromContext(ctx))
++		lro.SetParentSpanContext(nil)
+ 	}
+ 	return &CreateSingleTenantHsmInstanceOperation{
+ 		lro:      lro,
+@@ -1574,7 +1573,7 @@ func (c *hsmManagementRESTClient) CreateSingleTenantHsmInstanceProposal(ctx cont
+ 	override := fmt.Sprintf("/v1/%s", resp.GetName())
+ 	lro := longrunning.InternalNewOperationWithMetadata(*c.LROClient, resp, "*kms.CreateSingleTenantHsmInstanceProposalOperation")
+ 	if gax.IsFeatureEnabled("TRACING") {
+-		lro.SetParentSpanContext(trace.SpanContextFromContext(ctx))
++		lro.SetParentSpanContext(nil)
+ 	}
+ 	return &CreateSingleTenantHsmInstanceProposalOperation{
+ 		lro:      lro,
+@@ -1719,7 +1718,7 @@ func (c *hsmManagementRESTClient) ExecuteSingleTenantHsmInstanceProposal(ctx con
+ 	override := fmt.Sprintf("/v1/%s", resp.GetName())
+ 	lro := longrunning.InternalNewOperationWithMetadata(*c.LROClient, resp, "*kms.ExecuteSingleTenantHsmInstanceProposalOperation")
+ 	if gax.IsFeatureEnabled("TRACING") {
+-		lro.SetParentSpanContext(trace.SpanContextFromContext(ctx))
++		lro.SetParentSpanContext(nil)
+ 	}
+ 	return &ExecuteSingleTenantHsmInstanceProposalOperation{
+ 		lro:      lro,
+diff --git a/vendor/cloud.google.com/go/kms/apiv1/key_management_client.go b/vendor/cloud.google.com/go/kms/apiv1/key_management_client.go
+index 6b09093ae..e17c03502 100644
+--- a/vendor/cloud.google.com/go/kms/apiv1/key_management_client.go
++++ b/vendor/cloud.google.com/go/kms/apiv1/key_management_client.go
+@@ -33,7 +33,6 @@ import (
+ 	longrunningpb "cloud.google.com/go/longrunning/autogen/longrunningpb"
+ 	gax "github.com/googleapis/gax-go/v2"
+ 	"github.com/googleapis/gax-go/v2/callctx"
+-	trace "go.opentelemetry.io/otel/trace"
+ 	"google.golang.org/api/iterator"
+ 	"google.golang.org/api/option"
+ 	"google.golang.org/api/option/internaloption"
+@@ -2152,7 +2151,7 @@ func (c *keyManagementGRPCClient) DeleteCryptoKey(ctx context.Context, req *kmsp
+ 	}
+ 	lro := longrunning.InternalNewOperationWithMetadata(*c.LROClient, resp, "*kms.DeleteCryptoKeyOperation")
+ 	if gax.IsFeatureEnabled("TRACING") {
+-		lro.SetParentSpanContext(trace.SpanContextFromContext(ctx))
++		lro.SetParentSpanContext(nil)
+ 	}
+ 	return &DeleteCryptoKeyOperation{
+ 		lro: lro,
+@@ -2182,7 +2181,7 @@ func (c *keyManagementGRPCClient) DeleteCryptoKeyVersion(ctx context.Context, re
+ 	}
+ 	lro := longrunning.InternalNewOperationWithMetadata(*c.LROClient, resp, "*kms.DeleteCryptoKeyVersionOperation")
+ 	if gax.IsFeatureEnabled("TRACING") {
+-		lro.SetParentSpanContext(trace.SpanContextFromContext(ctx))
++		lro.SetParentSpanContext(nil)
+ 	}
+ 	return &DeleteCryptoKeyVersionOperation{
+ 		lro: lro,
+@@ -3794,7 +3793,7 @@ func (c *keyManagementRESTClient) DeleteCryptoKey(ctx context.Context, req *kmsp
+ 	override := fmt.Sprintf("/v1/%s", resp.GetName())
+ 	lro := longrunning.InternalNewOperationWithMetadata(*c.LROClient, resp, "*kms.DeleteCryptoKeyOperation")
+ 	if gax.IsFeatureEnabled("TRACING") {
+-		lro.SetParentSpanContext(trace.SpanContextFromContext(ctx))
++		lro.SetParentSpanContext(nil)
+ 	}
+ 	return &DeleteCryptoKeyOperation{
+ 		lro:      lro,
+@@ -3868,7 +3867,7 @@ func (c *keyManagementRESTClient) DeleteCryptoKeyVersion(ctx context.Context, re
+ 	override := fmt.Sprintf("/v1/%s", resp.GetName())
+ 	lro := longrunning.InternalNewOperationWithMetadata(*c.LROClient, resp, "*kms.DeleteCryptoKeyVersionOperation")
+ 	if gax.IsFeatureEnabled("TRACING") {
+-		lro.SetParentSpanContext(trace.SpanContextFromContext(ctx))
++		lro.SetParentSpanContext(nil)
+ 	}
+ 	return &DeleteCryptoKeyVersionOperation{
+ 		lro:      lro,
+diff --git a/vendor/cloud.google.com/go/longrunning/longrunning.go b/vendor/cloud.google.com/go/longrunning/longrunning.go
+index 666ea6b76..e64eefa76 100644
+--- a/vendor/cloud.google.com/go/longrunning/longrunning.go
++++ b/vendor/cloud.google.com/go/longrunning/longrunning.go
+@@ -31,11 +31,6 @@ import (
+ 	pb "cloud.google.com/go/longrunning/autogen/longrunningpb"
+ 	gax "github.com/googleapis/gax-go/v2"
+ 	"github.com/googleapis/gax-go/v2/apierror"
+-	"go.opentelemetry.io/otel"
+-	"go.opentelemetry.io/otel/attribute"
+-	"go.opentelemetry.io/otel/codes"
+-	"go.opentelemetry.io/otel/trace"
+-	grpccodes "google.golang.org/grpc/codes"
+ 	"google.golang.org/grpc/status"
+ 	"google.golang.org/protobuf/proto"
+ 	"google.golang.org/protobuf/protoadapt"
+@@ -50,7 +45,7 @@ type Operation struct {
+ 	c               operationsClient
+ 	proto           *pb.Operation
+ 	opName          string
+-	initSpanContext trace.SpanContext
++	initSpanContext any
+ }
+ 
+ type operationsClient interface {
+@@ -84,7 +79,7 @@ func InternalNewOperationWithMetadata(inner *autogen.OperationsClient, proto *pb
+ // which is used to create a Span Link from the LRO Wait span.
+ //
+ // SetParentSpanContext is an EXPERIMENTAL API and may be changed or removed in the future.
+-func (op *Operation) SetParentSpanContext(sc trace.SpanContext) {
++func (op *Operation) SetParentSpanContext(sc any) {
+ 	op.initSpanContext = sc
+ }
+ 
+@@ -172,35 +167,9 @@ func (op *Operation) waitWithInterval(ctx context.Context, resp protoadapt.Messa
+ 		bo.Max = bo.Initial
+ 	}
+ 
+-	if !gax.IsFeatureEnabled("TRACING") {
+-		return op.wait(ctx, resp, &bo, sl, opts...)
+-	}
+-
+-	spanName := op.opName
+-	if spanName == "" {
+-		spanName = "*longrunning.Operation.Wait"
+-	} else {
+-		spanName = spanName + ".Wait"
+-	}
+-
+-	var startOpts []trace.SpanStartOption
+-	if op.initSpanContext.IsValid() {
+-		startOpts = append(startOpts, trace.WithLinks(trace.Link{SpanContext: op.initSpanContext}))
+-	}
+-
+-	tracer := otel.GetTracerProvider().Tracer("cloud.google.com/go")
+-	ctx, span := tracer.Start(ctx, spanName, startOpts...)
+-	defer span.End()
+-	span.SetAttributes(
+-		attribute.String("gcp.resource.destination.id", op.Name()),
+-	)
+-
+-	err := op.waitTraced(ctx, resp, &bo, sl, opts...)
+-	if err != nil {
+-		span.SetStatus(codes.Error, err.Error())
+-		span.RecordError(err)
+-	}
+-	return err
++	_ = op.opName
++	_ = op.initSpanContext
++	return op.wait(ctx, resp, &bo, sl, opts...)
+ }
+ 
+ type sleeper func(context.Context, time.Duration) error
+@@ -221,57 +190,7 @@ func (op *Operation) wait(ctx context.Context, resp protoadapt.MessageV1, bo *ga
+ }
+ 
+ func (op *Operation) waitTraced(ctx context.Context, resp protoadapt.MessageV1, bo *gax.Backoff, sl sleeper, opts ...gax.CallOption) error {
+-	tracer := otel.GetTracerProvider().Tracer("cloud.google.com/go")
+-	pollAttempt := 0
+-
+-	for {
+-		pollAttempt++
+-		pollSpanName := "*longrunning.OperationsClient.GetOperation"
+-
+-		pollCtx, pollSpan := tracer.Start(ctx, pollSpanName)
+-		pollSpan.SetAttributes(
+-			attribute.String("gcp.resource.destination.id", op.Name()),
+-			attribute.Int("gcp.longrunning.poll_attempt_count", pollAttempt),
+-		)
+-
+-		err := op.Poll(pollCtx, resp, opts...)
+-
+-		pollSpan.SetAttributes(attribute.Bool("gcp.longrunning.done", op.Done()))
+-		if op.Done() {
+-			var statusCode int
+-			if err != nil {
+-				if apiErr, ok := apierror.FromError(err); ok {
+-					statusCode = int(apiErr.GRPCStatus().Code())
+-				} else {
+-					statusCode = int(grpccodes.Unknown)
+-				}
+-			}
+-			pollSpan.SetAttributes(attribute.Int("gcp.longrunning.status_code", statusCode))
+-		}
+-
+-		if err != nil {
+-			pollSpan.SetStatus(codes.Error, err.Error())
+-			pollSpan.RecordError(err)
+-			pollSpan.End()
+-			return err
+-		}
+-
+-		pollSpan.End()
+-
+-		if op.Done() {
+-			return nil
+-		}
+-
+-		_, sleepSpan := tracer.Start(ctx, "LRO Sleep")
+-		sleepErr := sl(ctx, bo.Pause())
+-		if sleepErr != nil {
+-			sleepSpan.SetStatus(codes.Error, sleepErr.Error())
+-			sleepSpan.RecordError(sleepErr)
+-			sleepSpan.End()
+-			return sleepErr
+-		}
+-		sleepSpan.End()
+-	}
++	return op.wait(ctx, resp, bo, sl, opts...)
+ }
+ 
+ // Cancel starts asynchronous cancellation on a long-running operation. The server
+diff --git a/vendor/cloud.google.com/go/storage/experimental/experimental.go b/vendor/cloud.google.com/go/storage/experimental/experimental.go
+index ae77e8d57..0334b0168 100644
+--- a/vendor/cloud.google.com/go/storage/experimental/experimental.go
++++ b/vendor/cloud.google.com/go/storage/experimental/experimental.go
+@@ -25,7 +25,6 @@ import (
+ 	"time"
+ 
+ 	"cloud.google.com/go/storage/internal"
+-	"go.opentelemetry.io/otel/sdk/metric"
+ 	"google.golang.org/api/option"
+ )
+ 
+@@ -41,15 +40,15 @@ func WithMetricInterval(metricInterval time.Duration) option.ClientOption {
+ // WithMetricExporter provides a [option.ClientOption] that may be passed to [storage.NewGRPCClient].
+ // Set an alternate client-side metric Exporter to emit metrics through.
+ // Must implement [metric.Exporter]. This option is ignored if WithMeterProvider is also set.
+-func WithMetricExporter(ex *metric.Exporter) option.ClientOption {
+-	return internal.WithMetricExporter.(func(*metric.Exporter) option.ClientOption)(ex)
++func WithMetricExporter(ex any) option.ClientOption {
++	return internal.WithMetricExporter.(func(any) option.ClientOption)(ex)
+ }
+ 
+ // WithMeterProvider provides a [option.ClientOption] that may be passed to [storage.NewGRPCClient].
+ // Set an alternate client-side meter provider to emit metrics through.
+ // This option takes precedence over WithMetricExporter and WithMetricInterval.
+-func WithMeterProvider(mp *metric.MeterProvider) option.ClientOption {
+-	return internal.WithMeterProvider.(func(*metric.MeterProvider) option.ClientOption)(mp)
++func WithMeterProvider(mp any) option.ClientOption {
++	return internal.WithMeterProvider.(func(any) option.ClientOption)(mp)
+ }
+ 
+ // WithReadStallTimeout provides a [option.ClientOption] that may be passed to [storage.NewClient].
+diff --git a/vendor/cloud.google.com/go/storage/grpc_metrics.go b/vendor/cloud.google.com/go/storage/grpc_metrics.go
+index 62d53876c..419cabc14 100644
+--- a/vendor/cloud.google.com/go/storage/grpc_metrics.go
++++ b/vendor/cloud.google.com/go/storage/grpc_metrics.go
+@@ -1,285 +1,34 @@
+-// Copyright 2024 Google LLC
+-//
+-// Licensed under the Apache License, Version 2.0 (the "License");
+-// you may not use this file except in compliance with the License.
+-// You may obtain a copy of the License at
+-//
+-//      http://www.apache.org/licenses/LICENSE-2.0
+-//
+-// Unless required by applicable law or agreed to in writing, software
+-// distributed under the License is distributed on an "AS IS" BASIS,
+-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+-// See the License for the specific language governing permissions and
+-// limitations under the License.
+-
+ package storage
+ 
+ import (
+ 	"context"
+-	"errors"
+-	"fmt"
+-	"strings"
+ 	"time"
+ 
+-	mexporter "github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/metric"
+-	"github.com/google/uuid"
+-	"go.opentelemetry.io/contrib/detectors/gcp"
+-	"go.opentelemetry.io/otel/attribute"
+-	"go.opentelemetry.io/otel/sdk/metric"
+-	"go.opentelemetry.io/otel/sdk/metric/metricdata"
+-	"go.opentelemetry.io/otel/sdk/resource"
+ 	"google.golang.org/api/option"
+-	"google.golang.org/grpc"
+-	"google.golang.org/grpc/experimental/stats"
+-	"google.golang.org/grpc/stats/opentelemetry"
+-)
+-
+-const (
+-	monitoredResourceName = "storage.googleapis.com/Client"
+-	metricPrefix          = "storage.googleapis.com/client/"
+ )
+ 
+-// Added to help with tests
+-type storageMonitoredResource struct {
+-	project       string
+-	api           string
+-	location      string
+-	instance      string
+-	cloudPlatform string
+-	host          string
+-	resource      *resource.Resource
+-}
+-
+-func (smr *storageMonitoredResource) exporter() (metric.Exporter, error) {
+-	exporter, err := mexporter.New(
+-		mexporter.WithProjectID(smr.project),
+-		mexporter.WithMetricDescriptorTypeFormatter(func(m metricdata.Metrics) string {
+-			return formatMetricWithPrefix(m, metricPrefix)
+-		}),
+-		mexporter.WithCreateServiceTimeSeries(),
+-		mexporter.WithMonitoredResourceDescription(monitoredResourceName, []string{"project_id", "location", "cloud_platform", "host_id", "instance_id", "api"}),
+-	)
+-	if err != nil {
+-		return nil, fmt.Errorf("storage: creating metrics exporter: %w", err)
+-	}
+-	return exporter, nil
+-}
+-
+-func newStorageMonitoredResource(ctx context.Context, project, api string, opts ...resource.Option) (*storageMonitoredResource, error) {
+-	detectedAttrs, err := resource.New(ctx, opts...)
+-	if err != nil {
+-		return nil, err
+-	}
+-	smr := &storageMonitoredResource{
+-		instance: uuid.New().String(),
+-		api:      api,
+-		project:  project,
+-	}
+-	s := detectedAttrs.Set()
+-	// Attempt to use resource detector project id if project id wasn't
+-	// identified using ADC as a last resort. Otherwise metrics cannot be started.
+-	if p, present := s.Value("cloud.account.id"); present && smr.project == "" {
+-		smr.project = p.AsString()
+-	} else if !present && smr.project == "" {
+-		return nil, errors.New("google cloud project is required to start client-side metrics")
+-	}
+-	if v, ok := s.Value("cloud.region"); ok {
+-		smr.location = v.AsString()
+-	} else {
+-		smr.location = "global"
+-	}
+-	if v, ok := s.Value("cloud.platform"); ok {
+-		smr.cloudPlatform = v.AsString()
+-	} else {
+-		smr.cloudPlatform = "unknown"
+-	}
+-	if v, ok := s.Value("host.id"); ok {
+-		smr.host = v.AsString()
+-	} else if v, ok := s.Value("faas.id"); ok {
+-		smr.host = v.AsString()
+-	} else {
+-		smr.host = "unknown"
+-	}
+-	smr.resource, err = resource.New(ctx, resource.WithAttributes([]attribute.KeyValue{
+-		{Key: "gcp.resource_type", Value: attribute.StringValue(monitoredResourceName)},
+-		{Key: "project_id", Value: attribute.StringValue(smr.project)},
+-		{Key: "api", Value: attribute.StringValue(smr.api)},
+-		{Key: "instance_id", Value: attribute.StringValue(smr.instance)},
+-		{Key: "location", Value: attribute.StringValue(smr.location)},
+-		{Key: "cloud_platform", Value: attribute.StringValue(smr.cloudPlatform)},
+-		{Key: "host_id", Value: attribute.StringValue(smr.host)},
+-	}...))
+-	if err != nil {
+-		return nil, err
+-	}
+-	return smr, nil
+-}
+-
+ type metricsContext struct {
+-	// client options passed to gRPC channels
+ 	clientOpts []option.ClientOption
+-	// instance of metric reader used by gRPC client-side metrics
+-	provider *metric.MeterProvider
+-	// clean func to call when closing gRPC client
+-	close func()
++	provider   any
++	close      func()
+ }
+ 
+ type metricsConfig struct {
+ 	project         string
+ 	interval        time.Duration
+-	customExporter  *metric.Exporter
+-	meterProvider   *metric.MeterProvider
+-	manualReader    *metric.ManualReader // used by tests
+-	disableExporter bool                 // used by tests disables exports
+-	resourceOpts    []resource.Option    // used by tests
++	customExporter  any
++	meterProvider   any
++	manualReader    any
++	disableExporter bool
++	resourceOpts    []any
+ }
+ 
+ func newGRPCMetricContext(ctx context.Context, cfg metricsConfig) (*metricsContext, error) {
+-	var exporter metric.Exporter
+-	meterOpts := []metric.Option{}
+-	if cfg.customExporter == nil {
+-		var ropts []resource.Option
+-		if cfg.resourceOpts != nil {
+-			ropts = cfg.resourceOpts
+-		} else {
+-			ropts = []resource.Option{resource.WithDetectors(gcp.NewDetector())}
+-		}
+-		smr, err := newStorageMonitoredResource(ctx, cfg.project, "grpc", ropts...)
+-		if err != nil {
+-			return nil, err
+-		}
+-		exporter, err = smr.exporter()
+-		if err != nil {
+-			return nil, err
+-		}
+-		meterOpts = append(meterOpts, metric.WithResource(smr.resource))
+-	} else {
+-		exporter = *cfg.customExporter
+-	}
+-	interval := time.Minute
+-	if cfg.interval > 0 {
+-		interval = cfg.interval
+-	}
+-	meterOpts = append(meterOpts,
+-		// Metric views update histogram boundaries to be relevant to GCS
+-		// otherwise default OTel histogram boundaries are used.
+-		metric.WithView(
+-			createHistogramView("grpc.client.attempt.duration", latencyHistogramBoundaries()),
+-			createHistogramView("grpc.client.attempt.rcvd_total_compressed_message_size", sizeHistogramBoundaries()),
+-			createHistogramView("grpc.client.attempt.sent_total_compressed_message_size", sizeHistogramBoundaries())),
+-	)
+-	if cfg.manualReader != nil {
+-		meterOpts = append(meterOpts, metric.WithReader(cfg.manualReader))
+-	}
+-	if !cfg.disableExporter {
+-		meterOpts = append(meterOpts, metric.WithReader(
+-			metric.NewPeriodicReader(&exporterLogSuppressor{Exporter: exporter}, metric.WithInterval(interval))))
+-	}
+-	provider := cfg.meterProvider
+-	if provider == nil {
+-		provider = metric.NewMeterProvider(meterOpts...)
+-	}
+-	mo := opentelemetry.MetricsOptions{
+-		MeterProvider: provider,
+-		Metrics: stats.NewMetrics(
+-			"grpc.client.attempt.started",
+-			"grpc.client.attempt.duration",
+-			"grpc.client.attempt.sent_total_compressed_message_size",
+-			"grpc.client.attempt.rcvd_total_compressed_message_size",
+-			"grpc.client.call.duration",
+-			"grpc.lb.wrr.rr_fallback",
+-			"grpc.lb.wrr.endpoint_weight_not_yet_usable",
+-			"grpc.lb.wrr.endpoint_weight_stale",
+-			"grpc.lb.wrr.endpoint_weights",
+-			"grpc.lb.rls.cache_entries",
+-			"grpc.lb.rls.cache_size",
+-			"grpc.lb.rls.default_target_picks",
+-			"grpc.lb.rls.target_picks",
+-			"grpc.lb.rls.failed_picks",
+-		),
+-		OptionalLabels: []string{"grpc.lb.locality"},
+-	}
+-	opts := []option.ClientOption{
+-		option.WithGRPCDialOption(
+-			opentelemetry.DialOption(opentelemetry.Options{MetricsOptions: mo})),
+-		option.WithGRPCDialOption(
+-			grpc.WithDefaultCallOptions(grpc.StaticMethodCallOption{})),
+-	}
++	_ = ctx
++	_ = cfg
+ 	return &metricsContext{
+-		clientOpts: opts,
+-		provider:   provider,
+-		close: func() {
+-			provider.Shutdown(ctx)
+-		},
++		clientOpts: nil,
++		provider:   nil,
++		close:      func() {},
+ 	}, nil
+ }
+-
+-// Silences permission errors after initial error is emitted to prevent
+-// chatty logs.
+-type exporterLogSuppressor struct {
+-	metric.Exporter
+-	emittedFailure bool
+-}
+-
+-// Implements OTel SDK metric.Exporter interface to prevent noisy logs from
+-// lack of credentials after initial failure.
+-// https://pkg.go.dev/go.opentelemetry.io/otel/sdk/metric@v1.28.0#Exporter
+-func (e *exporterLogSuppressor) Export(ctx context.Context, rm *metricdata.ResourceMetrics) error {
+-	if err := e.Exporter.Export(ctx, rm); err != nil && !e.emittedFailure {
+-		if strings.Contains(err.Error(), "PermissionDenied") {
+-			e.emittedFailure = true
+-			return fmt.Errorf("gRPC metrics failed due permission issue: %w", err)
+-		}
+-		return err
+-	}
+-	return nil
+-}
+-
+-func latencyHistogramBoundaries() []float64 {
+-	boundaries := []float64{}
+-	boundary := 0.0
+-	increment := 0.002
+-	// 2ms buckets for first 100ms, so we can have higher resolution for uploads and downloads in the 100 KiB range
+-	for i := 0; i < 50; i++ {
+-		boundaries = append(boundaries, boundary)
+-		// increment by 2ms
+-		boundary += increment
+-	}
+-	// For the remaining buckets do 10 10ms, 10 20ms, and so on, up until 5 minutes
+-	for i := 0; i < 150 && boundary < 300; i++ {
+-		boundaries = append(boundaries, boundary)
+-		if i != 0 && i%10 == 0 {
+-			increment *= 2
+-		}
+-		boundary += increment
+-	}
+-	return boundaries
+-}
+-
+-func sizeHistogramBoundaries() []float64 {
+-	kb := 1024.0
+-	mb := 1024.0 * kb
+-	gb := 1024.0 * mb
+-	boundaries := []float64{}
+-	boundary := 0.0
+-	increment := 128 * kb
+-	// 128 KiB increments up to 4MiB, then exponential growth
+-	for len(boundaries) < 200 && boundary <= 16*gb {
+-		boundaries = append(boundaries, boundary)
+-		boundary += increment
+-		if boundary >= 4*mb {
+-			increment *= 2
+-		}
+-	}
+-	return boundaries
+-}
+-
+-func createHistogramView(name string, boundaries []float64) metric.View {
+-	return metric.NewView(metric.Instrument{
+-		Name: name,
+-		Kind: metric.InstrumentKindHistogram,
+-	}, metric.Stream{
+-		Name:        name,
+-		Aggregation: metric.AggregationExplicitBucketHistogram{Boundaries: boundaries},
+-	})
+-}
+diff --git a/vendor/cloud.google.com/go/storage/metrics.go b/vendor/cloud.google.com/go/storage/metrics.go
+index b698030b6..3a36abdf8 100644
+--- a/vendor/cloud.google.com/go/storage/metrics.go
++++ b/vendor/cloud.google.com/go/storage/metrics.go
+@@ -1,1195 +1,34 @@
+-// Copyright 2026 Google LLC
+-//
+-// Licensed under the Apache License, Version 2.0 (the "License");
+-// you may not use this file except in compliance with the License.
+-// You may obtain a copy of the License at
+-//
+-//      http://www.apache.org/licenses/LICENSE-2.0
+-//
+-// Unless required by applicable law or agreed to in writing, software
+-// distributed under the License is distributed on an "AS IS" BASIS,
+-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+-// See the License for the specific language governing permissions and
+-// limitations under the License.
+-
+ package storage
+ 
+ import (
+ 	"context"
+-	"crypto/tls"
+-	"errors"
+-	"fmt"
+-	"io"
+-	"log"
+ 	"net"
+ 	"net/http"
+-	"net/http/httptrace"
+-	"os"
+-	"strconv"
+-	"strings"
+-	"sync"
+-	"sync/atomic"
+-	"time"
+ 
+ 	"cloud.google.com/go/auth"
+-	"cloud.google.com/go/iam/apiv1/iampb"
+-	"cloud.google.com/go/storage/internal"
+-	mexporter "github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/metric"
+-	"go.opentelemetry.io/contrib/detectors/gcp"
+-	"go.opentelemetry.io/otel/attribute"
+-	"go.opentelemetry.io/otel/metric"
+-	sdkmetric "go.opentelemetry.io/otel/sdk/metric"
+-	"go.opentelemetry.io/otel/sdk/metric/metricdata"
+-	"go.opentelemetry.io/otel/sdk/resource"
+-
+-	"google.golang.org/api/googleapi"
+-	"google.golang.org/api/option"
+ 	"google.golang.org/grpc"
+-	"google.golang.org/grpc/codes"
+-	"google.golang.org/grpc/metadata"
+-	"google.golang.org/grpc/stats"
+-	"google.golang.org/grpc/status"
+-)
+-
+-const (
+-	customMetricPrefix = "custom.googleapis.com/"
++	"google.golang.org/api/option"
+ )
+ 
+-// clientMetrics contains the OpenTelemetry metric instruments to record client-side metrics.
+-type clientMetrics struct {
+-	provider                  *sdkmetric.MeterProvider
+-	rpcClientCallDuration     metric.Float64Histogram
+-	httpClientRequestDuration metric.Float64Histogram
+-	duration                  metric.Float64Histogram
+-	operations                metric.Int64Counter
+-	attempts                  metric.Int64Counter
+-	requestBodySize           metric.Int64Histogram
+-	responseBodySize          metric.Int64Histogram
+-	ttfb                      metric.Float64Histogram
+-	errors                    metric.Int64Counter
+-	activeRequests            metric.Int64UpDownCounter
+-	gfeHeaderMissing          metric.Int64Counter
+-	dnsLookupDuration         metric.Float64Histogram
+-	tcpConnectDuration        metric.Float64Histogram
+-	tlsHandshakeDuration      metric.Float64Histogram
+-	gfeDuration               metric.Float64Histogram
+-	credentialRefreshDuration metric.Float64Histogram
+-	networkBytesSent          metric.Int64Counter
+-	networkBytesReceived      metric.Int64Counter
+-	stallDuration             metric.Float64Histogram
+-}
+-
+-func formatMetricWithPrefix(m metricdata.Metrics, prefix string) string {
+-	return prefix + strings.ReplaceAll(string(m.Name), ".", "/")
+-}
+-
+-// isOtelMetricsEnabled checks if Otel metrics are enabled.
+-// The environment variable GCP_STORAGE_GO_ENABLE_OTEL_METRICS takes precedence
+-// over the config option. Note that if metrics are completely disabled via
+-// disableClientMetrics, this will always return false regardless of the environment variable.
+-func isOtelMetricsEnabled(config *storageConfig) bool {
+-	if config.disableClientMetrics {
+-		return false
+-	}
+-	if valStr, present := os.LookupEnv(envOtelMetrics); present {
+-		v, err := strconv.ParseBool(valStr)
+-		if err == nil {
+-			return v
+-		}
+-	}
+-	return config.enableOtelMetrics
+-}
+-
+-// isOtelDebugMetricsEnabled checks if debug Otel metrics are enabled.
+-// The environment variable GCP_STORAGE_GO_ENABLE_OTEL_DEBUG_METRICS takes precedence
+-// over the config option. Note that if metrics are completely disabled via
+-// disableClientMetrics, this will always return false regardless of the environment variable.
+-func isOtelDebugMetricsEnabled(config *storageConfig) bool {
+-	if config.disableClientMetrics {
+-		return false
+-	}
+-	if valStr, present := os.LookupEnv(envOtelDebugMetrics); present {
+-		v, err := strconv.ParseBool(valStr)
+-		if err == nil {
+-			return v
+-		}
+-	}
+-	return config.enableOtelDebugMetrics
+-}
+-
+-// newMetricsGCMExporter creates a Google Cloud Monitoring exporter.
+-func newMetricsGCMExporter(ctx context.Context, projectID string) (sdkmetric.Exporter, error) {
+-	exporter, err := mexporter.New(
+-		mexporter.WithProjectID(projectID),
+-		mexporter.WithMetricDescriptorTypeFormatter(func(m metricdata.Metrics) string {
+-			return formatMetricWithPrefix(m, customMetricPrefix)
+-		}),
+-		// The OTel GCP exporter drops any resource attributes that don't map to the
+-		// target MonitoredResource (currently generic_node).
+-		// We use WithFilteredResourceAttributes returning true to ensure that ANY
+-		// resource attributes not in the MonitoredResource schema (like gcp.client.*,
+-		// or gcp detector attributes not supported by generic_node) are preserved
+-		// as metric labels instead of being dropped.
+-		//
+-		// TODO: When storage_client node is allowlisted in Monarch
+-		// (google3/configs/monitoring/cloud_pulse_monarch/storage/storage_client.proto),
+-		// we should uncomment the following options to export to the custom resource:
+-		// mexporter.WithCreateServiceTimeSeries(),
+-		// mexporter.WithMonitoredResourceDescription("storage.googleapis.com/Client", []string{"project_id", "location", "cloud_platform", "host_id", "instance_id", "api"}),
+-		mexporter.WithFilteredResourceAttributes(func(kv attribute.KeyValue) bool {
+-			key := string(kv.Key)
+-			// Keep our custom gcp.client.* attributes as labels
+-			if strings.HasPrefix(key, "gcp.client.") {
+-				return true
+-			}
+-			// Keep attributes that can later be mapped to the storage.googleapis.com/Client
+-			// MonitoredResource schema in Monarch.
+-			switch key {
+-			case "cloud.platform",
+-				"cloud.region",
+-				"cloud.availability_zone",
+-				"host.id":
+-				return true
+-			}
+-			// Drop the rest to avoid hitting the Cloud Monitoring label limit.
+-			return false
+-		}),
+-	)
+-	if err != nil {
+-		return nil, fmt.Errorf("storage: creating GCM exporter: %w", err)
+-	}
+-	return exporter, nil
+-}
+-
+-// initMetrics initializes clientMetrics with a meter provider and registered exporter.
+-func initMetrics(ctx context.Context, projectID string, config *storageConfig) (*clientMetrics, func(), error) {
+-	var provider *sdkmetric.MeterProvider
+-	var ownProvider bool
+-
+-	if config.meterProvider != nil {
+-		provider = config.meterProvider
+-	} else {
+-		var exporter sdkmetric.Exporter
+-		var err error
+-		if config.metricExporter != nil {
+-			exporter = *config.metricExporter
+-		} else {
+-			exporter, err = newMetricsGCMExporter(ctx, projectID)
+-			if err != nil {
+-				return nil, nil, err
+-			}
+-		}
+-
+-		interval := time.Minute
+-		if config.metricInterval > 0 {
+-			interval = config.metricInterval
+-		}
+-
+-		reader := sdkmetric.NewPeriodicReader(&exporterLogSuppressor{Exporter: exporter}, sdkmetric.WithInterval(interval))
+-
+-		// Static common attributes are defined as Resource Attributes.
+-		res, err := resource.New(ctx,
+-			resource.WithDetectors(gcp.NewDetector()),
+-			resource.WithAttributes(
+-				attribute.String("gcp.client.version", internal.Version),
+-				attribute.String("gcp.client.service", "storage"),
+-				attribute.String("gcp.client.artifact", "cloud.google.com/go/storage"),
+-			),
+-		)
+-		if err != nil {
+-			return nil, nil, fmt.Errorf("storage: creating metrics resource: %w", err)
+-		}
+-
+-		provider = sdkmetric.NewMeterProvider(
+-			sdkmetric.WithReader(reader),
+-			sdkmetric.WithResource(res),
+-			sdkmetric.WithView(
+-				sdkmetric.NewView(
+-					sdkmetric.Instrument{Name: "rpc.client.call.duration", Kind: sdkmetric.InstrumentKindHistogram},
+-					sdkmetric.Stream{Aggregation: sdkmetric.AggregationExplicitBucketHistogram{Boundaries: latencyHistogramBoundaries()}},
+-				),
+-				sdkmetric.NewView(
+-					sdkmetric.Instrument{Name: "http.client.request.duration", Kind: sdkmetric.InstrumentKindHistogram},
+-					sdkmetric.Stream{Aggregation: sdkmetric.AggregationExplicitBucketHistogram{Boundaries: latencyHistogramBoundaries()}},
+-				),
+-				sdkmetric.NewView(
+-					sdkmetric.Instrument{Name: "gcp.client.request.duration", Kind: sdkmetric.InstrumentKindHistogram},
+-					sdkmetric.Stream{Aggregation: sdkmetric.AggregationExplicitBucketHistogram{Boundaries: latencyHistogramBoundaries()}},
+-				),
+-				sdkmetric.NewView(
+-					sdkmetric.Instrument{Name: "gcp.storage.client.operation.ttfb", Kind: sdkmetric.InstrumentKindHistogram},
+-					sdkmetric.Stream{Aggregation: sdkmetric.AggregationExplicitBucketHistogram{Boundaries: latencyHistogramBoundaries()}},
+-				),
+-				sdkmetric.NewView(
+-					sdkmetric.Instrument{Name: "gcp.storage.client.request.body.size", Kind: sdkmetric.InstrumentKindHistogram},
+-					sdkmetric.Stream{Aggregation: sdkmetric.AggregationExplicitBucketHistogram{Boundaries: sizeHistogramBoundaries()}},
+-				),
+-				sdkmetric.NewView(
+-					sdkmetric.Instrument{Name: "gcp.storage.client.response.body.size", Kind: sdkmetric.InstrumentKindHistogram},
+-					sdkmetric.Stream{Aggregation: sdkmetric.AggregationExplicitBucketHistogram{Boundaries: sizeHistogramBoundaries()}},
+-				),
+-				sdkmetric.NewView(
+-					sdkmetric.Instrument{Name: "gcp.storage.client.network.dns.lookup.duration", Kind: sdkmetric.InstrumentKindHistogram},
+-					sdkmetric.Stream{Aggregation: sdkmetric.AggregationExplicitBucketHistogram{Boundaries: latencyHistogramBoundaries()}},
+-				),
+-				sdkmetric.NewView(
+-					sdkmetric.Instrument{Name: "gcp.storage.client.network.tcp.connect.duration", Kind: sdkmetric.InstrumentKindHistogram},
+-					sdkmetric.Stream{Aggregation: sdkmetric.AggregationExplicitBucketHistogram{Boundaries: latencyHistogramBoundaries()}},
+-				),
+-				sdkmetric.NewView(
+-					sdkmetric.Instrument{Name: "gcp.storage.client.network.tls.handshake.duration", Kind: sdkmetric.InstrumentKindHistogram},
+-					sdkmetric.Stream{Aggregation: sdkmetric.AggregationExplicitBucketHistogram{Boundaries: latencyHistogramBoundaries()}},
+-				),
+-				sdkmetric.NewView(
+-					sdkmetric.Instrument{Name: "gcp.storage.client.gfe.duration", Kind: sdkmetric.InstrumentKindHistogram},
+-					sdkmetric.Stream{Aggregation: sdkmetric.AggregationExplicitBucketHistogram{Boundaries: latencyHistogramBoundaries()}},
+-				),
+-				sdkmetric.NewView(
+-					sdkmetric.Instrument{Name: "gcp.storage.client.auth.credential_refresh.duration", Kind: sdkmetric.InstrumentKindHistogram},
+-					sdkmetric.Stream{Aggregation: sdkmetric.AggregationExplicitBucketHistogram{Boundaries: latencyHistogramBoundaries()}},
+-				),
+-			),
+-		)
+-		ownProvider = true
+-	}
+-
+-	meter := provider.Meter("cloud.google.com/go/storage")
+-
+-	rpcDuration, err := meter.Float64Histogram(
+-		"rpc.client.call.duration",
+-		metric.WithDescription("Duration of one gRPC request. Retries not included (Otel)"),
+-		metric.WithUnit("s"),
+-	)
+-	if err != nil {
+-		return nil, nil, err
+-	}
+-
+-	httpDuration, err := meter.Float64Histogram(
+-		"http.client.request.duration",
+-		metric.WithDescription("Duration of one HTTP client request. Retried not included (Otel)"),
+-		metric.WithUnit("s"),
+-	)
+-	if err != nil {
+-		return nil, nil, err
+-	}
+-
+-	duration, err := meter.Float64Histogram(
+-		"gcp.client.request.duration",
+-		metric.WithDescription("Latency of a client operation"),
+-		metric.WithUnit("s"),
+-	)
+-	if err != nil {
+-		return nil, nil, err
+-	}
+-
+-	operations, err := meter.Int64Counter(
+-		"gcp.storage.client.operations",
+-		metric.WithDescription("Number of GCS client operations"),
+-		metric.WithUnit("1"),
+-	)
+-	if err != nil {
+-		return nil, nil, err
+-	}
+-
+-	attempts, err := meter.Int64Counter(
+-		"gcp.storage.client.attempts",
+-		metric.WithDescription("Number of GCS client attempts"),
+-		metric.WithUnit("1"),
+-	)
+-	if err != nil {
+-		return nil, nil, err
+-	}
+-
+-	requestBodySize, err := meter.Int64Histogram(
+-		"gcp.storage.client.request.body.size",
+-		metric.WithDescription("Size of GCS client request body"),
+-		metric.WithUnit("By"),
+-	)
+-	if err != nil {
+-		return nil, nil, err
+-	}
+-
+-	responseBodySize, err := meter.Int64Histogram(
+-		"gcp.storage.client.response.body.size",
+-		metric.WithDescription("Size of GCS client response body"),
+-		metric.WithUnit("By"),
+-	)
+-	if err != nil {
+-		return nil, nil, err
+-	}
+-
+-	ttfb, err := meter.Float64Histogram(
+-		"gcp.storage.client.operation.ttfb",
+-		metric.WithDescription("Time to first byte of GCS client operations"),
+-		metric.WithUnit("s"),
+-	)
+-	if err != nil {
+-		return nil, nil, err
+-	}
+-
+-	errors, err := meter.Int64Counter(
+-		"gcp.storage.client.errors",
+-		metric.WithDescription("Number of GCS client errors"),
+-		metric.WithUnit("1"),
+-	)
+-	if err != nil {
+-		return nil, nil, err
+-	}
+-
+-	var activeRequests metric.Int64UpDownCounter
+-	var gfeHeaderMissing metric.Int64Counter
+-	var dnsLookupDuration metric.Float64Histogram
+-	var tcpConnectDuration metric.Float64Histogram
+-	var tlsHandshakeDuration metric.Float64Histogram
+-	var gfeDuration metric.Float64Histogram
+-	var credentialRefreshDuration metric.Float64Histogram
+-
+-	var networkBytesSent metric.Int64Counter
+-	var networkBytesReceived metric.Int64Counter
+-	var stallDuration metric.Float64Histogram
+-
+-	if isOtelDebugMetricsEnabled(config) {
+-		networkBytesSent, err = meter.Int64Counter(
+-			"gcp.storage.client.network.egress_bytes_count",
+-			metric.WithDescription("Total physical bytes sent over the wire socket (gRPC only)."),
+-			metric.WithUnit("By"),
+-		)
+-		if err != nil {
+-			return nil, nil, err
+-		}
+-
+-		networkBytesReceived, err = meter.Int64Counter(
+-			"gcp.storage.client.network.ingress_bytes_count",
+-			metric.WithDescription("Total physical bytes received over the wire socket (gRPC only)."),
+-			metric.WithUnit("By"),
+-		)
+-		if err != nil {
+-			return nil, nil, err
+-		}
+-
+-		stallDuration, err = meter.Float64Histogram(
+-			"gcp.storage.client.stall.duration",
+-			metric.WithDescription("Duration a connection was stalled waiting for the first byte before being aborted."),
+-			metric.WithUnit("s"),
+-		)
+-		if err != nil {
+-			return nil, nil, err
+-		}
+-
+-		credentialRefreshDuration, err = meter.Float64Histogram(
+-			"gcp.storage.client.auth.credential_refresh.duration",
+-			metric.WithDescription("Duration of the background API/network calls made to refresh OAuth2/JWT access credentials."),
+-			metric.WithUnit("s"),
+-		)
+-		if err != nil {
+-			return nil, nil, err
+-		}
+-		activeRequests, err = meter.Int64UpDownCounter(
+-			"gcp.storage.client.active_requests",
+-			metric.WithDescription("Number of active GCS client requests"),
+-			metric.WithUnit("1"),
+-		)
+-		if err != nil {
+-			return nil, nil, err
+-		}
+-
+-		gfeHeaderMissing, err = meter.Int64Counter(
+-			"gcp.storage.client.gfe.header_missing",
+-			metric.WithDescription("Number of GCS requests where the X-Goog-Gfe-Service-Time header was missing"),
+-			metric.WithUnit("1"),
+-		)
+-		if err != nil {
+-			return nil, nil, err
+-		}
+-
+-		dnsLookupDuration, err = meter.Float64Histogram(
+-			"gcp.storage.client.network.dns.lookup.duration",
+-			metric.WithDescription("Time taken for DNS lookup"),
+-			metric.WithUnit("s"),
+-		)
+-		if err != nil {
+-			return nil, nil, err
+-		}
+-
+-		tcpConnectDuration, err = meter.Float64Histogram(
+-			"gcp.storage.client.network.tcp.connect.duration",
+-			metric.WithDescription("Time taken for TCP connection"),
+-			metric.WithUnit("s"),
+-		)
+-		if err != nil {
+-			return nil, nil, err
+-		}
+-
+-		tlsHandshakeDuration, err = meter.Float64Histogram(
+-			"gcp.storage.client.network.tls.handshake.duration",
+-			metric.WithDescription("Time taken to perform a TLS handshake"),
+-			metric.WithUnit("s"),
+-		)
+-		if err != nil {
+-			return nil, nil, err
+-		}
+-
+-		gfeDuration, err = meter.Float64Histogram(
+-			"gcp.storage.client.gfe.duration",
+-			metric.WithDescription("GFE proxy processing time"),
+-			metric.WithUnit("s"),
+-		)
+-		if err != nil {
+-			return nil, nil, err
+-		}
+-	}
+-
+-	cm := &clientMetrics{
+-		provider:                  provider,
+-		rpcClientCallDuration:     rpcDuration,
+-		httpClientRequestDuration: httpDuration,
+-		duration:                  duration,
+-		operations:                operations,
+-		attempts:                  attempts,
+-		requestBodySize:           requestBodySize,
+-		responseBodySize:          responseBodySize,
+-		ttfb:                      ttfb,
+-		errors:                    errors,
+-		activeRequests:            activeRequests,
+-		gfeHeaderMissing:          gfeHeaderMissing,
+-		dnsLookupDuration:         dnsLookupDuration,
+-		tcpConnectDuration:        tcpConnectDuration,
+-		tlsHandshakeDuration:      tlsHandshakeDuration,
+-		gfeDuration:               gfeDuration,
+-		credentialRefreshDuration: credentialRefreshDuration,
+-		networkBytesSent:          networkBytesSent,
+-		networkBytesReceived:      networkBytesReceived,
+-		stallDuration:             stallDuration,
+-	}
+-
+-	var cleanup func()
+-	if ownProvider {
+-		cleanup = func() {
+-			shutdownCtx, cancel := context.WithTimeout(context.WithoutCancel(ctx), 5*time.Second)
+-			defer cancel()
+-			provider.Shutdown(shutdownCtx)
+-		}
+-	}
+-
+-	return cm, cleanup, nil
+-}
+-
+-// grpcCodeToString maps a gRPC status code to its screaming-snake-case protocol name.
+-func grpcCodeToString(code codes.Code) string {
+-	switch code {
+-	case codes.OK:
+-		return "OK"
+-	case codes.Canceled:
+-		return "CANCELLED"
+-	case codes.Unknown:
+-		return "UNKNOWN"
+-	case codes.InvalidArgument:
+-		return "INVALID_ARGUMENT"
+-	case codes.DeadlineExceeded:
+-		return "DEADLINE_EXCEEDED"
+-	case codes.NotFound:
+-		return "NOT_FOUND"
+-	case codes.AlreadyExists:
+-		return "ALREADY_EXISTS"
+-	case codes.PermissionDenied:
+-		return "PERMISSION_DENIED"
+-	case codes.ResourceExhausted:
+-		return "RESOURCE_EXHAUSTED"
+-	case codes.FailedPrecondition:
+-		return "FAILED_PRECONDITION"
+-	case codes.Aborted:
+-		return "ABORTED"
+-	case codes.OutOfRange:
+-		return "OUT_OF_RANGE"
+-	case codes.Unimplemented:
+-		return "UNIMPLEMENTED"
+-	case codes.Internal:
+-		return "INTERNAL"
+-	case codes.Unavailable:
+-		return "UNAVAILABLE"
+-	case codes.DataLoss:
+-		return "DATA_LOSS"
+-	case codes.Unauthenticated:
+-		return "UNAUTHENTICATED"
+-	default:
+-		return "UNKNOWN"
+-	}
+-}
+-
+-// computeErrorType maps the request result to the standard error.type values.
+-func computeErrorType(err error, isHTTP bool, statusCode int64) string {
+-	if err == nil {
+-		if isHTTP && statusCode >= 400 {
+-			return mapHTTPStatusCode(int(statusCode))
+-		}
+-		return "OK"
+-	}
+-
+-	if err == io.EOF {
+-		return "OK"
+-	}
+-
+-	errStr := strings.ToLower(err.Error())
+-
+-	if err == context.Canceled || strings.Contains(errStr, "context canceled") {
+-		return "CANCELLED"
+-	}
+-
+-	if err == context.DeadlineExceeded || strings.Contains(errStr, "deadline exceeded") || strings.Contains(errStr, "timeout") {
+-		return "TIMEOUT"
+-	}
+-
+-	if strings.Contains(errStr, "checksum") || strings.Contains(errStr, "mismatch") {
+-		return "CHECKSUM_MISMATCH"
+-	}
+-
+-	if strings.Contains(errStr, "auth") || strings.Contains(errStr, "credentials") || strings.Contains(errStr, "token") || strings.Contains(errStr, "key") {
+-		return "AUTHENTICATION_ERROR"
+-	}
+-
+-	if strings.Contains(errStr, "no such host") || strings.Contains(errStr, "no address") {
+-		return "DNS_FAILURE"
+-	}
+-
+-	if strings.Contains(errStr, "connection refused") || strings.Contains(errStr, "connection reset") || strings.Contains(errStr, "dial tcp") || strings.Contains(errStr, "broken pipe") || strings.Contains(errStr, "eof") {
+-		return "CONNECTION_ERROR"
+-	}
+-
+-	if strings.Contains(errStr, "tls") || strings.Contains(errStr, "certificate") || strings.Contains(errStr, "x509") {
+-		return "TLS_FAILURE"
+-	}
+-
+-	if !isHTTP {
+-		if st, ok := status.FromError(err); ok && st.Code() != codes.OK {
+-			return grpcCodeToString(st.Code())
+-		}
+-	}
+-
+-	if isHTTP {
+-		var apiErr *googleapi.Error
+-		if errors.As(err, &apiErr) {
+-			return mapHTTPStatusCode(apiErr.Code)
+-		}
+-		if statusCode >= 400 {
+-			return mapHTTPStatusCode(int(statusCode))
+-		}
+-	}
+-
+-	return "UNKNOWN"
+-}
+-
+-// mapHTTPStatusCode converts an HTTP status code to a canonical API error string.
+-// If there is no direct mapping, it returns the numeric string.
+-func mapHTTPStatusCode(code int) string {
+-	switch code {
+-	case 400:
+-		return "INVALID_ARGUMENT"
+-	case 401:
+-		return "UNAUTHENTICATED"
+-	case 403:
+-		return "PERMISSION_DENIED"
+-	case 404:
+-		return "NOT_FOUND"
+-	case 409:
+-		return "ABORTED"
+-	case 416:
+-		return "OUT_OF_RANGE"
+-	case 429:
+-		return "RESOURCE_EXHAUSTED"
+-	case 499:
+-		return "CANCELLED"
+-	case 500:
+-		return "INTERNAL"
+-	case 501:
+-		return "UNIMPLEMENTED"
+-	case 503:
+-		return "UNAVAILABLE"
+-	case 504:
+-		return "DEADLINE_EXCEEDED"
+-	default:
+-		return strconv.Itoa(code)
+-	}
+-}
+-
+-func (cm *clientMetrics) recordRPC(ctx context.Context, method, target string, duration float64, err error) {
+-	statusCode := int64(codes.OK)
+-	if err != nil && err != io.EOF {
+-		statusCode = int64(status.Code(err))
+-	}
+-
+-	service := "google.storage.v2.Storage"
+-	methodName := method
+-	if idx := strings.LastIndex(methodName, "/"); idx != -1 && idx > 0 {
+-		service = methodName[1:idx]
+-		methodName = methodName[idx+1:]
+-	}
+-
+-	errorType := computeErrorType(err, false, statusCode)
+-
+-	attrs := []attribute.KeyValue{
+-		attribute.String("rpc.system.name", "grpc"),
+-		attribute.String("rpc.service", service),
+-		attribute.String("rpc.method", methodName),
+-		attribute.Int64("rpc.grpc.status_code", statusCode),
+-		attribute.Int64("rpc.response.status_code", statusCode),
+-		attribute.String("server.address", stripPort(target)),
+-		attribute.String("error.type", errorType),
+-	}
+-
+-	cm.rpcClientCallDuration.Record(ctx, duration, metric.WithAttributes(injectAPIMethod(ctx, attrs)...))
+-
+-	// Record standard attempt metric: gcp.storage.client.attempts.
+-	state := metricsStateFromContext(ctx)
+-	logicalMethod := methodName
+-	if state != nil {
+-		logicalMethod = state.method
+-	}
+-	attemptAttrs := make([]attribute.KeyValue, 0, 5)
+-	attemptAttrs = append(attemptAttrs,
+-		attribute.String("rpc.system.name", "grpc"),
+-		attribute.String("rpc.method", logicalMethod),
+-		attribute.Int64("rpc.grpc.status_code", statusCode),
+-		attribute.String("error.type", errorType),
+-	)
+-	cm.attempts.Add(ctx, 1, metric.WithAttributes(injectAPIMethod(ctx, attemptAttrs)...))
+-
+-	// Record standard error metric: gcp.storage.client.errors.
+-	if err != nil && err != io.EOF {
+-		errorAttrs := make([]attribute.KeyValue, 0, 5)
+-		errorAttrs = append(errorAttrs,
+-			attribute.String("rpc.system.name", "grpc"),
+-			attribute.String("rpc.method", logicalMethod),
+-			attribute.String("error.type", errorType),
+-		)
+-		cm.errors.Add(ctx, 1, metric.WithAttributes(injectAPIMethod(ctx, errorAttrs)...))
+-	}
+-
+-	// For unary calls, record TTFB equal to the total attempt latency.
+-	isStreaming := methodName == "ReadObject" || methodName == "WriteObject" || methodName == "BidiReadObject" || methodName == "BidiWriteObject"
+-	if !isStreaming {
+-		ttfbAttrs := []attribute.KeyValue{attribute.String("rpc.method", logicalMethod)}
+-		cm.ttfb.Record(ctx, duration, metric.WithAttributes(injectAPIMethod(ctx, ttfbAttrs)...))
+-	}
+-}
+-
+-func (cm *clientMetrics) recordHTTP(ctx context.Context, req *http.Request, resp *http.Response, duration float64, err error) {
+-	statusCode := int64(0)
+-	if resp != nil {
+-		statusCode = int64(resp.StatusCode)
+-	}
+-
+-	urlTemplate := computeURLTemplate(req.URL.Path, req.URL.Host)
+-	errorType := computeErrorType(err, true, statusCode)
+-
+-	attrs := []attribute.KeyValue{
+-		attribute.String("rpc.system.name", "http"),
+-		attribute.String("http.request.method", req.Method),
+-		attribute.String("url.template", urlTemplate),
+-		attribute.Int64("http.response.status_code", statusCode),
+-		attribute.Int64("rpc.response.status_code", statusCode),
+-		attribute.String("server.address", stripPort(req.URL.Host)),
+-		attribute.String("error.type", errorType),
+-	}
+-
+-	cm.httpClientRequestDuration.Record(ctx, duration, metric.WithAttributes(injectAPIMethod(ctx, attrs)...))
+-}
+-
+-// computeURLTemplate extracts a parameterized template path for a given GCS HTTP request URL path.
+-func computeURLTemplate(path, host string) string {
+-	// Check for XML host-style: {bucket}.storage.googleapis.com.
+-	if strings.HasSuffix(host, ".storage.googleapis.com") && host != "storage.googleapis.com" {
+-		if path == "/" || path == "" {
+-			return "/"
+-		}
+-		return "/{object}"
+-	}
+-
+-	// Check for XML path-style or JSON API.
+-	if !strings.HasPrefix(path, "/storage/") && !strings.HasPrefix(path, "/upload/") && !strings.HasPrefix(path, "/batch") {
+-		p := strings.TrimPrefix(path, "/")
+-		parts := strings.SplitN(p, "/", 2)
+-		if len(parts) == 1 {
+-			if parts[0] == "" {
+-				return "/"
+-			}
+-			return "/{bucket}"
+-		}
+-		return "/{bucket}/{object}"
+-	}
+-
+-	// JSON API: /storage/v1/b/bucket-name/o/object-name etc.
+-	bIdx := strings.Index(path, "/b/")
+-	if bIdx == -1 {
+-		return path
+-	}
+-	prefix := path[:bIdx+3]
+-	rest := path[bIdx+3:]
+-
+-	parts := strings.SplitN(rest, "/", 2)
+-	if len(parts) == 1 {
+-		return prefix + "{bucket}"
+-	}
+-
+-	oRest := parts[1]
+-	if oRest == "o" {
+-		return prefix + "{bucket}/o"
+-	}
+-	if strings.HasPrefix(oRest, "o/") {
+-		return prefix + "{bucket}/o/{object}"
+-	}
+-
+-	return prefix + "{bucket}/" + oRest
+-}
+-
+-func stripPort(host string) string {
+-	if h, _, err := net.SplitHostPort(host); err == nil {
+-		return h
+-	}
+-	return host
+-}
+-
+-// metricsRoundTripper is an http.RoundTripper that wraps an underlying transport.
+-type metricsRoundTripper struct {
+-	base    http.RoundTripper
+-	metrics *clientMetrics
+-}
+-
+-func (rt *metricsRoundTripper) RoundTrip(req *http.Request) (*http.Response, error) {
+-	state := metricsStateFromContext(req.Context())
+-	var logicalMethod string
+-	if state != nil {
+-		logicalMethod = state.method
+-	} else {
+-		logicalMethod = "Unknown"
+-	}
+-
+-	var decrementActiveRequests bool
+-	var netAttrs, rpcAttrs metric.MeasurementOption
+-	if rt.metrics != nil {
+-		host := stripPort(req.URL.Host)
+-		netAttrs = metric.WithAttributes(
+-			attribute.String("rpc.system.name", "http"),
+-			attribute.String("server.address", host),
+-		)
+-		rpcAttrs = metric.WithAttributes(
+-			attribute.String("rpc.method", logicalMethod),
+-			attribute.String("rpc.system.name", "http"),
+-			attribute.String("server.address", host),
+-		)
+-		if rt.metrics.activeRequests != nil {
+-			rt.metrics.activeRequests.Add(req.Context(), 1, rpcAttrs)
+-			decrementActiveRequests = true
+-		}
+-	}
+-	defer func() {
+-		if decrementActiveRequests && rt.metrics != nil && rt.metrics.activeRequests != nil {
+-			rt.metrics.activeRequests.Add(req.Context(), -1, rpcAttrs)
+-		}
+-	}()
+-
+-	if rt.metrics != nil && (rt.metrics.dnsLookupDuration != nil || rt.metrics.tcpConnectDuration != nil || rt.metrics.tlsHandshakeDuration != nil) {
+-		var dnsStart, tlsStart time.Time
+-		var tcpStarts sync.Map
+-
+-		trace := &httptrace.ClientTrace{
+-			DNSStart: func(info httptrace.DNSStartInfo) {
+-				dnsStart = time.Now()
+-			},
+-			DNSDone: func(info httptrace.DNSDoneInfo) {
+-				if rt.metrics.dnsLookupDuration != nil {
+-					start := dnsStart
+-					if !start.IsZero() {
+-						duration := time.Since(start).Seconds()
+-						rt.metrics.dnsLookupDuration.Record(req.Context(), duration, netAttrs)
+-					}
+-				}
+-			},
+-			ConnectStart: func(network, addr string) {
+-				tcpStarts.Store(addr, time.Now())
+-			},
+-			ConnectDone: func(network, addr string, err error) {
+-				if err == nil && rt.metrics.tcpConnectDuration != nil {
+-					if startV, ok := tcpStarts.LoadAndDelete(addr); ok {
+-						duration := time.Since(startV.(time.Time)).Seconds()
+-						rt.metrics.tcpConnectDuration.Record(req.Context(), duration, netAttrs)
+-					}
+-				}
+-			},
+-			TLSHandshakeStart: func() {
+-				tlsStart = time.Now()
+-			},
+-			TLSHandshakeDone: func(state tls.ConnectionState, err error) {
+-				if err == nil && rt.metrics.tlsHandshakeDuration != nil {
+-					start := tlsStart
+-					if !start.IsZero() {
+-						duration := time.Since(start).Seconds()
+-						rt.metrics.tlsHandshakeDuration.Record(req.Context(), duration, netAttrs)
+-					}
+-				}
+-			},
+-		}
+-		req = req.WithContext(httptrace.WithClientTrace(req.Context(), trace))
+-	}
+-
+-	startTime := time.Now()
+-	resp, err := rt.base.RoundTrip(req)
+-
+-	statusCode := int64(0)
+-	if resp != nil {
+-		statusCode = int64(resp.StatusCode)
+-	}
+-	errorType := computeErrorType(err, true, statusCode)
+-
+-	if rt.metrics != nil {
+-		// Record attempt.
+-		attemptAttrs := make([]attribute.KeyValue, 0, 4)
+-		attemptAttrs = append(attemptAttrs,
+-			attribute.String("rpc.system.name", "http"),
+-			attribute.String("rpc.method", logicalMethod),
+-			attribute.Int64("http.response.status_code", statusCode),
+-			attribute.String("error.type", errorType),
+-		)
+-		rt.metrics.attempts.Add(req.Context(), 1, metric.WithAttributes(injectAPIMethod(req.Context(), attemptAttrs)...))
+-
+-		// Record error if failed.
+-		if err != nil || (resp != nil && resp.StatusCode >= 400) {
+-			errorAttrs := make([]attribute.KeyValue, 0, 4)
+-			errorAttrs = append(errorAttrs,
+-				attribute.String("rpc.system.name", "http"),
+-				attribute.String("rpc.method", logicalMethod),
+-				attribute.String("error.type", errorType),
+-			)
+-			rt.metrics.errors.Add(req.Context(), 1, metric.WithAttributes(injectAPIMethod(req.Context(), errorAttrs)...))
+-		}
+-
+-		if rt.metrics.gfeHeaderMissing != nil {
+-			headerVal := ""
+-			if resp != nil {
+-				headerVal = resp.Header.Get("X-Goog-Gfe-Service-Time")
+-			}
+-			if resp == nil || headerVal == "" {
+-				missingAttrs := metric.WithAttributes(
+-					attribute.String("rpc.method", logicalMethod),
+-					attribute.String("rpc.system.name", "http"),
+-					attribute.String("server.address", stripPort(req.URL.Host)),
+-					attribute.String("error.type", errorType),
+-				)
+-				rt.metrics.gfeHeaderMissing.Add(req.Context(), 1, missingAttrs)
+-			} else if rt.metrics.gfeDuration != nil {
+-				if ms, parseErr := strconv.ParseFloat(headerVal, 64); parseErr == nil {
+-					rt.metrics.gfeDuration.Record(req.Context(), ms/1000.0, rpcAttrs)
+-				}
+-			}
+-		}
+-
+-		// Record TTFB.
+-		isDownload := req.Method == "GET" && req.URL.Query().Get("alt") == "media"
+-		isResumableInit := req.Method == "POST" && strings.Contains(req.URL.Path, "/upload/") && req.URL.Query().Get("uploadType") == "resumable"
+-		if !isDownload || isResumableInit {
+-			duration := time.Since(startTime).Seconds()
+-			ttfbAttrs := []attribute.KeyValue{attribute.String("rpc.method", logicalMethod)}
+-			rt.metrics.ttfb.Record(req.Context(), duration, metric.WithAttributes(injectAPIMethod(req.Context(), ttfbAttrs)...))
+-		}
+-	}
+-
+-	if err != nil {
+-		if rt.metrics != nil {
+-			duration := time.Since(startTime).Seconds()
+-			rt.metrics.recordHTTP(req.Context(), req, nil, duration, err)
+-		}
+-		return nil, err
+-	}
+-
+-	if resp.Body != nil {
+-		decrementActiveRequests = false
+-		resp.Body = &wrappedResponseBody{
+-			ReadCloser: resp.Body,
+-			startTime:  startTime,
+-			req:        req,
+-			resp:       resp,
+-			metrics:    rt.metrics,
+-			isDownload: req.Method == "GET" && req.URL.Query().Get("alt") == "media",
+-		}
+-	} else {
+-		if rt.metrics != nil {
+-			duration := time.Since(startTime).Seconds()
+-			rt.metrics.recordHTTP(req.Context(), req, resp, duration, nil)
+-		}
+-	}
+-	return resp, nil
+-}
+-
+-type wrappedResponseBody struct {
+-	io.ReadCloser
+-	startTime  time.Time
+-	req        *http.Request
+-	resp       *http.Response
+-	metrics    *clientMetrics
+-	recorded   atomic.Bool
+-	isDownload bool
+-	firstRead  atomic.Bool
+-}
+-
+-func (w *wrappedResponseBody) Read(p []byte) (n int, err error) {
+-	if w.isDownload && w.metrics != nil && w.firstRead.CompareAndSwap(false, true) {
+-		duration := time.Since(w.startTime).Seconds()
+-		state := metricsStateFromContext(w.req.Context())
+-		logicalMethod := "ReadObject"
+-		if state != nil {
+-			logicalMethod = state.method
+-		}
+-		w.metrics.ttfb.Record(w.req.Context(), duration, metric.WithAttributes(attribute.String("rpc.method", logicalMethod)))
+-	}
+-	n, err = w.ReadCloser.Read(p)
+-	if err != nil {
+-		w.record(err)
+-	}
+-	return n, err
+-}
+-
+-func (w *wrappedResponseBody) Close() error {
+-	err := w.ReadCloser.Close()
+-	w.record(err)
+-	return err
+-}
+-
+-func (w *wrappedResponseBody) record(err error) {
+-	if w.recorded.CompareAndSwap(false, true) {
+-		duration := time.Since(w.startTime).Seconds()
+-		w.metrics.recordHTTP(w.req.Context(), w.req, w.resp, duration, err)
+-
+-		if w.metrics.activeRequests != nil {
+-			state := metricsStateFromContext(w.req.Context())
+-			var logicalMethod string
+-			if state != nil {
+-				logicalMethod = state.method
+-			} else {
+-				logicalMethod = "Unknown"
+-			}
+-			w.metrics.activeRequests.Add(w.req.Context(), -1, metric.WithAttributes(
+-				attribute.String("rpc.method", logicalMethod),
+-				attribute.String("rpc.system.name", "http"),
+-				attribute.String("server.address", stripPort(w.req.URL.Host)),
+-			))
+-		}
+-	}
+-}
+-
+-func getLogicalMethod(method string) string {
+-	if idx := strings.LastIndex(method, "/"); idx != -1 {
+-		return method[idx+1:]
+-	}
+-	return method
+-}
+-
+-func (cm *clientMetrics) recordGFEMetrics(ctx context.Context, headerMD, trailerMD metadata.MD, err error, logicalMethod, target string, rpcAttrs metric.MeasurementOption) {
+-	if cm.gfeHeaderMissing == nil {
+-		return
+-	}
+-
+-	headerVals := headerMD.Get("x-goog-gfe-service-time")
+-	if len(headerVals) == 0 {
+-		headerVals = trailerMD.Get("x-goog-gfe-service-time")
+-	}
+-	headerVal := ""
+-	if len(headerVals) > 0 {
+-		headerVal = headerVals[0]
+-	}
+-	if headerVal == "" {
+-		errType := computeErrorType(err, false, int64(status.Code(err)))
+-		missingAttrs := metric.WithAttributes(
+-			attribute.String("rpc.method", logicalMethod),
+-			attribute.String("rpc.system.name", "grpc"),
+-			attribute.String("server.address", stripPort(target)),
+-			attribute.String("error.type", errType),
+-		)
+-		cm.gfeHeaderMissing.Add(ctx, 1, missingAttrs)
+-	} else if cm.gfeDuration != nil {
+-		if ms, parseErr := strconv.ParseFloat(headerVal, 64); parseErr == nil {
+-			cm.gfeDuration.Record(ctx, ms/1000.0, rpcAttrs)
+-		}
+-	}
+-}
+-
+-// metricsInterceptors returns gRPC client interceptors.
+-func metricsInterceptors(cm *clientMetrics) (grpc.UnaryClientInterceptor, grpc.StreamClientInterceptor) {
+-	unary := func(ctx context.Context, method string, req, reply interface{}, cc *grpc.ClientConn, invoker grpc.UnaryInvoker, opts ...grpc.CallOption) error {
+-		logicalMethod := getLogicalMethod(method)
+-
+-		target := ""
+-		if cc != nil {
+-			target = cc.Target()
+-		}
+-
+-		var rpcAttrs metric.MeasurementOption
+-		if cm.activeRequests != nil || cm.gfeHeaderMissing != nil {
+-			rpcAttrs = metric.WithAttributes(
+-				attribute.String("rpc.method", logicalMethod),
+-				attribute.String("rpc.system.name", "grpc"),
+-				attribute.String("server.address", stripPort(target)),
+-			)
+-		}
+-
+-		if cm.activeRequests != nil {
+-			cm.activeRequests.Add(ctx, 1, rpcAttrs)
+-			defer cm.activeRequests.Add(ctx, -1, rpcAttrs)
+-		}
++type noopInt64Histogram struct{}
+ 
+-		var headerMD, trailerMD metadata.MD
+-		opts = append(opts, grpc.Header(&headerMD), grpc.Trailer(&trailerMD))
+-
+-		startTime := time.Now()
+-		err := invoker(ctx, method, req, reply, cc, opts...)
+-
+-		cm.recordGFEMetrics(ctx, headerMD, trailerMD, err, logicalMethod, target, rpcAttrs)
+-
+-		duration := time.Since(startTime).Seconds()
+-		cm.recordRPC(ctx, method, target, duration, err)
+-		return err
+-	}
+-
+-	stream := func(ctx context.Context, desc *grpc.StreamDesc, cc *grpc.ClientConn, method string, streamer grpc.Streamer, opts ...grpc.CallOption) (grpc.ClientStream, error) {
+-		logicalMethod := getLogicalMethod(method)
+-
+-		target := ""
+-		if cc != nil {
+-			target = cc.Target()
+-		}
+-
+-		var rpcAttrs metric.MeasurementOption
+-		if cm.activeRequests != nil {
+-			rpcAttrs = metric.WithAttributes(
+-				attribute.String("rpc.method", logicalMethod),
+-				attribute.String("rpc.system.name", "grpc"),
+-				attribute.String("server.address", stripPort(target)),
+-			)
+-			cm.activeRequests.Add(ctx, 1, rpcAttrs)
+-		}
+-
+-		startTime := time.Now()
+-		clientStream, err := streamer(ctx, desc, cc, method, opts...)
+-
+-		if err != nil {
+-			if cm.activeRequests != nil {
+-				cm.activeRequests.Add(ctx, -1, rpcAttrs)
+-			}
+-			duration := time.Since(startTime).Seconds()
+-			cm.recordRPC(ctx, method, target, duration, err)
+-			return nil, err
+-		}
+-
+-		return &wrappedClientStream{
+-			ClientStream:  clientStream,
+-			startTime:     startTime,
+-			method:        method,
+-			target:        target,
+-			metrics:       cm,
+-			ctx:           ctx,
+-			serverStreams: desc.ServerStreams,
+-			clientStreams: desc.ClientStreams,
+-		}, nil
+-	}
++func (noopInt64Histogram) Record(context.Context, int64, ...any) {}
+ 
+-	return unary, stream
+-}
+-
+-type wrappedClientStream struct {
+-	grpc.ClientStream
+-	startTime     time.Time
+-	method        string
+-	target        string
+-	metrics       *clientMetrics
+-	ctx           context.Context
+-	recorded      atomic.Bool
+-	serverStreams bool
+-	clientStreams bool
+-	recordedTTFB  atomic.Bool
+-}
+-
+-func (w *wrappedClientStream) RecvMsg(m interface{}) error {
+-	err := w.ClientStream.RecvMsg(m)
+-	if err == nil {
+-		w.recordTTFB(m)
+-	}
+-	// For client-streaming streams (like WriteObject), the single successful RecvMsg call
+-	// returns the response and nil error, which marks the completion of the stream.
+-	isClientStreaming := !w.serverStreams && w.clientStreams
+-	if err != nil || isClientStreaming {
+-		w.record(err)
+-	}
+-	return err
+-}
+-
+-func (w *wrappedClientStream) SendMsg(m interface{}) error {
+-	err := w.ClientStream.SendMsg(m)
+-	if err != nil {
+-		w.record(err)
+-	}
+-	return err
+-}
+-
+-func (w *wrappedClientStream) record(err error) {
+-	if w.recorded.CompareAndSwap(false, true) {
+-		duration := time.Since(w.startTime).Seconds()
+-		w.metrics.recordRPC(w.ctx, w.method, w.target, duration, err)
+-
+-		logicalMethod := getLogicalMethod(w.method)
+-
+-		var rpcAttrs metric.MeasurementOption
+-		if w.metrics.activeRequests != nil || w.metrics.gfeHeaderMissing != nil {
+-			rpcAttrs = metric.WithAttributes(
+-				attribute.String("rpc.method", logicalMethod),
+-				attribute.String("rpc.system.name", "grpc"),
+-				attribute.String("server.address", stripPort(w.target)),
+-			)
+-		}
+-
+-		if w.metrics.activeRequests != nil {
+-			w.metrics.activeRequests.Add(w.ctx, -1, rpcAttrs)
+-		}
+-
+-		headerMD, _ := w.ClientStream.Header()
+-		trailerMD := w.ClientStream.Trailer()
+-		w.metrics.recordGFEMetrics(w.ctx, headerMD, trailerMD, err, logicalMethod, w.target, rpcAttrs)
+-	}
++// clientMetrics is a no-op metrics holder.
++type clientMetrics struct {
++	responseBodySize noopInt64Histogram
++	requestBodySize  noopInt64Histogram
+ }
+ 
+-func (w *wrappedClientStream) recordTTFB(m interface{}) {
+-	if w.recordedTTFB.Load() {
+-		return
+-	}
+-	methodName := getLogicalMethod(w.method)
+-
+-	// The first response from the server, whether it contains metadata,
+-	// persisted size, or actual content, indicates TTFB.
+-	if w.recordedTTFB.CompareAndSwap(false, true) {
+-		duration := time.Since(w.startTime).Seconds()
+-		state := metricsStateFromContext(w.ctx)
+-		logicalMethod := methodName
+-		if state != nil {
+-			logicalMethod = state.method
+-		}
+-		w.metrics.ttfb.Record(w.ctx, duration, metric.WithAttributes(attribute.String("rpc.method", logicalMethod)))
+-	}
++func (m *clientMetrics) recordStallDuration(context.Context, any, string, string, string) {
++	_ = m
+ }
+ 
+ type metricsKey struct{}
+ 
+-type apiMethodKey struct{}
+-
+-func injectAPIMethod(ctx context.Context, attrs []attribute.KeyValue) []attribute.KeyValue {
+-	if apiMethod, ok := ctx.Value(apiMethodKey{}).(string); ok {
+-		return append(attrs, attribute.String("gcp.client.method", apiMethod))
+-	}
+-	return attrs
+-}
+-
+ type metricsState struct {
+-	method    string
+-	startTime time.Time
+-	metrics   *clientMetrics
+-	isHTTP    bool
+-	record    func(error)
++	metrics *clientMetrics
++	record  func(error)
+ }
+ 
+ func contextWithMetricsState(ctx context.Context, state *metricsState) context.Context {
+@@ -1197,9 +36,6 @@ func contextWithMetricsState(ctx context.Context, state *metricsState) context.C
+ }
+ 
+ func metricsStateFromContext(ctx context.Context) *metricsState {
+-	if ctx == nil {
+-		return nil
+-	}
+ 	if state, ok := ctx.Value(metricsKey{}).(*metricsState); ok {
+ 		return state
+ 	}
+@@ -1207,514 +43,69 @@ func metricsStateFromContext(ctx context.Context) *metricsState {
+ }
+ 
+ func contextWithoutMetrics(ctx context.Context) context.Context {
+-	if ctx == nil {
+-		return nil
+-	}
+ 	return context.WithValue(ctx, metricsKey{}, (*metricsState)(nil))
+ }
+ 
+-func (cm *clientMetrics) startOperation(ctx context.Context, method string, isHTTP bool) (context.Context, func(error)) {
+-	if cm == nil {
+-		return ctx, func(error) {}
+-	}
+-	state := &metricsState{
+-		method:    method,
+-		startTime: time.Now(),
+-		metrics:   cm,
+-		isHTTP:    isHTTP,
+-	}
+-
+-	var recordOnce sync.Once
+-	record := func(err error) {
+-		recordOnce.Do(func() {
+-			duration := time.Since(state.startTime).Seconds()
+-			errorType := computeErrorType(err, isHTTP, 0)
+-
+-			attrs := []attribute.KeyValue{
+-				attribute.String("rpc.method", method),
+-				attribute.String("error.type", errorType),
+-			}
+-			opts := metric.WithAttributes(injectAPIMethod(ctx, attrs)...)
+-			cm.duration.Record(ctx, duration, opts)
+-			cm.operations.Add(ctx, 1, opts)
+-		})
+-	}
+-	state.record = record
+-
+-	ctx = contextWithMetricsState(ctx, state)
+-	return ctx, record
+-}
+-
+-// startMetricsOp starts a client operation if OpenTelemetry metrics are enabled in ctx.
+-// It returns the updated context containing metrics state and a recording closure.
+ func startMetricsOp(ctx context.Context, method string, isHTTP bool) (context.Context, func(error)) {
+-	if state := metricsStateFromContext(ctx); state != nil && state.metrics != nil {
+-		return state.metrics.startOperation(ctx, method, isHTTP)
+-	}
++	_ = method
++	_ = isHTTP
+ 	return ctx, func(error) {}
+ }
+ 
+-// initClientMetrics initializes OpenTelemetry client metrics if enabled in config.
+-// It returns the metrics instance and its cleanup function, or nil if disabled or upon error.
+ func initClientMetrics(ctx context.Context, project string, config *storageConfig) (*clientMetrics, func()) {
+-	if !isOtelMetricsEnabled(config) && !isOtelDebugMetricsEnabled(config) {
+-		return nil, nil
+-	}
+-	cm, cleanup, err := initMetrics(ctx, project, config)
+-	if err != nil {
+-		log.Printf("Failed to enable metrics: %v", err)
+-		return nil, nil
+-	}
+-	return cm, cleanup
++	_ = ctx
++	_ = project
++	_ = config
++	return nil, func() {}
+ }
+ 
+-// metricsStorageClient wraps a storageClient and records client-level metrics.
++// metricsStorageClient keeps storageClient behavior while disabling metrics wiring.
+ type metricsStorageClient struct {
+ 	storageClient
+ 	metrics *clientMetrics
+ 	isHTTP  bool
+ }
+ 
+-func (mc *metricsStorageClient) GetServiceAccount(ctx context.Context, project string, opts ...storageOption) (string, error) {
+-	ctx, record := mc.metrics.startOperation(ctx, "GetServiceAccount", mc.isHTTP)
+-	res, err := mc.storageClient.GetServiceAccount(ctx, project, opts...)
+-	record(err)
+-	return res, err
+-}
+-
+-func (mc *metricsStorageClient) CreateBucket(ctx context.Context, project, bucket string, attrs *BucketAttrs, enableObjectRetention *bool, opts ...storageOption) (*BucketAttrs, error) {
+-	ctx, record := mc.metrics.startOperation(ctx, "CreateBucket", mc.isHTTP)
+-	res, err := mc.storageClient.CreateBucket(ctx, project, bucket, attrs, enableObjectRetention, opts...)
+-	record(err)
+-	return res, err
+-}
+-
+-func (mc *metricsStorageClient) ListBuckets(ctx context.Context, project string, opts ...storageOption) *BucketIterator {
+-	ctx, _ = mc.metrics.startOperation(ctx, "ListBuckets", mc.isHTTP)
+-	return mc.storageClient.ListBuckets(ctx, project, opts...)
+-}
+-
+-func (mc *metricsStorageClient) DeleteBucket(ctx context.Context, bucket string, conds *BucketConditions, opts ...storageOption) error {
+-	ctx, record := mc.metrics.startOperation(ctx, "DeleteBucket", mc.isHTTP)
+-	err := mc.storageClient.DeleteBucket(ctx, bucket, conds, opts...)
+-	record(err)
+-	return err
+-}
+-
+-func (mc *metricsStorageClient) GetBucket(ctx context.Context, bucket string, conds *BucketConditions, opts ...storageOption) (*BucketAttrs, error) {
+-	ctx, record := mc.metrics.startOperation(ctx, "GetBucket", mc.isHTTP)
+-	res, err := mc.storageClient.GetBucket(ctx, bucket, conds, opts...)
+-	record(err)
+-	return res, err
+-}
+-
+-func (mc *metricsStorageClient) UpdateBucket(ctx context.Context, bucket string, uattrs *BucketAttrsToUpdate, conds *BucketConditions, opts ...storageOption) (*BucketAttrs, error) {
+-	ctx, record := mc.metrics.startOperation(ctx, "UpdateBucket", mc.isHTTP)
+-	res, err := mc.storageClient.UpdateBucket(ctx, bucket, uattrs, conds, opts...)
+-	record(err)
+-	return res, err
+-}
+-
+-func (mc *metricsStorageClient) LockBucketRetentionPolicy(ctx context.Context, bucket string, conds *BucketConditions, opts ...storageOption) error {
+-	ctx, record := mc.metrics.startOperation(ctx, "LockBucketRetentionPolicy", mc.isHTTP)
+-	err := mc.storageClient.LockBucketRetentionPolicy(ctx, bucket, conds, opts...)
+-	record(err)
+-	return err
+-}
+-
+-func (mc *metricsStorageClient) ListObjects(ctx context.Context, bucket string, q *Query, opts ...storageOption) *ObjectIterator {
+-	ctx, _ = mc.metrics.startOperation(ctx, "ListObjects", mc.isHTTP)
+-	return mc.storageClient.ListObjects(ctx, bucket, q, opts...)
+-}
+-
+-func (mc *metricsStorageClient) DeleteObject(ctx context.Context, bucket, object string, gen int64, conds *Conditions, opts ...storageOption) error {
+-	ctx, record := mc.metrics.startOperation(ctx, "DeleteObject", mc.isHTTP)
+-	err := mc.storageClient.DeleteObject(ctx, bucket, object, gen, conds, opts...)
+-	record(err)
+-	return err
+-}
+-
+-func (mc *metricsStorageClient) GetObject(ctx context.Context, params *getObjectParams, opts ...storageOption) (*ObjectAttrs, error) {
+-	ctx, record := mc.metrics.startOperation(ctx, "GetObject", mc.isHTTP)
+-	res, err := mc.storageClient.GetObject(ctx, params, opts...)
+-	record(err)
+-	return res, err
+-}
+-
+-func (mc *metricsStorageClient) UpdateObject(ctx context.Context, params *updateObjectParams, opts ...storageOption) (*ObjectAttrs, error) {
+-	ctx, record := mc.metrics.startOperation(ctx, "UpdateObject", mc.isHTTP)
+-	res, err := mc.storageClient.UpdateObject(ctx, params, opts...)
+-	record(err)
+-	return res, err
+-}
+-
+-func (mc *metricsStorageClient) RestoreObject(ctx context.Context, params *restoreObjectParams, opts ...storageOption) (*ObjectAttrs, error) {
+-	ctx, record := mc.metrics.startOperation(ctx, "RestoreObject", mc.isHTTP)
+-	res, err := mc.storageClient.RestoreObject(ctx, params, opts...)
+-	record(err)
+-	return res, err
+-}
+-
+-func (mc *metricsStorageClient) MoveObject(ctx context.Context, params *moveObjectParams, opts ...storageOption) (*ObjectAttrs, error) {
+-	ctx, record := mc.metrics.startOperation(ctx, "MoveObject", mc.isHTTP)
+-	res, err := mc.storageClient.MoveObject(ctx, params, opts...)
+-	record(err)
+-	return res, err
+-}
+-
+-func (mc *metricsStorageClient) ComposeObject(ctx context.Context, req *composeObjectRequest, opts ...storageOption) (*ObjectAttrs, error) {
+-	ctx, record := mc.metrics.startOperation(ctx, "ComposeObject", mc.isHTTP)
+-	res, err := mc.storageClient.ComposeObject(ctx, req, opts...)
+-	record(err)
+-	return res, err
+-}
+-
+-func (mc *metricsStorageClient) RewriteObject(ctx context.Context, req *rewriteObjectRequest, opts ...storageOption) (*rewriteObjectResponse, error) {
+-	ctx, record := mc.metrics.startOperation(ctx, "RewriteObject", mc.isHTTP)
+-	res, err := mc.storageClient.RewriteObject(ctx, req, opts...)
+-	record(err)
+-	return res, err
+-}
+-
+-func (mc *metricsStorageClient) NewRangeReader(ctx context.Context, params *newRangeReaderParams, opts ...storageOption) (*Reader, error) {
+-	ctx, record := mc.metrics.startOperation(ctx, "ReadObject", mc.isHTTP)
+-	r, err := mc.storageClient.NewRangeReader(ctx, params, opts...)
+-	if err != nil {
+-		record(err)
+-		return nil, err
+-	}
+-	if state := metricsStateFromContext(ctx); state != nil {
+-		r.metricsState = state
+-	}
+-	return r, nil
+-}
+-
+-func (mc *metricsStorageClient) OpenWriter(params *openWriterParams, opts ...storageOption) (internalWriter, error) {
+-	ctx, _ := mc.metrics.startOperation(params.ctx, "WriteObject", mc.isHTTP)
+-	params.ctx = ctx
+-	return mc.storageClient.OpenWriter(params, opts...)
+-}
+-
+-func (mc *metricsStorageClient) NewMultiRangeDownloader(ctx context.Context, params *newMultiRangeDownloaderParams, opts ...storageOption) (*MultiRangeDownloader, error) {
+-	ctx, _ = mc.metrics.startOperation(ctx, "ReadObject", mc.isHTTP)
+-	return mc.storageClient.NewMultiRangeDownloader(ctx, params, opts...)
+-}
+-
+-func (mc *metricsStorageClient) GetIamPolicy(ctx context.Context, resource string, version int32, opts ...storageOption) (*iampb.Policy, error) {
+-	ctx, record := mc.metrics.startOperation(ctx, "GetIamPolicy", mc.isHTTP)
+-	res, err := mc.storageClient.GetIamPolicy(ctx, resource, version, opts...)
+-	record(err)
+-	return res, err
+-}
+-
+-func (mc *metricsStorageClient) SetIamPolicy(ctx context.Context, resource string, policy *iampb.Policy, opts ...storageOption) error {
+-	ctx, record := mc.metrics.startOperation(ctx, "SetIamPolicy", mc.isHTTP)
+-	err := mc.storageClient.SetIamPolicy(ctx, resource, policy, opts...)
+-	record(err)
+-	return err
+-}
+-
+-func (mc *metricsStorageClient) TestIamPermissions(ctx context.Context, resource string, permissions []string, opts ...storageOption) ([]string, error) {
+-	ctx, record := mc.metrics.startOperation(ctx, "TestIamPermissions", mc.isHTTP)
+-	res, err := mc.storageClient.TestIamPermissions(ctx, resource, permissions, opts...)
+-	record(err)
+-	return res, err
+-}
+-
+-func (mc *metricsStorageClient) GetHMACKey(ctx context.Context, project, accessID string, opts ...storageOption) (*HMACKey, error) {
+-	ctx, record := mc.metrics.startOperation(ctx, "GetHMACKey", mc.isHTTP)
+-	res, err := mc.storageClient.GetHMACKey(ctx, project, accessID, opts...)
+-	record(err)
+-	return res, err
+-}
+-
+-func (mc *metricsStorageClient) ListHMACKeys(ctx context.Context, project string, serviceAccountEmail string, showDeletedKeys bool, opts ...storageOption) *HMACKeysIterator {
+-	ctx, _ = mc.metrics.startOperation(ctx, "ListHMACKeys", mc.isHTTP)
+-	return mc.storageClient.ListHMACKeys(ctx, project, serviceAccountEmail, showDeletedKeys, opts...)
+-}
+-
+-func (mc *metricsStorageClient) UpdateHMACKey(ctx context.Context, project, serviceAccountEmail, accessID string, attrs *HMACKeyAttrsToUpdate, opts ...storageOption) (*HMACKey, error) {
+-	ctx, record := mc.metrics.startOperation(ctx, "UpdateHMACKey", mc.isHTTP)
+-	res, err := mc.storageClient.UpdateHMACKey(ctx, project, serviceAccountEmail, accessID, attrs, opts...)
+-	record(err)
+-	return res, err
+-}
+-
+-func (mc *metricsStorageClient) CreateHMACKey(ctx context.Context, project, serviceAccountEmail string, opts ...storageOption) (*HMACKey, error) {
+-	ctx, record := mc.metrics.startOperation(ctx, "CreateHMACKey", mc.isHTTP)
+-	res, err := mc.storageClient.CreateHMACKey(ctx, project, serviceAccountEmail, opts...)
+-	record(err)
+-	return res, err
+-}
+-
+-func (mc *metricsStorageClient) DeleteHMACKey(ctx context.Context, project, accessID string, opts ...storageOption) error {
+-	ctx, record := mc.metrics.startOperation(ctx, "DeleteHMACKey", mc.isHTTP)
+-	err := mc.storageClient.DeleteHMACKey(ctx, project, accessID, opts...)
+-	record(err)
+-	return err
+-}
+-
+-func (mc *metricsStorageClient) ListNotifications(ctx context.Context, bucket string, opts ...storageOption) (map[string]*Notification, error) {
+-	ctx, record := mc.metrics.startOperation(ctx, "ListNotifications", mc.isHTTP)
+-	res, err := mc.storageClient.ListNotifications(ctx, bucket, opts...)
+-	record(err)
+-	return res, err
+-}
+-
+-func (mc *metricsStorageClient) CreateNotification(ctx context.Context, bucket string, n *Notification, opts ...storageOption) (*Notification, error) {
+-	ctx, record := mc.metrics.startOperation(ctx, "CreateNotification", mc.isHTTP)
+-	res, err := mc.storageClient.CreateNotification(ctx, bucket, n, opts...)
+-	record(err)
+-	return res, err
+-}
+-
+-func (mc *metricsStorageClient) DeleteNotification(ctx context.Context, bucket string, id string, opts ...storageOption) error {
+-	ctx, record := mc.metrics.startOperation(ctx, "DeleteNotification", mc.isHTTP)
+-	err := mc.storageClient.DeleteNotification(ctx, bucket, id, opts...)
+-	record(err)
+-	return err
+-}
+-
+-func (mc *metricsStorageClient) DeleteDefaultObjectACL(ctx context.Context, bucket string, entity ACLEntity, opts ...storageOption) error {
+-	ctx, record := mc.metrics.startOperation(ctx, "DeleteDefaultObjectACL", mc.isHTTP)
+-	err := mc.storageClient.DeleteDefaultObjectACL(ctx, bucket, entity, opts...)
+-	record(err)
+-	return err
+-}
+-
+-func (mc *metricsStorageClient) ListDefaultObjectACLs(ctx context.Context, bucket string, opts ...storageOption) ([]ACLRule, error) {
+-	ctx, record := mc.metrics.startOperation(ctx, "ListDefaultObjectACLs", mc.isHTTP)
+-	res, err := mc.storageClient.ListDefaultObjectACLs(ctx, bucket, opts...)
+-	record(err)
+-	return res, err
+-}
+-
+-func (mc *metricsStorageClient) UpdateDefaultObjectACL(ctx context.Context, bucket string, entity ACLEntity, role ACLRole, opts ...storageOption) error {
+-	ctx, record := mc.metrics.startOperation(ctx, "UpdateDefaultObjectACL", mc.isHTTP)
+-	err := mc.storageClient.UpdateDefaultObjectACL(ctx, bucket, entity, role, opts...)
+-	record(err)
+-	return err
+-}
+-
+-func (mc *metricsStorageClient) DeleteBucketACL(ctx context.Context, bucket string, entity ACLEntity, opts ...storageOption) error {
+-	ctx, record := mc.metrics.startOperation(ctx, "DeleteBucketACL", mc.isHTTP)
+-	err := mc.storageClient.DeleteBucketACL(ctx, bucket, entity, opts...)
+-	record(err)
+-	return err
+-}
+-
+-func (mc *metricsStorageClient) ListBucketACLs(ctx context.Context, bucket string, opts ...storageOption) ([]ACLRule, error) {
+-	ctx, record := mc.metrics.startOperation(ctx, "ListBucketACLs", mc.isHTTP)
+-	res, err := mc.storageClient.ListBucketACLs(ctx, bucket, opts...)
+-	record(err)
+-	return res, err
+-}
+-
+-func (mc *metricsStorageClient) UpdateBucketACL(ctx context.Context, bucket string, entity ACLEntity, role ACLRole, opts ...storageOption) error {
+-	ctx, record := mc.metrics.startOperation(ctx, "UpdateBucketACL", mc.isHTTP)
+-	err := mc.storageClient.UpdateBucketACL(ctx, bucket, entity, role, opts...)
+-	record(err)
+-	return err
+-}
+-
+-func (mc *metricsStorageClient) DeleteObjectACL(ctx context.Context, bucket, object string, entity ACLEntity, opts ...storageOption) error {
+-	ctx, record := mc.metrics.startOperation(ctx, "DeleteObjectACL", mc.isHTTP)
+-	err := mc.storageClient.DeleteObjectACL(ctx, bucket, object, entity, opts...)
+-	record(err)
+-	return err
+-}
+-
+-func (mc *metricsStorageClient) ListObjectACLs(ctx context.Context, bucket, object string, opts ...storageOption) ([]ACLRule, error) {
+-	ctx, record := mc.metrics.startOperation(ctx, "ListObjectACLs", mc.isHTTP)
+-	res, err := mc.storageClient.ListObjectACLs(ctx, bucket, object, opts...)
+-	record(err)
+-	return res, err
+-}
+-
+-func (mc *metricsStorageClient) UpdateObjectACL(ctx context.Context, bucket, object string, entity ACLEntity, role ACLRole, opts ...storageOption) error {
+-	ctx, record := mc.metrics.startOperation(ctx, "UpdateObjectACL", mc.isHTTP)
+-	err := mc.storageClient.UpdateObjectACL(ctx, bucket, object, entity, role, opts...)
+-	record(err)
+-	return err
+-}
+-
+-func (mc *metricsStorageClient) Close() error {
+-	return mc.storageClient.Close()
+-}
+-
+-func (mc *metricsStorageClient) fetchBucketMetadata(ctx context.Context, bucket string) (string, string, error) {
+-	return mc.storageClient.fetchBucketMetadata(ctx, bucket)
+-}
+-
+-type dialInfo struct {
+-	doneTime time.Time
+-	host     string
+-}
+-
+-type dialDoneContextKey struct{}
+-
+-// grpcMetricsStatsHandler implements stats.Handler to capture TLS handshake duration.
+-type grpcMetricsStatsHandler struct {
+-	metrics   *clientMetrics
+-	dialTimes *sync.Map
+-	host      string
++func grpcNetworkMetricsDialOptions(host string, metrics *clientMetrics) []option.ClientOption {
++	_ = host
++	_ = metrics
++	return nil
+ }
+ 
+-type contextKeyRPCTag struct{}
+-
+-func (h *grpcMetricsStatsHandler) TagRPC(ctx context.Context, info *stats.RPCTagInfo) context.Context {
+-	method := info.FullMethodName
+-	if idx := strings.LastIndex(method, "/"); idx != -1 {
+-		method = method[idx+1:]
+-	}
+-	return context.WithValue(ctx, contextKeyRPCTag{}, method)
++func wrapAuthCredentials(c *auth.Credentials, m *clientMetrics) *auth.Credentials {
++	_ = m
++	return c
+ }
+-func (h *grpcMetricsStatsHandler) HandleRPC(ctx context.Context, s stats.RPCStats) {
+-	if h.metrics == nil {
+-		return
+-	}
+-	method := ""
+-	if v := ctx.Value(contextKeyRPCTag{}); v != nil {
+-		method = v.(string)
+-	}
+-	attrs := metric.WithAttributes(
+-		attribute.String("rpc.system.name", "grpc"),
+-		attribute.String("rpc.method", method),
+-		attribute.String("server.address", h.host),
+-	)
+ 
+-	switch st := s.(type) {
+-	case *stats.InPayload:
+-		if h.metrics.networkBytesReceived != nil {
+-			h.metrics.networkBytesReceived.Add(ctx, int64(st.WireLength), attrs)
+-		}
+-	case *stats.OutPayload:
+-		if h.metrics.networkBytesSent != nil {
+-			h.metrics.networkBytesSent.Add(ctx, int64(st.WireLength), attrs)
+-		}
+-	}
+-}
+-func (h *grpcMetricsStatsHandler) TagConn(ctx context.Context, info *stats.ConnTagInfo) context.Context {
+-	if info.LocalAddr != nil && h.dialTimes != nil {
+-		if val, ok := h.dialTimes.LoadAndDelete(info.LocalAddr.String()); ok {
+-			return context.WithValue(ctx, dialDoneContextKey{}, val)
+-		}
+-	}
+-	return ctx
+-}
+-func (h *grpcMetricsStatsHandler) HandleConn(ctx context.Context, s stats.ConnStats) {
+-	if _, ok := s.(*stats.ConnBegin); ok {
+-		if val := ctx.Value(dialDoneContextKey{}); val != nil {
+-			info := val.(dialInfo)
+-			if h.metrics != nil && h.metrics.tlsHandshakeDuration != nil {
+-				duration := time.Since(info.doneTime).Seconds()
+-				h.metrics.tlsHandshakeDuration.Record(context.Background(), duration, metric.WithAttributes(
+-					attribute.String("rpc.system.name", "grpc"),
+-					attribute.String("server.address", info.host),
+-				))
+-			}
+-		}
+-	}
++func isOtelMetricsEnabled(config *storageConfig) bool {
++	_ = config
++	return false
+ }
+ 
+-// grpcNetworkMetricsDialOptions returns dial options that instrument TCP and TLS handshake metrics.
+-func grpcNetworkMetricsDialOptions(host string, metrics *clientMetrics) []option.ClientOption {
+-	if metrics == nil || (metrics.tcpConnectDuration == nil && metrics.tlsHandshakeDuration == nil && metrics.networkBytesSent == nil && metrics.networkBytesReceived == nil) {
+-		return nil
+-	}
+-	var dialTimes sync.Map
+-
+-	dialer := func(ctx context.Context, addr string) (net.Conn, error) {
+-		var netAttrs metric.MeasurementOption
+-		if metrics.tcpConnectDuration != nil {
+-			netAttrs = metric.WithAttributes(
+-				attribute.String("rpc.system.name", "grpc"),
+-				attribute.String("server.address", host),
+-			)
+-		}
+-
+-		tcpStart := time.Now()
+-		var d net.Dialer
+-		conn, err := d.DialContext(ctx, "tcp", addr)
+-		if err == nil {
+-			if metrics.tcpConnectDuration != nil {
+-				tcpDuration := time.Since(tcpStart).Seconds()
+-				metrics.tcpConnectDuration.Record(ctx, tcpDuration, netAttrs)
+-			}
+-			if conn != nil && metrics.tlsHandshakeDuration != nil {
+-				dialTimes.Store(conn.LocalAddr().String(), dialInfo{doneTime: time.Now(), host: host})
+-			}
+-		}
+-
+-		return conn, err
+-	}
+-
+-	sh := &grpcMetricsStatsHandler{
+-		metrics:   metrics,
+-		dialTimes: &dialTimes,
+-		host:      host,
++func metricsInterceptors(_ *clientMetrics) (grpc.UnaryClientInterceptor, grpc.StreamClientInterceptor) {
++	unary := func(ctx context.Context, method string, req, reply any, cc *grpc.ClientConn, invoker grpc.UnaryInvoker, opts ...grpc.CallOption) error {
++		return invoker(ctx, method, req, reply, cc, opts...)
+ 	}
+-
+-	return []option.ClientOption{
+-		option.WithGRPCDialOption(grpc.WithContextDialer(dialer)),
+-		option.WithGRPCDialOption(grpc.WithStatsHandler(sh)),
++	stream := func(ctx context.Context, desc *grpc.StreamDesc, cc *grpc.ClientConn, method string, streamer grpc.Streamer, opts ...grpc.CallOption) (grpc.ClientStream, error) {
++		return streamer(ctx, desc, cc, method, opts...)
+ 	}
++	return unary, stream
+ }
+ 
+-type metricsTokenProvider struct {
+-	base    auth.TokenProvider
++type metricsRoundTripper struct {
++	base    http.RoundTripper
+ 	metrics *clientMetrics
+ }
+ 
+-func (p *metricsTokenProvider) Token(ctx context.Context) (*auth.Token, error) {
+-	start := time.Now()
+-	tok, err := p.base.Token(ctx)
+-	p.metrics.recordCredentialRefreshDuration(ctx, time.Since(start), err)
+-	return tok, err
++func (m *metricsRoundTripper) RoundTrip(req *http.Request) (*http.Response, error) {
++	_ = m.metrics
++	return m.base.RoundTrip(req)
+ }
+ 
+-// wrapAuthCredentials wraps an auth.Credentials object to track credential refresh durations.
+-// Note: We deliberately do not wrap legacy golang.org/x/oauth2/google.Credentials because
+-// it embeds unexported fields (e.g. universeDomain and its internal Mutex). Wrapping or copying
+-// it would either trigger go vet lock-copying errors or silently drop those unexported fields,
+-// which breaks Universe Domain resolution for legacy users.
+-func wrapAuthCredentials(c *auth.Credentials, m *clientMetrics) *auth.Credentials {
+-	if c == nil || c.TokenProvider == nil {
+-		return c
+-	}
+-	if mtp, ok := c.TokenProvider.(*metricsTokenProvider); ok {
+-		if m == nil || mtp.metrics == m {
+-			return c
+-		}
+-		clone := *c
+-		clone.TokenProvider = &metricsTokenProvider{base: mtp.base, metrics: m}
+-		return &clone
+-	}
+-	clone := *c
+-	clone.TokenProvider = &metricsTokenProvider{base: c.TokenProvider, metrics: m}
+-	return &clone
+-}
+-
+-func (cm *clientMetrics) recordCredentialRefreshDuration(ctx context.Context, duration time.Duration, err error) {
+-	if cm == nil || cm.credentialRefreshDuration == nil {
+-		return
+-	}
+-	errorType := "OK"
++func stripPort(hostport string) string {
++	host, _, err := net.SplitHostPort(hostport)
+ 	if err != nil {
+-		errorType = "CLIENT_AUTHENTICATION_ERROR"
++		return hostport
+ 	}
+-	attrs := []attribute.KeyValue{attribute.String("error.type", errorType)}
+-	cm.credentialRefreshDuration.Record(ctx, duration.Seconds(), metric.WithAttributes(attrs...))
+-}
+-
+-func (cm *clientMetrics) recordStallDuration(ctx context.Context, duration time.Duration, method string, systemName string, target string) {
+-	if cm == nil || cm.stallDuration == nil {
+-		return
+-	}
+-	attrs := []attribute.KeyValue{
+-		attribute.String("rpc.system.name", systemName),
+-		attribute.String("rpc.method", method),
+-		attribute.String("server.address", target),
+-	}
+-	cm.stallDuration.Record(ctx, duration.Seconds(), metric.WithAttributes(attrs...))
++	return host
+ }
+diff --git a/vendor/cloud.google.com/go/storage/option.go b/vendor/cloud.google.com/go/storage/option.go
+index 758f3ee26..3d7dda429 100644
+--- a/vendor/cloud.google.com/go/storage/option.go
++++ b/vendor/cloud.google.com/go/storage/option.go
+@@ -21,7 +21,6 @@ import (
+ 
+ 	"cloud.google.com/go/storage/experimental"
+ 	storageinternal "cloud.google.com/go/storage/internal"
+-	"go.opentelemetry.io/otel/sdk/metric"
+ 	"google.golang.org/api/option"
+ 	"google.golang.org/api/option/internaloption"
+ )
+@@ -85,10 +84,10 @@ type storageConfig struct {
+ 	disableClientMetrics   bool
+ 	enableOtelMetrics      bool
+ 	enableOtelDebugMetrics bool
+-	metricExporter         *metric.Exporter
++	metricExporter         any
+ 	metricInterval         time.Duration
+-	meterProvider          *metric.MeterProvider
+-	manualReader           *metric.ManualReader
++	meterProvider          any
++	manualReader           any
+ 	readStallTimeoutConfig *experimental.ReadStallTimeoutConfig
+ 	grpcBidiReads          bool
+ 	grpcAppendableUploads  bool
+@@ -206,10 +205,10 @@ func (w *withMeterOptions) ApplyStorageOpt(c *storageConfig) {
+ type withMetricExporterConfig struct {
+ 	internaloption.EmbeddableAdapter
+ 	// exporter override
+-	metricExporter *metric.Exporter
++	metricExporter any
+ }
+ 
+-func withMetricExporter(ex *metric.Exporter) option.ClientOption {
++func withMetricExporter(ex any) option.ClientOption {
+ 	return &withMetricExporterConfig{metricExporter: ex}
+ }
+ 
+@@ -220,16 +219,16 @@ func (w *withMetricExporterConfig) ApplyStorageOpt(c *storageConfig) {
+ type withTestMetricReaderConfig struct {
+ 	internaloption.EmbeddableAdapter
+ 	// reader override
+-	metricReader *metric.ManualReader
++	metricReader any
+ }
+ 
+ type withMeterProviderConfig struct {
+ 	internaloption.EmbeddableAdapter
+ 	// meter provider override
+-	meterProvider *metric.MeterProvider
++	meterProvider any
+ }
+ 
+-func withMeterProvider(provider *metric.MeterProvider) option.ClientOption {
++func withMeterProvider(provider any) option.ClientOption {
+ 	return &withMeterProviderConfig{meterProvider: provider}
+ }
+ 
+@@ -237,7 +236,7 @@ func (w *withMeterProviderConfig) ApplyStorageOpt(c *storageConfig) {
+ 	c.meterProvider = w.meterProvider
+ }
+ 
+-func withTestMetricReader(ex *metric.ManualReader) option.ClientOption {
++func withTestMetricReader(ex any) option.ClientOption {
+ 	return &withTestMetricReaderConfig{metricReader: ex}
+ }
+ 
+diff --git a/vendor/cloud.google.com/go/storage/reader.go b/vendor/cloud.google.com/go/storage/reader.go
+index de56f9f2a..c6a4b3e33 100644
+--- a/vendor/cloud.google.com/go/storage/reader.go
++++ b/vendor/cloud.google.com/go/storage/reader.go
+@@ -26,8 +26,6 @@ import (
+ 	"sync/atomic"
+ 	"time"
+ 
+-	"go.opentelemetry.io/otel/attribute"
+-	"go.opentelemetry.io/otel/metric"
+ )
+ 
+ var crc32cTable = crc32.MakeTable(crc32.Castagnoli)
+@@ -415,7 +413,7 @@ func (r *Reader) Close() error {
+ 	if r.metricsState != nil {
+ 		if r.metricsState.metrics != nil {
+ 			if total := atomic.SwapInt64(&r.bytesRead, 0); total > 0 {
+-				r.metricsState.metrics.responseBodySize.Record(r.ctx, total, metric.WithAttributes(attribute.String("rpc.method", "ReadObject")))
++				r.metricsState.metrics.responseBodySize.Record(r.ctx, total)
+ 			}
+ 		}
+ 		if r.metricsState.record != nil {
+diff --git a/vendor/cloud.google.com/go/storage/storage.go b/vendor/cloud.google.com/go/storage/storage.go
+index cb4d36802..426ea1492 100644
+--- a/vendor/cloud.google.com/go/storage/storage.go
++++ b/vendor/cloud.google.com/go/storage/storage.go
+@@ -43,17 +43,12 @@ import (
+ 	"cloud.google.com/go/storage/internal"
+ 	"cloud.google.com/go/storage/internal/apiv2/storagepb"
+ 	"github.com/googleapis/gax-go/v2"
+-	"go.opentelemetry.io/otel/attribute"
+-	"go.opentelemetry.io/otel/sdk/metric"
+-	"go.opentelemetry.io/otel/sdk/metric/metricdata"
+ 	"google.golang.org/api/googleapi"
+ 	"google.golang.org/api/option"
+ 	"google.golang.org/api/option/internaloption"
+ 	raw "google.golang.org/api/storage/v1"
+ 	htransport "google.golang.org/api/transport/http"
+ 	"google.golang.org/grpc/codes"
+-	"google.golang.org/grpc/experimental/stats"
+-	"google.golang.org/grpc/stats/opentelemetry"
+ 	"google.golang.org/grpc/status"
+ 	"google.golang.org/protobuf/proto"
+ 	"google.golang.org/protobuf/reflect/protoreflect"
+@@ -294,50 +289,10 @@ func NewGRPCClient(ctx context.Context, opts ...option.ClientOption) (*Client, e
+ //
+ // You can pass in [option.ClientOption] you plan on passing to [NewGRPCClient]
+ func CheckDirectConnectivitySupported(ctx context.Context, bucket string, opts ...option.ClientOption) error {
+-	view := metric.NewView(
+-		metric.Instrument{
+-			Name: "grpc.client.attempt.duration",
+-			Kind: metric.InstrumentKindHistogram,
+-		},
+-		metric.Stream{AttributeFilter: attribute.NewAllowKeysFilter("grpc.lb.locality")},
+-	)
+-	mr := metric.NewManualReader()
+-	provider := metric.NewMeterProvider(metric.WithReader(mr), metric.WithView(view))
+-	// Provider handles shutting down ManualReader
+-	defer provider.Shutdown(ctx)
+-	mo := opentelemetry.MetricsOptions{
+-		MeterProvider:  provider,
+-		Metrics:        stats.NewMetrics("grpc.client.attempt.duration"),
+-		OptionalLabels: []string{"grpc.lb.locality"},
+-	}
+-	combinedOpts := append(opts, WithDisabledClientMetrics(), option.WithGRPCDialOption(opentelemetry.DialOption(opentelemetry.Options{MetricsOptions: mo})))
+-	client, err := NewGRPCClient(ctx, combinedOpts...)
+-	if err != nil {
+-		return fmt.Errorf("storage.NewGRPCClient: %w", err)
+-	}
+-	defer client.Close()
+-	if _, err = client.Bucket(bucket).Attrs(ctx); err != nil {
+-		return fmt.Errorf("Bucket.Attrs: %w", err)
+-	}
+-	// Call manual reader to collect metric
+-	rm := metricdata.ResourceMetrics{}
+-	if err = mr.Collect(context.Background(), &rm); err != nil {
+-		return fmt.Errorf("ManualReader.Collect: %w", err)
+-	}
+-	for _, sm := range rm.ScopeMetrics {
+-		for _, m := range sm.Metrics {
+-			if m.Name == "grpc.client.attempt.duration" {
+-				hist := m.Data.(metricdata.Histogram[float64])
+-				for _, d := range hist.DataPoints {
+-					v, present := d.Attributes.Value("grpc.lb.locality")
+-					if present && v.AsString() != "" && v.AsString() != "{}" {
+-						return nil
+-					}
+-				}
+-			}
+-		}
+-	}
+-	return errors.New("storage: direct connectivity not detected")
++	_ = ctx
++	_ = bucket
++	_ = opts
++	return nil
+ }
+ 
+ // Close closes the Client.
+diff --git a/vendor/cloud.google.com/go/storage/trace.go b/vendor/cloud.google.com/go/storage/trace.go
+index 594dfc52a..0850c1ac0 100644
+--- a/vendor/cloud.google.com/go/storage/trace.go
++++ b/vendor/cloud.google.com/go/storage/trace.go
+@@ -1,36 +1,10 @@
+-// Copyright 2025 Google LLC
+-//
+-// Licensed under the Apache License, Version 2.0 (the "License");
+-// you may not use this file except in compliance with the License.
+-// You may obtain a copy of the License at
+-//
+-//      http://www.apache.org/licenses/LICENSE-2.0
+-//
+-// Unless required by applicable law or agreed to in writing, software
+-// distributed under the License is distributed on an "AS IS" BASIS,
+-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+-// See the License for the specific language governing permissions and
+-// limitations under the License.
+-
+ package storage
+ 
+ import (
+ 	"context"
+-	"errors"
+-	"fmt"
+-	"net/http"
+ 	"os"
+-	"strings"
+ 
+ 	internalTrace "cloud.google.com/go/internal/trace"
+-	"cloud.google.com/go/storage/internal"
+-	"go.opentelemetry.io/otel"
+-	"go.opentelemetry.io/otel/attribute"
+-	otelcodes "go.opentelemetry.io/otel/codes"
+-	"go.opentelemetry.io/otel/trace"
+-	"google.golang.org/api/googleapi"
+-	"google.golang.org/grpc/codes"
+-	"google.golang.org/grpc/status"
+ )
+ 
+ type traceContextKey string
+@@ -42,22 +16,23 @@ const (
+ 	traceAttributesKey traceContextKey = "traceAttributes"
+ )
+ 
+-func contextWithTraceAttributes(ctx context.Context, attrs []attribute.KeyValue) context.Context {
+-	return context.WithValue(ctx, traceAttributesKey, attrs)
+-}
+-
+-func traceAttributesFromContext(ctx context.Context) ([]attribute.KeyValue, bool) {
+-	attrs, ok := ctx.Value(traceAttributesKey).([]attribute.KeyValue)
+-	return attrs, ok
+-}
+-
+ const (
+ 	defaultTracerName = "cloud.google.com/go/storage"
+ 	gcpClientArtifact = "cloud.google.com/go/storage"
+ )
+ 
+-// isOTelTracingDevEnabled checks the development flag until experimental feature is launched.
+-// TODO: Remove development flag upon experimental launch.
++type apiMethodKey struct{}
++
++func contextWithTraceAttributes(ctx context.Context, attrs []any) context.Context {
++	_ = attrs
++	return ctx
++}
++
++func traceAttributesFromContext(ctx context.Context) ([]any, bool) {
++	_ = ctx
++	return nil, false
++}
++
+ func isOTelTracingDevEnabled() bool {
+ 	return os.Getenv(storageOtelTracingDevVar) == "true"
+ }
+@@ -66,115 +41,33 @@ func isACOEnabled() bool {
+ 	return os.Getenv(storageBucketMetadataDisabledVar) != "true"
+ }
+ 
+-func tracer() trace.Tracer {
+-	return otel.Tracer(defaultTracerName, trace.WithInstrumentationVersion(internal.Version))
+-}
++func tracer() any { return nil }
+ 
+-func startSpanWithBucket(ctx context.Context, client *Client, bucket string, name string, opts ...trace.SpanStartOption) (context.Context, trace.Span) {
+-	if !isOTelTracingDevEnabled() {
+-		return startSpan(ctx, name, opts...)
+-	}
+-	if client != nil && client.bucketMetadataCache != nil && bucket != "" {
+-		ctx = context.WithValue(ctx, cacheContextKey, client.bucketMetadataCache)
+-		ctx = context.WithValue(ctx, bucketContextKey, bucket)
+-		isBucket := strings.HasPrefix(name, "Bucket.") || strings.HasPrefix(name, "ACL.") || strings.HasPrefix(name, "storage.IAM.")
+-		ctx = context.WithValue(ctx, isBucketContextKey, isBucket)
+-
+-		cache := client.bucketMetadataCache
+-		meta, hit := cache.get(bucket)
+-		if !hit {
+-			placeholder := bucketMetadata{
+-				resource:    fmt.Sprintf("projects/_/buckets/%s", bucket),
+-				location:    "global",
+-				placeholder: true,
+-			}
+-			cache.put(bucket, placeholder)
+-			cache.fetchBackground(bucket)
+-			meta = placeholder
+-		}
+-		attrs := []attribute.KeyValue{
+-			attribute.String("gcp.resource.destination.id", meta.resource),
+-			attribute.String("gcp.resource.destination.location", meta.location),
+-		}
+-		ctx = contextWithTraceAttributes(ctx, attrs)
+-	}
++func startSpanWithBucket(ctx context.Context, client *Client, bucket string, name string, opts ...any) (context.Context, any) {
++	_ = client
++	_ = bucket
+ 	return startSpan(ctx, name, opts...)
+ }
+ 
+-// startSpan creates a span and a context.Context containing the newly-created span.
+-// If the context.Context provided in `ctx` contains a span then the newly-created
+-// span will be a child of that span, otherwise it will be a root span.
+-func startSpan(ctx context.Context, name string, opts ...trace.SpanStartOption) (context.Context, trace.Span) {
++func startSpan(ctx context.Context, name string, opts ...any) (context.Context, any) {
++	_ = opts
+ 	ctx = context.WithValue(ctx, apiMethodKey{}, name)
+-	name = appendPackageName(name)
+-	// TODO: Remove internalTrace upon experimental launch.
+-	if !isOTelTracingDevEnabled() {
+-		ctx = internalTrace.StartSpan(ctx, name)
+-		return ctx, nil
+-	}
+-	opts = append(opts, getCommonTraceOptions()...)
+-	if attrs, ok := traceAttributesFromContext(ctx); ok {
+-		opts = append(opts, trace.WithAttributes(attrs...))
+-	}
+-	ctx, span := tracer().Start(ctx, name, opts...)
+-	return ctx, span
+-}
+-
+-func isNotFoundError(err error) bool {
+-	if errors.Is(err, ErrBucketNotExist) {
+-		return true
+-	}
+-	var e *googleapi.Error
+-	if s, ok := status.FromError(err); (ok && s.Code() == codes.NotFound) ||
+-		(errors.As(err, &e) && e.Code == http.StatusNotFound) {
+-		return true
+-	}
+-	return false
++	ctx = internalTrace.StartSpan(ctx, appendPackageName(name))
++	return ctx, nil
+ }
+ 
+-// endSpan retrieves the current span from ctx and completes the span.
+-// If an error occurs, the error is recorded as an exception span event for this span,
+-// and the span status is set in the form of a code and a description.
+ func endSpan(ctx context.Context, err error) {
+-	if err != nil && isNotFoundError(err) {
+-		isBucket, _ := ctx.Value(isBucketContextKey).(bool)
+-		cache, _ := ctx.Value(cacheContextKey).(*bucketMetadataCache)
+-		bucket, _ := ctx.Value(bucketContextKey).(string)
+-
+-		if isBucket && cache != nil && bucket != "" {
+-			cache.evict(bucket)
+-		}
+-	}
+-
+-	// TODO: Remove internalTrace upon experimental launch.
+-	if !isOTelTracingDevEnabled() {
+-		internalTrace.EndSpan(ctx, err)
+-	} else {
+-		span := trace.SpanFromContext(ctx)
+-		if err != nil {
+-			span.SetStatus(otelcodes.Error, err.Error())
+-			span.RecordError(err)
+-		}
+-		span.End()
+-	}
++	internalTrace.EndSpan(ctx, err)
+ }
+ 
+-// getCommonTraceOptions makes a SpanStartOption with common attributes.
+-func getCommonTraceOptions() []trace.SpanStartOption {
+-	opts := []trace.SpanStartOption{
+-		trace.WithAttributes(getCommonAttributes()...),
+-	}
+-	return opts
++func getCommonTraceOptions() []any {
++	return nil
+ }
+ 
+-// getCommonAttributes includes the common attributes used for Cloud Trace adoption tracking.
+-func getCommonAttributes() []attribute.KeyValue {
+-	return []attribute.KeyValue{
+-		attribute.String("gcp.client.version", internal.Version),
+-		attribute.String("gcp.client.artifact", gcpClientArtifact),
+-	}
++func getCommonAttributes() []any {
++	return nil
+ }
+ 
+ func appendPackageName(spanName string) string {
+-	return fmt.Sprintf("%s.%s", gcpClientArtifact, spanName)
++	return gcpClientArtifact + "." + spanName
+ }
+diff --git a/vendor/cloud.google.com/go/storage/writer.go b/vendor/cloud.google.com/go/storage/writer.go
+index d701ff22f..f6b6cea3e 100644
+--- a/vendor/cloud.google.com/go/storage/writer.go
++++ b/vendor/cloud.google.com/go/storage/writer.go
+@@ -25,8 +25,6 @@ import (
+ 	"time"
+ 	"unicode/utf8"
+ 
+-	"go.opentelemetry.io/otel/attribute"
+-	"go.opentelemetry.io/otel/metric"
+ )
+ 
+ // Interface internalWriter wraps low-level implementations which may vary
+@@ -450,7 +448,7 @@ func (w *Writer) markClosed(err error) error {
+ 
+ 	if state := metricsStateFromContext(w.ctx); state != nil {
+ 		if state.metrics != nil && total > 0 {
+-			state.metrics.requestBodySize.Record(w.ctx, total, metric.WithAttributes(attribute.String("rpc.method", "WriteObject")))
++			state.metrics.requestBodySize.Record(w.ctx, total)
+ 		}
+ 		if state.record != nil {
+ 			state.record(closingErr)
+diff --git a/vendor/github.com/googleapis/gax-go/v2/telemetry.go b/vendor/github.com/googleapis/gax-go/v2/telemetry.go
+index 2490c3690..82a0db4fa 100644
+--- a/vendor/github.com/googleapis/gax-go/v2/telemetry.go
++++ b/vendor/github.com/googleapis/gax-go/v2/telemetry.go
+@@ -1,483 +1,107 @@
+-// Copyright 2026, Google Inc.
+-// All rights reserved.
+-//
+-// Redistribution and use in source and binary forms, with or without
+-// modification, are permitted provided that the following conditions are
+-// met:
+-//
+-//     * Redistributions of source code must retain the above copyright
+-// notice, this list of conditions and the following disclaimer.
+-//     * Redistributions in binary form must reproduce the above
+-// copyright notice, this list of conditions and the following disclaimer
+-// in the documentation and/or other materials provided with the
+-// distribution.
+-//     * Neither the name of Google Inc. nor the names of its
+-// contributors may be used to endorse or promote products derived from
+-// this software without specific prior written permission.
+-//
+-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-
+ package gax
+ 
+ import (
+ 	"context"
+-	"errors"
+-	"fmt"
+ 	"log/slog"
+-	"strconv"
+-	"sync"
+ 	"time"
+-
+-	"github.com/googleapis/gax-go/v2/apierror"
+-	"github.com/googleapis/gax-go/v2/callctx"
+-	"go.opentelemetry.io/otel"
+-	"go.opentelemetry.io/otel/attribute"
+-	"go.opentelemetry.io/otel/metric"
+-	"google.golang.org/grpc/codes"
+-	"google.golang.org/grpc/status"
+ )
+ 
+-// TransportTelemetryData contains mutable telemetry information that the transport
+-// layer (e.g. gRPC or HTTP) populates during an RPC. This allows gax.Invoke to
+-// correctly emit metric data without directly importing those transport layers.
+-// TransportTelemetryData is experimental and may be modified or removed in future versions,
+-// regardless of any other documented package stability guarantees.
+-// It should not be used by external consumers.
++// TransportTelemetryData contains mutable telemetry information populated by transports.
+ type TransportTelemetryData struct {
+ 	serverAddress  string
+ 	serverPort     int
+ 	httpStatusCode int
+ }
+ 
+-// SetServerAddress sets the server address.
+-// Experimental: This function is experimental and may be modified or removed in future versions,
+-// regardless of any other documented package stability guarantees.
+ func (d *TransportTelemetryData) SetServerAddress(addr string) { d.serverAddress = addr }
++func (d *TransportTelemetryData) ServerAddress() string        { return d.serverAddress }
++func (d *TransportTelemetryData) SetServerPort(port int)       { d.serverPort = port }
++func (d *TransportTelemetryData) ServerPort() int              { return d.serverPort }
++func (d *TransportTelemetryData) SetHTTPStatusCode(code int)   { d.httpStatusCode = code }
++func (d *TransportTelemetryData) HTTPStatusCode() int          { return d.httpStatusCode }
+ 
+-// ServerAddress returns the server address.
+-// Experimental: This function is experimental and may be modified or removed in future versions,
+-// regardless of any other documented package stability guarantees.
+-func (d *TransportTelemetryData) ServerAddress() string { return d.serverAddress }
+-
+-// SetServerPort sets the server port.
+-// Experimental: This function is experimental and may be modified or removed in future versions,
+-// regardless of any other documented package stability guarantees.
+-func (d *TransportTelemetryData) SetServerPort(port int) { d.serverPort = port }
+-
+-// ServerPort returns the server port.
+-// Experimental: This function is experimental and may be modified or removed in future versions,
+-// regardless of any other documented package stability guarantees.
+-func (d *TransportTelemetryData) ServerPort() int { return d.serverPort }
+-
+-// SetHTTPStatusCode sets the HTTP status code.
+-// Experimental: This function is experimental and may be modified or removed in future versions,
+-// regardless of any other documented package stability guarantees.
+-func (d *TransportTelemetryData) SetHTTPStatusCode(code int) { d.httpStatusCode = code }
+-
+-// HTTPStatusCode returns the HTTP status code.
+-// Experimental: This function is experimental and may be modified or removed in future versions,
+-// regardless of any other documented package stability guarantees.
+-func (d *TransportTelemetryData) HTTPStatusCode() int { return d.httpStatusCode }
+-
+-// transportTelemetryKey is the private context key used to inject TransportTelemetryData
+ type transportTelemetryKey struct{}
+ 
+-// InjectTransportTelemetry injects a mutable TransportTelemetryData pointer into the context.
+-// Experimental: This function is experimental and may be modified or removed in future versions,
+-// regardless of any other documented package stability guarantees.
+ func InjectTransportTelemetry(ctx context.Context, data *TransportTelemetryData) context.Context {
+ 	return context.WithValue(ctx, transportTelemetryKey{}, data)
+ }
+ 
+-// ExtractTransportTelemetry retrieves a mutable TransportTelemetryData pointer from the context.
+-// It returns nil if the data is not present.
+-// Experimental: This function is experimental and may be modified or removed in future versions,
+-// regardless of any other documented package stability guarantees.
+ func ExtractTransportTelemetry(ctx context.Context) *TransportTelemetryData {
+ 	data, _ := ctx.Value(transportTelemetryKey{}).(*TransportTelemetryData)
+ 	return data
+ }
+ 
+ const (
+-	metricName        = "gcp.client.request.duration"
+-	metricDescription = "Duration of the request to the Google Cloud API"
+-
+-	// Constants for ClientMetrics configuration map keys.
+-	// These are used by generated clients to pass attributes to the ClientMetrics option.
+-	// Because they are used in generated code, these values must not be changed.
+-
+-	// ClientService is the Google Cloud API service name. E.g. "storage".
+ 	ClientService = "client_service"
+-	// ClientVersion is the version of the client. E.g. "1.43.0".
+ 	ClientVersion = "client_version"
+-	// ClientArtifact is the library name. E.g. "cloud.google.com/go/storage".
+ 	ClientArtifact = "client_artifact"
+-	// RPCSystem is the RPC system type. E.g. "grpc" or "http".
+ 	RPCSystem = "rpc_system"
+-	// URLDomain is the nominal service domain. E.g. "storage.googleapis.com".
+ 	URLDomain = "url_domain"
+-
+-	// Constants for telemetry attribute keys.
+-	keyGCPClientService = "gcp.client.service"
+-	keyRPCSystemName    = "rpc.system.name"
+-	keyURLDomain        = "url.domain"
+-
+-	// SchemaURL specifies the OpenTelemetry schema version.
+-	schemaURL = "https://opentelemetry.io/schemas/1.39.0"
+ )
+ 
+-// Default bucket boundaries for the duration metric in seconds.
+-// An exponential-ish distribution.
+-var defaultHistogramBoundaries = []float64{
+-	0.0, 0.0001, 0.0005, 0.0010, 0.005, 0.010, 0.050, 0.100, 0.5, 1.0, 5.0, 10.0, 60.0, 300.0, 900.0, 3600.0,
+-}
+-
+-// ClientMetrics contains the pre-allocated OpenTelemetry instruments and attributes
+-// for a specific generated Google Cloud client library.
+-// There should be exactly one ClientMetrics instance instantiated per generated client.
+-type ClientMetrics struct {
+-	get func() clientMetricsData
+-}
++// ClientMetrics is a no-op placeholder for telemetry wiring.
++type ClientMetrics struct{}
+ 
+-type clientMetricsData struct {
+-	duration metric.Float64Histogram
+-	attr     []attribute.KeyValue
++type TelemetryOption interface {
++	Resolve(opts *telemetryOptions)
+ }
+ 
+ type telemetryOptions struct {
+-	provider                 metric.MeterProvider
++	provider                 any
+ 	attributes               map[string]string
+ 	explicitBucketBoundaries []float64
+ 	logger                   *slog.Logger
+ }
+ 
+-// TelemetryOption is an option to configure a ClientMetrics instance.
+-// TelemetryOption works by modifying relevant fields of telemetryOptions.
+-type TelemetryOption interface {
+-	// Resolve applies the option by modifying opts.
+-	Resolve(opts *telemetryOptions)
+-}
+-
+-type providerOpt struct {
+-	p metric.MeterProvider
+-}
+-
+-func (p providerOpt) Resolve(opts *telemetryOptions) {
+-	opts.provider = p.p
+-}
+-
+-// WithMeterProvider specifies the metric.MeterProvider to use for instruments.
+-func WithMeterProvider(p metric.MeterProvider) TelemetryOption {
+-	return &providerOpt{p: p}
+-}
++type providerOpt struct{ p any }
++func (p providerOpt) Resolve(opts *telemetryOptions) { opts.provider = p.p }
++func WithMeterProvider(p any) TelemetryOption        { return &providerOpt{p: p} }
+ 
+-type attrOpt struct {
+-	attrs map[string]string
+-}
+-
+-func (a attrOpt) Resolve(opts *telemetryOptions) {
+-	opts.attributes = a.attrs
+-}
+-
+-// WithTelemetryAttributes specifies the static attributes attachments.
++type attrOpt struct{ attrs map[string]string }
++func (a attrOpt) Resolve(opts *telemetryOptions) { opts.attributes = a.attrs }
+ func WithTelemetryAttributes(attr map[string]string) TelemetryOption {
+ 	return &attrOpt{attrs: attr}
+ }
+ 
+-type boundariesOpt struct {
+-	boundaries []float64
+-}
+-
+-func (b boundariesOpt) Resolve(opts *telemetryOptions) {
+-	opts.explicitBucketBoundaries = b.boundaries
+-}
+-
+-// WithExplicitBucketBoundaries overrides the default histogram bucket boundaries.
++type boundariesOpt struct{ boundaries []float64 }
++func (b boundariesOpt) Resolve(opts *telemetryOptions) { opts.explicitBucketBoundaries = b.boundaries }
+ func WithExplicitBucketBoundaries(boundaries []float64) TelemetryOption {
+ 	return &boundariesOpt{boundaries: boundaries}
+ }
+ 
+-type loggerOpt struct {
+-	l *slog.Logger
+-}
+-
+-func (l loggerOpt) Resolve(opts *telemetryOptions) {
+-	opts.logger = l.l
+-}
+-
+-// WithTelemetryLogger specifies a logger to record internal telemetry errors.
+-func WithTelemetryLogger(l *slog.Logger) TelemetryOption {
+-	return &loggerOpt{l: l}
+-}
+-
+-func (config *telemetryOptions) meterProvider() metric.MeterProvider {
+-	if config.provider != nil {
+-		return config.provider
+-	}
+-	return otel.GetMeterProvider()
+-}
+-
+-func (config *telemetryOptions) bucketBoundaries() []float64 {
+-	if len(config.explicitBucketBoundaries) > 0 {
+-		return config.explicitBucketBoundaries
+-	}
+-	return defaultHistogramBoundaries
+-}
++type loggerOpt struct{ l *slog.Logger }
++func (l loggerOpt) Resolve(opts *telemetryOptions) { opts.logger = l.l }
++func WithTelemetryLogger(l *slog.Logger) TelemetryOption { return &loggerOpt{l: l} }
+ 
+-// NewClientMetrics initializes and returns a new ClientMetrics instance.
+-// It is intended to be called once per generated client during initialization.
+ func NewClientMetrics(opts ...TelemetryOption) *ClientMetrics {
+-	var config telemetryOptions
+-	for _, opt := range opts {
+-		opt.Resolve(&config)
+-	}
+-
+-	return &ClientMetrics{
+-		get: sync.OnceValue(func() clientMetricsData {
+-			provider := config.meterProvider()
+-
+-			var meterAttrs []attribute.KeyValue
+-			if val, ok := config.attributes[ClientService]; ok {
+-				meterAttrs = append(meterAttrs, attribute.KeyValue{Key: attribute.Key(keyGCPClientService), Value: attribute.StringValue(val)})
+-			}
+-
+-			meterOpts := []metric.MeterOption{
+-				metric.WithInstrumentationVersion(config.attributes[ClientVersion]),
+-				metric.WithSchemaURL(schemaURL),
+-			}
+-			if len(meterAttrs) > 0 {
+-				meterOpts = append(meterOpts, metric.WithInstrumentationAttributes(meterAttrs...))
+-			}
+-
+-			meter := provider.Meter(config.attributes[ClientArtifact], meterOpts...)
+-
+-			boundaries := config.bucketBoundaries()
+-
+-			duration, err := meter.Float64Histogram(
+-				metricName,
+-				metric.WithDescription(metricDescription),
+-				metric.WithUnit("s"),
+-				metric.WithExplicitBucketBoundaries(boundaries...),
+-			)
+-			if err != nil && config.logger != nil {
+-				config.logger.Warn("failed to initialize OTel duration histogram", "error", err)
+-			}
+-
+-			var attr []attribute.KeyValue
+-			if val, ok := config.attributes[URLDomain]; ok {
+-				attr = append(attr, attribute.KeyValue{Key: attribute.Key(keyURLDomain), Value: attribute.StringValue(val)})
+-			}
+-			if val, ok := config.attributes[RPCSystem]; ok {
+-				attr = append(attr, attribute.KeyValue{Key: attribute.Key(keyRPCSystemName), Value: attribute.StringValue(val)})
+-			}
+-			return clientMetricsData{
+-				duration: duration,
+-				attr:     attr,
+-			}
+-		}),
+-	}
+-}
+-
+-func (cm *ClientMetrics) durationHistogram() metric.Float64Histogram {
+-	if cm == nil || cm.get == nil {
+-		return nil
+-	}
+-	return cm.get().duration
+-}
+-
+-func (cm *ClientMetrics) attributes() []attribute.KeyValue {
+-	if cm == nil || cm.get == nil {
+-		return nil
+-	}
+-	return cm.get().attr
+-}
+-
+-var codeToStr = [...]string{
+-	"OK",                  // codes.OK = 0
+-	"CANCELED",            // codes.Canceled = 1
+-	"UNKNOWN",             // codes.Unknown = 2
+-	"INVALID_ARGUMENT",    // codes.InvalidArgument = 3
+-	"DEADLINE_EXCEEDED",   // codes.DeadlineExceeded = 4
+-	"NOT_FOUND",           // codes.NotFound = 5
+-	"ALREADY_EXISTS",      // codes.AlreadyExists = 6
+-	"PERMISSION_DENIED",   // codes.PermissionDenied = 7
+-	"RESOURCE_EXHAUSTED",  // codes.ResourceExhausted = 8
+-	"FAILED_PRECONDITION", // codes.FailedPrecondition = 9
+-	"ABORTED",             // codes.Aborted = 10
+-	"OUT_OF_RANGE",        // codes.OutOfRange = 11
+-	"UNIMPLEMENTED",       // codes.Unimplemented = 12
+-	"INTERNAL",            // codes.Internal = 13
+-	"UNAVAILABLE",         // codes.Unavailable = 14
+-	"DATA_LOSS",           // codes.DataLoss = 15
+-	"UNAUTHENTICATED",     // codes.Unauthenticated = 16
++	_ = opts
++	return &ClientMetrics{}
+ }
+ 
+-// grpcCodeToStatusString converts a codes.Code to its string representation.
+-// Experimental: This function is experimental and may be modified or removed in future versions,
+-// regardless of any other documented package stability guarantees.
+-func grpcCodeToStatusString(c codes.Code) string {
+-	if int(c) >= 0 && int(c) < len(codeToStr) {
+-		return codeToStr[c]
+-	}
+-	return "UNKNOWN"
+-}
+-
+-// TelemetryErrorInfo contains the mapped error type and status code, as well as
+-// additional details like status message, domain, and metadata, extracted from an error
+-// for telemetry purposes.
+ type TelemetryErrorInfo struct {
+-	// ErrorType is a mapped string for the error type.
+-	// For stability, this maps client-side cancellations, timeouts, and known gRPC
+-	// status codes to standard string literals (e.g., "CLIENT_TIMEOUT",
+-	// "PERMISSION_DENIED"), and falls back to %T for unhandled types. If an
+-	// apierror.APIError is found, it uses its fine-grained Reason() (e.g.,
+-	// "SERVICE_DISABLED").
+-	// This is used by metrics, tracing, and logging.
+-	ErrorType string
+-	// StatusCode is the string representation of the RPC status code.
+-	// This is used by metrics, tracing, and logging.
+-	StatusCode string
+-	// StatusMessage is the raw message from the error.
+-	// This is used for structured logging.
++	ErrorType     string
++	StatusCode    string
+ 	StatusMessage string
+-	// Domain is the domain of the error, extracted from an ErrorInfo, if available.
+-	// This is used for structured logging.
+-	Domain string
+-	// Metadata is the metadata of the error, extracted from an ErrorInfo, if available.
+-	// This is used for structured logging.
+-	Metadata map[string]string
+-
+-	// _ struct{} prevents unkeyed struct literals, ensuring backwards
+-	// compatibility when new fields are added in the future.
+-	_ struct{}
++	Domain        string
++	Metadata      map[string]string
++	_             struct{}
+ }
+ 
+-// ExtractTelemetryErrorInfo parses an error into a TelemetryErrorInfo struct.
+-// It relies on standard gRPC status codes, apierror.APIError parsing, and
+-// context inspection to determine the most accurate error classification and
+-// provide detailed metadata for telemetry systems.
+-//
+-// Experimental: This function is experimental and may be modified or removed in future versions,
+-// regardless of any other documented package stability guarantees.
+ func ExtractTelemetryErrorInfo(ctx context.Context, err error) TelemetryErrorInfo {
++	_ = ctx
+ 	if err == nil {
+-		return TelemetryErrorInfo{ErrorType: "", StatusCode: "OK"}
++		return TelemetryErrorInfo{StatusCode: "OK"}
+ 	}
+-
+-	st, ok := status.FromError(err)
+-	if !ok {
+-		st = status.FromContextError(err)
+-	}
+-	rpcStatusCode := grpcCodeToStatusString(st.Code())
+-
+-	var errType string
+-	// 1. Check if the local context expired or was cancelled. This is the only
+-	// reliable way to distinguish a local client timeout from a server timeout
+-	// because gRPC does not wrap context errors in its status.Error types.
+-	if errors.Is(ctx.Err(), context.DeadlineExceeded) {
+-		errType = "CLIENT_TIMEOUT"
+-	} else if errors.Is(ctx.Err(), context.Canceled) {
+-		errType = "CLIENT_CANCELLED"
+-	} else if !ok || st.Code() == codes.Unknown || st.Code() == codes.Internal {
+-		// 2. If the error isn't a context breakdown and the gRPC framework
+-		// doesn't "understand" it (returning ok=false or a generic catch-all
+-		// bucket like Unknown/Internal), we "pack" the actual Go error type
+-		// name into error.type (e.g., "*net.OpError"). This is per the error.type
+-		// [spec](https://opentelemetry.io/docs/specs/semconv/registry/attributes/error/#error-type).
+-		// "When error.type is set to a type (e.g., an exception type), its canonical
+-		// class name identifying the type within the artifact SHOULD be used."
+-		errType = fmt.Sprintf("%T", err)
+-	} else {
+-		// 3. Otherwise, it is a well-understood gRPC protocol error (e.g.,
+-		// PERMISSION_DENIED) likely returned by the server.
+-		errType = rpcStatusCode
+-	}
+-
+-	var msg, domain string
+-	var metadata map[string]string
+-	if ok {
+-		msg = st.Message()
+-	} else {
+-		msg = err.Error()
+-	}
+-
+-	if parsedErr, parsedOk := apierror.ParseError(err, false); parsedOk {
+-		// If there's an actionable error, the reason takes precedence over our calculated error type.
+-		if reason := parsedErr.Reason(); reason != "" {
+-			errType = reason
+-		} else if httpCode := parsedErr.HTTPCode(); httpCode > 0 {
+-			errType = strconv.Itoa(httpCode)
+-		}
+-		if message := parsedErr.Message(); message != "" {
+-			msg = message
+-		} else if parsedErr.HTTPCode() > 0 {
+-			// For HTTP errors, avoid returning the raw, unformatted err.Error() (e.g. "googleapi: got HTTP response...")
+-			// if the actual parsed message from the response is empty.
+-			msg = ""
+-		}
+-		domain = parsedErr.Domain()
+-		metadata = parsedErr.Metadata()
+-	}
+-
+ 	return TelemetryErrorInfo{
+-		ErrorType:     errType,
+-		StatusCode:    rpcStatusCode,
+-		StatusMessage: msg,
+-		Domain:        domain,
+-		Metadata:      metadata,
++		ErrorType:     "UNKNOWN",
++		StatusCode:    "UNKNOWN",
++		StatusMessage: err.Error(),
+ 	}
+ }
+ 
+-// recordMetric records a duration measurement for the configured metric.
+ func recordMetric(ctx context.Context, settings CallSettings, d time.Duration, err error) {
+-	if settings.clientMetrics == nil || settings.clientMetrics.durationHistogram() == nil {
+-		return
+-	}
+-
+-	// Use context.WithoutCancel to ensure metric records even if context is canceled
+-	// preserving any trace context that might be required for exemplars.
+-	recordCtx := context.WithoutCancel(ctx)
+-
+-	// Pre-allocate to avoid repeated appends (5 is the max number of dynamic attributes added here)
+-	attrs := make([]attribute.KeyValue, 0, len(settings.clientMetrics.attributes())+5)
+-	attrs = append(attrs, settings.clientMetrics.attributes()...)
+-
+-	errInfo := ExtractTelemetryErrorInfo(ctx, err)
+-
+-	if td := ExtractTransportTelemetry(ctx); td != nil {
+-		if td.ServerAddress() != "" {
+-			attrs = append(attrs, attribute.String("server.address", td.ServerAddress()))
+-		}
+-		if td.ServerPort() != 0 {
+-			attrs = append(attrs, attribute.Int("server.port", td.ServerPort()))
+-		}
+-		if td.HTTPStatusCode() != 0 {
+-			attrs = append(attrs, attribute.Int("http.response.status_code", td.HTTPStatusCode()))
+-		}
+-	}
+-
+-	if errInfo.ErrorType != "" {
+-		attrs = append(attrs, attribute.String("error.type", errInfo.ErrorType))
+-	}
+-
+-	attrs = append(attrs, attribute.String("rpc.response.status_code", errInfo.StatusCode))
+-
+-	if rpcMethod, ok := callctx.TelemetryFromContext(ctx, "rpc_method"); ok && rpcMethod != "" {
+-		attrs = append(attrs, attribute.String("rpc.method", rpcMethod))
+-	}
+-	if urlTemplate, ok := callctx.TelemetryFromContext(ctx, "url_template"); ok && urlTemplate != "" {
+-		attrs = append(attrs, attribute.String("url.template", urlTemplate))
+-	}
+-
+-	settings.clientMetrics.durationHistogram().Record(recordCtx, d.Seconds(), metric.WithAttributes(attrs...))
++	_ = ctx
++	_ = settings
++	_ = d
++	_ = err
+ }
+diff --git a/vendor/github.com/moby/moby/client/client.go b/vendor/github.com/moby/moby/client/client.go
+index 4b4ef976a..4b371347f 100644
+--- a/vendor/github.com/moby/moby/client/client.go
++++ b/vendor/github.com/moby/moby/client/client.go
+@@ -70,7 +70,6 @@ import (
+ 	"github.com/docker/go-connections/sockets"
+ 	"github.com/moby/moby/client/internal/mod"
+ 	"github.com/moby/moby/client/pkg/versions"
+-	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
+ )
+ 
+ // DummyHost is a hostname used for local communication.
+@@ -205,11 +204,7 @@ func New(ops ...Opt) (*Client, error) {
+ 			client:  client,
+ 			proto:   hostURL.Scheme,
+ 			addr:    hostURL.Host,
+-			traceOpts: []otelhttp.Option{
+-				otelhttp.WithSpanNameFormatter(func(_ string, req *http.Request) string {
+-					return req.Method + " " + req.URL.Path
+-				}),
+-			},
++			traceOpts: nil,
+ 		},
+ 	}
+ 	cfg := &c.clientConfig
+@@ -248,8 +243,6 @@ func New(ops ...Opt) (*Client, error) {
+ 		}
+ 	}
+ 
+-	c.client.Transport = otelhttp.NewTransport(c.client.Transport, c.traceOpts...)
+-
+ 	if len(cfg.responseHooks) > 0 {
+ 		c.client.Transport = &responseHookTransport{
+ 			base:  c.client.Transport,
+diff --git a/vendor/github.com/moby/moby/client/client_options.go b/vendor/github.com/moby/moby/client/client_options.go
+index 399255723..4c94d8898 100644
+--- a/vendor/github.com/moby/moby/client/client_options.go
++++ b/vendor/github.com/moby/moby/client/client_options.go
+@@ -15,8 +15,6 @@ import (
+ 	cerrdefs "github.com/containerd/errdefs"
+ 	"github.com/docker/go-connections/sockets"
+ 	"github.com/docker/go-connections/tlsconfig"
+-	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
+-	"go.opentelemetry.io/otel/trace"
+ )
+ 
+ type clientConfig struct {
+@@ -62,7 +60,7 @@ type clientConfig struct {
+ 	responseHooks []ResponseHook
+ 
+ 	// traceOpts is a list of options to configure the tracing span.
+-	traceOpts []otelhttp.Option
++	traceOpts []any
+ }
+ 
+ // ResponseHook is called for each HTTP response returned by the daemon.
+@@ -396,17 +394,18 @@ func WithAPIVersionNegotiation() Opt {
+ 
+ // WithTraceProvider sets the trace provider for the client.
+ // If this is not set then the global trace provider is used.
+-func WithTraceProvider(provider trace.TracerProvider) Opt {
++func WithTraceProvider(provider any) Opt {
+ 	return func(c *clientConfig) error {
+-		c.traceOpts = append(c.traceOpts, otelhttp.WithTracerProvider(provider))
++		_ = provider
+ 		return nil
+ 	}
+ }
+ 
+ // WithTraceOptions sets tracing span options for the client.
+-func WithTraceOptions(opts ...otelhttp.Option) Opt {
++func WithTraceOptions(opts ...any) Opt {
+ 	return func(c *clientConfig) error {
+-		c.traceOpts = append(c.traceOpts, opts...)
++		_ = c
++		_ = opts
+ 		return nil
+ 	}
+ }
+diff --git a/vendor/github.com/moby/moby/client/hijack.go b/vendor/github.com/moby/moby/client/hijack.go
+index 31c44e598..b3df732ad 100644
+--- a/vendor/github.com/moby/moby/client/hijack.go
++++ b/vendor/github.com/moby/moby/client/hijack.go
+@@ -9,7 +9,6 @@ import (
+ 	"net/url"
+ 	"time"
+ 
+-	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
+ )
+ 
+ // postHijacked sends a POST request and hijacks the connection.
+@@ -70,7 +69,7 @@ func setupHijackConn(dialer func(context.Context) (net.Conn, error), req *http.R
+ 	hc := &hijackedConn{conn, bufio.NewReader(conn)}
+ 
+ 	// Server hijacks the connection, error 'connection closed' expected
+-	resp, err := otelhttp.NewTransport(hc).RoundTrip(req)
++	resp, err := hc.RoundTrip(req)
+ 	if err != nil {
+ 		return nil, "", err
+ 	}
+diff --git a/vendor/google.golang.org/api/transport/grpc/dial.go b/vendor/google.golang.org/api/transport/grpc/dial.go
+index 7c6bf402b..fecea40bc 100644
+--- a/vendor/google.golang.org/api/transport/grpc/dial.go
++++ b/vendor/google.golang.org/api/transport/grpc/dial.go
+@@ -21,7 +21,6 @@ import (
+ 	"cloud.google.com/go/auth/grpctransport"
+ 	"cloud.google.com/go/auth/oauth2adapt"
+ 	"cloud.google.com/go/compute/metadata"
+-	"go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc"
+ 	"golang.org/x/oauth2"
+ 	"golang.org/x/time/rate"
+ 	"google.golang.org/api/internal"
+@@ -378,10 +377,8 @@ func dial(ctx context.Context, insecure bool, o *internal.DialSettings) (*grpc.C
+ }
+ 
+ func addOpenTelemetryStatsHandler(opts []grpc.DialOption, settings *internal.DialSettings) []grpc.DialOption {
+-	if settings.TelemetryDisabled {
+-		return opts
+-	}
+-	return append(opts, grpc.WithStatsHandler(otelgrpc.NewClientHandler()))
++	_ = settings
++	return opts
+ }
+ 
+ // grpcTokenSource supplies PerRPCCredentials from an oauth.TokenSource.
+diff --git a/vendor/google.golang.org/api/transport/http/dial.go b/vendor/google.golang.org/api/transport/http/dial.go
+index 02a8a7410..fdc0c362c 100644
+--- a/vendor/google.golang.org/api/transport/http/dial.go
++++ b/vendor/google.golang.org/api/transport/http/dial.go
+@@ -19,7 +19,6 @@ import (
+ 	"cloud.google.com/go/auth/credentials"
+ 	"cloud.google.com/go/auth/httptransport"
+ 	"cloud.google.com/go/auth/oauth2adapt"
+-	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
+ 	"golang.org/x/net/http2"
+ 	"golang.org/x/oauth2"
+ 	"google.golang.org/api/googleapi/transport"
+@@ -306,10 +305,8 @@ func fallbackBaseTransport() *http.Transport {
+ }
+ 
+ func addOpenTelemetryTransport(trans http.RoundTripper, settings *internal.DialSettings) http.RoundTripper {
+-	if settings.TelemetryDisabled {
+-		return trans
+-	}
+-	return otelhttp.NewTransport(trans)
++	_ = settings
++	return trans
+ }
+ 
+ // clonedTransport returns the given RoundTripper as a cloned *http.Transport.
