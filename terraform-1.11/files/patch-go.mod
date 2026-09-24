@@ -68,15 +68,15 @@
 -	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-00010101000000-000000000000
 -	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-00010101000000-000000000000
 -	github.com/hashicorp/terraform/internal/legacy v0.0.0-00010101000000-000000000000
-+	github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20260922112953-7dd5b3394b44
-+	github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20260922112953-7dd5b3394b44
-+	github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20260922112953-7dd5b3394b44
-+	github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20260922112953-7dd5b3394b44
-+	github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20260922112953-7dd5b3394b44
-+	github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20260922112953-7dd5b3394b44
-+	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20260922112953-7dd5b3394b44
-+	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20260922112953-7dd5b3394b44
-+	github.com/hashicorp/terraform/internal/legacy v0.0.0-20260922112953-7dd5b3394b44
++	github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20260923201409-a2391dea7491
++	github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20260923201409-a2391dea7491
++	github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20260923201409-a2391dea7491
++	github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20260923201409-a2391dea7491
++	github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20260923201409-a2391dea7491
++	github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20260923201409-a2391dea7491
++	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20260923201409-a2391dea7491
++	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20260923201409-a2391dea7491
++	github.com/hashicorp/terraform/internal/legacy v0.0.0-20260923201409-a2391dea7491
  	github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0
 -	github.com/masterzen/winrm v0.0.0-20200615185753-c42b5136ff88
 -	github.com/mattn/go-isatty v0.0.20
@@ -268,7 +268,7 @@
 -	github.com/go-openapi/errors v0.22.0 // indirect
 -	github.com/go-openapi/jsonpointer v0.19.5 // indirect
 -	github.com/go-openapi/jsonreference v0.19.5 // indirect
-+	github.com/go-openapi/errors v0.22.8 // indirect
++	github.com/go-openapi/errors v0.22.9 // indirect
 +	github.com/go-openapi/jsonpointer v0.19.6 // indirect
 +	github.com/go-openapi/jsonreference v0.19.6 // indirect
  	github.com/go-openapi/strfmt v0.23.0 // indirect

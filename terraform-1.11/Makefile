@@ -1,7 +1,7 @@
 PORTNAME=	terraform
 PORTVERSION=	1.11.4
 DISTVERSIONPREFIX=	v
-PORTREVISION=	20260922
+PORTREVISION=	20260924
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX=	-${PORTVERSION:R}
 
@@ -25,10 +25,10 @@ JQ_GETVER_EXPR=	[.[].name | gsub("^[a-z]+";"") | \
 		"n"))][0]
 
 CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=${PORTVERSION} \
-	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.dev=no \
-	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.VersionPrerelease="
+GO_LDFLAGS+=	-w
+GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=${PORTVERSION}
+GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.dev=no
+GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.VersionPrerelease=
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 M2T_OFFLINE=	true
