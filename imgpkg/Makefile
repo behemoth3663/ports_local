@@ -1,5 +1,5 @@
 PORTNAME=	imgpkg
-PORTVERSION=	0.48.1
+PORTVERSION=	0.48.2
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -17,8 +17,8 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	carvel-dev
 
 CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X 'carvel.dev/imgpkg/pkg/imgpkg/cmd.Version=${PORTVERSION}'"
+GO_LDFLAGS+=	-w
+GO_LDFLAGS+=	-X carvel.dev/imgpkg/pkg/imgpkg/cmd.Version=${PORTVERSION}
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 PLIST_FILES=	bin/${PORTNAME}
@@ -26,7 +26,17 @@ PLIST_FILES=	bin/${PORTNAME}
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
 
-pre-deps post-deps-all pre-deps-all: .PHONY
+post-extract: .PHONY
+	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+
+pre-deps: .PHONY
+	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+
+post-deps-all: .PHONY
+	${TEST} ! -d '${PATCHDIR}_' || ${MV} ${PATCHDIR}_ ${PATCHDIR}
+
+pre-deps-all: .PHONY
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
