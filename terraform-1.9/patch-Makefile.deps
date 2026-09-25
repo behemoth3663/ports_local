@@ -1,6 +1,6 @@
---- Makefile.deps.orig	2026-09-15 10:40:17 UTC
+--- Makefile.deps.orig	2026-09-25 16:36:08 UTC
 +++ Makefile.deps
-@@ -300,42 +300,60 @@ GH_TUPLE=	\
+@@ -300,42 +300,54 @@ GH_TUPLE=	\
  		#	::v1.9.0:group_name/vendor/go.opentelemetry.io/proto/otlp (from go.opentelemetry.io/proto/otlp@v1.9.0)
  		#	::v2.80.1:group_name/vendor/k8s.io/klog/v2 (from k8s.io/klog/v2@v2.80.1)
  		#	::v4.2.3:group_name/vendor/sigs.k8s.io/structured-merge-diff/v4 (from sigs.k8s.io/structured-merge-diff/v4@v4.2.3)
@@ -45,21 +45,15 @@
 -	@${RLN} ${WRKSRC_fsnotify_fsnotify} ${WRKSRC}/vendor/github.com/golang/protobuf
 +post-extract: .PHONY
 +	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
-+	@${RM} ${WRKSRC}/internal/command/telemetry.go
-+	@${RM} ${WRKSRC}/internal/promising/telemetry.go
++	@${FIND} ${WRKSRC} '(' -name 'telemetry*.go' -or -name '*_test.go' ')' -type f -delete
 +	@${RM} ${WRKSRC}/internal/rpcapi/grpc_testing.go
-+	@${RM} ${WRKSRC}/internal/rpcapi/telemetry*.go
-+	@${RM} ${WRKSRC}/internal/stacks/stackruntime/internal/stackeval/telemetry.go
-+	@${RM} ${WRKSRC}/internal/stacks/stackruntime/telemetry*.go
-+	@${RM} ${WRKSRC}/telemetry.go
++	@${RM} ${WRKSRC}/vendor/github.com/envoyproxy/go-control-plane/envoy/config/trace/v3/trace.pb.go
++	@${RM} ${WRKSRC}/vendor/github.com/hashicorp/aws-sdk-go-base/v2/logger.go
 +	@${RM} ${WRKSRC}/vendor/github.com/hashicorp/aws-sdk-go-base/v2/logging/attributes.go
 +	@${RM} ${WRKSRC}/vendor/github.com/hashicorp/aws-sdk-go-base/v2/logging/http.go
-+	@${RM} ${WRKSRC}/vendor/github.com/hashicorp/aws-sdk-go-base/v2/logger.go
-+	@${RM} ${WRKSRC}/vendor/github.com/envoyproxy/go-control-plane/envoy/config/trace/v3/trace.pb.go
-+	@${RM} ${WRKSRC}/vendor/github.com/googleapis/gax-go/v2/telemetry.go
 +	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/internal/trace
-+	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io
 +	@${RM} -r ${WRKSRC}/vendor/github.com/GoogleCloudPlatform
++	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io
 +	@${MKDIR} ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state
 +	@${RLN} ${WRKSRC}/internal/backend/remote-state/azure ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/azure
 +	@${RLN} ${WRKSRC}/internal/backend/remote-state/consul ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/consul
@@ -74,7 +68,7 @@
 +	@${RLN} ${WRKSRC_azure_go_autorest_autorest}/autorest ${WRKSRC}/vendor/github.com/Azure/go-autorest
 +	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/logger
 +	@${RLN} ${WRKSRC_azure_go_autorest_logger}/logger ${WRKSRC}/vendor/github.com/Azure/go-autorest
-+# /date, /validation, /to, /adal in the end are important to avoid error
++	# /date, /validation, /to, /adal in the end are important to avoid error
 +	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/date
 +	@${RLN} ${WRKSRC_azure_go_autorest_date}/autorest/date ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/date
 +	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/validation
@@ -89,9 +83,9 @@
 +	@${RLN} ${WRKSRC_azure_go_autorest_adal}/autorest/adal ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/adal
 +	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
 +	@${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go
-+	@${RM} ${WRKSRC}/vendor/cloud.google.com/go/storage/trace.go
 +	@${RM} ${WRKSRC}/vendor/cloud.google.com/go/storage/experimental/experimental.go
 +	@${RM} ${WRKSRC}/vendor/cloud.google.com/go/storage/grpc_metrics.go
++	@${RM} ${WRKSRC}/vendor/cloud.google.com/go/storage/trace.go
 +	@${MKDIR} ${WRKSRC}/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud
 +	@${RLN} ${WRKSRC_tencentcloud_tencentcloud_sdk_go_common}/tencentcloud/common ${WRKSRC}/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud
 +	@${RLN} ${WRKSRC_tencentcloud_tencentcloud_sdk_go_common}/tencentcloud/sts ${WRKSRC}/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud

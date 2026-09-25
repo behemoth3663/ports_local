@@ -1,7 +1,7 @@
 PORTNAME=	terraform
 PORTVERSION=	1.9.8
 DISTVERSIONPREFIX=	v
-PORTREVISION=	20260921
+PORTREVISION=	20260925
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX=	-${PORTVERSION:R}
 
@@ -26,6 +26,7 @@ JQ_GETVER_EXPR=	[.[].name | gsub("^[a-z]+";"") | \
 
 CGO_ENABLED=	0
 GO_LDFLAGS+=	-w
+GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.rawVersion=${PORTVERSION}
 GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=${PORTVERSION}
 GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.dev=no
 GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.VersionPrerelease=
@@ -33,9 +34,6 @@ GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
-
-pre-extract: .PHONY .SILENT
-	${TEST} -z '${WRKSRC_grpc_grpc_go_1}' || ${LN} -s ${WRKDIR}/grpc-go-cmd-protoc-gen-go-grpc-v1.1.0 ${WRKSRC_grpc_grpc_go_1}
 
 post-install: .PHONY
 	${MV} ${STAGEDIR}${PREFIX}/bin/${PORTNAME} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION}
@@ -52,22 +50,23 @@ pre-deps: .PHONY
 		${GO_CMD} mod edit -replace=google.golang.org/genproto=google.golang.org/genproto@v0.0.0-20260803160001-6ac0973c030d && \
 		${GO_CMD} mod edit -replace=k8s.io/kube-openapi=k8s.io/kube-openapi@v0.0.0-20220803162953-67bda5d908f1 && \
 		${GO_CMD} get -u=patch && \
-		${GO_CMD} mod tidy && \
-		${SETENV} TZ=UTC ${DIFF} -udp go.mod.orig go.mod | \
+		${GO_CMD} mod tidy -v && \
+		${GO_CMD} mod vendor && \
+		${SETENV} TZ=UTC ${DIFF} -u --minimal -- go.mod.orig go.mod | \
 			${SED} -e '/^---/s|\.[0-9]* +0000$$| UTC|' -e '/^+++/s|\([[:blank:]][-0-9:.+]*\)*$$||' >${PATCHDIR}_/patch-go.mod && \
-		${SETENV} TZ=UTC ${DIFF} -udp go.sum.orig go.sum | \
+		${SETENV} TZ=UTC ${DIFF} -u --minimal -- go.sum.orig go.sum | \
 			${SED} -e '/^---/s|\.[0-9]* +0000$$| UTC|' -e '/^+++/s|\([[:blank:]][-0-9:.+]*\)*$$||' >${PATCHDIR}_/patch-go.sum
 
 post-deps-all: .PHONY
-	${TEST} ! -d '${PATCHDIR}_' || ${MV} ${PATCHDIR}_ ${PATCHDIR}
+	${TEST} ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
 
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 	${RM} ${.CURDIR}/generated.deps.mk
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=google GHT_PROJ=cel-spec GHT_PATH=cel.dev/expr )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes GHT_PROJ=klog GHT_PATH=k8s.io/klog/v2 )
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes-sigs GHT_PROJ=json GHT_PATH=sigs.k8s.io/json )
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes-sigs GHT_PROJ=structured-merge-diff GHT_PATH=sigs.k8s.io/structured-merge-diff/v4 )
-	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes GHT_PROJ=klog GHT_PATH=k8s.io/klog/v2 )
 
 make-from-deps: .PHONY
 	@${SED} -rn \
@@ -138,7 +137,7 @@ GH_TUPLE:=	${GH_TUPLE:S|/gax-go/v2|/gax-go|1}
 #-googleapis:google-cloud-go:v1.1.1:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go/iam
 #-googleapis:google-cloud-go:v1.30.1:googleapis_google_cloud_go_storage/vendor/cloud.google.com/go/storage
 #+googleapis:google-cloud-go:storage/v1.30.1:googleapis_google_cloud_go_storage
-GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+)/vendor/cloud.google.com/go/(storage)|\1\3/\2|}
+GH_TUPLE:=	${GH_TUPLE:C,:([^:]+:[^:/]+)/.*/cloud.google.com/go/(storage),:\2/\1,1}
 GH_TUPLE:=	${GH_TUPLE:N*/cloud.google.com/go/*}
 
 #-hashicorp:consul:v1.13.0:hashicorp_consul_api/vendor/github.com/hashicorp/consul/api
@@ -171,7 +170,7 @@ GH_TUPLE:=	${GH_TUPLE:Nhashicorp\:terraform\:\:*}
 
 #-tencentcloud:tencentcloud-sdk-go:v1.0.588:tencentcloud_tencentcloud_sdk_go_common/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common
 #+tencentcloud:tencentcloud-sdk-go:v1.0.588:tencentcloud_tencentcloud_sdk_go_common
-GH_TUPLE:=	${GH_TUPLE:C|/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common||}
+GH_TUPLE:=	${GH_TUPLE:C|/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common||1}
 
 #-tencentcloud:tencentcloud-sdk-go:v1.0.588:tencentcloud_tencentcloud_sdk_go_sts/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sts
 GH_TUPLE:=	${GH_TUPLE:N*/tencentcloud-sdk-go/*}
@@ -181,7 +180,7 @@ GH_TUPLE:=	${GH_TUPLE:NGoogleCloudPlatform\:opentelemetry-operations-go\:*}
 
 #-envoyproxy:go-control-plane:v1.32.4:envoyproxy_go_control_plane_envoy/vendor/github.com/envoyproxy/go-control-plane/envoy
 #+envoyproxy:go-control-plane:envoy/v1.32.4:envoyproxy_go_control_plane/vendor/github.com/envoyproxy/go-control-plane
-GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+.*/envoyproxy/go-control-plane)/(envoy)$|\1\3/\2|}
+GH_TUPLE:=	${GH_TUPLE:C,:([^:]+:[^:]+/envoyproxy/go-control-plane)/(envoy),:\2/\1,1}
 
 #-cncf:xds:d92e9ce0af51:cncf_xds_go/vendor/github.com/cncf/xds/go
 #+cncf:xds:d92e9ce0af51:cncf_xds_go/vendor/github.com/cncf/xds
@@ -194,6 +193,30 @@ GH_TUPLE:=	${GH_TUPLE:S|/gokrb5/v8|/gokrb5|1}
 #-jcmturner:rpc:v2.0.3:jcmturner_rpc_v2/vendor/github.com/jcmturner/rpc/v2
 #+jcmturner:rpc:v2.0.3:jcmturner_rpc_v2/vendor/github.com/jcmturner/rpc
 GH_TUPLE:=	${GH_TUPLE:S|/jcmturner/rpc/v2|/jcmturner/rpc|1}
+
+#unused github.com/Netflix/go-expect
+GH_TUPLE:=	${GH_TUPLE:N*/github.com/Netflix/go-expect}
+
+#unused github.com/antchfx/{xmlquery,xpath}
+GH_TUPLE:=	${GH_TUPLE:N*/github.com/antchfx/*}
+
+#unused github.com/cenkalti/backoff/v4
+GH_TUPLE:=	${GH_TUPLE:N*/github.com/cenkalti/backoff/v4}
+
+#unused github.com/creack/pty
+GH_TUPLE:=	${GH_TUPLE:N*/github.com/creack/pty}
+
+#unused github.com/dylanmei/winrmtest
+GH_TUPLE:=	${GH_TUPLE:N*/github.com/dylanmei/winrmtest}
+
+#unused github.com/go-test/deep
+GH_TUPLE:=	${GH_TUPLE:N*/github.com/go-test/deep}
+
+#unused github.com/golang/groupcache
+GH_TUPLE:=	${GH_TUPLE:N*/github.com/golang/groupcache}
+
+#unused github.com/grpc-ecosystem/grpc-gateway/v2
+GH_TUPLE:=	${GH_TUPLE:N*/github.com/grpc-ecosystem/grpc-gateway/v2}
 
 GH_TUPLE+=	golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf
 

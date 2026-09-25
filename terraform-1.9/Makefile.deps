@@ -123,8 +123,8 @@ GH_TUPLE=	\
 		google:gnostic:v0.5.7-v3refs:google_gnostic/vendor/github.com/google/gnostic \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-genproto:6ac0973c030d:google_go_genproto/vendor/google.golang.org/genproto \
-		google:go-genproto:cecb64721679:google_go_genproto_api/vendor/google.golang.org/genproto/googleapis/api \
-		google:go-genproto:cecb64721679:google_go_genproto_rpc/vendor/google.golang.org/genproto/googleapis/rpc \
+		google:go-genproto:b14227669459:google_go_genproto_api/vendor/google.golang.org/genproto/googleapis/api \
+		google:go-genproto:b14227669459:google_go_genproto_rpc/vendor/google.golang.org/genproto/googleapis/rpc \
 		google:go-github:v45.2.0:google_go_github_v45/vendor/github.com/google/go-github/v45 \
 		google:go-github:v53.0.0:google_go_github_v53/vendor/github.com/google/go-github/v53 \
 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
@@ -160,7 +160,7 @@ GH_TUPLE=	\
 		hashicorp:go-safetemp:v1.0.0:hashicorp_go_safetemp/vendor/github.com/hashicorp/go-safetemp \
 		hashicorp:go-slug:v0.15.2:hashicorp_go_slug/vendor/github.com/hashicorp/go-slug \
 		hashicorp:go-tfe:v1.58.0:hashicorp_go_tfe/vendor/github.com/hashicorp/go-tfe \
-		hashicorp:go-uuid:v1.0.3:hashicorp_go_uuid/vendor/github.com/hashicorp/go-uuid \
+		hashicorp:go-uuid:v1.0.4:hashicorp_go_uuid/vendor/github.com/hashicorp/go-uuid \
 		hashicorp:go-version:v1.6.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
 		hashicorp:golang-lru:v0.5.4:hashicorp_golang_lru/vendor/github.com/hashicorp/golang-lru \
 		hashicorp:hcl:v1.0.0:hashicorp_hcl/vendor/github.com/hashicorp/hcl \
@@ -170,15 +170,15 @@ GH_TUPLE=	\
 		hashicorp:terraform-plugin-log:v0.9.0:hashicorp_terraform_plugin_log/vendor/github.com/hashicorp/terraform-plugin-log \
 		hashicorp:terraform-registry-address:v0.2.5:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
 		hashicorp:terraform-svchost:v0.1.1:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
-		hashicorp:terraform:78194be60cda:hashicorp_terraform_azure \
-		hashicorp:terraform:78194be60cda:hashicorp_terraform_consul_1 \
-		hashicorp:terraform:78194be60cda:hashicorp_terraform_cos \
-		hashicorp:terraform:78194be60cda:hashicorp_terraform_gcs_1 \
-		hashicorp:terraform:78194be60cda:hashicorp_terraform_kubernetes \
-		hashicorp:terraform:78194be60cda:hashicorp_terraform_oss \
-		hashicorp:terraform:78194be60cda:hashicorp_terraform_pg \
-		hashicorp:terraform:78194be60cda:hashicorp_terraform_s3_1 \
-		hashicorp:terraform:78194be60cda:hashicorp_terraform_legacy \
+		hashicorp:terraform:83346aa13948:hashicorp_terraform_azure \
+		hashicorp:terraform:83346aa13948:hashicorp_terraform_consul_1 \
+		hashicorp:terraform:83346aa13948:hashicorp_terraform_cos \
+		hashicorp:terraform:83346aa13948:hashicorp_terraform_gcs_1 \
+		hashicorp:terraform:83346aa13948:hashicorp_terraform_kubernetes \
+		hashicorp:terraform:83346aa13948:hashicorp_terraform_oss \
+		hashicorp:terraform:83346aa13948:hashicorp_terraform_pg \
+		hashicorp:terraform:83346aa13948:hashicorp_terraform_s3_1 \
+		hashicorp:terraform:83346aa13948:hashicorp_terraform_legacy \
 		hashicorp:terraform::hashicorp_terraform_azure_1/github.com/hashicorp/terraform/internal/backend/remote-state/azure \
 		hashicorp:terraform::hashicorp_terraform_consul/github.com/hashicorp/terraform/internal/backend/remote-state/consul \
 		hashicorp:terraform::hashicorp_terraform_cos_1/github.com/hashicorp/terraform/internal/backend/remote-state/cos \
@@ -302,21 +302,15 @@ GH_TUPLE=	\
 		#	::v4.2.3:group_name/vendor/sigs.k8s.io/structured-merge-diff/v4 (from sigs.k8s.io/structured-merge-diff/v4@v4.2.3)
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
-	@${RM} ${WRKSRC}/internal/command/telemetry.go
-	@${RM} ${WRKSRC}/internal/promising/telemetry.go
+	@${FIND} ${WRKSRC} '(' -name 'telemetry*.go' -or -name '*_test.go' ')' -type f -delete
 	@${RM} ${WRKSRC}/internal/rpcapi/grpc_testing.go
-	@${RM} ${WRKSRC}/internal/rpcapi/telemetry*.go
-	@${RM} ${WRKSRC}/internal/stacks/stackruntime/internal/stackeval/telemetry.go
-	@${RM} ${WRKSRC}/internal/stacks/stackruntime/telemetry*.go
-	@${RM} ${WRKSRC}/telemetry.go
+	@${RM} ${WRKSRC}/vendor/github.com/envoyproxy/go-control-plane/envoy/config/trace/v3/trace.pb.go
+	@${RM} ${WRKSRC}/vendor/github.com/hashicorp/aws-sdk-go-base/v2/logger.go
 	@${RM} ${WRKSRC}/vendor/github.com/hashicorp/aws-sdk-go-base/v2/logging/attributes.go
 	@${RM} ${WRKSRC}/vendor/github.com/hashicorp/aws-sdk-go-base/v2/logging/http.go
-	@${RM} ${WRKSRC}/vendor/github.com/hashicorp/aws-sdk-go-base/v2/logger.go
-	@${RM} ${WRKSRC}/vendor/github.com/envoyproxy/go-control-plane/envoy/config/trace/v3/trace.pb.go
-	@${RM} ${WRKSRC}/vendor/github.com/googleapis/gax-go/v2/telemetry.go
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/internal/trace
-	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io
 	@${RM} -r ${WRKSRC}/vendor/github.com/GoogleCloudPlatform
+	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io
 	@${MKDIR} ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state
 	@${RLN} ${WRKSRC}/internal/backend/remote-state/azure ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/azure
 	@${RLN} ${WRKSRC}/internal/backend/remote-state/consul ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/consul
@@ -331,7 +325,7 @@ post-extract: .PHONY
 	@${RLN} ${WRKSRC_azure_go_autorest_autorest}/autorest ${WRKSRC}/vendor/github.com/Azure/go-autorest
 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/logger
 	@${RLN} ${WRKSRC_azure_go_autorest_logger}/logger ${WRKSRC}/vendor/github.com/Azure/go-autorest
-# /date, /validation, /to, /adal in the end are important to avoid error
+	# /date, /validation, /to, /adal in the end are important to avoid error
 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/date
 	@${RLN} ${WRKSRC_azure_go_autorest_date}/autorest/date ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/date
 	@${RM} -r ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/validation
@@ -346,9 +340,9 @@ post-extract: .PHONY
 	@${RLN} ${WRKSRC_azure_go_autorest_adal}/autorest/adal ${WRKSRC}/vendor/github.com/Azure/go-autorest/autorest/adal
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
 	@${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go
-	@${RM} ${WRKSRC}/vendor/cloud.google.com/go/storage/trace.go
 	@${RM} ${WRKSRC}/vendor/cloud.google.com/go/storage/experimental/experimental.go
 	@${RM} ${WRKSRC}/vendor/cloud.google.com/go/storage/grpc_metrics.go
+	@${RM} ${WRKSRC}/vendor/cloud.google.com/go/storage/trace.go
 	@${MKDIR} ${WRKSRC}/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud
 	@${RLN} ${WRKSRC_tencentcloud_tencentcloud_sdk_go_common}/tencentcloud/common ${WRKSRC}/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud
 	@${RLN} ${WRKSRC_tencentcloud_tencentcloud_sdk_go_common}/tencentcloud/sts ${WRKSRC}/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud

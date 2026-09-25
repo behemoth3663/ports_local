@@ -1,6 +1,6 @@
 --- go.mod.orig	2024-10-16 12:28:59 UTC
 +++ go.mod
-@@ -1,54 +1,54 @@ module github.com/hashicorp/terraform
+@@ -1,54 +1,54 @@
  module github.com/hashicorp/terraform
  
 -go 1.22.7
@@ -45,7 +45,8 @@
 +	github.com/hashicorp/go-retryablehttp v0.7.8
 +	github.com/hashicorp/go-slug v0.15.2
  	github.com/hashicorp/go-tfe v1.58.0
- 	github.com/hashicorp/go-uuid v1.0.3
+-	github.com/hashicorp/go-uuid v1.0.3
++	github.com/hashicorp/go-uuid v1.0.4
  	github.com/hashicorp/go-version v1.6.0
  	github.com/hashicorp/hcl v1.0.0
 -	github.com/hashicorp/hcl/v2 v2.20.0
@@ -64,15 +65,15 @@
 -	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-00010101000000-000000000000
 -	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-00010101000000-000000000000
 -	github.com/hashicorp/terraform/internal/legacy v0.0.0-00010101000000-000000000000
-+	github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20260918155000-78194be60cda
-+	github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20260918155000-78194be60cda
-+	github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20260918155000-78194be60cda
-+	github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20260918155000-78194be60cda
-+	github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20260918155000-78194be60cda
-+	github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20260918155000-78194be60cda
-+	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20260918155000-78194be60cda
-+	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20260918155000-78194be60cda
-+	github.com/hashicorp/terraform/internal/legacy v0.0.0-20260918155000-78194be60cda
++	github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20260925155206-83346aa13948
++	github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20260925155206-83346aa13948
++	github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20260925155206-83346aa13948
++	github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20260925155206-83346aa13948
++	github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20260925155206-83346aa13948
++	github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20260925155206-83346aa13948
++	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20260925155206-83346aa13948
++	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20260925155206-83346aa13948
++	github.com/hashicorp/terraform/internal/legacy v0.0.0-20260925155206-83346aa13948
  	github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0
 -	github.com/masterzen/winrm v0.0.0-20200615185753-c42b5136ff88
 -	github.com/mattn/go-isatty v0.0.20
@@ -83,7 +84,7 @@
  	github.com/mitchellh/colorstring v0.0.0-20190213212951-d06e56a500db
  	github.com/mitchellh/go-homedir v1.1.0
  	github.com/mitchellh/go-linereader v0.0.0-20190213213312-1b945b3263eb
-@@ -58,220 +58,244 @@ require (
+@@ -58,220 +58,244 @@
  	github.com/packer-community/winrmcp v0.0.0-20221126162354-6e900dd2c68f
  	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
  	github.com/posener/complete v1.2.3
@@ -437,9 +438,9 @@
 +	golang.org/x/sync v0.23.0 // indirect
 +	golang.org/x/time v0.15.0 // indirect
 +	google.golang.org/api v0.287.1 // indirect
-+	google.golang.org/genproto v0.0.0-20260918162117-cecb64721679 // indirect
-+	google.golang.org/genproto/googleapis/api v0.0.0-20260918162117-cecb64721679 // indirect
-+	google.golang.org/genproto/googleapis/rpc v0.0.0-20260918162117-cecb64721679 // indirect
++	google.golang.org/genproto v0.0.0-20260921155816-b14227669459 // indirect
++	google.golang.org/genproto/googleapis/api v0.0.0-20260921155816-b14227669459 // indirect
++	google.golang.org/genproto/googleapis/rpc v0.0.0-20260921155816-b14227669459 // indirect
  	gopkg.in/inf.v0 v0.9.1 // indirect
 -	gopkg.in/ini.v1 v1.66.2 // indirect
 +	gopkg.in/ini.v1 v1.66.6 // indirect
@@ -462,7 +463,7 @@
  	sigs.k8s.io/structured-merge-diff/v4 v4.2.3 // indirect
  	sigs.k8s.io/yaml v1.2.0 // indirect
  )
-@@ -316,3 +340,13 @@ replace github.com/hashicorp/terraform/internal/legacy
+@@ -316,3 +340,13 @@
  replace github.com/hashicorp/terraform/internal/backend/remote-state/s3 => ./internal/backend/remote-state/s3
  
  replace github.com/hashicorp/terraform/internal/legacy => ./internal/legacy
