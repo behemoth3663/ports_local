@@ -1,10 +1,10 @@
---- vendor/cloud.google.com/go/storage/notifications.go.orig	2025-08-14 14:42:16 UTC
+--- vendor/cloud.google.com/go/storage/notifications.go.orig	2026-08-26 17:25:54 UTC
 +++ vendor/cloud.google.com/go/storage/notifications.go
 @@ -120,9 +120,6 @@ func (b *BucketHandle) AddNotification(ctx context.Con
  // returned Notification's ID can be used to refer to it.
  // Note: gRPC is not supported.
  func (b *BucketHandle) AddNotification(ctx context.Context, n *Notification) (ret *Notification, err error) {
--	ctx, _ = startSpan(ctx, "Bucket.AddNotification")
+-	ctx, _ = startSpanWithBucket(ctx, b.c, b.name, "Bucket.AddNotification")
 -	defer func() { endSpan(ctx, err) }()
 -
  	if n.ID != "" {
@@ -14,7 +14,7 @@
  // indexed by notification ID.
  // Note: gRPC is not supported.
  func (b *BucketHandle) Notifications(ctx context.Context) (n map[string]*Notification, err error) {
--	ctx, _ = startSpan(ctx, "Bucket.Notifications")
+-	ctx, _ = startSpanWithBucket(ctx, b.c, b.name, "Bucket.Notifications")
 -	defer func() { endSpan(ctx, err) }()
 -
  	opts := makeStorageOpts(true, b.retry, b.userProject)
@@ -24,7 +24,7 @@
  // DeleteNotification deletes the notification with the given ID.
  // Note: gRPC is not supported.
  func (b *BucketHandle) DeleteNotification(ctx context.Context, id string) (err error) {
--	ctx, _ = startSpan(ctx, "Bucket.DeleteNotification")
+-	ctx, _ = startSpanWithBucket(ctx, b.c, b.name, "Bucket.DeleteNotification")
 -	defer func() { endSpan(ctx, err) }()
 -
  	opts := makeStorageOpts(true, b.retry, b.userProject)

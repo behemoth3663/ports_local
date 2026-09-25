@@ -1,10 +1,10 @@
---- vendor/cloud.google.com/go/storage/acl.go.orig	2025-05-13 20:48:25 UTC
+--- vendor/cloud.google.com/go/storage/acl.go.orig	2026-08-26 17:25:54 UTC
 +++ vendor/cloud.google.com/go/storage/acl.go
 @@ -76,9 +76,6 @@ func (a *ACLHandle) Delete(ctx context.Context, entity
  
  // Delete permanently deletes the ACL entry for the given entity.
  func (a *ACLHandle) Delete(ctx context.Context, entity ACLEntity) (err error) {
--	ctx, _ = startSpan(ctx, "ACL.Delete")
+-	ctx, _ = startSpanWithBucket(ctx, a.c, a.bucket, "ACL.Delete")
 -	defer func() { endSpan(ctx, err) }()
 -
  	if a.object != "" {
@@ -14,7 +14,7 @@
  
  // Set sets the role for the given entity.
  func (a *ACLHandle) Set(ctx context.Context, entity ACLEntity, role ACLRole) (err error) {
--	ctx, _ = startSpan(ctx, "ACL.Set")
+-	ctx, _ = startSpanWithBucket(ctx, a.c, a.bucket, "ACL.Set")
 -	defer func() { endSpan(ctx, err) }()
 -
  	if a.object != "" {
@@ -24,7 +24,7 @@
  
  // List retrieves ACL entries.
  func (a *ACLHandle) List(ctx context.Context) (rules []ACLRule, err error) {
--	ctx, _ = startSpan(ctx, "ACL.List")
+-	ctx, _ = startSpanWithBucket(ctx, a.c, a.bucket, "ACL.List")
 -	defer func() { endSpan(ctx, err) }()
 -
  	if a.object != "" {

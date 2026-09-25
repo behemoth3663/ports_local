@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/storage/option.go.orig	2026-03-13 06:41:11 UTC
+--- vendor/cloud.google.com/go/storage/option.go.orig	2026-08-26 17:25:54 UTC
 +++ vendor/cloud.google.com/go/storage/option.go
 @@ -19,9 +19,7 @@ import (
  	"strconv"
@@ -21,10 +21,10 @@
  	storageinternal.WithGRPCBidiReads = withGRPCBidiReads
  	storageinternal.WithZonalBucketAPIs = withZonalBucketAPIs
  	storageinternal.WithDirectConnectivityEnforced = withDirectConnectivityEnforced
-@@ -81,11 +76,7 @@ type storageConfig struct {
- 	useJSONforReads        bool
- 	readAPIWasSet          bool
+@@ -85,11 +80,7 @@ type storageConfig struct {
  	disableClientMetrics   bool
+ 	enableOtelMetrics      bool
+ 	enableOtelDebugMetrics bool
 -	metricExporter         *metric.Exporter
  	metricInterval         time.Duration
 -	meterProvider          *metric.MeterProvider
@@ -33,7 +33,7 @@
  	grpcBidiReads          bool
  	grpcAppendableUploads  bool
  	grpcDirectPathEnforced bool
-@@ -202,43 +193,25 @@ type withMetricExporterConfig struct {
+@@ -206,43 +197,25 @@ type withMetricExporterConfig struct {
  type withMetricExporterConfig struct {
  	internaloption.EmbeddableAdapter
  	// exporter override
@@ -77,7 +77,7 @@
  }
  
  // WithReadStallTimeout is an option that may be passed to [NewClient].
-@@ -248,31 +221,12 @@ func (w *withTestMetricReaderConfig) ApplyStorageOpt(c
+@@ -252,31 +225,12 @@ func (w *withTestMetricReaderConfig) ApplyStorageOpt(c
  //
  // This is only supported for the read operation and that too for http(XML) client.
  // Grpc read-operation will be supported soon.

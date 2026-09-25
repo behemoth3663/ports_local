@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/storage/storage.go.orig	2026-03-13 06:41:11 UTC
+--- vendor/cloud.google.com/go/storage/storage.go.orig	2026-08-26 17:25:54 UTC
 +++ vendor/cloud.google.com/go/storage/storage.go
 @@ -43,17 +43,12 @@ import (
  	"cloud.google.com/go/storage/internal"
@@ -18,7 +18,7 @@
  	"google.golang.org/grpc/status"
  	"google.golang.org/protobuf/proto"
  	"google.golang.org/protobuf/reflect/protoreflect"
-@@ -267,23 +262,7 @@ func CheckDirectConnectivitySupported(ctx context.Cont
+@@ -294,23 +289,7 @@ func CheckDirectConnectivitySupported(ctx context.Cont
  //
  // You can pass in [option.ClientOption] you plan on passing to [NewGRPCClient]
  func CheckDirectConnectivitySupported(ctx context.Context, bucket string, opts ...option.ClientOption) error {
@@ -43,7 +43,7 @@
  	client, err := NewGRPCClient(ctx, combinedOpts...)
  	if err != nil {
  		return fmt.Errorf("storage.NewGRPCClient: %w", err)
-@@ -292,25 +271,7 @@ func CheckDirectConnectivitySupported(ctx context.Cont
+@@ -319,25 +298,7 @@ func CheckDirectConnectivitySupported(ctx context.Cont
  	if _, err = client.Bucket(bucket).Attrs(ctx); err != nil {
  		return fmt.Errorf("Bucket.Attrs: %w", err)
  	}
@@ -70,48 +70,51 @@
  }
  
  // Close closes the Client.
-@@ -1038,9 +999,6 @@ func (o *ObjectHandle) Attrs(ctx context.Context) (att
+@@ -1066,9 +1027,6 @@ func (o *ObjectHandle) Attrs(ctx context.Context) (att
  // Attrs returns meta information about the object.
  // ErrObjectNotExist will be returned if the object is not found.
  func (o *ObjectHandle) Attrs(ctx context.Context) (attrs *ObjectAttrs, err error) {
--	ctx, _ = startSpan(ctx, "Object.Attrs")
+-	ctx, _ = startSpanWithBucket(ctx, o.c, o.bucket, "Object.Attrs")
 -	defer func() { endSpan(ctx, err) }()
 -
  	if err := o.validate(); err != nil {
  		return nil, err
  	}
-@@ -1052,9 +1010,6 @@ func (o *ObjectHandle) Update(ctx context.Context, uat
+@@ -1080,9 +1038,6 @@ func (o *ObjectHandle) Update(ctx context.Context, uat
  // ObjectAttrsToUpdate docs for details on treatment of zero values.
  // ErrObjectNotExist will be returned if the object is not found.
  func (o *ObjectHandle) Update(ctx context.Context, uattrs ObjectAttrsToUpdate) (oa *ObjectAttrs, err error) {
--	ctx, _ = startSpan(ctx, "Object.Update")
+-	ctx, _ = startSpanWithBucket(ctx, o.c, o.bucket, "Object.Update")
 -	defer func() { endSpan(ctx, err) }()
 -
  	if err := o.validate(); err != nil {
  		return nil, err
  	}
-@@ -1130,8 +1085,6 @@ func (o *ObjectHandle) Delete(ctx context.Context) (er
+@@ -1158,11 +1113,6 @@ func (o *ObjectHandle) Delete(ctx context.Context) (er
  
  // Delete deletes the single specified object.
  func (o *ObjectHandle) Delete(ctx context.Context) (err error) {
--	ctx, _ = startSpan(ctx, "Object.Delete")
+-	ctx, _ = startSpanWithBucket(ctx, o.c, o.bucket, "Object.Delete")
 -	defer func() { endSpan(ctx, err) }()
- 	if err := o.validate(); err != nil {
- 		return err
- 	}
-@@ -1252,7 +1205,6 @@ func (o *ObjectHandle) NewWriter(ctx context.Context) 
+-	if err := o.validate(); err != nil {
+-		return err
+-	}
+ 	// Delete is idempotent if GenerationMatch or Generation have been passed in.
+ 	// The default generation is negative to get the latest version of the object.
+ 	isIdempotent := (o.conds != nil && o.conds.GenerationMatch != 0) || o.gen >= 0
+@@ -1280,7 +1230,6 @@ func (o *ObjectHandle) NewWriter(ctx context.Context) 
  // It is the caller's responsibility to call Close when writing is done. To
  // stop writing without saving the data, cancel the context.
  func (o *ObjectHandle) NewWriter(ctx context.Context) *Writer {
--	ctx, _ = startSpan(ctx, "Object.Writer")
+-	ctx, _ = startSpanWithBucket(ctx, o.c, o.bucket, "Object.Writer")
  	return &Writer{
  		ctx:         ctx,
  		o:           o,
-@@ -1288,7 +1240,6 @@ func (o *ObjectHandle) NewWriterFromAppendableObject(c
+@@ -1316,7 +1265,6 @@ func (o *ObjectHandle) NewWriterFromAppendableObject(c
  // objects which were created append semantics and not finalized.
  // This feature is in preview and is not yet available for general use.
  func (o *ObjectHandle) NewWriterFromAppendableObject(ctx context.Context, opts *AppendableWriterOpts) (*Writer, int64, error) {
--	ctx, _ = startSpan(ctx, "Object.WriterFromAppendableObject")
+-	ctx, _ = startSpanWithBucket(ctx, o.c, o.bucket, "Object.WriterFromAppendableObject")
  	if o.gen < 0 {
  		return nil, 0, errors.New("storage: ObjectHandle.Generation must be set to use NewWriterFromAppendableObject")
  	}
