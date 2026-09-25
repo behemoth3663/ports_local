@@ -1,5 +1,5 @@
 PORTNAME=	golangci-lint
-PORTVERSION=	2.13.2
+PORTVERSION=	2.14.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -27,10 +27,10 @@ COMMIT_CMD=	git ls-remote \
 GO_TARGET=	./cmd/${PORTNAME}
 
 CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X main.version=${PORTVERSION} \
-	-X main.commit=$$(${COMMIT_CMD}) \
-	-X main.date=${%FT%TZ:L:gmtime}"
+GO_LDFLAGS+=	-w
+GO_LDFLAGS+=	-X main.version=${PORTVERSION}
+GO_LDFLAGS+=	-X main.commit=793d053
+GO_LDFLAGS+=	-X main.date=${%FT%TZ:L:gmtime}
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 PLIST_FILES=	bin/${PORTNAME}
