@@ -1,7 +1,6 @@
 PORTNAME=	unhealthy-tgs
-PORTVERSION=	0.1.32
+PORTVERSION=	0.1.34
 DISTVERSIONPREFIX=	v
-#PORTREVISION=	2
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -27,7 +26,7 @@ COMMIT_CMD=	git ls-remote \
 CGO_ENABLED=	0
 GO_LDFLAGS+=	-w
 GO_LDFLAGS+=	-X main.version=${PORTVERSION}
-GO_LDFLAGS+=	-X main.commit=f9ff39c
+GO_LDFLAGS+=	-X main.commit=ebe7fe1
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 M2T_OFFLINE=	true
