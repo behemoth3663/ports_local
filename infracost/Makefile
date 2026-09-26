@@ -1,7 +1,6 @@
 PORTNAME=	infracost
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.10.45
-#PORTREVISION=	1
+DISTVERSION=	0.10.46
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX=	-local
 
@@ -20,8 +19,8 @@ GO_MODULE=	github.com/${PORTNAME}/${PORTNAME}
 GO_TARGET=	./cmd/${PORTNAME}
 
 CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X ${GO_MODULE}/internal/version.Version=v${PORTVERSION}"
+GO_LDFLAGS+=	-w
+GO_LDFLAGS+=	-X ${GO_MODULE}/internal/version.Version=${PORTVERSION}
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 PLIST_FILES=	bin/${PORTNAME}
