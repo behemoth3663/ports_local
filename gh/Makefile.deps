@@ -112,7 +112,7 @@ GH_TUPLE=	\
 		jedisct1:go-minisign:d2f9f49435c7:jedisct1_go_minisign/vendor/github.com/jedisct1/go-minisign \
 		joho:godotenv:v1.5.1:joho_godotenv/vendor/github.com/joho/godotenv \
 		kballard:go-shellquote:95032a82bc51:kballard_go_shellquote/vendor/github.com/kballard/go-shellquote \
-		klauspost:compress:v1.20.0:klauspost_compress/vendor/github.com/klauspost/compress \
+		klauspost:compress:v1.20.1:klauspost_compress/vendor/github.com/klauspost/compress \
 		lucasb-eyer:go-colorful:v1.4.1:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
 		mattn:go-colorable:v0.1.15:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
 		mattn:go-isatty:v0.0.24:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
@@ -172,9 +172,9 @@ GH_TUPLE=	\
 		#	::v1.44.0:group_name/vendor/go.opentelemetry.io/otel (from go.opentelemetry.io/otel@v1.44.0)
 		#	::v1.44.0:group_name/vendor/go.opentelemetry.io/otel/metric (from go.opentelemetry.io/otel/metric@v1.44.0)
 		#	::v1.44.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.44.0)
+		#	::v2.0.10:group_name/vendor/charm.land/bubbletea/v2 (from charm.land/bubbletea/v2@v2.0.10)
 		#	::v2.0.3:group_name/vendor/charm.land/huh/v2 (from charm.land/huh/v2@v2.0.3)
 		#	::v2.0.6:group_name/vendor/charm.land/lipgloss/v2 (from charm.land/lipgloss/v2@v2.0.6)
-		#	::v2.0.9:group_name/vendor/charm.land/bubbletea/v2 (from charm.land/bubbletea/v2@v2.0.9)
 		#	::v2.140.0:group_name/vendor/k8s.io/klog/v2 (from k8s.io/klog/v2@v2.140.0)
 		#	::v2.2.1:group_name/vendor/charm.land/bubbles/v2 (from charm.land/bubbles/v2@v2.2.1)
 		#	::v3.0.5:group_name/vendor/go.yaml.in/yaml/v3 (from go.yaml.in/yaml/v3@v3.0.5)

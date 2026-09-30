@@ -10,8 +10,8 @@ charm.land/bubbles/v2/spinner
 charm.land/bubbles/v2/textarea
 charm.land/bubbles/v2/textinput
 charm.land/bubbles/v2/viewport
-# charm.land/bubbletea/v2 v2.0.9
-## explicit; go 1.25.0
+# charm.land/bubbletea/v2 v2.0.10
+## explicit; go 1.26.0
 charm.land/bubbletea/v2
 # charm.land/huh/v2 v2.0.3
 ## explicit; go 1.25.8
@@ -491,7 +491,7 @@ github.com/joho/godotenv
 # github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51
 ## explicit
 github.com/kballard/go-shellquote
-# github.com/klauspost/compress v1.20.0
+# github.com/klauspost/compress v1.20.1
 ## explicit; go 1.25
 github.com/klauspost/compress
 github.com/klauspost/compress/fse
