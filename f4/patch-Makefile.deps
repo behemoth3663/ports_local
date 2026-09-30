@@ -1,0 +1,19 @@
+--- Makefile.deps.orig	2026-09-30 22:16:17 UTC
++++ Makefile.deps
+@@ -37,8 +37,7 @@ GH_TUPLE=	\
+ 		dlclark:regexp2:v1.11.4:dlclark_regexp2/vendor/github.com/dlclark/regexp2 \
+ 		dsnet:compress:39efe44ab707:dsnet_compress/vendor/github.com/dsnet/compress \
+ 		ebitengine:gomobile:3d992dae95d1:ebitengine_gomobile/vendor/github.com/ebitengine/gomobile \
+-		ebitengine:hideconsole::ebitengine_hideconsole/github.com/ebitengine/hideconsole \
+-		ebitengine:hideconsole:v1.0.0:ebitengine_hideconsole_1 \
++		ebitengine:hideconsole:v1.0.0:ebitengine_hideconsole/github.com/ebitengine/hideconsole \
+ 		ebitengine:oto:c311bfa6e535:ebitengine_oto_v3/vendor/github.com/ebitengine/oto/v3 \
+ 		emmansun:base64:v0.9.0:emmansun_base64/vendor/github.com/emmansun/base64 \
+ 		felixge:httpsnoop:v1.0.4:felixge_httpsnoop/vendor/github.com/felixge/httpsnoop \
+@@ -172,6 +171,3 @@ GL_TUPLE=	https://gitlab.howett.net:go:plist:v1.0.1:go
+ 		#	::v1.44.0:group_name/vendor/go.opentelemetry.io/otel (from go.opentelemetry.io/otel@v1.44.0)
+ 		#	::v1.44.0:group_name/vendor/go.opentelemetry.io/otel/metric (from go.opentelemetry.io/otel/metric@v1.44.0)
+ 		#	::v1.44.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.44.0)
+-post-extract:
+-	@${RLN} ${WRKSRC_ebitengine_hideconsole} ${WRKSRC}/internal/hideconsole
+-	@${RLN} ${WRKSRC_ebitengine_hideconsole_1} ${WRKSRC}/internal/hideconsole
