@@ -1,5 +1,5 @@
 PORTNAME=	ssosync
-PORTVERSION=	2.8.0
+PORTVERSION=	2.9.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -29,7 +29,7 @@ COMMIT_CMD=	git ls-remote \
 CGO_ENABLED=	0
 GO_LDFLAGS+=	-w
 GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.version=${PORTVERSION}
-GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.commit=04c4714
+GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.commit=135be1e
 GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.date=${%FT%TZ:L:gmtime}
 GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.builtBy=${OPSYS}
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
