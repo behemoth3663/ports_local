@@ -104,4 +104,3 @@ GH_TUPLE:=	${GH_TUPLE:S|/googleapis/rpc||1}
 
 .sinclude "${.CURDIR}/generated.deps.mk"
 .include <bsd.port.mk>
-		  	
