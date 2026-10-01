@@ -1,8 +1,8 @@
 PORTNAME=	qrcp
-PORTVERSION=	0.11.6
+PORTVERSION=	0.11.7
 DISTVERSIONPREFIX=	v
-#PORTREVISION=	1
 CATEGORIES=	local sysutils
+PKGNAMESUFFIX=	-local
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Transfer files over Wi-Fi from computer to mobile device
@@ -15,9 +15,11 @@ USES=		go:modules
 USE_GITHUB=	yes
 GH_ACCOUNT=	claudiodangelis
 
-GO_BUILDFLAGS+=-ldflags="-s -w -extldflags -static \
-	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.version=${PORTVERSION} \
-	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.date=${%FT%TZ:L:gmtime}'"
+CGO_ENABLED=	0
+GO_LDFLAGS+=	-w
+GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.version=${PORTVERSION}
+GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.date=${%FT%TZ:L:gmtime}
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 PLIST_FILES=	bin/${PORTNAME}
 
