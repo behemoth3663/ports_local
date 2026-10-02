@@ -1,13 +1,12 @@
 PORTNAME=	trivy
-PORTVERSION=	0.74.0
+PORTVERSION=	0.75.0
 DISTVERSIONPREFIX=	v
-#PORTREVISION=	1
 CATEGORIES=	local security
 PKGNAMESUFFIX=	-local
 
 MAINTAINER=	mfechner@FreeBSD.org
 COMMENT=	Security scanner written in go
-WWW=		https://${GO_MODULE}
+WWW=		https://trivy.dev https://${GO_MODULE}
 
 LICENSE=	APACHE20
 
@@ -24,11 +23,20 @@ GO_MODULE=	github.com/${GH_ACCOUNT}/${GH_PROJECT}
 GO_TARGET=	./cmd/${PORTNAME}
 
 #CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w -extldflags -static \
-	-X ${GO_MODULE}/pkg/version/app.ver=${PORTVERSION}"
+GO_LDFLAGS+=	-w
+GO_LDFLAGS+=	-extldflags -static
+GO_LDFLAGS+=	-X ${GO_MODULE}/pkg/version/app.ver=${PORTVERSION}
 GO_ENV+=	GOEXPERIMENT=jsonv2,norandomizedheapbase64
 
 PLIST_FILES=	bin/${PORTNAME}
+
+pre-build: .PHONY
+	${RM} -r ${WRKSRC}/vendor/github.com/GoogleCloudPlatform/opentelemetry-operations-go
+	${RM} -r ${WRKSRC}/vendor/github.com/Microsoft/hcsshim
+	${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io
+	${RM} -r ${WRKSRC}/vendor/google.golang.org/grpc/experimental/opentelemetry
+	${RM} -r ${WRKSRC}/vendor/google.golang.org/grpc/stats/opentelemetry
+	${RM} -r ${WRKSRC}/vendor/otelconnect
 
 post-install: .PHONY
 	${MKDIR} ${STAGEDIR}${DATADIR}
