@@ -1,14 +1,14 @@
---- vendor/github.com/moby/moby/client/client.go.orig	2026-03-05 13:48:11 UTC
+--- vendor/github.com/moby/moby/client/client.go.orig	2026-10-02 20:06:40 UTC
 +++ vendor/github.com/moby/moby/client/client.go
-@@ -68,7 +68,6 @@ import (
- 	cerrdefs "github.com/containerd/errdefs"
+@@ -70,7 +70,6 @@ import (
  	"github.com/docker/go-connections/sockets"
+ 	"github.com/moby/moby/client/internal/mod"
  	"github.com/moby/moby/client/pkg/versions"
 -	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
  )
  
  // DummyHost is a hostname used for local communication.
-@@ -197,11 +196,6 @@ func New(ops ...Opt) (*Client, error) {
+@@ -205,11 +204,6 @@ func New(ops ...Opt) (*Client, error) {
  			client:  client,
  			proto:   hostURL.Scheme,
  			addr:    hostURL.Host,
@@ -20,7 +20,7 @@
  		},
  	}
  	cfg := &c.clientConfig
-@@ -236,8 +230,6 @@ func New(ops ...Opt) (*Client, error) {
+@@ -247,8 +241,6 @@ func New(ops ...Opt) (*Client, error) {
  			c.scheme = "http"
  		}
  	}

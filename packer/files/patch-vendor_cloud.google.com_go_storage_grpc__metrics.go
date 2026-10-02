@@ -1,13 +1,13 @@
---- vendor/cloud.google.com/go/storage/grpc_metrics.go.orig	2025-09-22 16:26:20 UTC
+--- vendor/cloud.google.com/go/storage/grpc_metrics.go.orig	2026-10-02 20:06:38 UTC
 +++ vendor/cloud.google.com/go/storage/grpc_metrics.go
-@@ -16,22 +16,9 @@ import (
+@@ -16,272 +16,37 @@ import (
  
  import (
  	"context"
 -	"errors"
 -	"fmt"
 -	"strings"
- 	"time"
+-	"time"
  
 -	mexporter "github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/metric"
 -	"github.com/google/uuid"
@@ -17,19 +17,27 @@
 -	"go.opentelemetry.io/otel/sdk/metric/metricdata"
 -	"go.opentelemetry.io/otel/sdk/resource"
  	"google.golang.org/api/option"
--	"google.golang.org/grpc"
+ 	"google.golang.org/grpc"
 -	"google.golang.org/grpc/experimental/stats"
 -	"google.golang.org/grpc/stats/opentelemetry"
  )
  
- const (
-@@ -47,77 +34,11 @@ type storageMonitoredResource struct {
- 	instance      string
- 	cloudPlatform string
- 	host          string
+-const (
+-	monitoredResourceName = "storage.googleapis.com/Client"
+-	metricPrefix          = "storage.googleapis.com/client/"
+-)
+-
+-// Added to help with tests
+-type storageMonitoredResource struct {
+-	project       string
+-	api           string
+-	location      string
+-	instance      string
+-	cloudPlatform string
+-	host          string
 -	resource      *resource.Resource
- }
- 
+-}
+-
 -func (smr *storageMonitoredResource) exporter() (metric.Exporter, error) {
 -	exporter, err := mexporter.New(
 -		mexporter.WithProjectID(smr.project),
@@ -101,15 +109,21 @@
  	// clean func to call when closing gRPC client
  	close func()
  }
-@@ -125,113 +46,23 @@ type metricsConfig struct {
+ 
  type metricsConfig struct {
  	project         string
- 	interval        time.Duration
+-	interval        time.Duration
 -	customExporter  *metric.Exporter
 -	meterProvider   *metric.MeterProvider
 -	manualReader    *metric.ManualReader // used by tests
- 	disableExporter bool                 // used by tests disables exports
+-	disableExporter bool                 // used by tests disables exports
 -	resourceOpts    []resource.Option    // used by tests
++	interval        any
++	customExporter  any
++	meterProvider   any
++	manualReader    any // used by tests
++	disableExporter bool
++	resourceOpts    []any
  }
  
  func newGRPCMetricContext(ctx context.Context, cfg metricsConfig) (*metricsContext, error) {
@@ -177,31 +191,34 @@
 -		),
 -		OptionalLabels: []string{"grpc.lb.locality"},
 -	}
--	opts := []option.ClientOption{
--		option.WithGRPCDialOption(
++	_ = ctx
++	_ = cfg
+ 	opts := []option.ClientOption{
+ 		option.WithGRPCDialOption(
 -			opentelemetry.DialOption(opentelemetry.Options{MetricsOptions: mo})),
 -		option.WithGRPCDialOption(
--			grpc.WithDefaultCallOptions(grpc.StaticMethodCallOption{})),
--	}
+ 			grpc.WithDefaultCallOptions(grpc.StaticMethodCallOption{})),
+ 	}
  	return &metricsContext{
--		clientOpts: opts,
+ 		clientOpts: opts,
 -		provider:   provider,
 -		close: func() {
 -			provider.Shutdown(ctx)
 -		},
++		close:      func() {},
  	}, nil
- }
- 
- // Silences permission errors after initial error is emitted to prevent
- // chatty logs.
- type exporterLogSuppressor struct {
+-}
+-
+-// Silences permission errors after initial error is emitted to prevent
+-// chatty logs.
+-type exporterLogSuppressor struct {
 -	metric.Exporter
- 	emittedFailure bool
- }
- 
- // Implements OTel SDK metric.Exporter interface to prevent noisy logs from
- // lack of credentials after initial failure.
- // https://pkg.go.dev/go.opentelemetry.io/otel/sdk/metric@v1.28.0#Exporter
+-	emittedFailure bool
+-}
+-
+-// Implements OTel SDK metric.Exporter interface to prevent noisy logs from
+-// lack of credentials after initial failure.
+-// https://pkg.go.dev/go.opentelemetry.io/otel/sdk/metric@v1.28.0#Exporter
 -func (e *exporterLogSuppressor) Export(ctx context.Context, rm *metricdata.ResourceMetrics) error {
 -	if err := e.Exporter.Export(ctx, rm); err != nil && !e.emittedFailure {
 -		if strings.Contains(err.Error(), "PermissionDenied") {
@@ -212,13 +229,44 @@
 -	}
 -	return nil
 -}
- 
- func latencyHistogramBoundaries() []float64 {
- 	boundaries := []float64{}
-@@ -270,18 +101,4 @@ func sizeHistogramBoundaries() []float64 {
- 		}
- 	}
- 	return boundaries
+-
+-func latencyHistogramBoundaries() []float64 {
+-	boundaries := []float64{}
+-	boundary := 0.0
+-	increment := 0.002
+-	// 2ms buckets for first 100ms, so we can have higher resolution for uploads and downloads in the 100 KiB range
+-	for i := 0; i < 50; i++ {
+-		boundaries = append(boundaries, boundary)
+-		// increment by 2ms
+-		boundary += increment
+-	}
+-	// For the remaining buckets do 10 10ms, 10 20ms, and so on, up until 5 minutes
+-	for i := 0; i < 150 && boundary < 300; i++ {
+-		boundaries = append(boundaries, boundary)
+-		if i != 0 && i%10 == 0 {
+-			increment *= 2
+-		}
+-		boundary += increment
+-	}
+-	return boundaries
+-}
+-
+-func sizeHistogramBoundaries() []float64 {
+-	kb := 1024.0
+-	mb := 1024.0 * kb
+-	gb := 1024.0 * mb
+-	boundaries := []float64{}
+-	boundary := 0.0
+-	increment := 128 * kb
+-	// 128 KiB increments up to 4MiB, then exponential growth
+-	for len(boundaries) < 200 && boundary <= 16*gb {
+-		boundaries = append(boundaries, boundary)
+-		boundary += increment
+-		if boundary >= 4*mb {
+-			increment *= 2
+-		}
+-	}
+-	return boundaries
 -}
 -
 -func createHistogramView(name string, boundaries []float64) metric.View {

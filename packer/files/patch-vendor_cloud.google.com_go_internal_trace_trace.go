@@ -1,27 +1,31 @@
---- vendor/cloud.google.com/go/internal/trace/trace.go.orig	2025-08-14 14:42:16 UTC
+--- vendor/cloud.google.com/go/internal/trace/trace.go.orig	2026-10-02 20:06:38 UTC
 +++ vendor/cloud.google.com/go/internal/trace/trace.go
-@@ -17,12 +17,7 @@ import (
+@@ -16,15 +16,6 @@ import (
+ 
  import (
  	"context"
- 	"errors"
+-	"errors"
 -	"fmt"
- 
+-
 -	"go.opentelemetry.io/otel"
 -	"go.opentelemetry.io/otel/attribute"
 -	"go.opentelemetry.io/otel/codes"
 -	"go.opentelemetry.io/otel/trace"
- 	"google.golang.org/api/googleapi"
- 	"google.golang.org/grpc/status"
+-	"google.golang.org/api/googleapi"
+-	"google.golang.org/grpc/status"
  )
-@@ -36,7 +31,6 @@ func StartSpan(ctx context.Context, name string) conte
+ 
+ const (
+@@ -36,7 +27,7 @@ func StartSpan(ctx context.Context, name string) conte
  // The default experimental tracing support for OpenCensus is now deprecated in
  // the Google Cloud client libraries for Go.
  func StartSpan(ctx context.Context, name string) context.Context {
 -	ctx, _ = otel.GetTracerProvider().Tracer(OpenTelemetryTracerName).Start(ctx, name)
++	_ = name
  	return ctx
  }
  
-@@ -45,12 +39,6 @@ func EndSpan(ctx context.Context, err error) {
+@@ -45,53 +36,17 @@ func EndSpan(ctx context.Context, err error) {
  // The default experimental tracing support for OpenCensus is now deprecated in
  // the Google Cloud client libraries for Go.
  func EndSpan(ctx context.Context, err error) {
@@ -31,10 +35,24 @@
 -		span.RecordError(err)
 -	}
 -	span.End()
++	_ = ctx
++	_ = err
  }
  
- // toOpenTelemetryStatus converts an error to an equivalent OpenTelemetry status description.
-@@ -70,28 +58,4 @@ func TracePrintf(ctx context.Context, attrMap map[stri
+-// toOpenTelemetryStatus converts an error to an equivalent OpenTelemetry status description.
+-func toOpenTelemetryStatusDescription(err error) string {
+-	var err2 *googleapi.Error
+-	if ok := errors.As(err, &err2); ok {
+-		return err2.Message
+-	} else if s, ok := status.FromError(err); ok {
+-		return s.Message()
+-	} else {
+-		return err.Error()
+-	}
+-}
+-
+ // TracePrintf retrieves the current OpenTelemetry span from context, then calls
+ // Span.AddEvent. The expected span must be an OpenTelemetry span. The default
  // experimental tracing support for OpenCensus is now deprecated in the Google
  // Cloud client libraries for Go.
  func TracePrintf(ctx context.Context, attrMap map[string]interface{}, format string, args ...interface{}) {
@@ -62,4 +80,8 @@
 -		attrs = append(attrs, a)
 -	}
 -	return attrs
++	_ = ctx
++	_ = attrMap
++	_ = format
++	_ = args
  }
