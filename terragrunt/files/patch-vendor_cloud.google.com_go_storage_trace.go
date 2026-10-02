@@ -1,6 +1,4 @@
-diff --git a/vendor/cloud.google.com/go/storage/trace.go b/vendor/cloud.google.com/go/storage/trace.go
-index 594dfc52a..0850c1ac0 100644
---- vendor/cloud.google.com/go/storage/trace.go.orig
+--- vendor/cloud.google.com/go/storage/trace.go.orig	2026-10-02 16:09:03 UTC
 +++ vendor/cloud.google.com/go/storage/trace.go
 @@ -1,36 +1,10 @@
 -// Copyright 2025 Google LLC
@@ -136,8 +134,10 @@ index 594dfc52a..0850c1ac0 100644
 -	}
 -	ctx, span := tracer().Start(ctx, name, opts...)
 -	return ctx, span
--}
--
++	ctx = internalTrace.StartSpan(ctx, appendPackageName(name))
++	return ctx, nil
+ }
+ 
 -func isNotFoundError(err error) bool {
 -	if errors.Is(err, ErrBucketNotExist) {
 -		return true
@@ -148,10 +148,8 @@ index 594dfc52a..0850c1ac0 100644
 -		return true
 -	}
 -	return false
-+	ctx = internalTrace.StartSpan(ctx, appendPackageName(name))
-+	return ctx, nil
- }
- 
+-}
+-
 -// endSpan retrieves the current span from ctx and completes the span.
 -// If an error occurs, the error is recorded as an exception span event for this span,
 -// and the span status is set in the form of a code and a description.

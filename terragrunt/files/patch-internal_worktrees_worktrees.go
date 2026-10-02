@@ -1,8 +1,6 @@
-diff --git a/internal/worktrees/worktrees.go b/internal/worktrees/worktrees.go
-index 9dfb3b4a9..a02d911db 100644
---- internal/worktrees/worktrees.go.orig
+--- internal/worktrees/worktrees.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/worktrees/worktrees.go
-@@ -4,6 +4,7 @@ package worktrees
+@@ -4,6 +4,7 @@ import (
  
  import (
  	"context"
@@ -24,7 +22,7 @@ index 9dfb3b4a9..a02d911db 100644
  	"github.com/gruntwork-io/terragrunt/internal/util"
  	"github.com/gruntwork-io/terragrunt/internal/venv"
  	"github.com/gruntwork-io/terragrunt/internal/vfs"
-@@ -914,14 +912,8 @@ func unitConfigBeside(diffPath string) string {
+@@ -914,14 +912,8 @@ func recordDiffTelemetry(ctx context.Context, diffs *g
  
  // recordDiffTelemetry records telemetry metrics for git diff results.
  func recordDiffTelemetry(ctx context.Context, diffs *git.Diffs) {

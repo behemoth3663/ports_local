@@ -1,6 +1,4 @@
-diff --git a/internal/getter/oci_auth.go b/internal/getter/oci_auth.go
-index 19fef1a4e..91cdcde0d 100644
---- internal/getter/oci_auth.go.orig
+--- internal/getter/oci_auth.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/getter/oci_auth.go
 @@ -15,7 +15,6 @@ import (
  	"sync"
@@ -10,7 +8,7 @@ index 19fef1a4e..91cdcde0d 100644
  	"github.com/gruntwork-io/terragrunt/internal/venv"
  	"github.com/gruntwork-io/terragrunt/internal/version"
  	"github.com/gruntwork-io/terragrunt/internal/vfs"
-@@ -442,10 +441,10 @@ func ociCredentialFromHelper(
+@@ -442,10 +441,10 @@ func ociEnvSlice(ctx context.Context, env map[string]s
  // ociEnvSlice renders env as a non-nil KEY=VALUE slice and injects TRACEPARENT from ctx when present.
  func ociEnvSlice(ctx context.Context, env map[string]string) []string {
  	n := len(env)
@@ -23,7 +21,7 @@ index 19fef1a4e..91cdcde0d 100644
  			n++
  		}
  	}
-@@ -453,7 +452,7 @@ func ociEnvSlice(ctx context.Context, env map[string]string) []string {
+@@ -453,7 +452,7 @@ func ociEnvSlice(ctx context.Context, env map[string]s
  	out := make([]string, 0, n)
  
  	for _, key := range slices.Sorted(maps.Keys(env)) {
@@ -32,7 +30,7 @@ index 19fef1a4e..91cdcde0d 100644
  			continue
  		}
  
-@@ -461,7 +460,7 @@ func ociEnvSlice(ctx context.Context, env map[string]string) []string {
+@@ -461,7 +460,7 @@ func ociEnvSlice(ctx context.Context, env map[string]s
  	}
  
  	if traceParent != "" {

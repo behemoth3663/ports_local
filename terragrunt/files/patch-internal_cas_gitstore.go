@@ -1,8 +1,6 @@
-diff --git a/internal/cas/gitstore.go b/internal/cas/gitstore.go
-index 27a7d12f8..01113be3a 100644
---- internal/cas/gitstore.go.orig
+--- internal/cas/gitstore.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/cas/gitstore.go
-@@ -2,16 +2,12 @@ package cas
+@@ -2,16 +2,12 @@ import (
  
  import (
  	"context"

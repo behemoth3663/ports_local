@@ -1,6 +1,4 @@
-diff --git a/vendor/cloud.google.com/go/auth/grpctransport/grpctransport.go b/vendor/cloud.google.com/go/auth/grpctransport/grpctransport.go
-index f76091b63..a3f312205 100644
---- vendor/cloud.google.com/go/auth/grpctransport/grpctransport.go.orig
+--- vendor/cloud.google.com/go/auth/grpctransport/grpctransport.go.orig	2026-10-02 16:09:03 UTC
 +++ vendor/cloud.google.com/go/auth/grpctransport/grpctransport.go
 @@ -33,16 +33,10 @@ import (
  	"cloud.google.com/go/auth/internal"
@@ -19,7 +17,7 @@ index f76091b63..a3f312205 100644
  )
  
  const (
-@@ -461,41 +455,9 @@ func (c *grpcCredentialsProvider) RequireTransportSecurity() bool {
+@@ -461,41 +455,9 @@ func addOpenTelemetryStatsHandler(dialOpts []grpc.Dial
  }
  
  func addOpenTelemetryStatsHandler(dialOpts []grpc.DialOption, opts *Options, endpoint string) []grpc.DialOption {
@@ -64,10 +62,11 @@ index f76091b63..a3f312205 100644
  }
  
  // Extract the host and port from a target address
-@@ -517,161 +479,3 @@ func extractHostPort(target string) (string, int) {
+@@ -516,162 +478,4 @@ func extractHostPort(target string) (string, int) {
+ 		return host, 0
  	}
  	return host, port
- }
+-}
 -
 -// openTelemetryUnaryClientInterceptor returns an interceptor that populates
 -// TransportTelemetryData with the server peer address.
@@ -225,4 +224,4 @@ index f76091b63..a3f312205 100644
 -	baseLogAttrs = append(baseLogAttrs, slog.String("error.type", info.ErrorType))
 -
 -	logger.LogAttrs(ctx, slog.LevelDebug, msg, baseLogAttrs...)
--}
+ }

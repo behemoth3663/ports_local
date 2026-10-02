@@ -1,6 +1,4 @@
-diff --git a/vendor/cloud.google.com/go/storage/storage.go b/vendor/cloud.google.com/go/storage/storage.go
-index cb4d36802..426ea1492 100644
---- vendor/cloud.google.com/go/storage/storage.go.orig
+--- vendor/cloud.google.com/go/storage/storage.go.orig	2026-10-02 16:09:03 UTC
 +++ vendor/cloud.google.com/go/storage/storage.go
 @@ -43,17 +43,12 @@ import (
  	"cloud.google.com/go/storage/internal"
@@ -20,7 +18,7 @@ index cb4d36802..426ea1492 100644
  	"google.golang.org/grpc/status"
  	"google.golang.org/protobuf/proto"
  	"google.golang.org/protobuf/reflect/protoreflect"
-@@ -294,50 +289,10 @@ func NewGRPCClient(ctx context.Context, opts ...option.ClientOption) (*Client, e
+@@ -294,50 +289,10 @@ func CheckDirectConnectivitySupported(ctx context.Cont
  //
  // You can pass in [option.ClientOption] you plan on passing to [NewGRPCClient]
  func CheckDirectConnectivitySupported(ctx context.Context, bucket string, opts ...option.ClientOption) error {

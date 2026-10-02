@@ -1,6 +1,4 @@
-diff --git a/internal/cas/telemetry.go b/internal/cas/telemetry.go
-index d77ffcaac..39dbfddcd 100644
---- internal/cas/telemetry.go.orig
+--- internal/cas/telemetry.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/cas/telemetry.go
 @@ -4,7 +4,6 @@ import (
  	"context"

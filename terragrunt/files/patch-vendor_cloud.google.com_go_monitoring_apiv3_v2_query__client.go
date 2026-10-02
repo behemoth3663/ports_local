@@ -1,8 +1,6 @@
-diff --git a/vendor/cloud.google.com/go/monitoring/apiv3/v2/query_client.go b/vendor/cloud.google.com/go/monitoring/apiv3/v2/query_client.go
-index 6d3030eb5..198538f71 100644
---- vendor/cloud.google.com/go/monitoring/apiv3/v2/query_client.go.orig
+--- vendor/cloud.google.com/go/monitoring/apiv3/v2/query_client.go.orig	2026-10-02 16:09:03 UTC
 +++ vendor/cloud.google.com/go/monitoring/apiv3/v2/query_client.go
-@@ -145,16 +145,7 @@ type queryGRPCClient struct {
+@@ -145,16 +145,7 @@ func NewQueryClient(ctx context.Context, opts ...optio
  // the time-varying values of a metric.
  func NewQueryClient(ctx context.Context, opts ...option.ClientOption) (*QueryClient, error) {
  	clientOpts := defaultQueryGRPCClientOptions()
@@ -20,7 +18,7 @@ index 6d3030eb5..198538f71 100644
  	if newQueryClientHook != nil {
  		hookOpts, err := newQueryClientHook(ctx, clientHookParams{})
  		if err != nil {
-@@ -176,20 +167,6 @@ func NewQueryClient(ctx context.Context, opts ...option.ClientOption) (*QueryCli
+@@ -176,21 +167,7 @@ func NewQueryClient(ctx context.Context, opts ...optio
  		logger:      internaloption.GetLogger(opts),
  	}
  	c.setGoogleClientInfo()
@@ -35,13 +33,14 @@ index 6d3030eb5..198538f71 100644
 -				gax.URLDomain:      "monitoring.googleapis.com",
 -			}),
 -		)
--
+ 
 -		client.CallOptions.QueryTimeSeries = append(client.CallOptions.QueryTimeSeries, gax.WithClientMetrics(metrics))
 -	}
- 
+-
  	client.internalClient = c
  
-@@ -226,9 +203,7 @@ func (c *queryGRPCClient) QueryTimeSeries(ctx context.Context, req *monitoringpb
+ 	return &client, nil
+@@ -226,9 +203,7 @@ func (c *queryGRPCClient) QueryTimeSeries(ctx context.
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)

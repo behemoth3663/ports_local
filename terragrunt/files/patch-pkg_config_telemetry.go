@@ -1,6 +1,4 @@
-diff --git a/pkg/config/telemetry.go b/pkg/config/telemetry.go
-index 092202bba..6604c17f8 100644
---- pkg/config/telemetry.go.orig
+--- pkg/config/telemetry.go.orig	1979-11-29 21:00:00 UTC
 +++ pkg/config/telemetry.go
 @@ -5,7 +5,6 @@ import (
  	"context"

@@ -1,8 +1,6 @@
-diff --git a/internal/shell/run_cmd.go b/internal/shell/run_cmd.go
-index a66a283dd..b60c82b41 100644
---- internal/shell/run_cmd.go.orig
+--- internal/shell/run_cmd.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/shell/run_cmd.go
-@@ -3,24 +3,18 @@ package shell
+@@ -3,24 +3,18 @@ import (
  
  import (
  	"context"
@@ -28,7 +26,7 @@ index a66a283dd..b60c82b41 100644
  	"github.com/gruntwork-io/terragrunt/internal/util"
  )
  
-@@ -40,7 +34,7 @@ const SignalForwardingDelay = time.Second * 15
+@@ -40,7 +34,7 @@ type ShellOptions struct {
  type ShellOptions struct {
  	EngineOptions *engine.EngineOptions
  	EngineConfig  *engine.EngineConfig
@@ -37,7 +35,7 @@ index a66a283dd..b60c82b41 100644
  
  	RootWorkingDir         string
  	WorkingDir             string
-@@ -59,16 +53,7 @@ type ShellOptions struct {
+@@ -59,16 +53,7 @@ func NewShellOptions(env map[string]string) *ShellOpti
  // With* methods to override any field.
  func NewShellOptions(env map[string]string) *ShellOptions {
  	venv.RequireEnvMap(env)
@@ -55,7 +53,7 @@ index a66a283dd..b60c82b41 100644
  }
  
  // WithWorkingDir sets the working directory for command execution.
-@@ -85,19 +70,8 @@ func (o *ShellOptions) WithUnitDir(dir string) *ShellOptions {
+@@ -85,19 +70,8 @@ func (o *ShellOptions) WithUnitDir(dir string) *ShellO
  	return o
  }
  
@@ -77,7 +75,7 @@ index a66a283dd..b60c82b41 100644
  	if t != nil {
  		o.Telemetry = t
  	}
-@@ -205,41 +179,14 @@ func RunCommandWithOutput(
+@@ -205,42 +179,15 @@ func RunCommandWithOutput(
  		commandDir = runOpts.WorkingDir
  	}
  
@@ -96,7 +94,15 @@ index a66a283dd..b60c82b41 100644
 -				Args:           args,
 -				Output:         &output,
 -			})
--
++	err := runCommand(ctx, l, v, runOpts, RunCommandOptions{
++		CommandDir:     commandDir,
++		SuppressStdout: suppressStdout,
++		NeedsPTY:       needsPTY,
++		Command:        command,
++		Args:           args,
++		Output:         &output,
++	})
+ 
 -			if span := trace.SpanFromContext(ctx); span.IsRecording() {
 -				exitCode := 0
 -
@@ -116,17 +122,10 @@ index a66a283dd..b60c82b41 100644
 -
 -			return runErr
 -		})
-+	err := runCommand(ctx, l, v, runOpts, RunCommandOptions{
-+		CommandDir:     commandDir,
-+		SuppressStdout: suppressStdout,
-+		NeedsPTY:       needsPTY,
-+		Command:        command,
-+		Args:           args,
-+		Output:         &output,
-+	})
- 
+-
  	return &output, err
  }
+ 
 @@ -255,10 +202,7 @@ type RunCommandOptions struct {
  	NeedsPTY       bool
  }
@@ -139,10 +138,11 @@ index a66a283dd..b60c82b41 100644
  func runCommand(
  	ctx context.Context,
  	l log.Logger,
-@@ -275,16 +219,6 @@ func runCommand(
+@@ -274,16 +218,6 @@ func runCommand(
+ 		cmdStderr = io.MultiWriter(v.Writers.ErrWriter, &cmdOpts.Output.Stderr)
  		cmdStdout = io.MultiWriter(v.Writers.Writer, &cmdOpts.Output.Stdout)
  	)
- 
+-
 -	// Pass the traceparent to the child process if it is available in the context.
 -	if traceParent := telemetry.TraceParentFromContext(ctx, runOpts.Telemetry); traceParent != "" {
 -		l.Debugf(
@@ -152,7 +152,6 @@ index a66a283dd..b60c82b41 100644
 -		)
 -		v.Env[telemetry.TraceParentEnv] = traceParent
 -	}
--
+ 
  	if cmdOpts.SuppressStdout {
  		l.Debugf("Command output will be suppressed.")
- 

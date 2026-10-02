@@ -1,6 +1,4 @@
-diff --git a/go.mod b/go.mod
-index 03f631fe8..b605fa112 100644
---- go.mod.orig
+--- go.mod.orig	1979-11-29 21:00:00 UTC
 +++ go.mod
 @@ -75,23 +75,6 @@ require (
  	github.com/xeipuuv/gojsonschema v1.2.0

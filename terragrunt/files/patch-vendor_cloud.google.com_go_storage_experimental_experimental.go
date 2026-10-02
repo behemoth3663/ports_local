@@ -1,6 +1,4 @@
-diff --git a/vendor/cloud.google.com/go/storage/experimental/experimental.go b/vendor/cloud.google.com/go/storage/experimental/experimental.go
-index ae77e8d57..0334b0168 100644
---- vendor/cloud.google.com/go/storage/experimental/experimental.go.orig
+--- vendor/cloud.google.com/go/storage/experimental/experimental.go.orig	2026-10-02 16:09:03 UTC
 +++ vendor/cloud.google.com/go/storage/experimental/experimental.go
 @@ -25,7 +25,6 @@ import (
  	"time"
@@ -10,7 +8,7 @@ index ae77e8d57..0334b0168 100644
  	"google.golang.org/api/option"
  )
  
-@@ -41,15 +40,15 @@ func WithMetricInterval(metricInterval time.Duration) option.ClientOption {
+@@ -41,15 +40,15 @@ func WithMetricInterval(metricInterval time.Duration) 
  // WithMetricExporter provides a [option.ClientOption] that may be passed to [storage.NewGRPCClient].
  // Set an alternate client-side metric Exporter to emit metrics through.
  // Must implement [metric.Exporter]. This option is ignored if WithMeterProvider is also set.

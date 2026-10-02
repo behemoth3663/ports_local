@@ -1,8 +1,6 @@
-diff --git a/pkg/options/options.go b/pkg/options/options.go
-index 6874da231..9ba9a3309 100644
---- pkg/options/options.go.orig
+--- pkg/options/options.go.orig	1979-11-29 21:00:00 UTC
 +++ pkg/options/options.go
-@@ -4,13 +4,12 @@ package options
+@@ -4,13 +4,12 @@ import (
  import (
  	"context"
  	"encoding/json"
@@ -60,7 +58,7 @@ index 6874da231..9ba9a3309 100644
  	// Attributes to override in AWS provider nested within modules as part of the aws-provider-patch command.
  	AwsProviderPatchOverrides map[string]string
  	// Version of terraform (obtained by running 'terraform version')
-@@ -361,7 +358,7 @@ func NewTerragruntOptions(e vexec.Exec) *TerragruntOptions {
+@@ -361,7 +358,7 @@ func NewTerragruntOptions(e vexec.Exec) *TerragruntOpt
  		StrictControls:         controls.New(),
  		Experiments:            experiment.NewExperiments(),
  		Tips:                   tips.NewTips(),
@@ -69,7 +67,7 @@ index 6874da231..9ba9a3309 100644
  		EngineOptions:          new(engine.EngineOptions),
  		VersionManagerFileName: defaultVersionManagerFileName,
  		CASCloneDepth:          1,
-@@ -724,7 +721,7 @@ func (opts *TerragruntOptions) handleIgnoreSignals(l log.Logger, fsys vfs.FS, si
+@@ -724,7 +721,7 @@ func (opts *TerragruntOptions) handleIgnoreSignals(l l
  		return err
  	}
  

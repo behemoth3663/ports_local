@@ -1,6 +1,4 @@
-diff --git a/vendor/cloud.google.com/go/storage/metrics.go b/vendor/cloud.google.com/go/storage/metrics.go
-index b698030b6..3a36abdf8 100644
---- vendor/cloud.google.com/go/storage/metrics.go.orig
+--- vendor/cloud.google.com/go/storage/metrics.go.orig	2026-10-02 16:09:03 UTC
 +++ vendor/cloud.google.com/go/storage/metrics.go
 @@ -1,1195 +1,34 @@
 -// Copyright 2026 Google LLC
@@ -54,15 +52,19 @@ index b698030b6..3a36abdf8 100644
 -	"google.golang.org/grpc/metadata"
 -	"google.golang.org/grpc/stats"
 -	"google.golang.org/grpc/status"
--)
--
--const (
--	customMetricPrefix = "custom.googleapis.com/"
 +	"google.golang.org/api/option"
  )
  
+-const (
+-	customMetricPrefix = "custom.googleapis.com/"
+-)
++type noopInt64Histogram struct{}
+ 
 -// clientMetrics contains the OpenTelemetry metric instruments to record client-side metrics.
--type clientMetrics struct {
++func (noopInt64Histogram) Record(context.Context, int64, ...any) {}
++
++// clientMetrics is a no-op metrics holder.
+ type clientMetrics struct {
 -	provider                  *sdkmetric.MeterProvider
 -	rpcClientCallDuration     metric.Float64Histogram
 -	httpClientRequestDuration metric.Float64Histogram
@@ -83,12 +85,16 @@ index b698030b6..3a36abdf8 100644
 -	networkBytesSent          metric.Int64Counter
 -	networkBytesReceived      metric.Int64Counter
 -	stallDuration             metric.Float64Histogram
--}
--
++	responseBodySize noopInt64Histogram
++	requestBodySize  noopInt64Histogram
+ }
+ 
 -func formatMetricWithPrefix(m metricdata.Metrics, prefix string) string {
 -	return prefix + strings.ReplaceAll(string(m.Name), ".", "/")
--}
--
++func (m *clientMetrics) recordStallDuration(context.Context, any, string, string, string) {
++	_ = m
+ }
+ 
 -// isOtelMetricsEnabled checks if Otel metrics are enabled.
 -// The environment variable GCP_STORAGE_GO_ENABLE_OTEL_METRICS takes precedence
 -// over the config option. Note that if metrics are completely disabled via
@@ -1040,8 +1046,7 @@ index b698030b6..3a36abdf8 100644
 -			cm.activeRequests.Add(ctx, 1, rpcAttrs)
 -			defer cm.activeRequests.Add(ctx, -1, rpcAttrs)
 -		}
-+type noopInt64Histogram struct{}
- 
+-
 -		var headerMD, trailerMD metadata.MD
 -		opts = append(opts, grpc.Header(&headerMD), grpc.Trailer(&trailerMD))
 -
@@ -1096,8 +1101,7 @@ index b698030b6..3a36abdf8 100644
 -			clientStreams: desc.ClientStreams,
 -		}, nil
 -	}
-+func (noopInt64Histogram) Record(context.Context, int64, ...any) {}
- 
+-
 -	return unary, stream
 -}
 -
@@ -1160,12 +1164,8 @@ index b698030b6..3a36abdf8 100644
 -		trailerMD := w.ClientStream.Trailer()
 -		w.metrics.recordGFEMetrics(w.ctx, headerMD, trailerMD, err, logicalMethod, w.target, rpcAttrs)
 -	}
-+// clientMetrics is a no-op metrics holder.
-+type clientMetrics struct {
-+	responseBodySize noopInt64Histogram
-+	requestBodySize  noopInt64Histogram
- }
- 
+-}
+-
 -func (w *wrappedClientStream) recordTTFB(m interface{}) {
 -	if w.recordedTTFB.Load() {
 -		return
@@ -1183,10 +1183,8 @@ index b698030b6..3a36abdf8 100644
 -		}
 -		w.metrics.ttfb.Record(w.ctx, duration, metric.WithAttributes(attribute.String("rpc.method", logicalMethod)))
 -	}
-+func (m *clientMetrics) recordStallDuration(context.Context, any, string, string, string) {
-+	_ = m
- }
- 
+-}
+-
  type metricsKey struct{}
  
 -type apiMethodKey struct{}
@@ -1209,7 +1207,7 @@ index b698030b6..3a36abdf8 100644
  }
  
  func contextWithMetricsState(ctx context.Context, state *metricsState) context.Context {
-@@ -1197,9 +36,6 @@ func contextWithMetricsState(ctx context.Context, state *metricsState) context.C
+@@ -1197,9 +36,6 @@ func metricsStateFromContext(ctx context.Context) *met
  }
  
  func metricsStateFromContext(ctx context.Context) *metricsState {
@@ -1219,7 +1217,7 @@ index b698030b6..3a36abdf8 100644
  	if state, ok := ctx.Value(metricsKey{}).(*metricsState); ok {
  		return state
  	}
-@@ -1207,514 +43,69 @@ func metricsStateFromContext(ctx context.Context) *metricsState {
+@@ -1207,514 +43,69 @@ func contextWithoutMetrics(ctx context.Context) contex
  }
  
  func contextWithoutMetrics(ctx context.Context) context.Context {
@@ -1303,20 +1301,30 @@ index b698030b6..3a36abdf8 100644
 -	res, err := mc.storageClient.GetServiceAccount(ctx, project, opts...)
 -	record(err)
 -	return res, err
--}
--
++func grpcNetworkMetricsDialOptions(host string, metrics *clientMetrics) []option.ClientOption {
++	_ = host
++	_ = metrics
++	return nil
+ }
+ 
 -func (mc *metricsStorageClient) CreateBucket(ctx context.Context, project, bucket string, attrs *BucketAttrs, enableObjectRetention *bool, opts ...storageOption) (*BucketAttrs, error) {
 -	ctx, record := mc.metrics.startOperation(ctx, "CreateBucket", mc.isHTTP)
 -	res, err := mc.storageClient.CreateBucket(ctx, project, bucket, attrs, enableObjectRetention, opts...)
 -	record(err)
 -	return res, err
--}
--
++func wrapAuthCredentials(c *auth.Credentials, m *clientMetrics) *auth.Credentials {
++	_ = m
++	return c
+ }
+ 
 -func (mc *metricsStorageClient) ListBuckets(ctx context.Context, project string, opts ...storageOption) *BucketIterator {
 -	ctx, _ = mc.metrics.startOperation(ctx, "ListBuckets", mc.isHTTP)
 -	return mc.storageClient.ListBuckets(ctx, project, opts...)
--}
--
++func isOtelMetricsEnabled(config *storageConfig) bool {
++	_ = config
++	return false
+ }
+ 
 -func (mc *metricsStorageClient) DeleteBucket(ctx context.Context, bucket string, conds *BucketConditions, opts ...storageOption) error {
 -	ctx, record := mc.metrics.startOperation(ctx, "DeleteBucket", mc.isHTTP)
 -	err := mc.storageClient.DeleteBucket(ctx, bucket, conds, opts...)
@@ -1405,13 +1413,19 @@ index b698030b6..3a36abdf8 100644
 -	if err != nil {
 -		record(err)
 -		return nil, err
--	}
++func metricsInterceptors(_ *clientMetrics) (grpc.UnaryClientInterceptor, grpc.StreamClientInterceptor) {
++	unary := func(ctx context.Context, method string, req, reply any, cc *grpc.ClientConn, invoker grpc.UnaryInvoker, opts ...grpc.CallOption) error {
++		return invoker(ctx, method, req, reply, cc, opts...)
+ 	}
 -	if state := metricsStateFromContext(ctx); state != nil {
 -		r.metricsState = state
--	}
++	stream := func(ctx context.Context, desc *grpc.StreamDesc, cc *grpc.ClientConn, method string, streamer grpc.Streamer, opts ...grpc.CallOption) (grpc.ClientStream, error) {
++		return streamer(ctx, desc, cc, method, opts...)
+ 	}
 -	return r, nil
--}
--
++	return unary, stream
+ }
+ 
 -func (mc *metricsStorageClient) OpenWriter(params *openWriterParams, opts ...storageOption) (internalWriter, error) {
 -	ctx, _ := mc.metrics.startOperation(params.ctx, "WriteObject", mc.isHTTP)
 -	params.ctx = ctx
@@ -1581,12 +1595,8 @@ index b698030b6..3a36abdf8 100644
 -	metrics   *clientMetrics
 -	dialTimes *sync.Map
 -	host      string
-+func grpcNetworkMetricsDialOptions(host string, metrics *clientMetrics) []option.ClientOption {
-+	_ = host
-+	_ = metrics
-+	return nil
- }
- 
+-}
+-
 -type contextKeyRPCTag struct{}
 -
 -func (h *grpcMetricsStatsHandler) TagRPC(ctx context.Context, info *stats.RPCTagInfo) context.Context {
@@ -1595,10 +1605,7 @@ index b698030b6..3a36abdf8 100644
 -		method = method[idx+1:]
 -	}
 -	return context.WithValue(ctx, contextKeyRPCTag{}, method)
-+func wrapAuthCredentials(c *auth.Credentials, m *clientMetrics) *auth.Credentials {
-+	_ = m
-+	return c
- }
+-}
 -func (h *grpcMetricsStatsHandler) HandleRPC(ctx context.Context, s stats.RPCStats) {
 -	if h.metrics == nil {
 -		return
@@ -1612,7 +1619,7 @@ index b698030b6..3a36abdf8 100644
 -		attribute.String("rpc.method", method),
 -		attribute.String("server.address", h.host),
 -	)
- 
+-
 -	switch st := s.(type) {
 -	case *stats.InPayload:
 -		if h.metrics.networkBytesReceived != nil {
@@ -1645,11 +1652,8 @@ index b698030b6..3a36abdf8 100644
 -			}
 -		}
 -	}
-+func isOtelMetricsEnabled(config *storageConfig) bool {
-+	_ = config
-+	return false
- }
- 
+-}
+-
 -// grpcNetworkMetricsDialOptions returns dial options that instrument TCP and TLS handshake metrics.
 -func grpcNetworkMetricsDialOptions(host string, metrics *clientMetrics) []option.ClientOption {
 -	if metrics == nil || (metrics.tcpConnectDuration == nil && metrics.tlsHandshakeDuration == nil && metrics.networkBytesSent == nil && metrics.networkBytesReceived == nil) {
@@ -1686,20 +1690,14 @@ index b698030b6..3a36abdf8 100644
 -		metrics:   metrics,
 -		dialTimes: &dialTimes,
 -		host:      host,
-+func metricsInterceptors(_ *clientMetrics) (grpc.UnaryClientInterceptor, grpc.StreamClientInterceptor) {
-+	unary := func(ctx context.Context, method string, req, reply any, cc *grpc.ClientConn, invoker grpc.UnaryInvoker, opts ...grpc.CallOption) error {
-+		return invoker(ctx, method, req, reply, cc, opts...)
- 	}
+-	}
 -
 -	return []option.ClientOption{
 -		option.WithGRPCDialOption(grpc.WithContextDialer(dialer)),
 -		option.WithGRPCDialOption(grpc.WithStatsHandler(sh)),
-+	stream := func(ctx context.Context, desc *grpc.StreamDesc, cc *grpc.ClientConn, method string, streamer grpc.Streamer, opts ...grpc.CallOption) (grpc.ClientStream, error) {
-+		return streamer(ctx, desc, cc, method, opts...)
- 	}
-+	return unary, stream
- }
- 
+-	}
+-}
+-
 -type metricsTokenProvider struct {
 -	base    auth.TokenProvider
 +type metricsRoundTripper struct {

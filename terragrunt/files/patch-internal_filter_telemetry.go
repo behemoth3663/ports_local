@@ -1,8 +1,6 @@
-diff --git a/internal/filter/telemetry.go b/internal/filter/telemetry.go
-index b70fa8394..4b4ed7817 100644
---- internal/filter/telemetry.go.orig
+--- internal/filter/telemetry.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/filter/telemetry.go
-@@ -3,8 +3,6 @@ package filter
+@@ -3,8 +3,6 @@ import (
  
  import (
  	"context"

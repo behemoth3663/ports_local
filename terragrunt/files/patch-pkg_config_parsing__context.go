@@ -1,6 +1,4 @@
-diff --git a/pkg/config/parsing_context.go b/pkg/config/parsing_context.go
-index e5a3d24cb..51103f705 100644
---- pkg/config/parsing_context.go.orig
+--- pkg/config/parsing_context.go.orig	1979-11-29 21:00:00 UTC
 +++ pkg/config/parsing_context.go
 @@ -18,8 +18,8 @@ import (
  	"github.com/gruntwork-io/terragrunt/internal/iam"
@@ -21,7 +19,7 @@ index e5a3d24cb..51103f705 100644
  
  	DecodedDependencies *cty.Value
  	Values              *cty.Value
-@@ -245,7 +245,7 @@ func (ctx *ParsingContext) WithParseOption(parserOptions []hclparse.Option) *Par
+@@ -245,7 +245,7 @@ func (ctx *ParsingContext) WithDiagnosticsSuppressed(l
  // This avoids false positive "There is no variable named dependency" errors during parsing
  // when dependency outputs haven't been resolved yet.
  func (ctx *ParsingContext) WithDiagnosticsSuppressed(l log.Logger) *ParsingContext {

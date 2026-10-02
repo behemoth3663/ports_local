@@ -1,8 +1,6 @@
-diff --git a/vendor/cloud.google.com/go/go.work.sum b/vendor/cloud.google.com/go/go.work.sum
-index 0fff97d25..243062cbb 100644
---- vendor/cloud.google.com/go/go.work.sum.orig
+--- vendor/cloud.google.com/go/go.work.sum.orig	2026-10-02 16:09:03 UTC
 +++ vendor/cloud.google.com/go/go.work.sum
-@@ -13,10 +13,6 @@ git.sr.ht/~sbinet/gg v0.3.1 h1:LNhjNn8DerC8f9DHLz6lS0YYul/b602DUxDgGkd/Aik=
+@@ -13,10 +13,6 @@ github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122
  git.sr.ht/~sbinet/gg v0.6.0/go.mod h1:uucygbfC9wVPQIfrmwM2et0imr8L7KQWywX0xpFMm94=
  github.com/BurntSushi/toml v0.3.1 h1:WXkYYl6Yr3qBf1K79EBnL4mak0OimBfB0XUf9Vl28OQ=
  github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802 h1:1BDTz0u9nC3//pOCMdNH+CiXJVYJh5UQNCOBG7jbELc=
@@ -13,7 +11,7 @@ index 0fff97d25..243062cbb 100644
  github.com/JohnCGriffin/overflow v0.0.0-20211019200055-46fa312c352c h1:RGWPOewvKIROun94nF7v2cua9qP+thov/7M50KEoeSU=
  github.com/Masterminds/goutils v1.1.1 h1:5nUrii3FMTL5diU80unEVvNevw1nH4+ZV4DSLVJLSYI=
  github.com/Masterminds/goutils v1.1.1/go.mod h1:8cTjp+g8YejhMuvIA5y2vz3BpJxksy863GQaJW2MFNU=
-@@ -202,20 +198,6 @@ github.com/tidwall/match v1.1.1 h1:+Ho715JplO36QYgwN9PGYNhgZvoUSc9X2c80KVTi+GA=
+@@ -202,20 +198,6 @@ github.com/yuin/goldmark v1.4.13 h1:fVcFKWvrslecOb/tg+
  github.com/tidwall/pretty v1.2.0 h1:RWIZEg2iJ8/g6fDDYzMpobmaoGh5OLl4AXtGUGPcqCs=
  github.com/tidwall/sjson v1.2.5 h1:kLy8mja+1c9jlljvWTlSazM7cKDRfJuR/bOJhcY5NcY=
  github.com/yuin/goldmark v1.4.13 h1:fVcFKWvrslecOb/tg+Cc05dkeYx540o0FuFt3nUVDoE=

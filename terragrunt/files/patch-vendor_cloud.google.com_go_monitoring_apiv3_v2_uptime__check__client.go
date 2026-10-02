@@ -1,8 +1,6 @@
-diff --git a/vendor/cloud.google.com/go/monitoring/apiv3/v2/uptime_check_client.go b/vendor/cloud.google.com/go/monitoring/apiv3/v2/uptime_check_client.go
-index 12811e790..cd09da955 100644
---- vendor/cloud.google.com/go/monitoring/apiv3/v2/uptime_check_client.go.orig
+--- vendor/cloud.google.com/go/monitoring/apiv3/v2/uptime_check_client.go.orig	2026-10-02 16:09:03 UTC
 +++ vendor/cloud.google.com/go/monitoring/apiv3/v2/uptime_check_client.go
-@@ -246,16 +246,7 @@ type uptimeCheckGRPCClient struct {
+@@ -246,16 +246,7 @@ func NewUptimeCheckClient(ctx context.Context, opts ..
  // Monitoring, and then clicking on “Uptime”.
  func NewUptimeCheckClient(ctx context.Context, opts ...option.ClientOption) (*UptimeCheckClient, error) {
  	clientOpts := defaultUptimeCheckGRPCClientOptions()
@@ -20,7 +18,7 @@ index 12811e790..cd09da955 100644
  	if newUptimeCheckClientHook != nil {
  		hookOpts, err := newUptimeCheckClientHook(ctx, clientHookParams{})
  		if err != nil {
-@@ -277,25 +268,6 @@ func NewUptimeCheckClient(ctx context.Context, opts ...option.ClientOption) (*Up
+@@ -277,26 +268,7 @@ func NewUptimeCheckClient(ctx context.Context, opts ..
  		logger:            internaloption.GetLogger(opts),
  	}
  	c.setGoogleClientInfo()
@@ -35,7 +33,7 @@ index 12811e790..cd09da955 100644
 -				gax.URLDomain:      "monitoring.googleapis.com",
 -			}),
 -		)
--
+ 
 -		client.CallOptions.ListUptimeCheckConfigs = append(client.CallOptions.ListUptimeCheckConfigs, gax.WithClientMetrics(metrics))
 -		client.CallOptions.GetUptimeCheckConfig = append(client.CallOptions.GetUptimeCheckConfig, gax.WithClientMetrics(metrics))
 -		client.CallOptions.CreateUptimeCheckConfig = append(client.CallOptions.CreateUptimeCheckConfig, gax.WithClientMetrics(metrics))
@@ -43,10 +41,11 @@ index 12811e790..cd09da955 100644
 -		client.CallOptions.DeleteUptimeCheckConfig = append(client.CallOptions.DeleteUptimeCheckConfig, gax.WithClientMetrics(metrics))
 -		client.CallOptions.ListUptimeCheckIps = append(client.CallOptions.ListUptimeCheckIps, gax.WithClientMetrics(metrics))
 -	}
- 
+-
  	client.internalClient = c
  
-@@ -332,12 +304,7 @@ func (c *uptimeCheckGRPCClient) ListUptimeCheckConfigs(ctx context.Context, req
+ 	return &client, nil
+@@ -332,12 +304,7 @@ func (c *uptimeCheckGRPCClient) ListUptimeCheckConfigs
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -60,7 +59,7 @@ index 12811e790..cd09da955 100644
  	opts = append((*c.CallOptions).ListUptimeCheckConfigs[0:len((*c.CallOptions).ListUptimeCheckConfigs):len((*c.CallOptions).ListUptimeCheckConfigs)], opts...)
  	it := &UptimeCheckConfigIterator{}
  	req = proto.CloneOf(req)
-@@ -384,12 +351,7 @@ func (c *uptimeCheckGRPCClient) GetUptimeCheckConfig(ctx context.Context, req *m
+@@ -384,12 +351,7 @@ func (c *uptimeCheckGRPCClient) GetUptimeCheckConfig(c
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -74,7 +73,7 @@ index 12811e790..cd09da955 100644
  	opts = append((*c.CallOptions).GetUptimeCheckConfig[0:len((*c.CallOptions).GetUptimeCheckConfig):len((*c.CallOptions).GetUptimeCheckConfig)], opts...)
  	var resp *monitoringpb.UptimeCheckConfig
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -408,12 +370,7 @@ func (c *uptimeCheckGRPCClient) CreateUptimeCheckConfig(ctx context.Context, req
+@@ -408,12 +370,7 @@ func (c *uptimeCheckGRPCClient) CreateUptimeCheckConfi
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -88,7 +87,7 @@ index 12811e790..cd09da955 100644
  	opts = append((*c.CallOptions).CreateUptimeCheckConfig[0:len((*c.CallOptions).CreateUptimeCheckConfig):len((*c.CallOptions).CreateUptimeCheckConfig)], opts...)
  	var resp *monitoringpb.UptimeCheckConfig
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -432,9 +389,7 @@ func (c *uptimeCheckGRPCClient) UpdateUptimeCheckConfig(ctx context.Context, req
+@@ -432,9 +389,7 @@ func (c *uptimeCheckGRPCClient) UpdateUptimeCheckConfi
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -99,7 +98,7 @@ index 12811e790..cd09da955 100644
  	opts = append((*c.CallOptions).UpdateUptimeCheckConfig[0:len((*c.CallOptions).UpdateUptimeCheckConfig):len((*c.CallOptions).UpdateUptimeCheckConfig)], opts...)
  	var resp *monitoringpb.UptimeCheckConfig
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -453,12 +408,7 @@ func (c *uptimeCheckGRPCClient) DeleteUptimeCheckConfig(ctx context.Context, req
+@@ -453,12 +408,7 @@ func (c *uptimeCheckGRPCClient) DeleteUptimeCheckConfi
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -113,7 +112,7 @@ index 12811e790..cd09da955 100644
  	opts = append((*c.CallOptions).DeleteUptimeCheckConfig[0:len((*c.CallOptions).DeleteUptimeCheckConfig):len((*c.CallOptions).DeleteUptimeCheckConfig)], opts...)
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
  		var err error
-@@ -470,9 +420,7 @@ func (c *uptimeCheckGRPCClient) DeleteUptimeCheckConfig(ctx context.Context, req
+@@ -470,9 +420,7 @@ func (c *uptimeCheckGRPCClient) ListUptimeCheckIps(ctx
  
  func (c *uptimeCheckGRPCClient) ListUptimeCheckIps(ctx context.Context, req *monitoringpb.ListUptimeCheckIpsRequest, opts ...gax.CallOption) *UptimeCheckIpIterator {
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, c.xGoogHeaders...)

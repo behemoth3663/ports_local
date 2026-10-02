@@ -1,6 +1,4 @@
-diff --git a/vendor/google.golang.org/api/transport/http/dial.go b/vendor/google.golang.org/api/transport/http/dial.go
-index 02a8a7410..fdc0c362c 100644
---- vendor/google.golang.org/api/transport/http/dial.go.orig
+--- vendor/google.golang.org/api/transport/http/dial.go.orig	2026-10-02 16:09:04 UTC
 +++ vendor/google.golang.org/api/transport/http/dial.go
 @@ -19,7 +19,6 @@ import (
  	"cloud.google.com/go/auth/credentials"
@@ -10,7 +8,7 @@ index 02a8a7410..fdc0c362c 100644
  	"golang.org/x/net/http2"
  	"golang.org/x/oauth2"
  	"google.golang.org/api/googleapi/transport"
-@@ -306,10 +305,8 @@ func fallbackBaseTransport() *http.Transport {
+@@ -306,10 +305,8 @@ func addOpenTelemetryTransport(trans http.RoundTripper
  }
  
  func addOpenTelemetryTransport(trans http.RoundTripper, settings *internal.DialSettings) http.RoundTripper {

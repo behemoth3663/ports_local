@@ -1,8 +1,6 @@
-diff --git a/vendor/cloud.google.com/go/debug.md b/vendor/cloud.google.com/go/debug.md
-index 052962e34..fb9fa6527 100644
---- vendor/cloud.google.com/go/debug.md.orig
+--- vendor/cloud.google.com/go/debug.md.orig	2026-10-02 16:09:03 UTC
 +++ vendor/cloud.google.com/go/debug.md
-@@ -99,7 +99,6 @@ patched. We recommend that you migrate from OpenCensus tracing to
+@@ -99,7 +99,6 @@ for OpenCensus is now deprecated in the Google Cloud c
  OpenTelemetry, the successor project. The default experimental tracing support
  for OpenCensus is now deprecated in the Google Cloud client libraries for Go.
  
@@ -10,7 +8,7 @@ index 052962e34..fb9fa6527 100644
  dependencies of your application remain instrumented with OpenCensus. If you do
  not use the bridge, you will need to migrate your entire application and all of
  its instrumented dependencies at once.  For simple applications, this may be
-@@ -123,7 +122,6 @@ context propagation will be removed soon.
+@@ -123,7 +122,6 @@ Please refer to the following resources:
  Please refer to the following resources:
  
  * [Sunsetting OpenCensus](https://opentelemetry.io/blog/2023/sunsetting-opencensus/)

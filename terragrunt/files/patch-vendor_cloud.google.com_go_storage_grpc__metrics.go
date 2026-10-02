@@ -1,6 +1,4 @@
-diff --git a/vendor/cloud.google.com/go/storage/grpc_metrics.go b/vendor/cloud.google.com/go/storage/grpc_metrics.go
-index 62d53876c..419cabc14 100644
---- vendor/cloud.google.com/go/storage/grpc_metrics.go.orig
+--- vendor/cloud.google.com/go/storage/grpc_metrics.go.orig	2026-10-02 16:09:03 UTC
 +++ vendor/cloud.google.com/go/storage/grpc_metrics.go
 @@ -1,285 +1,34 @@
 -// Copyright 2024 Google LLC
@@ -37,13 +35,13 @@ index 62d53876c..419cabc14 100644
 -	"google.golang.org/grpc"
 -	"google.golang.org/grpc/experimental/stats"
 -	"google.golang.org/grpc/stats/opentelemetry"
--)
--
+ )
+ 
 -const (
 -	monitoredResourceName = "storage.googleapis.com/Client"
 -	metricPrefix          = "storage.googleapis.com/client/"
- )
- 
+-)
+-
 -// Added to help with tests
 -type storageMonitoredResource struct {
 -	project       string
@@ -229,7 +227,7 @@ index 62d53876c..419cabc14 100644
 +		provider:   nil,
 +		close:      func() {},
  	}, nil
- }
+-}
 -
 -// Silences permission errors after initial error is emitted to prevent
 -// chatty logs.
@@ -299,4 +297,4 @@ index 62d53876c..419cabc14 100644
 -		Name:        name,
 -		Aggregation: metric.AggregationExplicitBucketHistogram{Boundaries: boundaries},
 -	})
--}
+ }

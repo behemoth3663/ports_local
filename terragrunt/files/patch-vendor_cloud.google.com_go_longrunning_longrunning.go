@@ -1,6 +1,4 @@
-diff --git a/vendor/cloud.google.com/go/longrunning/longrunning.go b/vendor/cloud.google.com/go/longrunning/longrunning.go
-index 666ea6b76..e64eefa76 100644
---- vendor/cloud.google.com/go/longrunning/longrunning.go.orig
+--- vendor/cloud.google.com/go/longrunning/longrunning.go.orig	2026-10-02 16:09:03 UTC
 +++ vendor/cloud.google.com/go/longrunning/longrunning.go
 @@ -31,11 +31,6 @@ import (
  	pb "cloud.google.com/go/longrunning/autogen/longrunningpb"
@@ -23,7 +21,7 @@ index 666ea6b76..e64eefa76 100644
  }
  
  type operationsClient interface {
-@@ -84,7 +79,7 @@ func InternalNewOperationWithMetadata(inner *autogen.OperationsClient, proto *pb
+@@ -84,7 +79,7 @@ func InternalNewOperationWithMetadata(inner *autogen.O
  // which is used to create a Span Link from the LRO Wait span.
  //
  // SetParentSpanContext is an EXPERIMENTAL API and may be changed or removed in the future.
@@ -32,7 +30,7 @@ index 666ea6b76..e64eefa76 100644
  	op.initSpanContext = sc
  }
  
-@@ -172,35 +167,9 @@ func (op *Operation) waitWithInterval(ctx context.Context, resp protoadapt.Messa
+@@ -172,35 +167,9 @@ func (op *Operation) waitWithInterval(ctx context.Cont
  		bo.Max = bo.Initial
  	}
  
@@ -71,7 +69,7 @@ index 666ea6b76..e64eefa76 100644
  }
  
  type sleeper func(context.Context, time.Duration) error
-@@ -221,57 +190,7 @@ func (op *Operation) wait(ctx context.Context, resp protoadapt.MessageV1, bo *ga
+@@ -221,57 +190,7 @@ func (op *Operation) waitTraced(ctx context.Context, r
  }
  
  func (op *Operation) waitTraced(ctx context.Context, resp protoadapt.MessageV1, bo *gax.Backoff, sl sleeper, opts ...gax.CallOption) error {

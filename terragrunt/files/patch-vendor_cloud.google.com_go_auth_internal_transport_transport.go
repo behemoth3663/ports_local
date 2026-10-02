@@ -1,6 +1,4 @@
-diff --git a/vendor/cloud.google.com/go/auth/internal/transport/transport.go b/vendor/cloud.google.com/go/auth/internal/transport/transport.go
-index fb0a8a1e0..6a6a912c5 100644
---- vendor/cloud.google.com/go/auth/internal/transport/transport.go.orig
+--- vendor/cloud.google.com/go/auth/internal/transport/transport.go.orig	2026-10-02 16:09:03 UTC
 +++ vendor/cloud.google.com/go/auth/internal/transport/transport.go
 @@ -24,7 +24,6 @@ import (
  	"time"

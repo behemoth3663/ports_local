@@ -1,8 +1,6 @@
-diff --git a/vendor/cloud.google.com/go/monitoring/apiv3/v2/service_monitoring_client.go b/vendor/cloud.google.com/go/monitoring/apiv3/v2/service_monitoring_client.go
-index a0023d255..49a852a66 100644
---- vendor/cloud.google.com/go/monitoring/apiv3/v2/service_monitoring_client.go.orig
+--- vendor/cloud.google.com/go/monitoring/apiv3/v2/service_monitoring_client.go.orig	2026-10-02 16:09:03 UTC
 +++ vendor/cloud.google.com/go/monitoring/apiv3/v2/service_monitoring_client.go
-@@ -290,16 +290,7 @@ type serviceMonitoringGRPCClient struct {
+@@ -290,16 +290,7 @@ func NewServiceMonitoringClient(ctx context.Context, o
  // taxonomy of categorized Health Metrics.
  func NewServiceMonitoringClient(ctx context.Context, opts ...option.ClientOption) (*ServiceMonitoringClient, error) {
  	clientOpts := defaultServiceMonitoringGRPCClientOptions()
@@ -20,7 +18,7 @@ index a0023d255..49a852a66 100644
  	if newServiceMonitoringClientHook != nil {
  		hookOpts, err := newServiceMonitoringClientHook(ctx, clientHookParams{})
  		if err != nil {
-@@ -321,29 +312,6 @@ func NewServiceMonitoringClient(ctx context.Context, opts ...option.ClientOption
+@@ -321,30 +312,7 @@ func NewServiceMonitoringClient(ctx context.Context, o
  		logger:                  internaloption.GetLogger(opts),
  	}
  	c.setGoogleClientInfo()
@@ -35,7 +33,7 @@ index a0023d255..49a852a66 100644
 -				gax.URLDomain:      "monitoring.googleapis.com",
 -			}),
 -		)
--
+ 
 -		client.CallOptions.CreateService = append(client.CallOptions.CreateService, gax.WithClientMetrics(metrics))
 -		client.CallOptions.GetService = append(client.CallOptions.GetService, gax.WithClientMetrics(metrics))
 -		client.CallOptions.ListServices = append(client.CallOptions.ListServices, gax.WithClientMetrics(metrics))
@@ -47,10 +45,11 @@ index a0023d255..49a852a66 100644
 -		client.CallOptions.UpdateServiceLevelObjective = append(client.CallOptions.UpdateServiceLevelObjective, gax.WithClientMetrics(metrics))
 -		client.CallOptions.DeleteServiceLevelObjective = append(client.CallOptions.DeleteServiceLevelObjective, gax.WithClientMetrics(metrics))
 -	}
- 
+-
  	client.internalClient = c
  
-@@ -380,12 +348,7 @@ func (c *serviceMonitoringGRPCClient) CreateService(ctx context.Context, req *mo
+ 	return &client, nil
+@@ -380,12 +348,7 @@ func (c *serviceMonitoringGRPCClient) CreateService(ct
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -64,7 +63,7 @@ index a0023d255..49a852a66 100644
  	opts = append((*c.CallOptions).CreateService[0:len((*c.CallOptions).CreateService):len((*c.CallOptions).CreateService)], opts...)
  	var resp *monitoringpb.Service
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -404,12 +367,7 @@ func (c *serviceMonitoringGRPCClient) GetService(ctx context.Context, req *monit
+@@ -404,12 +367,7 @@ func (c *serviceMonitoringGRPCClient) GetService(ctx c
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -78,7 +77,7 @@ index a0023d255..49a852a66 100644
  	opts = append((*c.CallOptions).GetService[0:len((*c.CallOptions).GetService):len((*c.CallOptions).GetService)], opts...)
  	var resp *monitoringpb.Service
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -428,12 +386,7 @@ func (c *serviceMonitoringGRPCClient) ListServices(ctx context.Context, req *mon
+@@ -428,12 +386,7 @@ func (c *serviceMonitoringGRPCClient) ListServices(ctx
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -92,7 +91,7 @@ index a0023d255..49a852a66 100644
  	opts = append((*c.CallOptions).ListServices[0:len((*c.CallOptions).ListServices):len((*c.CallOptions).ListServices)], opts...)
  	it := &ServiceIterator{}
  	req = proto.CloneOf(req)
-@@ -480,9 +433,7 @@ func (c *serviceMonitoringGRPCClient) UpdateService(ctx context.Context, req *mo
+@@ -480,9 +433,7 @@ func (c *serviceMonitoringGRPCClient) UpdateService(ct
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -103,7 +102,7 @@ index a0023d255..49a852a66 100644
  	opts = append((*c.CallOptions).UpdateService[0:len((*c.CallOptions).UpdateService):len((*c.CallOptions).UpdateService)], opts...)
  	var resp *monitoringpb.Service
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -501,12 +452,7 @@ func (c *serviceMonitoringGRPCClient) DeleteService(ctx context.Context, req *mo
+@@ -501,12 +452,7 @@ func (c *serviceMonitoringGRPCClient) DeleteService(ct
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -117,7 +116,7 @@ index a0023d255..49a852a66 100644
  	opts = append((*c.CallOptions).DeleteService[0:len((*c.CallOptions).DeleteService):len((*c.CallOptions).DeleteService)], opts...)
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
  		var err error
-@@ -521,12 +467,7 @@ func (c *serviceMonitoringGRPCClient) CreateServiceLevelObjective(ctx context.Co
+@@ -521,12 +467,7 @@ func (c *serviceMonitoringGRPCClient) CreateServiceLev
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -131,7 +130,7 @@ index a0023d255..49a852a66 100644
  	opts = append((*c.CallOptions).CreateServiceLevelObjective[0:len((*c.CallOptions).CreateServiceLevelObjective):len((*c.CallOptions).CreateServiceLevelObjective)], opts...)
  	var resp *monitoringpb.ServiceLevelObjective
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -545,12 +486,7 @@ func (c *serviceMonitoringGRPCClient) GetServiceLevelObjective(ctx context.Conte
+@@ -545,12 +486,7 @@ func (c *serviceMonitoringGRPCClient) GetServiceLevelO
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -145,7 +144,7 @@ index a0023d255..49a852a66 100644
  	opts = append((*c.CallOptions).GetServiceLevelObjective[0:len((*c.CallOptions).GetServiceLevelObjective):len((*c.CallOptions).GetServiceLevelObjective)], opts...)
  	var resp *monitoringpb.ServiceLevelObjective
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -569,12 +505,7 @@ func (c *serviceMonitoringGRPCClient) ListServiceLevelObjectives(ctx context.Con
+@@ -569,12 +505,7 @@ func (c *serviceMonitoringGRPCClient) ListServiceLevel
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -159,7 +158,7 @@ index a0023d255..49a852a66 100644
  	opts = append((*c.CallOptions).ListServiceLevelObjectives[0:len((*c.CallOptions).ListServiceLevelObjectives):len((*c.CallOptions).ListServiceLevelObjectives)], opts...)
  	it := &ServiceLevelObjectiveIterator{}
  	req = proto.CloneOf(req)
-@@ -621,9 +552,7 @@ func (c *serviceMonitoringGRPCClient) UpdateServiceLevelObjective(ctx context.Co
+@@ -621,9 +552,7 @@ func (c *serviceMonitoringGRPCClient) UpdateServiceLev
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -170,7 +169,7 @@ index a0023d255..49a852a66 100644
  	opts = append((*c.CallOptions).UpdateServiceLevelObjective[0:len((*c.CallOptions).UpdateServiceLevelObjective):len((*c.CallOptions).UpdateServiceLevelObjective)], opts...)
  	var resp *monitoringpb.ServiceLevelObjective
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -642,12 +571,7 @@ func (c *serviceMonitoringGRPCClient) DeleteServiceLevelObjective(ctx context.Co
+@@ -642,12 +571,7 @@ func (c *serviceMonitoringGRPCClient) DeleteServiceLev
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)

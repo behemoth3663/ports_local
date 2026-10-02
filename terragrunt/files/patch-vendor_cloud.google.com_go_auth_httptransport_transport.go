@@ -1,8 +1,6 @@
-diff --git a/vendor/cloud.google.com/go/auth/httptransport/transport.go b/vendor/cloud.google.com/go/auth/httptransport/transport.go
-index be1945a98..eda880051 100644
---- vendor/cloud.google.com/go/auth/httptransport/transport.go.orig
+--- vendor/cloud.google.com/go/auth/httptransport/transport.go.orig	2026-10-02 16:09:03 UTC
 +++ vendor/cloud.google.com/go/auth/httptransport/transport.go
-@@ -15,17 +15,11 @@
+@@ -15,17 +15,11 @@ import (
  package httptransport
  
  import (
@@ -34,7 +32,7 @@ index be1945a98..eda880051 100644
  )
  
  const (
-@@ -182,316 +170,8 @@ func (t *headerTransport) RoundTrip(req *http.Request) (*http.Response, error) {
+@@ -182,316 +170,8 @@ func addOpenTelemetryTransport(trans http.RoundTripper
  }
  
  func addOpenTelemetryTransport(trans http.RoundTripper, opts *Options) http.RoundTripper {

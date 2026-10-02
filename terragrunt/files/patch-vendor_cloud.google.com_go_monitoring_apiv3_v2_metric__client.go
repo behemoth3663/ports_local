@@ -1,8 +1,6 @@
-diff --git a/vendor/cloud.google.com/go/monitoring/apiv3/v2/metric_client.go b/vendor/cloud.google.com/go/monitoring/apiv3/v2/metric_client.go
-index 02544a1d8..4995f1faf 100644
---- vendor/cloud.google.com/go/monitoring/apiv3/v2/metric_client.go.orig
+--- vendor/cloud.google.com/go/monitoring/apiv3/v2/metric_client.go.orig	2026-10-02 16:09:03 UTC
 +++ vendor/cloud.google.com/go/monitoring/apiv3/v2/metric_client.go
-@@ -297,16 +297,7 @@ type metricGRPCClient struct {
+@@ -297,16 +297,7 @@ func NewMetricClient(ctx context.Context, opts ...opti
  // time series data.
  func NewMetricClient(ctx context.Context, opts ...option.ClientOption) (*MetricClient, error) {
  	clientOpts := defaultMetricGRPCClientOptions()
@@ -20,7 +18,7 @@ index 02544a1d8..4995f1faf 100644
  	if newMetricClientHook != nil {
  		hookOpts, err := newMetricClientHook(ctx, clientHookParams{})
  		if err != nil {
-@@ -328,28 +319,6 @@ func NewMetricClient(ctx context.Context, opts ...option.ClientOption) (*MetricC
+@@ -328,29 +319,7 @@ func NewMetricClient(ctx context.Context, opts ...opti
  		logger:       internaloption.GetLogger(opts),
  	}
  	c.setGoogleClientInfo()
@@ -35,7 +33,7 @@ index 02544a1d8..4995f1faf 100644
 -				gax.URLDomain:      "monitoring.googleapis.com",
 -			}),
 -		)
--
+ 
 -		client.CallOptions.ListMonitoredResourceDescriptors = append(client.CallOptions.ListMonitoredResourceDescriptors, gax.WithClientMetrics(metrics))
 -		client.CallOptions.GetMonitoredResourceDescriptor = append(client.CallOptions.GetMonitoredResourceDescriptor, gax.WithClientMetrics(metrics))
 -		client.CallOptions.ListMetricDescriptors = append(client.CallOptions.ListMetricDescriptors, gax.WithClientMetrics(metrics))
@@ -46,10 +44,11 @@ index 02544a1d8..4995f1faf 100644
 -		client.CallOptions.CreateTimeSeries = append(client.CallOptions.CreateTimeSeries, gax.WithClientMetrics(metrics))
 -		client.CallOptions.CreateServiceTimeSeries = append(client.CallOptions.CreateServiceTimeSeries, gax.WithClientMetrics(metrics))
 -	}
- 
+-
  	client.internalClient = c
  
-@@ -386,12 +355,7 @@ func (c *metricGRPCClient) ListMonitoredResourceDescriptors(ctx context.Context,
+ 	return &client, nil
+@@ -386,12 +355,7 @@ func (c *metricGRPCClient) ListMonitoredResourceDescri
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -63,7 +62,7 @@ index 02544a1d8..4995f1faf 100644
  	opts = append((*c.CallOptions).ListMonitoredResourceDescriptors[0:len((*c.CallOptions).ListMonitoredResourceDescriptors):len((*c.CallOptions).ListMonitoredResourceDescriptors)], opts...)
  	it := &MonitoredResourceDescriptorIterator{}
  	req = proto.CloneOf(req)
-@@ -438,12 +402,7 @@ func (c *metricGRPCClient) GetMonitoredResourceDescriptor(ctx context.Context, r
+@@ -438,12 +402,7 @@ func (c *metricGRPCClient) GetMonitoredResourceDescrip
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -77,7 +76,7 @@ index 02544a1d8..4995f1faf 100644
  	opts = append((*c.CallOptions).GetMonitoredResourceDescriptor[0:len((*c.CallOptions).GetMonitoredResourceDescriptor):len((*c.CallOptions).GetMonitoredResourceDescriptor)], opts...)
  	var resp *monitoredrespb.MonitoredResourceDescriptor
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -462,12 +421,7 @@ func (c *metricGRPCClient) ListMetricDescriptors(ctx context.Context, req *monit
+@@ -462,12 +421,7 @@ func (c *metricGRPCClient) ListMetricDescriptors(ctx c
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -91,7 +90,7 @@ index 02544a1d8..4995f1faf 100644
  	opts = append((*c.CallOptions).ListMetricDescriptors[0:len((*c.CallOptions).ListMetricDescriptors):len((*c.CallOptions).ListMetricDescriptors)], opts...)
  	it := &MetricDescriptorIterator{}
  	req = proto.CloneOf(req)
-@@ -514,12 +468,7 @@ func (c *metricGRPCClient) GetMetricDescriptor(ctx context.Context, req *monitor
+@@ -514,12 +468,7 @@ func (c *metricGRPCClient) GetMetricDescriptor(ctx con
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -105,7 +104,7 @@ index 02544a1d8..4995f1faf 100644
  	opts = append((*c.CallOptions).GetMetricDescriptor[0:len((*c.CallOptions).GetMetricDescriptor):len((*c.CallOptions).GetMetricDescriptor)], opts...)
  	var resp *metricpb.MetricDescriptor
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -538,12 +487,7 @@ func (c *metricGRPCClient) CreateMetricDescriptor(ctx context.Context, req *moni
+@@ -538,12 +487,7 @@ func (c *metricGRPCClient) CreateMetricDescriptor(ctx 
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -119,7 +118,7 @@ index 02544a1d8..4995f1faf 100644
  	opts = append((*c.CallOptions).CreateMetricDescriptor[0:len((*c.CallOptions).CreateMetricDescriptor):len((*c.CallOptions).CreateMetricDescriptor)], opts...)
  	var resp *metricpb.MetricDescriptor
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -562,12 +506,7 @@ func (c *metricGRPCClient) DeleteMetricDescriptor(ctx context.Context, req *moni
+@@ -562,12 +506,7 @@ func (c *metricGRPCClient) DeleteMetricDescriptor(ctx 
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -133,7 +132,7 @@ index 02544a1d8..4995f1faf 100644
  	opts = append((*c.CallOptions).DeleteMetricDescriptor[0:len((*c.CallOptions).DeleteMetricDescriptor):len((*c.CallOptions).DeleteMetricDescriptor)], opts...)
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
  		var err error
-@@ -582,12 +521,7 @@ func (c *metricGRPCClient) ListTimeSeries(ctx context.Context, req *monitoringpb
+@@ -582,12 +521,7 @@ func (c *metricGRPCClient) ListTimeSeries(ctx context.
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -147,7 +146,7 @@ index 02544a1d8..4995f1faf 100644
  	opts = append((*c.CallOptions).ListTimeSeries[0:len((*c.CallOptions).ListTimeSeries):len((*c.CallOptions).ListTimeSeries)], opts...)
  	it := &TimeSeriesIterator{}
  	req = proto.CloneOf(req)
-@@ -634,12 +568,7 @@ func (c *metricGRPCClient) CreateTimeSeries(ctx context.Context, req *monitoring
+@@ -634,12 +568,7 @@ func (c *metricGRPCClient) CreateTimeSeries(ctx contex
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -161,7 +160,7 @@ index 02544a1d8..4995f1faf 100644
  	opts = append((*c.CallOptions).CreateTimeSeries[0:len((*c.CallOptions).CreateTimeSeries):len((*c.CallOptions).CreateTimeSeries)], opts...)
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
  		var err error
-@@ -654,12 +583,7 @@ func (c *metricGRPCClient) CreateServiceTimeSeries(ctx context.Context, req *mon
+@@ -654,12 +583,7 @@ func (c *metricGRPCClient) CreateServiceTimeSeries(ctx
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)

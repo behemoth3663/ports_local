@@ -1,6 +1,4 @@
-diff --git a/vendor/cloud.google.com/go/internal/trace/trace.go b/vendor/cloud.google.com/go/internal/trace/trace.go
-index fcff2a7e4..5981b8b8a 100644
---- vendor/cloud.google.com/go/internal/trace/trace.go.orig
+--- vendor/cloud.google.com/go/internal/trace/trace.go.orig	2026-10-02 16:09:03 UTC
 +++ vendor/cloud.google.com/go/internal/trace/trace.go
 @@ -5,93 +5,31 @@
  // You may obtain a copy of the License at
@@ -19,7 +17,8 @@ index fcff2a7e4..5981b8b8a 100644
 -	"context"
 -	"errors"
 -	"fmt"
--
++import "context"
+ 
 -	"go.opentelemetry.io/otel"
 -	"go.opentelemetry.io/otel/attribute"
 -	"go.opentelemetry.io/otel/codes"
@@ -27,8 +26,7 @@ index fcff2a7e4..5981b8b8a 100644
 -	"google.golang.org/api/googleapi"
 -	"google.golang.org/grpc/status"
 -)
-+import "context"
- 
+-
  const (
  	OpenTelemetryTracerName = "cloud.google.com/go"
  )

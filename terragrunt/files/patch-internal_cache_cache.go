@@ -1,6 +1,4 @@
-diff --git a/internal/cache/cache.go b/internal/cache/cache.go
-index 50269ed66..67123e597 100644
---- internal/cache/cache.go.orig
+--- internal/cache/cache.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/cache/cache.go
 @@ -9,8 +9,6 @@ import (
  	"fmt"
@@ -11,7 +9,7 @@ index 50269ed66..67123e597 100644
  )
  
  // Cache - generic cache implementation
-@@ -38,12 +36,8 @@ func (c *Cache[V]) Get(ctx context.Context, key string) (V, bool) {
+@@ -38,12 +36,8 @@ func (c *Cache[V]) Get(ctx context.Context, key string
  	cacheKey := hex.EncodeToString(keyHash[:])
  	value, found := c.Cache[cacheKey]
  
@@ -24,7 +22,7 @@ index 50269ed66..67123e597 100644
  	}
  
  	return value, found
-@@ -54,8 +48,6 @@ func (c *Cache[V]) Put(ctx context.Context, key string, value V) {
+@@ -54,8 +48,6 @@ func (c *Cache[V]) Put(ctx context.Context, key string
  	c.Mutex.Lock()
  	defer c.Mutex.Unlock()
  
@@ -33,7 +31,7 @@ index 50269ed66..67123e597 100644
  	keyHash := sha256.Sum256([]byte(key))
  	cacheKey := hex.EncodeToString(keyHash[:])
  	c.Cache[cacheKey] = value
-@@ -89,22 +81,17 @@ func (c *ExpiringCache[V]) Get(ctx context.Context, key string) (V, bool) {
+@@ -89,22 +81,17 @@ func (c *ExpiringCache[V]) Get(ctx context.Context, ke
  	defer c.Mutex.Unlock()
  
  	item, found := c.Cache[key]
@@ -56,7 +54,7 @@ index 50269ed66..67123e597 100644
  	return item.Value, true
  }
  
-@@ -112,8 +99,6 @@ func (c *ExpiringCache[V]) Get(ctx context.Context, key string) (V, bool) {
+@@ -112,8 +99,6 @@ func (c *ExpiringCache[V]) Put(ctx context.Context, ke
  func (c *ExpiringCache[V]) Put(ctx context.Context, key string, value V, expiration time.Time) {
  	c.Mutex.Lock()
  	defer c.Mutex.Unlock()
@@ -65,7 +63,7 @@ index 50269ed66..67123e597 100644
  	c.Cache[key] = ExpiringItem[V]{Value: value, Expiration: expiration}
  }
  
-@@ -145,17 +130,11 @@ func (c *RepoRootCache) Lookup(ctx context.Context, dir string) (string, bool) {
+@@ -145,17 +130,11 @@ func (c *RepoRootCache) Lookup(ctx context.Context, di
  	c.mu.RLock()
  	defer c.mu.RUnlock()
  
@@ -83,12 +81,12 @@ index 50269ed66..67123e597 100644
  	return root, true
  }
  
-@@ -175,8 +154,6 @@ func (c *RepoRootCache) Add(ctx context.Context, root string, dirs ...string) {
+@@ -174,8 +153,6 @@ func (c *RepoRootCache) Add(ctx context.Context, root 
+ 		if dir == "" {
  			continue
  		}
- 
--		telemetry.TelemeterFromContext(ctx).Count(ctx, c.name+"_cache_put", 1)
 -
+-		telemetry.TelemeterFromContext(ctx).Count(ctx, c.name+"_cache_put", 1)
+ 
  		c.roots[dir] = root
  	}
- }

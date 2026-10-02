@@ -1,8 +1,6 @@
-diff --git a/vendor/cloud.google.com/go/monitoring/apiv3/v2/notification_channel_client.go b/vendor/cloud.google.com/go/monitoring/apiv3/v2/notification_channel_client.go
-index fc092f037..fd0098a59 100644
---- vendor/cloud.google.com/go/monitoring/apiv3/v2/notification_channel_client.go.orig
+--- vendor/cloud.google.com/go/monitoring/apiv3/v2/notification_channel_client.go.orig	2026-10-02 16:09:03 UTC
 +++ vendor/cloud.google.com/go/monitoring/apiv3/v2/notification_channel_client.go
-@@ -343,16 +343,7 @@ type notificationChannelGRPCClient struct {
+@@ -343,16 +343,7 @@ func NewNotificationChannelClient(ctx context.Context,
  // controls how messages related to incidents are sent.
  func NewNotificationChannelClient(ctx context.Context, opts ...option.ClientOption) (*NotificationChannelClient, error) {
  	clientOpts := defaultNotificationChannelGRPCClientOptions()
@@ -20,7 +18,7 @@ index fc092f037..fd0098a59 100644
  	if newNotificationChannelClientHook != nil {
  		hookOpts, err := newNotificationChannelClientHook(ctx, clientHookParams{})
  		if err != nil {
-@@ -374,29 +365,6 @@ func NewNotificationChannelClient(ctx context.Context, opts ...option.ClientOpti
+@@ -374,30 +365,7 @@ func NewNotificationChannelClient(ctx context.Context,
  		logger:                    internaloption.GetLogger(opts),
  	}
  	c.setGoogleClientInfo()
@@ -35,7 +33,7 @@ index fc092f037..fd0098a59 100644
 -				gax.URLDomain:      "monitoring.googleapis.com",
 -			}),
 -		)
--
+ 
 -		client.CallOptions.ListNotificationChannelDescriptors = append(client.CallOptions.ListNotificationChannelDescriptors, gax.WithClientMetrics(metrics))
 -		client.CallOptions.GetNotificationChannelDescriptor = append(client.CallOptions.GetNotificationChannelDescriptor, gax.WithClientMetrics(metrics))
 -		client.CallOptions.ListNotificationChannels = append(client.CallOptions.ListNotificationChannels, gax.WithClientMetrics(metrics))
@@ -47,10 +45,11 @@ index fc092f037..fd0098a59 100644
 -		client.CallOptions.GetNotificationChannelVerificationCode = append(client.CallOptions.GetNotificationChannelVerificationCode, gax.WithClientMetrics(metrics))
 -		client.CallOptions.VerifyNotificationChannel = append(client.CallOptions.VerifyNotificationChannel, gax.WithClientMetrics(metrics))
 -	}
- 
+-
  	client.internalClient = c
  
-@@ -433,12 +401,7 @@ func (c *notificationChannelGRPCClient) ListNotificationChannelDescriptors(ctx c
+ 	return &client, nil
+@@ -433,12 +401,7 @@ func (c *notificationChannelGRPCClient) ListNotificati
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -64,7 +63,7 @@ index fc092f037..fd0098a59 100644
  	opts = append((*c.CallOptions).ListNotificationChannelDescriptors[0:len((*c.CallOptions).ListNotificationChannelDescriptors):len((*c.CallOptions).ListNotificationChannelDescriptors)], opts...)
  	it := &NotificationChannelDescriptorIterator{}
  	req = proto.CloneOf(req)
-@@ -485,12 +448,7 @@ func (c *notificationChannelGRPCClient) GetNotificationChannelDescriptor(ctx con
+@@ -485,12 +448,7 @@ func (c *notificationChannelGRPCClient) GetNotificatio
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -78,7 +77,7 @@ index fc092f037..fd0098a59 100644
  	opts = append((*c.CallOptions).GetNotificationChannelDescriptor[0:len((*c.CallOptions).GetNotificationChannelDescriptor):len((*c.CallOptions).GetNotificationChannelDescriptor)], opts...)
  	var resp *monitoringpb.NotificationChannelDescriptor
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -509,12 +467,7 @@ func (c *notificationChannelGRPCClient) ListNotificationChannels(ctx context.Con
+@@ -509,12 +467,7 @@ func (c *notificationChannelGRPCClient) ListNotificati
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -92,7 +91,7 @@ index fc092f037..fd0098a59 100644
  	opts = append((*c.CallOptions).ListNotificationChannels[0:len((*c.CallOptions).ListNotificationChannels):len((*c.CallOptions).ListNotificationChannels)], opts...)
  	it := &NotificationChannelIterator{}
  	req = proto.CloneOf(req)
-@@ -561,12 +514,7 @@ func (c *notificationChannelGRPCClient) GetNotificationChannel(ctx context.Conte
+@@ -561,12 +514,7 @@ func (c *notificationChannelGRPCClient) GetNotificatio
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -106,7 +105,7 @@ index fc092f037..fd0098a59 100644
  	opts = append((*c.CallOptions).GetNotificationChannel[0:len((*c.CallOptions).GetNotificationChannel):len((*c.CallOptions).GetNotificationChannel)], opts...)
  	var resp *monitoringpb.NotificationChannel
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -585,12 +533,7 @@ func (c *notificationChannelGRPCClient) CreateNotificationChannel(ctx context.Co
+@@ -585,12 +533,7 @@ func (c *notificationChannelGRPCClient) CreateNotifica
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -120,7 +119,7 @@ index fc092f037..fd0098a59 100644
  	opts = append((*c.CallOptions).CreateNotificationChannel[0:len((*c.CallOptions).CreateNotificationChannel):len((*c.CallOptions).CreateNotificationChannel)], opts...)
  	var resp *monitoringpb.NotificationChannel
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -609,9 +552,7 @@ func (c *notificationChannelGRPCClient) UpdateNotificationChannel(ctx context.Co
+@@ -609,9 +552,7 @@ func (c *notificationChannelGRPCClient) UpdateNotifica
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -131,7 +130,7 @@ index fc092f037..fd0098a59 100644
  	opts = append((*c.CallOptions).UpdateNotificationChannel[0:len((*c.CallOptions).UpdateNotificationChannel):len((*c.CallOptions).UpdateNotificationChannel)], opts...)
  	var resp *monitoringpb.NotificationChannel
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -630,12 +571,7 @@ func (c *notificationChannelGRPCClient) DeleteNotificationChannel(ctx context.Co
+@@ -630,12 +571,7 @@ func (c *notificationChannelGRPCClient) DeleteNotifica
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -145,7 +144,7 @@ index fc092f037..fd0098a59 100644
  	opts = append((*c.CallOptions).DeleteNotificationChannel[0:len((*c.CallOptions).DeleteNotificationChannel):len((*c.CallOptions).DeleteNotificationChannel)], opts...)
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
  		var err error
-@@ -650,12 +586,7 @@ func (c *notificationChannelGRPCClient) SendNotificationChannelVerificationCode(
+@@ -650,12 +586,7 @@ func (c *notificationChannelGRPCClient) SendNotificati
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -159,7 +158,7 @@ index fc092f037..fd0098a59 100644
  	opts = append((*c.CallOptions).SendNotificationChannelVerificationCode[0:len((*c.CallOptions).SendNotificationChannelVerificationCode):len((*c.CallOptions).SendNotificationChannelVerificationCode)], opts...)
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
  		var err error
-@@ -670,12 +601,7 @@ func (c *notificationChannelGRPCClient) GetNotificationChannelVerificationCode(c
+@@ -670,12 +601,7 @@ func (c *notificationChannelGRPCClient) GetNotificatio
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -173,7 +172,7 @@ index fc092f037..fd0098a59 100644
  	opts = append((*c.CallOptions).GetNotificationChannelVerificationCode[0:len((*c.CallOptions).GetNotificationChannelVerificationCode):len((*c.CallOptions).GetNotificationChannelVerificationCode)], opts...)
  	var resp *monitoringpb.GetNotificationChannelVerificationCodeResponse
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -694,12 +620,7 @@ func (c *notificationChannelGRPCClient) VerifyNotificationChannel(ctx context.Co
+@@ -694,12 +620,7 @@ func (c *notificationChannelGRPCClient) VerifyNotifica
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)

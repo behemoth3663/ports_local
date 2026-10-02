@@ -1,6 +1,4 @@
-diff --git a/vendor/github.com/moby/moby/client/client.go b/vendor/github.com/moby/moby/client/client.go
-index 4b4ef976a..4b371347f 100644
---- vendor/github.com/moby/moby/client/client.go.orig
+--- vendor/github.com/moby/moby/client/client.go.orig	2026-10-02 16:09:04 UTC
 +++ vendor/github.com/moby/moby/client/client.go
 @@ -70,7 +70,6 @@ import (
  	"github.com/docker/go-connections/sockets"
@@ -23,12 +21,12 @@ index 4b4ef976a..4b371347f 100644
  		},
  	}
  	cfg := &c.clientConfig
-@@ -248,8 +243,6 @@ func New(ops ...Opt) (*Client, error) {
+@@ -247,8 +242,6 @@ func New(ops ...Opt) (*Client, error) {
+ 			c.scheme = "http"
  		}
  	}
- 
--	c.client.Transport = otelhttp.NewTransport(c.client.Transport, c.traceOpts...)
 -
+-	c.client.Transport = otelhttp.NewTransport(c.client.Transport, c.traceOpts...)
+ 
  	if len(cfg.responseHooks) > 0 {
  		c.client.Transport = &responseHookTransport{
- 			base:  c.client.Transport,

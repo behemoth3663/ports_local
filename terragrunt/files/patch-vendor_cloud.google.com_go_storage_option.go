@@ -1,6 +1,4 @@
-diff --git a/vendor/cloud.google.com/go/storage/option.go b/vendor/cloud.google.com/go/storage/option.go
-index 758f3ee26..3d7dda429 100644
---- vendor/cloud.google.com/go/storage/option.go.orig
+--- vendor/cloud.google.com/go/storage/option.go.orig	2026-10-02 16:09:03 UTC
 +++ vendor/cloud.google.com/go/storage/option.go
 @@ -21,7 +21,6 @@ import (
  
@@ -24,7 +22,7 @@ index 758f3ee26..3d7dda429 100644
  	readStallTimeoutConfig *experimental.ReadStallTimeoutConfig
  	grpcBidiReads          bool
  	grpcAppendableUploads  bool
-@@ -206,10 +205,10 @@ func (w *withMeterOptions) ApplyStorageOpt(c *storageConfig) {
+@@ -206,10 +205,10 @@ type withMetricExporterConfig struct {
  type withMetricExporterConfig struct {
  	internaloption.EmbeddableAdapter
  	// exporter override
@@ -37,7 +35,7 @@ index 758f3ee26..3d7dda429 100644
  	return &withMetricExporterConfig{metricExporter: ex}
  }
  
-@@ -220,16 +219,16 @@ func (w *withMetricExporterConfig) ApplyStorageOpt(c *storageConfig) {
+@@ -220,16 +219,16 @@ type withTestMetricReaderConfig struct {
  type withTestMetricReaderConfig struct {
  	internaloption.EmbeddableAdapter
  	// reader override
@@ -57,7 +55,7 @@ index 758f3ee26..3d7dda429 100644
  	return &withMeterProviderConfig{meterProvider: provider}
  }
  
-@@ -237,7 +236,7 @@ func (w *withMeterProviderConfig) ApplyStorageOpt(c *storageConfig) {
+@@ -237,7 +236,7 @@ func (w *withMeterProviderConfig) ApplyStorageOpt(c *s
  	c.meterProvider = w.meterProvider
  }
  

@@ -1,6 +1,4 @@
-diff --git a/vendor/github.com/moby/moby/client/client_options.go b/vendor/github.com/moby/moby/client/client_options.go
-index 399255723..4c94d8898 100644
---- vendor/github.com/moby/moby/client/client_options.go.orig
+--- vendor/github.com/moby/moby/client/client_options.go.orig	2026-10-02 16:09:04 UTC
 +++ vendor/github.com/moby/moby/client/client_options.go
 @@ -15,8 +15,6 @@ import (
  	cerrdefs "github.com/containerd/errdefs"

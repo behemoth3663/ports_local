@@ -1,8 +1,6 @@
-diff --git a/internal/cli/commands/commands.go b/internal/cli/commands/commands.go
-index 3a189da2c..0eab0cc16 100644
---- internal/cli/commands/commands.go.orig
+--- internal/cli/commands/commands.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/cli/commands/commands.go
-@@ -3,6 +3,7 @@ package commands
+@@ -3,6 +3,7 @@ import (
  
  import (
  	"context"
@@ -27,7 +25,7 @@ index 3a189da2c..0eab0cc16 100644
  	"github.com/gruntwork-io/terragrunt/internal/tips"
  	"github.com/gruntwork-io/terragrunt/pkg/config"
  	"github.com/gruntwork-io/terragrunt/pkg/log/format/placeholders"
-@@ -145,12 +143,7 @@ func New(l log.Logger, opts *options.TerragruntOptions, v *venv.Venv) clihelper.
+@@ -145,12 +143,7 @@ func New(l log.Logger, opts *options.TerragruntOptions
  	return allCommands
  }
  
@@ -71,11 +69,18 @@ index 3a189da2c..0eab0cc16 100644
  		}()
  
 -		ctx = telemetry.ContextWithTelemeter(ctx, telemeter)
--
++		if err := initialSetup(cliCtx, l, v, opts); err != nil {
++			return err
++		}
+ 
 -		cmdName := fmt.Sprintf(
 -			"%s %s", cliCtx.Command.Name, opts.TerraformCommand,
 -		)
--
++		if err := RunAction(ctx, cliCtx, l, opts, v, action); err != nil {
++			opts.Tips.Find(tips.DebuggingDocs).Evaluate(l)
++			return err
++		}
+ 
 -		return telemeter.Collect(ctx, l, cmdName, map[string]any{
 -			"terraformCommand": opts.TerraformCommand,
 -			"args":             opts.TerraformCliArgs,
@@ -98,19 +103,12 @@ index 3a189da2c..0eab0cc16 100644
 -			if err := initialSetup(cliCtx, l, v, opts); err != nil {
 -				return err
 -			}
-+		if err := initialSetup(cliCtx, l, v, opts); err != nil {
-+			return err
-+		}
- 
+-
 -			if err := RunAction(childCtx, cliCtx, l, opts, v, action); err != nil {
 -				opts.Tips.Find(tips.DebuggingDocs).Evaluate(l)
 -				return err
 -			}
-+		if err := RunAction(ctx, cliCtx, l, opts, v, action); err != nil {
-+			opts.Tips.Find(tips.DebuggingDocs).Evaluate(l)
-+			return err
-+		}
- 
+-
 -			return nil
 -		})
 +		return nil

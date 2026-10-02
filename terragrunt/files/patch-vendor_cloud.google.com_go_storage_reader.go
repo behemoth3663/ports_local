@@ -1,6 +1,4 @@
-diff --git a/vendor/cloud.google.com/go/storage/reader.go b/vendor/cloud.google.com/go/storage/reader.go
-index de56f9f2a..c6a4b3e33 100644
---- vendor/cloud.google.com/go/storage/reader.go.orig
+--- vendor/cloud.google.com/go/storage/reader.go.orig	2026-10-02 16:09:03 UTC
 +++ vendor/cloud.google.com/go/storage/reader.go
 @@ -26,8 +26,6 @@ import (
  	"sync/atomic"

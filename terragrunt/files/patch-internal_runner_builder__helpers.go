@@ -1,6 +1,4 @@
-diff --git a/internal/runner/builder_helpers.go b/internal/runner/builder_helpers.go
-index e6c1869de..6573b757d 100644
---- internal/runner/builder_helpers.go.orig
+--- internal/runner/builder_helpers.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/runner/builder_helpers.go
 @@ -13,7 +13,6 @@ import (
  	"github.com/gruntwork-io/terragrunt/internal/configbridge"

@@ -1,8 +1,6 @@
-diff --git a/internal/runner/run/options.go b/internal/runner/run/options.go
-index cdaeea6e3..32e10eda7 100644
---- internal/runner/run/options.go.orig
+--- internal/runner/run/options.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/runner/run/options.go
-@@ -3,12 +3,11 @@ package run
+@@ -3,12 +3,11 @@ import (
  import (
  	"context"
  	"encoding/json"
@@ -37,7 +35,7 @@ index cdaeea6e3..32e10eda7 100644
  	SourceMap                    map[string]string
  	TFPath                       string
  	TerraformCommand             string
-@@ -366,7 +365,7 @@ func (o *Options) handleIgnoreSignals(l log.Logger, fsys vfs.FS, signals map[str
+@@ -366,7 +365,7 @@ func (o *Options) handleIgnoreSignals(l log.Logger, fs
  		return err
  	}
  
