@@ -1,5 +1,5 @@
 PORTNAME=	terraform
-PORTVERSION=	1.16.4
+PORTVERSION=	1.16.5
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX=	-${PORTVERSION:R}
@@ -31,9 +31,6 @@ GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
-
-pre-extract: .PHONY .SILENT
-	${TEST} -z ${WRKSRC_grpc_grpc_go_1} || ${LN} -s ${WRKDIR}/grpc-go-cmd-protoc-gen-go-grpc-v1.1.0 ${WRKSRC_grpc_grpc_go_1}
 
 post-install: .PHONY
 	${MV} ${STAGEDIR}${PREFIX}/bin/${PORTNAME} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION}
@@ -106,7 +103,7 @@ GH_TUPLE:=	${GH_TUPLE:S|/gax-go/v2|/gax-go|1}
 #-googleapis:google-cloud-go:v1.1.1:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go/iam
 #-googleapis:google-cloud-go:v1.30.1:googleapis_google_cloud_go_storage/vendor/cloud.google.com/go/storage
 #+googleapis:google-cloud-go:storage/v1.30.1:googleapis_google_cloud_go_storage
-GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+)/vendor/cloud.google.com/go/(storage)|\1\3/\2|}
+GH_TUPLE:=	${GH_TUPLE:C,:([^:]+:[^:/]+)/.*/cloud.google.com/go/(storage),:\2/\1,1}
 GH_TUPLE:=	${GH_TUPLE:N*/cloud.google.com/go/*}
 
 #-hashicorp:consul:v1.32.1:hashicorp_consul_api/vendor/github.com/hashicorp/consul/api
@@ -116,7 +113,7 @@ GH_TUPLE:=	${GH_TUPLE:C,:([^:]+:[^:]+/hashicorp/consul)/(api),:\2/\1,1}
 #-hashicorp:go-azure-sdk:v0.20241212.1154051:hashicorp_go_azure_sdk_resource_manager/vendor/github.com/hashicorp/go-azure-sdk/resource-manager
 #-hashicorp:go-azure-sdk:v0.20241212.1154051:hashicorp_go_azure_sdk_sdk/vendor/github.com/hashicorp/go-azure-sdk/sdk
 #+hashicorp:go-azure-sdk:sdk/v0.20241212.1154051:hashicorp_go_azure_sdk_sdk/vendor/github.com/hashicorp/go-azure-sdk
-GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+/vendor/github.com/hashicorp/go-azure-sdk)/(sdk)|\1\3/\2|1}
+GH_TUPLE:=	${GH_TUPLE:C,:([^:]+:[^:]+/hashicorp/go-azure-sdk)/(sdk),:\2/\1,1}
 GH_TUPLE:=	${GH_TUPLE:N*/go-azure-sdk/resource-manager*}
 
 #-hashicorp:terraform:fc3b1ed17408:hashicorp_terraform_azure
@@ -155,7 +152,7 @@ GH_TUPLE:=	${GH_TUPLE:NGoogleCloudPlatform\:opentelemetry-operations-go\:*}
 
 #-envoyproxy:go-control-plane:v1.32.4:envoyproxy_go_control_plane_envoy/vendor/github.com/envoyproxy/go-control-plane/envoy
 #+envoyproxy:go-control-plane:envoy/v1.32.4:envoyproxy_go_control_plane/vendor/github.com/envoyproxy/go-control-plane
-GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+.*/envoyproxy/go-control-plane)/(envoy)$|\1\3/\2|1}
+GH_TUPLE:=	${GH_TUPLE:C,:([^:]+:[^:]+/envoyproxy/go-control-plane)/(envoy),:\2/\1,1}
 
 #-cncf:xds:d92e9ce0af51:cncf_xds_go/vendor/github.com/cncf/xds/go
 #+cncf:xds:d92e9ce0af51:cncf_xds_go/vendor/github.com/cncf/xds

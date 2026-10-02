@@ -1,4 +1,4 @@
---- Makefile.deps.orig	2026-09-24 17:26:58 UTC
+--- Makefile.deps.orig	2026-10-02 14:27:04 UTC
 +++ Makefile.deps
 @@ -315,46 +315,37 @@ GH_TUPLE=	\
  		#	::v2.130.1:group_name/vendor/k8s.io/klog/v2 (from k8s.io/klog/v2@v2.130.1)
@@ -55,8 +55,8 @@
 +	@${RM} ${WRKSRC}/vendor/github.com/hashicorp/aws-sdk-go-base/v2/logger.go
 +	@${RM} ${WRKSRC}/vendor/github.com/envoyproxy/go-control-plane/envoy/config/trace/v3/trace.pb.go
 +	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/internal/trace
-+	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io
 +	@${RM} -r ${WRKSRC}/vendor/github.com/GoogleCloudPlatform
++	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io
 +	@${MKDIR} ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state
 +	@${RLN} ${WRKSRC}/internal/backend/remote-state/azure ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/azure
 +	@${RLN} ${WRKSRC}/internal/backend/remote-state/consul ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/consul

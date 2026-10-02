@@ -323,8 +323,8 @@ post-extract: .PHONY
 	@${RM} ${WRKSRC}/vendor/github.com/hashicorp/aws-sdk-go-base/v2/logger.go
 	@${RM} ${WRKSRC}/vendor/github.com/envoyproxy/go-control-plane/envoy/config/trace/v3/trace.pb.go
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/internal/trace
-	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io
 	@${RM} -r ${WRKSRC}/vendor/github.com/GoogleCloudPlatform
+	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io
 	@${MKDIR} ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state
 	@${RLN} ${WRKSRC}/internal/backend/remote-state/azure ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/azure
 	@${RLN} ${WRKSRC}/internal/backend/remote-state/consul ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/consul
