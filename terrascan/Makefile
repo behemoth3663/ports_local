@@ -1,7 +1,7 @@
 PORTNAME=	terrascan
 PORTVERSION=	1.19.9
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	local security
 
 MAINTAINER=	none@freebsd.org
@@ -22,10 +22,14 @@ GO_TARGET=	./cmd/${PORTNAME}
 PLIST_FILES=	bin/${PORTNAME}
 
 CGO_ENABLED=	0
+GO_LDFLAGS+=	-w
 # https://protobuf.dev/reference/go/faq/#namespace-conflict
-GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X google.golang.org/protobuf/reflect/protoregistry.conflictPolicy=ignore"
+GO_LDFLAGS+=	-X google.golang.org/protobuf/reflect/protoregistry.conflictPolicy=ignore
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
+.include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
+
+GH_TUPLE:=	${GH_TUPLE:N*go.opencensus.io}
+
 .include <bsd.port.mk>

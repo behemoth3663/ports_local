@@ -1,6 +1,6 @@
 --- go.mod.orig	2024-09-18 07:31:55 UTC
 +++ go.mod
-@@ -235,14 +235,20 @@
+@@ -235,14 +235,20 @@ require (
  	k8s.io/kube-openapi v0.0.0-20231010175941-2dd684a91f00 // indirect
  	k8s.io/utils v0.0.0-20230726121419-3b25d923346b // indirect
  	lukechampine.com/uint128 v1.1.1 // indirect
