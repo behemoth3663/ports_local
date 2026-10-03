@@ -1,7 +1,6 @@
 PORTNAME=	prowl
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.13.1
-#PORTREVISION=	1
+DISTVERSION=	1.14.0
 CATEGORIES=	local devel
 
 MAINTAINER=	none@FreeBSD.org
@@ -17,8 +16,7 @@ GH_ACCOUNT=	caarlos0
 
 PLIST_FILES=	bin/${PORTNAME}
 
-FIREFOX_VERSION_CMD=	${PKG_QUERY} --evaluate %n=firefox %v | ${SED} -r 's/^([0-9]+\.[0-9]+).*/\1/'
-FETCH_ENV=	HTTP_USER_AGENT='Mozilla/5.0 (X11; Linux x86_64; rv:$$(${FIREFOX_VERSION_CMD})) Gecko/20100101 Firefox/$$(${FIREFOX_VERSION_CMD})'
+FETCH_ENV=	HTTP_USER_AGENT='Mozilla/5.0 (X11; Linux x86_64; rv:${FIREFOX_VERSION_CMD:sh}) Gecko/20100101 Firefox/${FIREFOX_VERSION_CMD:sh}'
 
 post-extract: .PHONY .SILENT
 	${REINPLACE_CMD} -r 's/^(version[[:blank:]]*=[[:blank:]]*).*/\1"${DISTVERSION}"/' ${WRKSRC}/Cargo.toml
@@ -31,4 +29,9 @@ deps: .PHONY
 	( ${MAKE} -C ${.CURDIR} FETCH_ENV="${FETCH_ENV}" makesum )
 
 .sinclude "${.CURDIR}/Makefile.crates"
-.include <bsd.port.mk>
+
+.include <bsd.port.pre.mk>
+
+FIREFOX_VERSION_CMD=	${PKG_QUERY} --evaluate %n=firefox %v | ${SED} -r 's/^([0-9]+\.[0-9]+).*/\1/'
+
+.include <bsd.port.post.mk>

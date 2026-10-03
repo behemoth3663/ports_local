@@ -17,9 +17,9 @@ CARGO_CRATES=	android_system_properties-0.1.5 \
 		cfg-if-1.0.4 \
 		cfg_aliases-0.2.2 \
 		chrono-0.4.45 \
-		clap-4.6.6 \
-		clap_builder-4.6.6 \
-		clap_derive-4.6.4 \
+		clap-4.6.7 \
+		clap_builder-4.6.7 \
+		clap_derive-4.6.7 \
 		clap_lex-1.1.0 \
 		colorchoice-1.0.5 \
 		compact_str-0.8.2 \
@@ -81,9 +81,9 @@ CARGO_CRATES=	android_system_properties-0.1.5 \
 		quote-1.0.45 \
 		ring-0.17.14 \
 		rustc-hash-2.1.2 \
-		rustls-0.23.40 \
+		rustls-0.23.45 \
 		rustls-pki-types-1.14.1 \
-		rustls-webpki-0.103.13 \
+		rustls-webpki-0.103.15 \
 		rustversion-1.0.22 \
 		ryu-1.0.23 \
 		security-framework-2.11.1 \
@@ -112,8 +112,8 @@ CARGO_CRATES=	android_system_properties-0.1.5 \
 		unicode-segmentation-1.13.3 \
 		unicode-width-0.2.2 \
 		untrusted-0.9.0 \
-		ureq-3.4.0 \
-		ureq-proto-0.6.1 \
+		ureq-3.4.2 \
+		ureq-proto-0.6.4 \
 		url-2.5.8 \
 		utf8-zero-0.8.1 \
 		utf8_iter-1.0.4 \
