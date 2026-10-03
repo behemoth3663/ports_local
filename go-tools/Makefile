@@ -1,7 +1,6 @@
 PORTNAME=	tools
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.50.0
-#PORTREVISION=	1
+DISTVERSION=	0.51.0
 PORTEPOCH=	1
 CATEGORIES=	local devel
 PKGNAMEPREFIX=	go-
@@ -52,8 +51,8 @@ GO_TARGET=	\
 CONFLICTS_INSTALL=	easygit rubygem-bundler
 
 CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X 'main.version=${PORTVERSION}'"
+GO_LDFLAGS+=	-w
+GO_LDFLAGS+=	-X main.version=${PORTVERSION}
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 PLIST_FILES=	${GO_TARGET:T:S,^,bin/,}
