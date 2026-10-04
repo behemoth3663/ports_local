@@ -1,0 +1,3 @@
+Semantic diff for JSON, YAML, CSV, TOML and XML that plugs into git diff.
+Ignores key order and formatting, matches arrays by key, and reports changes
+as data paths: spec.replicas: 3 -> 5
