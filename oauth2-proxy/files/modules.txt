@@ -1,4 +1,4 @@
-# cloud.google.com/go/auth v0.23.1
+# cloud.google.com/go/auth v0.23.3
 ## explicit; go 1.25.0
 cloud.google.com/go/auth
 cloud.google.com/go/auth/credentials
@@ -19,8 +19,8 @@ cloud.google.com/go/auth/internal/transport/headers
 # cloud.google.com/go/auth/oauth2adapt v0.2.8
 ## explicit; go 1.23.0
 cloud.google.com/go/auth/oauth2adapt
-# cloud.google.com/go/compute/metadata v0.9.0
-## explicit; go 1.24.0
+# cloud.google.com/go/compute/metadata v0.10.0
+## explicit; go 1.26.0
 cloud.google.com/go/compute/metadata
 # github.com/Bose/minisentinel v0.0.0-20200130220412-917c5a9223bb
 ## explicit; go 1.12
@@ -32,7 +32,7 @@ github.com/Masterminds/semver/v3
 ## explicit; go 1.24
 github.com/a8m/envsubst
 github.com/a8m/envsubst/parse
-# github.com/alicebob/miniredis/v2 v2.38.0
+# github.com/alicebob/miniredis/v2 v2.39.0
 ## explicit; go 1.17
 github.com/alicebob/miniredis/v2
 github.com/alicebob/miniredis/v2/fpconv
@@ -55,7 +55,7 @@ github.com/bsm/redislock
 # github.com/cespare/xxhash/v2 v2.3.0
 ## explicit; go 1.11
 github.com/cespare/xxhash/v2
-# github.com/coreos/go-oidc/v3 v3.20.0
+# github.com/coreos/go-oidc/v3 v3.21.0
 ## explicit; go 1.25.0
 github.com/coreos/go-oidc/v3/oidc
 # github.com/coreos/go-systemd v0.0.0-20191104093116-d3cd4ed1dbcf
@@ -73,7 +73,7 @@ github.com/fsnotify/fsnotify/internal
 github.com/go-jose/go-jose/v3
 github.com/go-jose/go-jose/v3/cipher
 github.com/go-jose/go-jose/v3/json
-# github.com/go-jose/go-jose/v4 v4.1.4
+# github.com/go-jose/go-jose/v4 v4.1.5
 ## explicit; go 1.24.0
 github.com/go-jose/go-jose/v4
 github.com/go-jose/go-jose/v4/cipher
@@ -106,7 +106,7 @@ github.com/google/go-cmp/cmp/internal/value
 # github.com/google/pprof v0.0.0-20260802141513-ef3492d7dac3
 ## explicit; go 1.25.0
 github.com/google/pprof/profile
-# github.com/google/s2a-go v0.1.9
+# github.com/google/s2a-go v0.1.10
 ## explicit; go 1.20
 github.com/google/s2a-go
 github.com/google/s2a-go/fallback
@@ -132,11 +132,11 @@ github.com/google/s2a-go/stream
 # github.com/google/uuid v1.6.0
 ## explicit
 github.com/google/uuid
-# github.com/googleapis/enterprise-certificate-proxy v0.3.21
+# github.com/googleapis/enterprise-certificate-proxy v0.3.22
 ## explicit; go 1.25.0
 github.com/googleapis/enterprise-certificate-proxy/client
 github.com/googleapis/enterprise-certificate-proxy/client/util
-# github.com/googleapis/gax-go/v2 v2.23.0
+# github.com/googleapis/gax-go/v2 v2.24.1
 ## explicit; go 1.25.0
 github.com/googleapis/gax-go/v2
 github.com/googleapis/gax-go/v2/apierror
@@ -160,7 +160,7 @@ github.com/munnerz/goautoneg
 # github.com/oauth2-proxy/mockoidc v0.0.0-20240214162133-caebfff84d25
 ## explicit; go 1.21
 github.com/oauth2-proxy/mockoidc
-# github.com/onsi/ginkgo/v2 v2.32.1
+# github.com/onsi/ginkgo/v2 v2.33.0
 ## explicit; go 1.25.0
 github.com/onsi/ginkgo/v2
 github.com/onsi/ginkgo/v2/config
@@ -184,7 +184,7 @@ github.com/onsi/ginkgo/v2/internal/reporters
 github.com/onsi/ginkgo/v2/internal/testingtproxy
 github.com/onsi/ginkgo/v2/reporters
 github.com/onsi/ginkgo/v2/types
-# github.com/onsi/gomega v1.42.1
+# github.com/onsi/gomega v1.44.0
 ## explicit; go 1.25.0
 github.com/onsi/gomega
 github.com/onsi/gomega/format
@@ -205,8 +205,8 @@ github.com/pelletier/go-toml/v2
 github.com/pelletier/go-toml/v2/internal/parserbridge
 github.com/pelletier/go-toml/v2/internal/tracker
 github.com/pelletier/go-toml/v2/unstable
-# github.com/pierrec/lz4/v4 v4.1.28
-## explicit; go 1.17
+# github.com/pierrec/lz4/v4 v4.1.31
+## explicit; go 1.22
 github.com/pierrec/lz4/v4
 github.com/pierrec/lz4/v4/internal/lz4block
 github.com/pierrec/lz4/v4/internal/lz4errors
@@ -276,7 +276,7 @@ github.com/spf13/viper/internal/encoding/json
 github.com/spf13/viper/internal/encoding/toml
 github.com/spf13/viper/internal/encoding/yaml
 github.com/spf13/viper/internal/features
-# github.com/stretchr/testify v1.12.0
+# github.com/stretchr/testify v1.12.1
 ## explicit; go 1.17
 github.com/stretchr/testify/assert
 github.com/stretchr/testify/assert/yaml
@@ -343,8 +343,8 @@ go.uber.org/atomic
 # go.yaml.in/yaml/v3 v3.0.5
 ## explicit; go 1.16
 go.yaml.in/yaml/v3
-# golang.org/x/crypto v0.55.0
-## explicit; go 1.25.0
+# golang.org/x/crypto v0.57.0
+## explicit; go 1.26.0
 golang.org/x/crypto/bcrypt
 golang.org/x/crypto/blowfish
 golang.org/x/crypto/chacha20
@@ -355,11 +355,11 @@ golang.org/x/crypto/hkdf
 golang.org/x/crypto/internal/alias
 golang.org/x/crypto/internal/poly1305
 golang.org/x/crypto/pbkdf2
-# golang.org/x/mod v0.40.0
-## explicit; go 1.25.0
+# golang.org/x/mod v0.41.0
+## explicit; go 1.26.0
 golang.org/x/mod/semver
-# golang.org/x/net v0.58.0
-## explicit; go 1.25.0
+# golang.org/x/net v0.59.0
+## explicit; go 1.26.0
 golang.org/x/net/html
 golang.org/x/net/html/atom
 golang.org/x/net/html/charset
@@ -372,8 +372,8 @@ golang.org/x/net/internal/httpsfv
 golang.org/x/net/internal/timeseries
 golang.org/x/net/trace
 golang.org/x/net/websocket
-# golang.org/x/oauth2 v0.36.0
-## explicit; go 1.25.0
+# golang.org/x/oauth2 v0.37.0
+## explicit; go 1.26.0
 golang.org/x/oauth2
 golang.org/x/oauth2/authhandler
 golang.org/x/oauth2/google
@@ -384,17 +384,17 @@ golang.org/x/oauth2/google/internal/stsexchange
 golang.org/x/oauth2/internal
 golang.org/x/oauth2/jws
 golang.org/x/oauth2/jwt
-# golang.org/x/sync v0.22.0
-## explicit; go 1.25.0
+# golang.org/x/sync v0.23.0
+## explicit; go 1.26.0
 golang.org/x/sync/errgroup
-# golang.org/x/sys v0.47.0
-## explicit; go 1.25.0
+# golang.org/x/sys v0.48.0
+## explicit; go 1.26.0
 golang.org/x/sys/cpu
 golang.org/x/sys/unix
 golang.org/x/sys/windows
 golang.org/x/sys/windows/registry
-# golang.org/x/text v0.41.0
-## explicit; go 1.25.0
+# golang.org/x/text v0.42.0
+## explicit; go 1.26.0
 golang.org/x/text/encoding
 golang.org/x/text/encoding/charmap
 golang.org/x/text/encoding/htmlindex
@@ -436,8 +436,8 @@ golang.org/x/tools/internal/pkgbits
 golang.org/x/tools/internal/stdlib
 golang.org/x/tools/internal/typesinternal
 golang.org/x/tools/internal/versions
-# google.golang.org/api v0.293.0
-## explicit; go 1.25.0
+# google.golang.org/api v0.299.0
+## explicit; go 1.26.0
 google.golang.org/api/admin/directory/v1
 google.golang.org/api/googleapi
 google.golang.org/api/googleapi/transport
@@ -451,12 +451,12 @@ google.golang.org/api/internal/third_party/uritemplates
 google.golang.org/api/option
 google.golang.org/api/option/internaloption
 google.golang.org/api/transport/http
-# google.golang.org/genproto/googleapis/rpc v0.0.0-20260817212433-ac3dfec99bb1
-## explicit; go 1.25.0
+# google.golang.org/genproto/googleapis/rpc v0.0.0-20260921155816-b14227669459
+## explicit; go 1.26.0
 google.golang.org/genproto/googleapis/rpc/code
 google.golang.org/genproto/googleapis/rpc/errdetails
 google.golang.org/genproto/googleapis/rpc/status
-# google.golang.org/grpc v1.83.0
+# google.golang.org/grpc v1.84.0
 ## explicit; go 1.25.0
 google.golang.org/grpc
 google.golang.org/grpc/attributes
@@ -561,10 +561,3 @@ google.golang.org/protobuf/types/known/timestamppb
 # gopkg.in/natefinch/lumberjack.v2 v2.2.1
 ## explicit; go 1.13
 gopkg.in/natefinch/lumberjack.v2
-# gopkg.in/yaml.v3 v3.0.1
-## explicit
-gopkg.in/yaml.v3
-# k8s.io/apimachinery v0.36.3
-## explicit; go 1.26.0
-k8s.io/apimachinery/pkg/util/errors
-k8s.io/apimachinery/pkg/util/sets
