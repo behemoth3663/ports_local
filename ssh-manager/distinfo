@@ -1,14 +1,10 @@
-TIMESTAMP = 1790582011
-SHA256 (omegion-ssh-manager-v1.125.0_GH0.tar.gz) = 630df535cbc3e0b95e2c5874ea432a09f0749b477885c3159fcc10301e0ebf21
-SIZE (omegion-ssh-manager-v1.125.0_GH0.tar.gz) = 60126
+TIMESTAMP = 1791199372
+SHA256 (omegion-ssh-manager-v1.126.0_GH0.tar.gz) = 191045efcee9664361639422a0ea14724a95dded6ea905036c32a976c138da44
+SIZE (omegion-ssh-manager-v1.126.0_GH0.tar.gz) = 60125
 SHA256 (aws-aws-sdk-go-v2-v1.30.3_GH0.tar.gz) = 5f8002fce2fa6d31a3b9c81b15d7796d98984135e78ea05e757debd262662310
 SIZE (aws-aws-sdk-go-v2-v1.30.3_GH0.tar.gz) = 46970311
 SHA256 (aws-smithy-go-v1.20.3_GH0.tar.gz) = 7a409cd74ffb0d15eaef12922bab143698ebdbd743e390c8fb48cee44165407f
 SIZE (aws-smithy-go-v1.20.3_GH0.tar.gz) = 420879
-SHA256 (census-instrumentation-opencensus-go-v0.23.0_GH0.tar.gz) = cc9dc0234de1baacf1855cf19615b381ca2f2adb83a2871e7a9b8b74e46818cf
-SIZE (census-instrumentation-opencensus-go-v0.23.0_GH0.tar.gz) = 176498
-SHA256 (census-instrumentation-opencensus-proto-v0.3.0_GH0.tar.gz) = b7e13f0b4259e80c3070b583c2f39e53153085a6918718b1c710caf7037572b0
-SIZE (census-instrumentation-opencensus-proto-v0.3.0_GH0.tar.gz) = 163404
 SHA256 (cncf-udpa-04548b0d99d4_GH0.tar.gz) = 30d87780df8c93070d8c5c5e870b1c638eaac35789b6febb7a2695829abbb290
 SIZE (cncf-udpa-04548b0d99d4_GH0.tar.gz) = 20518
 SHA256 (cncf-xds-d92e9ce0af51_GH0.tar.gz) = 27e508d166bcd7d47cff9bad9ddfa9f7466c0303d27817ba0f98096ded2d12d5
