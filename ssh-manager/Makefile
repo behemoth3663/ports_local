@@ -69,7 +69,7 @@ GH_TUPLE:=	${GH_TUPLE:C,:([^:]+:[^:/]+)/.*/cloud.google.com/go/(storage),:\2/\1,
 .include <bsd.port.pre.mk>
 
 SOURCE_DATE_EPOCH_CMD=	date -ur \
-			$$(${GREP} -m1 TIMESTAMP ${DISTINFO_FILE} | ${CUT} -d' ' -f3) \
+			$$(${GREP} --max-count=1 TIMESTAMP ${DISTINFO_FILE} | ${CUT} -d' ' -f3) \
 			'+%FT%TZ'
 
 .include <bsd.port.post.mk>

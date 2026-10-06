@@ -50,7 +50,7 @@ COMMIT_CMD=	git ls-remote \
 		refs/tags/${DISTVERSIONFULL}^{} | cut -c1-7
 
 SOURCE_DATE_EPOCH_CMD=	date -ur \
-			$$(${GREP} -m1 TIMESTAMP ${DISTINFO_FILE} | ${CUT} -d' ' -f3) \
+			$$(${GREP} --max-count=1 TIMESTAMP ${DISTINFO_FILE} | ${CUT} -d' ' -f3) \
 			'+%FT%TZ'
 
 .include <bsd.port.post.mk>

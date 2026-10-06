@@ -50,7 +50,7 @@ COMMIT_CMD=	git ls-remote \
 
 # Bring DISTINFO_FILE into scope so we can get the timestamp.
 SOURCE_DATE_EPOCH_CMD=	date -ur \
-			$$(${GREP} -m1 TIMESTAMP ${DISTINFO_FILE} | ${CUT} -d' ' -f3) \
+			$$(${GREP} --max-count=1 TIMESTAMP ${DISTINFO_FILE} | ${CUT} -d' ' -f3) \
 			'+%FT%TZ'
 
 .include <bsd.port.post.mk>
