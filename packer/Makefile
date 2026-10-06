@@ -6,12 +6,14 @@ PKGNAMESUFFIX?=	-local
 
 MAINTAINER=	brad@facefault.org
 COMMENT=	Tool for creating machine images
-WWW=		https://packer.io https://${GO_MODULE}
+WWW=		https://www.packer.io/ https://${GO_MODULE}
 
-LICENSE=	MPL20
+LICENSE_NAME=   Business Source License 1.1
+LICENSE_FILE=   ${WRKSRC}/LICENSE
+LICENSE_PERMS=  dist-mirror pkg-mirror pkg-sell auto-accept
 
-USES=		go:modules
-
+USES=		cpe go:modules
+CPE_VENDOR=	hashicorp
 GO_MODULE=	github.com/hashicorp/packer
 
 #CGO_ENABLED=	0
