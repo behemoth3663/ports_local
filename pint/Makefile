@@ -1,7 +1,6 @@
 PORTNAME=	pint
-PORTVERSION=	0.88.0
+PORTVERSION=	0.89.0
 DISTVERSIONPREFIX=	v
-#PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -11,24 +10,25 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 LICENSE=	APACHE20
 
 USES=		go:modules
-GO_TARGET=	./cmd/${PORTNAME}
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	cloudflare
 
 USE_GITLAB=	nodefault
 
-PLIST_FILES=	bin/${PORTNAME}
-
-COMMIT_CMD=	git ls-remote \
-		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
-		refs/tags/${DISTVERSIONFULL} | cut -c1-7
+GO_TARGET=	./cmd/${PORTNAME}
 
 CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X main.version=${PORTVERSION} \
-	-X main.commit=$$(${COMMIT_CMD})"
+GO_LDFLAGS+=	-w
+GO_LDFLAGS+=	-X main.version=${PORTVERSION}
+GO_LDFLAGS+=	-X main.commit=${COMMIT_CMD:sh}
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
+
+PLIST_FILES=	bin/${PORTNAME}
+
+post-extract: .PHONY
+	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io
 
 pre-deps: .PHONY
 	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
@@ -41,4 +41,13 @@ pre-deps-all: .PHONY
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
-.include <bsd.port.mk>
+
+GH_TUPLE:=	${GH_TUPLE:Nopen-telemetry\:*}
+
+.include <bsd.port.pre.mk>
+
+COMMIT_CMD=	git ls-remote \
+		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
+		refs/tags/${DISTVERSIONFULL} | cut -c1-7
+
+.include <bsd.port.post.mk>
