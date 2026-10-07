@@ -1,0 +1,4 @@
+CloudBurn runs deterministic cost rules against your Terraform and
+CloudFormation with scan, then runs those same rules against your live AWS
+account with discover. Wire it into CI to catch waste before deploy. Point it
+at a running account to find what's still burning money.
