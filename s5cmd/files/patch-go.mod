@@ -4,13 +4,13 @@
  module github.com/peak/s5cmd/v2
  
 -go 1.20
-+go 1.25.0
++go 1.26.0
  
  require (
 -	github.com/aws/aws-sdk-go v1.44.298
 -	github.com/cheggaaa/pb/v3 v3.1.4
 +	github.com/aws/aws-sdk-go v1.55.8
-+	github.com/cheggaaa/pb/v3 v3.2.0
++	github.com/cheggaaa/pb/v3 v3.2.1
  	github.com/google/go-cmp v0.6.0
  	github.com/hashicorp/go-multierror v1.1.1
  	github.com/iancoleman/strcase v0.0.0-20191112232945-16388991a334
@@ -19,7 +19,7 @@
 +	github.com/karrick/godirwalk v1.17.0
  	github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51
 -	github.com/lanrat/extsort v1.0.2
-+	github.com/lanrat/extsort v1.4.2
++	github.com/lanrat/extsort v1.5.0
 +	github.com/rivo/uniseg v0.4.7
  	github.com/termie/go-shutil v0.0.0-20140729215957-bcacb06fecae
 -	github.com/urfave/cli/v2 v2.11.2
@@ -48,9 +48,9 @@
 -	github.com/mattn/go-colorable v0.1.13 // indirect
 -	github.com/mattn/go-isatty v0.0.19 // indirect
 -	github.com/mattn/go-runewidth v0.0.14 // indirect
-+	github.com/mattn/go-colorable v0.1.15 // indirect
++	github.com/mattn/go-colorable v0.1.16 // indirect
 +	github.com/mattn/go-isatty v0.0.24 // indirect
-+	github.com/mattn/go-runewidth v0.0.27 // indirect
++	github.com/mattn/go-runewidth v0.0.30 // indirect
  	github.com/pkg/errors v0.9.1 // indirect
 -	github.com/rivo/uniseg v0.2.0 // indirect
  	github.com/russross/blackfriday/v2 v2.1.0 // indirect
@@ -65,8 +65,8 @@
 -	golang.org/x/sys v0.20.0 // indirect
 -	golang.org/x/tools v0.21.0 // indirect
 +	golang.org/x/mod v0.27.0 // indirect
-+	golang.org/x/sync v0.22.0 // indirect
-+	golang.org/x/sys v0.47.0 // indirect
++	golang.org/x/sync v0.23.0 // indirect
++	golang.org/x/sys v0.48.0 // indirect
 +	golang.org/x/tools v0.36.0 // indirect
 +	golang.org/x/tools/go/expect v0.1.1-deprecated // indirect
  	gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 // indirect

@@ -1,7 +1,7 @@
 PORTNAME=	s5cmd
 PORTVERSION=	2.3.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	22
+PORTREVISION=	20261007
 CATEGORIES=	local net
 PKGNAMESUFFIX=	-local
 
@@ -18,17 +18,13 @@ USES=		go:modules
 USE_GITHUB=	yes
 GH_ACCOUNT=	peak
 
-PLIST_FILES=	bin/${PORTNAME}
-
-COMMIT_CMD=	git ls-remote \
-		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
-		refs/tags/${DISTVERSIONFULL} | cut -c1-7
-
 CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/version.Version=${DISTVERSIONFULL} \
-	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/version.GitCommit=$$(${COMMIT_CMD})"
+GO_LDFLAGS+=	-w
+GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/version.Version=${DISTVERSIONFULL}
+GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/version.GitCommit=${COMMIT_CMD:sh}
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
+
+PLIST_FILES=	bin/${PORTNAME}
 
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
@@ -64,4 +60,10 @@ pre-deps-all: .PHONY
 #+cheggaaa:pb:v3.1.4:cheggaaa_pb_v3/vendor/github.com/cheggaaa/pb/v3
 GH_TUPLE:=	${GH_TUPLE:S|/cheggaaa/pb/v3|/cheggaaa/pb|1}
 
-.include <bsd.port.mk>
+.include <bsd.port.pre.mk>
+
+COMMIT_CMD=	git ls-remote \
+		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
+		refs/tags/${DISTVERSIONFULL} | cut -c1-7
+
+.include <bsd.port.post.mk>
