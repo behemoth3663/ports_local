@@ -91,8 +91,8 @@ github.com/Azure/go-autorest/logger
 # github.com/Azure/go-autorest/tracing v0.6.1
 ## explicit; go 1.15
 github.com/Azure/go-autorest/tracing
-# github.com/Azure/go-ntlmssp v0.0.1
-## explicit; go 1.0.0
+# github.com/Azure/go-ntlmssp v0.1.2-0.20260824092057-1c8077778c2c
+## explicit; go 1.24
 github.com/Azure/go-ntlmssp
 github.com/Azure/go-ntlmssp/internal/md4
 # github.com/BurntSushi/toml v1.4.1-0.20240526193622-a339e1f7089c
@@ -446,13 +446,6 @@ github.com/bmatcuk/doublestar
 # github.com/bmatcuk/doublestar/v4 v4.6.1
 ## explicit; go 1.16
 github.com/bmatcuk/doublestar/v4
-# github.com/bodgit/ntlmssp v0.0.0-20240506230425-31973bb52d9b
-## explicit; go 1.18
-github.com/bodgit/ntlmssp
-github.com/bodgit/ntlmssp/http
-# github.com/bodgit/windows v1.0.1
-## explicit; go 1.13
-github.com/bodgit/windows
 # github.com/bradleyfalzon/ghinstallation/v2 v2.5.0
 ## explicit; go 1.13
 github.com/bradleyfalzon/ghinstallation/v2
@@ -671,7 +664,7 @@ github.com/google/go-querystring/query
 # github.com/google/gofuzz v1.1.0
 ## explicit; go 1.12
 github.com/google/gofuzz
-# github.com/google/s2a-go v0.1.10
+# github.com/google/s2a-go v0.1.11
 ## explicit; go 1.20
 github.com/google/s2a-go
 github.com/google/s2a-go/fallback
@@ -697,7 +690,7 @@ github.com/google/s2a-go/stream
 # github.com/google/uuid v1.6.0
 ## explicit
 github.com/google/uuid
-# github.com/googleapis/enterprise-certificate-proxy v0.3.22
+# github.com/googleapis/enterprise-certificate-proxy v0.3.23
 ## explicit; go 1.25.0
 github.com/googleapis/enterprise-certificate-proxy/client
 github.com/googleapis/enterprise-certificate-proxy/client/util
@@ -855,31 +848,31 @@ github.com/hashicorp/terraform-registry-address
 github.com/hashicorp/terraform-svchost
 github.com/hashicorp/terraform-svchost/auth
 github.com/hashicorp/terraform-svchost/disco
-# github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20260925155206-83346aa13948 => ./internal/backend/remote-state/azure
+# github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20261006125846-73bf678bc9d1 => ./internal/backend/remote-state/azure
 ## explicit; go 1.22.7
 github.com/hashicorp/terraform/internal/backend/remote-state/azure
-# github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20260925155206-83346aa13948 => ./internal/backend/remote-state/consul
+# github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20261006125846-73bf678bc9d1 => ./internal/backend/remote-state/consul
 ## explicit; go 1.22.7
 github.com/hashicorp/terraform/internal/backend/remote-state/consul
-# github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20260925155206-83346aa13948 => ./internal/backend/remote-state/cos
+# github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20261006125846-73bf678bc9d1 => ./internal/backend/remote-state/cos
 ## explicit; go 1.22.7
 github.com/hashicorp/terraform/internal/backend/remote-state/cos
-# github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20260925155206-83346aa13948 => ./internal/backend/remote-state/gcs
+# github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20261006125846-73bf678bc9d1 => ./internal/backend/remote-state/gcs
 ## explicit; go 1.22.7
 github.com/hashicorp/terraform/internal/backend/remote-state/gcs
-# github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20260925155206-83346aa13948 => ./internal/backend/remote-state/kubernetes
+# github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20261006125846-73bf678bc9d1 => ./internal/backend/remote-state/kubernetes
 ## explicit; go 1.22.7
 github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes
-# github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20260925155206-83346aa13948 => ./internal/backend/remote-state/oss
+# github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20261006125846-73bf678bc9d1 => ./internal/backend/remote-state/oss
 ## explicit; go 1.22.7
 github.com/hashicorp/terraform/internal/backend/remote-state/oss
-# github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20260925155206-83346aa13948 => ./internal/backend/remote-state/pg
+# github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20261006125846-73bf678bc9d1 => ./internal/backend/remote-state/pg
 ## explicit; go 1.22.7
 github.com/hashicorp/terraform/internal/backend/remote-state/pg
-# github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20260925155206-83346aa13948 => ./internal/backend/remote-state/s3
+# github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20261006125846-73bf678bc9d1 => ./internal/backend/remote-state/s3
 ## explicit; go 1.22.7
 github.com/hashicorp/terraform/internal/backend/remote-state/s3
-# github.com/hashicorp/terraform/internal/legacy v0.0.0-20260925155206-83346aa13948 => ./internal/legacy
+# github.com/hashicorp/terraform/internal/legacy v0.0.0-20261006125846-73bf678bc9d1 => ./internal/legacy
 ## explicit; go 1.22.7
 github.com/hashicorp/terraform/internal/legacy/helper/hashcode
 github.com/hashicorp/terraform/internal/legacy/helper/schema
@@ -1026,11 +1019,11 @@ github.com/manicminer/hamilton-autorest/environments
 # github.com/masterzen/simplexml v0.0.0-20190410153822-31eea3082786
 ## explicit
 github.com/masterzen/simplexml/dom
-# github.com/masterzen/winrm v0.0.0-20260407182533-5570be7f80cf
-## explicit; go 1.21
+# github.com/masterzen/winrm v0.0.0-20261004123143-57b335310d59
+## explicit; go 1.24
 github.com/masterzen/winrm
 github.com/masterzen/winrm/soap
-# github.com/mattn/go-colorable v0.1.15
+# github.com/mattn/go-colorable v0.1.16
 ## explicit; go 1.18
 github.com/mattn/go-colorable
 # github.com/mattn/go-isatty v0.0.24
@@ -1039,7 +1032,7 @@ github.com/mattn/go-isatty
 # github.com/mattn/go-runewidth v0.0.30
 ## explicit; go 1.23
 github.com/mattn/go-runewidth
-# github.com/mattn/go-shellwords v1.0.15
+# github.com/mattn/go-shellwords v1.0.16
 ## explicit; go 1.13
 github.com/mattn/go-shellwords
 # github.com/mergestat/timediff v0.0.4
@@ -1178,9 +1171,6 @@ github.com/thanhpk/randstr
 # github.com/thlib/go-timezone-local v0.0.8
 ## explicit; go 1.16
 github.com/thlib/go-timezone-local/tzlocal
-# github.com/tidwall/transform v0.0.0-20201103190739-32f242e2dbde
-## explicit
-github.com/tidwall/transform
 # github.com/tombuildsstuff/giovanni v0.15.1
 ## explicit; go 1.13
 github.com/tombuildsstuff/giovanni/storage/2018-11-09/blob/blobs
@@ -1373,10 +1363,10 @@ golang.org/x/crypto/ssh
 golang.org/x/crypto/ssh/agent
 golang.org/x/crypto/ssh/internal/bcrypt_pbkdf
 golang.org/x/crypto/ssh/knownhosts
-# golang.org/x/exp v0.0.0-20260908205506-85c1c2202aba
+# golang.org/x/exp v0.0.0-20261005173118-76772065c9b0
 ## explicit; go 1.26.0
 golang.org/x/exp/constraints
-# golang.org/x/exp/typeparams v0.0.0-20260908205506-85c1c2202aba
+# golang.org/x/exp/typeparams v0.0.0-20261005173118-76772065c9b0
 ## explicit; go 1.26.0
 golang.org/x/exp/typeparams
 # golang.org/x/mod v0.41.0
@@ -1465,7 +1455,7 @@ golang.org/x/text/width
 # golang.org/x/time v0.15.0
 ## explicit; go 1.25.0
 golang.org/x/time/rate
-# golang.org/x/tools v0.50.0
+# golang.org/x/tools v0.51.0
 ## explicit; go 1.26.0
 golang.org/x/tools/cmd/stringer
 golang.org/x/tools/cover
@@ -1488,7 +1478,6 @@ golang.org/x/tools/go/packages
 golang.org/x/tools/go/types/objectpath
 golang.org/x/tools/go/types/typeutil
 golang.org/x/tools/imports
-golang.org/x/tools/internal/aliases
 golang.org/x/tools/internal/analysis/driverutil
 golang.org/x/tools/internal/astutil/free
 golang.org/x/tools/internal/diff
@@ -1532,13 +1521,13 @@ google.golang.org/api/storage/v1
 google.golang.org/api/transport
 google.golang.org/api/transport/grpc
 google.golang.org/api/transport/http
-# google.golang.org/genproto v0.0.0-20260921155816-b14227669459 => google.golang.org/genproto v0.0.0-20260803160001-6ac0973c030d
+# google.golang.org/genproto v0.0.0-20261005182115-fad411399dd8 => google.golang.org/genproto v0.0.0-20260803160001-6ac0973c030d
 ## explicit; go 1.25.0
 google.golang.org/genproto/googleapis/type/calendarperiod
 google.golang.org/genproto/googleapis/type/date
 google.golang.org/genproto/googleapis/type/expr
 google.golang.org/genproto/googleapis/type/timeofday
-# google.golang.org/genproto/googleapis/api v0.0.0-20260921155816-b14227669459
+# google.golang.org/genproto/googleapis/api v0.0.0-20261005182115-fad411399dd8
 ## explicit; go 1.26.0
 google.golang.org/genproto/googleapis/api
 google.golang.org/genproto/googleapis/api/annotations
@@ -1548,7 +1537,7 @@ google.golang.org/genproto/googleapis/api/httpbody
 google.golang.org/genproto/googleapis/api/label
 google.golang.org/genproto/googleapis/api/metric
 google.golang.org/genproto/googleapis/api/monitoredres
-# google.golang.org/genproto/googleapis/rpc v0.0.0-20260921155816-b14227669459
+# google.golang.org/genproto/googleapis/rpc v0.0.0-20261005182115-fad411399dd8
 ## explicit; go 1.26.0
 google.golang.org/genproto/googleapis/rpc/code
 google.golang.org/genproto/googleapis/rpc/errdetails
@@ -2206,7 +2195,7 @@ k8s.io/klog/v2/internal/clock
 k8s.io/klog/v2/internal/dbg
 k8s.io/klog/v2/internal/serialize
 k8s.io/klog/v2/internal/severity
-# k8s.io/kube-openapi v0.0.0-20260911184034-7970a1e230da => k8s.io/kube-openapi v0.0.0-20220803162953-67bda5d908f1
+# k8s.io/kube-openapi v0.0.0-20261007072838-e2e80c32a35f => k8s.io/kube-openapi v0.0.0-20220803162953-67bda5d908f1
 ## explicit; go 1.18
 k8s.io/kube-openapi/pkg/builder3/util
 k8s.io/kube-openapi/pkg/common

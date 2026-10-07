@@ -65,26 +65,26 @@
 -	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-00010101000000-000000000000
 -	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-00010101000000-000000000000
 -	github.com/hashicorp/terraform/internal/legacy v0.0.0-00010101000000-000000000000
-+	github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20260925155206-83346aa13948
-+	github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20260925155206-83346aa13948
-+	github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20260925155206-83346aa13948
-+	github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20260925155206-83346aa13948
-+	github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20260925155206-83346aa13948
-+	github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20260925155206-83346aa13948
-+	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20260925155206-83346aa13948
-+	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20260925155206-83346aa13948
-+	github.com/hashicorp/terraform/internal/legacy v0.0.0-20260925155206-83346aa13948
++	github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20261006125846-73bf678bc9d1
++	github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20261006125846-73bf678bc9d1
++	github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20261006125846-73bf678bc9d1
++	github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20261006125846-73bf678bc9d1
++	github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20261006125846-73bf678bc9d1
++	github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20261006125846-73bf678bc9d1
++	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20261006125846-73bf678bc9d1
++	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20261006125846-73bf678bc9d1
++	github.com/hashicorp/terraform/internal/legacy v0.0.0-20261006125846-73bf678bc9d1
  	github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0
 -	github.com/masterzen/winrm v0.0.0-20200615185753-c42b5136ff88
 -	github.com/mattn/go-isatty v0.0.20
 -	github.com/mattn/go-shellwords v1.0.12
-+	github.com/masterzen/winrm v0.0.0-20260407182533-5570be7f80cf
++	github.com/masterzen/winrm v0.0.0-20261004123143-57b335310d59
 +	github.com/mattn/go-isatty v0.0.24
-+	github.com/mattn/go-shellwords v1.0.15
++	github.com/mattn/go-shellwords v1.0.16
  	github.com/mitchellh/colorstring v0.0.0-20190213212951-d06e56a500db
  	github.com/mitchellh/go-homedir v1.1.0
  	github.com/mitchellh/go-linereader v0.0.0-20190213213312-1b945b3263eb
-@@ -58,220 +58,244 @@
+@@ -58,220 +58,241 @@
  	github.com/packer-community/winrmcp v0.0.0-20221126162354-6e900dd2c68f
  	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
  	github.com/posener/complete v1.2.3
@@ -120,7 +120,7 @@
 +	golang.org/x/sys v0.48.0
 +	golang.org/x/term v0.46.0
 +	golang.org/x/text v0.42.0
-+	golang.org/x/tools v0.50.0
++	golang.org/x/tools v0.51.0
  	golang.org/x/tools/cmd/cover v0.1.0-deprecated
 -	google.golang.org/grpc v1.59.0
 -	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.1.0
@@ -169,7 +169,7 @@
 +	github.com/Azure/go-autorest/autorest/validation v0.3.2 // indirect
 +	github.com/Azure/go-autorest/logger v0.2.2 // indirect
 +	github.com/Azure/go-autorest/tracing v0.6.1 // indirect
-+	github.com/Azure/go-ntlmssp v0.0.1 // indirect
++	github.com/Azure/go-ntlmssp v0.1.2-0.20260824092057-1c8077778c2c // indirect
 +	github.com/BurntSushi/toml v1.4.1-0.20240526193622-a339e1f7089c // indirect
 +	github.com/ChrisTrenkamp/goxpath v0.0.0-20210404020558-97928f7e12b6 // indirect
 +	github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp v1.33.0 // indirect
@@ -247,8 +247,6 @@
 -	github.com/bmatcuk/doublestar/v4 v4.6.0 // indirect
 -	github.com/bradleyfalzon/ghinstallation/v2 v2.1.0 // indirect
 +	github.com/bmatcuk/doublestar/v4 v4.6.1 // indirect
-+	github.com/bodgit/ntlmssp v0.0.0-20240506230425-31973bb52d9b // indirect
-+	github.com/bodgit/windows v1.0.1 // indirect
 +	github.com/bradleyfalzon/ghinstallation/v2 v2.5.0 // indirect
  	github.com/cenkalti/backoff/v4 v4.2.1 // indirect
 +	github.com/cespare/xxhash/v2 v2.3.0 // indirect
@@ -308,8 +306,8 @@
 -	github.com/grpc-ecosystem/grpc-gateway/v2 v2.16.0 // indirect
 -	github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.45 // indirect
 -	github.com/hashicorp/consul/api v1.13.0 // indirect
-+	github.com/google/s2a-go v0.1.10 // indirect
-+	github.com/googleapis/enterprise-certificate-proxy v0.3.22 // indirect
++	github.com/google/s2a-go v0.1.11 // indirect
++	github.com/googleapis/enterprise-certificate-proxy v0.3.23 // indirect
 +	github.com/googleapis/gax-go/v2 v2.23.0 // indirect
 +	github.com/grpc-ecosystem/grpc-gateway/v2 v2.27.8 // indirect
 +	github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.74 // indirect
@@ -360,7 +358,7 @@
 -	github.com/mattn/go-colorable v0.1.13 // indirect
 -	github.com/mattn/go-runewidth v0.0.13 // indirect
 -	github.com/mergestat/timediff v0.0.3 // indirect
-+	github.com/mattn/go-colorable v0.1.15 // indirect
++	github.com/mattn/go-colorable v0.1.16 // indirect
 +	github.com/mattn/go-runewidth v0.0.30 // indirect
 +	github.com/mergestat/timediff v0.0.4 // indirect
  	github.com/mgutz/ansi v0.0.0-20200706080929-d51e80ef957d // indirect
@@ -400,7 +398,6 @@
 +	github.com/tencentyun/cos-go-sdk-v5 v0.7.75 // indirect
 +	github.com/thanhpk/randstr v1.0.6 // indirect
 +	github.com/thlib/go-timezone-local v0.0.8 // indirect
-+	github.com/tidwall/transform v0.0.0-20201103190739-32f242e2dbde // indirect
  	github.com/tombuildsstuff/giovanni v0.15.1 // indirect
 -	github.com/ulikunitz/xz v0.5.10 // indirect
 -	github.com/vmihailenco/msgpack/v5 v5.3.5 // indirect
@@ -433,14 +430,14 @@
 +	go.opentelemetry.io/otel/metric v1.44.0 // indirect
 +	go.opentelemetry.io/otel/sdk/metric v1.44.0 // indirect
 +	go.opentelemetry.io/proto/otlp v1.9.0 // indirect
-+	golang.org/x/exp v0.0.0-20260908205506-85c1c2202aba // indirect
-+	golang.org/x/exp/typeparams v0.0.0-20260908205506-85c1c2202aba // indirect
++	golang.org/x/exp v0.0.0-20261005173118-76772065c9b0 // indirect
++	golang.org/x/exp/typeparams v0.0.0-20261005173118-76772065c9b0 // indirect
 +	golang.org/x/sync v0.23.0 // indirect
 +	golang.org/x/time v0.15.0 // indirect
 +	google.golang.org/api v0.287.1 // indirect
-+	google.golang.org/genproto v0.0.0-20260921155816-b14227669459 // indirect
-+	google.golang.org/genproto/googleapis/api v0.0.0-20260921155816-b14227669459 // indirect
-+	google.golang.org/genproto/googleapis/rpc v0.0.0-20260921155816-b14227669459 // indirect
++	google.golang.org/genproto v0.0.0-20261005182115-fad411399dd8 // indirect
++	google.golang.org/genproto/googleapis/api v0.0.0-20261005182115-fad411399dd8 // indirect
++	google.golang.org/genproto/googleapis/rpc v0.0.0-20261005182115-fad411399dd8 // indirect
  	gopkg.in/inf.v0 v0.9.1 // indirect
 -	gopkg.in/ini.v1 v1.66.2 // indirect
 +	gopkg.in/ini.v1 v1.66.6 // indirect
@@ -457,13 +454,13 @@
 +	k8s.io/apimachinery v0.25.16 // indirect
 +	k8s.io/client-go v0.25.16 // indirect
 +	k8s.io/klog/v2 v2.80.1 // indirect
-+	k8s.io/kube-openapi v0.0.0-20260911184034-7970a1e230da // indirect
++	k8s.io/kube-openapi v0.0.0-20261007072838-e2e80c32a35f // indirect
 +	k8s.io/utils v0.0.0-20260707023825-cf1189d6abe3 // indirect
 +	sigs.k8s.io/json v0.0.0-20260909141634-11ed52e25bc5 // indirect
  	sigs.k8s.io/structured-merge-diff/v4 v4.2.3 // indirect
  	sigs.k8s.io/yaml v1.2.0 // indirect
  )
-@@ -316,3 +340,13 @@
+@@ -316,3 +337,13 @@
  replace github.com/hashicorp/terraform/internal/backend/remote-state/s3 => ./internal/backend/remote-state/s3
  
  replace github.com/hashicorp/terraform/internal/legacy => ./internal/legacy
