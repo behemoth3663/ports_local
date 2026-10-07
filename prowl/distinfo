@@ -1,4 +1,4 @@
-TIMESTAMP = 1791018387
+TIMESTAMP = 1791366365
 SHA256 (rust/crates/android_system_properties-0.1.5.crate) = 819e7219dbd41043ac279b19830f2efc897156490d7fd6ea916720117ee66311
 SIZE (rust/crates/android_system_properties-0.1.5.crate) = 5243
 SHA256 (rust/crates/anstream-1.0.0.crate) = 824a212faf96e9acacdbd09febd34438f8f711fb84e09a8916013cd7815ca28d
@@ -329,5 +329,5 @@ SHA256 (rust/crates/zerovec-derive-0.11.3.crate) = 625dc425cab0dca6dc3c3319506e6
 SIZE (rust/crates/zerovec-derive-0.11.3.crate) = 22115
 SHA256 (rust/crates/zmij-1.0.21.crate) = b8848ee67ecc8aedbaf3e4122217aff892639231befc6a1b58d29fff4c2cabaa
 SIZE (rust/crates/zmij-1.0.21.crate) = 26665
-SHA256 (caarlos0-prowl-v1.14.0_GH0.tar.gz) = 2945510b5a0be56297831024b6995bef97d48e91ccfb0c4704b492e996d43f6d
-SIZE (caarlos0-prowl-v1.14.0_GH0.tar.gz) = 131141
+SHA256 (caarlos0-prowl-v1.15.0_GH0.tar.gz) = 43c7ade23161cef757995b0fe123aa8715340c8d792b297cb7a885f0cdddff0e
+SIZE (caarlos0-prowl-v1.15.0_GH0.tar.gz) = 142890
