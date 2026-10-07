@@ -1,0 +1,4 @@
+The Terraform MCP Server is a Model Context Protocol (MCP) server that
+integrates seamlessly with Terraform Registry and HCP Terraform APIs,
+enabling advanced automation and interaction capabilities for Infrastructure
+as Code (IaC) development.

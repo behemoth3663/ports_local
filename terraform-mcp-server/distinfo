@@ -1,0 +1,5 @@
+TIMESTAMP = 1791389773
+SHA256 (go/local_terraform-mcp-server/terraform-mcp-server-v1.3.0/v1.3.0.mod) = 892eb733d7e28d2aace885f7ebaef0e2b0e804bbbfe98d8979f1a5513ad01114
+SIZE (go/local_terraform-mcp-server/terraform-mcp-server-v1.3.0/v1.3.0.mod) = 3051
+SHA256 (go/local_terraform-mcp-server/terraform-mcp-server-v1.3.0/v1.3.0.zip) = 1422184e63473a93d691eb75708be3d3be17c5c695f5c4e5b3b9b3f8c30a0054
+SIZE (go/local_terraform-mcp-server/terraform-mcp-server-v1.3.0/v1.3.0.zip) = 334404
