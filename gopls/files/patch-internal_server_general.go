@@ -1,6 +1,6 @@
---- internal/server/general.go.orig	2026-07-07 18:53:34 UTC
+--- internal/server/general.go.orig	2026-09-30 18:55:09 UTC
 +++ internal/server/general.go
-@@ -21,7 +21,6 @@ import (
+@@ -22,7 +22,6 @@ import (
  	"strings"
  	"sync"
  
@@ -8,15 +8,15 @@
  	"golang.org/x/tools/gopls/internal/cache"
  	"golang.org/x/tools/gopls/internal/debug"
  	debuglog "golang.org/x/tools/gopls/internal/debug/log"
-@@ -31,7 +30,6 @@ import (
+@@ -32,7 +31,6 @@ import (
  	"golang.org/x/tools/gopls/internal/protocol"
  	"golang.org/x/tools/gopls/internal/protocol/semtok"
  	"golang.org/x/tools/gopls/internal/settings"
 -	"golang.org/x/tools/gopls/internal/telemetry"
  	"golang.org/x/tools/gopls/internal/util/bug"
  	"golang.org/x/tools/gopls/internal/util/goversion"
- 	"golang.org/x/tools/gopls/internal/util/moremaps"
-@@ -44,12 +42,6 @@ func (s *server) Initialize(ctx context.Context, param
+ 	"golang.org/x/tools/internal/event"
+@@ -45,12 +43,6 @@ func (s *server) Initialize(ctx context.Context, param
  	ctx, done := event.Start(ctx, "server.Initialize")
  	defer done()
  
@@ -29,7 +29,7 @@
  	s.stateMu.Lock()
  	if s.state >= serverInitializing {
  		defer s.stateMu.Unlock()
-@@ -336,9 +328,6 @@ func (s *server) checkViewGoVersions() {
+@@ -346,9 +338,6 @@ func (s *server) checkViewGoVersions() {
  		if oldestVersion == -1 || viewVersion < oldestVersion {
  			oldestVersion, fromBuild = viewVersion, false
  		}
@@ -39,7 +39,7 @@
  	}
  
  	if msg, isError := goversion.Message(oldestVersion, fromBuild); msg != "" {
-@@ -649,18 +638,6 @@ func (s *server) newFolder(ctx context.Context, folder
+@@ -659,18 +648,6 @@ func (s *server) newFolder(ctx context.Context, folder
  		return nil, err
  	}
  
@@ -58,7 +58,7 @@
  	// Record whether a driver is in use so that it appears in the
  	// user's telemetry upload. Although we can't correlate the
  	// driver information with the crash or bug.Report at the
-@@ -668,9 +645,6 @@ func (s *server) newFolder(ctx context.Context, folder
+@@ -678,9 +655,6 @@ func (s *server) newFolder(ctx context.Context, folder
  	// driver tend to do so most of the time, so we'll get a
  	// strong clue. See #60890 for an example of an issue where
  	// this information would have been helpful.
@@ -68,7 +68,7 @@
  
  	return &cache.Folder{
  		Dir:     folder,
-@@ -722,10 +696,9 @@ func (s *server) eventuallyShowMessage(ctx context.Con
+@@ -732,10 +706,9 @@ func (s *server) eventuallyShowMessage(ctx context.Con
  	s.notifications = append(s.notifications, msg)
  }
  
@@ -80,7 +80,7 @@
  	}
  
  	var warnings, errs []string
-@@ -809,66 +782,4 @@ func (s *server) Exit(ctx context.Context) error {
+@@ -826,69 +799,4 @@ func (s *server) Exit(ctx context.Context) error {
  	// We don't terminate the process on a normal exit, we just allow it to
  	// close naturally if needed after the connection is closed.
  	return nil
@@ -103,6 +103,9 @@
 -
 -		// https://lists.gnu.org/archive/html/bug-gnu-emacs/2023-03/msg00954.html
 -		{"Eglot", "gopls/client:eglot"},
+-
+-		// https://github.com/emacs-lsp/lsp-mode/blob/master/lsp-mode.el#L8320
+-		{"emacs", "gopls/client:lsp-mode"},
 -
 -		// https://github.com/govim/govim/pull/1189
 -		{"govim", "gopls/client:govim"},

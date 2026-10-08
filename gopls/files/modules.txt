@@ -37,9 +37,10 @@ github.com/google/safehtml/uncheckedconversions
 # github.com/jba/templatecheck v0.7.1
 ## explicit; go 1.18
 github.com/jba/templatecheck
-# github.com/modelcontextprotocol/go-sdk v1.6.0
+# github.com/modelcontextprotocol/go-sdk v1.8.0
 ## explicit; go 1.25.0
 github.com/modelcontextprotocol/go-sdk/auth
+github.com/modelcontextprotocol/go-sdk/internal/authutil
 github.com/modelcontextprotocol/go-sdk/internal/json
 github.com/modelcontextprotocol/go-sdk/internal/jsonrpc2
 github.com/modelcontextprotocol/go-sdk/internal/mcpgodebug
@@ -67,33 +68,33 @@ github.com/segmentio/encoding/json
 # github.com/yosida95/uritemplate/v3 v3.0.2
 ## explicit; go 1.14
 github.com/yosida95/uritemplate/v3
-# golang.org/x/exp/typeparams v0.0.0-20260611194520-c48552f49976
-## explicit; go 1.25.0
+# golang.org/x/exp/typeparams v0.0.0-20260824195058-e88cd73687aa
+## explicit; go 1.26.0
 golang.org/x/exp/typeparams
-# golang.org/x/mod v0.37.0
-## explicit; go 1.25.0
+# golang.org/x/mod v0.41.0
+## explicit; go 1.26.0
 golang.org/x/mod/internal/lazyregexp
 golang.org/x/mod/modfile
 golang.org/x/mod/module
 golang.org/x/mod/semver
-# golang.org/x/net v0.56.0
-## explicit; go 1.25.0
+# golang.org/x/net v0.59.0
+## explicit; go 1.26.0
 golang.org/x/net/html
 golang.org/x/net/html/atom
-# golang.org/x/oauth2 v0.36.0
-## explicit; go 1.25.0
+# golang.org/x/oauth2 v0.37.0
+## explicit; go 1.26.0
 golang.org/x/oauth2
 golang.org/x/oauth2/internal
-# golang.org/x/sync v0.21.0
-## explicit; go 1.25.0
+# golang.org/x/sync v0.23.0
+## explicit; go 1.26.0
 golang.org/x/sync/errgroup
-# golang.org/x/sys v0.46.0
-## explicit; go 1.25.0
+# golang.org/x/sys v0.48.0
+## explicit; go 1.26.0
 golang.org/x/sys/cpu
 golang.org/x/sys/unix
 golang.org/x/sys/windows
-# golang.org/x/telemetry v0.0.0-20260625142307-59b4966ccb57
-## explicit; go 1.25.0
+# golang.org/x/telemetry v0.0.0-20260908163034-4bcc4b2ee518
+## explicit; go 1.26.0
 golang.org/x/telemetry
 golang.org/x/telemetry/counter
 golang.org/x/telemetry/counter/countertest
@@ -104,19 +105,19 @@ golang.org/x/telemetry/internal/crashmonitor
 golang.org/x/telemetry/internal/mmap
 golang.org/x/telemetry/internal/telemetry
 golang.org/x/telemetry/internal/upload
-# golang.org/x/text v0.38.0
-## explicit; go 1.25.0
+# golang.org/x/text v0.42.0
+## explicit; go 1.26.0
 golang.org/x/text/unicode/rangetable
 golang.org/x/text/unicode/runenames
-# golang.org/x/tools v0.47.1-0.20260707181000-a299dadba899
+# golang.org/x/time v0.15.0
 ## explicit; go 1.25.0
+golang.org/x/time/rate
+# golang.org/x/tools v0.50.1-0.20260930181756-2b65bbdff540
+## explicit; go 1.26.0
 golang.org/x/tools/go/analysis
 golang.org/x/tools/go/analysis/analysistest
 golang.org/x/tools/go/analysis/checker
 golang.org/x/tools/go/analysis/internal
-golang.org/x/tools/go/analysis/internal/analysisflags
-golang.org/x/tools/go/analysis/internal/checker
-golang.org/x/tools/go/analysis/multichecker
 golang.org/x/tools/go/analysis/passes/appends
 golang.org/x/tools/go/analysis/passes/asmdecl
 golang.org/x/tools/go/analysis/passes/assign
@@ -167,10 +168,8 @@ golang.org/x/tools/go/analysis/passes/unsafeptr
 golang.org/x/tools/go/analysis/passes/unusedresult
 golang.org/x/tools/go/analysis/passes/unusedwrite
 golang.org/x/tools/go/analysis/passes/waitgroup
-golang.org/x/tools/go/analysis/singlechecker
 golang.org/x/tools/go/analysis/suite/fix
 golang.org/x/tools/go/analysis/suite/vet
-golang.org/x/tools/go/analysis/unitchecker
 golang.org/x/tools/go/ast/astutil
 golang.org/x/tools/go/ast/edge
 golang.org/x/tools/go/ast/inspector
@@ -190,9 +189,9 @@ golang.org/x/tools/go/ssa/ssautil
 golang.org/x/tools/go/types/objectpath
 golang.org/x/tools/go/types/typeutil
 golang.org/x/tools/imports
-golang.org/x/tools/internal/aliases
 golang.org/x/tools/internal/analysis/analyzerutil
 golang.org/x/tools/internal/analysis/driverutil
+golang.org/x/tools/internal/analysis/intconv
 golang.org/x/tools/internal/analysis/typeindex
 golang.org/x/tools/internal/astutil
 golang.org/x/tools/internal/astutil/free
@@ -221,6 +220,8 @@ golang.org/x/tools/internal/jsonrpc2/servertest
 golang.org/x/tools/internal/jsonrpc2_v2
 golang.org/x/tools/internal/modindex
 golang.org/x/tools/internal/moreiters
+golang.org/x/tools/internal/moremaps
+golang.org/x/tools/internal/moreslices
 golang.org/x/tools/internal/packagepath
 golang.org/x/tools/internal/packagesinternal
 golang.org/x/tools/internal/pkgbits
@@ -238,7 +239,7 @@ golang.org/x/tools/internal/typesinternal/typeindex
 golang.org/x/tools/internal/versions
 golang.org/x/tools/refactor/satisfy
 golang.org/x/tools/txtar
-# golang.org/x/vuln v1.4.0
+# golang.org/x/vuln v1.7.0
 ## explicit; go 1.25.0
 golang.org/x/vuln/internal
 golang.org/x/vuln/internal/buildinfo
@@ -261,7 +262,7 @@ golang.org/x/vuln/scan
 # gopkg.in/yaml.v3 v3.0.1
 ## explicit
 gopkg.in/yaml.v3
-# honnef.co/go/tools v0.8.0-rc.1
+# honnef.co/go/tools v0.8.1
 ## explicit; go 1.26.0
 honnef.co/go/tools/analysis/callcheck
 honnef.co/go/tools/analysis/code
@@ -463,8 +464,8 @@ honnef.co/go/tools/stylecheck/st1020
 honnef.co/go/tools/stylecheck/st1021
 honnef.co/go/tools/stylecheck/st1022
 honnef.co/go/tools/stylecheck/st1023
-# mvdan.cc/gofumpt v0.10.0
-## explicit; go 1.25.0
+# mvdan.cc/gofumpt v0.12.0
+## explicit; go 1.26.0
 mvdan.cc/gofumpt/format
 mvdan.cc/gofumpt/internal/govendor/go/doc/comment
 mvdan.cc/gofumpt/internal/govendor/go/format

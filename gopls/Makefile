@@ -1,7 +1,6 @@
 PORTNAME=	gopls
-PORTVERSION=	0.23.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	2
+DISTVERSION=	0.24.0-pre.1
 CATEGORIES=	local devel
 PKGNAMESUFFIX=	-local
 
@@ -19,16 +18,14 @@ GH_ACCOUNT=	golang
 GH_PROJECT=	tools
 GH_TAGNAME=	${PORTNAME}/${DISTVERSIONFULL}
 
-#[.[].name | select(test("^${PORTNAME}/v"; "n")) | sub("^${PORTNAME}/v"; "")][0]
-#[.[].name | select(startswith("${PORTNAME}/v")) | ltrimstr("${PORTNAME}/v")][0]
-#first(.[].name | select(startswith("${PORTNAME}/v")) | ltrimstr("${PORTNAME}/v"))
 JQ_GETVER_EXPR=	first(.[].name | select(startswith("${PORTNAME}/v"))) | ltrimstr("${PORTNAME}/v")
 
 WRKSRC_SUBDIR=	${PORTNAME}
 
 CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X 'main.version=${PORTVERSION}'"
+GO_LDFLAGS+=	-w
+GO_LDFLAGS+=	-X main.version=${PORTVERSION}
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 PLIST_FILES=	bin/${PORTNAME}
 
@@ -41,8 +38,8 @@ pre-deps: .PHONY
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 	${RM} ${.CURDIR}/generated.deps.mk
-	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=mvdan GHT_PROJ=xurls GHT_PATH=mvdan.cc/xurls/v2 )
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=golang GHT_PROJ=exp GHT_PATH=golang.org/x/exp/typeparams )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=mvdan GHT_PROJ=xurls GHT_PATH=mvdan.cc/xurls/v2 )
 
 make-from-deps: .PHONY
 	@${SED} -rn \
