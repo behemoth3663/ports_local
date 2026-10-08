@@ -1,5 +1,5 @@
 PORTNAME=	aws-iam-authenticator
-PORTVERSION=	0.7.12
+PORTVERSION=	0.7.20
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local security
@@ -20,15 +20,11 @@ GH_ACCOUNT=	kubernetes-sigs
 
 GO_TARGET=	./cmd/${PORTNAME}
 
-GIT_COMMIT=	git ls-remote \
-		https://github.com/${GH_ACCOUNT}/${PORTNAME} \
-		refs/tags/${DISTVERSIONFULL}
-
 CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X 'sigs.k8s.io/${PORTNAME}/pkg.Version=${PORTVERSION}' \
-	-X 'sigs.k8s.io/${PORTNAME}/pkg.BuildDate=${%FT%TZ:L:gmtime}' \
-	-X 'sigs.k8s.io/${PORTNAME}/pkg.CommitID=${GIT_COMMIT:sh:C/(.{7}).*/\\1/W}'"
+GO_LDFLAGS+=	-w
+GO_LDFLAGS+=	-X sigs.k8s.io/${PORTNAME}/pkg.BuildDate=${SOURCE_DATE_EPOCH_CMD:sh}
+GO_LDFLAGS+=	-X sigs.k8s.io/${PORTNAME}/pkg.CommitID=${COMMIT_CMD:sh}
+GO_LDFLAGS+=	-X sigs.k8s.io/${PORTNAME}/pkg.Version=${PORTVERSION}
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 GO_ENV+=	GOWORK=off
 
@@ -49,11 +45,11 @@ pre-deps: .PHONY
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 	${RM} ${.CURDIR}/generated.deps.mk
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=go-yaml GHT_PROJ=yaml GHT_PATH=go.yaml.in/yaml/v3 )
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes GHT_PROJ=klog GHT_PATH=k8s.io/klog/v2 )
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes-sigs GHT_PROJ=json GHT_PATH=sigs.k8s.io/json )
-	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes-sigs GHT_PROJ=structured-merge-diff GHT_PATH=sigs.k8s.io/structured-merge-diff/v6 )
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes-sigs GHT_PROJ=randfill GHT_PATH=sigs.k8s.io/randfill )
-	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=go-yaml GHT_PROJ=yaml GHT_PATH=go.yaml.in/yaml/v3 )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes-sigs GHT_PROJ=structured-merge-diff GHT_PATH=sigs.k8s.io/structured-merge-diff/v6 )
 
 make-from-deps: .PHONY
 	@${SED} -rn \
@@ -79,4 +75,14 @@ GH_TUPLE:=	${GH_TUPLE:C,^(go-yaml:yaml:v2[^:]+:[^/]+),\1_2,1}
 #+go-yaml:yaml:v3.0.1:go_yaml_yaml_3/vendor/go.yaml.in/yaml/v3
 GH_TUPLE:=	${GH_TUPLE:C,^(go-yaml:yaml:)v3[^:]+:([^/]+),\1v3.0.1:\2_3,1}
 
-.include <bsd.port.mk>
+.include <bsd.port.pre.mk>
+
+COMMIT_CMD=	git ls-remote \
+		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
+		refs/tags/${DISTVERSIONFULL} | cut -c1-7
+
+SOURCE_DATE_EPOCH_CMD=	date -ur \
+			$$(${GREP} --max-count=1 TIMESTAMP ${DISTINFO_FILE} | ${CUT} -d' ' -f3) \
+			'+%FT%TZ'
+
+.include <bsd.port.post.mk>
