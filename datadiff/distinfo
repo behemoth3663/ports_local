@@ -1,4 +1,4 @@
-TIMESTAMP = 1791140138
+TIMESTAMP = 1791440679
 SHA256 (rust/crates/anstream-1.0.0.crate) = 824a212faf96e9acacdbd09febd34438f8f711fb84e09a8916013cd7815ca28d
 SIZE (rust/crates/anstream-1.0.0.crate) = 28916
 SHA256 (rust/crates/anstyle-1.0.14.crate) = 940b3a0ca603d1eade50a4846a2afffd5ef57a9feac2c0e2ec2e14f9ead76000
@@ -93,5 +93,5 @@ SHA256 (rust/crates/winnow-0.7.15.crate) = df79d97927682d2fd8adb29682d1140b343be
 SIZE (rust/crates/winnow-0.7.15.crate) = 187092
 SHA256 (rust/crates/zmij-1.0.23.crate) = 29666d0abbfad1e3dc4dcf6144730dd3a3ab225bbbdac83319345b1b44ccfc1b
 SIZE (rust/crates/zmij-1.0.23.crate) = 28612
-SHA256 (dimanovikov-datadiff-v0.4.1_GH0.tar.gz) = 0ed60265d5e89fe0c98f9ee345de4813ea3e04fb00edde96ca6593a87ced42fe
-SIZE (dimanovikov-datadiff-v0.4.1_GH0.tar.gz) = 542915
+SHA256 (dimanovikov-datadiff-v0.5.0_GH0.tar.gz) = 8d58fbb061143673f783abaf52a949b2ed1bbf3d65be687cad8e1d604f360a20
+SIZE (dimanovikov-datadiff-v0.5.0_GH0.tar.gz) = 549482
