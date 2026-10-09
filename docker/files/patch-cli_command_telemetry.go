@@ -261,28 +261,3 @@
  const resourceAttributesEnvVar = "OTEL_RESOURCE_ATTRIBUTES"
  
  func filterResourceAttributesEnvvar() {
-@@ -248,10 +72,7 @@ func filterResourceAttributesEnvvar() {
- 	}
- }
- 
--// dockerCLIAttributePrefix is the prefix for any docker cli OTEL attributes.
--// When updating, make sure to also update the copy in cli-plugins/manager.
--//
--// TODO(thaJeztah): move telemetry-related code to an (internal) package to reduce dependency on cli/command in cli-plugins, which has too many imports.
-+// dockerCLIAttributePrefix is the prefix for docker cli telemetry attributes.
- const dockerCLIAttributePrefix = "docker.cli."
- 
- func filterResourceAttributes(s string) string {
-@@ -264,12 +85,9 @@ func filterResourceAttributes(s string) string {
- 	for _, p := range pairs {
- 		k, _, found := strings.Cut(p, "=")
- 		if !found {
--			// Do not interact with invalid otel resources.
- 			elems = append(elems, p)
- 			continue
- 		}
--
--		// Skip attributes that have our docker.cli prefix.
- 		if strings.HasPrefix(k, dockerCLIAttributePrefix) {
- 			continue
- 		}
