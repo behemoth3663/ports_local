@@ -1,6 +1,5 @@
 PORTNAME=	get-next-version
-PORTVERSION=	2.8.1
-#PORTREVISION=	1
+PORTVERSION=	2.8.2
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -10,6 +9,8 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
+BUILD_DEPENDS=	git:devel/git
+
 USES=		go:modules
 
 USE_GITHUB=	yes
@@ -17,14 +18,10 @@ GH_ACCOUNT=	thenativeweb
 
 PLIST_FILES=	bin/${PORTNAME}
 
-COMMIT_CMD=	git ls-remote \
-		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
-		refs/tags/${DISTVERSIONFULL} | cut -c1-7
-
 CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=${DISTVERSIONFULL} \
-	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.GitVersion=$$(${COMMIT_CMD})"
+GO_LDFLAGS+=	-w
+GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=${DISTVERSIONFULL}
+GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.GitVersion=${COMMIT_CMD:sh}
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 post-extract: .PHONY
@@ -41,4 +38,10 @@ post-deps-all: .PHONY
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
-.include <bsd.port.mk>
+.include <bsd.port.pre.mk>
+
+COMMIT_CMD=	git ls-remote \
+		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
+		refs/tags/${DISTVERSIONFULL} | cut -c1-7
+
+.include <bsd.port.post.mk>
