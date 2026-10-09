@@ -1,7 +1,6 @@
 PORTNAME=	imgpkg
-PORTVERSION=	0.48.2
+PORTVERSION=	0.48.3
 DISTVERSIONPREFIX=	v
-#PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -11,10 +10,11 @@ WWW=		https://github.com/${GH_ACCOUNT}/${GH_PROJECT}
 LICENSE=	APACHE20
 
 USES=		go:modules
-GO_TARGET=	./cmd/${PORTNAME}
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	carvel-dev
+
+GO_TARGET=	./cmd/${PORTNAME}
 
 CGO_ENABLED=	0
 GO_LDFLAGS+=	-w
@@ -41,12 +41,7 @@ pre-deps-all: .PHONY
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 
-GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+)/vendor/github.com/Azure/go-autorest/(.*)|\1\3/\2|}
-
-GH_TUPLE:=	${GH_TUPLE:Naws*aws_aws_sdk_go_v2_*/vendor/github.com/aws/aws-sdk-go-v2/*}
-
-#-moby:moby:v0.8.2:moby_moby_1/vendor/github.com/docker/docker-credential-helpers
-#+docker:docker-credential-helpers:v0.8.2:moby_moby_1/vendor/github.com/docker/docker-credential-helpers
-GH_TUPLE:=	${GH_TUPLE:C|^moby:moby(:.*/)(docker-credential-helpers)$|docker:\2\1\2|1}
+GH_TUPLE:=	${GH_TUPLE:N*/github.com/Azure/go-autorest/*}
+GH_TUPLE:=	${GH_TUPLE:N*/github.com/aws/aws-sdk-go-v2/*}
 
 .include <bsd.port.mk>
