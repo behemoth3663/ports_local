@@ -2931,7 +2931,6 @@ lib/node_modules/newman/node_modules/socks/docs/examples/javascript/associateExa
 lib/node_modules/newman/node_modules/socks/docs/examples/index.md
 lib/node_modules/newman/node_modules/socks/docs/index.md
 lib/node_modules/newman/node_modules/socks/docs/migratingFromV1.md
-lib/node_modules/newman/node_modules/socks/.eslintrc.cjs
 lib/node_modules/newman/node_modules/socks/build/common/receivebuffer.js.map
 lib/node_modules/newman/node_modules/socks/build/common/util.js
 lib/node_modules/newman/node_modules/socks/build/common/util.js.map
@@ -2948,7 +2947,7 @@ lib/node_modules/newman/node_modules/socks/LICENSE
 lib/node_modules/newman/node_modules/socks/README.md
 lib/node_modules/newman/node_modules/socks/package.json
 lib/node_modules/newman/node_modules/socks/typings/common/util.d.ts
-lib/node_modules/newman/node_modules/socks/typings/common/receivebuffer.d.ts
+lib/node_modules/newman/node_modules/socks/typings/common/receiveBuffer.d.ts
 lib/node_modules/newman/node_modules/socks/typings/common/constants.d.ts
 lib/node_modules/newman/node_modules/socks/typings/common/helpers.d.ts
 lib/node_modules/newman/node_modules/socks/typings/index.d.ts

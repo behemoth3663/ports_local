@@ -1,6 +1,5 @@
 PORTNAME=	newman
-PORTVERSION=	6.2.2
-PORTREVISION=	1
+PORTVERSION=	6.2.3
 CATEGORIES=	local devel
 MASTER_SITES=	LOCAL/o1vm/:npm
 
@@ -27,13 +26,16 @@ PACKAGE_NAME=	${PORTNAME}
 FETCH_SCRIPT=	${PORTSDIR}/Tools/scripts/npmjs-fetch-with-dependencies.sh
 
 do-fetch: .PHONY
-.for _f in ${DISTFILES}
-	@test -f ${DISTDIR}/${_f} || ${SETENV} TMPDIR=${WRKDIR} LOCALBASE=${LOCALBASE} \
-		${FETCH_SCRIPT} ${PACKAGE_NAME} ${DISTVERSION} ${FILESDIR}/package.json ${DISTDIR}/${_f}
-.endfor
+	for f in ${DISTFILES}; do \
+		${TEST} -f "${DISTDIR}/$${f}" && continue; \
+		${RM} -fv -- ${FILESDIR}/package.json; \
+		${SETENV} TMPDIR=${WRKDIR} LOCALBASE=${LOCALBASE} \
+			${FETCH_SCRIPT} ${PACKAGE_NAME} ${DISTVERSION} ${FILESDIR}/package.json "${DISTDIR}/$${f}"; \
+	done
 
 do-install: .PHONY
 	@${MKDIR} ${STAGEDIR}${PREFIX}/lib
+	@${FIND} ${WRKSRC}/node_modules -name '*.orig' -type f -delete
 	@cd ${WRKSRC} && ${COPYTREE_SHARE} node_modules ${STAGEDIR}${PREFIX}/lib
 	@${CHMOD} +x ${STAGEDIR}${PREFIX}/lib/node_modules/${PACKAGE_NAME}/bin/${PACKAGE_NAME}.js
 	@${MKDIR} ${STAGEDIR}${PREFIX}/bin
