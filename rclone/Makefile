@@ -1,13 +1,12 @@
 PORTNAME=	rclone
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.75.1
-#PORTREVISION=	1
+DISTVERSION=	1.75.2
 CATEGORIES=	local net
 PKGNAMESUFFIX=	-local
 
 MAINTAINER=	tremere@cainites.net
 COMMENT=	Sync files to and from various cloud services
-WWW=		https://rclone.org/
+WWW=		https://rclone.org/ https://${GO_MODULE}
 
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/COPYING
@@ -23,8 +22,8 @@ PLIST_FILES=	bin/${PORTNAME} \
 JQ_GETVER_EXPR=	.[0].name | gsub("[-a-z]"; "")
 
 CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X ${GO_MODULE}/fs.VersionSuffix="
+GO_LDFLAGS+=	-w
+GO_LDFLAGS+=	-X ${GO_MODULE}/fs.VersionSuffix=
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 OPTIONS_DEFINE=	CMOUNT
@@ -32,6 +31,10 @@ OPTIONS_DEFINE=	CMOUNT
 CMOUNT_DESC=		Enable cmount command (depends on fusefs-libs)
 CMOUNT_LIB_DEPENDS=	libfuse.so:filesystems/fusefs-libs
 CMOUNT_VARS=		GO_BUILDFLAGS+="-tags cmount"
+
+pre-build: .PHONY
+	${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io
+	${RM} ${WRKSRC}/vendor/github.com/googleapis/gax-go/v2/telemetry.go
 
 post-install: .PHONY
 	${INSTALL_MAN} ${WRKSRC}/${PORTNAME}.1 ${STAGEDIR}${PREFIX}/share/man/man1

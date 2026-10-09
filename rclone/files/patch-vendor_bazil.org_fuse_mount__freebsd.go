@@ -1,4 +1,4 @@
---- vendor/bazil.org/fuse/mount_freebsd.go.orig	2022-08-09 15:43:51 UTC
+--- vendor/bazil.org/fuse/mount_freebsd.go.orig	2026-10-09 21:07:40 UTC
 +++ vendor/bazil.org/fuse/mount_freebsd.go
 @@ -56,10 +56,11 @@ func mount(dir string, conf *mountConfig) (*os.File, e
  		}
