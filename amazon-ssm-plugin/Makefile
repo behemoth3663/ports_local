@@ -1,6 +1,5 @@
 PORTNAME=	amazon-ssm-plugin
-PORTVERSION=	1.2.835.0
-#PORTREVISION=	1
+PORTVERSION=	1.2.896.0
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX=	-local
 
@@ -14,30 +13,32 @@ RUN_DEPENDS=	aws:devel/py-awscli@${PY_FLAVOR}
 
 USES=		go:modules python:env
 
-CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w"
-GO_TARGET=	src/sessionmanagerplugin-main/main.go:${PREFIX}/bin/session-manager-plugin \
-		src/ssmcli-main/main.go:${PREFIX}/bin/ssmcli
-GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
-
 USE_GITHUB=	yes
 GH_ACCOUNT=	aws
 GH_PROJECT=	session-manager-plugin
 GH_SUBDIR=	${GH_PROJECT}
 
+GO_TARGET=	src/sessionmanagerplugin-main/main.go:${PREFIX}/bin/session-manager-plugin
+GO_TARGET+=	src/ssmcli-main/main.go:${PREFIX}/bin/ssmcli
+
+CGO_ENABLED=	0
+GO_LDFLAGS+=	-w
+GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
+
 PORTDOCS=	NOTICE README.md RELEASENOTES.md THIRD-PARTY VERSION
+LOGDIR=		${DESTDIR}/var/log/${PORTNAME}
+
+OPTIONS_DEFINE=	DOCS
+
 PLIST_FILES=	${ETCDIR}/sessionmanagerplugin/seelog.xml.template \
 		${ETCDIR}/SSMCLI/seelog.xml.template \
 		bin/session-manager-plugin \
 		bin/ssmcli \
 		'@dir /var/log/amazon-ssm-plugin'
 
-LOGDIR=		${DESTDIR}/var/log/${PORTNAME}
-
-OPTIONS_DEFINE=	DOCS
-
 post-patch: .PHONY .SILENT
-	${CP} -a ${PATCHDIR}/go.mod ${PATCHDIR}/go.sum ${WRKSRC}
+	${CP} ${FILESDIR}/go.mod ${WRKSRC}
+	${CP} ${FILESDIR}/go.sum ${WRKSRC}
 	${REINPLACE_CMD} -e 's|%%VERSION%%|${DISTVERSION}|' ${WRKSRC}/src/version/version.go
 	${REINPLACE_CMD} -e 's|%%ETCDIR%%|${ETCDIR}|g; s|%%LOGDIR%%|${LOGDIR}|g' ${WRKSRC}/seelog_unix.xml
 	${REINPLACE_CMD} -e 's|%%ETCDIR%%|${ETCDIR}|g; s|%%LOGDIR%%|${LOGDIR}|g' ${WRKSRC}/src/log/log_unix.go
@@ -51,24 +52,24 @@ post-install-DOCS-on: .PHONY
 	@${MKDIR} ${STAGEDIR}${DOCSDIR}
 	cd ${WRKSRC} && ${INSTALL_DATA} ${PORTDOCS} ${STAGEDIR}${DOCSDIR}
 
-pre-deps: .PHONY .SILENT
-	cd ${WRKSRC} && \
-		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod init ${GO_PKGNAME} && \
-		${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod tidy -v
-	${TAR} --create --directory ${PATCHDIR} --exclude='go.mod' --exclude='go.sum' --xz --file ${TMPDIR}/${PORTNAME}.tar.xz .
-	${RM} ${PATCHDIR}/*
-	${CP} -a ${WRKSRC}/go.mod ${WRKSRC}/go.sum ${PATCHDIR}
-
-pre-deps-all: .PHONY
-	${TAR} --extract --directory ${PATCHDIR} --file ${TMPDIR}/${PORTNAME}.tar.xz
-	${RM} ${PATCH_COOKIE} ${TMPDIR}/${PORTNAME}.tar.xz
-	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
-
-post-deps-all: .PHONY
-
 _OPTIONS_extract+=	750:post-post-extract
 post-post-extract: .PHONY
-	${TEST} -f ${WRKSRC}/vendor/modules.txt || ${TEST} ! -f ${PATCHDIR}/modules.txt || ${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+	${CP} ${FILESDIR}/modules.txt ${WRKSRC}/vendor
+
+pre-deps: .PHONY .SILENT
+	cd ${WRKSRC} && ${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod init ${GO_PKGNAME}
+	cd ${WRKSRC} && ${SETENV} GOPATH=${WRKDIR}/.gopath ${GO_CMD} mod tidy
+	${TAR} --create --directory ${FILESDIR} --exclude=go.mod --exclude=go.sum --xz --file ${TMPDIR}/${DISTNAME}.tar.xz .
+	${FIND} ${FILESDIR} -type f -delete
+	${CP} ${WRKSRC}/go.mod ${FILESDIR}
+	${CP} ${WRKSRC}/go.sum ${FILESDIR}
+
+pre-deps-all: .PHONY
+	${TAR} --extract --directory ${FILESDIR} --file ${TMPDIR}/${DISTNAME}.tar.xz
+	${RM} ${PATCH_COOKIE} ${TMPDIR}/${DISTNAME}.tar.xz
+	${CP} ${WRKSRC}/vendor/modules.txt ${FILESDIR}
+
+post-deps-all: .PHONY
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"

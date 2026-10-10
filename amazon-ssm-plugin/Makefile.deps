@@ -1,37 +1,37 @@
 GH_TUPLE=	\
-		aws:aws-sdk-go-v2:config/v1.32.25:aws_aws_sdk_go_v2_config \
-		aws:aws-sdk-go-v2:credentials/v1.19.24:aws_aws_sdk_go_v2_credentials \
-		aws:aws-sdk-go-v2:feature/ec2/imds/v1.18.29:aws_aws_sdk_go_v2_imds \
-		aws:aws-sdk-go-v2:internal/configsources/v1.4.29:aws_aws_sdk_go_v2_configsources \
-		aws:aws-sdk-go-v2:internal/endpoints/v2.7.29:aws_aws_sdk_go_v2_v2 \
-		aws:aws-sdk-go-v2:internal/v4a/v1.4.30:aws_aws_sdk_go_v2_v4a \
-		aws:aws-sdk-go-v2:service/internal/accept-encoding/v1.13.12:aws_aws_sdk_go_v2_accept_encoding \
-		aws:aws-sdk-go-v2:service/internal/presigned-url/v1.13.29:aws_aws_sdk_go_v2_presigned_url \
-		aws:aws-sdk-go-v2:service/kms/v1.53.4:aws_aws_sdk_go_v2_kms \
-		aws:aws-sdk-go-v2:service/signin/v1.2.0:aws_aws_sdk_go_v2_signin \
-		aws:aws-sdk-go-v2:service/ssm/v1.69.3:aws_aws_sdk_go_v2_ssm \
-		aws:aws-sdk-go-v2:service/sso/v1.31.3:aws_aws_sdk_go_v2_sso \
-		aws:aws-sdk-go-v2:service/ssooidc/v1.36.6:aws_aws_sdk_go_v2_ssooidc \
-		aws:aws-sdk-go-v2:service/sts/v1.43.3:aws_aws_sdk_go_v2_sts \
-		aws:aws-sdk-go-v2:v1.42.0:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
-		aws:session-manager-plugin:930a08e65d3a:aws_session_manager_plugin/vendor/github.com/aws/session-manager-plugin \
-		aws:smithy-go:v1.27.1:aws_smithy_go/vendor/github.com/aws/smithy-go \
+		aws:aws-sdk-go-v2:config/v1.33.9:aws_aws_sdk_go_v2_config \
+		aws:aws-sdk-go-v2:credentials/v1.20.9:aws_aws_sdk_go_v2_credentials \
+		aws:aws-sdk-go-v2:feature/ec2/imds/v1.20.3:aws_aws_sdk_go_v2_imds \
+		aws:aws-sdk-go-v2:internal/configsources/v1.5.6:aws_aws_sdk_go_v2_configsources \
+		aws:aws-sdk-go-v2:internal/endpoints/v2.8.6:aws_aws_sdk_go_v2_v2 \
+		aws:aws-sdk-go-v2:internal/v4a/v1.5.6:aws_aws_sdk_go_v2_v4a \
+		aws:aws-sdk-go-v2:service/internal/accept-encoding/v1.13.21:aws_aws_sdk_go_v2_accept_encoding \
+		aws:aws-sdk-go-v2:service/internal/presigned-url/v1.14.6:aws_aws_sdk_go_v2_presigned_url \
+		aws:aws-sdk-go-v2:service/kms/v1.61.4:aws_aws_sdk_go_v2_kms \
+		aws:aws-sdk-go-v2:service/signin/v1.10.4:aws_aws_sdk_go_v2_signin \
+		aws:aws-sdk-go-v2:service/ssm/v1.79.3:aws_aws_sdk_go_v2_ssm \
+		aws:aws-sdk-go-v2:service/sso/v1.38.4:aws_aws_sdk_go_v2_sso \
+		aws:aws-sdk-go-v2:service/ssooidc/v1.43.4:aws_aws_sdk_go_v2_ssooidc \
+		aws:aws-sdk-go-v2:service/sts/v1.51.4:aws_aws_sdk_go_v2_sts \
+		aws:aws-sdk-go-v2:v1.47.3:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
+		aws:session-manager-plugin:6430675a4403:aws_session_manager_plugin/vendor/github.com/aws/session-manager-plugin \
+		aws:smithy-go:v1.28.5:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		cihub:seelog:f561c5e57575:cihub_seelog/vendor/github.com/cihub/seelog \
 		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
 		fsnotify:fsnotify:v1.10.1:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
-		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
-		golang:crypto:v0.53.0:golang_crypto/vendor/golang.org/x/crypto \
-		golang:sync:v0.21.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.46.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.44.0:golang_term/vendor/golang.org/x/term \
+		golang:crypto:v0.58.0:golang_crypto/vendor/golang.org/x/crypto \
+		golang:sync:v0.24.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.49.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.47.0:golang_term/vendor/golang.org/x/term \
 		gorilla:websocket:v1.5.3:gorilla_websocket/vendor/github.com/gorilla/websocket \
 		myesui:uuid:v1.0.0:myesui_uuid/vendor/github.com/myesui/uuid \
 		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
-		stretchr:objx:v0.5.2:stretchr_objx/vendor/github.com/stretchr/objx \
-		stretchr:testify:v1.11.1:stretchr_testify/vendor/github.com/stretchr/testify \
+		stretchr:objx:v0.5.3:stretchr_objx/vendor/github.com/stretchr/objx \
+		stretchr:testify:v1.12.1:stretchr_testify/vendor/github.com/stretchr/testify \
 		stretchr:testify:v1.2.2:stretchr_testify_1/vendor/gopkg.in/stretchr/testify.v1 \
 		twinj:uuid:v1.0.0:twinj_uuid \
-		xtaci:smux:v1.5.57:xtaci_smux/vendor/github.com/xtaci/smux
+		xtaci:smux:v1.5.57:xtaci_smux/vendor/github.com/xtaci/smux \
+		yaml:go-yaml:v3.0.5:yaml_go_yaml/vendor/go.yaml.in/yaml/v3
 post-extract:
 	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/config
 	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_config}/config ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/config
