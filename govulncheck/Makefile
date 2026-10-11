@@ -1,7 +1,6 @@
 PORTNAME=	govulncheck
-PORTVERSION=	1.8.0
+PORTVERSION=	1.9.0
 DISTVERSIONPREFIX=	v
-#PORTREVISION=	1
 CATEGORIES=	local security
 PKGNAMESUFFIX=	-local
 
@@ -17,12 +16,13 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	golang
 GH_PROJECT=	vuln
 
-PLIST_FILES=	bin/${PORTNAME}
-
 GO_TARGET=	./cmd/${PORTNAME}
+
 CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w"
+GO_LDFLAGS+=	-w
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
+
+PLIST_FILES=	bin/${PORTNAME}
 
 post-patch: .PHONY
 	@${REINPLACE_CMD} -e 's|%%GO_CMD%%|${GO_CMD}|g' ${WRKSRC}/internal/scan/util.go
