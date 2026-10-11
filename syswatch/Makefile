@@ -1,6 +1,6 @@
 PORTNAME=	syswatch
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.14.2
+DISTVERSION=	0.14.3
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@FreeBSD.org
@@ -16,7 +16,6 @@ GH_ACCOUNT=	matthart1983
 
 PLIST_FILES=	bin/${PORTNAME}
 
-FIREFOX_VERSION_CMD=	${PKG_QUERY} --evaluate %n=firefox %v | ${SED} -r 's/^([0-9]+\.[0-9]+).*/\1/'
 FETCH_ENV=	HTTP_USER_AGENT='Mozilla/5.0 (X11; Linux x86_64; rv:${FIREFOX_VERSION_CMD:sh}) Gecko/20100101 Firefox/${FIREFOX_VERSION_CMD:sh}'
 
 #https://www.freebsd.org/doc/en_US.ISO8859-1/books/porters-handbook/building.html#using-cargo
@@ -27,4 +26,8 @@ deps: .PHONY
 	( ${MAKE} -C ${.CURDIR} FETCH_ENV="${FETCH_ENV}" makesum )
 
 .sinclude "${.CURDIR}/Makefile.crates"
-.include <bsd.port.mk>
+.include <bsd.port.pre.mk>
+
+FIREFOX_VERSION_CMD=	${PKG_QUERY} --evaluate %n=firefox %v | ${SED} -r 's/^([0-9]+\.[0-9]+).*/\1/'
+
+.include <bsd.port.post.mk>
