@@ -1,6 +1,6 @@
 PORTNAME=	ssh-manager
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.126.0
+DISTVERSION=	1.127.0
 CATEGORIES=	local security
 
 MAINTAINER=	none@freebsd.org
@@ -33,10 +33,16 @@ post-extract: .PHONY
 	${RM} -r ${WRKSRC}/vendor/go.opencensus.io
 	${RM} ${WRKSRC}/vendor/github.com/envoyproxy/go-control-plane/envoy/config/trace/v3/opencensus.pb.*go
 	${RM} ${WRKSRC}/vendor/google.golang.org/api/transport/http/internal/propagation/http.go
-	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
-	@${TEST} -z ${WRKSRC_googleapis_google_cloud_go_storage} || ${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go/storage
+	${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/storage
+	${TEST} -z ${WRKSRC_googleapis_google_cloud_go_storage} || ${RLN} ${WRKSRC_googleapis_google_cloud_go_storage}/storage ${WRKSRC}/vendor/cloud.google.com/go/storage
 
-pre-deps pre-deps-all post-deps-all: .PHONY
+pre-deps: .PHONY
+	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
+
+post-deps-all: .PHONY
+	${TEST} ! -d '${PATCHDIR}_' || ${MV} ${PATCHDIR}_ ${PATCHDIR}
+
+pre-deps-all: .PHONY
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
