@@ -1,0 +1,3 @@
+The local Go proxy that turns GitHub Copilot subscription into
+OpenAI-compatible and Anthropic-compatible API endpoints, with first-class
+setup for Claude Code and Codex CLI.
