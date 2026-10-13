@@ -1,7 +1,6 @@
 PORTNAME=	unhealthy-tgs
-PORTVERSION=	0.1.34
+PORTVERSION=	0.1.37
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -28,8 +27,10 @@ GO_LDFLAGS+=	-X main.version=${PORTVERSION}
 GO_LDFLAGS+=	-X main.commit=${COMMIT_CMD:sh}
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
-_OPTIONS_extract+=	750:post-post-extract
-post-post-extract: .PHONY
+M2T_OFFLINE=	true
+.export	M2T_OFFLINE
+
+post-extract: .PHONY
 	${RM} ${WRKSRC}/../../go.work
 	${MKDIR} ${WRKSRC}/vendor
 	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
@@ -50,6 +51,9 @@ do-build: .PHONY
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
+
+GH_TUPLE:=	${GH_TUPLE:Naws*aws_aws_sdk_go_v2_*/vendor/github.com/aws/aws-sdk-go-v2/*}
+
 .include <bsd.port.pre.mk>
 
 COMMIT_CMD=	git ls-remote \
