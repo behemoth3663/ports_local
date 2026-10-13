@@ -35,4 +35,3 @@ post-deps-all: .PHONY
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
-.include <bsd.port.mk>

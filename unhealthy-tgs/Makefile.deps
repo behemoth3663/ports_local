@@ -1,22 +1,49 @@
 GH_TUPLE=	\
-		aws:aws-sdk-go-v2:v1.10.1:aws_aws_sdk_go_v2_signin/vendor/github.com/aws/aws-sdk-go-v2/service/signin \
-		aws:aws-sdk-go-v2:v1.13.19:aws_aws_sdk_go_v2_accept_encoding/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding \
-		aws:aws-sdk-go-v2:v1.14.4:aws_aws_sdk_go_v2_presigned_url/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url \
-		aws:aws-sdk-go-v2:v1.20.1:aws_aws_sdk_go_v2_imds/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds \
-		aws:aws-sdk-go-v2:v1.20.6:aws_aws_sdk_go_v2_credentials/vendor/github.com/aws/aws-sdk-go-v2/credentials \
-		aws:aws-sdk-go-v2:v1.33.6:aws_aws_sdk_go_v2_config/vendor/github.com/aws/aws-sdk-go-v2/config \
-		aws:aws-sdk-go-v2:v1.38.1:aws_aws_sdk_go_v2_sso/vendor/github.com/aws/aws-sdk-go-v2/service/sso \
-		aws:aws-sdk-go-v2:v1.43.1:aws_aws_sdk_go_v2_ssooidc/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc \
+		aws:aws-sdk-go-v2:config/v1.33.6:aws_aws_sdk_go_v2_config \
+		aws:aws-sdk-go-v2:credentials/v1.20.6:aws_aws_sdk_go_v2_credentials \
+		aws:aws-sdk-go-v2:feature/ec2/imds/v1.20.1:aws_aws_sdk_go_v2_imds \
+		aws:aws-sdk-go-v2:internal/configsources/v1.5.4:aws_aws_sdk_go_v2_configsources \
+		aws:aws-sdk-go-v2:internal/endpoints/v2.8.4:aws_aws_sdk_go_v2_v2 \
+		aws:aws-sdk-go-v2:internal/v4a/v1.5.4:aws_aws_sdk_go_v2_v4a \
+		aws:aws-sdk-go-v2:service/elasticloadbalancingv2/v1.63.1:aws_aws_sdk_go_v2_elasticloadbalancingv2 \
+		aws:aws-sdk-go-v2:service/internal/accept-encoding/v1.13.19:aws_aws_sdk_go_v2_accept_encoding \
+		aws:aws-sdk-go-v2:service/internal/presigned-url/v1.14.4:aws_aws_sdk_go_v2_presigned_url \
+		aws:aws-sdk-go-v2:service/signin/v1.10.1:aws_aws_sdk_go_v2_signin \
+		aws:aws-sdk-go-v2:service/sso/v1.38.1:aws_aws_sdk_go_v2_sso \
+		aws:aws-sdk-go-v2:service/ssooidc/v1.43.1:aws_aws_sdk_go_v2_ssooidc \
+		aws:aws-sdk-go-v2:service/sts/v1.51.1:aws_aws_sdk_go_v2_sts \
 		aws:aws-sdk-go-v2:v1.47.1:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2 \
-		aws:aws-sdk-go-v2:v1.5.4:aws_aws_sdk_go_v2_configsources/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources \
-		aws:aws-sdk-go-v2:v1.5.4:aws_aws_sdk_go_v2_v4a/vendor/github.com/aws/aws-sdk-go-v2/internal/v4a \
-		aws:aws-sdk-go-v2:v1.51.1:aws_aws_sdk_go_v2_sts/vendor/github.com/aws/aws-sdk-go-v2/service/sts \
-		aws:aws-sdk-go-v2:v1.63.1:aws_aws_sdk_go_v2_elasticloadbalancingv2/vendor/github.com/aws/aws-sdk-go-v2/service/elasticloadbalancingv2 \
-		aws:aws-sdk-go-v2:v2.8.4:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 \
 		aws:smithy-go:v1.28.2:aws_smithy_go/vendor/github.com/aws/smithy-go \
 		go-jose:go-jose:v4.1.5:go_jose_go_jose_v4/vendor/github.com/go-jose/go-jose/v4 \
 		go-openapi:testify:v2.8.0:go_openapi_testify_v2/vendor/github.com/go-openapi/testify/v2 \
 		golang:sync:v0.23.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.48.0:golang_sys/vendor/golang.org/x/sys \
 		mattn:go-isatty:v0.0.24:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
-		omilevskyi:go:v0.1.31:omilevskyi_go/vendor/github.com/omilevskyi/go \
+		omilevskyi:go:v0.1.31:omilevskyi_go/vendor/github.com/omilevskyi/go
+post-extract:
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/config
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_config}/config ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/config
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/credentials
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_credentials}/credentials ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/credentials
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_imds}/feature/ec2/imds ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/feature/ec2/imds
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_configsources}/internal/configsources ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_v2}/internal/endpoints/v2 ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/v4a
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_v4a}/internal/v4a ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal/v4a
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/elasticloadbalancingv2
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_elasticloadbalancingv2}/service/elasticloadbalancingv2 ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/elasticloadbalancingv2
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_accept_encoding}/service/internal/accept-encoding ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/accept-encoding
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_presigned_url}/service/internal/presigned-url ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/internal/presigned-url
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/signin
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_signin}/service/signin ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/signin
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sso
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_sso}/service/sso ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sso
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_ssooidc}/service/ssooidc ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/ssooidc
+	@${RM} -r ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sts
+	@${RLN} ${WRKSRC_aws_aws_sdk_go_v2_sts}/service/sts ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/service/sts
