@@ -1,5 +1,5 @@
 PORTNAME=	unhealthy-tgs
-PORTVERSION=	0.1.37
+PORTVERSION=	0.1.38
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -52,7 +52,7 @@ do-build: .PHONY
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
 
-GH_TUPLE:=	${GH_TUPLE:Naws*aws_aws_sdk_go_v2_*/vendor/github.com/aws/aws-sdk-go-v2/*}
+GH_TUPLE:=	${GH_TUPLE:N*/vendor/github.com/aws/aws-sdk-go-v2/*}
 
 .include <bsd.port.pre.mk>
 
