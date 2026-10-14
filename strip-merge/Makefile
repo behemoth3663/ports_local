@@ -1,7 +1,7 @@
 PORTNAME=	strip-merge
-PORTVERSION=	0.1.32
+PORTVERSION=	0.1.38
 DISTVERSIONPREFIX=	v
-CATEGORIES=	local textproc
+CATEGORIES=	local misc
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	Strip merge() from inputs in a terragrunt.hcl
@@ -17,17 +17,13 @@ GH_PROJECT=	go
 
 WRKSRC_SUBDIR=	cmd/${PORTNAME}
 
-PLIST_FILES=	bin/${PORTNAME}
-
-COMMIT_CMD=	git ls-remote \
-		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
-		refs/tags/${DISTVERSIONFULL}^{} | cut -c1-7
-
 CGO_ENABLED=	0
 GO_LDFLAGS+=	-w
 GO_LDFLAGS+=	-X main.version=${PORTVERSION}
-GO_LDFLAGS+=	-X main.gitCommit=2ce9733
+GO_LDFLAGS+=	-X main.gitCommit=${COMMIT_CMD:sh}
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
+
+PLIST_FILES=	bin/${PORTNAME}
 
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
@@ -48,4 +44,10 @@ pre-deps-all: .PHONY
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
-.include <bsd.port.mk>
+.include <bsd.port.pre.mk>
+
+COMMIT_CMD=	git ls-remote \
+	https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
+	refs/tags/${DISTVERSIONFULL}^{} | cut -c1-7
+
+.include <bsd.port.post.mk>
