@@ -1,5 +1,5 @@
 PORTNAME=	aws-iam-authenticator
-PORTVERSION=	0.7.20
+PORTVERSION=	0.7.21
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local security
 PKGNAMESUFFIX=	-local

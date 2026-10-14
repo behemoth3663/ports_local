@@ -1,4 +1,4 @@
-GH_TUPLE+=go-yaml:yaml:v3.0.4:go_yaml_yaml/vendor/go.yaml.in/yaml/v3
+GH_TUPLE+=go-yaml:yaml:v3.0.5:go_yaml_yaml/vendor/go.yaml.in/yaml/v3
 GH_TUPLE+=kubernetes:klog:v2.140.0:kubernetes_klog/vendor/k8s.io/klog/v2
 GH_TUPLE+=kubernetes-sigs:json:2d320260d730:kubernetes_sigs_json/vendor/sigs.k8s.io/json
 GH_TUPLE+=kubernetes-sigs:randfill:v1.0.0:kubernetes_sigs_randfill/vendor/sigs.k8s.io/randfill
