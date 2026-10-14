@@ -1,0 +1,6 @@
+Command-line XML and HTML beautifier and content extractor.
+Features:
+ - Syntax highlighting
+ - Automatic indentation and formatting
+ - Automatic pagination
+ - Node content extraction

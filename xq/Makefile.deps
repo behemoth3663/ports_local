@@ -1,0 +1,21 @@
+GH_TUPLE=	\
+		PuerkitoBio:goquery:v1.12.0:puerkitobio_goquery/vendor/github.com/PuerkitoBio/goquery \
+		andybalholm:cascadia:v1.3.3:andybalholm_cascadia/vendor/github.com/andybalholm/cascadia \
+		antchfx:xmlquery:v1.5.1:antchfx_xmlquery/vendor/github.com/antchfx/xmlquery \
+		antchfx:xpath:v1.3.8:antchfx_xpath/vendor/github.com/antchfx/xpath \
+		davecgh:go-spew:d8f796af33cc:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
+		fatih:color:v1.19.0:fatih_color/vendor/github.com/fatih/color \
+		go-check:check:41f04d3bba15:go_check_check/vendor/gopkg.in/check.v1 \
+		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
+		golang:groupcache:41bb18bfe9da:golang_groupcache/vendor/github.com/golang/groupcache \
+		golang:net:v0.58.0:golang_net/vendor/golang.org/x/net \
+		golang:sys:v0.47.0:golang_sys/vendor/golang.org/x/sys \
+		golang:text:v0.41.0:golang_text/vendor/golang.org/x/text \
+		inconshreveable:mousetrap:v1.1.0:inconshreveable_mousetrap/vendor/github.com/inconshreveable/mousetrap \
+		kr:pretty:v0.3.1:kr_pretty/vendor/github.com/kr/pretty \
+		mattn:go-colorable:v0.1.14:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
+		mattn:go-isatty:v0.0.20:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
+		pmezard:go-difflib:5d4384ee4fb2:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
+		spf13:cobra:v1.10.2:spf13_cobra/vendor/github.com/spf13/cobra \
+		spf13:pflag:v1.0.10:spf13_pflag/vendor/github.com/spf13/pflag \
+		stretchr:testify:v1.11.1:stretchr_testify/vendor/github.com/stretchr/testify
