@@ -1,12 +1,12 @@
 PORTNAME=	gopls
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.24.0-pre.3
+DISTVERSION=	0.24.0
 CATEGORIES=	local devel
 PKGNAMESUFFIX=	-local
 
 MAINTAINER=	fuz@FreeBSD.org
 COMMENT=	Go language LSP server
-WWW=		https://pkg.go.dev/golang.org/x/tools/gopls https://github.com/golang/tools/tree/master/gopls
+WWW=		https://pkg.go.dev/golang.org/x/tools/gopls https://github.com/${GH_ACCOUNT}/${GH_PROJECT}/tree/master/${PORTNAME}
 
 LICENSE=	BSD3CLAUSE
 LICENSE_FILE=	${WRKSRC:H}/LICENSE

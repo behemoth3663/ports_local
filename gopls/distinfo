@@ -1,6 +1,6 @@
-TIMESTAMP = 1792053811
-SHA256 (golang-tools-v0.24.0-pre.3-gopls-v0.24.0-pre.3_GH0.tar.gz) = 8ca5c4ebcf9909da4531270168d75515bf7c9cc6582522f10a454cff80ea7e3e
-SIZE (golang-tools-v0.24.0-pre.3-gopls-v0.24.0-pre.3_GH0.tar.gz) = 8723449
+TIMESTAMP = 1792090419
+SHA256 (golang-tools-v0.24.0-gopls-v0.24.0_GH0.tar.gz) = 5ecc22f581cafe4039873e2f28e0d045efecfb0dfc6ea51ee1345daa694cb6a9
+SIZE (golang-tools-v0.24.0-gopls-v0.24.0_GH0.tar.gz) = 8722459
 SHA256 (BurntSushi-toml-v1.6.0_GH0.tar.gz) = eecda85357b0df8b623191a027de3ce43282cceb403f412200a6c5f9776b2098
 SIZE (BurntSushi-toml-v1.6.0_GH0.tar.gz) = 142004
 SHA256 (dominikh-go-tools-v0.8.1_GH0.tar.gz) = 7f16b3c7450f7ab62791dfb2e6d40d57d3b74dd01eef30f24a71822db8d45848
