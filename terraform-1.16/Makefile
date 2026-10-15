@@ -1,5 +1,5 @@
 PORTNAME=	terraform
-PORTVERSION=	1.16.5
+PORTVERSION=	1.16.6
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX=	-${PORTVERSION:R}
@@ -85,7 +85,7 @@ make-from-deps: .PHONY
 #-aws:aws-sdk-go-v2:v1.9.19:aws_aws_sdk_go_v2_endpoint_discovery/vendor/github.com/aws/aws-sdk-go-v2/service/internal/endpoint-discovery
 #-aws:aws-sdk-go-v2:v2.6.18:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2
 # aws:aws-sdk-go:v1.44.122:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go
-GH_TUPLE:=	${GH_TUPLE:Naws*aws_aws_sdk_go_v2_*/vendor/github.com/aws/aws-sdk-go-v2/*}
+GH_TUPLE:=	${GH_TUPLE:N*/vendor/github.com/aws/aws-sdk-go-v2/*}
 
 #-google:go-genproto:da73d73af1c5:google_go_genproto_api/vendor/google.golang.org/genproto/googleapis/api
 #+google:go-genproto:da73d73af1c5:google_go_genproto_api
