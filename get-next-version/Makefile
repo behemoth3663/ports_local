@@ -1,5 +1,5 @@
 PORTNAME=	get-next-version
-PORTVERSION=	2.8.2
+PORTVERSION=	2.8.3
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
