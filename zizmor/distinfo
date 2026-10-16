@@ -1,4 +1,4 @@
-TIMESTAMP = 1792041449
+TIMESTAMP = 1792134292
 SHA256 (rust/crates/addr2line-0.25.1.crate) = 1b5d307320b3181d6d7954e663bd7c774a838b8220fe0593c86d9fb09f498b4b
 SIZE (rust/crates/addr2line-0.25.1.crate) = 43134
 SHA256 (rust/crates/adler2-2.0.1.crate) = 320119579fcad9c21884f5c4861d16174d0e06250625266f50fe6898340abefa
@@ -881,5 +881,5 @@ SHA256 (rust/crates/zlib-rs-0.6.7.crate) = 34b31d188d9d685a4f9c7b46d6e36631b0705
 SIZE (rust/crates/zlib-rs-0.6.7.crate) = 215740
 SHA256 (rust/crates/zmij-1.0.23.crate) = 29666d0abbfad1e3dc4dcf6144730dd3a3ab225bbbdac83319345b1b44ccfc1b
 SIZE (rust/crates/zmij-1.0.23.crate) = 28612
-SHA256 (zizmorcore-zizmor-v1.31.0_GH0.tar.gz) = bdc0f89c667f599cf96e76e1016ac04b75044fc3a93387eec19b2f8414271feb
-SIZE (zizmorcore-zizmor-v1.31.0_GH0.tar.gz) = 798001
+SHA256 (zizmorcore-zizmor-v1.31.1_GH0.tar.gz) = 9e976cc981bb9b0bcaae766a6ddee451738821c0a26c4a3c266dda1891ae20d5
+SIZE (zizmorcore-zizmor-v1.31.1_GH0.tar.gz) = 798351
