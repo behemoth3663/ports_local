@@ -1,13 +1,13 @@
 PORTNAME=	terraform
 PORTVERSION=	1.9.8
 DISTVERSIONPREFIX=	v
-PORTREVISION=	20261007
+PORTREVISION=	20261016
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX=	-${PORTVERSION:R}
 
 MAINTAINER= 	dutra@FreeBSD.org
 COMMENT=	Provides a common configuration to launch infrastructure
-WWW=		https://terraform.io/
+WWW=		https://terraform.io/ https://github.com/hashicorp/terraform/tree/${DISTVERSIONFULL}
 
 USES=		go:modules
 
@@ -40,22 +40,40 @@ post-install: .PHONY
 	${INSTALL} -l rs ${STAGEDIR}${PREFIX}/bin/${PORTNAME}-${PORTVERSION} ${STAGEDIR}${PREFIX}/bin/${PORTNAME}${PKGNAMESUFFIX}
 
 pre-deps: .PHONY
-	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
-	cd ${WRKSRC} && \
-		${CP} -a go.mod go.mod.orig && \
-		${CP} -a go.sum go.sum.orig && \
-		${GO_CMD} mod edit -replace=github.com/google/gnostic=github.com/google/gnostic@v0.5.7-v3refs && \
-		${GO_CMD} mod edit -replace=github.com/hashicorp/aws-sdk-go-base/v2=github.com/hashicorp/aws-sdk-go-base/v2@v2.0.0-beta.55 && \
-		${GO_CMD} mod edit -replace=github.com/hashicorp/go-getter=github.com/hashicorp/go-getter@v1.7.9 && \
-		${GO_CMD} mod edit -replace=google.golang.org/genproto=google.golang.org/genproto@v0.0.0-20260803160001-6ac0973c030d && \
-		${GO_CMD} mod edit -replace=k8s.io/kube-openapi=k8s.io/kube-openapi@v0.0.0-20220803162953-67bda5d908f1 && \
-		${GO_CMD} get -u=patch && \
-		${GO_CMD} mod tidy -v && \
-		${GO_CMD} mod vendor && \
-		${SETENV} TZ=UTC ${DIFF} -u --minimal -- go.mod.orig go.mod | \
-			${SED} -e '/^---/s|\.[0-9]* +0000$$| UTC|' -e '/^+++/s|\([[:blank:]][-0-9:.+]*\)*$$||' >${PATCHDIR}_/patch-go.mod && \
-		${SETENV} TZ=UTC ${DIFF} -u --minimal -- go.sum.orig go.sum | \
-			${SED} -e '/^---/s|\.[0-9]* +0000$$| UTC|' -e '/^+++/s|\([[:blank:]][-0-9:.+]*\)*$$||' >${PATCHDIR}_/patch-go.sum
+	( cd ${WRKSRC} && ${CP} -a go.mod go.mod.orig )
+	( cd ${WRKSRC} && ${CP} -a go.sum go.sum.orig )
+	( cd ${WRKSRC} && ${GO_CMD} mod edit -replace=github.com/google/gnostic=github.com/google/gnostic@v0.5.7-v3refs )
+	( cd ${WRKSRC} && ${GO_CMD} mod edit -replace=github.com/hashicorp/aws-sdk-go-base/v2=github.com/hashicorp/aws-sdk-go-base/v2@v2.0.0-beta.55 )
+	( cd ${WRKSRC} && ${GO_CMD} mod edit -replace=github.com/hashicorp/go-getter=github.com/hashicorp/go-getter@v1.7.9 )
+	( cd ${WRKSRC} && ${GO_CMD} mod edit -replace=google.golang.org/genproto=google.golang.org/genproto@v0.0.0-20260803160001-6ac0973c030d )
+	( cd ${WRKSRC} && ${GO_CMD} mod edit -replace=k8s.io/kube-openapi=k8s.io/kube-openapi@v0.0.0-20220803162953-67bda5d908f1 )
+	( cd ${WRKSRC} && ${GO_CMD} get -u=patch )
+	( cd ${WRKSRC} && ${GO_CMD} mod tidy -v )
+	( cd ${WRKSRC} && ${SETENV} TZ=UTC ${DIFF} -u --minimal -- go.mod.orig go.mod | \
+		${SED} -e '/^---/s|\.[0-9]* +0000$$| UTC|' -e '/^+++/s|\([[:blank:]][-0-9:.+]*\)*$$||' >${PATCHDIR}/patch-go.mod )
+	( cd ${WRKSRC} && ${SETENV} TZ=UTC ${DIFF} -u --minimal -- go.sum.orig go.sum | \
+		${SED} -e '/^---/s|\.[0-9]* +0000$$| UTC|' -e '/^+++/s|\([[:blank:]][-0-9:.+]*\)*$$||' >${PATCHDIR}/patch-go.sum )
+	${RM} -r ${PATCHDIR}_
+	${MV} ${PATCHDIR} ${PATCHDIR}_
+
+clean-unused: .PHONY clean patch
+	( cd ${WRKSRC} && ${GO_CMD} mod tidy -v )
+	( cd ${WRKSRC} && ${SETENV} TZ=UTC ${DIFF} -u --minimal -- go.mod.orig go.mod | \
+		${SED} -e '/^---/s|\.[0-9]* +0000$$| UTC|' -e '/^+++/s|\([[:blank:]][-0-9:.+]*\)*$$||' >${PATCHDIR}/patch-go.mod )
+	( cd ${WRKSRC} && ${SETENV} TZ=UTC ${DIFF} -u --minimal -- go.sum.orig go.sum | \
+		${SED} -e '/^---/s|\.[0-9]* +0000$$| UTC|' -e '/^+++/s|\([[:blank:]][-0-9:.+]*\)*$$||' >${PATCHDIR}/patch-go.sum )
+	${RM} -r ${WRKSRC}/vendor
+	( ${MAKE} -C ${.CURDIR} gomod-vendor | \
+		${GREP} --extended-regexp --invert-match '^(/|=+>|\*+[[:blank:]]+Error)' | \
+		${SED} -r -e '/\r$$/d' -e '/^[[:blank:]]+"message":/d' -e '/\\}/d' -e '/^[[:blank:]]*$$/d' \
+		> ${.CURDIR}/Makefile.deps )
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
+	${PATCH} --directory ${.CURDIR} < ${.CURDIR}/patch-Makefile.deps
+
+do-build: .PHONY
+	( cd ${GO_WRKSRC} && ${ECHO_MSG} "===>  Building ${PORTNAME} from ." && \
+		${SETENVI} ${WRK_ENV} ${MAKE_ENV} ${GO_ENV} GOMAXPROCS=${MAKE_JOBS_NUMBER} GOPROXY=off \
+			${LOCALBASE}/bin/garble -tiny build ${GO_BUILDFLAGS} -o ${GO_WRKDIR_BIN}/${PORTNAME} . )
 
 post-deps-all: .PHONY
 	${TEST} ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
@@ -119,7 +137,7 @@ GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+)/vendor/github.com/Azure/go-au
 #-aws:aws-sdk-go-v2:v1.9.19:aws_aws_sdk_go_v2_endpoint_discovery/vendor/github.com/aws/aws-sdk-go-v2/service/internal/endpoint-discovery
 #-aws:aws-sdk-go-v2:v2.6.18:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2
 # aws:aws-sdk-go:v1.44.122:aws_aws_sdk_go/vendor/github.com/aws/aws-sdk-go
-GH_TUPLE:=	${GH_TUPLE:Naws*aws_aws_sdk_go_v2_*/vendor/github.com/aws/aws-sdk-go-v2/*}
+GH_TUPLE:=	${GH_TUPLE:N*/vendor/github.com/aws/aws-sdk-go-v2/*}
 
 #-google:go-genproto:da73d73af1c5:google_go_genproto_api/vendor/google.golang.org/genproto/googleapis/api
 #+google:go-genproto:da73d73af1c5:google_go_genproto_api
@@ -193,30 +211,6 @@ GH_TUPLE:=	${GH_TUPLE:S|/gokrb5/v8|/gokrb5|1}
 #-jcmturner:rpc:v2.0.3:jcmturner_rpc_v2/vendor/github.com/jcmturner/rpc/v2
 #+jcmturner:rpc:v2.0.3:jcmturner_rpc_v2/vendor/github.com/jcmturner/rpc
 GH_TUPLE:=	${GH_TUPLE:S|/jcmturner/rpc/v2|/jcmturner/rpc|1}
-
-#unused github.com/Netflix/go-expect
-GH_TUPLE:=	${GH_TUPLE:N*/github.com/Netflix/go-expect}
-
-#unused github.com/antchfx/{xmlquery,xpath}
-GH_TUPLE:=	${GH_TUPLE:N*/github.com/antchfx/*}
-
-#unused github.com/cenkalti/backoff/v4
-GH_TUPLE:=	${GH_TUPLE:N*/github.com/cenkalti/backoff/v4}
-
-#unused github.com/creack/pty
-GH_TUPLE:=	${GH_TUPLE:N*/github.com/creack/pty}
-
-#unused github.com/dylanmei/winrmtest
-GH_TUPLE:=	${GH_TUPLE:N*/github.com/dylanmei/winrmtest}
-
-#unused github.com/go-test/deep
-GH_TUPLE:=	${GH_TUPLE:N*/github.com/go-test/deep}
-
-#unused github.com/golang/groupcache
-GH_TUPLE:=	${GH_TUPLE:N*/github.com/golang/groupcache}
-
-#unused github.com/grpc-ecosystem/grpc-gateway/v2
-GH_TUPLE:=	${GH_TUPLE:N*/github.com/grpc-ecosystem/grpc-gateway/v2}
 
 GH_TUPLE+=	golang:protobuf:v1.5.4:golang_protobuf/vendor/github.com/golang/protobuf
 
