@@ -1,5 +1,5 @@
 PORTNAME=	golangci-lint
-PORTVERSION=	2.14.0
+PORTVERSION=	2.15.0
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local devel
@@ -20,17 +20,13 @@ GH_ACCOUNT=	golangci
 
 USE_GITLAB=	nodefault
 
-COMMIT_CMD=	git ls-remote \
-		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
-		refs/tags/${DISTVERSIONFULL} | cut -c1-7
-
 GO_TARGET=	./cmd/${PORTNAME}
 
 CGO_ENABLED=	0
 GO_LDFLAGS+=	-w
 GO_LDFLAGS+=	-X main.version=${PORTVERSION}
-GO_LDFLAGS+=	-X main.commit=793d053
-GO_LDFLAGS+=	-X main.date=${%FT%TZ:L:gmtime}
+GO_LDFLAGS+=	-X main.commit=${COMMIT_CMD:sh}
+GO_LDFLAGS+=	-X main.date=${SOURCE_DATE_EPOCH_CMD:sh}
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 PLIST_FILES=	bin/${PORTNAME}
@@ -130,4 +126,14 @@ GH_TUPLE:=	${GH_TUPLE:S|/vendor/dev.gaijin.team/go/exhaustruct/|_|}
 # Missing in Makefile.deps, but present in modules.txt
 GH_TUPLE+=	hashicorp:go-version:v1.9.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version
 
-.include <bsd.port.mk>
+.include <bsd.port.pre.mk>
+
+COMMIT_CMD=	git ls-remote \
+		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
+		refs/tags/${DISTVERSIONFULL} | ${CUT} -c1-7
+
+SOURCE_DATE_EPOCH_CMD=	date -ur \
+			$$(${GREP} --max-count=1 TIMESTAMP ${DISTINFO_FILE} | ${CUT} -d' ' -f3) \
+			'+%FT%TZ'
+
+.include <bsd.port.post.mk>
