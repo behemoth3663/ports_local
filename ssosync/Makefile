@@ -1,7 +1,6 @@
 PORTNAME=	ssosync
-PORTVERSION=	2.9.0
+PORTVERSION=	2.9.1
 DISTVERSIONPREFIX=	v
-#PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -22,15 +21,11 @@ PLIST_FILES=	bin/${PORTNAME}
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
 
-COMMIT_CMD=	git ls-remote \
-		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
-		refs/tags/${DISTVERSIONFULL} | cut -c1-7
-
 CGO_ENABLED=	0
 GO_LDFLAGS+=	-w
 GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.version=${PORTVERSION}
-GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.commit=135be1e
-GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.date=${%FT%TZ:L:gmtime}
+GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.commit=${COMMIT_CMD:sh}
+GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.date=${SOURCE_DATE_EPOCH_CMD:sh}
 GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.builtBy=${OPSYS}
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
@@ -69,4 +64,15 @@ GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+.*/cloud.google.com/go)/(auth)|
 #+google:go-genproto:a7a43d27e69b:google_go_genproto/vendor/google.golang.org/genproto/googleapis
 GH_TUPLE:=	${GH_TUPLE:S|/googleapis/rpc||1}
 
-.include <bsd.port.mk>
+.include <bsd.port.pre.mk>
+
+COMMIT_CMD=	git ls-remote \
+		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
+		refs/tags/${DISTVERSIONFULL} | ${CUT} -c1-7
+
+# Bring DISTINFO_FILE into scope so we can get the timestamp.
+SOURCE_DATE_EPOCH_CMD=	date -ur \
+			$$(${GREP} --max-count=1 TIMESTAMP ${DISTINFO_FILE} | ${CUT} -d' ' -f3) \
+			'+%FT%TZ'
+
+.include <bsd.port.post.mk>
