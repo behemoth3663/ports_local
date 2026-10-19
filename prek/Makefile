@@ -1,6 +1,6 @@
 PORTNAME=	prek
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.5.5
+DISTVERSION=	0.5.6
 CATEGORIES=	local devel
 
 MAINTAINER=	none@FreeBSD.org
@@ -18,6 +18,9 @@ PLIST_FILES=	bin/${PORTNAME}
 
 #error: found a virtual manifest at `/usr/obj/usr/ports/local/prek/work/prek-0.3.2/Cargo.toml` instead of a package manifest
 CARGO_INSTALL_PATH=	crates/${PORTNAME}
+
+#CARGO_ENV+=	"CFLAGS=${CFLAGS:N-O*}" # 14,290,160 vs 14,239,664 with the following (due to cc-1.2.65->cc-1.8.0):
+MAKE_ENV+=	AWS_LC_SYS_NO_JITTER_ENTROPY=1
 
 FETCH_ENV=	HTTP_USER_AGENT='Mozilla/5.0 (X11; Linux x86_64; rv:${FIREFOX_VERSION_CMD:sh}) Gecko/20100101 Firefox/${FIREFOX_VERSION_CMD:sh}'
 
