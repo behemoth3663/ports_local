@@ -65,14 +65,14 @@
 -	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-00010101000000-000000000000
 -	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-00010101000000-000000000000
 -	github.com/hashicorp/terraform/internal/legacy v0.0.0-00010101000000-000000000000
-+	github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20261013124841-9ec49e06a868
-+	github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20261013124841-9ec49e06a868
-+	github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20261013124841-9ec49e06a868
-+	github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20261013124841-9ec49e06a868
-+	github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20261013124841-9ec49e06a868
-+	github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20261013124841-9ec49e06a868
-+	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20261013124841-9ec49e06a868
-+	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20261013124841-9ec49e06a868
++	github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20261019102756-8a97fe6c624f
++	github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20261019102756-8a97fe6c624f
++	github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20261019102756-8a97fe6c624f
++	github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20261019102756-8a97fe6c624f
++	github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20261019102756-8a97fe6c624f
++	github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20261019102756-8a97fe6c624f
++	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20261019102756-8a97fe6c624f
++	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20261019102756-8a97fe6c624f
  	github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0
 -	github.com/masterzen/winrm v0.0.0-20200615185753-c42b5136ff88
 -	github.com/mattn/go-isatty v0.0.20
@@ -317,7 +317,7 @@
 +	github.com/hashicorp/serf v0.9.8 // indirect
  	github.com/hashicorp/terraform-plugin-log v0.9.0 // indirect
 -	github.com/hashicorp/yamux v0.1.1 // indirect
-+	github.com/hashicorp/terraform/internal/legacy v0.0.0-20261013124841-9ec49e06a868 // indirect
++	github.com/hashicorp/terraform/internal/legacy v0.0.0-20261019102756-8a97fe6c624f // indirect
 +	github.com/hashicorp/yamux v0.1.2 // indirect
  	github.com/henvic/httpretty v0.0.6 // indirect
  	github.com/huandu/xstrings v1.3.3 // indirect
@@ -433,9 +433,9 @@
 +	golang.org/x/sync v0.24.0 // indirect
 +	golang.org/x/time v0.15.0 // indirect
 +	google.golang.org/api v0.287.1 // indirect
-+	google.golang.org/genproto v0.0.0-20261012220534-4341edf3f941 // indirect
-+	google.golang.org/genproto/googleapis/api v0.0.0-20261012220534-4341edf3f941 // indirect
-+	google.golang.org/genproto/googleapis/rpc v0.0.0-20261012220534-4341edf3f941 // indirect
++	google.golang.org/genproto v0.0.0-20261019180522-ce908d29299b // indirect
++	google.golang.org/genproto/googleapis/api v0.0.0-20261019180522-ce908d29299b // indirect
++	google.golang.org/genproto/googleapis/rpc v0.0.0-20261019180522-ce908d29299b // indirect
  	gopkg.in/inf.v0 v0.9.1 // indirect
 -	gopkg.in/ini.v1 v1.66.2 // indirect
 +	gopkg.in/ini.v1 v1.66.6 // indirect

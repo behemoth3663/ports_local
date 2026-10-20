@@ -1,7 +1,7 @@
 PORTNAME=	terraform
 PORTVERSION=	1.9.8
 DISTVERSIONPREFIX=	v
-PORTREVISION=	20261016
+PORTREVISION=	20261020
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX=	-${PORTVERSION:R}
 
@@ -13,6 +13,8 @@ USES=		go:modules
 
 LICENSE_NAME=   Business Source License 1.1
 LICENSE_PERMS=	dist-mirror pkg-mirror pkg-sell auto-accept
+
+BUILD_DEPENDS=	garble:local/garble
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	hashicorp
@@ -69,6 +71,7 @@ clean-unused: .PHONY clean patch
 		> ${.CURDIR}/Makefile.deps )
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
 	${PATCH} --directory ${.CURDIR} < ${.CURDIR}/patch-Makefile.deps
+	( ${MAKE} -C ${.CURDIR} makesum )
 
 do-build: .PHONY
 	( cd ${GO_WRKSRC} && ${ECHO_MSG} "===>  Building ${PORTNAME} from ." && \
