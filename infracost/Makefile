@@ -1,6 +1,7 @@
 PORTNAME=	infracost
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.10.46
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX=	-local
 
@@ -24,5 +25,13 @@ GO_LDFLAGS+=	-X ${GO_MODULE}/internal/version.Version=${PORTVERSION}
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 PLIST_FILES=	bin/${PORTNAME}
+
+pre-build: .PHONY
+	${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/internal/trace
+	${RM} -r ${WRKSRC}/vendor/github.com/GoogleCloudPlatform/opentelemetry-operations-go
+	${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io
+	${RM} -r ${WRKSRC}/vendor/google.golang.org/grpc/stats/opentelemetry
+	${RM} ${WRKSRC}/vendor/google.golang.org/grpc/experimental/opentelemetry/trace_options.go
+	${RM} ${WRKSRC}/vendor/github.com/hashicorp/go-getter/get_gcs.go
 
 .include <bsd.port.mk>
