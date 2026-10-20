@@ -1,5 +1,5 @@
-TIMESTAMP = 1791905552
-SHA256 (go/local_spruce/spruce-v1.35.22/v1.35.22.mod) = 3c3764410011cf58e29dff8d65817a729c3daabf353eff5c964c13ee2d291f88
-SIZE (go/local_spruce/spruce-v1.35.22/v1.35.22.mod) = 5629
-SHA256 (go/local_spruce/spruce-v1.35.22/v1.35.22.zip) = 8c68bfbca4a4f879a3b42b2de1534eee12f76bdb368ca1c9d48a4c85ea972ede
-SIZE (go/local_spruce/spruce-v1.35.22/v1.35.22.zip) = 263708
+TIMESTAMP = 1792485227
+SHA256 (go/local_spruce/spruce-v1.35.23/v1.35.23.mod) = 3c3764410011cf58e29dff8d65817a729c3daabf353eff5c964c13ee2d291f88
+SIZE (go/local_spruce/spruce-v1.35.23/v1.35.23.mod) = 5629
+SHA256 (go/local_spruce/spruce-v1.35.23/v1.35.23.zip) = c0d4a4706e5ba7f60315d41fd4bc86b9f586b015f95ab50f148fe50ba552364d
+SIZE (go/local_spruce/spruce-v1.35.23/v1.35.23.zip) = 263708
