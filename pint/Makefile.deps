@@ -61,10 +61,10 @@ GH_TUPLE=	\
 		open-telemetry:opentelemetry-go:metric/v1.46.0:open_telemetry_opentelemetry_go_metric \
 		open-telemetry:opentelemetry-go:trace/v1.46.0:open_telemetry_opentelemetry_go_trace \
 		open-telemetry:opentelemetry-go:v1.46.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
-		prometheus:client_golang:v1.24.1:prometheus_client_golang/vendor/github.com/prometheus/client_golang \
+		prometheus:client_golang:v1.25.0:prometheus_client_golang/vendor/github.com/prometheus/client_golang \
 		prometheus:client_model:v0.6.3:prometheus_client_model/vendor/github.com/prometheus/client_model \
 		prometheus:common:v0.72.0:prometheus_common/vendor/github.com/prometheus/common \
-		prometheus:procfs:v0.21.1:prometheus_procfs/vendor/github.com/prometheus/procfs \
+		prometheus:procfs:v0.22.0:prometheus_procfs/vendor/github.com/prometheus/procfs \
 		prometheus:prometheus:v0.315.0:prometheus_prometheus/vendor/github.com/prometheus/prometheus \
 		protocolbuffers:protobuf-go:v1.36.12:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		rogpeppe:go-internal:v1.16.0:rogpeppe_go_internal/vendor/github.com/rogpeppe/go-internal \
@@ -84,6 +84,6 @@ GH_TUPLE=	\
 		yudai:golcs:ecda9a501e82:yudai_golcs/vendor/github.com/yudai/golcs \
 		zclconf:go-cty:v1.19.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 		# Errors found during processing:
-		#	error getting commit v3.15.0 for gitlab-org/api: not found
+		#	error getting commit v3.17.0 for gitlab-org/api: not found
 GL_TUPLE=	\
-		gitlab-org-api:client-go:v3.15.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go/v3
+		gitlab-org-api:client-go:v3.17.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go/v3

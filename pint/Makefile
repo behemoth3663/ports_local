@@ -1,5 +1,5 @@
 PORTNAME=	pint
-PORTVERSION=	0.89.2
+PORTVERSION=	0.89.3
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -48,6 +48,6 @@ GH_TUPLE:=	${GH_TUPLE:Nopen-telemetry\:*}
 
 COMMIT_CMD=	git ls-remote \
 		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
-		refs/tags/${DISTVERSIONFULL} | cut -c1-7
+		refs/tags/${DISTVERSIONFULL} | ${CUT} -c1-7
 
 .include <bsd.port.post.mk>
