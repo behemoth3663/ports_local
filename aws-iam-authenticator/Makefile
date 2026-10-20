@@ -1,5 +1,5 @@
 PORTNAME=	aws-iam-authenticator
-PORTVERSION=	0.7.22
+PORTVERSION=	0.7.23
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local security
 PKGNAMESUFFIX=	-local
@@ -78,7 +78,7 @@ GH_TUPLE:=	${GH_TUPLE:C,^(go-yaml:yaml:)v3[^:]+:([^/]+),\1v3.0.1:\2_3,1}
 
 COMMIT_CMD=	git ls-remote \
 		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
-		refs/tags/${DISTVERSIONFULL} | cut -c1-7
+		refs/tags/${DISTVERSIONFULL} | ${CUT} -c1-7
 
 SOURCE_DATE_EPOCH_CMD=	date -ur \
 			$$(${GREP} --max-count=1 TIMESTAMP ${DISTINFO_FILE} | ${CUT} -d' ' -f3) \
