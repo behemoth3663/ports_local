@@ -1,7 +1,6 @@
 PORTNAME=	pike
-PORTVERSION=	1.0.12
+PORTVERSION=	1.0.13
 DISTVERSIONPREFIX=	v
-#PORTREVISION=	1
 CATEGORIES=	local sysutils
 
 MAINTAINER=	none@freebsd.org
@@ -18,7 +17,7 @@ GH_ACCOUNT=	jamesWoolfenden
 PLIST_FILES=	bin/${PORTNAME}
 
 CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w"
+GO_LDFLAGS+=	-w
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 M2T_OFFLINE=	true
@@ -57,19 +56,19 @@ post-deps-all: .PHONY
 #-aws:aws-sdk-go-v2:v1.3.15:aws_aws_sdk_go_v2_configsources/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources
 # aws:aws-sdk-go-v2:v1.30.3:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2
 #-aws:aws-sdk-go-v2:v1.30.3:aws_aws_sdk_go_v2_sts/vendor/github.com/aws/aws-sdk-go-v2/service/sts
-GH_TUPLE:=	${GH_TUPLE:Naws*aws_aws_sdk_go_v2_*/vendor/github.com/aws/aws-sdk-go-v2/*}
+GH_TUPLE:=	${GH_TUPLE:N*/vendor/github.com/aws/aws-sdk-go-v2/*}
 
-#-googleapis:google-cloud-go:v0.16.2:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth
-#+googleapis:google-cloud-go:auth/v0.16.2:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go
-GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)(.*/cloud.google.com/go)/(auth)$|\1\3/\2|}
+#-googleapis:google-cloud-go:dbc26066f70a:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth
+#+googleapis:google-cloud-go:dbc26066f70a:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go
+GH_TUPLE:=	${GH_TUPLE:S,/go/auth,/go,1}
 
 #-googleapis:gax-go:v2.13.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2
 #+googleapis:gax-go:v2.13.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go
-GH_TUPLE:=	${GH_TUPLE:S|/gax-go/v2|/gax-go|1}
+GH_TUPLE:=	${GH_TUPLE:S,/gax-go/v2,/gax-go,1}
 
 #-google:go-genproto:513f23925822:google_go_genproto/vendor/google.golang.org/genproto/googleapis/rpc
 #+google:go-genproto:513f23925822:google_go_genproto_rpc
-GH_TUPLE:=	${GH_TUPLE:C,/.*/genproto/googleapis/rpc,,}
+GH_TUPLE:=	${GH_TUPLE:C,/.*/genproto/googleapis/rpc,,1}
 
 .sinclude "${.CURDIR}/generated.deps.mk"
 .include <bsd.port.mk>
