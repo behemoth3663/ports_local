@@ -1,5 +1,5 @@
 PORTNAME=	ssosync
-PORTVERSION=	2.9.1
+PORTVERSION=	2.9.2
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -52,13 +52,13 @@ post-deps-all: .PHONY
 #-aws:aws-sdk-go-v2:v1.3.15:aws_aws_sdk_go_v2_configsources/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources
 # aws:aws-sdk-go-v2:v1.30.3:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2
 #-aws:aws-sdk-go-v2:v1.30.3:aws_aws_sdk_go_v2_sts/vendor/github.com/aws/aws-sdk-go-v2/service/sts
-GH_TUPLE:=	${GH_TUPLE:Naws*aws_aws_sdk_go_v2_*/vendor/github.com/aws/aws-sdk-go-v2/*}
+GH_TUPLE:=	${GH_TUPLE:N*/vendor/github.com/aws/aws-sdk-go-v2/*}
 
 GH_TUPLE:=	${GH_TUPLE:S|/gax-go/v2|/gax-go|1}
 
 #-googleapis:google-cloud-go:v0.16.4:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth
 #+googleapis:google-cloud-go:auth/v0.16.4:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go
-GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+.*/cloud.google.com/go)/(auth)|\1\3/\2|}
+GH_TUPLE:=	${GH_TUPLE:C,:([^:]+:[^:/]+/.*/cloud.google.com/go)/(auth),:\2/\1,1}
 
 #-google:go-genproto:a7a43d27e69b:google_go_genproto/vendor/google.golang.org/genproto/googleapis/rpc
 #+google:go-genproto:a7a43d27e69b:google_go_genproto/vendor/google.golang.org/genproto/googleapis
