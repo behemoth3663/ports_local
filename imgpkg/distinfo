@@ -1,6 +1,6 @@
-TIMESTAMP = 1792054321
-SHA256 (carvel-dev-imgpkg-v0.49.0_GH0.tar.gz) = cd64c2a8f1714fdbd05abc3e82679e4c089aea2438446cb65a871b4b5600a157
-SIZE (carvel-dev-imgpkg-v0.49.0_GH0.tar.gz) = 4202862
+TIMESTAMP = 1792569455
+SHA256 (carvel-dev-imgpkg-v0.49.1_GH0.tar.gz) = de5da4a82aa60730ba9c0aec1243cc984d729d5195420be01331ef9ec14bec97
+SIZE (carvel-dev-imgpkg-v0.49.1_GH0.tar.gz) = 4203792
 SHA256 (Azure-azure-sdk-for-go-v55.0.0_GH0.tar.gz) = f7385b0d4cc3baa185a4506dd62c735d80ecd3f9437d3981314747d933e7dfe8
 SIZE (Azure-azure-sdk-for-go-v55.0.0_GH0.tar.gz) = 37612552
 SHA256 (Azure-go-autorest-v14.2.0_GH0.tar.gz) = d0db0e47112570e3f2bd2e38ae56338f1e74625dd4cb553007082fdad5fd844d
