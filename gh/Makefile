@@ -1,6 +1,7 @@
 PORTNAME=	gh
 PORTVERSION=	2.102.1
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local devel
 PKGNAMESUFFIX=	-local
 
@@ -36,21 +37,6 @@ OPTIONS_SUB=		yes
 
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
-
-clean-unused: .PHONY clean patch
-	( cd ${WRKSRC} && ${GO_CMD} mod tidy -v )
-	${RM} -r ${WRKSRC}/vendor
-	( ${MAKE} -C ${.CURDIR} gomod-vendor | \
-		${GREP} --extended-regexp --invert-match '^(/|=+>|\*+[[:blank:]]+Error)' | \
-		${SED} -r -e '/\r$$/d' -e '/^[[:blank:]]+"message":/d' -e '/\\}/d' -e '/^[[:blank:]]*$$/d' \
-		> ${.CURDIR}/Makefile.deps )
-	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
-	( ${MAKE} -C ${.CURDIR} makesum )
-
-do-build: .PHONY
-	( cd ${GO_WRKSRC} && ${ECHO_MSG} "===>  Building ${PORTNAME} from ${GO_TARGET}" && \
-		${SETENVI} ${WRK_ENV} ${MAKE_ENV} ${GO_ENV} GOMAXPROCS=${MAKE_JOBS_NUMBER} GOPROXY=off \
-			${LOCALBASE}/bin/garble -tiny build ${GO_BUILDFLAGS} -o ${GO_WRKDIR_BIN}/${PORTNAME} ${GO_TARGET} )
 
 do-build-MANPAGES-on: .PHONY
 	(cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${GO_ENV} ${GO_CMD} run ${GO_BUILDFLAGS} \
