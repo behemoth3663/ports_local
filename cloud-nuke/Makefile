@@ -1,7 +1,6 @@
 PORTNAME=	cloud-nuke
-PORTVERSION=	0.52.0
+PORTVERSION=	0.53.0
 DISTVERSIONPREFIX=	v
-#PORTREVISION=	1
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX=	-local
 
@@ -20,21 +19,12 @@ GH_ACCOUNT=	gruntwork-io
 PLIST_FILES=	bin/${PORTNAME}
 
 CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w -X main.VERSION=${DISTVERSIONFULL}"
+GO_LDFLAGS+=	-w
+GO_LDFLAGS+=	-X main.VERSION=${DISTVERSIONFULL}
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
-
-_OPTIONS_extract=	600:pre-post-extract
-#Resolve the error:
-#mv: rename /usr/obj/usr/ports/local/cloud-nuke/work/gruntwork-cli-0.7.0 to /usr/obj/usr/ports/local/cloud-nuke/work/cloud-nuke-0.29.4/vendor/github.com/gruntwork-io/gruntwork-cli: No such file or directory
-#/usr/obj/usr/ports/local/cloud-nuke/work/gruntwork-cli-0.7.0 -> /usr/obj/usr/ports/local/cloud-nuke/work/go-commons-0.7.0
-#/usr/obj/usr/ports/local/cloud-nuke/work/gruntwork-cli-0.16.1 -> /usr/obj/usr/ports/local/cloud-nuke/work/go-commons-0.16.1
-pre-post-extract: .PHONY .SILENT
-	${TEST} -z ${WRKDIR} || ${FIND} ${WRKDIR} -maxdepth 1 -type d -name 'go-commons-*' | while read src; do \
-		${LN} -s "$${src}" "$${src%%go-commons-*}gruntwork-cli-$${src##*go-commons-}"; \
-	done
 
 AWS_SDK_GO_V2+=aws/protocol/eventstream
 AWS_SDK_GO_V2+=config
@@ -109,8 +99,9 @@ AWS_SDK_GO_V2+=service/sts
 AWS_SDK_GO_V2+=service/vpclattice
 
 post-extract: .PHONY .SILENT
-	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor || :
 	${RM} -r ${WRKSRC}/vendor/google.golang.org/grpc/stats/opentelemetry
+	${RM} ${WRKSRC}/vendor/cloud.google.com/go/storage/trace.go
 	${MKDIR} ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2/internal
 	${TEST} -z ${WRKSRC_aws_aws_sdk_go_v2_internal} || ${RLN} ${WRKSRC_aws_aws_sdk_go_v2_internal}/internal ${WRKSRC}/vendor/github.com/aws/aws-sdk-go-v2
 .for _i in ${AWS_SDK_GO_V2}
@@ -148,11 +139,11 @@ GH_TUPLE:=	${GH_TUPLE:NGoogleCloudPlatform\:opentelemetry-operations-go\:*}
 
 #-aws-sdk-go-v2:v2.7.21:aws_aws_sdk_go_v2_v2/vendor/github.com/aws/aws-sdk-go-v2/internal/endpoints/v2
 #+aws-sdk-go-v2:internal/endpoints/v2.7.21:aws_aws_sdk_go_v2_v2
-GH_TUPLE:=	${GH_TUPLE:C,^([^:]+:[^:]+:)([^:]+:[^/]+)/vendor/github.com/aws/aws-sdk-go-v2/(internal/endpoints)/v2$,\1\3/\2,}
+GH_TUPLE:=	${GH_TUPLE:C,:([^:]+:[^:/]+)/.*/aws/aws-sdk-go-v2/(internal/endpoints)/v2$,:\2/\1,}
 
 #-aws:aws-sdk-go-v2:v1.55.8:aws_aws_sdk_go_v2_securityhub/vendor/github.com/aws/aws-sdk-go-v2/service/securityhub
 #+aws:aws-sdk-go-v2:service/securityhub/v1.55.8:aws_aws_sdk_go_v2_securityhub
-GH_TUPLE:=	${GH_TUPLE:C,^([^:]+:[^:]+:)([^:]+:[^/]+)/vendor/github.com/aws/aws-sdk-go-v2/([^[:blank:]]+)$,\1\3/\2,}
+GH_TUPLE:=	${GH_TUPLE:C,:([^:]+:[^:/]+)/.*/aws/aws-sdk-go-v2/([^[:blank:]]+)$,:\2/\1,}
 
 # googleapis:google-cloud-go:v0.112.1:googleapis_google_cloud_go/vendor/cloud.google.com/go
 #-googleapis:google-cloud-go:v1.1.6:googleapis_google_cloud_go_iam/vendor/cloud.google.com/go/iam
@@ -161,7 +152,7 @@ GH_TUPLE:=	${GH_TUPLE:Ngoogleapis\:google-cloud-go\:*/cloud.google.com/go/*}
 
 #-envoyproxy:go-control-plane:v1.32.4:envoyproxy_go_control_plane_envoy/vendor/github.com/envoyproxy/go-control-plane/envoy
 #+envoyproxy:go-control-plane:envoy/v1.32.4:envoyproxy_go_control_plane_envoy/vendor/github.com/envoyproxy/go-control-plane
-GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+/vendor/github.com/envoyproxy/go-control-plane)/(envoy)|\1\3/\2|}
+GH_TUPLE:=	${GH_TUPLE:C,:([^:]+:[^:]+/envoyproxy/go-control-plane)/(envoy),:\2/\1,1}
 
 #-googleapis:gax-go:v2.13.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2
 #+googleapis:gax-go:v2.13.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go

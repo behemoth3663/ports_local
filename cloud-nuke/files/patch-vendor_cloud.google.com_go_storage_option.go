@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/storage/option.go.orig	2025-03-20 16:11:04 UTC
+--- vendor/cloud.google.com/go/storage/option.go.orig	2025-09-22 16:26:20 UTC
 +++ vendor/cloud.google.com/go/storage/option.go
 @@ -21,7 +21,6 @@ import (
  
@@ -8,28 +8,32 @@
  	"google.golang.org/api/option"
  	"google.golang.org/api/option/internaloption"
  )
-@@ -37,7 +36,6 @@ func init() {
+@@ -37,9 +36,7 @@ func init() {
  
  func init() {
  	// initialize experimental options
 -	storageinternal.WithMetricExporter = withMetricExporter
  	storageinternal.WithMetricInterval = withMetricInterval
+-	storageinternal.WithMeterProvider = withMeterProvider
  	storageinternal.WithReadStallTimeout = withReadStallTimeout
  	storageinternal.WithGRPCBidiReads = withGRPCBidiReads
-@@ -78,9 +76,7 @@ type storageConfig struct {
+ 	storageinternal.WithZonalBucketAPIs = withZonalBucketAPIs
+@@ -80,10 +77,7 @@ type storageConfig struct {
  	useJSONforReads        bool
  	readAPIWasSet          bool
  	disableClientMetrics   bool
 -	metricExporter         *metric.Exporter
  	metricInterval         time.Duration
+-	meterProvider          *metric.MeterProvider
 -	manualReader           *metric.ManualReader
  	readStallTimeoutConfig *experimental.ReadStallTimeoutConfig
  	grpcBidiReads          bool
- }
-@@ -184,29 +180,17 @@ type withMetricExporterConfig struct {
+ 	grpcAppendableUploads  bool
+@@ -187,44 +181,17 @@ type withMetricExporterConfig struct {
+ 
  type withMetricExporterConfig struct {
  	internaloption.EmbeddableAdapter
- 	// exporter override
+-	// exporter override
 -	metricExporter *metric.Exporter
  }
  
@@ -43,15 +47,29 @@
  
  type withTestMetricReaderConfig struct {
  	internaloption.EmbeddableAdapter
- 	// reader override
+-	// reader override
 -	metricReader *metric.ManualReader
  }
  
+ type withMeterProviderConfig struct {
+ 	internaloption.EmbeddableAdapter
+-	// meter provider override
+-	meterProvider *metric.MeterProvider
+-}
+-
+-func withMeterProvider(provider *metric.MeterProvider) option.ClientOption {
+-	return &withMeterProviderConfig{meterProvider: provider}
+-}
+-
+-func (w *withMeterProviderConfig) ApplyStorageOpt(c *storageConfig) {
+-	c.meterProvider = w.meterProvider
+-}
+-
 -func withTestMetricReader(ex *metric.ManualReader) option.ClientOption {
 -	return &withTestMetricReaderConfig{metricReader: ex}
 -}
 -
- func (w *withTestMetricReaderConfig) ApplyStorageOpt(c *storageConfig) {
+-func (w *withTestMetricReaderConfig) ApplyStorageOpt(c *storageConfig) {
 -	c.manualReader = w.metricReader
  }
  

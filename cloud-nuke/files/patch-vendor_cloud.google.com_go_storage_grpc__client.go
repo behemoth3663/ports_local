@@ -1,6 +1,6 @@
---- vendor/cloud.google.com/go/storage/grpc_client.go.orig	2025-03-20 16:11:04 UTC
+--- vendor/cloud.google.com/go/storage/grpc_client.go.orig	2025-09-22 16:26:20 UTC
 +++ vendor/cloud.google.com/go/storage/grpc_client.go
-@@ -27,7 +27,6 @@ import (
+@@ -26,7 +26,6 @@ import (
  	"sync"
  
  	"cloud.google.com/go/iam/apiv1/iampb"
@@ -8,26 +8,35 @@
  	gapic "cloud.google.com/go/storage/internal/apiv2"
  	"cloud.google.com/go/storage/internal/apiv2/storagepb"
  	"github.com/googleapis/gax-go/v2"
-@@ -128,8 +127,7 @@ func enableClientMetrics(ctx context.Context, s *setti
- 	}
+@@ -127,8 +126,6 @@ func enableClientMetrics(ctx context.Context, s *setti
  	metricsContext, err := newGRPCMetricContext(ctx, metricsConfig{
- 		project:      project,
--		interval:     config.metricInterval,
--		manualReader: config.manualReader},
-+		interval:     config.metricInterval},
+ 		project:       project,
+ 		interval:      config.metricInterval,
+-		manualReader:  config.manualReader,
+-		meterProvider: config.meterProvider,
+ 	},
  	)
  	if err != nil {
- 		return nil, fmt.Errorf("gRPC Metrics: %w", err)
-@@ -1072,8 +1070,6 @@ func (c *grpcStorageClient) NewMultiRangeDownloader(ct
- }
+@@ -459,9 +456,6 @@ func (c *grpcStorageClient) ListObjects(ctx context.Co
+ 		ctx = setUserProjectMetadata(ctx, s.userProject)
+ 	}
+ 	fetch := func(pageSize int, pageToken string) (token string, err error) {
+-		// Add trace span around List API call within the fetch.
+-		ctx, _ = startSpan(ctx, "grpcStorageClient.ObjectsListCall")
+-		defer func() { endSpan(ctx, err) }()
+ 		var objects []*storagepb.Object
+ 		var gitr *gapic.ObjectIterator
+ 		err = run(it.ctx, func(ctx context.Context) error {
+@@ -1069,8 +1063,6 @@ func (c *grpcStorageClient) NewMultiRangeDownloader(ct
+ 		return nil, errors.New("storage: MultiRangeDownloader requires the experimental.WithGRPCBidiReads option")
+ 	}
  
- func (c *grpcStorageClient) NewMultiRangeDownloader(ctx context.Context, params *newMultiRangeDownloaderParams, opts ...storageOption) (mr *MultiRangeDownloader, err error) {
 -	ctx = trace.StartSpan(ctx, "cloud.google.com/go/storage.grpcStorageClient.NewMultiRangeDownloader")
 -	defer func() { trace.EndSpan(ctx, err) }()
  	s := callSettings(c.settings, opts...)
- 
- 	if s.userProject != "" {
-@@ -1504,9 +1500,6 @@ func (c *grpcStorageClient) NewRangeReader(ctx context
+ 	// Force the use of the custom codec to enable zero-copy reads.
+ 	s.gax = append(s.gax, gax.WithGRPCOptions(
+@@ -1613,9 +1605,6 @@ func (c *grpcStorageClient) NewRangeReader(ctx context
  	if !c.config.grpcBidiReads {
  		return c.NewRangeReaderReadObject(ctx, params, opts...)
  	}
