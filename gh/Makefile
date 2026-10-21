@@ -1,7 +1,6 @@
 PORTNAME=	gh
-PORTVERSION=	2.102.0
+PORTVERSION=	2.102.1
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
 CATEGORIES=	local devel
 PKGNAMESUFFIX=	-local
 
@@ -11,6 +10,7 @@ WWW=		https://cli.github.com
 
 LICENSE=	MIT
 
+BUILD_DEPENDS=	garble:local/garble
 RUN_DEPENDS=	git:devel/git
 
 USES=		go:modules
@@ -24,7 +24,7 @@ GO_TARGET=	./cmd/${PORTNAME}
 CGO_ENABLED=	0
 GO_LDFLAGS+=	-w
 GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/internal/build.Version=${PORTVERSION}
-GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/internal/build.Date=${%FT%TZ:L:gmtime}
+GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/v2/internal/build.Date=${SOURCE_DATE_EPOCH_CMD:sh}
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 _DOCS=		README.md docs/[!README]*.md
@@ -37,13 +37,28 @@ OPTIONS_SUB=		yes
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
 
+clean-unused: .PHONY clean patch
+	( cd ${WRKSRC} && ${GO_CMD} mod tidy -v )
+	${RM} -r ${WRKSRC}/vendor
+	( ${MAKE} -C ${.CURDIR} gomod-vendor | \
+		${GREP} --extended-regexp --invert-match '^(/|=+>|\*+[[:blank:]]+Error)' | \
+		${SED} -r -e '/\r$$/d' -e '/^[[:blank:]]+"message":/d' -e '/\\}/d' -e '/^[[:blank:]]*$$/d' \
+		> ${.CURDIR}/Makefile.deps )
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
+	( ${MAKE} -C ${.CURDIR} makesum )
+
+do-build: .PHONY
+	( cd ${GO_WRKSRC} && ${ECHO_MSG} "===>  Building ${PORTNAME} from ${GO_TARGET}" && \
+		${SETENVI} ${WRK_ENV} ${MAKE_ENV} ${GO_ENV} GOMAXPROCS=${MAKE_JOBS_NUMBER} GOPROXY=off \
+			${LOCALBASE}/bin/garble -tiny build ${GO_BUILDFLAGS} -o ${GO_WRKDIR_BIN}/${PORTNAME} ${GO_TARGET} )
+
 do-build-MANPAGES-on: .PHONY
 	(cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${GO_ENV} ${GO_CMD} run ${GO_BUILDFLAGS} \
 		./cmd/gen-docs --man-page --doc-path docs/man 2>/dev/null)
 
 post-install-DOCS-on: .PHONY
 	@${MKDIR} ${STAGEDIR}${DOCSDIR}
-	(cd ${WRKSRC} && ${INSTALL_DATA} ${_DOCS} ${STAGEDIR}${DOCSDIR})
+	( cd ${WRKSRC} && ${INSTALL_DATA} ${_DOCS} ${STAGEDIR}${DOCSDIR} )
 
 post-install-MANPAGES-on: .PHONY
 	${INSTALL_MAN} ${WRKSRC}/docs/man/*.1 ${STAGEDIR}${PREFIX}/share/man/man1
@@ -101,11 +116,9 @@ GH_TUPLE:=	${GH_TUPLE:Nopentracing\:*}
 #+google:go-genproto:f26f9409b101:google_go_genproto_rpc
 GH_TUPLE:=	${GH_TUPLE:C,(_.)?/vendor/google\.golang\.org/genproto/googleapis/(api|rpc),,}
 
-# charmbracelet:x:v0.0.13:charmbracelet_x_cellbuf/vendor/github.com/charmbracelet/x/cellbuf
-# charmbracelet:x:v0.2.1:charmbracelet_x_term/vendor/github.com/charmbracelet/x/term
 #-charmbracelet:x:v0.8.0:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x/ansi
 #+charmbracelet:x:ansi/v0.8.0:charmbracelet_x_ansi
-GH_TUPLE:=	${GH_TUPLE:C,([^:]+:[^:]+:)([^:]+[^/]+).*/charmbracelet/x/(ansi|cellbuf|term|termios|windows|exp/ordered),\1\3/\2,g}
+GH_TUPLE:=	${GH_TUPLE:C,:([^:]+:[^:/]+)/.*/charmbracelet/x/(ansi|cellbuf|term|termios|windows|exp/ordered),:\2/\1,}
 
 #-charmbracelet:x:821143405392:charmbracelet_x_slice/vendor/github.com/charmbracelet/x/exp/slice
 #-charmbracelet:x:821143405392:charmbracelet_x_strings/vendor/github.com/charmbracelet/x/exp/strings
@@ -133,4 +146,10 @@ GH_TUPLE:=	${GH_TUPLE:N*/go-openapi/swag/*}
 #+charmbracelet:lipgloss:v2.0.2:charmbracelet_lipgloss_charm
 GH_TUPLE:=	${GH_TUPLE:C,([^:]+:[^:]+:)([^:]+[^/]+).*/charm.land/lipgloss/v2,\1\2_charm,1}
 
-.include <bsd.port.mk>
+.include <bsd.port.pre.mk>
+
+SOURCE_DATE_EPOCH_CMD=	date -ur \
+			$$(${GREP} --max-count=1 TIMESTAMP ${DISTINFO_FILE} | ${CUT} -d' ' -f3) \
+			'+%FT%TZ'
+
+.include <bsd.port.post.mk>

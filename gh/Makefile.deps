@@ -81,7 +81,7 @@ GH_TUPLE=	\
 		godbus:dbus:v5.2.2:godbus_dbus_v5/vendor/github.com/godbus/dbus/v5 \
 		golang:crypto:v0.57.0:golang_crypto/vendor/golang.org/x/crypto \
 		golang:mod:v0.41.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.58.0:golang_net/vendor/golang.org/x/net \
+		golang:net:v0.60.0:golang_net/vendor/golang.org/x/net \
 		golang:sync:v0.23.0:golang_sync/vendor/golang.org/x/sync \
 		golang:sys:v0.48.0:golang_sys/vendor/golang.org/x/sys \
 		golang:term:v0.46.0:golang_term/vendor/golang.org/x/term \
@@ -130,7 +130,6 @@ GH_TUPLE=	\
 		oklog:ulid:v2.1.1:oklog_ulid_v2/vendor/github.com/oklog/ulid/v2 \
 		opencontainers:go-digest:v1.0.0:opencontainers_go_digest/vendor/github.com/opencontainers/go-digest \
 		opencontainers:image-spec:v1.1.1:opencontainers_image_spec/vendor/github.com/opencontainers/image-spec \
-		opentracing:opentracing-go:v1.2.0:opentracing_opentracing_go/vendor/github.com/opentracing/opentracing-go \
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
 		protocolbuffers:protobuf-go:v1.36.12:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
 		rivo:tview:v0.42.0:rivo_tview/vendor/github.com/rivo/tview \
