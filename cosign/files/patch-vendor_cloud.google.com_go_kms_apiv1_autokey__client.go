@@ -1,14 +1,15 @@
---- vendor/cloud.google.com/go/kms/apiv1/autokey_client.go.orig	2026-10-02 15:35:42 UTC
+--- vendor/cloud.google.com/go/kms/apiv1/autokey_client.go.orig	2026-10-21 09:28:19 UTC
 +++ vendor/cloud.google.com/go/kms/apiv1/autokey_client.go
-@@ -32,7 +32,6 @@ import (
+@@ -32,8 +32,6 @@ import (
  	lroauto "cloud.google.com/go/longrunning/autogen"
  	longrunningpb "cloud.google.com/go/longrunning/autogen/longrunningpb"
  	gax "github.com/googleapis/gax-go/v2"
 -	"github.com/googleapis/gax-go/v2/callctx"
+-	trace "go.opentelemetry.io/otel/trace"
  	"google.golang.org/api/iterator"
  	"google.golang.org/api/option"
  	"google.golang.org/api/option/internaloption"
-@@ -365,16 +364,7 @@ func NewAutokeyClient(ctx context.Context, opts ...opt
+@@ -365,16 +363,7 @@ func NewAutokeyClient(ctx context.Context, opts ...opt
  // ShowEffectiveAutokeyConfig.
  func NewAutokeyClient(ctx context.Context, opts ...option.ClientOption) (*AutokeyClient, error) {
  	clientOpts := defaultAutokeyGRPCClientOptions()
@@ -26,7 +27,7 @@
  	if newAutokeyClientHook != nil {
  		hookOpts, err := newAutokeyClientHook(ctx, clientHookParams{})
  		if err != nil {
-@@ -399,29 +389,7 @@ func NewAutokeyClient(ctx context.Context, opts ...opt
+@@ -399,29 +388,7 @@ func NewAutokeyClient(ctx context.Context, opts ...opt
  		locationsClient:  locationpb.NewLocationsClient(connPool),
  	}
  	c.setGoogleClientInfo()
@@ -56,7 +57,7 @@
  	client.internalClient = c
  
  	client.LROClient, err = lroauto.NewOperationsClient(ctx, gtransport.WithConnPool(connPool))
-@@ -507,16 +475,7 @@ func NewAutokeyRESTClient(ctx context.Context, opts ..
+@@ -507,16 +474,7 @@ func NewAutokeyRESTClient(ctx context.Context, opts ..
  // ShowEffectiveAutokeyConfig.
  func NewAutokeyRESTClient(ctx context.Context, opts ...option.ClientOption) (*AutokeyClient, error) {
  	clientOpts := append(defaultAutokeyRESTClientOptions(), opts...)
@@ -74,7 +75,7 @@
  	httpClient, endpoint, err := httptransport.NewClient(ctx, clientOpts...)
  	if err != nil {
  		return nil, err
-@@ -531,29 +490,6 @@ func NewAutokeyRESTClient(ctx context.Context, opts ..
+@@ -531,29 +489,6 @@ func NewAutokeyRESTClient(ctx context.Context, opts ..
  	}
  	c.setGoogleClientInfo()
  
@@ -104,7 +105,7 @@
  	lroOpts := []option.ClientOption{
  		option.WithHTTPClient(httpClient),
  		option.WithEndpoint(endpoint),
-@@ -609,12 +545,7 @@ func (c *autokeyGRPCClient) CreateKeyHandle(ctx contex
+@@ -609,12 +544,7 @@ func (c *autokeyGRPCClient) CreateKeyHandle(ctx contex
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -118,7 +119,17 @@
  	opts = append((*c.CallOptions).CreateKeyHandle[0:len((*c.CallOptions).CreateKeyHandle):len((*c.CallOptions).CreateKeyHandle)], opts...)
  	var resp *longrunningpb.Operation
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -635,12 +566,7 @@ func (c *autokeyGRPCClient) GetKeyHandle(ctx context.C
+@@ -626,9 +556,6 @@ func (c *autokeyGRPCClient) CreateKeyHandle(ctx contex
+ 		return nil, err
+ 	}
+ 	lro := longrunning.InternalNewOperationWithMetadata(*c.LROClient, resp, "*kms.CreateKeyHandleOperation")
+-	if gax.IsFeatureEnabled("TRACING") {
+-		lro.SetParentSpanContext(trace.SpanContextFromContext(ctx))
+-	}
+ 	return &CreateKeyHandleOperation{
+ 		lro: lro,
+ 	}, nil
+@@ -639,12 +566,7 @@ func (c *autokeyGRPCClient) GetKeyHandle(ctx context.C
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -132,7 +143,7 @@
  	opts = append((*c.CallOptions).GetKeyHandle[0:len((*c.CallOptions).GetKeyHandle):len((*c.CallOptions).GetKeyHandle)], opts...)
  	var resp *kmspb.KeyHandle
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -659,12 +585,7 @@ func (c *autokeyGRPCClient) ListKeyHandles(ctx context
+@@ -663,12 +585,7 @@ func (c *autokeyGRPCClient) ListKeyHandles(ctx context
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -146,7 +157,7 @@
  	opts = append((*c.CallOptions).ListKeyHandles[0:len((*c.CallOptions).ListKeyHandles):len((*c.CallOptions).ListKeyHandles)], opts...)
  	it := &KeyHandleIterator{}
  	req = proto.CloneOf(req)
-@@ -711,9 +632,7 @@ func (c *autokeyGRPCClient) GetLocation(ctx context.Co
+@@ -715,9 +632,7 @@ func (c *autokeyGRPCClient) GetLocation(ctx context.Co
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -157,7 +168,7 @@
  	opts = append((*c.CallOptions).GetLocation[0:len((*c.CallOptions).GetLocation):len((*c.CallOptions).GetLocation)], opts...)
  	var resp *locationpb.Location
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -732,9 +651,7 @@ func (c *autokeyGRPCClient) ListLocations(ctx context.
+@@ -736,9 +651,7 @@ func (c *autokeyGRPCClient) ListLocations(ctx context.
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -168,7 +179,7 @@
  	opts = append((*c.CallOptions).ListLocations[0:len((*c.CallOptions).ListLocations):len((*c.CallOptions).ListLocations)], opts...)
  	it := &LocationIterator{}
  	req = proto.CloneOf(req)
-@@ -781,12 +698,7 @@ func (c *autokeyGRPCClient) GetIamPolicy(ctx context.C
+@@ -785,12 +698,7 @@ func (c *autokeyGRPCClient) GetIamPolicy(ctx context.C
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -182,7 +193,7 @@
  	opts = append((*c.CallOptions).GetIamPolicy[0:len((*c.CallOptions).GetIamPolicy):len((*c.CallOptions).GetIamPolicy)], opts...)
  	var resp *iampb.Policy
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -805,12 +717,7 @@ func (c *autokeyGRPCClient) SetIamPolicy(ctx context.C
+@@ -809,12 +717,7 @@ func (c *autokeyGRPCClient) SetIamPolicy(ctx context.C
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -196,7 +207,7 @@
  	opts = append((*c.CallOptions).SetIamPolicy[0:len((*c.CallOptions).SetIamPolicy):len((*c.CallOptions).SetIamPolicy)], opts...)
  	var resp *iampb.Policy
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -829,12 +736,7 @@ func (c *autokeyGRPCClient) TestIamPermissions(ctx con
+@@ -833,12 +736,7 @@ func (c *autokeyGRPCClient) TestIamPermissions(ctx con
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -210,7 +221,7 @@
  	opts = append((*c.CallOptions).TestIamPermissions[0:len((*c.CallOptions).TestIamPermissions):len((*c.CallOptions).TestIamPermissions)], opts...)
  	var resp *iampb.TestIamPermissionsResponse
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -853,9 +755,7 @@ func (c *autokeyGRPCClient) GetOperation(ctx context.C
+@@ -857,9 +755,7 @@ func (c *autokeyGRPCClient) GetOperation(ctx context.C
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -221,7 +232,7 @@
  	opts = append((*c.CallOptions).GetOperation[0:len((*c.CallOptions).GetOperation):len((*c.CallOptions).GetOperation)], opts...)
  	var resp *longrunningpb.Operation
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -904,13 +804,7 @@ func (c *autokeyRESTClient) CreateKeyHandle(ctx contex
+@@ -908,13 +804,7 @@ func (c *autokeyRESTClient) CreateKeyHandle(ctx contex
  	hds = append(c.xGoogHeaders, hds...)
  	hds = append(hds, "Content-Type", "application/json")
  	headers := gax.BuildHeaders(ctx, hds...)
@@ -236,7 +247,17 @@
  	unm := protojson.UnmarshalOptions{AllowPartial: true, DiscardUnknown: true}
  	resp := &longrunningpb.Operation{}
  	e := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -964,13 +858,7 @@ func (c *autokeyRESTClient) GetKeyHandle(ctx context.C
+@@ -944,9 +834,6 @@ func (c *autokeyRESTClient) CreateKeyHandle(ctx contex
+ 
+ 	override := fmt.Sprintf("/v1/%s", resp.GetName())
+ 	lro := longrunning.InternalNewOperationWithMetadata(*c.LROClient, resp, "*kms.CreateKeyHandleOperation")
+-	if gax.IsFeatureEnabled("TRACING") {
+-		lro.SetParentSpanContext(trace.SpanContextFromContext(ctx))
+-	}
+ 	return &CreateKeyHandleOperation{
+ 		lro:      lro,
+ 		pollPath: override,
+@@ -972,13 +859,7 @@ func (c *autokeyRESTClient) GetKeyHandle(ctx context.C
  	hds = append(c.xGoogHeaders, hds...)
  	hds = append(hds, "Content-Type", "application/json")
  	headers := gax.BuildHeaders(ctx, hds...)
@@ -251,7 +272,7 @@
  	opts = append((*c.CallOptions).GetKeyHandle[0:len((*c.CallOptions).GetKeyHandle):len((*c.CallOptions).GetKeyHandle)], opts...)
  	unm := protojson.UnmarshalOptions{AllowPartial: true, DiscardUnknown: true}
  	resp := &kmspb.KeyHandle{}
-@@ -1102,10 +990,7 @@ func (c *autokeyRESTClient) GetLocation(ctx context.Co
+@@ -1110,10 +991,7 @@ func (c *autokeyRESTClient) GetLocation(ctx context.Co
  	hds = append(c.xGoogHeaders, hds...)
  	hds = append(hds, "Content-Type", "application/json")
  	headers := gax.BuildHeaders(ctx, hds...)
@@ -263,7 +284,7 @@
  	opts = append((*c.CallOptions).GetLocation[0:len((*c.CallOptions).GetLocation):len((*c.CallOptions).GetLocation)], opts...)
  	unm := protojson.UnmarshalOptions{AllowPartial: true, DiscardUnknown: true}
  	resp := &locationpb.Location{}
-@@ -1257,13 +1142,7 @@ func (c *autokeyRESTClient) GetIamPolicy(ctx context.C
+@@ -1264,13 +1142,7 @@ func (c *autokeyRESTClient) GetIamPolicy(ctx context.C
  	hds = append(c.xGoogHeaders, hds...)
  	hds = append(hds, "Content-Type", "application/json")
  	headers := gax.BuildHeaders(ctx, hds...)
@@ -278,7 +299,7 @@
  	opts = append((*c.CallOptions).GetIamPolicy[0:len((*c.CallOptions).GetIamPolicy):len((*c.CallOptions).GetIamPolicy)], opts...)
  	unm := protojson.UnmarshalOptions{AllowPartial: true, DiscardUnknown: true}
  	resp := &iampb.Policy{}
-@@ -1324,13 +1203,7 @@ func (c *autokeyRESTClient) SetIamPolicy(ctx context.C
+@@ -1331,13 +1203,7 @@ func (c *autokeyRESTClient) SetIamPolicy(ctx context.C
  	hds = append(c.xGoogHeaders, hds...)
  	hds = append(hds, "Content-Type", "application/json")
  	headers := gax.BuildHeaders(ctx, hds...)
@@ -293,7 +314,7 @@
  	opts = append((*c.CallOptions).SetIamPolicy[0:len((*c.CallOptions).SetIamPolicy):len((*c.CallOptions).SetIamPolicy)], opts...)
  	unm := protojson.UnmarshalOptions{AllowPartial: true, DiscardUnknown: true}
  	resp := &iampb.Policy{}
-@@ -1393,13 +1266,7 @@ func (c *autokeyRESTClient) TestIamPermissions(ctx con
+@@ -1400,13 +1266,7 @@ func (c *autokeyRESTClient) TestIamPermissions(ctx con
  	hds = append(c.xGoogHeaders, hds...)
  	hds = append(hds, "Content-Type", "application/json")
  	headers := gax.BuildHeaders(ctx, hds...)
@@ -308,7 +329,7 @@
  	opts = append((*c.CallOptions).TestIamPermissions[0:len((*c.CallOptions).TestIamPermissions):len((*c.CallOptions).TestIamPermissions)], opts...)
  	unm := protojson.UnmarshalOptions{AllowPartial: true, DiscardUnknown: true}
  	resp := &iampb.TestIamPermissionsResponse{}
-@@ -1450,10 +1317,7 @@ func (c *autokeyRESTClient) GetOperation(ctx context.C
+@@ -1457,10 +1317,7 @@ func (c *autokeyRESTClient) GetOperation(ctx context.C
  	hds = append(c.xGoogHeaders, hds...)
  	hds = append(hds, "Content-Type", "application/json")
  	headers := gax.BuildHeaders(ctx, hds...)

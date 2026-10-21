@@ -1,6 +1,6 @@
---- vendor/cloud.google.com/go/auth/httptransport/transport.go.orig	2026-10-02 15:35:42 UTC
+--- vendor/cloud.google.com/go/auth/httptransport/transport.go.orig	2026-10-21 09:39:40 UTC
 +++ vendor/cloud.google.com/go/auth/httptransport/transport.go
-@@ -15,17 +15,11 @@ import (
+@@ -15,17 +15,10 @@ import (
  package httptransport
  
  import (
@@ -12,16 +12,17 @@
 -	"log/slog"
  	"net"
  	"net/http"
- 	"os"
+-	"os"
 -	"strconv"
 -	"sync"
  	"time"
  
  	"cloud.google.com/go/auth"
-@@ -34,22 +28,15 @@ import (
+@@ -33,29 +26,20 @@ import (
+ 	"cloud.google.com/go/auth/internal"
  	"cloud.google.com/go/auth/internal/transport"
  	"cloud.google.com/go/auth/internal/transport/cert"
- 	"cloud.google.com/go/auth/internal/transport/headers"
+-	"cloud.google.com/go/auth/internal/transport/headers"
 -	"github.com/googleapis/gax-go/v2"
 -	"github.com/googleapis/gax-go/v2/callctx"
 -	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
@@ -42,10 +43,37 @@
  	ht := &headerTransport{
  		base:    base,
  		headers: headers,
-@@ -182,311 +169,7 @@ func addOpenTelemetryTransport(trans http.RoundTripper
+ 	}
+ 	var trans http.RoundTripper = ht
+-	trans = addOpenTelemetryTransport(trans, opts)
+ 	switch {
+ 	case opts.DisableAuthentication:
+ 		// Do nothing.
+@@ -95,17 +79,7 @@ func newTransport(base http.RoundTripper, opts *Option
+ 				headers.Set(quotaProjectHeaderKey, qp)
+ 			}
+ 		}
+-		var skipUD bool
+-		if iOpts := opts.InternalOptions; iOpts != nil {
+-			skipUD = iOpts.SkipUniverseDomainValidation
+-		}
+ 		creds.TokenProvider = auth.NewCachedTokenProvider(creds.TokenProvider, nil)
+-		trans = &authTransport{
+-			base:                         trans,
+-			creds:                        creds,
+-			clientUniverseDomain:         opts.UniverseDomain,
+-			skipUniverseDomainValidation: skipUD,
+-		}
+ 	}
+ 	return trans, nil
  }
+@@ -179,375 +153,4 @@ func (t *headerTransport) RoundTrip(req *http.Request)
+ 	}
  
- func addOpenTelemetryTransport(trans http.RoundTripper, opts *Options) http.RoundTripper {
+ 	return rt.RoundTrip(&newReq)
+-}
+-
+-func addOpenTelemetryTransport(trans http.RoundTripper, opts *Options) http.RoundTripper {
 -	if opts.DisableTelemetry {
 -		return trans
 -	}
@@ -148,6 +176,11 @@
 -	}
 -
 -	resp, err := t.base.RoundTrip(req)
+-	if gax.IsFeatureEnabled("METRICS") {
+-		if data != nil && resp != nil {
+-			data.SetHTTPStatusCode(resp.StatusCode)
+-		}
+-	}
 -
 -	var logger *slog.Logger
 -	if gax.IsFeatureEnabled("LOGGING") {
@@ -351,7 +384,62 @@
 -	}
 -
 -	b.t.logAndSpanError(b.req, b.resp, errToParse, nil, b.span, b.logger)
-+	return trans
+-}
+-
+-type authTransport struct {
+-	creds                        *auth.Credentials
+-	base                         http.RoundTripper
+-	clientUniverseDomain         string
+-	skipUniverseDomainValidation bool
+-}
+-
+-// getClientUniverseDomain returns the default service domain for a given Cloud
+-// universe, with the following precedence:
+-//
+-// 1. A non-empty option.WithUniverseDomain or similar client option.
+-// 2. A non-empty environment variable GOOGLE_CLOUD_UNIVERSE_DOMAIN.
+-// 3. The default value "googleapis.com".
+-//
+-// This is the universe domain configured for the client, which will be compared
+-// to the universe domain that is separately configured for the credentials.
+-func (t *authTransport) getClientUniverseDomain() string {
+-	if t.clientUniverseDomain != "" {
+-		return t.clientUniverseDomain
+-	}
+-	if envUD := os.Getenv(internal.UniverseDomainEnvVar); envUD != "" {
+-		return envUD
+-	}
+-	return internal.DefaultUniverseDomain
+-}
+-
+-// RoundTrip authorizes and authenticates the request with an
+-// access token from Transport's Source. Per the RoundTripper contract we must
+-// not modify the initial request, so we clone it, and we must close the body
+-// on any errors that happens during our token logic.
+-func (t *authTransport) RoundTrip(req *http.Request) (*http.Response, error) {
+-	reqBodyClosed := false
+-	if req.Body != nil {
+-		defer func() {
+-			if !reqBodyClosed {
+-				req.Body.Close()
+-			}
+-		}()
+-	}
+-	token, err := t.creds.Token(req.Context())
+-	if err != nil {
+-		return nil, err
+-	}
+-	if !t.skipUniverseDomainValidation && token.MetadataString("auth.google.tokenSource") != "compute-metadata" {
+-		credentialsUniverseDomain, err := t.creds.UniverseDomain(req.Context())
+-		if err != nil {
+-			return nil, err
+-		}
+-		if err := transport.ValidateUniverseDomain(t.getClientUniverseDomain(), credentialsUniverseDomain); err != nil {
+-			return nil, err
+-		}
+-	}
+-	req2 := req.Clone(req.Context())
+-	headers.SetAuthHeader(token, req2)
+-	reqBodyClosed = true
+-	return t.base.RoundTrip(req2)
  }
- 
- type authTransport struct {
