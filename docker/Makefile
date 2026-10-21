@@ -1,5 +1,5 @@
 PORTNAME=	docker
-PORTVERSION=	29.9.1
+PORTVERSION=	29.9.2
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX=	-local
@@ -45,7 +45,7 @@ post-extract: .PHONY
 
 COMMIT_CMD=	git ls-remote \
 		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
-		refs/tags/${DISTVERSIONFULL}^{} | cut -c1-7
+		refs/tags/${DISTVERSIONFULL}^{} | ${CUT} -c1-7
 
 DATE_EPOCH_CMD=	date -ur \
 		$$(${GREP} --max-count=1 TIMESTAMP ${DISTINFO_FILE} | ${CUT} -d' ' -f3) \
