@@ -1,14 +1,14 @@
 --- internal/runner/run/creds/providers/externalcmd/provider.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/runner/run/creds/providers/externalcmd/provider.go
-@@ -13,7 +13,6 @@ import (
- 	"github.com/gruntwork-io/terragrunt/internal/runner/run/creds/providers"
+@@ -14,7 +14,6 @@ import (
  	"github.com/gruntwork-io/terragrunt/internal/runner/run/creds/providers/amazonsts"
  	"github.com/gruntwork-io/terragrunt/internal/shell"
+ 	"github.com/gruntwork-io/terragrunt/internal/shell/split"
 -	"github.com/gruntwork-io/terragrunt/internal/telemetry"
  	"github.com/gruntwork-io/terragrunt/internal/venv"
  	"github.com/gruntwork-io/terragrunt/pkg/log"
- 	"github.com/mattn/go-shellwords"
-@@ -54,20 +53,7 @@ func (provider *Provider) GetCredentials(
+ )
+@@ -58,20 +57,7 @@ func (provider *Provider) GetCredentials(
  		return nil, nil
  	}
  

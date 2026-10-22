@@ -29,12 +29,15 @@
  )
  
  // Run runs the list command.
-@@ -52,23 +46,9 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
+@@ -50,25 +44,10 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
+ 		return err
+ 	}
  
- 	var (
- 		components  component.Components
+-	var (
+-		components  component.Components
 -		discoverErr error
- 	)
+-	)
++	var components component.Components
  
 -	// Wrap discovery with telemetry
 -	err = telemetry.TelemeterFromContext(ctx).Collect(ctx, l, "list_discover", map[string]any{
@@ -50,11 +53,12 @@
 -
 -		return discoverErr
 -	})
++	_, _, _ = opts.WorkingDir, opts.NoHidden, opts.Dependencies || opts.Mode == ModeDAG
 +	components, err = d.Discover(ctx, l, v, opts.TerragruntOptions)
  	if err != nil {
  		l.Debugf("Errors encountered while discovering components:\n%s", err)
  	}
-@@ -77,22 +57,12 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
+@@ -77,19 +56,14 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
  	case ModeNormal:
  		components = components.Sort()
  	case ModeDAG:
@@ -66,21 +70,22 @@
 -			if queueErr != nil {
 -				return queueErr
 -			}
--
++		_, _ = opts.WorkingDir, len(components)
++		q, queueErr := queue.NewQueue(components)
++		if queueErr != nil {
++			return queueErr
++		}
+ 
 -			components = q.Components()
 -
 -			return nil
 -		})
-+		q, err := queue.NewQueue(components)
++		components = q.Components()
++		err = nil
  		if err != nil {
  			return err
  		}
-+
-+		components = q.Components()
- 	default:
- 		// This should never happen, because of validation in the command.
- 		// If it happens, we want to throw so we can fix the validation.
-@@ -101,22 +71,7 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
+@@ -101,19 +75,9 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
  
  	var listedComponents dag.ListedComponents
  
@@ -97,10 +102,9 @@
 -
 -			return nil
 -		})
--	if err != nil {
--		return err
--	}
++	_, _ = opts.WorkingDir, len(components)
 +	listedComponents = discoveredToListed(l, components, opts)
- 
- 	switch opts.Format {
- 	case FormatText:
++	err = nil
+ 	if err != nil {
+ 		return err
+ 	}

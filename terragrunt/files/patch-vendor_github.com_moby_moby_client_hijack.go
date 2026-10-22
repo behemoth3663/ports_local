@@ -1,14 +1,15 @@
---- vendor/github.com/moby/moby/client/hijack.go.orig	2026-10-02 16:09:04 UTC
+--- vendor/github.com/moby/moby/client/hijack.go.orig	2026-10-22 19:52:08 UTC
 +++ vendor/github.com/moby/moby/client/hijack.go
-@@ -9,7 +9,6 @@ import (
+@@ -8,8 +8,6 @@ import (
+ 	"net/http"
  	"net/url"
  	"time"
- 
+-
 -	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
  )
  
  // postHijacked sends a POST request and hijacks the connection.
-@@ -70,7 +69,7 @@ func setupHijackConn(dialer func(context.Context) (net
+@@ -70,7 +68,7 @@ func setupHijackConn(dialer func(context.Context) (net
  	hc := &hijackedConn{conn, bufio.NewReader(conn)}
  
  	// Server hijacks the connection, error 'connection closed' expected

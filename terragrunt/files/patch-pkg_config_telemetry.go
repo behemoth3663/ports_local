@@ -8,22 +8,24 @@
  	"github.com/gruntwork-io/terragrunt/pkg/log"
  )
  
-@@ -57,8 +56,7 @@ func TraceParseConfigFile(
+@@ -57,8 +56,8 @@ func TraceParseConfigFile(
  		attrs[AttrIncludeChildPath] = includeFromChild.Path
  	}
  
 -	return telemetry.TelemeterFromContext(ctx).
 -		Collect(ctx, l, TelemetryOpParseConfigFile, attrs, fn)
++	_, _, _, _, _, _, _, _ = ctx, l, attrs, cfgPath, workingDir, isPartial, decodeList, cacheHit
 +	return fn(ctx, l)
  }
  
  // TraceParseDependencies wraps dependency parsing with telemetry.
-@@ -81,8 +79,7 @@ func TraceParseDependencies(
+@@ -81,8 +80,8 @@ func TraceParseDependencies(
  		attrs[AttrDependencyNames] = strings.Join(dependencyNames, ",")
  	}
  
 -	return telemetry.TelemeterFromContext(ctx).
 -		Collect(ctx, l, TelemetryOpParseDependencies, attrs, fn)
++	_, _, _, _, _, _, _ = ctx, l, attrs, cfgPath, skipOutputsResolution, dependencyCount, dependencyNames
 +	return fn(ctx, l)
  }
  

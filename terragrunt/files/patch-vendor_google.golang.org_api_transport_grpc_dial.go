@@ -1,4 +1,4 @@
---- vendor/google.golang.org/api/transport/grpc/dial.go.orig	2026-10-02 16:09:04 UTC
+--- vendor/google.golang.org/api/transport/grpc/dial.go.orig	2026-10-22 19:52:08 UTC
 +++ vendor/google.golang.org/api/transport/grpc/dial.go
 @@ -21,7 +21,6 @@ import (
  	"cloud.google.com/go/auth/grpctransport"
@@ -8,7 +8,7 @@
  	"golang.org/x/oauth2"
  	"golang.org/x/time/rate"
  	"google.golang.org/api/internal"
-@@ -378,10 +377,8 @@ func addOpenTelemetryStatsHandler(opts []grpc.DialOpti
+@@ -380,10 +379,8 @@ func addOpenTelemetryStatsHandler(opts []grpc.DialOpti
  }
  
  func addOpenTelemetryStatsHandler(opts []grpc.DialOption, settings *internal.DialSettings) []grpc.DialOption {

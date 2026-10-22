@@ -1,20 +1,14 @@
 --- internal/shell/run_cmd.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/shell/run_cmd.go
-@@ -3,24 +3,18 @@ import (
- 
- import (
- 	"context"
--	"fmt"
+@@ -6,7 +6,6 @@ import (
+ 	"errors"
+ 	"fmt"
  	"io"
 -	"path/filepath"
  	"strings"
  	"time"
  
- 	"github.com/gruntwork-io/terragrunt/internal/engine"
- 	"github.com/gruntwork-io/terragrunt/internal/experiment"
- 	"github.com/gruntwork-io/terragrunt/internal/os/exec"
-+	telemetryopts "github.com/gruntwork-io/terragrunt/internal/traceopts"
- 	"github.com/gruntwork-io/terragrunt/internal/venv"
+@@ -17,11 +16,6 @@ import (
  	"github.com/gruntwork-io/terragrunt/internal/writer"
  	"github.com/gruntwork-io/terragrunt/pkg/log"
  
@@ -26,56 +20,68 @@
  	"github.com/gruntwork-io/terragrunt/internal/util"
  )
  
-@@ -40,7 +34,7 @@ type ShellOptions struct {
+@@ -45,7 +39,7 @@ type ShellOptions struct {
  type ShellOptions struct {
  	EngineOptions *engine.EngineOptions
  	EngineConfig  *engine.EngineConfig
 -	Telemetry     *telemetry.Options
-+	Telemetry     *telemetryopts.Options
++	TraceParent   string
  
  	RootWorkingDir         string
  	WorkingDir             string
-@@ -59,16 +53,7 @@ func NewShellOptions(env map[string]string) *ShellOpti
- // With* methods to override any field.
+@@ -59,20 +53,16 @@ type ShellOptions struct {
+ 	LogDisableErrorSummary bool
+ }
+ 
+-// NewShellOptions creates ShellOptions with sensible defaults. Telemetry is
+-// always non-nil; TRACEPARENT is read from the environment when set. Use the
+-// With* methods to override any field.
++// NewShellOptions creates ShellOptions with sensible defaults.
++// TRACEPARENT is read from the environment when set.
  func NewShellOptions(env map[string]string) *ShellOptions {
  	venv.RequireEnvMap(env)
--
+ 
 -	opts := &ShellOptions{
 -		Telemetry: &telemetry.Options{},
--	}
--
++	opts := &ShellOptions{}
++	if tp := env["TRACEPARENT"]; tp != "" {
++		opts.TraceParent = tp
+ 	}
+ 
 -	if tp := env[telemetry.TraceParentEnv]; tp != "" {
 -		opts.Telemetry.TraceParent = tp
 -	}
 -
--	return opts
-+	return &ShellOptions{Telemetry: new(telemetryopts.Options)}
+ 	return opts
  }
  
- // WithWorkingDir sets the working directory for command execution.
-@@ -85,19 +70,8 @@ func (o *ShellOptions) WithUnitDir(dir string) *ShellO
- 	return o
- }
+@@ -92,24 +82,11 @@ func (o *ShellOptions) SetTraceParent(tp string) *Shel
  
--// SetTraceParent explicitly overrides the TRACEPARENT value used for trace context propagation.
--func (o *ShellOptions) SetTraceParent(tp string) *ShellOptions {
+ // SetTraceParent explicitly overrides the TRACEPARENT value used for trace context propagation.
+ func (o *ShellOptions) SetTraceParent(tp string) *ShellOptions {
 -	if o.Telemetry == nil {
 -		o.Telemetry = &telemetry.Options{}
 -	}
--
++	o.TraceParent = tp
+ 
 -	o.Telemetry.TraceParent = tp
+-
+ 	return o
+ }
+ 
+-// WithTelemetry sets the full telemetry options, replacing the defaults from the constructor.
+-func (o *ShellOptions) WithTelemetry(t *telemetry.Options) *ShellOptions {
+-	if t != nil {
+-		o.Telemetry = t
+-	}
 -
 -	return o
 -}
 -
--// WithTelemetry sets the full telemetry options, replacing the defaults from the constructor.
--func (o *ShellOptions) WithTelemetry(t *telemetry.Options) *ShellOptions {
-+// WithEngine sets the engine configuration and options.
-+func (o *ShellOptions) WithTelemetry(t *telemetryopts.Options) *ShellOptions {
- 	if t != nil {
- 		o.Telemetry = t
- 	}
-@@ -205,42 +179,15 @@ func RunCommandWithOutput(
+ // WithEngine sets the engine configuration and options.
+ func (o *ShellOptions) WithEngine(
+ 	cfg *engine.EngineConfig,
+@@ -222,42 +199,16 @@ func RunCommandWithOutput(
  		commandDir = runOpts.WorkingDir
  	}
  
@@ -94,6 +100,7 @@
 -				Args:           args,
 -				Output:         &output,
 -			})
++	_ = fmt.Sprintf("%v", args)
 +	err := runCommand(ctx, l, v, runOpts, RunCommandOptions{
 +		CommandDir:     commandDir,
 +		SuppressStdout: suppressStdout,
@@ -126,32 +133,21 @@
  	return &output, err
  }
  
-@@ -255,10 +202,7 @@ type RunCommandOptions struct {
- 	NeedsPTY       bool
- }
- 
--// runCommand contains the actual subprocess execution logic, separated to keep
--// RunCommandWithOutput focused on telemetry framing.
--//
--// Requires v.Env: the traceparent is written into it before the child forks.
-+// runCommand contains the actual subprocess execution logic.
- func runCommand(
- 	ctx context.Context,
- 	l log.Logger,
-@@ -274,16 +218,6 @@ func runCommand(
- 		cmdStderr = io.MultiWriter(v.Writers.ErrWriter, &cmdOpts.Output.Stderr)
- 		cmdStdout = io.MultiWriter(v.Writers.Writer, &cmdOpts.Output.Stdout)
+@@ -294,7 +245,7 @@ func runCommand(
  	)
--
--	// Pass the traceparent to the child process if it is available in the context.
+ 
+ 	// Pass the traceparent to the child process if it is available in the context.
 -	if traceParent := telemetry.TraceParentFromContext(ctx, runOpts.Telemetry); traceParent != "" {
--		l.Debugf(
--			"Setting trace parent=%q for command %s",
--			traceParent,
--			fmt.Sprintf("%s %v", cmdOpts.Command, cmdOpts.Args),
--		)
++	if traceParent := runOpts.TraceParent; traceParent != "" {
+ 		l.Debugf(
+ 			"Setting trace parent=%q for command %s",
+ 			traceParent,
+@@ -302,7 +253,7 @@ func runCommand(
+ 		)
+ 
+ 		v = v.WithEnvCloned()
 -		v.Env[telemetry.TraceParentEnv] = traceParent
--	}
++		v.Env["TRACEPARENT"] = traceParent
+ 	}
  
  	if cmdOpts.SuppressStdout {
- 		l.Debugf("Command output will be suppressed.")

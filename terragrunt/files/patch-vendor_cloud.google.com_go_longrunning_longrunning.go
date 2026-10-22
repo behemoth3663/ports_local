@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/longrunning/longrunning.go.orig	2026-10-02 16:09:03 UTC
+--- vendor/cloud.google.com/go/longrunning/longrunning.go.orig	2026-10-22 19:52:07 UTC
 +++ vendor/cloud.google.com/go/longrunning/longrunning.go
 @@ -31,11 +31,6 @@ import (
  	pb "cloud.google.com/go/longrunning/autogen/longrunningpb"
@@ -12,25 +12,25 @@
  	"google.golang.org/grpc/status"
  	"google.golang.org/protobuf/proto"
  	"google.golang.org/protobuf/protoadapt"
-@@ -50,7 +45,7 @@ type Operation struct {
+@@ -50,7 +45,6 @@ type Operation struct {
  	c               operationsClient
  	proto           *pb.Operation
  	opName          string
 -	initSpanContext trace.SpanContext
-+	initSpanContext any
  }
  
  type operationsClient interface {
-@@ -84,7 +79,7 @@ func InternalNewOperationWithMetadata(inner *autogen.O
+@@ -84,8 +78,7 @@ func InternalNewOperationWithMetadata(inner *autogen.O
  // which is used to create a Span Link from the LRO Wait span.
  //
  // SetParentSpanContext is an EXPERIMENTAL API and may be changed or removed in the future.
 -func (op *Operation) SetParentSpanContext(sc trace.SpanContext) {
-+func (op *Operation) SetParentSpanContext(sc any) {
- 	op.initSpanContext = sc
+-	op.initSpanContext = sc
++func (op *Operation) SetParentSpanContext(_ any) {
  }
  
-@@ -172,35 +167,9 @@ func (op *Operation) waitWithInterval(ctx context.Cont
+ // Name returns the name of the long-running operation.
+@@ -172,35 +165,7 @@ func (op *Operation) waitWithInterval(ctx context.Cont
  		bo.Max = bo.Initial
  	}
  
@@ -63,13 +63,11 @@
 -		span.RecordError(err)
 -	}
 -	return err
-+	_ = op.opName
-+	_ = op.initSpanContext
 +	return op.wait(ctx, resp, &bo, sl, opts...)
  }
  
  type sleeper func(context.Context, time.Duration) error
-@@ -221,57 +190,7 @@ func (op *Operation) waitTraced(ctx context.Context, r
+@@ -221,57 +186,7 @@ func (op *Operation) waitTraced(ctx context.Context, r
  }
  
  func (op *Operation) waitTraced(ctx context.Context, resp protoadapt.MessageV1, bo *gax.Backoff, sl sleeper, opts ...gax.CallOption) error {

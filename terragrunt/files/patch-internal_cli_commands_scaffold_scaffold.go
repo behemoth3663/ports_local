@@ -25,7 +25,7 @@
  	"github.com/gruntwork-io/boilerplate/manifest"
  	boilerplateoptions "github.com/gruntwork-io/boilerplate/options"
  	"github.com/gruntwork-io/boilerplate/templates"
-@@ -262,17 +260,8 @@ func Prepare(
+@@ -276,16 +274,8 @@ func Prepare(
  
  	l.Debugf("Scaffolding a new Terragrunt module %s to %s", resolvedURL, outputDir)
  
@@ -33,19 +33,18 @@
 -		Collect(ctx, l, "scaffold_get_module", map[string]any{
 -			"module_url": resolvedURL,
 -		}, func(ctx context.Context, l log.Logger) error {
--			if _, getErr := getter.GetAny(ctx, l, v, tempDir, resolvedURL); getErr != nil {
+-			if getErr := fetchScaffoldSource(ctx, l, v, tempDir, resolvedURL); getErr != nil {
 -				return fmt.Errorf("downloading scaffold module from %s: %w", resolvedURL, getErr)
 -			}
 -
 -			return nil
 -		}); err != nil {
--		return nil, err
-+	if _, err := getter.GetAny(ctx, l, v, tempDir, resolvedURL); err != nil {
-+		return nil, fmt.Errorf("downloading scaffold module from %s: %w", resolvedURL, err)
++	if err := fetchScaffoldSource(ctx, l, v, tempDir, resolvedURL); err != nil {
++		err = fmt.Errorf("downloading scaffold module from %s: %w", resolvedURL, err)
+ 		return nil, err
  	}
  
- 	markers, err := component.Inspect(v.FS, tempDir)
-@@ -679,21 +668,12 @@ func downloadTemplate(
+@@ -694,20 +684,12 @@ func downloadTemplate(
  	l.Debugf("Downloading template from %s into %s", baseURL.String(), templateDir)
  	// Downloading baseURL to support boilerplate dependencies and partials.
  	// Go-getter discards all but specified folder if one is provided.
@@ -53,7 +52,7 @@
 -		Collect(ctx, l, "scaffold_get_template", map[string]any{
 -			"template_url": baseURL.String(),
 -		}, func(ctx context.Context, l log.Logger) error {
--			if _, getErr := getter.GetAny(ctx, l, v, templateDir, baseURL.String()); getErr != nil {
+-			if getErr := fetchScaffoldSource(ctx, l, v, templateDir, baseURL.String()); getErr != nil {
 -				return fmt.Errorf(
 -					"downloading scaffold template from %s: %w",
 -					baseURL.String(),
@@ -63,13 +62,12 @@
 -
 -			return nil
 -		}); err != nil {
--		return "", err
-+	if _, err := getter.GetAny(ctx, l, v, templateDir, baseURL.String()); err != nil {
-+		return "", fmt.Errorf(
++	if err := fetchScaffoldSource(ctx, l, v, templateDir, baseURL.String()); err != nil {
++		err = fmt.Errorf(
 +			"downloading scaffold template from %s: %w",
 +			baseURL.String(),
 +			err,
 +		)
+ 		return "", err
  	}
  
- 	// Add subfolder to templateDir if provided, as scaffold needs path to boilerplate.yml file

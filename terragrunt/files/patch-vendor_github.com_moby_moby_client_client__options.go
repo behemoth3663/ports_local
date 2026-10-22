@@ -1,4 +1,4 @@
---- vendor/github.com/moby/moby/client/client_options.go.orig	2026-10-02 16:09:04 UTC
+--- vendor/github.com/moby/moby/client/client_options.go.orig	2026-10-22 19:52:08 UTC
 +++ vendor/github.com/moby/moby/client/client_options.go
 @@ -15,8 +15,6 @@ import (
  	cerrdefs "github.com/containerd/errdefs"
@@ -9,16 +9,18 @@
  )
  
  type clientConfig struct {
-@@ -62,7 +60,7 @@ type clientConfig struct {
+@@ -61,8 +59,8 @@ type clientConfig struct {
+ 	// responseHooks is a list of custom response hooks to call on responses.
  	responseHooks []ResponseHook
  
- 	// traceOpts is a list of options to configure the tracing span.
+-	// traceOpts is a list of options to configure the tracing span.
 -	traceOpts []otelhttp.Option
++	// traceOpts is retained for backwards-compatible option parsing.
 +	traceOpts []any
  }
  
  // ResponseHook is called for each HTTP response returned by the daemon.
-@@ -396,17 +394,18 @@ func WithAPIVersionNegotiation() Opt {
+@@ -396,15 +394,15 @@ func WithAPIVersionNegotiation() Opt {
  
  // WithTraceProvider sets the trace provider for the client.
  // If this is not set then the global trace provider is used.
@@ -26,7 +28,7 @@
 +func WithTraceProvider(provider any) Opt {
  	return func(c *clientConfig) error {
 -		c.traceOpts = append(c.traceOpts, otelhttp.WithTracerProvider(provider))
-+		_ = provider
++		c.traceOpts = append(c.traceOpts, provider)
  		return nil
  	}
  }
@@ -35,9 +37,5 @@
 -func WithTraceOptions(opts ...otelhttp.Option) Opt {
 +func WithTraceOptions(opts ...any) Opt {
  	return func(c *clientConfig) error {
--		c.traceOpts = append(c.traceOpts, opts...)
-+		_ = c
-+		_ = opts
+ 		c.traceOpts = append(c.traceOpts, opts...)
  		return nil
- 	}
- }

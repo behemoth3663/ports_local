@@ -20,12 +20,10 @@
  	"github.com/gruntwork-io/terragrunt/internal/venv"
  	"github.com/gruntwork-io/terragrunt/internal/worker"
  	"github.com/gruntwork-io/terragrunt/internal/worktrees"
-@@ -384,24 +382,7 @@ func readUnitOutput(
- 	unit *config.Unit,
- 	unitDir string,
+@@ -387,17 +385,8 @@ func readUnitOutput(
  ) (map[string]cty.Value, error) {
--	var output map[string]cty.Value
--
+ 	var output map[string]cty.Value
+ 
 -	err := telemetry.TelemeterFromContext(ctx).Collect(ctx, l, "unit_output", map[string]any{
 -		"unit_name":   unit.Name,
 -		"unit_source": unit.Source,
@@ -33,16 +31,12 @@
 -	}, func(ctx context.Context, l log.Logger) error {
 -		var outputErr error
 -
--		output, outputErr = unit.ReadOutputs(ctx, l, pctx, unitDir)
+-		output, outputErr = unit.ReadOutputs(ctx, l, v, pctx, unitDir)
 -
 -		return outputErr
 -	})
--	if err != nil {
--		return nil, UnitOutputError{UnitName: unit.Name, UnitDir: unitDir, Err: err}
--	}
--
--	return output, nil
-+	return unit.ReadOutputs(ctx, l, pctx, unitDir)
- }
- 
- // buildWorktreesIfNeeded creates worktrees if the filter-flag experiment is enabled and git filters exist.
++	_, _, _ = unit.Name, unit.Source, unit.Path
++	output, err := unit.ReadOutputs(ctx, l, v, pctx, unitDir)
+ 	if err != nil {
+ 		return nil, UnitOutputError{UnitName: unit.Name, UnitDir: unitDir, Err: err}
+ 	}

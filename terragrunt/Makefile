@@ -1,7 +1,6 @@
 PORTNAME=	terragrunt
-PORTVERSION=	1.1.6
+PORTVERSION=	1.2.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	5
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX?=	-local
 
@@ -30,10 +29,10 @@ pre-build: .PHONY
 	${RM} -r ${WRKSRC}/vendor/github.com/GoogleCloudPlatform
 	${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io
 	${RM} -r ${WRKSRC}/vendor/google.golang.org/grpc/experimental/opentelemetry
+	${RM} -r ${WRKSRC}/vendor/google.golang.org/grpc/stats/opentelemetry
+	${RM} ${WRKSRC}/internal/filter/telemetry.go
 	${RM} ${WRKSRC}/vendor/github.com/googleapis/gax-go/v2/telemetry.go
 	${FIND} ${WRKSRC} -name '*_test.go' -type f -delete
-	${MKDIR} ${WRKSRC}/internal/traceopts
-	${CP} -r ${FILESDIR}/options.go ${WRKSRC}/internal/traceopts
 
 do-build: .PHONY
 	( cd ${GO_WRKSRC} && ${ECHO_MSG} "===>  Building ${PORTNAME} from ." && \

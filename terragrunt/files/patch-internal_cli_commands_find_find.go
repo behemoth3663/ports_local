@@ -18,12 +18,15 @@
  	"github.com/gruntwork-io/terragrunt/internal/cli/commands/discoverysetup"
  	"github.com/gruntwork-io/terragrunt/internal/component"
  	"github.com/gruntwork-io/terragrunt/internal/discovery"
-@@ -52,44 +50,23 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
+@@ -50,22 +48,10 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
+ 		return err
+ 	}
  
- 	var (
- 		components  component.Components
+-	var (
+-		components  component.Components
 -		discoverErr error
- 	)
+-	)
++	var components component.Components
  
 -	telemetryErr := telemetry.TelemeterFromContext(ctx).
 -		Collect(ctx, l, "find_discover", map[string]any{
@@ -36,14 +39,12 @@
 -			components, discoverErr = d.Discover(ctx, l, v, opts.TerragruntOptions)
 -			return discoverErr
 -		})
--	if telemetryErr != nil {
--		l.Debugf("Errors encountered while discovering components:\n%s", telemetryErr)
-+	components, err = d.Discover(ctx, l, v, opts.TerragruntOptions)
-+	if err != nil {
-+		return err
++	_, _, _, _, _ = opts.WorkingDir, opts.NoHidden, opts.Dependencies, opts.Mode, opts.Exclude
++	components, telemetryErr := d.Discover(ctx, l, v, opts.TerragruntOptions)
+ 	if telemetryErr != nil {
+ 		l.Debugf("Errors encountered while discovering components:\n%s", telemetryErr)
  	}
- 
- 	switch opts.Mode {
+@@ -74,19 +60,14 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
  	case ModeNormal:
  		components = components.Sort()
  	case ModeDAG:
@@ -55,21 +56,22 @@
 -			if queueErr != nil {
 -				return queueErr
 -			}
--
++		_, _ = opts.WorkingDir, len(components)
++		q, queueErr := queue.NewQueue(components)
++		if queueErr != nil {
++			return queueErr
++		}
+ 
 -			components = q.Components()
 -
 -			return nil
 -		})
-+		q, err := queue.NewQueue(components)
++		components = q.Components()
++		err = nil
  		if err != nil {
  			return err
  		}
-+
-+		components = q.Components()
- 	default:
- 		// This should never happen, because of validation in the command.
- 		// If it happens, we want to throw so we can fix the validation.
-@@ -98,18 +75,7 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
+@@ -98,15 +79,9 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
  
  	var foundComponents FoundComponents
  
@@ -82,10 +84,9 @@
 -
 -			return nil
 -		})
--	if err != nil {
--		return err
--	}
++	_, _ = opts.WorkingDir, len(components)
 +	foundComponents = discoveredToFound(l, components, opts)
- 
- 	switch opts.Format {
- 	case FormatText:
++	err = nil
+ 	if err != nil {
+ 		return err
+ 	}

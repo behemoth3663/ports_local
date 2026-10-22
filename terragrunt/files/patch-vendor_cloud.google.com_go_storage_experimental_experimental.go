@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/storage/experimental/experimental.go.orig	2026-10-02 16:09:03 UTC
+--- vendor/cloud.google.com/go/storage/experimental/experimental.go.orig	2026-10-22 19:52:07 UTC
 +++ vendor/cloud.google.com/go/storage/experimental/experimental.go
 @@ -25,7 +25,6 @@ import (
  	"time"
@@ -27,4 +27,4 @@
 +	return internal.WithMeterProvider.(func(any) option.ClientOption)(mp)
  }
  
- // WithReadStallTimeout provides a [option.ClientOption] that may be passed to [storage.NewClient].
+ // WithReadStallTimeout provides a [option.ClientOption] that may be passed to [storage.NewClient] or [storage.NewGRPCClient].

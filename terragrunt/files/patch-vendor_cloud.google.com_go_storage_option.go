@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/storage/option.go.orig	2026-10-02 16:09:03 UTC
+--- vendor/cloud.google.com/go/storage/option.go.orig	2026-10-22 19:52:07 UTC
 +++ vendor/cloud.google.com/go/storage/option.go
 @@ -21,7 +21,6 @@ import (
  
@@ -8,7 +8,7 @@
  	"google.golang.org/api/option"
  	"google.golang.org/api/option/internaloption"
  )
-@@ -85,10 +84,10 @@ type storageConfig struct {
+@@ -84,10 +83,10 @@ type storageConfig struct {
  	disableClientMetrics   bool
  	enableOtelMetrics      bool
  	enableOtelDebugMetrics bool

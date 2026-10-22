@@ -17,7 +17,7 @@
  	"github.com/gruntwork-io/terragrunt/internal/venv"
  	"github.com/gruntwork-io/terragrunt/pkg/config"
  	"github.com/gruntwork-io/terragrunt/pkg/log"
-@@ -32,19 +30,14 @@ func runBootstrap(
+@@ -32,19 +30,16 @@ func runBootstrap(
  	v *venv.Venv,
  	opts *options.TerragruntOptions,
  ) error {
@@ -25,14 +25,16 @@
 -		"working_dir":            opts.WorkingDir,
 -		"terragrunt_config_path": opts.TerragruntConfigPath,
 -	}, func(ctx context.Context, l log.Logger) error {
--		_, pctx := configbridge.NewParsingContext(ctx, l, v, opts)
-+	_, pctx := configbridge.NewParsingContext(ctx, l, v, opts)
+-		pctx := configbridge.NewParsingContext(opts)
++	_ = opts.WorkingDir
++	_ = opts.TerragruntConfigPath
++	pctx := configbridge.NewParsingContext(opts)
  
--		remoteState, err := config.ParseRemoteState(ctx, l, pctx)
+-		remoteState, err := config.ParseRemoteState(ctx, l, v, pctx)
 -		if err != nil || remoteState == nil {
 -			return err
 -		}
-+	remoteState, err := config.ParseRemoteState(ctx, l, pctx)
++	remoteState, err := config.ParseRemoteState(ctx, l, v, pctx)
 +	if err != nil || remoteState == nil {
 +		return err
 +	}
@@ -43,7 +45,7 @@
  }
  
  func runAll(
-@@ -62,49 +55,42 @@ func runAll(
+@@ -62,49 +57,43 @@ func runAll(
  
  	units := components.Filter(component.UnitKind).Sort()
  
@@ -54,28 +56,29 @@
 -			"fail_fast":   opts.FailFast,
 -		}, func(ctx context.Context, l log.Logger) error {
 -			var errs []error
-+		var errs []error
++	_, _, _ = opts.WorkingDir, len(units), opts.FailFast
++	var errs []error
  
 -			for _, unit := range units {
 -				unitOpts := opts.Clone()
 -				unitOpts.WorkingDir = unit.Path()
-+		for _, unit := range units {
-+			unitOpts := opts.Clone()
-+			unitOpts.WorkingDir = unit.Path()
++	for _, unit := range units {
++		unitOpts := opts.Clone()
++		unitOpts.WorkingDir = unit.Path()
  
 -				configFilename := config.DefaultTerragruntConfigPath
 -				if len(opts.TerragruntConfigPath) > 0 {
 -					configFilename = filepath.Base(opts.TerragruntConfigPath)
 -				}
-+			configFilename := config.DefaultTerragruntConfigPath
-+			if len(opts.TerragruntConfigPath) > 0 {
-+				configFilename = filepath.Base(opts.TerragruntConfigPath)
-+			}
++		configFilename := config.DefaultTerragruntConfigPath
++		if len(opts.TerragruntConfigPath) > 0 {
++			configFilename = filepath.Base(opts.TerragruntConfigPath)
++		}
  
 -				unitOpts.TerragruntConfigPath = filepath.Join(unit.Path(), configFilename)
 -				unitOpts.OriginalTerragruntConfigPath = unitOpts.TerragruntConfigPath
-+			unitOpts.TerragruntConfigPath = filepath.Join(unit.Path(), configFilename)
-+			unitOpts.OriginalTerragruntConfigPath = unitOpts.TerragruntConfigPath
++		unitOpts.TerragruntConfigPath = filepath.Join(unit.Path(), configFilename)
++		unitOpts.OriginalTerragruntConfigPath = unitOpts.TerragruntConfigPath
  
 -				// Parsing can write obtained credentials into the env, so each
 -				// unit gets its own clone to keep them from leaking to siblings.
@@ -93,33 +96,34 @@
 -							err,
 -						),
 -					)
-+			// Parsing can write obtained credentials into the env, so each
-+			// unit gets its own clone to keep them from leaking to siblings.
-+			unitV := v.WithEnvCloned()
-+			if err := runBootstrap(ctx, l, unitV, unitOpts); err != nil {
-+				if opts.FailFast {
-+					return err
- 				}
--			}
+-				}
++		// Parsing can write obtained credentials into the env, so each
++		// unit gets its own clone to keep them from leaking to siblings.
++		unitV := v.WithEnvCloned()
++		if err := runBootstrap(ctx, l, unitV, unitOpts); err != nil {
++			if opts.FailFast {
++				return err
+ 			}
  
 -			if len(errs) > 0 {
 -				return errors.Join(errs...)
-+				errs = append(
-+					errs,
-+					fmt.Errorf(
-+						"backend bootstrap for unit %s failed: %w",
-+						unit.Path(),
-+						err,
-+					),
-+				)
- 			}
+-			}
++			errs = append(
++				errs,
++				fmt.Errorf(
++					"backend bootstrap for unit %s failed: %w",
++					unit.Path(),
++					err,
++				),
++			)
 +		}
++	}
  
 -			return nil
 -		})
-+		if len(errs) > 0 {
-+			return errors.Join(errs...)
-+		}
++	if len(errs) > 0 {
++		return errors.Join(errs...)
++	}
 +
-+		return nil
++	return nil
  }

@@ -8,7 +8,7 @@
  	"github.com/gruntwork-io/terragrunt/pkg/log"
  )
  
-@@ -32,38 +31,26 @@ func readDependencyStateOutputs(
+@@ -32,31 +31,26 @@ func readDependencyStateOutputs(
  		encrypted   error
  	)
  
@@ -18,48 +18,42 @@
 -			if err != nil {
 -				return err
 -			}
-+		reader, err := open(ctx, l)
-+		if err != nil {
-+			return nil, err
-+		}
++	_, _ = metric, attrs
++	reader, err := open(ctx, l)
++	if err != nil {
++		return nil, err
++	}
  
 -			defer func() {
 -				if err := reader.Close(); err != nil {
 -					l.Warnf("Failed to close dependency state reader for %s: %v", location, err)
 -				}
 -			}()
--
++	defer func() {
++		if err := reader.Close(); err != nil {
++			l.Warnf("Failed to close dependency state reader for %s: %v", location, err)
++		}
++	}()
+ 
 -			jsonOutputs, err = stateOutputsJSON(reader, location)
--
++	jsonOutputs, err = stateOutputsJSON(reader, location)
+ 
 -			// An encrypted state is an expected fallback rather than a failed read, so it is
 -			// carried out of the callback to keep it off this metric's error counter.
 -			if errors.Is(err, ErrDependencyStateEncrypted) {
 -				encrypted = err
 -
 -				return nil
-+		defer func() {
-+			if err := reader.Close(); err != nil {
-+				l.Warnf("Failed to close dependency state reader for %s: %v", location, err)
- 			}
-+		}()
- 
+-			}
+-
 -			return err
 -		})
--	if err != nil {
--		return nil, err
--	}
-+		jsonOutputs, err = stateOutputsJSON(reader, location)
- 
--	if encrypted != nil {
--		return nil, encrypted
--	}
-+		// An encrypted state is an expected fallback rather than a failed read, so it is
-+		// carried out of the callback to keep it off this metric's error counter.
-+		if errors.Is(err, ErrDependencyStateEncrypted) {
-+			encrypted = err
-+
-+			return nil, encrypted
-+		}
- 
- 	return jsonOutputs, nil
- }
++	// An encrypted state is an expected fallback rather than a failed read, so it is
++	// carried out separately.
++	if errors.Is(err, ErrDependencyStateEncrypted) {
++		encrypted = err
++		err = nil
++	}
+ 	if err != nil {
+ 		return nil, err
+ 	}

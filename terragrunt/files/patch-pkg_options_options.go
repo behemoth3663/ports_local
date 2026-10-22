@@ -15,18 +15,15 @@
  	"github.com/gruntwork-io/terragrunt/internal/cloner"
  	"github.com/gruntwork-io/terragrunt/internal/engine"
  	"github.com/gruntwork-io/terragrunt/internal/errorconfig"
-@@ -23,9 +22,9 @@ import (
+@@ -23,7 +22,6 @@ import (
  	semver "github.com/gruntwork-io/terragrunt/internal/semver"
  	"github.com/gruntwork-io/terragrunt/internal/strict"
  	"github.com/gruntwork-io/terragrunt/internal/strict/controls"
 -	"github.com/gruntwork-io/terragrunt/internal/telemetry"
  	"github.com/gruntwork-io/terragrunt/internal/tfimpl"
  	"github.com/gruntwork-io/terragrunt/internal/tips"
-+	telemetryopts "github.com/gruntwork-io/terragrunt/internal/traceopts"
  	"github.com/gruntwork-io/terragrunt/internal/util"
- 	"github.com/gruntwork-io/terragrunt/internal/venv"
- 	"github.com/gruntwork-io/terragrunt/internal/vexec"
-@@ -62,14 +61,12 @@ const (
+@@ -62,17 +60,26 @@ const (
  	DefaultLogLevel = log.InfoLevel
  )
  
@@ -47,27 +44,39 @@
  
  type ctxKey byte
  
-@@ -83,8 +80,8 @@ type TerragruntOptions struct {
- 	EngineConfig *engine.EngineConfig
++type TelemetryOptions struct {
++	TraceExporter                  string
++	TraceExporterInsecureEndpoint  bool
++	TraceExporterHTTPEndpoint      string
++	TraceParent                    string
++	MetricExporter                 string
++	MetricExporterInsecureEndpoint bool
++	LogsExporter                   string
++	LogsExporterInsecureEndpoint   bool
++}
++
+ // TerragruntOptions represents options that configure the behavior of the Terragrunt program
+ type TerragruntOptions struct {
+ 	// Version of terragrunt
+@@ -84,7 +91,7 @@ type TerragruntOptions struct {
  	// EngineOptions groups CLI-supplied engine options.
  	EngineOptions *engine.EngineOptions
--	// Telemetry are telemetry options.
+ 	// Telemetry are telemetry options.
 -	Telemetry *telemetry.Options
-+	// Telemetry holds inert telemetry-related CLI options.
-+	Telemetry *telemetryopts.Options
++	Telemetry *TelemetryOptions
  	// Attributes to override in AWS provider nested within modules as part of the aws-provider-patch command.
  	AwsProviderPatchOverrides map[string]string
  	// Version of terraform (obtained by running 'terraform version')
-@@ -361,7 +358,7 @@ func NewTerragruntOptions(e vexec.Exec) *TerragruntOpt
+@@ -360,7 +367,7 @@ func NewTerragruntOptions(e vexec.Exec) *TerragruntOpt
  		StrictControls:         controls.New(),
  		Experiments:            experiment.NewExperiments(),
  		Tips:                   tips.NewTips(),
 -		Telemetry:              new(telemetry.Options),
-+		Telemetry:              new(telemetryopts.Options),
++		Telemetry:              new(TelemetryOptions),
  		EngineOptions:          new(engine.EngineOptions),
  		VersionManagerFileName: defaultVersionManagerFileName,
  		CASCloneDepth:          1,
-@@ -724,7 +721,7 @@ func (opts *TerragruntOptions) handleIgnoreSignals(l l
+@@ -721,7 +728,7 @@ func (opts *TerragruntOptions) handleIgnoreSignals(l l
  		return err
  	}
  

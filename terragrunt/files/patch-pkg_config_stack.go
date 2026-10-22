@@ -6,10 +6,10 @@
  	"context"
 +	"errors"
  	"fmt"
+ 	"io/fs"
  	"os"
- 	"path/filepath"
 @@ -15,7 +16,6 @@ import (
- 	"github.com/gruntwork-io/terragrunt/internal/git"
+ 	"github.com/gruntwork-io/terragrunt/internal/getter"
  	inthclparse "github.com/gruntwork-io/terragrunt/internal/hclparse"
  	"github.com/gruntwork-io/terragrunt/internal/strict"
 -	"github.com/gruntwork-io/terragrunt/internal/telemetry"
@@ -49,7 +49,7 @@
 -				}, func(ctx context.Context, l log.Logger) error {
 -					return generateComponent(ctx, l, v, opts, &item)
 -				})
-+				return generateComponent(ctx, l, v, opts, &item)
++			return generateComponent(ctx, l, v, opts, &item)
  		})
  	}
  
@@ -66,7 +66,7 @@
 -				}, func(ctx context.Context, l log.Logger) error {
 -					return generateComponent(ctx, l, v, opts, &item)
 -				})
-+				return generateComponent(ctx, l, v, opts, &item)
++			return generateComponent(ctx, l, v, opts, &item)
  		})
  	}
  

@@ -8,12 +8,10 @@
  	"github.com/gruntwork-io/terragrunt/internal/venv"
  	"github.com/gruntwork-io/terragrunt/pkg/log"
  	"golang.org/x/sync/singleflight"
-@@ -141,21 +140,9 @@ func (provider *Provider) assumeAndCache(
- 		l.Debugf("Assuming IAM role %s with a session duration of %d seconds.",
- 			iamRoleOpts.RoleARN, iamRoleOpts.AssumeRoleDuration)
+@@ -143,17 +142,7 @@ func (provider *Provider) assumeAndCache(
  
--		var resp *types.Credentials
--
+ 		var resp *types.Credentials
+ 
 -		collectErr := telemetry.TelemeterFromContext(ctx).Collect(ctx, l, "creds_assume_role", map[string]any{
 -			"role_arn":     iamRoleOpts.RoleARN,
 -			"session_name": iamRoleOpts.AssumeRoleSessionName,
@@ -25,15 +23,11 @@
 -
 -			return assumeErr
 -		})
--		if collectErr != nil {
--			return nil, collectErr
-+		resp, assumeErr := awshelper.AssumeIamRole(ctx, assumeVenv(v, sourceEnv), iamRoleOpts, "")
-+		if assumeErr != nil {
-+			return nil, assumeErr
++		resp, collectErr := awshelper.AssumeIamRole(ctx, assumeVenv(v, sourceEnv), iamRoleOpts, "")
+ 		if collectErr != nil {
+ 			return nil, collectErr
  		}
- 
- 		creds := &providers.Credentials{
-@@ -296,21 +283,15 @@ func (s *stsCredentialsStore) get(ctx context.Context,
+@@ -321,21 +310,15 @@ func (s *stsCredentialsStore) get(ctx context.Context,
  	s.mu.Lock()
  	defer s.mu.Unlock()
  
@@ -55,7 +49,7 @@
  	return entry
  }
  
-@@ -318,21 +299,15 @@ func (s *stsCredentialsStore) getBySession(ctx context
+@@ -343,21 +326,15 @@ func (s *stsCredentialsStore) getBySession(ctx context
  	s.mu.Lock()
  	defer s.mu.Unlock()
  
@@ -77,7 +71,7 @@
  	return entry
  }
  
-@@ -340,24 +315,18 @@ func (s *stsCredentialsStore) getPastRefreshBySession(
+@@ -365,24 +342,18 @@ func (s *stsCredentialsStore) getPastRefreshBySession(
  	s.mu.Lock()
  	defer s.mu.Unlock()
  
@@ -102,7 +96,7 @@
  	if now.After(entry.expiresAt) {
  		delete(s.bySession, key)
  		s.deleteIdentityLocked(entry)
-@@ -371,8 +340,6 @@ func (s *stsCredentialsStore) put(ctx context.Context,
+@@ -396,8 +367,6 @@ func (s *stsCredentialsStore) put(ctx context.Context,
  func (s *stsCredentialsStore) put(ctx context.Context, identityKey, roleKey string, entry *cacheEntry) {
  	s.mu.Lock()
  	defer s.mu.Unlock()

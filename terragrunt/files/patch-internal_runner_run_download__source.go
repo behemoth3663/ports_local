@@ -1,14 +1,14 @@
 --- internal/runner/run/download_source.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/runner/run/download_source.go
-@@ -19,7 +19,6 @@ import (
- 	"github.com/gruntwork-io/terragrunt/internal/report"
+@@ -21,7 +21,6 @@ import (
  	"github.com/gruntwork-io/terragrunt/internal/runner/runcfg"
+ 	"github.com/gruntwork-io/terragrunt/internal/spinner"
  	"github.com/gruntwork-io/terragrunt/internal/strict/controls"
 -	"github.com/gruntwork-io/terragrunt/internal/telemetry"
  	"github.com/gruntwork-io/terragrunt/internal/tf"
  	"github.com/gruntwork-io/terragrunt/internal/util"
  	"github.com/gruntwork-io/terragrunt/internal/venv"
-@@ -131,19 +130,13 @@ func DownloadTerraformSource(
+@@ -133,19 +132,13 @@ func DownloadTerraformSource(
  
  		copyOpts := moduleCopyOptions(opts, cfg)
  
@@ -26,16 +26,16 @@
 -					copyOpts...)
 -			})
 +		err = util.CopyFolderContents(
-+				l,
-+				v.FS,
-+				opts.UnitDir,
-+				terraformSource.WorkingDir,
-+				ModuleManifestName,
-+				copyOpts...)
++			l,
++			v.FS,
++			opts.UnitDir,
++			terraformSource.WorkingDir,
++			ModuleManifestName,
++			copyOpts...)
  		if err != nil {
  			return nil, err
  		}
-@@ -348,7 +341,7 @@ func DownloadTerraformSourceIfNecessary(
+@@ -350,7 +343,7 @@ func DownloadTerraformSourceIfNecessary(
  		}
  	}
  

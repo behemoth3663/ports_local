@@ -1,29 +1,19 @@
 --- internal/cas/gitstore.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/cas/gitstore.go
-@@ -2,16 +2,12 @@ import (
+@@ -9,9 +9,6 @@ import (
  
- import (
- 	"context"
-+	"errors"
- 	"fmt"
- 	"path/filepath"
- 	"strings"
- 	"time"
+ 	"errors"
  
--	"errors"
--
 -	"go.opentelemetry.io/otel/attribute"
 -	"go.opentelemetry.io/otel/trace"
 -
  	"github.com/gruntwork-io/terragrunt/internal/git"
+ 	"github.com/gruntwork-io/terragrunt/internal/redact"
  	"github.com/gruntwork-io/terragrunt/internal/venv"
- 	"github.com/gruntwork-io/terragrunt/internal/vfs"
-@@ -424,14 +420,8 @@ func recordCommitFetchPath(
- 	url, ref string,
+@@ -442,13 +439,7 @@ func recordCommitFetchPath(
  	path commitFetchPath,
  ) {
-+	_ = ctx
- 	l.Debugf("git store: fetched %s from %s via %s", ref, RedactURL(url), path)
+ 	l.Debugf("git store: fetched %s from %s via %s", ref, u, path)
 -
 -	span := trace.SpanFromContext(ctx)
 -	if !span.IsRecording() {
@@ -31,6 +21,7 @@
 -	}
 -
 -	span.SetAttributes(attribute.String("git_store_commit_fetch", string(path)))
++	_ = ctx
  }
  
  // repoSession bundles the locked repo handle, the runner pointed at it,

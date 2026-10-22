@@ -1,19 +1,20 @@
 --- internal/cas/tree.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/cas/tree.go
-@@ -9,12 +9,9 @@ import (
- 	"strconv"
+@@ -13,13 +13,10 @@ import (
  	"sync/atomic"
+ 	"unicode"
  
 -	"go.opentelemetry.io/otel/attribute"
 -	"go.opentelemetry.io/otel/trace"
  	"golang.org/x/sync/errgroup"
+ 	"golang.org/x/text/unicode/norm"
  
  	"github.com/gruntwork-io/terragrunt/internal/git"
 -	"github.com/gruntwork-io/terragrunt/internal/telemetry"
  	"github.com/gruntwork-io/terragrunt/internal/venv"
  	"github.com/gruntwork-io/terragrunt/internal/vfs"
  	"github.com/gruntwork-io/terragrunt/pkg/log"
-@@ -156,16 +153,11 @@ func LinkTree(
+@@ -182,16 +179,9 @@ func LinkTree(
  		mutable:     o.mutable,
  	}
  
@@ -21,17 +22,19 @@
 -		"path": targetDir,
 -		"mode": mode.String(),
 -	}, telemetry.WithoutLogger(func(childCtx context.Context) error {
- 		err := linkTree(l, v, linker, t, targetDir, o.fsWorkers)
- 
+-		err := linkTree(l, v, linker, t, targetDir, o.fsWorkers)
+-
 -		linker.report(childCtx)
-+		linker.report(ctx)
- 
- 		return err
+-
+-		return err
 -	}))
++	err := linkTree(l, v, linker, t, targetDir, o.fsWorkers)
++	linker.report(ctx)
++	return err
  }
  
  // linkTree materializes t and everything nested below it, one level of the
-@@ -483,34 +475,7 @@ func (tl *treeLinker) report(ctx context.Context) {
+@@ -706,11 +696,6 @@ func (tl *treeLinker) report(ctx context.Context) {
  // report sets the per-mode file counts, the bytes copied, and the fallback on
  // the span in ctx.
  func (tl *treeLinker) report(ctx context.Context) {
@@ -40,21 +43,13 @@
 -		return
 -	}
 -
--	counts := map[LinkMode]int64{
--		LinkModeHardlink: tl.linked.Load(),
--		LinkModeClone:    tl.cloned.Load(),
--		LinkModeCopy:     tl.copied.Load(),
--	}
--
--	var total int64
--	for _, n := range counts {
--		total += n
--	}
--
--	fallback := LinkFallbackNone
--	if counts[tl.mode] < total {
--		fallback = linkFallbackByMode[tl.mode]
--	}
+ 	counts := map[LinkMode]int64{
+ 		LinkModeHardlink: tl.linked.Load(),
+ 		LinkModeClone:    tl.cloned.Load(),
+@@ -726,14 +711,8 @@ func (tl *treeLinker) report(ctx context.Context) {
+ 	if counts[tl.mode] < total {
+ 		fallback = linkFallbackByMode[tl.mode]
+ 	}
 -
 -	span.SetAttributes(
 -		attribute.Int64("files_linked", counts[LinkModeHardlink]),
@@ -64,6 +59,7 @@
 -		attribute.String("fallback", string(fallback)),
 -	)
 +	_ = ctx
++	_ = fallback
  }
  
  // gitFilePerm extracts the unix permission bits from a git tree entry mode

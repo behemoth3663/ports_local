@@ -1,6 +1,6 @@
 --- internal/cas/source.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/cas/source.go
-@@ -12,11 +12,7 @@ import (
+@@ -12,12 +12,8 @@ import (
  	"path/filepath"
  	"time"
  
@@ -8,16 +8,22 @@
 -	"go.opentelemetry.io/otel/trace"
 -
  	"github.com/gruntwork-io/terragrunt/internal/git"
+ 	"github.com/gruntwork-io/terragrunt/internal/redact"
 -	"github.com/gruntwork-io/terragrunt/internal/telemetry"
  	"github.com/gruntwork-io/terragrunt/internal/util"
  	"github.com/gruntwork-io/terragrunt/internal/venv"
  	"github.com/gruntwork-io/terragrunt/internal/vfs"
-@@ -176,20 +172,12 @@ func (c *CAS) FetchSource(
+@@ -177,53 +173,44 @@ func (c *CAS) FetchSource(
  
  	maps.Copy(attrs, src.Attrs)
  
 -	tlm := telemetry.TelemeterFromContext(ctx)
--
++	_ = attrs
++	suggestedKey, err := c.probeSource(ctx, l, v, src)
++	if err != nil {
++		return err
++	}
+ 
 -	return tlm.Collect(
 -		ctx,
 -		l,
@@ -25,42 +31,75 @@
 -		attrs,
 -		func(childCtx context.Context, l log.Logger) error {
 -			suggestedKey, err := c.probeSource(childCtx, l, v, src)
-+			suggestedKey, err := c.probeSource(ctx, l, v, src)
- 			if err != nil {
- 				return err
- 			}
+-			if err != nil {
+-				return err
+-			}
++	err = c.fetchAndLink(ctx, l, v, opts, src, suggestedKey, IngestCached)
  
 -			err = c.fetchAndLink(childCtx, l, v, opts, src, suggestedKey, IngestCached)
-+			err = c.fetchAndLink(ctx, l, v, opts, src, suggestedKey, IngestCached)
++	var missing *MissingObjectError
++	if !errors.As(err, &missing) {
++		return err
++	}
  
- 			var missing *MissingObjectError
- 			if !errors.As(err, &missing) {
-@@ -205,7 +193,7 @@ func (c *CAS) FetchSource(
- 				missing.Hash,
- 				RedactURL(src.URL),
- 			)
+-			var missing *MissingObjectError
+-			if !errors.As(err, &missing) {
+-				return err
+-			}
++	if c.probeMode == ProbeModeOffline {
++		return &OfflineRepairError{Missing: missing, Source: src.URL}
++	}
+ 
+-			if c.probeMode == ProbeModeOffline {
+-				return &OfflineRepairError{Missing: missing, Source: src.URL}
+-			}
++	l.Warnf(
++		"cas: store is missing object %s, re-ingesting %s to restore it",
++		missing.Hash,
++		src.URL,
++	)
++	RecordFallback(ctx, l, FallbackReasonStoreRepair, map[string]any{
++		"url":    src.URL,
++		"scheme": src.Scheme,
++		"hash":   missing.Hash,
++	})
+ 
+-			l.Warnf(
+-				"cas: store is missing object %s, re-ingesting %s to restore it",
+-				missing.Hash,
+-				src.URL,
+-			)
 -			RecordFallback(childCtx, l, FallbackReasonStoreRepair, map[string]any{
-+			RecordFallback(ctx, l, FallbackReasonStoreRepair, map[string]any{
- 				"url":    RedactURL(src.URL),
- 				"scheme": src.Scheme,
- 				"hash":   missing.Hash,
-@@ -215,14 +203,12 @@ func (c *CAS) FetchSource(
- 			// producing the object cannot produce it on a third pass
- 			// either, so the second failure is the one the caller sees.
- 			if err := c.fetchAndLink(
--				childCtx, l, v, opts, src, suggestedKey, IngestRepair,
-+				ctx, l, v, opts, src, suggestedKey, IngestRepair,
- 			); err != nil {
- 				return fmt.Errorf("re-ingest %s: %w", RedactURL(src.URL), err)
- 			}
+-				"url":    src.URL,
+-				"scheme": src.Scheme,
+-				"hash":   missing.Hash,
+-			})
++	// One attempt. A source that answered the re-ingest without
++	// producing the object cannot produce it on a third pass
++	// either, so the second failure is the one the caller sees.
++	if err := c.fetchAndLink(
++		ctx, l, v, opts, src, suggestedKey, IngestRepair,
++	); err != nil {
++		return fmt.Errorf("re-ingest %s: %w", src.URL, err)
++	}
  
- 			return nil
+-			// One attempt. A source that answered the re-ingest without
+-			// producing the object cannot produce it on a third pass
+-			// either, so the second failure is the one the caller sees.
+-			if err := c.fetchAndLink(
+-				childCtx, l, v, opts, src, suggestedKey, IngestRepair,
+-			); err != nil {
+-				return fmt.Errorf("re-ingest %s: %w", src.URL, err)
+-			}
+-
+-			return nil
 -		},
 -	)
++	return nil
  }
  
  // fetchAndLink ingests src unless the store already holds the tree
-@@ -500,12 +486,8 @@ func recordFetchOutcome(ctx context.Context, cacheHit 
+@@ -501,12 +488,8 @@ func recordFetchOutcome(ctx context.Context, cacheHit 
  // recordFetchOutcome stamps cache_hit on the active cas_fetch_source span
  // so dashboards can distinguish probe short-circuits from network fetches.
  func recordFetchOutcome(ctx context.Context, cacheHit bool) {
@@ -75,10 +114,13 @@
  }
  
  // probeOrigin names where a probe answer came from. It travels as the
-@@ -563,13 +545,7 @@ func (s *probeOriginSink) stamp(ctx context.Context) {
- 	if s.origin == "" {
- 		return
- 	}
+@@ -561,16 +544,7 @@ func (s *probeOriginSink) stamp(ctx context.Context) {
+ // stamp puts the reported origin on the active cas_fetch_source span so
+ // dashboards can tell cached probes from network ones.
+ func (s *probeOriginSink) stamp(ctx context.Context) {
+-	if s.origin == "" {
+-		return
+-	}
 -
 -	span := trace.SpanFromContext(ctx)
 -	if !span.IsRecording() {

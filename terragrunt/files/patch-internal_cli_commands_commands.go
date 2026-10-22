@@ -8,7 +8,15 @@
  	"fmt"
  	"net"
  	"path/filepath"
-@@ -27,8 +28,6 @@ import (
+@@ -15,7 +16,6 @@ import (
+ 	"github.com/gruntwork-io/terragrunt/internal/cache"
+ 	"github.com/gruntwork-io/terragrunt/internal/configbridge"
+ 	"github.com/gruntwork-io/terragrunt/internal/engine"
+-	"github.com/gruntwork-io/terragrunt/internal/experiment"
+ 	"github.com/gruntwork-io/terragrunt/internal/filter"
+ 	"github.com/gruntwork-io/terragrunt/internal/panicreport"
+ 	"github.com/gruntwork-io/terragrunt/internal/providercache"
+@@ -27,8 +27,6 @@ import (
  	"github.com/gruntwork-io/terragrunt/pkg/log"
  	"github.com/gruntwork-io/terragrunt/pkg/options"
  
@@ -17,7 +25,7 @@
  	awsproviderpatch "github.com/gruntwork-io/terragrunt/internal/cli/commands/aws-provider-patch"
  	"github.com/gruntwork-io/terragrunt/internal/cli/commands/backend"
  	"github.com/gruntwork-io/terragrunt/internal/cli/commands/browse"
-@@ -50,7 +49,6 @@ import (
+@@ -52,7 +50,6 @@ import (
  	"github.com/gruntwork-io/terragrunt/internal/os/exec"
  	"github.com/gruntwork-io/terragrunt/internal/runner/run"
  	semver "github.com/gruntwork-io/terragrunt/internal/semver"
@@ -25,21 +33,7 @@
  	"github.com/gruntwork-io/terragrunt/internal/tips"
  	"github.com/gruntwork-io/terragrunt/pkg/config"
  	"github.com/gruntwork-io/terragrunt/pkg/log/format/placeholders"
-@@ -145,12 +143,7 @@ func New(l log.Logger, opts *options.TerragruntOptions
- 	return allCommands
- }
- 
--// WrapWithTelemetry wraps CLI command execution with telemetry initialization,
--// context setting and labels. If telemetry is disabled, just runs the command.
--//
--// The telemeter is created here rather than at app startup because command
--// actions run after the full CLI parse, so telemetry options and experiments
--// (such as otel-logs) are honored whether they were set via flags or env vars.
-+// WrapWithTelemetry keeps the command lifecycle hook point but executes without telemetry.
- func WrapWithTelemetry(
- 	l log.Logger,
- 	opts *options.TerragruntOptions,
-@@ -161,61 +154,27 @@ func WrapWithTelemetry(
+@@ -165,61 +162,28 @@ func WrapWithTelemetry(
  		cliCtx *clihelper.Context,
  		action clihelper.ActionFunc,
  	) error {
@@ -56,6 +50,7 @@
 -			return err
 -		}
 -
++		_ = fmt.Sprintf("%s %s", cliCtx.Command.Name, opts.TerraformCommand)
  		defer func() {
 -			if err := telemeter.Shutdown(ctx); err != nil {
 +			if err := engine.Shutdown(
@@ -115,7 +110,7 @@
  	}
  }
  
-@@ -507,7 +466,7 @@ func setupAutoProviderCacheDir(
+@@ -511,7 +475,7 @@ func setupAutoProviderCacheDir(
  
  	providerCacheDir = filepath.Clean(providerCacheDir)
  

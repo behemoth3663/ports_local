@@ -1,10 +1,7 @@
 --- internal/cli/commands/browse/browse.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/cli/commands/browse/browse.go
-@@ -6,16 +6,11 @@ import (
- 
- 	"github.com/gruntwork-io/terragrunt/internal/cli/commands/browse/tui"
- 	"github.com/gruntwork-io/terragrunt/internal/cli/commands/discoverysetup"
--	"github.com/gruntwork-io/terragrunt/internal/component"
+@@ -9,13 +9,9 @@ import (
+ 	"github.com/gruntwork-io/terragrunt/internal/component"
  	"github.com/gruntwork-io/terragrunt/internal/discovery"
  	"github.com/gruntwork-io/terragrunt/internal/os/stdout"
 -	"github.com/gruntwork-io/terragrunt/internal/telemetry"
@@ -17,7 +14,7 @@
  )
  
  // Run runs the browse command. It opens the browser immediately over a tree the
-@@ -102,22 +97,7 @@ func runDiscovery(
+@@ -108,22 +104,10 @@ func runDiscovery(
  	opts *Options,
  	d *discovery.Discovery,
  ) tui.DiscoveryResult {
@@ -25,7 +22,8 @@
 -		components  component.Components
 -		discoverErr error
 -	)
--
++	var components component.Components
+ 
 -	err := telemetry.TelemeterFromContext(ctx).Collect(ctx, l, "browse_discover", map[string]any{
 -		"working_dir": opts.WorkingDir,
 -	}, func(ctx context.Context, l log.Logger) error {
@@ -37,6 +35,7 @@
 -
 -		return discoverErr
 -	})
++	_ = opts.WorkingDir
 +	components, err := d.Discover(ctx, l, v, opts.TerragruntOptions)
  
  	components = components.Sort()
