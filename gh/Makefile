@@ -1,7 +1,6 @@
 PORTNAME=	gh
-PORTVERSION=	2.102.1
+PORTVERSION=	2.103.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
 CATEGORIES=	local devel
 PKGNAMESUFFIX=	-local
 
@@ -38,6 +37,16 @@ OPTIONS_SUB=		yes
 M2T_OFFLINE=	true
 .export	M2T_OFFLINE
 
+clean-unused: .PHONY clean patch
+	( cd ${WRKSRC} && ${GO_CMD} mod tidy -v )
+	${RM} -r ${WRKSRC}/vendor
+	( ${MAKE} -C ${.CURDIR} gomod-vendor | \
+		${GREP} --extended-regexp --invert-match '^(/|=+>|\*+[[:blank:]]+Error)' | \
+		${SED} -r -e '/\r$$/d' -e '/^[[:blank:]]+"message":/d' -e '/\\}/d' -e '/^[[:blank:]]*$$/d' \
+		> ${.CURDIR}/Makefile.deps )
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
+	( ${MAKE} -C ${.CURDIR} makesum )
+
 do-build-MANPAGES-on: .PHONY
 	(cd ${WRKSRC} && ${SETENV} ${MAKE_ENV} ${GO_ENV} ${GO_CMD} run ${GO_BUILDFLAGS} \
 		./cmd/gen-docs --man-page --doc-path docs/man 2>/dev/null)
@@ -59,6 +68,7 @@ pre-deps-all: .PHONY
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=charmbracelet GHT_PROJ=bubbles GHT_PATH=charm.land/bubbles/v2 )
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=charmbracelet GHT_PROJ=bubbletea GHT_PATH=charm.land/bubbletea/v2 )
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=charmbracelet GHT_PROJ=huh GHT_PATH=charm.land/huh/v2 )
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=charmbracelet GHT_PROJ=glamour GHT_PATH=charm.land/glamour/v2 )
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=charmbracelet GHT_PROJ=lipgloss GHT_PATH=charm.land/lipgloss/v2 )
 	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=kubernetes GHT_PROJ=klog GHT_PATH=k8s.io/klog/v2 )
 
@@ -71,7 +81,7 @@ post-deps-all: .PHONY
 	${TEST} ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
 
 post-extract: .PHONY
-	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor || :
 	@${RM} ${WRKSRC}/vendor/github.com/go-openapi/runtime/client/opentelemetry.go
 	@${MKDIR} ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
 	@${TEST} -z ${WRKSRC_google_go_genproto_api} || ${RLN} ${WRKSRC_google_go_genproto_api}/googleapis/api ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
