@@ -18,14 +18,14 @@ GH_TUPLE=	\
 		go-logr:stdr:v1.2.2:go_logr_stdr/vendor/github.com/go-logr/stdr \
 		goccy:go-yaml:v1.19.2:goccy_go_yaml/vendor/github.com/goccy/go-yaml \
 		golang:mod:v0.41.0:golang_mod/vendor/golang.org/x/mod \
-		golang:net:v0.59.0:golang_net/vendor/golang.org/x/net \
+		golang:net:v0.61.0:golang_net/vendor/golang.org/x/net \
 		golang:oauth2:v0.37.0:golang_oauth2/vendor/golang.org/x/oauth2 \
-		golang:sync:v0.23.0:golang_sync/vendor/golang.org/x/sync \
-		golang:sys:v0.48.0:golang_sys/vendor/golang.org/x/sys \
-		golang:term:v0.46.0:golang_term/vendor/golang.org/x/term \
-		golang:text:v0.42.0:golang_text/vendor/golang.org/x/text \
+		golang:sync:v0.24.0:golang_sync/vendor/golang.org/x/sync \
+		golang:sys:v0.49.0:golang_sys/vendor/golang.org/x/sys \
+		golang:term:v0.47.0:golang_term/vendor/golang.org/x/term \
+		golang:text:v0.43.0:golang_text/vendor/golang.org/x/text \
 		golang:time:v0.16.0:golang_time/vendor/golang.org/x/time \
-		golang:tools:v0.49.0:golang_tools/vendor/golang.org/x/tools \
+		golang:tools:v0.51.0:golang_tools/vendor/golang.org/x/tools \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-github:v92.0.0:google_go_github_v92/vendor/github.com/google/go-github/v92 \
 		google:go-querystring:v1.2.0:google_go_querystring/vendor/github.com/google/go-querystring \
@@ -35,7 +35,7 @@ GH_TUPLE=	\
 		hashicorp:hcl:v2.25.0:hashicorp_hcl_v2/vendor/github.com/hashicorp/hcl/v2 \
 		iancoleman:orderedmap:v0.3.0:iancoleman_orderedmap/vendor/github.com/iancoleman/orderedmap \
 		json-iterator:go:v1.1.12:json_iterator_go/vendor/github.com/json-iterator/go \
-		klauspost:compress:v1.20.1:klauspost_compress/vendor/github.com/klauspost/compress \
+		klauspost:compress:v1.20.3:klauspost_compress/vendor/github.com/klauspost/compress \
 		kr:pretty:v0.3.1:kr_pretty/vendor/github.com/kr/pretty \
 		kr:text:v0.2.0:kr_text/vendor/github.com/kr/text \
 		kubernetes-sigs:json:2d320260d730:kubernetes_sigs_json/vendor/sigs.k8s.io/json \
@@ -63,7 +63,7 @@ GH_TUPLE=	\
 		open-telemetry:opentelemetry-go:v1.46.0:open_telemetry_opentelemetry_go/vendor/go.opentelemetry.io/otel \
 		prometheus:client_golang:v1.25.0:prometheus_client_golang/vendor/github.com/prometheus/client_golang \
 		prometheus:client_model:v0.6.3:prometheus_client_model/vendor/github.com/prometheus/client_model \
-		prometheus:common:v0.72.0:prometheus_common/vendor/github.com/prometheus/common \
+		prometheus:common:v0.72.1:prometheus_common/vendor/github.com/prometheus/common \
 		prometheus:procfs:v0.22.0:prometheus_procfs/vendor/github.com/prometheus/procfs \
 		prometheus:prometheus:v0.315.0:prometheus_prometheus/vendor/github.com/prometheus/prometheus \
 		protocolbuffers:protobuf-go:v1.36.12:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
@@ -84,6 +84,6 @@ GH_TUPLE=	\
 		yudai:golcs:ecda9a501e82:yudai_golcs/vendor/github.com/yudai/golcs \
 		zclconf:go-cty:v1.19.0:zclconf_go_cty/vendor/github.com/zclconf/go-cty
 		# Errors found during processing:
-		#	error getting commit v3.17.0 for gitlab-org/api: not found
+		#	error getting commit v3.27.0 for gitlab-org/api: not found
 GL_TUPLE=	\
-		gitlab-org-api:client-go:v3.17.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go/v3
+		gitlab-org-api:client-go:v3.27.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go/v3
