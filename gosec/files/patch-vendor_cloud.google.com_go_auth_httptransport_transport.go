@@ -1,37 +1,81 @@
---- vendor/cloud.google.com/go/auth/httptransport/transport.go.orig	2026-07-13 21:28:25 UTC
+--- vendor/cloud.google.com/go/auth/httptransport/transport.go.orig	2026-10-21 09:39:40 UTC
 +++ vendor/cloud.google.com/go/auth/httptransport/transport.go
-@@ -18,13 +18,11 @@ import (
- 	"bytes"
+@@ -15,17 +15,10 @@ import (
+ package httptransport
+ 
+ import (
+-	"bytes"
  	"context"
  	"crypto/tls"
 -	"fmt"
- 	"io"
- 	"log/slog"
+-	"io"
+-	"log/slog"
  	"net"
  	"net/http"
- 	"os"
+-	"os"
 -	"strconv"
- 	"sync"
+-	"sync"
  	"time"
  
-@@ -34,11 +32,6 @@ import (
+ 	"cloud.google.com/go/auth"
+@@ -33,29 +26,20 @@ import (
+ 	"cloud.google.com/go/auth/internal"
  	"cloud.google.com/go/auth/internal/transport"
  	"cloud.google.com/go/auth/internal/transport/cert"
- 	"cloud.google.com/go/auth/internal/transport/headers"
+-	"cloud.google.com/go/auth/internal/transport/headers"
 -	"github.com/googleapis/gax-go/v2"
 -	"github.com/googleapis/gax-go/v2/callctx"
 -	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
 -	"go.opentelemetry.io/otel/attribute"
 -	"go.opentelemetry.io/otel/trace"
  	"golang.org/x/net/http2"
- 	"google.golang.org/api/googleapi"
+-	"google.golang.org/api/googleapi"
  )
-@@ -182,47 +175,7 @@ func addOpenTelemetryTransport(trans http.RoundTripper
- }
  
- func addOpenTelemetryTransport(trans http.RoundTripper, opts *Options) http.RoundTripper {
+ const (
+ 	quotaProjectHeaderKey = "X-goog-user-project"
+-	maxErrorReadBytes     = int64(8192) // 8KB
+ )
+ 
+ func newTransport(base http.RoundTripper, opts *Options) (http.RoundTripper, error) {
+-	var headers = opts.Headers
++	headers := opts.Headers
+ 	ht := &headerTransport{
+ 		base:    base,
+ 		headers: headers,
+ 	}
+ 	var trans http.RoundTripper = ht
+-	trans = addOpenTelemetryTransport(trans, opts)
+ 	switch {
+ 	case opts.DisableAuthentication:
+ 		// Do nothing.
+@@ -95,17 +79,7 @@ func newTransport(base http.RoundTripper, opts *Option
+ 				headers.Set(quotaProjectHeaderKey, qp)
+ 			}
+ 		}
+-		var skipUD bool
+-		if iOpts := opts.InternalOptions; iOpts != nil {
+-			skipUD = iOpts.SkipUniverseDomainValidation
+-		}
+ 		creds.TokenProvider = auth.NewCachedTokenProvider(creds.TokenProvider, nil)
+-		trans = &authTransport{
+-			base:                         trans,
+-			creds:                        creds,
+-			clientUniverseDomain:         opts.UniverseDomain,
+-			skipUniverseDomainValidation: skipUD,
+-		}
+ 	}
+ 	return trans, nil
+ }
+@@ -179,375 +153,4 @@ func (t *headerTransport) RoundTrip(req *http.Request)
+ 	}
+ 
+ 	return rt.RoundTrip(&newReq)
+-}
+-
+-func addOpenTelemetryTransport(trans http.RoundTripper, opts *Options) http.RoundTripper {
 -	if opts.DisableTelemetry {
- 		return trans
+-		return trans
 -	}
 -
 -	var traceAttrs []attribute.KeyValue
@@ -71,13 +115,19 @@
 -		otelOpts = append(otelOpts, otelhttp.WithSpanOptions(trace.WithAttributes(traceAttrs...)))
 -	}
 -	return otelhttp.NewTransport(trans, otelOpts...)
- }
- 
- // otelAttributeTransport is a wrapper around an http.RoundTripper that adds
-@@ -236,181 +189,14 @@ func (t *otelAttributeTransport) RoundTrip(req *http.R
- // OpenTelemetry span with static and dynamic attributes, as well as detailed
- // error information.
- func (t *otelAttributeTransport) RoundTrip(req *http.Request) (*http.Response, error) {
+-}
+-
+-// otelAttributeTransport is a wrapper around an http.RoundTripper that adds
+-// custom Google Cloud-specific attributes to OpenTelemetry spans.
+-type otelAttributeTransport struct {
+-	base   http.RoundTripper
+-	logger *slog.Logger
+-}
+-
+-// RoundTrip intercepts the HTTP request and response to enrich the active
+-// OpenTelemetry span with static and dynamic attributes, as well as detailed
+-// error information.
+-func (t *otelAttributeTransport) RoundTrip(req *http.Request) (*http.Response, error) {
 -	var span trace.Span
 -	if gax.IsFeatureEnabled("TRACING") {
 -		if s := trace.SpanFromContext(req.Context()); s != nil && s.IsRecording() {
@@ -125,7 +175,7 @@
 -		}
 -	}
 -
- 	resp, err := t.base.RoundTrip(req)
+-	resp, err := t.base.RoundTrip(req)
 -	if gax.IsFeatureEnabled("METRICS") {
 -		if data != nil && resp != nil {
 -			data.SetHTTPStatusCode(resp.StatusCode)
@@ -167,9 +217,9 @@
 -		}
 -	}
 -
- 	return resp, err
- }
- 
+-	return resp, err
+-}
+-
 -func (t *otelAttributeTransport) logAndSpanError(req *http.Request, resp *http.Response, errToParse error, netErr error, span trace.Span, logger *slog.Logger) {
 -	var httpStatusCode int
 -	if resp != nil {
@@ -248,41 +298,148 @@
 -	}
 -}
 -
- type errorTrackingBody struct {
- 	io.ReadCloser
- 	req    *http.Request
- 	resp   *http.Response
+-type errorTrackingBody struct {
+-	io.ReadCloser
+-	req    *http.Request
+-	resp   *http.Response
 -	span   trace.Span
- 	logger *slog.Logger
- 	t      *otelAttributeTransport
- 
-@@ -468,11 +254,6 @@ func (b *errorTrackingBody) recordError() {
- }
- 
- func (b *errorTrackingBody) recordError() {
+-	logger *slog.Logger
+-	t      *otelAttributeTransport
+-
+-	mu       sync.Mutex
+-	buf      bytes.Buffer
+-	recorded bool
+-}
+-
+-func (b *errorTrackingBody) Read(p []byte) (n int, err error) {
+-	n, err = b.ReadCloser.Read(p)
+-
+-	b.mu.Lock()
+-	shouldRecord := false
+-	if !b.recorded {
+-		if n > 0 {
+-			remaining := maxErrorReadBytes - int64(b.buf.Len())
+-			if remaining > 0 {
+-				if int64(n) > remaining {
+-					b.buf.Write(p[:remaining])
+-				} else {
+-					b.buf.Write(p[:n])
+-				}
+-			}
+-		}
+-
+-		if err == io.EOF || int64(b.buf.Len()) >= maxErrorReadBytes {
+-			shouldRecord = true
+-			b.recorded = true
+-		}
+-	}
+-	b.mu.Unlock()
+-
+-	if shouldRecord {
+-		b.recordError()
+-	}
+-
+-	return n, err
+-}
+-
+-func (b *errorTrackingBody) Close() error {
+-	b.mu.Lock()
+-	shouldRecord := !b.recorded
+-	b.recorded = true
+-	b.mu.Unlock()
+-
+-	// We can close the network stream immediately.
+-	err := b.ReadCloser.Close()
+-
+-	// Do heavy in-memory telemetry parsing without holding the lock
+-	if shouldRecord {
+-		b.recordError() // If this panics here, the socket is already released
+-	}
+-
+-	return err
+-}
+-
+-func (b *errorTrackingBody) recordError() {
 -	errToParse := &googleapi.Error{
 -		Code:    b.resp.StatusCode,
 -		Message: b.resp.Status,
 -	}
 -
- 	if b.buf.Len() > 0 {
- 		clone := *b.resp
- 		clone.Body = io.NopCloser(bytes.NewReader(b.buf.Bytes()))
-@@ -481,17 +262,10 @@ func (b *errorTrackingBody) recordError() {
- 				if gErr.Message == "" {
- 					gErr.Message = b.resp.Status
- 				}
+-	if b.buf.Len() > 0 {
+-		clone := *b.resp
+-		clone.Body = io.NopCloser(bytes.NewReader(b.buf.Bytes()))
+-		if errResp := googleapi.CheckResponse(&clone); errResp != nil {
+-			if gErr, ok := errResp.(*googleapi.Error); ok {
+-				if gErr.Message == "" {
+-					gErr.Message = b.resp.Status
+-				}
 -				errToParse = gErr
 -			} else {
 -				errToParse = &googleapi.Error{
 -					Code:    b.resp.StatusCode,
 -					Message: errResp.Error(),
 -				}
- 			}
- 		}
- 	}
- 
+-			}
+-		}
+-	}
+-
 -	b.t.logAndSpanError(b.req, b.resp, errToParse, nil, b.span, b.logger)
+-}
+-
+-type authTransport struct {
+-	creds                        *auth.Credentials
+-	base                         http.RoundTripper
+-	clientUniverseDomain         string
+-	skipUniverseDomainValidation bool
+-}
+-
+-// getClientUniverseDomain returns the default service domain for a given Cloud
+-// universe, with the following precedence:
+-//
+-// 1. A non-empty option.WithUniverseDomain or similar client option.
+-// 2. A non-empty environment variable GOOGLE_CLOUD_UNIVERSE_DOMAIN.
+-// 3. The default value "googleapis.com".
+-//
+-// This is the universe domain configured for the client, which will be compared
+-// to the universe domain that is separately configured for the credentials.
+-func (t *authTransport) getClientUniverseDomain() string {
+-	if t.clientUniverseDomain != "" {
+-		return t.clientUniverseDomain
+-	}
+-	if envUD := os.Getenv(internal.UniverseDomainEnvVar); envUD != "" {
+-		return envUD
+-	}
+-	return internal.DefaultUniverseDomain
+-}
+-
+-// RoundTrip authorizes and authenticates the request with an
+-// access token from Transport's Source. Per the RoundTripper contract we must
+-// not modify the initial request, so we clone it, and we must close the body
+-// on any errors that happens during our token logic.
+-func (t *authTransport) RoundTrip(req *http.Request) (*http.Response, error) {
+-	reqBodyClosed := false
+-	if req.Body != nil {
+-		defer func() {
+-			if !reqBodyClosed {
+-				req.Body.Close()
+-			}
+-		}()
+-	}
+-	token, err := t.creds.Token(req.Context())
+-	if err != nil {
+-		return nil, err
+-	}
+-	if !t.skipUniverseDomainValidation && token.MetadataString("auth.google.tokenSource") != "compute-metadata" {
+-		credentialsUniverseDomain, err := t.creds.UniverseDomain(req.Context())
+-		if err != nil {
+-			return nil, err
+-		}
+-		if err := transport.ValidateUniverseDomain(t.getClientUniverseDomain(), credentialsUniverseDomain); err != nil {
+-			return nil, err
+-		}
+-	}
+-	req2 := req.Clone(req.Context())
+-	headers.SetAuthHeader(token, req2)
+-	reqBodyClosed = true
+-	return t.base.RoundTrip(req2)
  }
- 
- type authTransport struct {
