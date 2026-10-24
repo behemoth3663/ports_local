@@ -1,5 +1,5 @@
 PORTNAME=	gh
-PORTVERSION=	2.103.0
+PORTVERSION=	2.103.2
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local devel
 PKGNAMESUFFIX=	-local
@@ -10,7 +10,6 @@ WWW=		https://cli.github.com
 
 LICENSE=	MIT
 
-BUILD_DEPENDS=	garble:local/garble
 RUN_DEPENDS=	git:devel/git
 
 USES=		go:modules

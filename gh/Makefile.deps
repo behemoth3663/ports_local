@@ -37,7 +37,7 @@ GH_TUPLE=	\
 		creack:pty:v1.1.24:creack_pty/vendor/github.com/creack/pty \
 		cyberphone:json-canonicalization:19d51d7fe467:cyberphone_json_canonicalization/vendor/github.com/cyberphone/json-canonicalization \
 		danieljoos:wincred:v1.2.3:danieljoos_wincred/vendor/github.com/danieljoos/wincred \
-		digitorus:pkcs7:3a137a874352:digitorus_pkcs7/vendor/github.com/digitorus/pkcs7 \
+		digitorus:pkcs7:d678ea5ea03f:digitorus_pkcs7/vendor/github.com/digitorus/pkcs7 \
 		digitorus:timestamp:c45532741eea:digitorus_timestamp/vendor/github.com/digitorus/timestamp \
 		distribution:reference:v0.6.0:distribution_reference/vendor/github.com/distribution/reference \
 		dlclark:regexp2:v2.2.1:dlclark_regexp2_v2/vendor/github.com/dlclark/regexp2/v2 \
