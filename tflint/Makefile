@@ -1,7 +1,6 @@
 PORTNAME=	tflint
-PORTVERSION=	0.64.0
+PORTVERSION=	0.65.0
 DISTVERSIONPREFIX=	v
-#PORTREVISION=	1
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX=	-local
 
@@ -17,7 +16,7 @@ USE_GITHUB=	yes
 GH_ACCOUNT=	terraform-linters
 
 CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w"
+GO_LDFLAGS+=	-w
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 PLIST_FILES=	bin/${PORTNAME}
@@ -80,23 +79,23 @@ GH_TUPLE:=	${GH_TUPLE:Ngolang\:telemetry\:*}
 #-aws:aws-sdk-go-v2:v1.3.15:aws_aws_sdk_go_v2_configsources/vendor/github.com/aws/aws-sdk-go-v2/internal/configsources
 # aws:aws-sdk-go-v2:v1.30.3:aws_aws_sdk_go_v2/vendor/github.com/aws/aws-sdk-go-v2
 #-aws:aws-sdk-go-v2:v1.30.3:aws_aws_sdk_go_v2_sts/vendor/github.com/aws/aws-sdk-go-v2/service/sts
-GH_TUPLE:=	${GH_TUPLE:Naws*aws_aws_sdk_go_v2_*/vendor/github.com/aws/aws-sdk-go-v2/*}
+GH_TUPLE:=	${GH_TUPLE:N*/vendor/github.com/aws/aws-sdk-go-v2/*}
 
 #-cncf:xds:b4127c9b8d78:cncf_xds_go/vendor/github.com/cncf/xds/go
 #+cncf:xds:b4127c9b8d78:cncf_xds_go/vendor/github.com/cncf/xds
-GH_TUPLE:=	${GH_TUPLE:S|/xds/go|/xds|1}
+GH_TUPLE:=	${GH_TUPLE:S|/xds/go$|/xds|1}
 
 #-googleapis:gax-go:v2.13.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2
 #+googleapis:gax-go:v2.13.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go
-GH_TUPLE:=	${GH_TUPLE:S|/gax-go/v2|/gax-go|1}
+GH_TUPLE:=	${GH_TUPLE:S|/gax-go/v2$|/gax-go|1}
 
 #-owenrumney:go-sarif:v2.3.3:owenrumney_go_sarif_v2/vendor/github.com/owenrumney/go-sarif/v2
 #+owenrumney:go-sarif:v2.3.3:owenrumney_go_sarif_v2/vendor/github.com/owenrumney/go-sarif
-GH_TUPLE:=	${GH_TUPLE:S|/go-sarif/v2|/go-sarif|1}
+GH_TUPLE:=	${GH_TUPLE:S|/go-sarif/v2$|/go-sarif|1}
 
 #-envoyproxy:go-control-plane:v1.32.4:envoyproxy_go_control_plane_envoy/vendor/github.com/envoyproxy/go-control-plane/envoy
 #+envoyproxy:go-control-plane:envoy/v1.32.4:envoyproxy_go_control_plane/vendor/github.com/envoyproxy/go-control-plane
-GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+.*/envoyproxy/go-control-plane)/(envoy)$|\1\3/\2|}
+GH_TUPLE:=	${GH_TUPLE:C,:([^:]+:[^:]+/envoyproxy/go-control-plane)/(envoy)$,:\2/\1,1}
 
 #-google:go-genproto:49dd2c1f3d0b:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api
 #-google:go-genproto:d783a09b4405:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc
@@ -110,7 +109,7 @@ GH_TUPLE:=	${GH_TUPLE:N*google_go_genproto_[0-9]*}
 #-googleapis:google-cloud-go:v0.6.0:googleapis_google_cloud_go_2/vendor/cloud.google.com/go/compute/metadata
 #+googleapis:google-cloud-go:compute/metadata/v0.6.0:googleapis_google_cloud_go_compute_metadata
 GH_TUPLE:=	${GH_TUPLE:N*\:googleapis_google_cloud_go_[b-z]*}
-GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+).*/cloud.google.com/go/(auth)$|\1\3/\2|}
+GH_TUPLE:=	${GH_TUPLE:C,:([^:]+:[^:/]+)/.*/cloud.google.com/go/(auth)$,:\2/\1,1}
 GH_TUPLE:=	${GH_TUPLE:N*/vendor/cloud.google.com/go/*}
 
 #-go-openapi:swag:v0.24.0:go_openapi_swag_cmdutils/vendor/github.com/go-openapi/swag/cmdutils
@@ -128,6 +127,7 @@ GH_TUPLE:=	${GH_TUPLE:N*/vendor/cloud.google.com/go/*}
 GH_TUPLE:=	${GH_TUPLE:N*/vendor/github.com/go-openapi/swag/*}
 
 .sinclude "${.CURDIR}/generated.deps.mk"
+
 GH_TUPLE:=	${GH_TUPLE:C|([^:]+:[^:]+:)([^:]+[^/]+).*/cloud.google.com/go/(compute)/(metadata)$|\1\3/\4/\2_\3_\4|}
 
 #-go-yaml:yaml:v3.0.4:go_yaml_yaml/vendor/go.yaml.in/yaml/v3
