@@ -1,10 +1,7 @@
---- vendor/github.com/hashicorp/aws-sdk-go-base/v2/logging/http.go.orig	2026-07-29 05:02:03 UTC
+--- vendor/github.com/hashicorp/aws-sdk-go-base/v2/logging/http.go.orig	2026-10-09 20:10:41 UTC
 +++ vendor/github.com/hashicorp/aws-sdk-go-base/v2/logging/http.go
-@@ -5,20 +5,12 @@ import (
- 
- import (
+@@ -7,17 +7,10 @@ import (
  	"bufio"
--	"bytes"
  	"context"
  	"fmt"
 -	"io"
@@ -21,7 +18,7 @@
  	"golang.org/x/text/message"
  )
  
-@@ -29,73 +21,14 @@ func DecomposeHTTPRequest(ctx context.Context, req *ht
+@@ -28,73 +21,14 @@ func DecomposeHTTPRequest(ctx context.Context, req *ht
  )
  
  func DecomposeHTTPRequest(ctx context.Context, req *http.Request) (map[string]any, error) {
@@ -96,7 +93,7 @@
  }
  
  func requestBodyLogger(ctx context.Context) RequestBodyLogger {
-@@ -112,62 +45,14 @@ type defaultRequestBodyLogger struct{}
+@@ -111,64 +45,14 @@ type defaultRequestBodyLogger struct{}
  
  type defaultRequestBodyLogger struct{}
  
@@ -106,8 +103,9 @@
 -		return nil
 -	}
 -
+-	// original is borrowed from the pool and teed into while scanning. Ownership
+-	// is transferred to NewPooledBody, which returns it to the pool on Close.
 -	original := BufferPool.Get()
--	defer BufferPool.Put(original)
 -
 -	tee := io.TeeReader(req.Body, original)
 -
@@ -115,13 +113,14 @@
 -
 -	body, err := ReadTruncatedBody(scanner, maxRequestBodyLen)
 -	if err != nil {
+-		BufferPool.Put(original)
 -		return err
 -	}
 -
 -	*attrs = append(*attrs, attribute.String("http.request.body", body))
 -
 -	// Restore the full body for the SDK serialiser.
--	req.Body = io.NopCloser(io.MultiReader(bytes.NewReader(original.Bytes()), req.Body))
+-	req.Body = NewPooledBody(BufferPool, original, req.Body)
 -
 -	return nil
 -}
@@ -159,7 +158,7 @@
  func s3BodyRedacted(length int64, contentType string) string {
  	body := fmt.Sprintf("[Redacted: %s", formatByteSize(length))
  
-@@ -212,10 +97,6 @@ func outgoingLength(req *http.Request) int64 {
+@@ -225,10 +109,6 @@ func outgoingLength(req *http.Request) int64 {
  	return -1
  }
  
@@ -170,7 +169,7 @@
  func requestHeaderAttributeName(k string) string {
  	return fmt.Sprintf("http.request.header.%s", normalizeHeaderName(k))
  }
-@@ -226,95 +107,8 @@ func normalizeHeaderName(k string) string {
+@@ -239,95 +119,8 @@ func normalizeHeaderName(k string) string {
  	return strings.ReplaceAll(lower, "-", "_")
  }
  
