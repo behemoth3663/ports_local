@@ -4,7 +4,6 @@ GH_TUPLE=	\
 		Masterminds:goutils:v1.1.1:masterminds_goutils/vendor/github.com/Masterminds/goutils \
 		Masterminds:semver:v3.4.0:masterminds_semver_v3/vendor/github.com/Masterminds/semver/v3 \
 		Masterminds:sprig:v3.3.0:masterminds_sprig_v3/vendor/github.com/Masterminds/sprig/v3 \
-		Netflix:go-expect:73e0943537d2:netflix_go_expect/vendor/github.com/Netflix/go-expect \
 		alecthomas:chroma:v2.27.0:alecthomas_chroma_v2/vendor/github.com/alecthomas/chroma/v2 \
 		asaskevich:govalidator:a9d515a09cc2:asaskevich_govalidator/vendor/github.com/asaskevich/govalidator \
 		atotto:clipboard:v0.1.4:atotto_clipboard/vendor/github.com/atotto/clipboard \
@@ -27,14 +26,12 @@ GH_TUPLE=	\
 		charmbracelet:x:v0.2.2:charmbracelet_x_windows/vendor/github.com/charmbracelet/x/windows \
 		cli:browser:v1.3.0:cli_browser/vendor/github.com/cli/browser \
 		cli:go-gh:v2.17.0:cli_go_gh_v2/vendor/github.com/cli/go-gh/v2 \
-		cli:go-internal:6c48bcd5ce24:cli_go_internal/vendor/github.com/cli/go-internal \
 		cli:oauth:v1.3.0:cli_oauth/vendor/github.com/cli/oauth \
 		cli:safeexec:v1.0.1:cli_safeexec/vendor/github.com/cli/safeexec \
 		cli:shurcooL-graphql:v0.0.4:cli_shurcool_graphql/vendor/github.com/cli/shurcooL-graphql \
 		clipperhouse:displaywidth:v0.11.0:clipperhouse_displaywidth/vendor/github.com/clipperhouse/displaywidth \
 		clipperhouse:uax29:v2.7.0:clipperhouse_uax29_v2/vendor/github.com/clipperhouse/uax29/v2 \
 		cpuguy83:go-md2man:v2.0.7:cpuguy83_go_md2man_v2/vendor/github.com/cpuguy83/go-md2man/v2 \
-		creack:pty:v1.1.24:creack_pty/vendor/github.com/creack/pty \
 		cyberphone:json-canonicalization:19d51d7fe467:cyberphone_json_canonicalization/vendor/github.com/cyberphone/json-canonicalization \
 		danieljoos:wincred:v1.2.3:danieljoos_wincred/vendor/github.com/danieljoos/wincred \
 		digitorus:pkcs7:d678ea5ea03f:digitorus_pkcs7/vendor/github.com/digitorus/pkcs7 \
@@ -81,9 +78,7 @@ GH_TUPLE=	\
 		golang:sys:v0.49.0:golang_sys/vendor/golang.org/x/sys \
 		golang:term:v0.47.0:golang_term/vendor/golang.org/x/term \
 		golang:text:v0.43.0:golang_text/vendor/golang.org/x/text \
-		golang:tools:v0.51.0:golang_tools/vendor/golang.org/x/tools \
 		google:certificate-transparency-go:v1.3.3:google_certificate_transparency_go/vendor/github.com/google/certificate-transparency-go \
-		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
 		google:go-containerregistry:v0.22.1:google_go_containerregistry/vendor/github.com/google/go-containerregistry \
 		google:go-genproto:f0a921348800:google_go_genproto_api/vendor/google.golang.org/genproto/googleapis/api \
 		google:go-genproto:f0a921348800:google_go_genproto_rpc/vendor/google.golang.org/genproto/googleapis/rpc \
@@ -93,11 +88,8 @@ GH_TUPLE=	\
 		gorilla:websocket:v1.5.3:gorilla_websocket/vendor/github.com/gorilla/websocket \
 		grpc-ecosystem:grpc-gateway:v2.29.0:grpc_ecosystem_grpc_gateway_v2/vendor/github.com/grpc-ecosystem/grpc-gateway/v2 \
 		grpc:grpc-go:v1.84.0:grpc_grpc_go/vendor/google.golang.org/grpc \
-		h2non:gock:v1.1.2:h2non_gock/vendor/gopkg.in/h2non/gock.v1 \
-		h2non:parth:b4df798d6542:h2non_parth/vendor/github.com/h2non/parth \
 		hashicorp:go-version:v1.9.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
 		henvic:httpretty:v0.2.0:henvic_httpretty/vendor/github.com/henvic/httpretty \
-		hinshun:vt10x:820417d04eec:hinshun_vt10x/vendor/github.com/hinshun/vt10x \
 		huandu:xstrings:v1.5.0:huandu_xstrings/vendor/github.com/huandu/xstrings \
 		in-toto:attestation:v1.2.0:in_toto_attestation/vendor/github.com/in-toto/attestation \
 		in-toto:in-toto-golang:v0.11.0:in_toto_in_toto_golang/vendor/github.com/in-toto/in-toto-golang \
@@ -151,7 +143,6 @@ GH_TUPLE=	\
 		thlib:go-timezone-local:v0.0.9:thlib_go_timezone_local/vendor/github.com/thlib/go-timezone-local \
 		transparency-dev:formats:v0.1.1:transparency_dev_formats/vendor/github.com/transparency-dev/formats \
 		transparency-dev:merkle:v0.0.2:transparency_dev_merkle/vendor/github.com/transparency-dev/merkle \
-		twitchtv:twirp:v8.1.3:twitchtv_twirp/vendor/github.com/twitchtv/twirp \
 		vmihailenco:msgpack:v5.4.1:vmihailenco_msgpack_v5/vendor/github.com/vmihailenco/msgpack/v5 \
 		vmihailenco:tagparser:v2.0.0:vmihailenco_tagparser_v2/vendor/github.com/vmihailenco/tagparser/v2 \
 		xo:terminfo:v1.0.0:xo_terminfo/vendor/github.com/xo/terminfo \

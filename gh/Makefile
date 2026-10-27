@@ -1,6 +1,7 @@
 PORTNAME=	gh
 PORTVERSION=	2.103.3
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local devel
 PKGNAMESUFFIX=	-local
 
@@ -81,7 +82,14 @@ post-deps-all: .PHONY
 
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor || :
+	@${RM} -r ${WRKSRC}/internal/barista/observability
+	@${RM} -r ${WRKSRC}/internal/telemetry
+	@${RM} -r ${WRKSRC}/pkg/cmd/send-telemetry
+	@${RM} ${WRKSRC}/internal/attachments/telemetry.go
+	@${RM} ${WRKSRC}/pkg/cmdutil/telemetry.go
+	@${RM} ${WRKSRC}/pkg/cmd/auth/shared/telemetry.go
 	@${RM} ${WRKSRC}/vendor/github.com/go-openapi/runtime/client/opentelemetry.go
+	@${FIND} ${WRKSRC} -name '*_test.go' -delete
 	@${MKDIR} ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
 	@${TEST} -z ${WRKSRC_google_go_genproto_api} || ${RLN} ${WRKSRC_google_go_genproto_api}/googleapis/api ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
 	@${TEST} -z ${WRKSRC_google_go_genproto_rpc} || ${RLN} ${WRKSRC_google_go_genproto_rpc}/googleapis/rpc ${WRKSRC}/vendor/google.golang.org/genproto/googleapis
