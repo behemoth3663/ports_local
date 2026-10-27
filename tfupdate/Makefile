@@ -1,5 +1,5 @@
 PORTNAME=	tfupdate
-PORTVERSION=	0.10.2
+PORTVERSION=	0.10.3
 DISTVERSIONPREFIX=	v
 #ORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -18,7 +18,7 @@ GH_ACCOUNT=	minamijoyo
 PLIST_FILES=	bin/${PORTNAME}
 
 CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w"
+GO_LDFLAGS+=	-w
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 post-extract: .PHONY
