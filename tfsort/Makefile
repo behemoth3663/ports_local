@@ -1,7 +1,7 @@
 PORTNAME=	tfsort
-PORTVERSION=	0.7.3
+PORTVERSION=	0.7.5
 DISTVERSIONPREFIX=	v
-CATEGORIES=	local sysutils
+CATEGORIES=	local devel
 
 MAINTAINER=	none@freebsd.org
 COMMENT=	CLI utility to sort Terraform variables and outputs
@@ -45,9 +45,8 @@ post-deps-all: .PHONY
 
 COMMIT_CMD=	git ls-remote \
 		https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
-		refs/tags/${DISTVERSIONFULL}^{} | cut -c1-7
+		refs/tags/${DISTVERSIONFULL}^{} | ${CUT} -c1-7
 
-# Bring DISTINFO_FILE into scope so we can get the timestamp.
 SOURCE_DATE_EPOCH_CMD=	date -ur \
 			$$(${GREP} --max-count=1 TIMESTAMP ${DISTINFO_FILE} | ${CUT} -d' ' -f3) \
 			'+%FT%TZ'
