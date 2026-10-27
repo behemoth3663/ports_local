@@ -1,6 +1,6 @@
-TIMESTAMP = 1733062918
-SHA256 (itchyny-bed-v0.2.8_GH0.tar.gz) = 2515fd65c718f7aaa549bf9a98cf514102d2ea5f3b1c0437bbcf8bd26fae4d0a
-SIZE (itchyny-bed-v0.2.8_GH0.tar.gz) = 56915
+TIMESTAMP = 1793107067
+SHA256 (itchyny-bed-v0.2.9_GH0.tar.gz) = c163cc9d851db280e85adc2d5218ffad9a39c79f6f874c0d9dfaff939b6cd9ca
+SIZE (itchyny-bed-v0.2.9_GH0.tar.gz) = 56901
 SHA256 (gdamore-encoding-v1.0.1_GH0.tar.gz) = fc14f9f1d10d60a5888536df5a08e9e0fd7dad3412b9051a370edfe4cccf538d
 SIZE (gdamore-encoding-v1.0.1_GH0.tar.gz) = 14805
 SHA256 (gdamore-tcell-v1.4.0_GH0.tar.gz) = 20f8c7dca13178982d7db797a6d47eb582d268240526fded412866b6293b1daf
