@@ -1,5 +1,5 @@
 PORTNAME=	cdk-notifier
-PORTVERSION=	2.14.21
+PORTVERSION=	2.14.23
 DISTVERSIONPREFIX=	v
 #PORTREVISION=	1
 CATEGORIES=	local sysutils
@@ -20,8 +20,8 @@ USE_GITLAB=	nodefault
 PLIST_FILES=	bin/${PORTNAME}
 
 CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w \
-	-X 'github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.Version=${PORTVERSION}'"
+GO_LDFLAGS+=	-w
+GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/cmd.Version=${PORTVERSION}
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 post-extract: .PHONY
@@ -36,7 +36,7 @@ post-deps-all: .PHONY
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
 
-GL_TUPLE=	gitlab-org-api:client-go:v2.42.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go/v2
+GL_TUPLE=	gitlab-org-api:client-go:v2.51.0:gitlab_org_api_client_go/vendor/gitlab.com/gitlab-org/api/client-go/v2
 
 .include "${}/etc/make.d/go-deps.mk"
 .sinclude "${.CURDIR}/Makefile.deps"
