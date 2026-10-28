@@ -1,4 +1,4 @@
---- vendor/github.com/moby/moby/client/client_options.go.orig	2026-10-06 09:46:10 UTC
+--- vendor/github.com/moby/moby/client/client_options.go.orig	2026-10-28 15:34:01 UTC
 +++ vendor/github.com/moby/moby/client/client_options.go
 @@ -15,8 +15,6 @@ import (
  	cerrdefs "github.com/containerd/errdefs"

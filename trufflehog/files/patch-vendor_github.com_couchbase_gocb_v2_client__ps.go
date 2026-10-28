@@ -1,4 +1,4 @@
---- vendor/github.com/couchbase/gocb/v2/client_ps.go.orig	2026-10-06 09:46:09 UTC
+--- vendor/github.com/couchbase/gocb/v2/client_ps.go.orig	2026-10-28 15:34:01 UTC
 +++ vendor/github.com/couchbase/gocb/v2/client_ps.go
 @@ -4,13 +4,12 @@ import (
  	"context"

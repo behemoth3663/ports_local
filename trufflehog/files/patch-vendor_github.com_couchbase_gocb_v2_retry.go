@@ -1,4 +1,4 @@
---- vendor/github.com/couchbase/gocb/v2/retry.go.orig	2026-10-06 09:46:09 UTC
+--- vendor/github.com/couchbase/gocb/v2/retry.go.orig	2026-10-28 15:34:01 UTC
 +++ vendor/github.com/couchbase/gocb/v2/retry.go
 @@ -3,7 +3,6 @@ import (
  import (

@@ -1,4 +1,4 @@
---- vendor/google.golang.org/api/transport/grpc/dial.go.orig	2026-10-06 09:46:10 UTC
+--- vendor/google.golang.org/api/transport/grpc/dial.go.orig	2026-10-28 15:34:02 UTC
 +++ vendor/google.golang.org/api/transport/grpc/dial.go
 @@ -21,7 +21,6 @@ import (
  	"cloud.google.com/go/auth/grpctransport"
@@ -8,7 +8,7 @@
  	"golang.org/x/oauth2"
  	"golang.org/x/time/rate"
  	"google.golang.org/api/internal"
-@@ -380,7 +379,7 @@ func addOpenTelemetryStatsHandler(opts []grpc.DialOpti
+@@ -381,7 +380,7 @@ func addOpenTelemetryStatsHandler(opts []grpc.DialOpti
  	if settings.TelemetryDisabled {
  		return opts
  	}
@@ -17,7 +17,7 @@
  }
  
  // grpcTokenSource supplies PerRPCCredentials from an oauth.TokenSource.
-@@ -394,7 +393,8 @@ func (ts grpcTokenSource) GetRequestMetadata(ctx conte
+@@ -395,7 +394,8 @@ func (ts grpcTokenSource) GetRequestMetadata(ctx conte
  
  // GetRequestMetadata gets the request metadata as a map from a grpcTokenSource.
  func (ts grpcTokenSource) GetRequestMetadata(ctx context.Context, uri ...string) (
@@ -27,7 +27,7 @@
  	metadata, err := ts.TokenSource.GetRequestMetadata(ctx, uri...)
  	if err != nil {
  		return nil, err
-@@ -420,7 +420,8 @@ func (ts grpcAPIKey) GetRequestMetadata(ctx context.Co
+@@ -421,7 +421,8 @@ func (ts grpcAPIKey) GetRequestMetadata(ctx context.Co
  
  // GetRequestMetadata gets the request metadata as a map from a grpcAPIKey.
  func (ts grpcAPIKey) GetRequestMetadata(ctx context.Context, uri ...string) (
@@ -37,7 +37,7 @@
  	metadata := map[string]string{
  		"X-goog-api-key": ts.apiKey,
  	}
-@@ -458,7 +459,6 @@ func isDirectPathXdsUsed(o *internal.DialSettings) boo
+@@ -459,7 +460,6 @@ func isDirectPathXdsUsed(o *internal.DialSettings) boo
  		return true
  	}
  	return false

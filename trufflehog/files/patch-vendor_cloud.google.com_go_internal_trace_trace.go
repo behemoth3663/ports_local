@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/internal/trace/trace.go.orig	2026-10-06 09:46:09 UTC
+--- vendor/cloud.google.com/go/internal/trace/trace.go.orig	2026-10-28 15:34:01 UTC
 +++ vendor/cloud.google.com/go/internal/trace/trace.go
 @@ -14,84 +14,17 @@ package trace
  

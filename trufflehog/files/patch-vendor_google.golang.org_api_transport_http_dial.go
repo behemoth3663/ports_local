@@ -1,4 +1,4 @@
---- vendor/google.golang.org/api/transport/http/dial.go.orig	2026-10-06 09:46:10 UTC
+--- vendor/google.golang.org/api/transport/http/dial.go.orig	2026-10-28 15:34:02 UTC
 +++ vendor/google.golang.org/api/transport/http/dial.go
 @@ -19,7 +19,6 @@ import (
  	"cloud.google.com/go/auth/credentials"
@@ -8,7 +8,7 @@
  	"golang.org/x/net/http2"
  	"golang.org/x/oauth2"
  	"google.golang.org/api/googleapi/transport"
-@@ -308,7 +307,7 @@ func addOpenTelemetryTransport(trans http.RoundTripper
+@@ -309,7 +308,7 @@ func addOpenTelemetryTransport(trans http.RoundTripper
  	if settings.TelemetryDisabled {
  		return trans
  	}

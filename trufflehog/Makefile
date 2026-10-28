@@ -1,5 +1,5 @@
 PORTNAME=	trufflehog
-PORTVERSION=	3.99.3
+PORTVERSION=	3.99.7
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX=	-local
@@ -21,8 +21,9 @@ GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 PLIST_FILES=	bin/${PORTNAME}
 
-post-extract: .PHONY
+pre-build: .PHONY
 	${RM} -r ${WRKSRC}/vendor/github.com/GoogleCloudPlatform/opentelemetry-operations-go
+	${RM} -r ${WRKSRC}/vendor/github.com/aws/smithy-go/tracing
 	${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io
 	${RM} -r ${WRKSRC}/vendor/google.golang.org/grpc/stats/opentelemetry
 	${RM} ${WRKSRC}/vendor/google.golang.org/grpc/experimental/opentelemetry/trace_options.go

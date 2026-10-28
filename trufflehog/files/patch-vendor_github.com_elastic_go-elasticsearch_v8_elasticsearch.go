@@ -1,4 +1,4 @@
---- vendor/github.com/elastic/go-elasticsearch/v8/elasticsearch.go.orig	2026-10-06 09:46:09 UTC
+--- vendor/github.com/elastic/go-elasticsearch/v8/elasticsearch.go.orig	2026-10-28 15:34:01 UTC
 +++ vendor/github.com/elastic/go-elasticsearch/v8/elasticsearch.go
 @@ -21,7 +21,6 @@ import (
  	"encoding/base64"

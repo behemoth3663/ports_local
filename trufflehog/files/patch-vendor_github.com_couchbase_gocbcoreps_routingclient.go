@@ -1,4 +1,4 @@
---- vendor/github.com/couchbase/gocbcoreps/routingclient.go.orig	2026-10-06 09:46:09 UTC
+--- vendor/github.com/couchbase/gocbcoreps/routingclient.go.orig	2026-10-28 15:34:01 UTC
 +++ vendor/github.com/couchbase/gocbcoreps/routingclient.go
 @@ -3,8 +3,6 @@ import (
  import (

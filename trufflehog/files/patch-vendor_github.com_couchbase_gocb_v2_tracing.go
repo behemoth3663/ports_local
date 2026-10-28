@@ -1,4 +1,4 @@
---- vendor/github.com/couchbase/gocb/v2/tracing.go.orig	2026-10-06 09:46:09 UTC
+--- vendor/github.com/couchbase/gocb/v2/tracing.go.orig	2026-10-28 15:34:01 UTC
 +++ vendor/github.com/couchbase/gocb/v2/tracing.go
 @@ -1,9 +1,9 @@ import (
  package gocb

@@ -1,4 +1,4 @@
---- vendor/github.com/docker/docker/client/client.go.orig	2026-10-06 09:46:09 UTC
+--- vendor/github.com/docker/docker/client/client.go.orig	2026-10-28 15:34:01 UTC
 +++ vendor/github.com/docker/docker/client/client.go
 @@ -58,7 +58,6 @@ import (
  	"github.com/docker/docker/api/types/versions"

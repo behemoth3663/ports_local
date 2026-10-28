@@ -1,4 +1,4 @@
---- vendor/github.com/moby/moby/client/hijack.go.orig	2026-10-06 09:46:10 UTC
+--- vendor/github.com/moby/moby/client/hijack.go.orig	2026-10-28 15:34:01 UTC
 +++ vendor/github.com/moby/moby/client/hijack.go
 @@ -8,8 +8,6 @@ import (
  	"net/http"

@@ -1,4 +1,4 @@
---- vendor/github.com/moby/moby/client/client.go.orig	2026-10-06 09:46:10 UTC
+--- vendor/github.com/moby/moby/client/client.go.orig	2026-10-28 15:34:01 UTC
 +++ vendor/github.com/moby/moby/client/client.go
 @@ -70,7 +70,6 @@ import (
  	"github.com/docker/go-connections/sockets"
