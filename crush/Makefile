@@ -1,6 +1,7 @@
 PORTNAME=	crush
 DISTVERSIONPREFIX=	v
 DISTVERSION=	0.98.2
+PORTREVISION=	1
 CATEGORIES=	local misc devel
 PKGNAMESUFFIX=	-local
 
@@ -15,7 +16,7 @@ LICENSE_PERMS=	dist-mirror pkg-mirror auto-accept
 
 USES=		go:1.27+,modules
 
-GO_MODULE=	github.com/charmbracelet/crush
+GO_MODULE=	github.com/charmbracelet/${PORTNAME}
 
 CGO_ENABLED=	0
 GO_LDFLAGS+=	-w
@@ -41,6 +42,7 @@ MANPAGES_PLIST_FILES=	share/man/man1/${PORTNAME}.1.gz
 
 pre-build: .PHONY
 	${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io
+	${RM} -r ${WRKSRC}/vendor/github.com/aws/smithy-go/tracing
 	${RM} ${WRKSRC}/vendor/github.com/googleapis/gax-go/v2/telemetry.go
 
 post-build-COMPLETIONS-on:
