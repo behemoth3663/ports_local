@@ -1,5 +1,5 @@
 PORTNAME=	unhealthy-tgs
-PORTVERSION=	0.1.38
+PORTVERSION=	0.1.43
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -58,6 +58,6 @@ GH_TUPLE:=	${GH_TUPLE:N*/vendor/github.com/aws/aws-sdk-go-v2/*}
 
 COMMIT_CMD=	git ls-remote \
 	https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
-	refs/tags/${DISTVERSIONFULL}^{} | cut -c1-7
+	refs/tags/${DISTVERSIONFULL}^{} | ${CUT} -c1-7
 
 .include <bsd.port.post.mk>
