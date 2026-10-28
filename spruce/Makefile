@@ -1,6 +1,6 @@
 PORTNAME=	spruce
 DISTVERSIONPREFIX=	v
-DISTVERSION=	1.35.23
+DISTVERSION=	1.35.24
 CATEGORIES=	local textproc
 
 MAINTAINER=	none@freebsd.org
@@ -24,6 +24,7 @@ PLIST_FILES=	bin/${PORTNAME}
 
 pre-build: .PHONY
 	${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io
+	${RM} -r ${WRKSRC}/vendor/github.com/aws/smithy-go/tracing
 	${RM} ${WRKSRC}/vendor/github.com/googleapis/gax-go/v2/telemetry.go
 
 .include <bsd.port.mk>
