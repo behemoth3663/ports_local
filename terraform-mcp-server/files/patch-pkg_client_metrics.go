@@ -23,7 +23,7 @@
 -	ToolCallLatencyBucket metric.Float64Histogram  // Latency distribution
 -	ClientTypeCounter     metric.Int64Counter      // Client type count (e.g. cli, cpi, vscode, web etc.)
 +	Enabled              bool
-+	Endpoint             string        // URL of your metrics endpoint
++	Endpoint             string        // URL of your OTel Collector or backend
 +	ExportInterval       time.Duration // Controls the frequency of metric flushes
 +	ServiceName          string        // ServiceName identifies the source of the metrics (e.g., "terraform-mcp-server")
 +	ServiceVersion       string        // ServiceVersion helps track metrics across different deployments
@@ -40,27 +40,20 @@
  		EnableRuntimeMetrics: true,
  	}
  }
-@@ -89,44 +78,25 @@ func RecordToolCall(ctx context.Context, startTime tim
- }
- 
- func RecordToolCall(ctx context.Context, startTime time.Time, toolErr bool, id any, message *mcp.CallToolRequest, config MetricsConfig, logger *log.Logger) {
-+	_ = ctx
-+	_ = startTime
-+	_ = toolErr
-+	_ = id
-+	_ = message
- 	logger.Infof("Recording tool call for tool: %s id: %v", message.Params.Name, id)
+@@ -92,24 +81,14 @@ func RecordToolCallByName(ctx context.Context, startTi
+ // shared by the mark3labs before/after-hook path and the go-sdk middleware
+ // path (pkg/mcp-official/tools/middleware.Metrics).
+ func RecordToolCallByName(ctx context.Context, startTime time.Time, toolErr bool, toolName string, config MetricsConfig, logger *log.Logger) {
 -	if !config.Enabled || config.ToolCounter == nil {
 -		logger.Debugf("Either metrics are not enabled or ToolCounter is NIL! Initialization failed.")
++	_ = ctx
 +	if !config.Enabled {
-+		logger.Debugf("Metrics are not enabled.")
  		return
  	}
 -	// Calculate latency
--	elapsed := time.Since(startTime).Seconds()
--
+ 	elapsed := time.Since(startTime).Seconds()
 -	attrs := metric.WithAttributes(
--		attribute.String("tool.name", message.Params.Name),
+-		attribute.String("tool.name", toolName),
 -		attribute.String("service.name", config.ServiceName),
 -		attribute.String("service.version", config.ServiceVersion),
 -	)
@@ -68,22 +61,22 @@
 -	config.ToolCounter.Add(ctx, 1, attrs)
 -	// Record Latency (Histogram)
 -	config.ToolCallLatencyBucket.Record(ctx, elapsed, attrs)
--	// Record errors if any
--	if toolErr == true {
++	logger.Debugf("Tool %s call completed in %.3fs", toolName, elapsed)
+ 	// Record errors if any
+ 	if toolErr {
 -		config.ErrorCounter.Add(ctx, 1, attrs)
--		logger.Errorf("Recorded error for tool %s", message.Params.Name)
--	}
+ 		logger.Errorf("Recorded error for tool %s", toolName)
+ 	}
  }
+@@ -121,18 +100,10 @@ func RecordClientType(ctx context.Context, ci ClientIn
  
  // RecordClientType records the type and version of the client making the tool call (e.g., CLI, VSCode, Web, etc.)
  func RecordClientType(ctx context.Context, ci ClientInfo, config MetricsConfig, logger *log.Logger) {
 +	_ = ctx
-+	_ = ci
  	logger.Infof("Recording client type for client: %s version: %s title: %s description: %s", ci.Name, ci.Version, ci.Title, ci.Description)
 -	if !config.Enabled || config.ClientTypeCounter == nil {
 -		logger.Debugf("Either metrics are not enabled or ClientTypeCounter is NIL! Initialization failed.")
 +	if !config.Enabled {
-+		logger.Debugf("Metrics are not enabled.")
  		return
  	}
 -	attrs := metric.WithAttributes(
@@ -95,4 +88,5 @@
 -		attribute.String("service.version", config.ServiceVersion),
 -	)
 -	config.ClientTypeCounter.Add(ctx, 1, attrs)
++	logger.Debugf("Client type observed: %s %s", ci.Name, ci.Version)
  }

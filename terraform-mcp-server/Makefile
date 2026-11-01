@@ -1,5 +1,5 @@
 PORTNAME=	terraform-mcp-server
-PORTVERSION=	1.3.0
+PORTVERSION=	1.4.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local misc
 PKGNAMESUFFIX=	-local
@@ -23,7 +23,9 @@ GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 PLIST_FILES=	bin/${PORTNAME}
 
 pre-build: .PHONY
+	${RM} -r ${WRKSRC}/vendor/github.com/instana/go-sensor
 	${RM} -r ${WRKSRC}/vendor/github.com/opentracing
 	${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io
+	${RM} -r ${WRKSRC}/vendor/golang.org/x/net/trace
 
 .include <bsd.port.mk>
