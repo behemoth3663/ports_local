@@ -86,7 +86,7 @@ GH_TUPLE=	\
 		fsnotify:fsnotify:v1.5.4:fsnotify_fsnotify/vendor/github.com/fsnotify/fsnotify \
 		go-inf:inf:v0.9.1:go_inf_inf/vendor/gopkg.in/inf.v0 \
 		go-ini:ini:v1.66.6:go_ini_ini/vendor/gopkg.in/ini.v1 \
-		go-jose:go-jose:v4.1.6:go_jose_go_jose_v4/vendor/github.com/go-jose/go-jose/v4 \
+		go-jose:go-jose:v4.1.8:go_jose_go_jose_v4/vendor/github.com/go-jose/go-jose/v4 \
 		go-logr:logr:v1.4.4:go_logr_logr/vendor/github.com/go-logr/logr \
 		go-logr:stdr:v1.2.2:go_logr_stdr/vendor/github.com/go-logr/stdr \
 		go-openapi:errors:v0.21.1:go_openapi_errors/vendor/github.com/go-openapi/errors \
@@ -112,16 +112,16 @@ GH_TUPLE=	\
 		golang:tools:v0.52.0:golang_tools/vendor/golang.org/x/tools \
 		google:gnostic:v0.5.7-v3refs:google_gnostic/vendor/github.com/google/gnostic \
 		google:go-cmp:v0.7.0:google_go_cmp/vendor/github.com/google/go-cmp \
+		google:go-genproto:2ffab32bce7e:google_go_genproto_api/vendor/google.golang.org/genproto/googleapis/api \
+		google:go-genproto:2ffab32bce7e:google_go_genproto_rpc/vendor/google.golang.org/genproto/googleapis/rpc \
 		google:go-genproto:6ac0973c030d:google_go_genproto/vendor/google.golang.org/genproto \
-		google:go-genproto:ce908d29299b:google_go_genproto_api/vendor/google.golang.org/genproto/googleapis/api \
-		google:go-genproto:ce908d29299b:google_go_genproto_rpc/vendor/google.golang.org/genproto/googleapis/rpc \
 		google:go-github:v45.2.0:google_go_github_v45/vendor/github.com/google/go-github/v45 \
 		google:go-github:v53.0.0:google_go_github_v53/vendor/github.com/google/go-github/v53 \
 		google:go-querystring:v1.1.0:google_go_querystring/vendor/github.com/google/go-querystring \
 		google:gofuzz:v1.1.0:google_gofuzz/vendor/github.com/google/gofuzz \
 		google:s2a-go:v0.1.11:google_s2a_go/vendor/github.com/google/s2a-go \
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
-		googleapis:enterprise-certificate-proxy:v0.3.23:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
+		googleapis:enterprise-certificate-proxy:v0.3.24:googleapis_enterprise_certificate_proxy/vendor/github.com/googleapis/enterprise-certificate-proxy \
 		googleapis:gax-go:v2.23.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2 \
 		googleapis:google-api-go-client:v0.287.1:googleapis_google_api_go_client/vendor/google.golang.org/api \
 		googleapis:google-cloud-go:v0.123.0:googleapis_google_cloud_go/vendor/cloud.google.com/go \
@@ -159,15 +159,15 @@ GH_TUPLE=	\
 		hashicorp:terraform-plugin-log:v0.9.0:hashicorp_terraform_plugin_log/vendor/github.com/hashicorp/terraform-plugin-log \
 		hashicorp:terraform-registry-address:v0.2.5:hashicorp_terraform_registry_address/vendor/github.com/hashicorp/terraform-registry-address \
 		hashicorp:terraform-svchost:v0.1.1:hashicorp_terraform_svchost/vendor/github.com/hashicorp/terraform-svchost \
-		hashicorp:terraform:8a97fe6c624f:hashicorp_terraform_azure_1 \
-		hashicorp:terraform:8a97fe6c624f:hashicorp_terraform_consul_1 \
-		hashicorp:terraform:8a97fe6c624f:hashicorp_terraform_cos \
-		hashicorp:terraform:8a97fe6c624f:hashicorp_terraform_gcs \
-		hashicorp:terraform:8a97fe6c624f:hashicorp_terraform_kubernetes \
-		hashicorp:terraform:8a97fe6c624f:hashicorp_terraform_oss_1 \
-		hashicorp:terraform:8a97fe6c624f:hashicorp_terraform_pg \
-		hashicorp:terraform:8a97fe6c624f:hashicorp_terraform_s3_1 \
-		hashicorp:terraform:8a97fe6c624f:hashicorp_terraform_legacy_1 \
+		hashicorp:terraform:89fa87972b43:hashicorp_terraform_azure_1 \
+		hashicorp:terraform:89fa87972b43:hashicorp_terraform_consul_1 \
+		hashicorp:terraform:89fa87972b43:hashicorp_terraform_cos \
+		hashicorp:terraform:89fa87972b43:hashicorp_terraform_gcs \
+		hashicorp:terraform:89fa87972b43:hashicorp_terraform_kubernetes \
+		hashicorp:terraform:89fa87972b43:hashicorp_terraform_oss_1 \
+		hashicorp:terraform:89fa87972b43:hashicorp_terraform_pg \
+		hashicorp:terraform:89fa87972b43:hashicorp_terraform_s3_1 \
+		hashicorp:terraform:89fa87972b43:hashicorp_terraform_legacy_1 \
 		hashicorp:terraform::hashicorp_terraform_azure/github.com/hashicorp/terraform/internal/backend/remote-state/azure \
 		hashicorp:terraform::hashicorp_terraform_consul/github.com/hashicorp/terraform/internal/backend/remote-state/consul \
 		hashicorp:terraform::hashicorp_terraform_cos_1/github.com/hashicorp/terraform/internal/backend/remote-state/cos \
@@ -203,7 +203,7 @@ GH_TUPLE=	\
 		kubernetes:apimachinery:v0.25.16:kubernetes_apimachinery/vendor/k8s.io/apimachinery \
 		kubernetes:client-go:v0.25.16:kubernetes_client_go/vendor/k8s.io/client-go \
 		kubernetes:kube-openapi:67bda5d908f1:kubernetes_kube_openapi/vendor/k8s.io/kube-openapi \
-		kubernetes:utils:cf1189d6abe3:kubernetes_utils/vendor/k8s.io/utils \
+		kubernetes:utils:ca04ba58ecab:kubernetes_utils/vendor/k8s.io/utils \
 		lib:pq:v1.10.9:lib_pq/vendor/github.com/lib/pq \
 		lucasb-eyer:go-colorful:v1.2.0:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
 		mailru:easyjson:v0.7.7:mailru_easyjson/vendor/github.com/mailru/easyjson \
@@ -251,7 +251,7 @@ GH_TUPLE=	\
 		tencentcloud:tencentcloud-sdk-go:v1.0.1200:tencentcloud_tencentcloud_sdk_go_sts/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sts \
 		tencentcloud:tencentcloud-sdk-go:v1.0.1200:tencentcloud_tencentcloud_sdk_go_tag/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tag \
 		tencentcloud:tencentcloud-sdk-go:v1.0.1217:tencentcloud_tencentcloud_sdk_go_common/vendor/github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common \
-		tencentyun:cos-go-sdk-v5:v0.7.75:tencentyun_cos_go_sdk_v5/vendor/github.com/tencentyun/cos-go-sdk-v5 \
+		tencentyun:cos-go-sdk-v5:v0.7.76:tencentyun_cos_go_sdk_v5/vendor/github.com/tencentyun/cos-go-sdk-v5 \
 		thanhpk:randstr:v1.0.7:thanhpk_randstr/vendor/github.com/thanhpk/randstr \
 		thlib:go-timezone-local:v0.0.9:thlib_go_timezone_local/vendor/github.com/thlib/go-timezone-local \
 		tombuildsstuff:giovanni:v0.15.1:tombuildsstuff_giovanni/vendor/github.com/tombuildsstuff/giovanni \

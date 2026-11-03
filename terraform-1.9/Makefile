@@ -1,7 +1,7 @@
 PORTNAME=	terraform
 PORTVERSION=	1.9.8
 DISTVERSIONPREFIX=	v
-PORTREVISION=	20261020
+PORTREVISION=	20261103
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX=	-${PORTVERSION:R}
 
@@ -9,12 +9,12 @@ MAINTAINER= 	dutra@FreeBSD.org
 COMMENT=	Provides a common configuration to launch infrastructure
 WWW=		https://terraform.io/ https://github.com/hashicorp/terraform/tree/${DISTVERSIONFULL}
 
+BUILD_DEPENDS=	garble:local/garble
+
 USES=		go:modules
 
 LICENSE_NAME=   Business Source License 1.1
 LICENSE_PERMS=	dist-mirror pkg-mirror pkg-sell auto-accept
-
-BUILD_DEPENDS=	garble:local/garble
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	hashicorp
