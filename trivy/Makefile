@@ -1,5 +1,5 @@
 PORTNAME=	trivy
-PORTVERSION=	0.76.0
+PORTVERSION=	0.76.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local security
 PKGNAMESUFFIX=	-local
@@ -22,7 +22,6 @@ GO_MOD_DIST=	github
 GO_MODULE=	github.com/${GH_ACCOUNT}/${GH_PROJECT}
 GO_TARGET=	./cmd/${PORTNAME}
 
-#CGO_ENABLED=	0
 GO_LDFLAGS+=	-w
 GO_LDFLAGS+=	-extldflags -static
 GO_LDFLAGS+=	-X ${GO_MODULE}/pkg/version/app.ver=${PORTVERSION}
@@ -37,6 +36,9 @@ pre-build: .PHONY
 	${RM} -r ${WRKSRC}/vendor/google.golang.org/grpc/experimental/opentelemetry
 	${RM} -r ${WRKSRC}/vendor/google.golang.org/grpc/stats/opentelemetry
 	${RM} -r ${WRKSRC}/vendor/otelconnect
+	${RM} ${WRKSRC}/vendor/github.com/docker/cli/cli/command/telemetry_docker.go
+	${RM} ${WRKSRC}/vendor/github.com/dylibso/observe-sdk/go/otel_formatter.go
+	${RM} ${WRKSRC}/vendor/github.com/go-openapi/runtime/client/opentelemetry.go
 
 post-install: .PHONY
 	${MKDIR} ${STAGEDIR}${DATADIR}

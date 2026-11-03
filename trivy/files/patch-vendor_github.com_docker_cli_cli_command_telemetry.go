@@ -1,12 +1,12 @@
---- vendor/github.com/docker/cli/cli/command/telemetry.go.orig	2026-10-02 12:18:10 UTC
+--- vendor/github.com/docker/cli/cli/command/telemetry.go.orig	2026-11-02 21:24:36 UTC
 +++ vendor/github.com/docker/cli/cli/command/telemetry.go
-@@ -3,241 +3,62 @@ import (
+@@ -3,78 +3,34 @@ import (
  import (
  	"context"
  	"os"
 -	"path/filepath"
  	"strings"
--	"sync"
+ 	"sync"
 -	"time"
 -
 -	"github.com/google/uuid"
@@ -22,53 +22,53 @@
  )
  
 -const exportTimeout = 50 * time.Millisecond
--
++type TracerProvider interface{}
++type MeterProvider interface{}
+ 
 -// TracerProvider is an extension of the trace.TracerProvider interface for CLI programs.
-+// TracerProvider is retained for compatibility.
- type TracerProvider interface {
+-type TracerProvider interface {
 -	trace.TracerProvider
- 	ForceFlush(ctx context.Context) error
- 	Shutdown(ctx context.Context) error
- }
- 
+-	ForceFlush(ctx context.Context) error
+-	Shutdown(ctx context.Context) error
+-}
+-
 -// MeterProvider is an extension of the metric.MeterProvider interface for CLI programs.
-+// MeterProvider is retained for compatibility.
- type MeterProvider interface {
+-type MeterProvider interface {
 -	metric.MeterProvider
- 	ForceFlush(ctx context.Context) error
- 	Shutdown(ctx context.Context) error
- }
- 
+-	ForceFlush(ctx context.Context) error
+-	Shutdown(ctx context.Context) error
+-}
+-
 -// TelemetryClient provides the methods for using OTEL tracing or metrics.
--type TelemetryClient interface {
+ type TelemetryClient interface {
 -	// Resource returns the OTEL Resource configured with this TelemetryClient.
 -	// This resource may be created lazily, but the resource should be the same
 -	// each time this function is invoked.
 -	Resource() *resource.Resource
-+// TelemetryClient provides methods for telemetry integration.
-+type TelemetryClient interface{}
- 
+-
 -	// TracerProvider returns the currently initialized TracerProvider. This TracerProvider will be configured
 -	// with the default tracing components for a CLI program
 -	TracerProvider() trace.TracerProvider
-+type telemetryResource struct{}
- 
+-
 -	// MeterProvider returns the currently initialized MeterProvider. This MeterProvider will be configured
 -	// with the default metric components for a CLI program
 -	MeterProvider() metric.MeterProvider
-+func (cli *DockerCli) Resource() *telemetryResource {
-+	_ = cli
-+	return &telemetryResource{}
++	Resource() interface{}
++	TracerProvider() TracerProvider
++	MeterProvider() MeterProvider
  }
  
 -func (cli *DockerCli) Resource() *resource.Resource {
--	return cli.res.Get()
--}
--
++func (cli *DockerCli) Resource() interface{} {
+ 	return cli.res.Get()
+ }
+ 
 -func (*DockerCli) TracerProvider() trace.TracerProvider {
 -	return otel.GetTracerProvider()
 -}
--
++func (*DockerCli) TracerProvider() TracerProvider { return nil }
++func (*DockerCli) MeterProvider() MeterProvider   { return nil }
+ 
 -func (*DockerCli) MeterProvider() metric.MeterProvider {
 -	return otel.GetMeterProvider()
 -}
@@ -76,47 +76,42 @@
 -// WithResourceOptions configures additional options for the default resource. The default
 -// resource will continue to include its default options.
 -func WithResourceOptions(opts ...resource.Option) CLIOption {
-+func WithResourceOptions(_ ...interface{}) CLIOption {
++func WithResourceOptions(opts ...interface{}) CLIOption {
  	return func(cli *DockerCli) error {
--		cli.res.AppendOptions(opts...)
-+		_ = cli
+ 		cli.res.AppendOptions(opts...)
  		return nil
  	}
  }
  
 -// WithResource overwrites the default resource and prevents its creation.
 -func WithResource(res *resource.Resource) CLIOption {
-+func WithResource(_ interface{}) CLIOption {
++func WithResource(res interface{}) CLIOption {
  	return func(cli *DockerCli) error {
--		cli.res.Set(res)
-+		_ = cli
+ 		cli.res.Set(res)
  		return nil
- 	}
+@@ -82,160 +38,37 @@ type telemetryResource struct {
  }
  
--type telemetryResource struct {
+ type telemetryResource struct {
 -	res  *resource.Resource
 -	opts []resource.Option
--	once sync.Once
--}
-+func (r *telemetryResource) Set(_ interface{})              { _ = r }
-+func (r *telemetryResource) Get() *telemetryResource        { return r }
-+func (r *telemetryResource) AppendOptions(_ ...interface{}) {}
++	res  interface{}
++	opts []interface{}
+ 	once sync.Once
+ }
  
 -func (r *telemetryResource) Set(res *resource.Resource) {
 -	r.res = res
-+func (cli *DockerCli) createGlobalMeterProvider(_ context.Context, _ ...interface{}) {
-+	_ = cli
- }
+-}
++func (r *telemetryResource) Set(res interface{}) { r.res = res }
  
 -func (r *telemetryResource) Get() *resource.Resource {
--	r.once.Do(r.init)
--	return r.res
-+func (cli *DockerCli) createGlobalTracerProvider(_ context.Context, _ ...interface{}) {
-+	_ = cli
++func (r *telemetryResource) Get() interface{} {
+ 	r.once.Do(r.init)
+ 	return r.res
  }
  
--func (r *telemetryResource) init() {
+ func (r *telemetryResource) init() {
 -	if r.res != nil {
 -		r.opts = nil
 -		return
@@ -131,9 +126,9 @@
 -
 -	// Clear the resource options since they'll never be used again and to allow
 -	// the garbage collector to retrieve that memory.
--	r.opts = nil
--}
--
+ 	r.opts = nil
+ }
+ 
 -// createGlobalMeterProvider creates a new MeterProvider from the initialized DockerCli struct
 -// with the given options and sets it as the global meter provider
 -func (cli *DockerCli) createGlobalMeterProvider(ctx context.Context, opts ...sdkmetric.Option) {
@@ -172,20 +167,18 @@
 -}
 -
 -func (r *telemetryResource) AppendOptions(opts ...resource.Option) {
--	if r.res != nil {
--		return
--	}
--	r.opts = append(r.opts, opts...)
--}
--
++func (r *telemetryResource) AppendOptions(opts ...interface{}) {
+ 	if r.res != nil {
+ 		return
+ 	}
+ 	r.opts = append(r.opts, opts...)
+ }
+ 
 -type (
 -	serviceNameDetector struct{}
 -	telemetrySDK        struct{}
-+const (
-+	resourceAttributesEnvVar = "OTEL_RESOURCE_ATTRIBUTES"
-+	dockerCLIAttributePrefix = "docker.cli."
- )
- 
+-)
+-
 -func (serviceNameDetector) Detect(ctx context.Context) (*resource.Resource, error) {
 -	return resource.StringDetector(
 -		semconv.SchemaURL,
@@ -194,8 +187,10 @@
 -			return filepath.Base(os.Args[0]), nil
 -		},
 -	).Detect(ctx)
--}
--
++func (cli *DockerCli) createGlobalMeterProvider(ctx context.Context, opts ...interface{}) {
++	_, _ = ctx, opts
+ }
+ 
 -// Detect returns a *Resource that describes the OpenTelemetry SDK used.
 -func (telemetrySDK) Detect(context.Context) (*resource.Resource, error) {
 -	return resource.NewWithAttributes(
@@ -204,8 +199,10 @@
 -		semconv.TelemetrySDKLanguageGo,
 -		semconv.TelemetrySDKVersion(otelsdk.Version()),
 -	), nil
--}
--
++func (cli *DockerCli) createGlobalTracerProvider(ctx context.Context, opts ...interface{}) {
++	_, _ = ctx, opts
+ }
+ 
 -// cliReader is an implementation of Reader that will automatically
 -// report to a designated Exporter when Shutdown is called.
 -type cliReader struct {
@@ -259,12 +256,10 @@
 -// resource attributes for OTEL as defined in the [OpenTelemetry specification].
 -//
 -// [OpenTelemetry specification]: https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/#general-sdk-configuration
--const resourceAttributesEnvVar = "OTEL_RESOURCE_ATTRIBUTES"
--
+ const resourceAttributesEnvVar = "OTEL_RESOURCE_ATTRIBUTES"
+ 
  func filterResourceAttributesEnvvar() {
- 	if v := os.Getenv(resourceAttributesEnvVar); v != "" {
- 		if filtered := filterResourceAttributes(v); filtered != "" {
-@@ -248,12 +69,6 @@ func filterResourceAttributesEnvvar() {
+@@ -248,10 +81,6 @@ func filterResourceAttributesEnvvar() {
  	}
  }
  
@@ -272,12 +267,10 @@
 -// When updating, make sure to also update the copy in cli-plugins/manager.
 -//
 -// TODO(thaJeztah): move telemetry-related code to an (internal) package to reduce dependency on cli/command in cli-plugins, which has too many imports.
--const dockerCLIAttributePrefix = "docker.cli."
--
+ const dockerCLIAttributePrefix = "docker.cli."
+ 
  func filterResourceAttributes(s string) string {
- 	if trimmed := strings.TrimSpace(s); trimmed == "" {
- 		return trimmed
-@@ -264,12 +79,9 @@ func filterResourceAttributes(s string) string {
+@@ -264,12 +93,9 @@ func filterResourceAttributes(s string) string {
  	for _, p := range pairs {
  		k, _, found := strings.Cut(p, "=")
  		if !found {

@@ -1,6 +1,6 @@
---- vendor/github.com/containerd/containerd/v2/pkg/tracing/helpers.go.orig	2026-10-02 12:18:10 UTC
+--- vendor/github.com/containerd/containerd/v2/pkg/tracing/helpers.go.orig	2026-11-02 21:24:36 UTC
 +++ vendor/github.com/containerd/containerd/v2/pkg/tracing/helpers.go
-@@ -1,87 +1,10 @@
+@@ -1,87 +1,5 @@
 -/*
 -   Copyright The containerd Authors.
 -
@@ -22,11 +22,7 @@
 -import (
 -	"encoding/json"
 -	"fmt"
-+type AttributeKV struct {
-+	Key   string
-+	Value any
-+}
- 
+-
 -	"go.opentelemetry.io/otel/attribute"
 -)
 -
@@ -91,6 +87,6 @@
 -		return attribute.String(k, string(b))
 -	}
 -	return attribute.String(k, fmt.Sprint(v))
-+func keyValue(k string, v any) AttributeKV {
-+	return AttributeKV{Key: k, Value: v}
++func keyValue(k string, v interface{}) KeyValue {
++	return KeyValue{Key: k, Value: v}
  }

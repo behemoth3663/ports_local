@@ -1,7 +1,11 @@
---- vendor/github.com/moby/moby/client/client_options.go.orig	2026-10-02 12:18:10 UTC
+--- vendor/github.com/moby/moby/client/client_options.go.orig	2026-11-02 21:24:37 UTC
 +++ vendor/github.com/moby/moby/client/client_options.go
-@@ -15,8 +15,6 @@ import (
- 	cerrdefs "github.com/containerd/errdefs"
+@@ -12,11 +12,9 @@ import (
+ 	"strings"
+ 	"time"
+ 
+-	cerrdefs "github.com/containerd/errdefs"
++	cerrdefs 	"github.com/containerd/errdefs"
  	"github.com/docker/go-connections/sockets"
  	"github.com/docker/go-connections/tlsconfig"
 -	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
@@ -9,33 +13,33 @@
  )
  
  type clientConfig struct {
-@@ -61,8 +59,8 @@ type clientConfig struct {
- 	// responseHooks is a list of custom response hooks to call on responses.
+@@ -63,8 +61,8 @@ type clientConfig struct {
+ 	// responseHooks contains hooks to call on responses.
  	responseHooks []ResponseHook
  
 -	// traceOpts is a list of options to configure the tracing span.
 -	traceOpts []otelhttp.Option
-+	// traceOpts is retained for compatibility and currently unused.
-+	traceOpts []any
++	// traceOpts are kept for backward compatibility and ignored.
++	traceOpts []interface{}
  }
  
- // ResponseHook is called for each HTTP response returned by the daemon.
-@@ -396,15 +394,15 @@ func WithAPIVersionNegotiation() Opt {
+ // RequestHook is called for each HTTP request made by the client.
+@@ -406,15 +404,15 @@ func WithAPIVersionNegotiation() Opt {
  
  // WithTraceProvider sets the trace provider for the client.
  // If this is not set then the global trace provider is used.
 -func WithTraceProvider(provider trace.TracerProvider) Opt {
-+func WithTraceProvider(_ any) Opt {
++func WithTraceProvider(provider interface{}) Opt {
  	return func(c *clientConfig) error {
 -		c.traceOpts = append(c.traceOpts, otelhttp.WithTracerProvider(provider))
-+		_ = c
++		c.traceOpts = append(c.traceOpts, provider)
  		return nil
  	}
  }
  
  // WithTraceOptions sets tracing span options for the client.
 -func WithTraceOptions(opts ...otelhttp.Option) Opt {
-+func WithTraceOptions(opts ...any) Opt {
++func WithTraceOptions(opts ...interface{}) Opt {
  	return func(c *clientConfig) error {
  		c.traceOpts = append(c.traceOpts, opts...)
  		return nil

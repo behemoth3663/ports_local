@@ -1,6 +1,6 @@
---- vendor/cloud.google.com/go/storage/grpc_metrics.go.orig	2026-10-02 12:18:10 UTC
+--- vendor/cloud.google.com/go/storage/grpc_metrics.go.orig	2026-11-02 21:24:35 UTC
 +++ vendor/cloud.google.com/go/storage/grpc_metrics.go
-@@ -1,285 +1,30 @@
+@@ -1,285 +1,31 @@
 -// Copyright 2024 Google LLC
 -//
 -// Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,7 +22,7 @@
 -	"errors"
 -	"fmt"
 -	"strings"
- 	"time"
+-	"time"
  
 -	mexporter "github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/metric"
 -	"github.com/google/uuid"
@@ -125,25 +125,27 @@
 -	provider *metric.MeterProvider
 -	// clean func to call when closing gRPC client
 -	close func()
++	provider   interface{}
 +	close      func()
  }
  
  type metricsConfig struct {
  	project         string
- 	interval        time.Duration
+-	interval        time.Duration
 -	customExporter  *metric.Exporter
 -	meterProvider   *metric.MeterProvider
 -	manualReader    *metric.ManualReader // used by tests
 -	disableExporter bool                 // used by tests disables exports
 -	resourceOpts    []resource.Option    // used by tests
-+	customExporter  any
-+	meterProvider   any
-+	manualReader    any
++	interval        interface{}
++	customExporter  interface{}
++	meterProvider   interface{}
++	manualReader    interface{}
 +	disableExporter bool
-+	resourceOpts    []any
++	resourceOpts    []interface{}
  }
  
--func newGRPCMetricContext(ctx context.Context, cfg metricsConfig) (*metricsContext, error) {
+ func newGRPCMetricContext(ctx context.Context, cfg metricsConfig) (*metricsContext, error) {
 -	var exporter metric.Exporter
 -	meterOpts := []metric.Option{}
 -	if cfg.customExporter == nil {
@@ -214,7 +216,7 @@
 -		option.WithGRPCDialOption(
 -			grpc.WithDefaultCallOptions(grpc.StaticMethodCallOption{})),
 -	}
-+func newGRPCMetricContext(_ context.Context, _ metricsConfig) (*metricsContext, error) {
++	_, _ = ctx, cfg
  	return &metricsContext{
 -		clientOpts: opts,
 -		provider:   provider,

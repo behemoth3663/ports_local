@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/storage/experimental/experimental.go.orig	2026-10-02 12:18:10 UTC
+--- vendor/cloud.google.com/go/storage/experimental/experimental.go.orig	2026-11-02 21:24:35 UTC
 +++ vendor/cloud.google.com/go/storage/experimental/experimental.go
 @@ -25,7 +25,6 @@ import (
  	"time"
@@ -8,25 +8,23 @@
  	"google.golang.org/api/option"
  )
  
-@@ -39,17 +38,13 @@ func WithMetricInterval(metricInterval time.Duration) 
- }
- 
+@@ -41,15 +40,15 @@ func WithMetricInterval(metricInterval time.Duration) 
  // WithMetricExporter provides a [option.ClientOption] that may be passed to [storage.NewGRPCClient].
--// Set an alternate client-side metric Exporter to emit metrics through.
--// Must implement [metric.Exporter]. This option is ignored if WithMeterProvider is also set.
+ // Set an alternate client-side metric Exporter to emit metrics through.
+ // Must implement [metric.Exporter]. This option is ignored if WithMeterProvider is also set.
 -func WithMetricExporter(ex *metric.Exporter) option.ClientOption {
 -	return internal.WithMetricExporter.(func(*metric.Exporter) option.ClientOption)(ex)
-+func WithMetricExporter(ex any) option.ClientOption {
-+	return internal.WithMetricExporter.(func(any) option.ClientOption)(ex)
++func WithMetricExporter(ex interface{}) option.ClientOption {
++	return internal.WithMetricExporter.(func(interface{}) option.ClientOption)(ex)
  }
  
  // WithMeterProvider provides a [option.ClientOption] that may be passed to [storage.NewGRPCClient].
--// Set an alternate client-side meter provider to emit metrics through.
--// This option takes precedence over WithMetricExporter and WithMetricInterval.
+ // Set an alternate client-side meter provider to emit metrics through.
+ // This option takes precedence over WithMetricExporter and WithMetricInterval.
 -func WithMeterProvider(mp *metric.MeterProvider) option.ClientOption {
 -	return internal.WithMeterProvider.(func(*metric.MeterProvider) option.ClientOption)(mp)
-+func WithMeterProvider(mp any) option.ClientOption {
-+	return internal.WithMeterProvider.(func(any) option.ClientOption)(mp)
++func WithMeterProvider(mp interface{}) option.ClientOption {
++	return internal.WithMeterProvider.(func(interface{}) option.ClientOption)(mp)
  }
  
  // WithReadStallTimeout provides a [option.ClientOption] that may be passed to [storage.NewClient].

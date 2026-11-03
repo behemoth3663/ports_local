@@ -1,4 +1,4 @@
---- vendor/github.com/docker/cli/cli/debug/debug.go.orig	2026-10-02 12:18:10 UTC
+--- vendor/github.com/docker/cli/cli/debug/debug.go.orig	2026-11-02 21:24:36 UTC
 +++ vendor/github.com/docker/cli/cli/debug/debug.go
 @@ -4,7 +4,6 @@ import (
  	"os"

@@ -1,6 +1,6 @@
---- vendor/github.com/containerd/containerd/v2/pkg/tracing/helpers_spanopts.go.orig	2026-10-02 12:18:10 UTC
+--- vendor/github.com/containerd/containerd/v2/pkg/tracing/helpers_spanopts.go.orig	2026-11-02 21:24:36 UTC
 +++ vendor/github.com/containerd/containerd/v2/pkg/tracing/helpers_spanopts.go
-@@ -1,38 +1,9 @@
+@@ -1,38 +1,17 @@
 -/*
 -   Copyright The containerd Authors.
 -
@@ -19,26 +19,24 @@
 -
  package tracing
  
--import (
--	"context"
-+import "context"
+ import (
+ 	"context"
  
--	"github.com/containerd/containerd/v2/pkg/namespaces"
+ 	"github.com/containerd/containerd/v2/pkg/namespaces"
 -	"go.opentelemetry.io/otel/trace"
--)
--
+ )
+ 
 -// WithNamespace adds containerd namespace attribute to spans when available.
 -// It is best-effort: if namespace is not present in the context, it does nothing.
--func WithNamespace(ctx context.Context) SpanOpt {
-+func WithNamespace(_ context.Context) SpanOpt {
+ func WithNamespace(ctx context.Context) SpanOpt {
  	return func(config *StartConfig) {
--		ns, err := namespaces.NamespaceRequired(ctx)
--		if err != nil {
--			return
--		}
+ 		ns, err := namespaces.NamespaceRequired(ctx)
+ 		if err != nil {
+ 			return
+ 		}
 -		config.spanOpts = append(config.spanOpts,
 -			trace.WithAttributes(Attribute("namespace", ns)),
 -		)
-+		_ = config
++		config.spanOpts = append(config.spanOpts, Attribute("namespace", ns))
  	}
  }

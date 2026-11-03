@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/auth/internal/transport/transport.go.orig	2026-10-02 12:18:10 UTC
+--- vendor/cloud.google.com/go/auth/internal/transport/transport.go.orig	2026-11-02 21:24:34 UTC
 +++ vendor/cloud.google.com/go/auth/internal/transport/transport.go
 @@ -24,7 +24,6 @@ import (
  	"time"
@@ -15,7 +15,7 @@
 -func StaticTelemetryAttributes(m map[string]string) []attribute.KeyValue {
 -	var staticAttrs []attribute.KeyValue
 +func StaticTelemetryAttributes(m map[string]string) map[string]string {
-+	staticAttrs := make(map[string]string)
++	staticAttrs := map[string]string{}
  	if m == nil {
  		return staticAttrs
  	}

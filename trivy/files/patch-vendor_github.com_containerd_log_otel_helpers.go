@@ -1,6 +1,6 @@
---- vendor/github.com/containerd/log/otel/helpers.go.orig	2026-10-02 12:18:10 UTC
+--- vendor/github.com/containerd/log/otel/helpers.go.orig	2026-11-02 21:24:36 UTC
 +++ vendor/github.com/containerd/log/otel/helpers.go
-@@ -1,87 +1,10 @@
+@@ -1,87 +1,8 @@
 -/*
 -   Copyright The containerd Authors.
 -
@@ -22,11 +22,7 @@
 -import (
 -	"encoding/json"
 -	"fmt"
-+type keyValue struct {
-+	Key   string
-+	Value any
-+}
- 
+-
 -	"go.opentelemetry.io/otel/attribute"
 -)
 -
@@ -91,6 +87,9 @@
 -		return attribute.String(k, string(b))
 -	}
 -	return attribute.String(k, fmt.Sprint(v))
-+func keyValuePair(k string, v any) keyValue {
-+	return keyValue{Key: k, Value: v}
++func keyValue(k string, v interface{}) interface{} {
++	return struct {
++		Key   string
++		Value interface{}
++	}{Key: k, Value: v}
  }

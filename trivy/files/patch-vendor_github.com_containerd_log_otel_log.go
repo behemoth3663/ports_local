@@ -1,4 +1,4 @@
---- vendor/github.com/containerd/log/otel/log.go.orig	2026-10-02 12:18:10 UTC
+--- vendor/github.com/containerd/log/otel/log.go.orig	2026-11-02 21:24:36 UTC
 +++ vendor/github.com/containerd/log/otel/log.go
 @@ -1,37 +1,11 @@
 -/*
@@ -46,8 +46,14 @@
  func NewLogrusHook(opts ...HookOpt) *LogrusHook {
  	hook := &LogrusHook{}
  	for _, opt := range opts {
-@@ -62,8 +35,6 @@ func WithTraceIDField(enabled bool) HookOpt {
- 	}
+@@ -57,13 +30,9 @@ func WithTraceIDField(enabled bool) HookOpt {
+ }
+ 
+ func WithTraceIDField(enabled bool) HookOpt {
+-	return func(h *LogrusHook) {
+-		h.enableTraceIDField = enabled
+-	}
++	return func(h *LogrusHook) { h.enableTraceIDField = enabled }
  }
  
 -// WithLevel configures the minimum log level handled by the hook.
@@ -55,16 +61,17 @@
  func WithLevel(level log.Level) HookOpt {
  	return func(h *LogrusHook) {
  		for i, l := range allLevels {
-@@ -75,26 +46,18 @@ func WithLevel(level log.Level) HookOpt {
+@@ -75,26 +44,16 @@ func WithLevel(level log.Level) HookOpt {
  	}
  }
  
 -// WithErrorStatusLevel configures the minimum log level that marks the
 -// active span with an error status.
  func WithErrorStatusLevel(level log.Level) HookOpt {
- 	return func(h *LogrusHook) {
- 		h.errorStatusLevel = &level
- 	}
+-	return func(h *LogrusHook) {
+-		h.errorStatusLevel = &level
+-	}
++	return func(h *LogrusHook) { h.errorStatusLevel = &level }
  }
  
 -// LogrusHook is a [logrus.Hook] which adds logrus events to active spans.
@@ -82,12 +89,12 @@
  func (h *LogrusHook) Levels() []log.Level {
  	if h.levels == nil {
  		return allLevels
-@@ -102,47 +65,6 @@ func (h *LogrusHook) Levels() []log.Level {
+@@ -102,47 +61,7 @@ func (h *LogrusHook) Levels() []log.Level {
  	return h.levels
  }
  
 -// Fire is called when a log event occurs.
--func (h *LogrusHook) Fire(entry *log.Entry) error {
+ func (h *LogrusHook) Fire(entry *log.Entry) error {
 -	if entry.Context == nil {
 -		return nil
 -	}
@@ -120,7 +127,7 @@
 -		span.SetStatus(codes.Error, entry.Message)
 -	}
 -
-+func (h *LogrusHook) Fire(_ *log.Entry) error {
++	_ = entry
  	return nil
 -}
 -

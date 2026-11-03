@@ -1,6 +1,6 @@
---- vendor/github.com/containerd/containerd/v2/pkg/tracing/tracing.go.orig	2026-10-02 12:18:10 UTC
+--- vendor/github.com/containerd/containerd/v2/pkg/tracing/tracing.go.orig	2026-11-02 21:24:36 UTC
 +++ vendor/github.com/containerd/containerd/v2/pkg/tracing/tracing.go
-@@ -1,134 +1,54 @@
+@@ -1,134 +1,67 @@
 -/*
 -   Copyright The containerd Authors.
 -
@@ -32,15 +32,21 @@
  )
  
 -// StartConfig defines configuration for a new span object.
++type KeyValue struct {
++	Key   string
++	Value interface{}
++}
++
  type StartConfig struct {
 -	spanOpts []trace.SpanStartOption
-+	spanOpts []any
++	spanOpts []interface{}
  }
  
  type SpanOpt func(config *StartConfig)
  
 -// WithAttribute appends attributes to a new created span.
- func WithAttribute(k string, v any) SpanOpt {
+-func WithAttribute(k string, v any) SpanOpt {
++func WithAttribute(k string, v interface{}) SpanOpt {
  	return func(config *StartConfig) {
 -		config.spanOpts = append(config.spanOpts,
 -			trace.WithAttributes(Attribute(k, v)))
@@ -49,38 +55,38 @@
  }
  
 -// UpdateHTTPClient updates the http client with the necessary otel transport
--func UpdateHTTPClient(client *http.Client, name string) {
+ func UpdateHTTPClient(client *http.Client, name string) {
 -	client.Transport = otelhttp.NewTransport(
 -		client.Transport,
 -		otelhttp.WithSpanNameFormatter(func(operation string, r *http.Request) string {
 -			return name
 -		}),
 -	)
--}
-+func UpdateHTTPClient(_ *http.Client, _ string) {}
++	_, _ = client, name
+ }
  
 -// StartSpan starts child span in a context.
--func StartSpan(ctx context.Context, opName string, opts ...SpanOpt) (context.Context, *Span) {
--	config := StartConfig{}
--	for _, fn := range opts {
--		fn(&config)
--	}
+ func StartSpan(ctx context.Context, opName string, opts ...SpanOpt) (context.Context, *Span) {
+ 	config := StartConfig{}
+ 	for _, fn := range opts {
+ 		fn(&config)
+ 	}
 -	tracer := otel.Tracer("")
 -	if parent := trace.SpanFromContext(ctx); parent != nil && parent.SpanContext().IsValid() {
 -		tracer = parent.TracerProvider().Tracer("")
 -	}
 -	ctx, span := tracer.Start(ctx, opName, config.spanOpts...)
 -	return ctx, &Span{otelSpan: span}
-+func StartSpan(ctx context.Context, _ string, _ ...SpanOpt) (context.Context, *Span) {
++	_, _ = opName, config
 +	return ctx, &Span{}
  }
  
 -// SpanFromContext returns the current Span from the context.
--func SpanFromContext(ctx context.Context) *Span {
+ func SpanFromContext(ctx context.Context) *Span {
 -	return &Span{
 -		otelSpan: trace.SpanFromContext(ctx),
 -	}
-+func SpanFromContext(_ context.Context) *Span {
++	_ = ctx
 +	return &Span{}
  }
  
@@ -96,11 +102,11 @@
 -func (s *Span) End() {
 -	s.otelSpan.End()
 -}
-+func (s *Span) End()                                {}
-+func (s *Span) AddEvent(_ string, _ ...AttributeKV) {}
-+func (s *Span) RecordError(_ error, _ ...any)       {}
-+func (s *Span) SetStatus(_ error)                   {}
-+func (s *Span) SetAttributes(_ ...AttributeKV)      {}
++func (s *Span) End()                                              {}
++func (s *Span) AddEvent(name string, attributes ...KeyValue)      { _, _ = name, attributes }
++func (s *Span) RecordError(err error, options ...interface{})     { _, _ = err, options }
++func (s *Span) SetStatus(err error)                               { _ = err }
++func (s *Span) SetAttributes(kv ...KeyValue)                      { _ = kv }
  
 -// AddEvent adds an event with provided name and options.
 -func (s *Span) AddEvent(name string, attributes ...attribute.KeyValue) {
@@ -137,7 +143,7 @@
  
 -// Attribute takes a key value pair and returns attribute.KeyValue type.
 -func Attribute(k string, v any) attribute.KeyValue {
-+func Attribute(k string, v any) AttributeKV {
++func Attribute(k string, v interface{}) KeyValue {
  	return keyValue(k, v)
  }
  
@@ -147,8 +153,8 @@
 -	return []attribute.KeyValue{
 -		attribute.Int("http.response.status_code", code),
 -		attribute.Int("http.status_code", code), // Deprecated: SemConv <= v1.21
-+func HTTPStatusCodeAttributes(code int) []AttributeKV {
-+	return []AttributeKV{
++func HTTPStatusCodeAttributes(code int) []KeyValue {
++	return []KeyValue{
 +		{Key: "http.response.status_code", Value: code},
 +		{Key: "http.status_code", Value: code},
  	}

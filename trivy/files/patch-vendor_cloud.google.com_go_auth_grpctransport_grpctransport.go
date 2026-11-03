@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/auth/grpctransport/grpctransport.go.orig	2026-10-02 12:18:10 UTC
+--- vendor/cloud.google.com/go/auth/grpctransport/grpctransport.go.orig	2026-11-02 21:24:34 UTC
 +++ vendor/cloud.google.com/go/auth/grpctransport/grpctransport.go
 @@ -34,15 +34,10 @@ import (
  	"cloud.google.com/go/auth/internal/transport"
@@ -16,23 +16,17 @@
  )
  
  const (
-@@ -79,10 +74,8 @@ var codeToStr = [...]string{
- 	"UNAUTHENTICATED",     // codes.Unauthenticated = 16
+@@ -461,41 +456,8 @@ func addOpenTelemetryStatsHandler(dialOpts []grpc.Dial
  }
  
--var (
--	// Set at init time by dial_socketopt.go. If nil, socketopt is not supported.
--	timeoutDialerOption grpc.DialOption
--)
-+// Set at init time by dial_socketopt.go. If nil, socketopt is not supported.
-+var timeoutDialerOption grpc.DialOption
- 
- // ClientCertProvider is a function that returns a TLS client certificate to be
- // used when opening TLS connections. It follows the same semantics as
-@@ -468,34 +461,7 @@ func addOpenTelemetryStatsHandler(dialOpts []grpc.Dial
- 		host, port := extractHostPort(endpoint)
- 		dialOpts = append(dialOpts, grpc.WithChainUnaryInterceptor(openTelemetryUnaryClientInterceptor(host, port)))
- 	}
+ func addOpenTelemetryStatsHandler(dialOpts []grpc.DialOption, opts *Options, endpoint string) []grpc.DialOption {
+-	if opts.DisableTelemetry {
+-		return dialOpts
+-	}
+-	if gax.IsFeatureEnabled("METRICS") {
+-		host, port := extractHostPort(endpoint)
+-		dialOpts = append(dialOpts, grpc.WithChainUnaryInterceptor(openTelemetryUnaryClientInterceptor(host, port)))
+-	}
 -	if !gax.IsFeatureEnabled("TRACING") && !gax.IsFeatureEnabled("LOGGING") {
 -		return append(dialOpts, grpc.WithStatsHandler(otelgrpc.NewClientHandler()))
 -	}
@@ -61,14 +55,31 @@
 -		Handler: otelgrpc.NewClientHandler(otelOpts...),
 -		logger:  scopedLogger,
 -	}))
++	_, _, _ = opts, endpoint, gax.IsFeatureEnabled
 +	return dialOpts
  }
  
  // Extract the host and port from a target address
-@@ -536,142 +502,4 @@ func openTelemetryUnaryClientInterceptor(host string, 
+@@ -520,158 +482,3 @@ func extractHostPort(target string) (string, int) {
  
- 		return err
- 	}
+ // openTelemetryUnaryClientInterceptor returns an interceptor that populates
+ // TransportTelemetryData with the server peer address.
+-func openTelemetryUnaryClientInterceptor(host string, port int) grpc.UnaryClientInterceptor {
+-	return func(ctx context.Context, method string, req, reply any, cc *grpc.ClientConn, invoker grpc.UnaryInvoker, opts ...grpc.CallOption) error {
+-		transportData := gax.ExtractTransportTelemetry(ctx)
+-		if transportData != nil {
+-			if host != "" {
+-				transportData.SetServerAddress(host)
+-			}
+-			if port != 0 {
+-				transportData.SetServerPort(port)
+-			}
+-		}
+-
+-		err := invoker(ctx, method, req, reply, cc, opts...)
+-
+-		return err
+-	}
 -}
 -
 -// otelHandler is a wrapper around the OpenTelemetry gRPC client handler that
@@ -207,4 +218,4 @@
 -	baseLogAttrs = append(baseLogAttrs, slog.String("error.type", info.ErrorType))
 -
 -	logger.LogAttrs(ctx, slog.LevelDebug, msg, baseLogAttrs...)
- }
+-}

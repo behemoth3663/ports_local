@@ -1,9 +1,12 @@
---- vendor/github.com/docker/cli/cli/command/telemetry_utils.go.orig	2026-10-02 12:18:10 UTC
+--- vendor/github.com/docker/cli/cli/command/telemetry_utils.go.orig	2026-11-02 21:24:36 UTC
 +++ vendor/github.com/docker/cli/cli/command/telemetry_utils.go
-@@ -5,131 +5,44 @@ import (
- 	"errors"
- 	"fmt"
- 	"strings"
+@@ -2,181 +2,20 @@ import (
+ 
+ import (
+ 	"context"
+-	"errors"
+-	"fmt"
+-	"strings"
 -	"time"
  
 -	"github.com/docker/cli/cli/version"
@@ -18,7 +21,8 @@
 -	return append([]attribute.KeyValue{
 -		attribute.String("command.name", getCommandName(cmd)),
 -	}, stdioAttributes(streams)...)
-+func BaseCommandAttributes(_ *cobra.Command, _ Streams) []interface{} {
++func BaseCommandAttributes(cmd *cobra.Command, streams Streams) []string {
++	_, _ = cmd, streams
 +	return nil
  }
  
@@ -27,33 +31,32 @@
 -// Note: this should be the last func to wrap/modify the PersistentRunE/RunE funcs before command execution.
 -//
 -// can also be used for spans!
--func (cli *DockerCli) InstrumentCobraCommands(ctx context.Context, cmd *cobra.Command) {
+ func (cli *DockerCli) InstrumentCobraCommands(ctx context.Context, cmd *cobra.Command) {
 -	// If PersistentPreRunE is nil, make it execute PersistentPreRun and return nil by default
-+func (cli *DockerCli) InstrumentCobraCommands(_ context.Context, cmd *cobra.Command) {
- 	ogPersistentPreRunE := cmd.PersistentPreRunE
- 	if ogPersistentPreRunE == nil {
- 		ogPersistentPreRun := cmd.PersistentPreRun
+-	ogPersistentPreRunE := cmd.PersistentPreRunE
+-	if ogPersistentPreRunE == nil {
+-		ogPersistentPreRun := cmd.PersistentPreRun
 -		//nolint:unparam // necessary because error will always be nil here
- 		ogPersistentPreRunE = func(cmd *cobra.Command, args []string) error {
- 			ogPersistentPreRun(cmd, args)
- 			return nil
- 		}
- 		cmd.PersistentPreRun = nil
- 	}
+-		ogPersistentPreRunE = func(cmd *cobra.Command, args []string) error {
+-			ogPersistentPreRun(cmd, args)
+-			return nil
+-		}
+-		cmd.PersistentPreRun = nil
+-	}
 -
 -	// wrap RunE in PersistentPreRunE so that this operation gets executed on all children commands
- 	cmd.PersistentPreRunE = func(cmd *cobra.Command, args []string) error {
+-	cmd.PersistentPreRunE = func(cmd *cobra.Command, args []string) error {
 -		// If RunE is nil, make it execute Run and return nil by default
- 		ogRunE := cmd.RunE
- 		if ogRunE == nil {
- 			ogRun := cmd.Run
+-		ogRunE := cmd.RunE
+-		if ogRunE == nil {
+-			ogRun := cmd.Run
 -			//nolint:unparam // necessary because error will always be nil here
- 			ogRunE = func(cmd *cobra.Command, args []string) error {
- 				ogRun(cmd, args)
- 				return nil
- 			}
- 			cmd.Run = nil
- 		}
+-			ogRunE = func(cmd *cobra.Command, args []string) error {
+-				ogRun(cmd, args)
+-				return nil
+-			}
+-			cmd.Run = nil
+-		}
 -		cmd.RunE = func(cmd *cobra.Command, args []string) error {
 -			// start the timer as the first step of every cobra command
 -			stopInstrumentation := cli.StartInstrumentation(cmd)
@@ -62,23 +65,20 @@
 -			return cmdErr
 -		}
 -
-+		cmd.RunE = ogRunE
- 		return ogPersistentPreRunE(cmd, args)
- 	}
+-		return ogPersistentPreRunE(cmd, args)
+-	}
++	_, _ = ctx, cmd
  }
  
 -// StartInstrumentation instruments CLI commands with the individual metrics and spans configured.
 -// It's the main command OTel utility, and new command-related metrics should be added to it.
 -// It should be called immediately before command execution, and returns a stopInstrumentation function
 -// that must be called with the error resulting from the command execution.
--func (cli *DockerCli) StartInstrumentation(cmd *cobra.Command) (stopInstrumentation func(error)) {
+ func (cli *DockerCli) StartInstrumentation(cmd *cobra.Command) (stopInstrumentation func(error)) {
 -	baseAttrs := BaseCommandAttributes(cmd, cli)
 -	return startCobraCommandTimer(cli.MeterProvider(), baseAttrs)
-+func (cli *DockerCli) StartInstrumentation(_ *cobra.Command) (stopInstrumentation func(error)) {
-+	_ = cli
-+	return func(error) {}
- }
- 
+-}
+-
 -func startCobraCommandTimer(mp metric.MeterProvider, attrs []attribute.KeyValue) func(err error) {
 -	meter := getDefaultMeter(mp)
 -	durationCounter, _ := meter.Float64Counter(
@@ -136,41 +136,46 @@
 -}
 -
 -// otelErrorType returns an attribute for the error type based on the error category.
- func otelErrorType(err error) string {
- 	name := "generic"
- 	if errors.Is(err, context.Canceled) {
-@@ -138,7 +51,6 @@ func otelErrorType(err error) string {
- 	return name
- }
- 
+-func otelErrorType(err error) string {
+-	name := "generic"
+-	if errors.Is(err, context.Canceled) {
+-		name = "canceled"
+-	}
+-	return name
+-}
+-
 -// statusError reports an unsuccessful exit by a command.
- type statusError struct {
- 	Status     string
- 	StatusCode int
-@@ -148,11 +60,6 @@ func (e statusError) Error() string {
- 	return fmt.Sprintf("Status: %s, Code: %d", e.Status, e.StatusCode)
- }
- 
+-type statusError struct {
+-	Status     string
+-	StatusCode int
+-}
+-
+-func (e statusError) Error() string {
+-	return fmt.Sprintf("Status: %s, Code: %d", e.Status, e.StatusCode)
+-}
+-
 -// getCommandName gets the cobra command name in the format
 -// `... parentCommandName commandName` by traversing it's parent commands recursively.
 -// until the root command is reached.
 -//
 -// Note: The root command's name is excluded. If cmd is the root cmd, return ""
- func getCommandName(cmd *cobra.Command) string {
- 	fullCmdName := getFullCommandName(cmd)
- 	_, after, ok := strings.Cut(fullCmdName, " ")
-@@ -162,21 +69,9 @@ func getCommandName(cmd *cobra.Command) string {
- 	return after
- }
- 
+-func getCommandName(cmd *cobra.Command) string {
+-	fullCmdName := getFullCommandName(cmd)
+-	_, after, ok := strings.Cut(fullCmdName, " ")
+-	if !ok {
+-		return ""
+-	}
+-	return after
+-}
+-
 -// getFullCommandName gets the full cobra command name in the format
 -// `... parentCommandName commandName` by traversing it's parent commands recursively
 -// until the root command is reached.
- func getFullCommandName(cmd *cobra.Command) string {
- 	if cmd.HasParent() {
- 		return fmt.Sprintf("%s %s", getFullCommandName(cmd.Parent()), cmd.Name())
- 	}
- 	return cmd.Name()
+-func getFullCommandName(cmd *cobra.Command) string {
+-	if cmd.HasParent() {
+-		return fmt.Sprintf("%s %s", getFullCommandName(cmd.Parent()), cmd.Name())
+-	}
+-	return cmd.Name()
 -}
 -
 -// getDefaultMeter gets the default metric.Meter for the application
@@ -180,4 +185,6 @@
 -		"github.com/docker/cli",
 -		metric.WithInstrumentationVersion(version.Version),
 -	)
++	_ = cmd
++	return func(error) {}
  }

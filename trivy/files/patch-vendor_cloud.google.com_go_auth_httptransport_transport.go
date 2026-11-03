@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/auth/httptransport/transport.go.orig	2026-10-02 12:18:10 UTC
+--- vendor/cloud.google.com/go/auth/httptransport/transport.go.orig	2026-11-02 21:24:34 UTC
 +++ vendor/cloud.google.com/go/auth/httptransport/transport.go
 @@ -15,17 +15,11 @@ import (
  package httptransport
@@ -18,10 +18,11 @@
  	"time"
  
  	"cloud.google.com/go/auth"
-@@ -35,12 +29,7 @@ import (
+@@ -34,18 +28,11 @@ import (
+ 	"cloud.google.com/go/auth/internal/transport"
  	"cloud.google.com/go/auth/internal/transport/cert"
  	"cloud.google.com/go/auth/internal/transport/headers"
- 	"github.com/googleapis/gax-go/v2"
+-	"github.com/googleapis/gax-go/v2"
 -	"github.com/googleapis/gax-go/v2/callctx"
 -	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
 -	"go.opentelemetry.io/otel/attribute"
@@ -31,16 +32,12 @@
  )
  
  const (
-@@ -49,7 +38,7 @@ func newTransport(base http.RoundTripper, opts *Option
+ 	quotaProjectHeaderKey = "X-goog-user-project"
+-	maxErrorReadBytes     = int64(8192) // 8KB
  )
  
  func newTransport(base http.RoundTripper, opts *Options) (http.RoundTripper, error) {
--	var headers = opts.Headers
-+	headers := opts.Headers
- 	ht := &headerTransport{
- 		base:    base,
- 		headers: headers,
-@@ -182,316 +171,9 @@ func addOpenTelemetryTransport(trans http.RoundTripper
+@@ -182,316 +169,8 @@ func addOpenTelemetryTransport(trans http.RoundTripper
  }
  
  func addOpenTelemetryTransport(trans http.RoundTripper, opts *Options) http.RoundTripper {
@@ -355,7 +352,6 @@
 -
 -	b.t.logAndSpanError(b.req, b.resp, errToParse, nil, b.span, b.logger)
 +	_ = opts
-+	_ = gax.IsFeatureEnabled
 +	return trans
  }
  

@@ -1,8 +1,8 @@
---- vendor/github.com/googleapis/gax-go/v2/telemetry.go.orig	2026-10-02 12:18:10 UTC
+--- vendor/github.com/googleapis/gax-go/v2/telemetry.go.orig	2026-11-02 21:24:37 UTC
 +++ vendor/github.com/googleapis/gax-go/v2/telemetry.go
-@@ -1,31 +1,5 @@
- // Copyright 2026, Google Inc.
- // All rights reserved.
+@@ -1,32 +1,3 @@
+-// Copyright 2026, Google Inc.
+-// All rights reserved.
 -//
 -// Redistribution and use in source and binary forms, with or without
 -// modification, are permitted provided that the following conditions are
@@ -29,15 +29,16 @@
 -// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 -// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 -// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- 
+-
  package gax
  
-@@ -35,150 +9,66 @@ import (
+ import (
+@@ -35,296 +6,106 @@ import (
  	"fmt"
  	"log/slog"
  	"strconv"
 -	"sync"
- 	"time"
+-	"time"
  
  	"github.com/googleapis/gax-go/v2/apierror"
 -	"github.com/googleapis/gax-go/v2/callctx"
@@ -54,7 +55,6 @@
 -// TransportTelemetryData is experimental and may be modified or removed in future versions,
 -// regardless of any other documented package stability guarantees.
 -// It should not be used by external consumers.
-+// TransportTelemetryData contains mutable telemetry information populated by transports.
  type TransportTelemetryData struct {
  	serverAddress  string
  	serverPort     int
@@ -65,11 +65,11 @@
 -// Experimental: This function is experimental and may be modified or removed in future versions,
 -// regardless of any other documented package stability guarantees.
  func (d *TransportTelemetryData) SetServerAddress(addr string) { d.serverAddress = addr }
-+func (d *TransportTelemetryData) ServerAddress() string        { return d.serverAddress }
-+func (d *TransportTelemetryData) SetServerPort(port int)       { d.serverPort = port }
-+func (d *TransportTelemetryData) ServerPort() int              { return d.serverPort }
-+func (d *TransportTelemetryData) SetHTTPStatusCode(code int)   { d.httpStatusCode = code }
-+func (d *TransportTelemetryData) HTTPStatusCode() int          { return d.httpStatusCode }
++func (d *TransportTelemetryData) ServerAddress() string         { return d.serverAddress }
++func (d *TransportTelemetryData) SetServerPort(port int)        { d.serverPort = port }
++func (d *TransportTelemetryData) ServerPort() int               { return d.serverPort }
++func (d *TransportTelemetryData) SetHTTPStatusCode(code int)    { d.httpStatusCode = code }
++func (d *TransportTelemetryData) HTTPStatusCode() int           { return d.httpStatusCode }
  
 -// ServerAddress returns the server address.
 -// Experimental: This function is experimental and may be modified or removed in future versions,
@@ -124,17 +124,15 @@
 -	// Because they are used in generated code, these values must not be changed.
 -
 -	// ClientService is the Google Cloud API service name. E.g. "storage".
--	ClientService = "client_service"
+ 	ClientService = "client_service"
 -	// ClientVersion is the version of the client. E.g. "1.43.0".
--	ClientVersion = "client_version"
+ 	ClientVersion = "client_version"
 -	// ClientArtifact is the library name. E.g. "cloud.google.com/go/storage".
-+	ClientService  = "client_service"
-+	ClientVersion  = "client_version"
  	ClientArtifact = "client_artifact"
 -	// RPCSystem is the RPC system type. E.g. "grpc" or "http".
--	RPCSystem = "rpc_system"
+ 	RPCSystem = "rpc_system"
 -	// URLDomain is the nominal service domain. E.g. "storage.googleapis.com".
--	URLDomain = "url_domain"
+ 	URLDomain = "url_domain"
 -
 -	// Constants for telemetry attribute keys.
 -	keyGCPClientService = "gcp.client.service"
@@ -143,8 +141,6 @@
 -
 -	// SchemaURL specifies the OpenTelemetry schema version.
 -	schemaURL = "https://opentelemetry.io/schemas/1.39.0"
-+	RPCSystem      = "rpc_system"
-+	URLDomain      = "url_domain"
  )
  
 -// Default bucket boundaries for the duration metric in seconds.
@@ -152,8 +148,6 @@
 -var defaultHistogramBoundaries = []float64{
 -	0.0, 0.0001, 0.0005, 0.0010, 0.005, 0.010, 0.050, 0.100, 0.5, 1.0, 5.0, 10.0, 60.0, 300.0, 900.0, 3600.0,
 -}
-+// ClientMetrics is intentionally retained for compatibility, but becomes a no-op
-+// when OpenTelemetry is removed from vendor.
 +type ClientMetrics struct{}
  
 -// ClientMetrics contains the pre-allocated OpenTelemetry instruments and attributes
@@ -170,9 +164,11 @@
 -
  type telemetryOptions struct {
 -	provider                 metric.MeterProvider
- 	attributes               map[string]string
- 	explicitBucketBoundaries []float64
- 	logger                   *slog.Logger
+-	attributes               map[string]string
+-	explicitBucketBoundaries []float64
+-	logger                   *slog.Logger
++	attributes map[string]string
++	logger     *slog.Logger
  }
  
 -// TelemetryOption is an option to configure a ClientMetrics instance.
@@ -185,44 +181,61 @@
 -type providerOpt struct {
 -	p metric.MeterProvider
 -}
-+type providerOpt struct{}
++type resolverFunc func(opts *telemetryOptions)
  
 -func (p providerOpt) Resolve(opts *telemetryOptions) {
 -	opts.provider = p.p
 -}
-+func (providerOpt) Resolve(opts *telemetryOptions) {}
++func (f resolverFunc) Resolve(opts *telemetryOptions) { f(opts) }
  
 -// WithMeterProvider specifies the metric.MeterProvider to use for instruments.
 -func WithMeterProvider(p metric.MeterProvider) TelemetryOption {
 -	return &providerOpt{p: p}
-+func WithMeterProvider(_ any) TelemetryOption {
-+	return providerOpt{}
++func WithMeterProvider(interface{}) TelemetryOption {
++	return resolverFunc(func(*telemetryOptions) {})
  }
  
- type attrOpt struct {
-@@ -189,7 +79,6 @@ func (a attrOpt) Resolve(opts *telemetryOptions) {
- 	opts.attributes = a.attrs
- }
- 
+-type attrOpt struct {
+-	attrs map[string]string
+-}
+-
+-func (a attrOpt) Resolve(opts *telemetryOptions) {
+-	opts.attributes = a.attrs
+-}
+-
 -// WithTelemetryAttributes specifies the static attributes attachments.
  func WithTelemetryAttributes(attr map[string]string) TelemetryOption {
- 	return &attrOpt{attrs: attr}
- }
-@@ -202,7 +91,6 @@ func (b boundariesOpt) Resolve(opts *telemetryOptions)
- 	opts.explicitBucketBoundaries = b.boundaries
+-	return &attrOpt{attrs: attr}
++	return resolverFunc(func(opts *telemetryOptions) { opts.attributes = attr })
  }
  
+-type boundariesOpt struct {
+-	boundaries []float64
++func WithExplicitBucketBoundaries([]float64) TelemetryOption {
++	return resolverFunc(func(*telemetryOptions) {})
+ }
+ 
+-func (b boundariesOpt) Resolve(opts *telemetryOptions) {
+-	opts.explicitBucketBoundaries = b.boundaries
+-}
+-
 -// WithExplicitBucketBoundaries overrides the default histogram bucket boundaries.
- func WithExplicitBucketBoundaries(boundaries []float64) TelemetryOption {
- 	return &boundariesOpt{boundaries: boundaries}
- }
-@@ -215,116 +103,34 @@ func (l loggerOpt) Resolve(opts *telemetryOptions) {
- 	opts.logger = l.l
- }
- 
+-func WithExplicitBucketBoundaries(boundaries []float64) TelemetryOption {
+-	return &boundariesOpt{boundaries: boundaries}
+-}
+-
+-type loggerOpt struct {
+-	l *slog.Logger
+-}
+-
+-func (l loggerOpt) Resolve(opts *telemetryOptions) {
+-	opts.logger = l.l
+-}
+-
 -// WithTelemetryLogger specifies a logger to record internal telemetry errors.
  func WithTelemetryLogger(l *slog.Logger) TelemetryOption {
- 	return &loggerOpt{l: l}
+-	return &loggerOpt{l: l}
++	return resolverFunc(func(opts *telemetryOptions) { opts.logger = l })
  }
  
 -func (config *telemetryOptions) meterProvider() metric.MeterProvider {
@@ -230,10 +243,8 @@
 -		return config.provider
 -	}
 -	return otel.GetMeterProvider()
-+func NewClientMetrics(_ ...TelemetryOption) *ClientMetrics {
-+	return &ClientMetrics{}
- }
- 
+-}
+-
 -func (config *telemetryOptions) bucketBoundaries() []float64 {
 -	if len(config.explicitBucketBoundaries) > 0 {
 -		return config.explicitBucketBoundaries
@@ -243,11 +254,13 @@
 -
 -// NewClientMetrics initializes and returns a new ClientMetrics instance.
 -// It is intended to be called once per generated client during initialization.
--func NewClientMetrics(opts ...TelemetryOption) *ClientMetrics {
+ func NewClientMetrics(opts ...TelemetryOption) *ClientMetrics {
 -	var config telemetryOptions
--	for _, opt := range opts {
++	var cfg telemetryOptions
+ 	for _, opt := range opts {
 -		opt.Resolve(&config)
--	}
++		opt.Resolve(&cfg)
+ 	}
 -
 -	return &ClientMetrics{
 -		get: sync.OnceValue(func() clientMetricsData {
@@ -293,15 +306,18 @@
 -			}
 -		}),
 -	}
--}
--
++	return &ClientMetrics{}
+ }
+ 
 -func (cm *ClientMetrics) durationHistogram() metric.Float64Histogram {
 -	if cm == nil || cm.get == nil {
 -		return nil
 -	}
 -	return cm.get().duration
 -}
--
++func (cm *ClientMetrics) durationHistogram() interface{} { return nil }
++func (cm *ClientMetrics) attributes() interface{}        { return nil }
+ 
 -func (cm *ClientMetrics) attributes() []attribute.KeyValue {
 -	if cm == nil || cm.get == nil {
 -		return nil
@@ -352,7 +368,7 @@
  func grpcCodeToStatusString(c codes.Code) string {
  	if int(c) >= 0 && int(c) < len(codeToStr) {
  		return codeToStr[c]
-@@ -332,43 +138,15 @@ func grpcCodeToStatusString(c codes.Code) string {
+@@ -332,43 +113,15 @@ func grpcCodeToStatusString(c codes.Code) string {
  	return "UNKNOWN"
  }
  
@@ -401,7 +417,7 @@
  func ExtractTelemetryErrorInfo(ctx context.Context, err error) TelemetryErrorInfo {
  	if err == nil {
  		return TelemetryErrorInfo{ErrorType: "", StatusCode: "OK"}
-@@ -381,25 +159,13 @@ func ExtractTelemetryErrorInfo(ctx context.Context, er
+@@ -381,25 +134,13 @@ func ExtractTelemetryErrorInfo(ctx context.Context, er
  	rpcStatusCode := grpcCodeToStatusString(st.Code())
  
  	var errType string
@@ -427,7 +443,7 @@
  		errType = rpcStatusCode
  	}
  
-@@ -412,7 +178,6 @@ func ExtractTelemetryErrorInfo(ctx context.Context, er
+@@ -412,7 +153,6 @@ func ExtractTelemetryErrorInfo(ctx context.Context, er
  	}
  
  	if parsedErr, parsedOk := apierror.ParseError(err, false); parsedOk {
@@ -435,7 +451,7 @@
  		if reason := parsedErr.Reason(); reason != "" {
  			errType = reason
  		} else if httpCode := parsedErr.HTTPCode(); httpCode > 0 {
-@@ -421,8 +186,6 @@ func ExtractTelemetryErrorInfo(ctx context.Context, er
+@@ -421,8 +161,6 @@ func ExtractTelemetryErrorInfo(ctx context.Context, er
  		if message := parsedErr.Message(); message != "" {
  			msg = message
  		} else if parsedErr.HTTPCode() > 0 {
@@ -444,17 +460,15 @@
  			msg = ""
  		}
  		domain = parsedErr.Domain()
-@@ -438,46 +201,9 @@ func ExtractTelemetryErrorInfo(ctx context.Context, er
+@@ -438,46 +176,4 @@ func ExtractTelemetryErrorInfo(ctx context.Context, er
  	}
  }
  
 -// recordMetric records a duration measurement for the configured metric.
 -func recordMetric(ctx context.Context, settings CallSettings, d time.Duration, err error) {
 -	if settings.clientMetrics == nil || settings.clientMetrics.durationHistogram() == nil {
-+func recordMetric(_ context.Context, settings CallSettings, _ time.Duration, _ error) {
-+	if settings.clientMetrics == nil {
- 		return
- 	}
+-		return
+-	}
 -
 -	// Use context.WithoutCancel to ensure metric records even if context is canceled
 -	// preserving any trace context that might be required for exemplars.
@@ -492,5 +506,5 @@
 -	}
 -
 -	settings.clientMetrics.durationHistogram().Record(recordCtx, d.Seconds(), metric.WithAttributes(attrs...))
-+	// Metrics are intentionally disabled in this de-OpenTelemetry vendor variant.
- }
+-}
++func recordMetric(context.Context, CallSettings, interface{}, error) {}

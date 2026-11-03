@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/storage/storage.go.orig	2026-10-02 12:18:10 UTC
+--- vendor/cloud.google.com/go/storage/storage.go.orig	2026-11-02 21:24:35 UTC
 +++ vendor/cloud.google.com/go/storage/storage.go
 @@ -43,17 +43,12 @@ import (
  	"cloud.google.com/go/storage/internal"
@@ -18,7 +18,7 @@
  	"google.golang.org/grpc/status"
  	"google.golang.org/protobuf/proto"
  	"google.golang.org/protobuf/reflect/protoreflect"
-@@ -294,23 +289,7 @@ func CheckDirectConnectivitySupported(ctx context.Cont
+@@ -294,24 +289,7 @@ func CheckDirectConnectivitySupported(ctx context.Cont
  //
  // You can pass in [option.ClientOption] you plan on passing to [NewGRPCClient]
  func CheckDirectConnectivitySupported(ctx context.Context, bucket string, opts ...option.ClientOption) error {
@@ -39,11 +39,12 @@
 -		OptionalLabels: []string{"grpc.lb.locality"},
 -	}
 -	combinedOpts := append(opts, WithDisabledClientMetrics(), option.WithGRPCDialOption(opentelemetry.DialOption(opentelemetry.Options{MetricsOptions: mo})))
-+	combinedOpts := append(opts, WithDisabledClientMetrics())
- 	client, err := NewGRPCClient(ctx, combinedOpts...)
+-	client, err := NewGRPCClient(ctx, combinedOpts...)
++	client, err := NewGRPCClient(ctx, append(opts, WithDisabledClientMetrics())...)
  	if err != nil {
  		return fmt.Errorf("storage.NewGRPCClient: %w", err)
-@@ -319,25 +298,7 @@ func CheckDirectConnectivitySupported(ctx context.Cont
+ 	}
+@@ -319,25 +297,7 @@ func CheckDirectConnectivitySupported(ctx context.Cont
  	if _, err = client.Bucket(bucket).Attrs(ctx); err != nil {
  		return fmt.Errorf("Bucket.Attrs: %w", err)
  	}
