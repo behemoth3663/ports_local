@@ -8,7 +8,7 @@
  	"github.com/hashicorp/hcl/v2"
  	"github.com/hashicorp/hcl/v2/hclsyntax"
  	"github.com/zclconf/go-cty/cty"
-@@ -46,13 +45,9 @@ func RunGenerate(
+@@ -46,13 +45,8 @@ func RunGenerate(
  
  	// Clean stack folders before calling `generate` when the `--source-update` flag is passed
  	if opts.SourceUpdate {
@@ -19,13 +19,12 @@
 -			l.Debugf("Running stack clean for %s, as part of generate command", opts.WorkingDir)
 -			return clean.CleanStacks(l, v.FS, opts)
 -		})
-+		_, _ = opts.TerragruntStackConfigPath, opts.WorkingDir
 +		l.Debugf("Running stack clean for %s, as part of generate command", opts.WorkingDir)
 +		err := clean.CleanStacks(l, v.FS, opts)
  		if err != nil {
  			return fmt.Errorf(
  				"failed to clean stack directories under %q: %w",
-@@ -91,12 +86,8 @@ func RunGenerate(
+@@ -91,12 +85,7 @@ func RunGenerate(
  
  	gen := generate.NewGenerator()
  
@@ -35,12 +34,11 @@
 -	}, func(ctx context.Context, l log.Logger) error {
 -		return gen.GenerateStacks(ctx, l, v, opts, wts)
 -	})
-+	_, _ = opts.TerragruntStackConfigPath, opts.WorkingDir
 +	err := gen.GenerateStacks(ctx, l, v, opts, wts)
  	if err != nil {
  		return err
  	}
-@@ -120,12 +111,8 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
+@@ -120,12 +109,7 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
  func Run(ctx context.Context, l log.Logger, v *venv.Venv, opts *options.TerragruntOptions) error {
  	opts.StackAction = "run"
  
@@ -50,12 +48,11 @@
 -	}, func(ctx context.Context, l log.Logger) error {
 -		return RunGenerate(ctx, l, v, opts)
 -	})
-+	_, _ = opts.TerragruntStackConfigPath, opts.WorkingDir
 +	err := RunGenerate(ctx, l, v, opts)
  	if err != nil {
  		return err
  	}
-@@ -147,15 +134,9 @@ func RunOutput(
+@@ -147,15 +131,8 @@ func RunOutput(
  	var outputs cty.Value
  
  	// collect outputs
@@ -68,13 +65,12 @@
 -
 -		return err
 -	})
-+	_, _ = opts.TerragruntStackConfigPath, opts.WorkingDir
 +	stackOutputs, err := output.StackOutput(ctx, l, v, opts)
 +	outputs = stackOutputs
  	if err != nil {
  		return err
  	}
-@@ -280,14 +261,8 @@ func RunClean(
+@@ -280,14 +257,7 @@ func RunClean(
  	v *venv.Venv,
  	opts *options.TerragruntOptions,
  ) error {
@@ -86,7 +82,6 @@
 -	}, func(ctx context.Context, l log.Logger) error {
 -		return clean.CleanStacks(l, v.FS, opts)
 -	})
-+	_, _, _ = ctx, opts.TerragruntStackConfigPath, opts.WorkingDir
 +	err := clean.CleanStacks(l, v.FS, opts)
  	if err != nil {
  		return fmt.Errorf("failed to clean stack directories under %q: %w", opts.WorkingDir, err)

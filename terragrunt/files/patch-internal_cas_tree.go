@@ -14,7 +14,7 @@
  	"github.com/gruntwork-io/terragrunt/internal/venv"
  	"github.com/gruntwork-io/terragrunt/internal/vfs"
  	"github.com/gruntwork-io/terragrunt/pkg/log"
-@@ -182,16 +179,9 @@ func LinkTree(
+@@ -182,16 +179,10 @@ func LinkTree(
  		mutable:     o.mutable,
  	}
  
@@ -23,34 +23,37 @@
 -		"mode": mode.String(),
 -	}, telemetry.WithoutLogger(func(childCtx context.Context) error {
 -		err := linkTree(l, v, linker, t, targetDir, o.fsWorkers)
--
++	err := linkTree(l, v, linker, t, targetDir, o.fsWorkers)
++	linker.report(ctx)
+ 
 -		linker.report(childCtx)
 -
 -		return err
 -	}))
-+	err := linkTree(l, v, linker, t, targetDir, o.fsWorkers)
-+	linker.report(ctx)
 +	return err
  }
  
  // linkTree materializes t and everything nested below it, one level of the
-@@ -706,11 +696,6 @@ func (tl *treeLinker) report(ctx context.Context) {
- // report sets the per-mode file counts, the bytes copied, and the fallback on
- // the span in ctx.
+@@ -703,13 +694,9 @@ func (tl *treeLinker) record(outcome LinkOutcome) {
+ 	}
+ }
+ 
+-// report sets the per-mode file counts, the bytes copied, and the fallback on
+-// the span in ctx.
++// report sets the per-mode file counts, the bytes copied, and the fallback.
  func (tl *treeLinker) report(ctx context.Context) {
 -	span := trace.SpanFromContext(ctx)
 -	if !span.IsRecording() {
 -		return
 -	}
--
++	_ = ctx
+ 
  	counts := map[LinkMode]int64{
  		LinkModeHardlink: tl.linked.Load(),
- 		LinkModeClone:    tl.cloned.Load(),
-@@ -726,14 +711,8 @@ func (tl *treeLinker) report(ctx context.Context) {
- 	if counts[tl.mode] < total {
+@@ -727,13 +714,7 @@ func (tl *treeLinker) report(ctx context.Context) {
  		fallback = linkFallbackByMode[tl.mode]
  	}
--
+ 
 -	span.SetAttributes(
 -		attribute.Int64("files_linked", counts[LinkModeHardlink]),
 -		attribute.Int64("files_cloned", counts[LinkModeClone]),
@@ -58,7 +61,6 @@
 -		attribute.Int64("bytes_copied", tl.bytesCopied.Load()),
 -		attribute.String("fallback", string(fallback)),
 -	)
-+	_ = ctx
 +	_ = fallback
  }
  

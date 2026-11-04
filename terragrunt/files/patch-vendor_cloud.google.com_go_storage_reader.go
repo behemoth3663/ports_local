@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/storage/reader.go.orig	2026-10-22 19:52:07 UTC
+--- vendor/cloud.google.com/go/storage/reader.go.orig	2026-11-04 11:39:43 UTC
 +++ vendor/cloud.google.com/go/storage/reader.go
 @@ -25,9 +25,6 @@ import (
  	"sync"

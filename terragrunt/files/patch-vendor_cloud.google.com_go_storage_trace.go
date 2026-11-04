@@ -1,6 +1,13 @@
---- vendor/cloud.google.com/go/storage/trace.go.orig	2026-10-22 19:52:07 UTC
+--- vendor/cloud.google.com/go/storage/trace.go.orig	2026-11-04 11:39:43 UTC
 +++ vendor/cloud.google.com/go/storage/trace.go
-@@ -23,57 +23,29 @@ import (
+@@ -16,21 +16,11 @@ import (
+ 
+ import (
+ 	"context"
+-	"errors"
+ 	"fmt"
+-	"net/http"
+ 	"os"
  	"strings"
  
  	internalTrace "cloud.google.com/go/internal/trace"
@@ -9,15 +16,13 @@
 -	"go.opentelemetry.io/otel/attribute"
 -	otelcodes "go.opentelemetry.io/otel/codes"
 -	"go.opentelemetry.io/otel/trace"
- 	"google.golang.org/api/googleapi"
- 	"google.golang.org/grpc/codes"
- 	"google.golang.org/grpc/status"
+-	"google.golang.org/api/googleapi"
+-	"google.golang.org/grpc/codes"
+-	"google.golang.org/grpc/status"
  )
  
  type traceContextKey string
-+type apiMethodKey struct{}
- 
- const (
+@@ -39,18 +29,8 @@ const (
  	cacheContextKey    traceContextKey = "bucketMetadataCache"
  	bucketContextKey   traceContextKey = "bucketName"
  	isBucketContextKey traceContextKey = "isBucketOp"
@@ -33,58 +38,42 @@
 -	return attrs, ok
 -}
 -
--const (
--	defaultTracerName = "cloud.google.com/go/storage"
--	gcpClientArtifact = "cloud.google.com/go/storage"
--)
--
- // isOTelTracingDevEnabled checks the development flag until experimental feature is launched.
- // TODO: Remove development flag upon experimental launch.
- func isOTelTracingDevEnabled() bool {
--	return os.Getenv(storageOtelTracingDevVar) == "true"
-+	return false
+ const (
+ 	defaultTracerName = "cloud.google.com/go/storage"
+ 	gcpClientArtifact = "cloud.google.com/go/storage"
+@@ -67,11 +47,7 @@ func isACOEnabled() bool {
+ 	return os.Getenv(storageBucketMetadataDisabledVar) != "true"
  }
- 
--func isACOEnabled() bool {
--	return os.Getenv(storageBucketMetadataDisabledVar) != "true"
--}
-+func isACOEnabled() bool { return os.Getenv(storageBucketMetadataDisabledVar) != "true" }
  
 -func tracer() trace.Tracer {
 -	return otel.Tracer(defaultTracerName, trace.WithInstrumentationVersion(internal.Version))
 -}
 -
 -func startSpanWithBucket(ctx context.Context, client *Client, bucket string, name string, opts ...trace.SpanStartOption) (context.Context, trace.Span) {
--	if !isOTelTracingDevEnabled() {
--		return startSpan(ctx, name, opts...)
--	}
-+func startSpanWithBucket(ctx context.Context, client *Client, bucket string, name string, _ ...any) (context.Context, any) {
- 	if client != nil && client.bucketMetadataCache != nil && bucket != "" {
- 		ctx = context.WithValue(ctx, cacheContextKey, client.bucketMetadataCache)
- 		ctx = context.WithValue(ctx, bucketContextKey, bucket)
-@@ -90,34 +62,21 @@ func startSpanWithBucket(ctx context.Context, client *
- 			}
- 			cache.put(bucket, placeholder)
++func startSpanWithBucket(ctx context.Context, client *Client, bucket string, name string, opts ...any) (context.Context, any) {
+ 	if !isOTelTracingDevEnabled() {
+ 		return startSpan(ctx, name, opts...)
+ 	}
+@@ -93,11 +69,8 @@ func startSpanWithBucket(ctx context.Context, client *
  			cache.fetchBackground(ctx, bucket)
--			meta = placeholder
-+			_ = placeholder
+ 			meta = placeholder
  		}
 -		attrs := []attribute.KeyValue{
--			attribute.String("gcp.resource.destination.id", meta.resource),
+-			attribute.String("gcp.resource.destination.id", destinationResourceName(meta.resource)),
 -			attribute.String("gcp.resource.destination.location", meta.location),
 -		}
 -		ctx = contextWithTraceAttributes(ctx, attrs)
-+		_ = meta
++		_ = destinationResourceName(meta.resource)
++		_ = meta.location
  	}
--	return startSpan(ctx, name, opts...)
-+	return startSpan(ctx, name)
+ 	return startSpan(ctx, name, opts...)
  }
- 
+@@ -122,76 +95,19 @@ func destinationResourceName(resource string) string {
  // startSpan creates a span and a context.Context containing the newly-created span.
  // If the context.Context provided in `ctx` contains a span then the newly-created
  // span will be a child of that span, otherwise it will be a root span.
 -func startSpan(ctx context.Context, name string, opts ...trace.SpanStartOption) (context.Context, trace.Span) {
-+func startSpan(ctx context.Context, name string, _ ...any) (context.Context, any) {
++func startSpan(ctx context.Context, name string, opts ...any) (context.Context, any) {
  	ctx = context.WithValue(ctx, apiMethodKey{}, name)
  	name = appendPackageName(name)
 -	// TODO: Remove internalTrace upon experimental launch.
@@ -98,15 +87,37 @@
 -	}
 -	ctx, span := tracer().Start(ctx, name, opts...)
 -	return ctx, span
++	_ = opts
 +	ctx = internalTrace.StartSpan(ctx, name)
 +	return ctx, nil
  }
  
- func isNotFoundError(err error) bool {
-@@ -146,35 +105,10 @@ func endSpan(ctx context.Context, err error) {
- 		}
- 	}
- 
+-func isNotFoundError(err error) bool {
+-	if errors.Is(err, ErrBucketNotExist) {
+-		return true
+-	}
+-	var e *googleapi.Error
+-	if s, ok := status.FromError(err); (ok && s.Code() == codes.NotFound) ||
+-		(errors.As(err, &e) && e.Code == http.StatusNotFound) {
+-		return true
+-	}
+-	return false
+-}
+-
+ // endSpan retrieves the current span from ctx and completes the span.
+ // If an error occurs, the error is recorded as an exception span event for this span,
+ // and the span status is set in the form of a code and a description.
+ func endSpan(ctx context.Context, err error) {
+-	if err != nil && isNotFoundError(err) {
+-		isBucket, _ := ctx.Value(isBucketContextKey).(bool)
+-		cache, _ := ctx.Value(cacheContextKey).(*bucketMetadataCache)
+-		bucket, _ := ctx.Value(bucketContextKey).(string)
+-
+-		if isBucket && cache != nil && bucket != "" {
+-			cache.evict(bucket)
+-		}
+-	}
+-
 -	// TODO: Remove internalTrace upon experimental launch.
 -	if !isOTelTracingDevEnabled() {
 -		internalTrace.EndSpan(ctx, err)
@@ -118,10 +129,9 @@
 -		}
 -		span.End()
 -	}
-+	internalTrace.EndSpan(ctx, err)
- }
- 
- // getCommonTraceOptions makes a SpanStartOption with common attributes.
+-}
+-
+-// getCommonTraceOptions makes a SpanStartOption with common attributes.
 -func getCommonTraceOptions() []trace.SpanStartOption {
 -	opts := []trace.SpanStartOption{
 -		trace.WithAttributes(getCommonAttributes()...),
@@ -132,12 +142,11 @@
 -// getCommonAttributes includes the common attributes used for Cloud Trace adoption tracking.
 -func getCommonAttributes() []attribute.KeyValue {
 -	return []attribute.KeyValue{
+-		attribute.String("gcp.client.service", gcpClientService),
 -		attribute.String("gcp.client.version", internal.Version),
 -		attribute.String("gcp.client.artifact", gcpClientArtifact),
 -	}
--}
--
- func appendPackageName(spanName string) string {
--	return fmt.Sprintf("%s.%s", gcpClientArtifact, spanName)
-+	return fmt.Sprintf("cloud.google.com/go/storage.%s", spanName)
++	internalTrace.EndSpan(ctx, err)
  }
+ 
+ func appendPackageName(spanName string) string {

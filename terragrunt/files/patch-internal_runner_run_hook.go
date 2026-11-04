@@ -8,7 +8,7 @@
  	"github.com/gruntwork-io/terragrunt/internal/tflint"
  	"github.com/gruntwork-io/terragrunt/internal/util"
  	"github.com/gruntwork-io/terragrunt/internal/venv"
-@@ -91,13 +90,7 @@ func ProcessHooks(ctx context.Context, l log.Logger, v
+@@ -92,13 +91,7 @@ func ProcessHooks(ctx context.Context, l log.Logger, v
  		}
  
  		if shouldRunHook(curHook, p.Opts, allPreviousErrors) {
@@ -23,9 +23,9 @@
  			if err != nil {
  				allPreviousErrors = append(allPreviousErrors, err)
  			}
-@@ -152,41 +145,31 @@ func ProcessErrorHooks(
- 	for _, curHook := range hooks {
- 		if util.MatchesAny(curHook.OnErrors, errorMessage) &&
+@@ -160,40 +153,36 @@ func ProcessErrorHooks(
+ 
+ 		if matched &&
  			slices.Contains(curHook.Commands, opts.TerraformCliArgs.CommandName(opts.TerraformCommand)) {
 -			err := telemetry.TelemeterFromContext(ctx).
 -				Collect(ctx, l, "error_hook_"+curHook.Name, map[string]any{
@@ -33,25 +33,25 @@
 -					"dir":  curHook.WorkingDir,
 -				}, func(ctx context.Context, l log.Logger) error {
 -					l.Infof("Executing hook: %s", curHook.Name)
-+			l.Infof("Executing hook: %s", curHook.Name)
++			err := func(ctx context.Context, l log.Logger) error {
++				l.Infof("Executing hook: %s", curHook.Name)
  
 -					actionToExecute := curHook.Execute[0]
 -					actionParams := curHook.Execute[1:]
-+			actionToExecute := curHook.Execute[0]
-+			actionParams := curHook.Execute[1:]
++				actionToExecute := curHook.Execute[0]
++				actionParams := curHook.Execute[1:]
  
 -					env, hookEnvErr := hookEnv(v.Env, opts, cfg, curHook.Name, HookTypeError)
 -					if hookEnvErr != nil {
 -						return hookEnvErr
 -					}
-+			env, hookEnvErr := hookEnv(v.Env, opts, cfg, curHook.Name, HookTypeError)
-+			if hookEnvErr != nil {
-+				errorsOccured = append(errorsOccured, hookEnvErr)
-+				continue
-+			}
++				env, hookEnvErr := hookEnv(v.Env, opts, cfg, curHook.Name, HookTypeError)
++				if hookEnvErr != nil {
++					return hookEnvErr
++				}
  
 -					hookV := v.WithEnv(env)
-+			hookV := v.WithEnv(env)
++				hookV := v.WithEnv(env)
  
 -					_, possibleError := shell.RunCommandWithOutput(
 -						ctx,
@@ -67,21 +67,25 @@
 -						l.Errorf("%s", hookErrorMessage(curHook.Name, possibleError))
 -						return possibleError
 -					}
--
++				_, possibleError := shell.RunCommandWithOutput(
++					ctx,
++					l,
++					hookV,
++					opts.shellRunOptions(env),
++					curHook.WorkingDir,
++					curHook.SuppressStdout,
++					false,
++					actionToExecute, actionParams...,
++				)
++				if possibleError != nil {
++					l.Errorf("%s", hookErrorMessage(curHook.Name, possibleError))
++					return possibleError
++				}
+ 
 -					return nil
 -				})
-+			_, err := shell.RunCommandWithOutput(
-+				ctx,
-+				l,
-+				hookV,
-+				opts.shellRunOptions(env),
-+				curHook.WorkingDir,
-+				curHook.SuppressStdout,
-+				false,
-+				actionToExecute, actionParams...,
-+			)
++				return nil
++			}(ctx, l)
  			if err != nil {
-+				l.Errorf("%s", hookErrorMessage(curHook.Name, err))
  				errorsOccured = append(errorsOccured, err)
  			}
- 		}

@@ -8,7 +8,7 @@
  	"github.com/gruntwork-io/terragrunt/pkg/log"
  )
  
-@@ -32,31 +31,26 @@ func readDependencyStateOutputs(
+@@ -32,31 +31,27 @@ func readDependencyStateOutputs(
  		encrypted   error
  	)
  
@@ -18,38 +18,38 @@
 -			if err != nil {
 -				return err
 -			}
-+	_, _ = metric, attrs
-+	reader, err := open(ctx, l)
-+	if err != nil {
-+		return nil, err
-+	}
++	_ = metric
++	_ = attrs
  
 -			defer func() {
 -				if err := reader.Close(); err != nil {
 -					l.Warnf("Failed to close dependency state reader for %s: %v", location, err)
 -				}
 -			}()
++	reader, err := open(ctx, l)
++	if err != nil {
++		return nil, err
++	}
+ 
+-			jsonOutputs, err = stateOutputsJSON(reader, location)
 +	defer func() {
 +		if err := reader.Close(); err != nil {
 +			l.Warnf("Failed to close dependency state reader for %s: %v", location, err)
 +		}
 +	}()
  
--			jsonOutputs, err = stateOutputsJSON(reader, location)
-+	jsonOutputs, err = stateOutputsJSON(reader, location)
- 
 -			// An encrypted state is an expected fallback rather than a failed read, so it is
 -			// carried out of the callback to keep it off this metric's error counter.
 -			if errors.Is(err, ErrDependencyStateEncrypted) {
 -				encrypted = err
--
++	jsonOutputs, err = stateOutputsJSON(reader, location)
+ 
 -				return nil
 -			}
 -
 -			return err
 -		})
-+	// An encrypted state is an expected fallback rather than a failed read, so it is
-+	// carried out separately.
++	// An encrypted state is an expected fallback rather than a failed read.
 +	if errors.Is(err, ErrDependencyStateEncrypted) {
 +		encrypted = err
 +		err = nil

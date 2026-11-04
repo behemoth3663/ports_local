@@ -1,20 +1,6 @@
 --- internal/runner/runall/runall.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/runner/runall/runall.go
-@@ -3,6 +3,7 @@ import (
- 
- import (
- 	"context"
-+	"errors"
- 	"fmt"
- 	"path/filepath"
- 
-@@ -17,13 +18,10 @@ import (
- 	"github.com/gruntwork-io/terragrunt/internal/worktrees"
- 	"github.com/gruntwork-io/terragrunt/pkg/config"
- 
--	"errors"
--
- 	"github.com/gruntwork-io/terragrunt/internal/iacargs"
+@@ -23,7 +23,6 @@ import (
  	"github.com/gruntwork-io/terragrunt/internal/os/stdout"
  	"github.com/gruntwork-io/terragrunt/internal/report"
  	"github.com/gruntwork-io/terragrunt/internal/shell"
@@ -22,7 +8,7 @@
  	"github.com/gruntwork-io/terragrunt/internal/tf"
  	"github.com/gruntwork-io/terragrunt/pkg/log"
  	"github.com/gruntwork-io/terragrunt/pkg/options"
-@@ -149,18 +147,12 @@ func Run(
+@@ -149,18 +148,12 @@ func Run(
  
  		// Clean stack folders before calling `generate` when the `--source-update` flag is passed
  		if opts.SourceUpdate {
@@ -35,21 +21,22 @@
 -						"Running stack clean for %s, as part of generate command",
 -						opts.WorkingDir,
 -					)
--
--					return clean.CleanStacks(l, v.FS, opts)
--				})
-+			_, _ = opts.TerragruntStackConfigPath, opts.WorkingDir
 +			l.Debugf(
 +				"Running stack clean for %s, as part of generate command",
 +				opts.WorkingDir,
 +			)
+ 
+-					return clean.CleanStacks(l, v.FS, opts)
+-				})
 +			errClean := clean.CleanStacks(l, v.FS, opts)
  			if errClean != nil {
  				return fmt.Errorf(
  					"failed to clean stack directories under %q: %w",
-@@ -172,13 +164,8 @@ func Run(
+@@ -170,14 +163,8 @@ func Run(
+ 			}
+ 		}
  
- 		// Generate the stack configuration with telemetry tracking
+-		// Generate the stack configuration with telemetry tracking
  		gen := generate.NewGenerator()
 -		err = telemetry.TelemeterFromContext(ctx).Collect(ctx, l, "stack_generate", map[string]any{
 -			"stack_config_path": opts.TerragruntStackConfigPath,
@@ -57,16 +44,16 @@
 -		}, func(ctx context.Context, l log.Logger) error {
 -			return gen.GenerateStacks(ctx, l, v, opts, wts)
 -		})
--
-+		_, _ = opts.TerragruntStackConfigPath, opts.WorkingDir
 +		err = gen.GenerateStacks(ctx, l, v, opts, wts)
+ 
  		// Handle any errors during stack generation
  		if err != nil {
- 			return fmt.Errorf("failed to generate stack file: %w", err)
-@@ -265,27 +252,24 @@ func RunAllOnStack(
+@@ -263,33 +250,9 @@ func RunAllOnStack(
+ 		}
+ 	}
  
- 	var runErr error
- 
+-	var runErr error
+-
 -	telemetryErr := telemetry.TelemeterFromContext(ctx).
 -		Collect(ctx, l, "run_all_on_stack", map[string]any{
 -			"terraform_command": opts.TerraformCommand,
@@ -78,31 +65,23 @@
 -				// After this point, we'll need to report on what happened, and we want that to happen
 -				// after the error summary.
 -				l.Errorf("Run failed: %s", errfmt.Format(err))
-+	_, _ = opts.TerraformCommand, opts.WorkingDir
-+	telemetryErr := func() error {
-+		err := rnr.Run(ctx, l, v, opts, r)
-+		if err != nil {
-+			// At this stage, we can't handle the error any further, so we just log it and return nil.
-+			// After this point, we'll need to report on what happened, and we want that to happen
-+			// after the error summary.
-+			l.Errorf("Run failed: %s", errfmt.Format(err))
- 
+-
 -				// Save error to potentially return after telemetry completes
 -				runErr = err
-+			// Save error to potentially return after telemetry completes
-+			runErr = err
- 
+-
 -				// Return nil to allow telemetry and reporting to complete
 -				return nil
 -			}
 -
-+			// Return nil to allow reporting to complete
- 			return nil
+-			return nil
 -		})
-+		}
-+
-+		return nil
-+	}()
+-
+-	// log telemetry error and continue execution
+-	if telemetryErr != nil {
+-		l.Warnf("Telemetry collection failed: %v", telemetryErr)
++	runErr := rnr.Run(ctx, l, v, opts, r)
++	if runErr != nil {
++		l.Errorf("Run failed: %s", errfmt.Format(runErr))
+ 	}
  
- 	// log telemetry error and continue execution
- 	if telemetryErr != nil {
+ 	return runErr

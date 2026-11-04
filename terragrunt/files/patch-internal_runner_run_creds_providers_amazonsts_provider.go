@@ -8,7 +8,7 @@
  	"github.com/gruntwork-io/terragrunt/internal/venv"
  	"github.com/gruntwork-io/terragrunt/pkg/log"
  	"golang.org/x/sync/singleflight"
-@@ -143,17 +142,7 @@ func (provider *Provider) assumeAndCache(
+@@ -143,19 +142,9 @@ func (provider *Provider) assumeAndCache(
  
  		var resp *types.Credentials
  
@@ -23,16 +23,21 @@
 -
 -			return assumeErr
 -		})
-+		resp, collectErr := awshelper.AssumeIamRole(ctx, assumeVenv(v, sourceEnv), iamRoleOpts, "")
- 		if collectErr != nil {
- 			return nil, collectErr
+-		if collectErr != nil {
+-			return nil, collectErr
++		resp, err := awshelper.AssumeIamRole(ctx, assumeVenv(v, sourceEnv), iamRoleOpts, "")
++		if err != nil {
++			return nil, err
  		}
-@@ -321,21 +310,15 @@ func (s *stsCredentialsStore) get(ctx context.Context,
+ 
+ 		creds := &providers.Credentials{
+@@ -321,21 +310,17 @@ func (s *stsCredentialsStore) get(ctx context.Context,
  	s.mu.Lock()
  	defer s.mu.Unlock()
  
 -	telemetry.TelemeterFromContext(ctx).Count(ctx, s.name+"_cache_get", 1)
--
++	_ = ctx
+ 
  	entry, found := s.byID[identityKey]
  	if !found {
 -		telemetry.TelemeterFromContext(ctx).Count(ctx, s.name+"_cache_miss", 1)
@@ -49,12 +54,13 @@
  	return entry
  }
  
-@@ -343,21 +326,15 @@ func (s *stsCredentialsStore) getBySession(ctx context
+@@ -343,21 +328,17 @@ func (s *stsCredentialsStore) getBySession(ctx context
  	s.mu.Lock()
  	defer s.mu.Unlock()
  
 -	telemetry.TelemeterFromContext(ctx).Count(ctx, s.name+"_cache_get", 1)
--
++	_ = ctx
+ 
  	entry, found := s.bySession[sessionIndexKey(roleKey, sessionFP)]
  	if !found {
 -		telemetry.TelemeterFromContext(ctx).Count(ctx, s.name+"_cache_miss", 1)
@@ -71,12 +77,13 @@
  	return entry
  }
  
-@@ -365,24 +342,18 @@ func (s *stsCredentialsStore) getPastRefreshBySession(
+@@ -365,24 +346,20 @@ func (s *stsCredentialsStore) getPastRefreshBySession(
  	s.mu.Lock()
  	defer s.mu.Unlock()
  
 -	telemetry.TelemeterFromContext(ctx).Count(ctx, s.name+"_cache_get", 1)
--
++	_ = ctx
+ 
  	key := sessionIndexKey(roleKey, sessionFP)
  
  	entry, found := s.bySession[key]
@@ -96,12 +103,12 @@
  	if now.After(entry.expiresAt) {
  		delete(s.bySession, key)
  		s.deleteIdentityLocked(entry)
-@@ -396,8 +367,6 @@ func (s *stsCredentialsStore) put(ctx context.Context,
- func (s *stsCredentialsStore) put(ctx context.Context, identityKey, roleKey string, entry *cacheEntry) {
+@@ -397,7 +374,7 @@ func (s *stsCredentialsStore) put(ctx context.Context,
  	s.mu.Lock()
  	defer s.mu.Unlock()
--
+ 
 -	telemetry.TelemeterFromContext(ctx).Count(ctx, s.name+"_cache_put", 1)
++	_ = ctx
  
  	previous := s.byID[identityKey]
  	if previous != nil && previous.sessionFP != "" && previous.sessionFP != entry.sessionFP {

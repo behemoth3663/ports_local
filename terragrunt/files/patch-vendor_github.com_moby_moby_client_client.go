@@ -1,4 +1,4 @@
---- vendor/github.com/moby/moby/client/client.go.orig	2026-10-22 19:52:08 UTC
+--- vendor/github.com/moby/moby/client/client.go.orig	2026-11-04 11:39:43 UTC
 +++ vendor/github.com/moby/moby/client/client.go
 @@ -70,7 +70,6 @@ import (
  	"github.com/docker/go-connections/sockets"
@@ -8,7 +8,7 @@
  )
  
  // DummyHost is a hostname used for local communication.
-@@ -205,11 +204,7 @@ func New(ops ...Opt) (*Client, error) {
+@@ -205,11 +204,6 @@ func New(ops ...Opt) (*Client, error) {
  			client:  client,
  			proto:   hostURL.Scheme,
  			addr:    hostURL.Host,
@@ -17,16 +17,15 @@
 -					return req.Method + " " + req.URL.Path
 -				}),
 -			},
-+			traceOpts: nil,
  		},
  	}
  	cfg := &c.clientConfig
-@@ -248,7 +243,7 @@ func New(ops ...Opt) (*Client, error) {
+@@ -247,8 +241,6 @@ func New(ops ...Opt) (*Client, error) {
+ 			c.scheme = "http"
  		}
  	}
- 
+-
 -	c.client.Transport = otelhttp.NewTransport(c.client.Transport, c.traceOpts...)
-+	_ = c.traceOpts
  
  	if len(cfg.responseHooks) > 0 {
  		c.client.Transport = &responseHookTransport{

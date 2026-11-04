@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/longrunning/longrunning.go.orig	2026-10-22 19:52:07 UTC
+--- vendor/cloud.google.com/go/longrunning/longrunning.go.orig	2026-11-04 11:39:43 UTC
 +++ vendor/cloud.google.com/go/longrunning/longrunning.go
 @@ -31,11 +31,6 @@ import (
  	pb "cloud.google.com/go/longrunning/autogen/longrunningpb"
@@ -20,17 +20,22 @@
  }
  
  type operationsClient interface {
-@@ -84,8 +78,7 @@ func InternalNewOperationWithMetadata(inner *autogen.O
- // which is used to create a Span Link from the LRO Wait span.
- //
- // SetParentSpanContext is an EXPERIMENTAL API and may be changed or removed in the future.
--func (op *Operation) SetParentSpanContext(sc trace.SpanContext) {
--	op.initSpanContext = sc
-+func (op *Operation) SetParentSpanContext(_ any) {
+@@ -80,14 +74,6 @@ func InternalNewOperationWithMetadata(inner *autogen.O
+ 	}
  }
  
+-// SetParentSpanContext sets the parent/initiating span context for the operation,
+-// which is used to create a Span Link from the LRO Wait span.
+-//
+-// SetParentSpanContext is an EXPERIMENTAL API and may be changed or removed in the future.
+-func (op *Operation) SetParentSpanContext(sc trace.SpanContext) {
+-	op.initSpanContext = sc
+-}
+-
  // Name returns the name of the long-running operation.
-@@ -172,35 +165,7 @@ func (op *Operation) waitWithInterval(ctx context.Cont
+ // The name is assigned by the server and is unique within the service
+ // from which the operation is created.
+@@ -172,35 +158,7 @@ func (op *Operation) waitWithInterval(ctx context.Cont
  		bo.Max = bo.Initial
  	}
  
@@ -67,10 +72,14 @@
  }
  
  type sleeper func(context.Context, time.Duration) error
-@@ -221,57 +186,7 @@ func (op *Operation) waitTraced(ctx context.Context, r
- }
- 
- func (op *Operation) waitTraced(ctx context.Context, resp protoadapt.MessageV1, bo *gax.Backoff, sl sleeper, opts ...gax.CallOption) error {
+@@ -217,60 +175,6 @@ func (op *Operation) wait(ctx context.Context, resp pr
+ 		if err := sl(ctx, bo.Pause()); err != nil {
+ 			return err
+ 		}
+-	}
+-}
+-
+-func (op *Operation) waitTraced(ctx context.Context, resp protoadapt.MessageV1, bo *gax.Backoff, sl sleeper, opts ...gax.CallOption) error {
 -	tracer := otel.GetTracerProvider().Tracer("cloud.google.com/go")
 -	pollAttempt := 0
 -
@@ -121,8 +130,6 @@
 -			return sleepErr
 -		}
 -		sleepSpan.End()
--	}
-+	return op.wait(ctx, resp, bo, sl, opts...)
+ 	}
  }
  
- // Cancel starts asynchronous cancellation on a long-running operation. The server

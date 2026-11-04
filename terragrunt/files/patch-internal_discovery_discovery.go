@@ -1,16 +1,6 @@
 --- internal/discovery/discovery.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/discovery/discovery.go
-@@ -2,16 +2,14 @@ import (
- 
- import (
- 	"context"
-+	"errors"
- 	"path/filepath"
- 	"slices"
- 	"sync"
- 
--	"errors"
--
+@@ -11,7 +11,6 @@ import (
  	"github.com/gruntwork-io/terragrunt/internal/component"
  	"github.com/gruntwork-io/terragrunt/internal/filter"
  	"github.com/gruntwork-io/terragrunt/internal/git"
@@ -18,7 +8,7 @@
  	"github.com/gruntwork-io/terragrunt/internal/util"
  	"github.com/gruntwork-io/terragrunt/internal/venv"
  	"github.com/gruntwork-io/terragrunt/internal/vfs"
-@@ -92,18 +90,9 @@ func (d *Discovery) Discover(
+@@ -92,17 +91,13 @@ func (d *Discovery) Discover(
  		withWorktree,
  	)
  
@@ -27,19 +17,18 @@
 -			"num_workers":   d.numWorkers,
 -			"with_worktree": withWorktree,
 -		}, func(childCtx context.Context, l log.Logger) error {
--			var phaseErr error
-+	_, _ = d.numWorkers, withWorktree
-+	results, err = d.runFilesystemPhase(ctx, l, v, opts)
++	err = func(childCtx context.Context, l log.Logger) error {
+ 			var phaseErr error
  
--			results, phaseErr = d.runFilesystemPhase(childCtx, l, v, opts)
--
--			return phaseErr
+ 			results, phaseErr = d.runFilesystemPhase(childCtx, l, v, opts)
+ 
+ 			return phaseErr
 -		})
--
++		}(ctx, l)
+ 
  	logPhaseComplete(l, "filesystem", results, err)
  
- 	if err != nil && (!d.suppressParseErrors || errors.As(err, new(CoexistenceError))) {
-@@ -125,24 +114,9 @@ func (d *Discovery) Discover(
+@@ -125,23 +120,13 @@ func (d *Discovery) Discover(
  		l.Debugf("Discovery: starting parse phase (discovered=%d, candidates=%d, reasons=%s)",
  			len(discovered), len(candidates), reasonsStr)
  
@@ -54,19 +43,18 @@
 -				"track_reads":       d.trackReads,
 -				"activation_reason": reasonsStr,
 -			}, func(childCtx context.Context, l log.Logger) error {
--				var phaseErr error
-+		_, _, _, _, _, _, _, _ = d.numWorkers, len(discovered), len(candidates), d.parseIncludes, d.parseExclude, d.readFiles, d.trackReads, reasonsStr
-+		results, err = d.runParsePhase(ctx, l, v, opts, discovered, candidates)
++		err = func(childCtx context.Context, l log.Logger) error {
+ 				var phaseErr error
  
--				results, phaseErr = d.runParsePhase(childCtx, l, v, opts, discovered, candidates)
--
--				return phaseErr
+ 				results, phaseErr = d.runParsePhase(childCtx, l, v, opts, discovered, candidates)
+ 
+ 				return phaseErr
 -			})
--
++			}(ctx, l)
+ 
  		logPhaseComplete(l, "parse", results, err)
  
- 		if err != nil && !d.suppressParseErrors {
-@@ -170,21 +144,9 @@ func (d *Discovery) Discover(
+@@ -170,20 +155,13 @@ func (d *Discovery) Discover(
  			d.classifier.HasDependentFilters(),
  		)
  
@@ -78,19 +66,18 @@
 -				"candidates_in":         len(candidates),
 -				"has_dependent_filters": d.classifier.HasDependentFilters(),
 -			}, func(childCtx context.Context, l log.Logger) error {
--				var phaseErr error
-+		_, _, _, _, _ = d.numWorkers, d.maxDependencyDepth, len(discovered), len(candidates), d.classifier.HasDependentFilters()
-+		results, err = d.runGraphPhase(ctx, l, v, opts, discovered, candidates)
++		err = func(childCtx context.Context, l log.Logger) error {
+ 				var phaseErr error
  
--				results, phaseErr = d.runGraphPhase(childCtx, l, v, opts, discovered, candidates)
--
--				return phaseErr
+ 				results, phaseErr = d.runGraphPhase(childCtx, l, v, opts, discovered, candidates)
+ 
+ 				return phaseErr
 -			})
--
++			}(ctx, l)
+ 
  		logPhaseComplete(l, "graph", results, err)
  
- 		if err != nil && !d.suppressParseErrors {
-@@ -200,19 +162,9 @@ func (d *Discovery) Discover(
+@@ -200,18 +178,13 @@ func (d *Discovery) Discover(
  		l.Debugf("Discovery: starting relationship phase (components=%d, max_depth=%d)",
  			len(components), d.maxDependencyDepth)
  
@@ -100,59 +87,38 @@
 -				"max_dependency_depth": d.maxDependencyDepth,
 -				"components_in":        len(components),
 -			}, func(childCtx context.Context, l log.Logger) error {
--				var phaseErr error
-+		_, _, _ = d.numWorkers, d.maxDependencyDepth, len(components)
-+		components, err = d.runRelationshipPhase(ctx, l, v, opts, components)
++		err = func(childCtx context.Context, l log.Logger) error {
+ 				var phaseErr error
  
--				components, phaseErr = d.runRelationshipPhase(childCtx, l, v, opts, components)
--
--				return phaseErr
+ 				components, phaseErr = d.runRelationshipPhase(childCtx, l, v, opts, components)
+ 
+ 				return phaseErr
 -			})
--
++			}(ctx, l)
+ 
  		l.Debugf(
  			"Discovery: relationship phase complete (components=%d, err=%v)",
- 			len(components),
-@@ -247,26 +199,24 @@ func (d *Discovery) Discover(
+@@ -247,9 +220,7 @@ func (d *Discovery) Discover(
  
  	components = d.dropOutsideBoundary(l, v.FS, components)
  
 -	cycleCheckErr := telemetry.TelemeterFromContext(ctx).
 -		Collect(ctx, l, "discovery_cycle_check", map[string]any{},
 -			func(childCtx context.Context, l log.Logger) error {
--				if _, cycleErr := components.CycleCheck(); cycleErr != nil {
--					l.Debugf("Cycle: %v", cycleErr)
-+	cycleCheckErr := func() error {
-+		if _, cycleErr := components.CycleCheck(); cycleErr != nil {
-+			l.Debugf("Cycle: %v", cycleErr)
++	cycleCheckErr := func(childCtx context.Context, l log.Logger) error {
+ 				if _, cycleErr := components.CycleCheck(); cycleErr != nil {
+ 					l.Debugf("Cycle: %v", cycleErr)
  
--					if d.breakCycles {
--						l.Warnf("Cycle detected in dependency graph, attempting removal of cycles.")
-+			if d.breakCycles {
-+				l.Warnf("Cycle detected in dependency graph, attempting removal of cycles.")
- 
--						var removeErr error
-+				var removeErr error
- 
--						components, removeErr = removeCycles(components)
--						if removeErr != nil {
--							return removeErr
--						}
--					}
-+				components, removeErr = removeCycles(components)
-+				if removeErr != nil {
-+					return removeErr
+@@ -266,7 +237,7 @@ func (d *Discovery) Discover(
  				}
-+			}
-+		}
  
--				return nil
+ 				return nil
 -			})
-+		return nil
-+	}()
++			}(ctx, l)
  
  	if cycleCheckErr != nil && !d.suppressParseErrors {
  		return components, cycleCheckErr
-@@ -279,14 +229,11 @@ func (d *Discovery) Discover(
+@@ -279,14 +250,11 @@ func (d *Discovery) Discover(
  	components = d.applyQueueFilters(opts, components)
  
  	if d.parseStackConfigs {
@@ -160,19 +126,16 @@
 -			Collect(ctx, l, "discovery_phase_stack_configs", map[string]any{
 -				"components_in": len(components),
 -			}, func(childCtx context.Context, childL log.Logger) error {
--				storeStackConfigs(childCtx, childL, v, opts, components)
--
--				return nil
++		if err := func(childCtx context.Context, childL log.Logger) error {
+ 				storeStackConfigs(childCtx, childL, v, opts, components)
+ 
+ 				return nil
 -			}); err != nil {
-+		if err := func() error {
-+			_ = len(components)
-+			storeStackConfigs(ctx, l, v, opts, components)
-+			return nil
-+		}(); err != nil {
++			}(ctx, l); err != nil {
  			return components, err
  		}
  	}
-@@ -337,24 +284,20 @@ func (d *Discovery) runFilesystemPhase(
+@@ -337,11 +305,7 @@ func (d *Discovery) runFilesystemPhase(
  
  		l.Debugf("Discovery: starting filesystem walk at %s", d.workingDir)
  
@@ -181,34 +144,20 @@
 -				"num_workers": d.numWorkers,
 -				"working_dir": d.workingDir,
 -			}, func(childCtx context.Context, l log.Logger) error {
--				phase := NewFilesystemPhase(d.numWorkers)
-+		_, _ = d.numWorkers, d.workingDir
-+		phase := NewFilesystemPhase(d.numWorkers)
-+		err := func() error {
-+			var phaseErr error
++		err := func(childCtx context.Context, l log.Logger) error {
+ 				phase := NewFilesystemPhase(d.numWorkers)
  
--				var phaseErr error
--
--				result, phaseErr = phase.Run(childCtx, l, v, &PhaseInput{
--					Opts:       opts,
--					Classifier: d.classifier,
--					Discovery:  d,
--				})
--
--				return phaseErr
-+			result, phaseErr = phase.Run(ctx, l, v, &PhaseInput{
-+				Opts:       opts,
-+				Classifier: d.classifier,
-+				Discovery:  d,
- 			})
+ 				var phaseErr error
+@@ -353,7 +317,7 @@ func (d *Discovery) runFilesystemPhase(
+ 				})
  
-+			return phaseErr
-+		}()
-+
+ 				return phaseErr
+-			})
++			}(ctx, l)
+ 
  		logPhaseComplete(l, "filesystem walk", result, err)
  
- 		mu.Lock()
-@@ -382,24 +325,20 @@ func (d *Discovery) runFilesystemPhase(
+@@ -382,11 +346,7 @@ func (d *Discovery) runFilesystemPhase(
  				len(d.gitExpressions),
  			)
  
@@ -217,34 +166,20 @@
 -					"num_workers":          d.numWorkers,
 -					"git_expression_count": len(d.gitExpressions),
 -				}, func(childCtx context.Context, l log.Logger) error {
--					phase := NewWorktreePhase(d.gitExpressions, d.numWorkers)
-+			_, _ = d.numWorkers, len(d.gitExpressions)
-+			phase := NewWorktreePhase(d.gitExpressions, d.numWorkers)
-+			err := func() error {
-+				var phaseErr error
++			err := func(childCtx context.Context, l log.Logger) error {
+ 					phase := NewWorktreePhase(d.gitExpressions, d.numWorkers)
  
--					var phaseErr error
--
--					result, phaseErr = phase.Run(childCtx, l, v, &PhaseInput{
--						Opts:       opts,
--						Classifier: d.classifier,
--						Discovery:  d,
--					})
--
--					return phaseErr
-+				result, phaseErr = phase.Run(ctx, l, v, &PhaseInput{
-+					Opts:       opts,
-+					Classifier: d.classifier,
-+					Discovery:  d,
- 				})
+ 					var phaseErr error
+@@ -398,7 +358,7 @@ func (d *Discovery) runFilesystemPhase(
+ 					})
  
-+				return phaseErr
-+			}()
-+
+ 					return phaseErr
+-				})
++				}(ctx, l)
+ 
  			logPhaseComplete(l, "worktree walk", result, err)
  
- 			mu.Lock()
-@@ -491,11 +430,7 @@ func (d *Discovery) runGraphPhase(
+@@ -491,11 +451,9 @@ func (d *Discovery) runGraphPhase(
  
  		unparsed := d.potentialDependentsOutsideBoundary(l, v.FS, candidates)
  
@@ -253,40 +188,29 @@
 -			func(childCtx context.Context, l log.Logger) error {
 -				return errors.Join(d.buildDependencyGraph(childCtx, l, v, opts, allComponents, unparsed)...)
 -			})
-+		buildErr := errors.Join(d.buildDependencyGraph(ctx, l, v, opts, allComponents, unparsed)...)
++		buildErr := func(childCtx context.Context, l log.Logger) error {
++			return errors.Join(d.buildDependencyGraph(childCtx, l, v, opts, allComponents, unparsed)...)
++		}(ctx, l)
  
  		if buildErr != nil && !d.suppressParseErrors {
  			return &PhaseResults{
-@@ -509,21 +444,19 @@ func (d *Discovery) runGraphPhase(
+@@ -509,9 +467,7 @@ func (d *Discovery) runGraphPhase(
  
  	var result *PhaseResults
  
 -	err := telemetry.TelemeterFromContext(ctx).Collect(
 -		ctx, l, "discover_dependencies", map[string]any{},
 -		func(childCtx context.Context, l log.Logger) error {
--			var runErr error
-+	err := func() error {
-+		var runErr error
++	err := func(childCtx context.Context, l log.Logger) error {
+ 			var runErr error
  
--			result, runErr = phase.Run(childCtx, l, v, &PhaseInput{
--				Opts:       opts,
--				Components: resultsToComponents(discovered),
--				Candidates: candidates,
--				Classifier: d.classifier,
--				Discovery:  d,
--			})
--
--			return runErr
-+		result, runErr = phase.Run(ctx, l, v, &PhaseInput{
-+			Opts:       opts,
-+			Components: resultsToComponents(discovered),
-+			Candidates: candidates,
-+			Classifier: d.classifier,
-+			Discovery:  d,
- 		})
-+
-+		return runErr
-+	}()
+ 			result, runErr = phase.Run(childCtx, l, v, &PhaseInput{
+@@ -523,7 +479,7 @@ func (d *Discovery) runGraphPhase(
+ 			})
+ 
+ 			return runErr
+-		})
++		}(ctx, l)
  
  	allDiscovered := discovered
  	if result != nil {

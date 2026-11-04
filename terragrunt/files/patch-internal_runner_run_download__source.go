@@ -8,7 +8,7 @@
  	"github.com/gruntwork-io/terragrunt/internal/tf"
  	"github.com/gruntwork-io/terragrunt/internal/util"
  	"github.com/gruntwork-io/terragrunt/internal/venv"
-@@ -133,19 +132,13 @@ func DownloadTerraformSource(
+@@ -133,19 +132,14 @@ func DownloadTerraformSource(
  
  		copyOpts := moduleCopyOptions(opts, cfg)
  
@@ -31,16 +31,8 @@
 +			opts.UnitDir,
 +			terraformSource.WorkingDir,
 +			ModuleManifestName,
-+			copyOpts...)
++			copyOpts...,
++		)
  		if err != nil {
  			return nil, err
  		}
-@@ -350,7 +343,7 @@ func DownloadTerraformSourceIfNecessary(
- 		}
- 	}
- 
--	var previousVersion = ""
-+	previousVersion := ""
- 	// read previous source version
- 	// https://github.com/gruntwork-io/terragrunt/issues/1921
- 	versionFileExists, err := vfs.FileExists(v.FS, terraformSource.VersionFile)

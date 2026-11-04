@@ -8,12 +8,13 @@
  	"github.com/gruntwork-io/terragrunt/internal/venv"
  	"github.com/gruntwork-io/terragrunt/internal/worktrees"
  	"github.com/gruntwork-io/terragrunt/pkg/config"
-@@ -33,7 +32,8 @@ func doWithTelemetry(
+@@ -33,7 +32,9 @@ func doWithTelemetry(
  	fields map[string]any,
  	fn func(context.Context, log.Logger) error,
  ) error {
 -	return telemetry.TelemeterFromContext(ctx).Collect(ctx, l, name, fields, fn)
-+	_, _ = name, fields
++	_ = name
++	_ = fields
 +	return fn(ctx, l)
  }
  

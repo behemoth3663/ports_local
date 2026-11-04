@@ -9,12 +9,13 @@
  )
  
  // Cache - generic cache implementation
-@@ -38,14 +36,6 @@ func (c *Cache[V]) Get(ctx context.Context, key string
+@@ -38,14 +36,8 @@ func (c *Cache[V]) Get(ctx context.Context, key string
  	cacheKey := hex.EncodeToString(keyHash[:])
  	value, found := c.Cache[cacheKey]
  
 -	telemetry.TelemeterFromContext(ctx).Count(ctx, c.Name+"_cache_get", 1)
--
++	_ = ctx
+ 
 -	if found {
 -		telemetry.TelemeterFromContext(ctx).Count(ctx, c.Name+"_cache_hit", 1)
 -	} else {
@@ -24,21 +25,22 @@
  	return value, found
  }
  
-@@ -54,8 +44,6 @@ func (c *Cache[V]) Put(ctx context.Context, key string
+@@ -54,7 +46,7 @@ func (c *Cache[V]) Put(ctx context.Context, key string
  	c.Mutex.Lock()
  	defer c.Mutex.Unlock()
  
 -	telemetry.TelemeterFromContext(ctx).Count(ctx, c.Name+"_cache_put", 1)
--
++	_ = ctx
+ 
  	keyHash := sha256.Sum256([]byte(key))
  	cacheKey := hex.EncodeToString(keyHash[:])
- 	c.Cache[cacheKey] = value
-@@ -89,22 +77,16 @@ func (c *ExpiringCache[V]) Get(ctx context.Context, ke
+@@ -89,22 +81,18 @@ func (c *ExpiringCache[V]) Get(ctx context.Context, ke
  	defer c.Mutex.Unlock()
  
  	item, found := c.Cache[key]
 -	telemetry.TelemeterFromContext(ctx).Count(ctx, c.Name+"_cache_get", 1)
--
++	_ = ctx
+ 
  	if !found {
 -		telemetry.TelemeterFromContext(ctx).Count(ctx, c.Name+"_cache_miss", 1)
  		return item.Value, false
@@ -56,20 +58,22 @@
  	return item.Value, true
  }
  
-@@ -113,7 +95,6 @@ func (c *ExpiringCache[V]) Put(ctx context.Context, ke
+@@ -113,7 +101,7 @@ func (c *ExpiringCache[V]) Put(ctx context.Context, ke
  	c.Mutex.Lock()
  	defer c.Mutex.Unlock()
  
 -	telemetry.TelemeterFromContext(ctx).Count(ctx, c.Name+"_cache_put", 1)
++	_ = ctx
  	c.Cache[key] = ExpiringItem[V]{Value: value, Expiration: expiration}
  }
  
-@@ -145,17 +126,11 @@ func (c *RepoRootCache) Lookup(ctx context.Context, di
+@@ -146,17 +134,13 @@ func (c *RepoRootCache) Lookup(ctx context.Context, di
  	c.mu.RLock()
  	defer c.mu.RUnlock()
  
 -	telemetry.TelemeterFromContext(ctx).Count(ctx, c.name+"_cache_get", 1)
--
++	_ = ctx
+ 
  	root, ok := c.roots[dir]
  	if !ok {
 -		telemetry.TelemeterFromContext(ctx).Count(ctx, c.name+"_cache_miss", 1)
@@ -82,7 +86,7 @@
  	return root, true
  }
  
-@@ -174,8 +149,6 @@ func (c *RepoRootCache) Add(ctx context.Context, root 
+@@ -175,8 +159,6 @@ func (c *RepoRootCache) Add(ctx context.Context, root 
  		if dir == "" {
  			continue
  		}

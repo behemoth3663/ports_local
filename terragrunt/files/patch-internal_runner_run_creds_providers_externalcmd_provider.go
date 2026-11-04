@@ -8,12 +8,10 @@
  	"github.com/gruntwork-io/terragrunt/internal/venv"
  	"github.com/gruntwork-io/terragrunt/pkg/log"
  )
-@@ -58,20 +57,7 @@ func (provider *Provider) GetCredentials(
- 		return nil, nil
- 	}
+@@ -60,16 +59,7 @@ func (provider *Provider) GetCredentials(
  
--	var creds *providers.Credentials
--
+ 	var creds *providers.Credentials
+ 
 -	err := telemetry.TelemeterFromContext(ctx).Collect(ctx, l, "obtain_creds", map[string]any{
 -		"auth_provider_cmd": provider.authProviderCmd,
 -		"provider":          "external_cmd",
@@ -24,9 +22,7 @@
 -
 -		return fetchErr
 -	})
--
--	return creds, err
-+	return provider.fetchCredentials(ctx, l, v)
- }
++	creds, err := provider.fetchCredentials(ctx, l, v)
  
- // fetchCredentials runs the configured auth-provider command and decodes its JSON
+ 	return creds, err
+ }

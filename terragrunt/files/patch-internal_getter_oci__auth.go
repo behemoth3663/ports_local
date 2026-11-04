@@ -8,21 +8,24 @@
  	"github.com/gruntwork-io/terragrunt/internal/venv"
  	"github.com/gruntwork-io/terragrunt/internal/version"
  	"github.com/gruntwork-io/terragrunt/internal/vfs"
-@@ -441,27 +440,11 @@ func ociEnvSlice(ctx context.Context, env map[string]s
+@@ -439,29 +438,14 @@ func ociCredentialFromHelper(
+ 	return ociCredentialFromHelperOutput(entry, out)
+ }
  
- // ociEnvSlice renders env as a non-nil KEY=VALUE slice and injects TRACEPARENT from ctx when present.
+-// ociEnvSlice renders env as a non-nil KEY=VALUE slice and injects TRACEPARENT from ctx when present.
++// ociEnvSlice renders env as a non-nil KEY=VALUE slice.
  func ociEnvSlice(ctx context.Context, env map[string]string) []string {
 -	n := len(env)
 -	traceParent := telemetry.TraceParentFromContext(ctx, nil)
 +	_ = ctx
-+	out := make([]string, 0, len(env))
  
 -	if traceParent != "" {
 -		if _, ok := env[telemetry.TraceParentEnv]; !ok {
 -			n++
 -		}
 -	}
--
++	out := make([]string, 0, len(env))
+ 
 -	out := make([]string, 0, n)
 -
  	for _, key := range slices.Sorted(maps.Keys(env)) {

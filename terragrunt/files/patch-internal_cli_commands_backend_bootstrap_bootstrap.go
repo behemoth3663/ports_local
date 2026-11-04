@@ -1,15 +1,6 @@
 --- internal/cli/commands/backend/bootstrap/bootstrap.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/cli/commands/backend/bootstrap/bootstrap.go
-@@ -3,15 +3,13 @@ import (
- 
- import (
- 	"context"
-+	"errors"
- 	"fmt"
- 	"path/filepath"
- 
--	"errors"
--
+@@ -11,7 +11,6 @@ import (
  	"github.com/gruntwork-io/terragrunt/internal/component"
  	"github.com/gruntwork-io/terragrunt/internal/configbridge"
  	"github.com/gruntwork-io/terragrunt/internal/discovery"
@@ -17,7 +8,7 @@
  	"github.com/gruntwork-io/terragrunt/internal/venv"
  	"github.com/gruntwork-io/terragrunt/pkg/config"
  	"github.com/gruntwork-io/terragrunt/pkg/log"
-@@ -32,19 +30,16 @@ func runBootstrap(
+@@ -32,19 +31,14 @@ func runBootstrap(
  	v *venv.Venv,
  	opts *options.TerragruntOptions,
  ) error {
@@ -26,8 +17,6 @@
 -		"terragrunt_config_path": opts.TerragruntConfigPath,
 -	}, func(ctx context.Context, l log.Logger) error {
 -		pctx := configbridge.NewParsingContext(opts)
-+	_ = opts.WorkingDir
-+	_ = opts.TerragruntConfigPath
 +	pctx := configbridge.NewParsingContext(opts)
  
 -		remoteState, err := config.ParseRemoteState(ctx, l, v, pctx)
@@ -45,7 +34,7 @@
  }
  
  func runAll(
-@@ -62,49 +57,43 @@ func runAll(
+@@ -62,49 +56,42 @@ func runAll(
  
  	units := components.Filter(component.UnitKind).Sort()
  
@@ -56,7 +45,6 @@
 -			"fail_fast":   opts.FailFast,
 -		}, func(ctx context.Context, l log.Logger) error {
 -			var errs []error
-+	_, _, _ = opts.WorkingDir, len(units), opts.FailFast
 +	var errs []error
  
 -			for _, unit := range units {

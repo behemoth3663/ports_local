@@ -8,14 +8,11 @@
  	"github.com/gruntwork-io/terragrunt/internal/tfimpl"
  	"github.com/gruntwork-io/terragrunt/internal/util"
  	"github.com/gruntwork-io/terragrunt/internal/venv"
-@@ -41,8 +40,8 @@ type ParsingContext struct {
- 	// FeatureFlags contains explicit feature flag overrides supplied by the user.
+@@ -42,7 +41,6 @@ type ParsingContext struct {
  	FeatureFlags map[string]string
  
--	FilesRead *FilesRead
+ 	FilesRead *FilesRead
 -	Telemetry *telemetry.Options
-+	FilesRead   *FilesRead
-+	TraceParent string
  
  	DecodedDependencies *cty.Value
  	Values              *cty.Value

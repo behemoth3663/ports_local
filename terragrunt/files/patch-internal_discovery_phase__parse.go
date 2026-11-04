@@ -1,20 +1,6 @@
 --- internal/discovery/phase_parse.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/discovery/phase_parse.go
-@@ -2,6 +2,7 @@ import (
- 
- import (
- 	"context"
-+	"errors"
- 	"fmt"
- 	"io"
- 	"path/filepath"
-@@ -9,13 +10,10 @@ import (
- 	"strings"
- 	"sync"
- 
--	"errors"
--
- 	"github.com/gruntwork-io/terragrunt/internal/component"
+@@ -15,7 +15,6 @@ import (
  	"github.com/gruntwork-io/terragrunt/internal/configbridge"
  	"github.com/gruntwork-io/terragrunt/internal/filter"
  	"github.com/gruntwork-io/terragrunt/internal/runner/run/creds"
@@ -22,18 +8,15 @@
  	"github.com/gruntwork-io/terragrunt/internal/venv"
  	"github.com/gruntwork-io/terragrunt/internal/vfs"
  	"github.com/gruntwork-io/terragrunt/pkg/config"
-@@ -112,10 +110,6 @@ func ensureParsed(
- 	}
- 
- 	if unit.Config() != nil {
--		// Cache hits are emitted as a counter rather than a span. A graph or
--		// relationship traversal can re-visit the same component many times, and
--		// a span per visit drowns out the parse misses that are the actual cost.
+@@ -115,7 +114,6 @@ func ensureParsed(
+ 		// Cache hits are emitted as a counter rather than a span. A graph or
+ 		// relationship traversal can re-visit the same component many times, and
+ 		// a span per visit drowns out the parse misses that are the actual cost.
 -		telemetry.TelemeterFromContext(ctx).Count(ctx, "discovery_parse_cache_hit", 1)
  		l.Debugf(
  			"Discovery: parse cache hit for %s (phase=%s, depth=%d)",
  			c.Path(), parsePhaseFromContext(ctx), parseDepthFromContext(ctx),
-@@ -318,122 +312,114 @@ func parseComponent(
+@@ -318,14 +316,7 @@ func parseComponent(
  	phase := parsePhaseFromContext(ctx)
  	depth := parseDepthFromContext(ctx)
  
@@ -47,200 +30,11 @@
 -			l.Debugf("Discovery: parsing %s (phase=%s, depth=%d)", c.Path(), phase, depth)
 +	l.Debugf("Discovery: parsing %s (phase=%s, depth=%d)", c.Path(), phase, depth)
  
--			parseOpts := opts.Clone()
-+	parseOpts := opts.Clone()
+ 			parseOpts := opts.Clone()
  
--			componentPath := c.Path()
--			workingDir := componentPath
-+	componentPath := c.Path()
-+	workingDir := componentPath
- 
--			if vfs.Exists(v.FS, componentPath) && !vfs.IsDir(v.FS, componentPath) {
--				workingDir = filepath.Dir(componentPath)
--			}
-+	if vfs.Exists(v.FS, componentPath) && !vfs.IsDir(v.FS, componentPath) {
-+		workingDir = filepath.Dir(componentPath)
-+	}
- 
--			configFilename := config.DefaultTerragruntConfigPath
-+	configFilename := config.DefaultTerragruntConfigPath
- 
--			switch c.(type) {
--			case *component.Stack:
--				configFilename = config.DefaultStackFile
--			default:
--				if unit, ok := c.(*component.Unit); ok && unit.ConfigFile() != "" {
--					configFilename = unit.ConfigFile()
--					break
--				}
-+	switch c.(type) {
-+	case *component.Stack:
-+		configFilename = config.DefaultStackFile
-+	default:
-+		if unit, ok := c.(*component.Unit); ok && unit.ConfigFile() != "" {
-+			configFilename = unit.ConfigFile()
-+			break
-+		}
- 
--				if opts.TerragruntConfigPath != "" && !vfs.IsDir(v.FS, opts.TerragruntConfigPath) {
--					configFilename = filepath.Base(opts.TerragruntConfigPath)
--				}
--			}
-+		if opts.TerragruntConfigPath != "" && !vfs.IsDir(v.FS, opts.TerragruntConfigPath) {
-+			configFilename = filepath.Base(opts.TerragruntConfigPath)
-+		}
-+	}
- 
--			parseOpts.WorkingDir = workingDir
--			parseOpts.SkipOutput = true
--			parseOpts.TerragruntConfigPath = filepath.Join(parseOpts.WorkingDir, configFilename)
--			parseOpts.OriginalTerragruntConfigPath = parseOpts.TerragruntConfigPath
-+	parseOpts.WorkingDir = workingDir
-+	parseOpts.SkipOutput = true
-+	parseOpts.TerragruntConfigPath = filepath.Join(parseOpts.WorkingDir, configFilename)
-+	parseOpts.OriginalTerragruntConfigPath = parseOpts.TerragruntConfigPath
- 
--			// Clone v.Env so concurrent parseComponent goroutines launched by
--			// ParsePhase and RelationshipPhase don't race on the shared map when
--			// ObtainCredsForParsing writes auth-provider-cmd output into it.
--			parseV := v.WithEnvCloned().WithWriter(io.Discard).WithErrWriter(io.Discard)
-+	// Clone v.Env so concurrent parseComponent goroutines launched by
-+	// ParsePhase and RelationshipPhase don't race on the shared map when
-+	// ObtainCredsForParsing writes auth-provider-cmd output into it.
-+	parseV := v.WithEnvCloned().WithWriter(io.Discard).WithErrWriter(io.Discard)
- 
--			shellOpts := configbridge.ShellRunOptsFromOpts(v.Env, parseOpts)
-+	shellOpts := configbridge.ShellRunOptsFromOpts(v.Env, parseOpts)
- 
--			if parseOpts.DiscoveryAuthProviderCmd {
--				if _, err := creds.ObtainCredsForParsing(
--					ctx, l, parseV, parseOpts.AuthProviderCmd, shellOpts,
--				); err != nil {
--					return fmt.Errorf(
--						"obtaining auth provider credentials for %s: %w",
--						parseOpts.TerragruntConfigPath,
--						err,
--					)
--				}
--			}
-+	if parseOpts.DiscoveryAuthProviderCmd {
-+		if _, err := creds.ObtainCredsForParsing(
-+			ctx, l, parseV, parseOpts.AuthProviderCmd, shellOpts,
-+		); err != nil {
-+			return fmt.Errorf(
-+				"obtaining auth provider credentials for %s: %w",
-+				parseOpts.TerragruntConfigPath,
-+				err,
-+			)
-+		}
-+	}
- 
--			parsingCtx := configbridge.NewParsingContext(parseOpts)
--			parsingCtx = parsingCtx.WithDecodeList(
--				config.TerraformSource,
--				config.DependenciesBlock,
--				config.DependencyBlock,
--				config.TerragruntFlags,
--				config.FeatureFlagsBlock,
--				config.ExcludeBlock,
--				config.ErrorsBlock,
--				config.TerragruntVersionConstraints,
--				config.EngineBlock,
--			).WithSkipOutputsResolution()
-+	parsingCtx := configbridge.NewParsingContext(parseOpts)
-+	parsingCtx = parsingCtx.WithDecodeList(
-+		config.TerraformSource,
-+		config.DependenciesBlock,
-+		config.DependencyBlock,
-+		config.TerragruntFlags,
-+		config.FeatureFlagsBlock,
-+		config.ExcludeBlock,
-+		config.ErrorsBlock,
-+		config.TerragruntVersionConstraints,
-+		config.EngineBlock,
-+	).WithSkipOutputsResolution()
- 
--			if discovery.trackReads {
--				parsingCtx = parsingCtx.WithFileReadTracking()
--			}
-+	if discovery.trackReads {
-+		parsingCtx = parsingCtx.WithFileReadTracking()
-+	}
- 
--			if discovery.suppressParseErrors {
--				parsingCtx = parsingCtx.Clone()
--				parsingCtx.Parser.IgnoreDiagnostics = true
--			}
-+	if discovery.suppressParseErrors {
-+		parsingCtx = parsingCtx.Clone()
-+		parsingCtx.Parser.IgnoreDiagnostics = true
-+	}
- 
--			cfg, err := config.PartialParseConfigFile(
--				ctx,
--				l,
--				parseV,
--				parsingCtx,
--				parseOpts.TerragruntConfigPath,
--				nil,
--			)
--			if err != nil {
--				if discovery.suppressParseErrors {
--					if _, ok := errors.AsType[config.TerragruntConfigNotFoundError](err); ok {
--						l.Debugf(
--							"Skipping missing config during discovery: %s",
--							parseOpts.TerragruntConfigPath,
--						)
-+	cfg, err := config.PartialParseConfigFile(
-+		ctx,
-+		l,
-+		parseV,
-+		parsingCtx,
-+		parseOpts.TerragruntConfigPath,
-+		nil,
-+	)
-+	if err != nil {
-+		if discovery.suppressParseErrors {
-+			if _, ok := errors.AsType[config.TerragruntConfigNotFoundError](err); ok {
-+				l.Debugf(
-+					"Skipping missing config during discovery: %s",
-+					parseOpts.TerragruntConfigPath,
-+				)
- 
--						return nil
--					}
--				}
-+				return nil
-+			}
-+		}
- 
--				if !discovery.suppressParseErrors || cfg == nil {
--					return err
--				}
-+		if !discovery.suppressParseErrors || cfg == nil {
-+			return err
-+		}
- 
--				l.Debugf("Suppressing parse error for %s: %s", parseOpts.TerragruntConfigPath, err)
--			}
-+		l.Debugf("Suppressing parse error for %s: %s", parseOpts.TerragruntConfigPath, err)
-+	}
- 
--			if unit, ok := c.(*component.Unit); ok {
--				unit.StoreConfig(cfg)
--			}
-+	if unit, ok := c.(*component.Unit); ok {
-+		unit.StoreConfig(cfg)
-+	}
- 
--			if parsingCtx.FilesRead.Tracking() {
--				readFiles := sanitizeReadFiles(parsingCtx.FilesRead.Paths())
--				c.SetReading(readFiles...)
--			}
-+	if parsingCtx.FilesRead.Tracking() {
-+		readFiles := sanitizeReadFiles(parsingCtx.FilesRead.Paths())
-+		c.SetReading(readFiles...)
-+	}
+@@ -434,6 +425,5 @@ func parseComponent(
+ 				c.SetReading(readFiles...)
+ 			}
  
 -			return nil
 -		})

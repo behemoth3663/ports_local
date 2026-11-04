@@ -14,15 +14,9 @@
  )
  
  // Run runs the browse command. It opens the browser immediately over a tree the
-@@ -108,22 +104,10 @@ func runDiscovery(
- 	opts *Options,
- 	d *discovery.Discovery,
- ) tui.DiscoveryResult {
--	var (
--		components  component.Components
--		discoverErr error
--	)
-+	var components component.Components
+@@ -113,17 +109,8 @@ func runDiscovery(
+ 		discoverErr error
+ 	)
  
 -	err := telemetry.TelemeterFromContext(ctx).Collect(ctx, l, "browse_discover", map[string]any{
 -		"working_dir": opts.WorkingDir,
@@ -35,8 +29,8 @@
 -
 -		return discoverErr
 -	})
-+	_ = opts.WorkingDir
-+	components, err := d.Discover(ctx, l, v, opts.TerragruntOptions)
++	components, discoverErr = d.Discover(ctx, l, v, opts.TerragruntOptions)
++	err := discoverErr
  
  	components = components.Sort()
  

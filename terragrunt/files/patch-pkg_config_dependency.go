@@ -15,7 +15,7 @@
  )
  
  const (
-@@ -1671,59 +1667,30 @@ func getOutputJSONWithCaching(
+@@ -1790,59 +1786,39 @@ func getOutputJSONWithCaching(
  		fetchAttrs["dependency_name"] = name
  	}
  
@@ -33,14 +33,18 @@
 -					span.SetAttributes(attribute.Bool("cache_hit", true))
 -				}
 +		newJSONBytes = cached
+ 
+-				newJSONBytes = cached
 +		return newJSONBytes, nil
 +	}
  
--				newJSONBytes = cached
--
 -				return nil
 -			}
--
++	fetched, _, fetchErr := resolveOutputJSON(ctx, l, v, pctx, targetConfig)
++	if fetchErr != nil {
++		return nil, fetchErr
++	}
+ 
 -			fetched, strategy, fetchErr := resolveOutputJSON(fetchCtx, l, v, pctx, targetConfig)
 -
 -			if span := trace.SpanFromContext(fetchCtx); span.IsRecording() {
@@ -75,34 +79,38 @@
 -
 -			return nil
 -		})
-+	fetched, strategy, err := resolveOutputJSON(ctx, l, v, pctx, targetConfig)
-+	_ = strategy
- 	if err != nil {
- 		return nil, err
- 	}
- 
-+	// `tofu/terraform output -json` stdout can be polluted with non-JSON text on either side of the JSON object.
+-	if err != nil {
+-		return nil, err
++	// `tofu/terraform output -json` stdout can be polluted with non-JSON text on either side of the JSON object:
++	//   - Leading: AWS Client Side Monitoring (CSM) logs (e.g., "2023/05/04 20:22:43 Enabling CSM"),
++	//     ANSI color escape sequences from warning blocks.
++	//     Refs: https://github.com/aws/aws-sdk-go/blob/81d1cbbc6a2028023aff7bcab0fe1be320cd39f7/aws/session/session.go#L444
++	//           https://github.com/gruntwork-io/terragrunt/issues/2233
++	//   - Trailing: Terraform 1.15+ emits backend deprecation warnings (e.g., for the S3
++	//     `dynamodb_table` parameter) on stdout after the JSON has already been printed.
++	//     Refs: https://github.com/gruntwork-io/terragrunt/issues/6001
++	//
++	// To make parsing robust to either, isolate the first JSON object in the buffer.
 +	trimmed, trimErr := tf.ExtractFirstJSONObject(fetched)
 +	if trimErr != nil {
 +		return nil, TerragruntOutputParsingError{Path: targetConfig, Err: trimErr}
-+	}
-+
+ 	}
+ 
 +	newJSONBytes = trimmed
 +	jsonCache.Put(ctx, targetConfig, newJSONBytes)
 +
  	return newJSONBytes, nil
  }
  
-@@ -2648,7 +2615,7 @@ func RunOptionsFromParsingContext(pctx *ParsingContext
+@@ -2775,7 +2751,6 @@ func RunOptionsFromParsingContext(pctx *ParsingContext
  	runOpts.Debug = pctx.Debug
  	runOpts.AutoInit = pctx.AutoInit
  	runOpts.BackendBootstrap = pctx.BackendBootstrap
 -	runOpts.Telemetry = pctx.Telemetry
-+	runOpts.TraceParent = pctx.TraceParent
  	runOpts.AuthProviderCmd = pctx.AuthProviderCmd
  	runOpts.NoCAS = pctx.NoCAS
  	runOpts.CASCloneDepth = pctx.CASCloneDepth
-@@ -2663,13 +2630,15 @@ func shellRunOptsFromPctx(v *venv.Venv, pctx *ParsingC
+@@ -2790,7 +2765,6 @@ func shellRunOptsFromPctx(v *venv.Venv, pctx *ParsingC
  func shellRunOptsFromPctx(v *venv.Venv, pctx *ParsingContext) *shell.ShellOptions {
  	s := shell.NewShellOptions(v.Env).
  		WithWorkingDir(pctx.WorkingDir).
@@ -110,12 +118,3 @@
  		WithEngine(pctx.EngineConfig, pctx.EngineOptions).
  		WithTFPath(pctx.TFPath).
  		WithRootWorkingDir(pctx.RootWorkingDir).
- 		WithExperiments(pctx.Experiments).
- 		WithHeadless(pctx.Headless).
- 		WithForwardTFStdout(pctx.ForwardTFStdout)
-+	if pctx.TraceParent != "" {
-+		s.SetTraceParent(pctx.TraceParent)
-+	}
- 	s.LogShowAbsPaths = pctx.LogShowAbsPaths
- 	s.LogDisableErrorSummary = pctx.LogDisableErrorSummary
- 

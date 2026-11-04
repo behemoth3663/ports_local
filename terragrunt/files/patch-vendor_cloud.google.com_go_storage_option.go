@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/storage/option.go.orig	2026-10-22 19:52:07 UTC
+--- vendor/cloud.google.com/go/storage/option.go.orig	2026-11-04 11:39:43 UTC
 +++ vendor/cloud.google.com/go/storage/option.go
 @@ -21,7 +21,6 @@ import (
  
@@ -8,7 +8,7 @@
  	"google.golang.org/api/option"
  	"google.golang.org/api/option/internaloption"
  )
-@@ -84,10 +83,10 @@ type storageConfig struct {
+@@ -86,10 +85,10 @@ type storageConfig struct {
  	disableClientMetrics   bool
  	enableOtelMetrics      bool
  	enableOtelDebugMetrics bool
@@ -22,7 +22,7 @@
  	readStallTimeoutConfig *experimental.ReadStallTimeoutConfig
  	grpcBidiReads          bool
  	grpcAppendableUploads  bool
-@@ -206,10 +205,10 @@ type withMetricExporterConfig struct {
+@@ -213,10 +212,10 @@ type withMetricExporterConfig struct {
  type withMetricExporterConfig struct {
  	internaloption.EmbeddableAdapter
  	// exporter override
@@ -35,7 +35,7 @@
  	return &withMetricExporterConfig{metricExporter: ex}
  }
  
-@@ -220,16 +219,16 @@ type withTestMetricReaderConfig struct {
+@@ -227,16 +226,16 @@ type withTestMetricReaderConfig struct {
  type withTestMetricReaderConfig struct {
  	internaloption.EmbeddableAdapter
  	// reader override
@@ -55,7 +55,7 @@
  	return &withMeterProviderConfig{meterProvider: provider}
  }
  
-@@ -237,7 +236,7 @@ func (w *withMeterProviderConfig) ApplyStorageOpt(c *s
+@@ -244,7 +243,7 @@ func (w *withMeterProviderConfig) ApplyStorageOpt(c *s
  	c.meterProvider = w.meterProvider
  }
  

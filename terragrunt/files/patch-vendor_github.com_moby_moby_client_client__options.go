@@ -1,4 +1,4 @@
---- vendor/github.com/moby/moby/client/client_options.go.orig	2026-10-22 19:52:08 UTC
+--- vendor/github.com/moby/moby/client/client_options.go.orig	2026-11-04 11:39:43 UTC
 +++ vendor/github.com/moby/moby/client/client_options.go
 @@ -15,8 +15,6 @@ import (
  	cerrdefs "github.com/containerd/errdefs"
@@ -15,7 +15,7 @@
  
 -	// traceOpts is a list of options to configure the tracing span.
 -	traceOpts []otelhttp.Option
-+	// traceOpts is retained for backwards-compatible option parsing.
++	// traceOpts is reserved for compatibility.
 +	traceOpts []any
  }
  

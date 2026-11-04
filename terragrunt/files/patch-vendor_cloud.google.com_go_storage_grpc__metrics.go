@@ -1,6 +1,6 @@
---- vendor/cloud.google.com/go/storage/grpc_metrics.go.orig	2026-10-22 19:52:07 UTC
+--- vendor/cloud.google.com/go/storage/grpc_metrics.go.orig	2026-11-04 11:39:43 UTC
 +++ vendor/cloud.google.com/go/storage/grpc_metrics.go
-@@ -1,285 +1,26 @@
+@@ -1,285 +1,32 @@
 -// Copyright 2024 Google LLC
 -//
 -// Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,7 +22,7 @@
 -	"errors"
 -	"fmt"
 -	"strings"
--	"time"
+ 	"time"
  
 -	mexporter "github.com/GoogleCloudPlatform/opentelemetry-operations-go/exporter/metric"
 -	"github.com/google/uuid"
@@ -130,13 +130,12 @@
  
  type metricsConfig struct {
  	project         string
--	interval        time.Duration
+ 	interval        time.Duration
 -	customExporter  *metric.Exporter
 -	meterProvider   *metric.MeterProvider
 -	manualReader    *metric.ManualReader // used by tests
 -	disableExporter bool                 // used by tests disables exports
 -	resourceOpts    []resource.Option    // used by tests
-+	interval        any
 +	customExporter  any
 +	meterProvider   any
 +	manualReader    any
@@ -144,7 +143,7 @@
 +	resourceOpts    []any
  }
  
--func newGRPCMetricContext(ctx context.Context, cfg metricsConfig) (*metricsContext, error) {
+ func newGRPCMetricContext(ctx context.Context, cfg metricsConfig) (*metricsContext, error) {
 -	var exporter metric.Exporter
 -	meterOpts := []metric.Option{}
 -	if cfg.customExporter == nil {
@@ -215,13 +214,17 @@
 -		option.WithGRPCDialOption(
 -			grpc.WithDefaultCallOptions(grpc.StaticMethodCallOption{})),
 -	}
--	return &metricsContext{
++	_ = ctx
++	_ = cfg
+ 	return &metricsContext{
 -		clientOpts: opts,
 -		provider:   provider,
 -		close: func() {
 -			provider.Shutdown(ctx)
 -		},
--	}, nil
++		clientOpts: nil,
++		close:      func() {},
+ 	}, nil
 -}
 -
 -// Silences permission errors after initial error is emitted to prevent
@@ -292,6 +295,4 @@
 -		Name:        name,
 -		Aggregation: metric.AggregationExplicitBucketHistogram{Boundaries: boundaries},
 -	})
-+func newGRPCMetricContext(context.Context, metricsConfig) (*metricsContext, error) {
-+	return &metricsContext{close: func() {}}, nil
  }

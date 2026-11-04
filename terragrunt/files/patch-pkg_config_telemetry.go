@@ -1,6 +1,6 @@
 --- pkg/config/telemetry.go.orig	1979-11-29 21:00:00 UTC
 +++ pkg/config/telemetry.go
-@@ -5,7 +5,6 @@ import (
+@@ -4,7 +4,6 @@ import (
  	"context"
  	"strings"
  
@@ -8,24 +8,22 @@
  	"github.com/gruntwork-io/terragrunt/pkg/log"
  )
  
-@@ -57,8 +56,8 @@ func TraceParseConfigFile(
+@@ -56,8 +55,7 @@ func TraceParseConfigFile(
  		attrs[AttrIncludeChildPath] = includeFromChild.Path
  	}
  
 -	return telemetry.TelemeterFromContext(ctx).
 -		Collect(ctx, l, TelemetryOpParseConfigFile, attrs, fn)
-+	_, _, _, _, _, _, _, _ = ctx, l, attrs, cfgPath, workingDir, isPartial, decodeList, cacheHit
 +	return fn(ctx, l)
  }
  
  // TraceParseDependencies wraps dependency parsing with telemetry.
-@@ -81,8 +80,8 @@ func TraceParseDependencies(
+@@ -80,8 +78,7 @@ func TraceParseDependencies(
  		attrs[AttrDependencyNames] = strings.Join(dependencyNames, ",")
  	}
  
 -	return telemetry.TelemeterFromContext(ctx).
 -		Collect(ctx, l, TelemetryOpParseDependencies, attrs, fn)
-+	_, _, _, _, _, _, _ = ctx, l, attrs, cfgPath, skipOutputsResolution, dependencyCount, dependencyNames
 +	return fn(ctx, l)
  }
  
