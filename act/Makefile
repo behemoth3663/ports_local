@@ -1,6 +1,6 @@
 PORTNAME=	act
+PORTVERSION=	0.2.97
 DISTVERSIONPREFIX=	v
-DISTVERSION=	0.2.89
 CATEGORIES=	local devel
 
 MAINTAINER=	none@freebsd.org
@@ -17,7 +17,7 @@ GH_ACCOUNT=	nektos
 PLIST_FILES=	bin/${PORTNAME}
 
 CGO_ENABLED=	0
-GO_BUILDFLAGS+=	-ldflags="-s -w"
+GO_LDFLAGS+=	-w
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 #M2T_OFFLINE=	true
