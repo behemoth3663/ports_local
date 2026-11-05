@@ -1,5 +1,5 @@
 PORTNAME=	convert2json
-DISTVERSION=	2.6.4
+PORTVERSION=	3.0.0
 CATEGORIES=	local converters
 
 MAINTAINER=	none@freebsd.org
@@ -39,7 +39,6 @@ PLIST_FILES=	\
 	bin/yaml2json \
 	bin/yq
 
-FIREFOX_VERSION_CMD=	${PKG_QUERY} --evaluate %n=firefox %v | ${SED} -r 's/^([0-9]+\.[0-9]+).*/\1/'
 FETCH_ENV=	HTTP_USER_AGENT='Mozilla/5.0 (X11; Linux x86_64; rv:${FIREFOX_VERSION_CMD:sh}) Gecko/20100101 Firefox/${FIREFOX_VERSION_CMD:sh}'
 
 post-install: .PHONY
@@ -55,4 +54,8 @@ deps: .PHONY
 	( ${MAKE} -C ${.CURDIR} FETCH_ENV="${FETCH_ENV}" makesum )
 
 .sinclude "${.CURDIR}/Makefile.crates"
-.include <bsd.port.mk>
+.include <bsd.port.pre.mk>
+
+FIREFOX_VERSION_CMD=	${PKG_QUERY} --evaluate %n=firefox %v | ${SED} -r 's/^([0-9]+\.[0-9]+).*/\1/'
+
+.include <bsd.port.post.mk>
