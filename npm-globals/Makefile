@@ -1,5 +1,5 @@
 PORTNAME=	globals
-PORTVERSION=	17.13.0
+PORTVERSION=	17.14.0
 CATEGORIES=	local devel
 MASTER_SITES=	LOCAL/o1vm/:npm
 PKGNAMEPREFIX=	npm-
@@ -28,8 +28,11 @@ FETCH_SCRIPT=	${PORTSDIR}/Tools/scripts/npmjs-fetch-with-dependencies.sh
 
 do-fetch: .PHONY
 	DISTFILE=${PORTNAME}-${PORTVERSION}${EXTRACT_SUFX}; \
-	test -f ${DISTDIR}/$${DISTFILE} || ${SETENV} TMPDIR=${WRKDIR} LOCALBASE=${LOCALBASE} \
-		${FETCH_SCRIPT} ${PACKAGE_NAME} ${PORTVERSION} ${FILESDIR}/package.json ${DISTDIR}/$${DISTFILE}
+	if [ ! -f ${DISTDIR}/$${DISTFILE} ]; then \
+		${RM} -fv -- ${FILESDIR}/package.json; \
+		${SETENV} TMPDIR=${WRKDIR} LOCALBASE=${LOCALBASE} \
+			${FETCH_SCRIPT} ${PACKAGE_NAME} ${PORTVERSION} ${FILESDIR}/package.json ${DISTDIR}/$${DISTFILE}; \
+	fi
 
 do-install: .PHONY .SILENT
 	${MKDIR} ${STAGEDIR}${PREFIX}/lib
