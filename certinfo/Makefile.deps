@@ -1,5 +1,2 @@
-GH_TUPLE=	\
-		davecgh:go-spew:v1.1.1:davecgh_go_spew/vendor/github.com/davecgh/go-spew \
-		go-yaml:yaml:v3.0.1:go_yaml_yaml/vendor/gopkg.in/yaml.v3 \
-		pmezard:go-difflib:v1.0.0:pmezard_go_difflib/vendor/github.com/pmezard/go-difflib \
-		stretchr:testify:v1.11.1:stretchr_testify/vendor/github.com/stretchr/testify
+GH_TUPLE=	stretchr:testify:v1.12.1:stretchr_testify/vendor/github.com/stretchr/testify \
+		yaml:go-yaml:v3.0.5:yaml_go_yaml/vendor/go.yaml.in/yaml/v3
