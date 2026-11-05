@@ -65,7 +65,7 @@ github.com/sagikazarmark/locafero
 # github.com/shopspring/decimal v1.4.0
 ## explicit; go 1.10
 github.com/shopspring/decimal
-# github.com/sirupsen/logrus v1.10.1
+# github.com/sirupsen/logrus v1.10.2
 ## explicit; go 1.23
 github.com/sirupsen/logrus
 # github.com/sourcegraph/conc v0.3.1-0.20240121214520-5f936abd7ae8
@@ -105,9 +105,10 @@ github.com/stretchr/testify/internal/spew
 # github.com/subosito/gotenv v1.6.0
 ## explicit; go 1.18
 github.com/subosito/gotenv
-# gitlab.com/gitlab-org/api/client-go/v2 v2.51.0
+# gitlab.com/gitlab-org/api/client-go/v2 v2.64.0
 ## explicit; go 1.25.0
 gitlab.com/gitlab-org/api/client-go/v2
+gitlab.com/gitlab-org/api/client-go/v2/internal/graphql
 gitlab.com/gitlab-org/api/client-go/v2/internal/graphqlfields
 # go.yaml.in/yaml/v3 v3.0.5
 ## explicit; go 1.16
