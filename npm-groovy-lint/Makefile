@@ -1,5 +1,5 @@
 PORTNAME=	npm-groovy-lint
-PORTVERSION=	18.0.0
+PORTVERSION=	19.0.0
 CATEGORIES=	local devel
 MASTER_SITES=	LOCAL/o1vm/:npm
 
@@ -26,10 +26,12 @@ PACKAGE_NAME=	${PORTNAME}
 FETCH_SCRIPT=	${PORTSDIR}/Tools/scripts/npmjs-fetch-with-dependencies.sh
 
 do-fetch: .PHONY
-.for _f in ${DISTFILES}
-	@test -f ${DISTDIR}/${_f} || ${SETENV} TMPDIR=${WRKDIR} LOCALBASE=${LOCALBASE} \
-		${FETCH_SCRIPT} ${PACKAGE_NAME} ${DISTVERSION} ${FILESDIR}/package.json ${DISTDIR}/${_f}
-.endfor
+	DISTFILE=${PORTNAME}-${PORTVERSION}${EXTRACT_SUFX}; \
+	if [ ! -f ${DISTDIR}/$${DISTFILE} ]; then \
+		${RM} -fv -- ${FILESDIR}/package.json; \
+		${SETENV} TMPDIR=${WRKDIR} LOCALBASE=${LOCALBASE} \
+			${FETCH_SCRIPT} ${PACKAGE_NAME} ${PORTVERSION} ${FILESDIR}/package.json ${DISTDIR}/$${DISTFILE}; \
+	fi
 
 do-install: .PHONY
 	@${MKDIR} ${STAGEDIR}${PREFIX}/lib
