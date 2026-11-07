@@ -1,4 +1,4 @@
---- vendor/github.com/containerd/containerd/v2/pkg/tracing/tracing.go.orig	2026-10-02 20:06:39 UTC
+--- vendor/github.com/containerd/containerd/v2/pkg/tracing/tracing.go.orig	2026-11-07 20:12:53 UTC
 +++ vendor/github.com/containerd/containerd/v2/pkg/tracing/tracing.go
 @@ -20,17 +20,16 @@ import (
  	"context"

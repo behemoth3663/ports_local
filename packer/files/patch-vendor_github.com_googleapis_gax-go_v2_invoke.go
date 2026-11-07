@@ -1,4 +1,4 @@
---- vendor/github.com/googleapis/gax-go/v2/invoke.go.orig	2026-10-02 20:06:39 UTC
+--- vendor/github.com/googleapis/gax-go/v2/invoke.go.orig	2026-11-07 20:12:53 UTC
 +++ vendor/github.com/googleapis/gax-go/v2/invoke.go
 @@ -31,12 +31,10 @@ import (
  

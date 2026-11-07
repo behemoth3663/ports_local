@@ -1,5 +1,5 @@
-TIMESTAMP = 1790970629
-SHA256 (go/local_packer/packer-v1.16.1/v1.16.1.mod) = 9e824f1e3214372bc5d59bfb9342d2e9f521e18ca55aad5f7cc70433a925bd53
-SIZE (go/local_packer/packer-v1.16.1/v1.16.1.mod) = 24040
-SHA256 (go/local_packer/packer-v1.16.1/v1.16.1.zip) = 5d74f242908de7d0183356df1d1d6a154e98cf1fc9e5785114c6fe88ae85476d
-SIZE (go/local_packer/packer-v1.16.1/v1.16.1.zip) = 1197963
+TIMESTAMP = 1794082306
+SHA256 (go/local_packer/packer-v1.16.2/v1.16.2.mod) = ad5fc70a4bde84c839c478ce2ba0a7d890dec992ba170b5f8cf24dbc1100645d
+SIZE (go/local_packer/packer-v1.16.2/v1.16.2.mod) = 23974
+SHA256 (go/local_packer/packer-v1.16.2/v1.16.2.zip) = d3761109eaaec22c03320c3ff2954cddf28950dcabc050f2f70285c51c28b942
+SIZE (go/local_packer/packer-v1.16.2/v1.16.2.zip) = 1198011

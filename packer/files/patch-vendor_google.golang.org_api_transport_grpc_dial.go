@@ -1,4 +1,4 @@
---- vendor/google.golang.org/api/transport/grpc/dial.go.orig	2026-10-02 20:06:41 UTC
+--- vendor/google.golang.org/api/transport/grpc/dial.go.orig	2026-11-07 20:12:54 UTC
 +++ vendor/google.golang.org/api/transport/grpc/dial.go
 @@ -21,7 +21,7 @@ import (
  	"cloud.google.com/go/auth/grpctransport"

@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/storage/internal/apiv2/storage_client.go.orig	2026-10-02 20:06:38 UTC
+--- vendor/cloud.google.com/go/storage/internal/apiv2/storage_client.go.orig	2026-11-07 20:12:52 UTC
 +++ vendor/cloud.google.com/go/storage/internal/apiv2/storage_client.go
 @@ -29,7 +29,6 @@ import (
  	iampb "cloud.google.com/go/iam/apiv1/iampb"

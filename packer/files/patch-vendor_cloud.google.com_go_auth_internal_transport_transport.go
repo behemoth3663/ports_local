@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/auth/internal/transport/transport.go.orig	2026-10-02 20:06:38 UTC
+--- vendor/cloud.google.com/go/auth/internal/transport/transport.go.orig	2026-11-07 20:12:52 UTC
 +++ vendor/cloud.google.com/go/auth/internal/transport/transport.go
 @@ -24,7 +24,6 @@ import (
  	"time"

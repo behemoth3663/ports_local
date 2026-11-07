@@ -1,4 +1,4 @@
---- checkpoint.go.orig	2023-12-05 19:39:03 UTC
+--- checkpoint.go.orig	1979-11-29 21:00:00 UTC
 +++ checkpoint.go
 @@ -4,14 +4,8 @@ import (
  package main

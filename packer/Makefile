@@ -1,5 +1,5 @@
 PORTNAME=	packer
-PORTVERSION=	1.16.1
+PORTVERSION=	1.16.2
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX?=	-local
@@ -8,11 +8,12 @@ MAINTAINER=	brad@facefault.org
 COMMENT=	Tool for creating machine images
 WWW=		https://www.packer.io/ https://${GO_MODULE}
 
+USES=		cpe go:modules
+
 LICENSE_NAME=   Business Source License 1.1
 LICENSE_FILE=   ${WRKSRC}/LICENSE
 LICENSE_PERMS=  dist-mirror pkg-mirror pkg-sell auto-accept
 
-USES=		cpe go:modules
 CPE_VENDOR=	hashicorp
 GO_MODULE=	github.com/hashicorp/packer
 
@@ -27,7 +28,7 @@ PLIST_FILES=	bin/${PORTNAME}
 
 pre-build: .PHONY
 	${RM} -r ${WRKSRC}/vendor/github.com/GoogleCloudPlatform
-	${RM} -r ${WRKSRC}/vendor/go.opencensus.io 
+	${RM} -r ${WRKSRC}/vendor/go.opencensus.io
 	${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io
 	${RM} -r ${WRKSRC}/vendor/google.golang.org/grpc/experimental/opentelemetry
 	${RM} -r ${WRKSRC}/vendor/google.golang.org/grpc/stats/opentelemetry

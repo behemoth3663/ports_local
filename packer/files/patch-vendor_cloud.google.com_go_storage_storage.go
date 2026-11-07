@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/storage/storage.go.orig	2026-10-02 20:06:38 UTC
+--- vendor/cloud.google.com/go/storage/storage.go.orig	2026-11-07 20:12:52 UTC
 +++ vendor/cloud.google.com/go/storage/storage.go
 @@ -43,17 +43,13 @@ import (
  	"cloud.google.com/go/storage/internal"

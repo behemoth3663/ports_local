@@ -1,4 +1,4 @@
---- vendor/github.com/containerd/containerd/v2/pkg/tracing/helpers.go.orig	2026-10-02 20:06:39 UTC
+--- vendor/github.com/containerd/containerd/v2/pkg/tracing/helpers.go.orig	2026-11-07 20:12:53 UTC
 +++ vendor/github.com/containerd/containerd/v2/pkg/tracing/helpers.go
 @@ -19,69 +19,67 @@ import (
  import (

@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/storage/grpc_metrics.go.orig	2026-10-02 20:06:38 UTC
+--- vendor/cloud.google.com/go/storage/grpc_metrics.go.orig	2026-11-07 20:12:52 UTC
 +++ vendor/cloud.google.com/go/storage/grpc_metrics.go
 @@ -16,272 +16,37 @@ import (
  
