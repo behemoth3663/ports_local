@@ -1,4 +1,4 @@
---- vendor/github.com/aws/aws-sdk-go-v2/aws/middleware/request_id_retriever.go.orig	2026-10-28 11:06:54 UTC
+--- vendor/github.com/aws/aws-sdk-go-v2/aws/middleware/request_id_retriever.go.orig	2026-11-07 19:39:24 UTC
 +++ vendor/github.com/aws/aws-sdk-go-v2/aws/middleware/request_id_retriever.go
 @@ -4,7 +4,6 @@ import (
  	"context"

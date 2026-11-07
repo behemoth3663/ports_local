@@ -1,4 +1,4 @@
---- vendor/github.com/aws/aws-sdk-go-v2/service/sts/auth.go.orig	2026-10-28 11:06:54 UTC
+--- vendor/github.com/aws/aws-sdk-go-v2/service/sts/auth.go.orig	2026-11-07 19:39:24 UTC
 +++ vendor/github.com/aws/aws-sdk-go-v2/service/sts/auth.go
 @@ -10,7 +10,6 @@ import (
  	smithyauth "github.com/aws/smithy-go/auth"

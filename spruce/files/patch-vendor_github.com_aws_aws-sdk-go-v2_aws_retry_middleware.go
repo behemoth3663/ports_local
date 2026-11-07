@@ -1,4 +1,4 @@
---- vendor/github.com/aws/aws-sdk-go-v2/aws/retry/middleware.go.orig	2026-10-28 11:06:54 UTC
+--- vendor/github.com/aws/aws-sdk-go-v2/aws/retry/middleware.go.orig	2026-11-07 19:39:24 UTC
 +++ vendor/github.com/aws/aws-sdk-go-v2/aws/retry/middleware.go
 @@ -18,7 +18,6 @@ import (
  	"github.com/aws/smithy-go/logging"

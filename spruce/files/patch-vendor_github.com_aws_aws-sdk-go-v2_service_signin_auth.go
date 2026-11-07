@@ -1,4 +1,4 @@
---- vendor/github.com/aws/aws-sdk-go-v2/service/signin/auth.go.orig	2026-10-28 11:06:54 UTC
+--- vendor/github.com/aws/aws-sdk-go-v2/service/signin/auth.go.orig	2026-11-07 19:39:24 UTC
 +++ vendor/github.com/aws/aws-sdk-go-v2/service/signin/auth.go
 @@ -10,7 +10,6 @@ import (
  	smithyauth "github.com/aws/smithy-go/auth"
@@ -8,7 +8,7 @@
  	smithyhttp "github.com/aws/smithy-go/transport/http"
  	"slices"
  	"strings"
-@@ -158,8 +157,6 @@ func (m *resolveAuthSchemeMiddleware) HandleFinalize(c
+@@ -164,8 +163,6 @@ func (m *resolveAuthSchemeMiddleware) HandleFinalize(c
  func (m *resolveAuthSchemeMiddleware) HandleFinalize(ctx context.Context, in middleware.FinalizeInput, next middleware.FinalizeHandler) (
  	out middleware.FinalizeOutput, metadata middleware.Metadata, err error,
  ) {
@@ -17,7 +17,7 @@
  
  	params, err := bindAuthResolverParams(ctx, m.operation, getOperationInput(ctx), m.options)
  	if err != nil {
-@@ -176,9 +173,6 @@ func (m *resolveAuthSchemeMiddleware) HandleFinalize(c
+@@ -182,9 +179,6 @@ func (m *resolveAuthSchemeMiddleware) HandleFinalize(c
  	}
  
  	ctx = setResolvedAuthScheme(ctx, scheme)
@@ -27,7 +27,7 @@
  	return next.HandleFinalize(ctx, in)
  }
  
-@@ -272,10 +266,8 @@ func (m *getIdentityMiddleware) HandleFinalize(ctx con
+@@ -278,10 +272,8 @@ func (m *getIdentityMiddleware) HandleFinalize(ctx con
  func (m *getIdentityMiddleware) HandleFinalize(ctx context.Context, in middleware.FinalizeInput, next middleware.FinalizeHandler) (
  	out middleware.FinalizeOutput, metadata middleware.Metadata, err error,
  ) {
@@ -40,7 +40,7 @@
  	if rscheme == nil {
  		return out, metadata, fmt.Errorf("no resolved auth scheme")
  	}
-@@ -297,8 +289,6 @@ func (m *getIdentityMiddleware) HandleFinalize(ctx con
+@@ -303,8 +295,6 @@ func (m *getIdentityMiddleware) HandleFinalize(ctx con
  	}
  
  	ctx = setIdentity(ctx, identity)
@@ -49,7 +49,7 @@
  	return next.HandleFinalize(ctx, in)
  }
  
-@@ -324,8 +314,6 @@ func (m *signRequestMiddleware) HandleFinalize(ctx con
+@@ -330,8 +320,6 @@ func (m *signRequestMiddleware) HandleFinalize(ctx con
  func (m *signRequestMiddleware) HandleFinalize(ctx context.Context, in middleware.FinalizeInput, next middleware.FinalizeHandler) (
  	out middleware.FinalizeOutput, metadata middleware.Metadata, err error,
  ) {
@@ -58,7 +58,7 @@
  
  	req, ok := in.Request.(*smithyhttp.Request)
  	if !ok {
-@@ -355,7 +343,5 @@ func (m *signRequestMiddleware) HandleFinalize(ctx con
+@@ -361,7 +349,5 @@ func (m *signRequestMiddleware) HandleFinalize(ctx con
  	if err != nil {
  		return out, metadata, fmt.Errorf("sign request: %w", err)
  	}

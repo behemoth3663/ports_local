@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/auth/httptransport/transport.go.orig	2026-10-28 11:06:54 UTC
+--- vendor/cloud.google.com/go/auth/httptransport/transport.go.orig	2026-11-07 19:39:24 UTC
 +++ vendor/cloud.google.com/go/auth/httptransport/transport.go
 @@ -18,13 +18,11 @@ import (
  	"bytes"

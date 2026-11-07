@@ -1,4 +1,4 @@
---- vendor/github.com/googleapis/gax-go/v2/invoke.go.orig	2026-10-28 11:06:54 UTC
+--- vendor/github.com/googleapis/gax-go/v2/invoke.go.orig	2026-11-07 19:39:24 UTC
 +++ vendor/github.com/googleapis/gax-go/v2/invoke.go
 @@ -89,14 +89,6 @@ func invoke(ctx context.Context, call APICall, setting
  		ctx = c

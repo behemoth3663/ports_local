@@ -1,4 +1,4 @@
---- vendor/github.com/aws/aws-sdk-go-v2/aws/transport/http/client.go.orig	2026-10-28 11:06:54 UTC
+--- vendor/github.com/aws/aws-sdk-go-v2/aws/transport/http/client.go.orig	2026-11-07 19:39:24 UTC
 +++ vendor/github.com/aws/aws-sdk-go-v2/aws/transport/http/client.go
 @@ -11,7 +11,6 @@ import (
  	"time"

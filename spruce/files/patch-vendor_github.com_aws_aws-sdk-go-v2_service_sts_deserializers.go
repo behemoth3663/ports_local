@@ -1,4 +1,4 @@
---- vendor/github.com/aws/aws-sdk-go-v2/service/sts/deserializers.go.orig	2026-10-28 11:06:54 UTC
+--- vendor/github.com/aws/aws-sdk-go-v2/service/sts/deserializers.go.orig	2026-11-07 19:39:24 UTC
 +++ vendor/github.com/aws/aws-sdk-go-v2/service/sts/deserializers.go
 @@ -16,7 +16,6 @@ import (
  	"github.com/aws/smithy-go/middleware"
