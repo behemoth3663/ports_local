@@ -1,30 +1,30 @@
 CARGO_CRATES=	allocator-api2-0.2.21 \
-		android_system_properties-0.1.5 \
+		android_system_properties-0.1.6 \
 		anstream-1.0.0 \
 		anstyle-1.0.14 \
 		anstyle-parse-1.0.0 \
 		anstyle-query-1.1.5 \
 		anstyle-wincon-3.0.11 \
-		anyhow-1.0.102 \
+		anyhow-1.0.104 \
 		atomic-polyfill-1.0.3 \
-		autocfg-1.5.0 \
-		bitflags-2.11.1 \
+		autocfg-1.5.1 \
+		bitflags-2.13.2 \
 		block2-0.6.2 \
-		bumpalo-3.20.2 \
+		bumpalo-3.20.3 \
 		byteorder-1.5.0 \
 		cassowary-0.3.0 \
 		castaway-0.2.4 \
-		cc-1.2.61 \
-		cfg-if-1.0.4 \
+		cc-1.11.0 \
+		cfg-if-1.0.5 \
 		cfg_aliases-0.2.2 \
-		chrono-0.4.44 \
-		clap-4.6.1 \
-		clap_builder-4.6.0 \
-		clap_derive-4.6.1 \
-		clap_lex-1.1.0 \
+		chrono-0.4.45 \
+		clap-4.6.7 \
+		clap_builder-4.6.7 \
+		clap_derive-4.6.7 \
+		clap_lex-1.1.1 \
 		cobs-0.3.0 \
 		colorchoice-1.0.5 \
-		compact_str-0.8.1 \
+		compact_str-0.8.2 \
 		core-foundation-0.10.1 \
 		core-foundation-sys-0.8.7 \
 		critical-section-1.2.0 \
@@ -32,64 +32,62 @@ CARGO_CRATES=	allocator-api2-0.2.21 \
 		crossterm_winapi-0.9.1 \
 		ctrlc-3.5.2 \
 		darling-0.20.11 \
-		darling-0.23.0 \
+		darling-0.24.1 \
 		darling_core-0.20.11 \
-		darling_core-0.23.0 \
+		darling_core-0.24.1 \
 		darling_macro-0.20.11 \
-		darling_macro-0.23.0 \
+		darling_macro-0.24.1 \
 		dirs-5.0.1 \
 		dirs-sys-0.4.1 \
 		dispatch2-0.3.1 \
-		either-1.15.0 \
+		either-1.19.0 \
 		embedded-io-0.4.0 \
 		embedded-io-0.6.1 \
-		equivalent-1.0.2 \
+		equivalent-1.0.3 \
 		errno-0.3.14 \
-		fastrand-2.4.1 \
-		find-msvc-tools-0.1.9 \
+		fastrand-2.5.0 \
+		find-msvc-tools-0.1.15 \
 		fnv-1.0.7 \
 		foldhash-0.1.5 \
-		futures-core-0.3.32 \
-		futures-task-0.3.32 \
-		futures-util-0.3.32 \
+		futures-core-0.3.34 \
+		futures-task-0.3.34 \
+		futures-util-0.3.34 \
 		getrandom-0.2.17 \
-		getrandom-0.4.2 \
+		getrandom-0.4.3 \
 		hash32-0.2.1 \
 		hashbrown-0.15.5 \
-		hashbrown-0.17.0 \
+		hashbrown-0.17.1 \
 		heapless-0.7.17 \
 		heck-0.5.0 \
 		iana-time-zone-0.1.65 \
 		iana-time-zone-haiku-0.1.2 \
-		id-arena-2.3.0 \
 		ident_case-1.0.1 \
-		indexmap-2.14.0 \
-		indoc-2.0.7 \
-		instability-0.3.12 \
+		indexmap-2.14.2 \
+		indoc-2.0.8 \
+		instability-0.3.14 \
 		is_terminal_polyfill-1.70.2 \
 		itertools-0.13.0 \
 		itoa-1.0.18 \
 		jobserver-0.1.35 \
-		js-sys-0.3.97 \
-		leb128fmt-0.1.0 \
-		libc-0.2.186 \
+		js-sys-0.3.107 \
+		libc-0.2.191 \
 		libloading-0.8.9 \
-		libredox-0.1.16 \
+		libredox-0.1.25 \
 		linux-raw-sys-0.4.15 \
 		linux-raw-sys-0.12.1 \
 		lock_api-0.4.14 \
-		log-0.4.29 \
+		log-0.4.35 \
 		lru-0.12.5 \
-		macpow-0.1.17 \
-		memchr-2.8.0 \
-		mio-1.2.0 \
-		netwatch-sdk-0.1.0 \
+		macpow-0.1.19 \
+		memchr-2.8.3 \
+		mio-1.2.4 \
+		netwatch-sdk-0.1.3 \
 		nix-0.31.3 \
 		ntapi-0.4.3 \
 		num-traits-0.2.19 \
 		nvml-wrapper-0.12.1 \
 		nvml-wrapper-sys-0.9.1 \
-		objc2-0.6.4 \
+		objc2-0.6.5 \
 		objc2-encode-4.1.0 \
 		once_cell-1.21.4 \
 		once_cell_polyfill-1.70.2 \
@@ -100,68 +98,60 @@ CARGO_CRATES=	allocator-api2-0.2.21 \
 		pin-project-lite-0.2.17 \
 		pkg-config-0.3.34 \
 		postcard-1.1.3 \
-		prettyplease-0.2.37 \
-		proc-macro2-1.0.106 \
-		quote-1.0.45 \
+		proc-macro2-1.0.107 \
+		quote-1.0.47 \
 		r-efi-6.0.0 \
 		ratatui-0.29.0 \
 		redox_syscall-0.5.18 \
 		redox_users-0.4.6 \
 		rustc_version-0.4.1 \
 		rustix-0.38.44 \
-		rustix-1.1.4 \
-		rustversion-1.0.22 \
+		rustix-1.1.6 \
+		rustversion-1.0.23 \
 		ryu-1.0.23 \
 		scopeguard-1.2.0 \
 		semver-1.0.28 \
-		serde-1.0.228 \
-		serde_core-1.0.228 \
-		serde_derive-1.0.228 \
-		serde_json-1.0.149 \
+		serde-1.0.229 \
+		serde_core-1.0.229 \
+		serde_derive-1.0.229 \
+		serde_json-1.0.154 \
 		serde_spanned-0.6.9 \
-		shlex-1.3.0 \
+		shlex-2.0.1 \
 		signal-hook-0.3.18 \
 		signal-hook-mio-0.2.5 \
 		signal-hook-registry-1.4.8 \
 		slab-0.4.12 \
-		smallvec-1.15.1 \
-		spin-0.9.8 \
+		smallvec-1.16.4 \
+		spin-0.9.9 \
 		stable_deref_trait-1.2.1 \
 		static_assertions-1.1.0 \
 		strsim-0.11.1 \
 		strum-0.26.3 \
 		strum_macros-0.26.4 \
-		syn-2.0.117 \
+		syn-2.0.119 \
+		syn-3.0.9 \
 		sysinfo-0.32.1 \
 		tempfile-3.27.0 \
 		thiserror-1.0.69 \
-		thiserror-2.0.18 \
+		thiserror-2.0.21 \
 		thiserror-impl-1.0.69 \
-		thiserror-impl-2.0.18 \
-		tokio-1.52.1 \
-		tokio-macros-2.7.0 \
+		thiserror-impl-2.0.21 \
 		toml-0.8.23 \
 		toml_datetime-0.6.11 \
 		toml_edit-0.22.27 \
 		toml_write-0.1.2 \
-		unicode-ident-1.0.24 \
-		unicode-segmentation-1.13.2 \
+		unicode-ident-1.0.27 \
+		unicode-segmentation-1.13.3 \
 		unicode-truncate-1.1.0 \
 		unicode-width-0.1.14 \
 		unicode-width-0.2.0 \
-		unicode-xid-0.2.6 \
 		utf8parse-0.2.2 \
-		uuid-1.23.1 \
+		uuid-1.29.0 \
 		wasi-0.11.1+wasi-snapshot-preview1 \
-		wasip2-1.0.3+wasi-0.2.9 \
-		wasip3-0.4.0+wasi-0.3.0-rc-2026-01-06 \
-		wasm-bindgen-0.2.120 \
-		wasm-bindgen-macro-0.2.120 \
-		wasm-bindgen-macro-support-0.2.120 \
-		wasm-bindgen-shared-0.2.120 \
-		wasm-encoder-0.244.0 \
-		wasm-metadata-0.244.0 \
-		wasmparser-0.244.0 \
+		wasm-bindgen-0.2.130 \
+		wasm-bindgen-macro-0.2.130 \
+		wasm-bindgen-macro-support-0.2.130 \
+		wasm-bindgen-shared-0.2.130 \
 		winapi-0.3.9 \
 		winapi-i686-pc-windows-gnu-0.4.0 \
 		winapi-x86_64-pc-windows-gnu-0.4.0 \
@@ -197,15 +187,8 @@ CARGO_CRATES=	allocator-api2-0.2.21 \
 		windows_x86_64_msvc-0.48.5 \
 		windows_x86_64_msvc-0.52.6 \
 		winnow-0.7.15 \
-		wit-bindgen-0.51.0 \
-		wit-bindgen-0.57.1 \
-		wit-bindgen-core-0.51.0 \
-		wit-bindgen-rust-0.51.0 \
-		wit-bindgen-rust-macro-0.51.0 \
-		wit-component-0.244.0 \
-		wit-parser-0.244.0 \
 		wrapcenum-derive-0.4.1 \
-		zmij-1.0.21 \
-		zstd-0.14.0 \
-		zstd-safe-8.0.0 \
-		zstd-sys-2.1.0+zstd.1.5.7
+		zmij-1.0.23 \
+		zstd-0.14.3 \
+		zstd-safe-8.2.0 \
+		zstd-sys-2.1.2+zstd.1.5.7
