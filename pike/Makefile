@@ -1,5 +1,5 @@
 PORTNAME=	pike
-PORTVERSION=	1.0.14
+PORTVERSION=	1.0.15
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -60,11 +60,11 @@ GH_TUPLE:=	${GH_TUPLE:N*/vendor/github.com/aws/aws-sdk-go-v2/*}
 
 #-googleapis:google-cloud-go:dbc26066f70a:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go/auth
 #+googleapis:google-cloud-go:dbc26066f70a:googleapis_google_cloud_go_auth/vendor/cloud.google.com/go
-GH_TUPLE:=	${GH_TUPLE:S,/go/auth,/go,1}
+GH_TUPLE:=	${GH_TUPLE:S|/go/auth|/go|1}
 
 #-googleapis:gax-go:v2.13.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go/v2
 #+googleapis:gax-go:v2.13.0:googleapis_gax_go_v2/vendor/github.com/googleapis/gax-go
-GH_TUPLE:=	${GH_TUPLE:S,/gax-go/v2,/gax-go,1}
+GH_TUPLE:=	${GH_TUPLE:S|/gax-go/v2|/gax-go|1}
 
 #-google:go-genproto:513f23925822:google_go_genproto/vendor/google.golang.org/genproto/googleapis/rpc
 #+google:go-genproto:513f23925822:google_go_genproto_rpc
