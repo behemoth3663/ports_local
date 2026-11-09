@@ -1,5 +1,5 @@
 PORTNAME=	npm-groovy-lint
-PORTVERSION=	19.0.0
+PORTVERSION=	19.0.1
 CATEGORIES=	local devel
 MASTER_SITES=	LOCAL/o1vm/:npm
 
