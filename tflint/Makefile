@@ -1,5 +1,5 @@
 PORTNAME=	tflint
-PORTVERSION=	0.65.0
+PORTVERSION=	0.66.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX=	-local
@@ -93,9 +93,9 @@ GH_TUPLE:=	${GH_TUPLE:S|/gax-go/v2$|/gax-go|1}
 #+owenrumney:go-sarif:v2.3.3:owenrumney_go_sarif_v2/vendor/github.com/owenrumney/go-sarif
 GH_TUPLE:=	${GH_TUPLE:S|/go-sarif/v2$|/go-sarif|1}
 
-#-envoyproxy:go-control-plane:v1.32.4:envoyproxy_go_control_plane_envoy/vendor/github.com/envoyproxy/go-control-plane/envoy
-#+envoyproxy:go-control-plane:envoy/v1.32.4:envoyproxy_go_control_plane/vendor/github.com/envoyproxy/go-control-plane
-GH_TUPLE:=	${GH_TUPLE:C,:([^:]+:[^:]+/envoyproxy/go-control-plane)/(envoy)$,:\2/\1,1}
+#-envoyproxy:go-control-plane:e6e3fd93e4be:envoyproxy_go_control_plane_envoy/vendor/github.com/envoyproxy/go-control-plane/envoy
+#+envoyproxy:go-control-plane:e6e3fd93e4be:envoyproxy_go_control_plane_envoy/vendor/github.com/envoyproxy/go-control-plane
+GH_TUPLE:=	${GH_TUPLE:S|/envoy$||1}
 
 #-google:go-genproto:49dd2c1f3d0b:google_go_genproto_1/vendor/google.golang.org/genproto/googleapis/api
 #-google:go-genproto:d783a09b4405:google_go_genproto_2/vendor/google.golang.org/genproto/googleapis/rpc

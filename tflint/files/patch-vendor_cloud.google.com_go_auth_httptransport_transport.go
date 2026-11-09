@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/auth/httptransport/transport.go.orig	2026-04-06 22:09:02 UTC
+--- vendor/cloud.google.com/go/auth/httptransport/transport.go.orig	2026-09-17 18:22:24 UTC
 +++ vendor/cloud.google.com/go/auth/httptransport/transport.go
 @@ -18,13 +18,11 @@ import (
  	"bytes"
@@ -14,10 +14,11 @@
  	"sync"
  	"time"
  
-@@ -35,10 +33,6 @@ import (
+@@ -34,11 +32,6 @@ import (
+ 	"cloud.google.com/go/auth/internal/transport"
  	"cloud.google.com/go/auth/internal/transport/cert"
  	"cloud.google.com/go/auth/internal/transport/headers"
- 	"github.com/googleapis/gax-go/v2"
+-	"github.com/googleapis/gax-go/v2"
 -	"github.com/googleapis/gax-go/v2/callctx"
 -	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
 -	"go.opentelemetry.io/otel/attribute"
@@ -25,7 +26,7 @@
  	"golang.org/x/net/http2"
  	"google.golang.org/api/googleapi"
  )
-@@ -182,47 +176,7 @@ func addOpenTelemetryTransport(trans http.RoundTripper
+@@ -182,47 +175,7 @@ func addOpenTelemetryTransport(trans http.RoundTripper
  }
  
  func addOpenTelemetryTransport(trans http.RoundTripper, opts *Options) http.RoundTripper {
@@ -73,7 +74,7 @@
  }
  
  // otelAttributeTransport is a wrapper around an http.RoundTripper that adds
-@@ -236,53 +190,6 @@ func (t *otelAttributeTransport) RoundTrip(req *http.R
+@@ -236,181 +189,13 @@ func (t *otelAttributeTransport) RoundTrip(req *http.R
  // OpenTelemetry span with static and dynamic attributes, as well as detailed
  // error information.
  func (t *otelAttributeTransport) RoundTrip(req *http.Request) (*http.Response, error) {
@@ -124,18 +125,24 @@
 -		}
 -	}
 -
- 	resp, err := t.base.RoundTrip(req)
- 
- 	var logger *slog.Logger
-@@ -292,120 +199,17 @@ func (t *otelAttributeTransport) RoundTrip(req *http.R
- 		}
- 	}
- 
+-	resp, err := t.base.RoundTrip(req)
+-	if gax.IsFeatureEnabled("METRICS") {
+-		if data != nil && resp != nil {
+-			data.SetHTTPStatusCode(resp.StatusCode)
+-		}
+-	}
+-
+-	var logger *slog.Logger
+-	if gax.IsFeatureEnabled("LOGGING") {
+-		if l := t.logger; l != nil && l.Enabled(req.Context(), slog.LevelDebug) {
+-			logger = l
+-		}
+-	}
+-
 -	if span == nil && logger == nil {
-+	if logger == nil {
- 		return resp, err
- 	}
- 
+-		return resp, err
+-	}
+-
 -	if err != nil {
 -		t.logAndSpanError(req, resp, err, err, span, logger)
 -	} else if resp.StatusCode >= 400 {
@@ -160,7 +167,8 @@
 -		}
 -	}
 -
- 	return resp, err
+-	return resp, err
++	return t.base.RoundTrip(req)
  }
  
 -func (t *otelAttributeTransport) logAndSpanError(req *http.Request, resp *http.Response, errToParse error, netErr error, span trace.Span, logger *slog.Logger) {
@@ -249,7 +257,7 @@
  	logger *slog.Logger
  	t      *otelAttributeTransport
  
-@@ -463,11 +267,6 @@ func (b *errorTrackingBody) recordError() {
+@@ -468,11 +253,6 @@ func (b *errorTrackingBody) recordError() {
  }
  
  func (b *errorTrackingBody) recordError() {
@@ -261,7 +269,7 @@
  	if b.buf.Len() > 0 {
  		clone := *b.resp
  		clone.Body = io.NopCloser(bytes.NewReader(b.buf.Bytes()))
-@@ -476,17 +275,9 @@ func (b *errorTrackingBody) recordError() {
+@@ -481,17 +261,9 @@ func (b *errorTrackingBody) recordError() {
  				if gErr.Message == "" {
  					gErr.Message = b.resp.Status
  				}
