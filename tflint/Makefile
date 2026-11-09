@@ -1,6 +1,7 @@
 PORTNAME=	tflint
 PORTVERSION=	0.66.0
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX=	-local
 
@@ -24,6 +25,7 @@ PLIST_FILES=	bin/${PORTNAME}
 M2T_OFFLINE=	true
 .export		M2T_OFFLINE
 
+# clean-unused seems useless
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 	@${RM} ${WRKSRC}/vendor/cloud.google.com/go/storage/grpc_metrics.go
@@ -32,14 +34,9 @@ post-extract: .PHONY
 	@${RM} ${WRKSRC}/vendor/github.com/envoyproxy/go-control-plane/envoy/config/trace/v3/opencensus.pb.validate.go
 	@${RM} ${WRKSRC}/vendor/github.com/envoyproxy/go-control-plane/envoy/config/trace/v3/trace.pb.go
 	@${RM} ${WRKSRC}/vendor/github.com/googleapis/gax-go/v2/telemetry.go
-	@${RM} ${WRKSRC}/vendor/github.com/transparency-dev/tessera/client/otel.go
-	@${RM} ${WRKSRC}/vendor/github.com/transparency-dev/tessera/internal/stream/otel.go
-	@${RM} ${WRKSRC}/vendor/github.com/transparency-dev/tessera/otel.go
-	@${RM} ${WRKSRC}/vendor/github.com/transparency-dev/tessera/storage/internal/otel.go
-	@${RM} ${WRKSRC}/vendor/github.com/transparency-dev/tessera/storage/gcp/otel.go
-	@${RM} ${WRKSRC}/vendor/github.com/transparency-dev/tessera/storage/gcp/antispam/otel.go
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/auth
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/internal/trace
+	@${RM} -r ${WRKSRC}/vendor/github.com/transparency-dev/tessera
 	@${RM} -r ${WRKSRC}/vendor/google.golang.org/grpc/stats/opentelemetry
 	@${TEST} ! -d ${WRKSRC}/vendor/cloud.google.com/go || ${RLN} ${WRKSRC_googleapis_google_cloud_go_auth}/auth ${WRKSRC}/vendor/cloud.google.com/go
 	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/compute/metadata
