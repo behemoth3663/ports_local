@@ -1,5 +1,5 @@
 PORTNAME=	oauth2-proxy
-PORTVERSION=	7.15.5
+PORTVERSION=	7.15.6
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local www
 PKGNAMESUFFIX=	-local
@@ -84,6 +84,6 @@ GH_TUPLE:=	${GH_TUPLE:C,:([^:]+:[^:/]+/.*/cloud.google.com/go)/(auth),:\2/\1,1}
 
 #-go-yaml:yaml:v3.0.5:go_yaml_yaml/vendor/go.yaml.in/yaml/v3
 #+yaml:go-yaml:v3.0.5:go_yaml_yaml/vendor/go.yaml.in/yaml/v3
-GH_TUPLE:=	${GH_TUPLE:S|go-yaml:yaml:|yaml:go-yaml:|1}
+GH_TUPLE:=	${GH_TUPLE:S|^go-yaml:yaml:|yaml:go-yaml:|1}
 
 .include <bsd.port.mk>
