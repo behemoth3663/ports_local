@@ -65,14 +65,14 @@
 -	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-00010101000000-000000000000
 -	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-00010101000000-000000000000
 -	github.com/hashicorp/terraform/internal/legacy v0.0.0-00010101000000-000000000000
-+	github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20261102150636-89fa87972b43
-+	github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20261102150636-89fa87972b43
-+	github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20261102150636-89fa87972b43
-+	github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20261102150636-89fa87972b43
-+	github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20261102150636-89fa87972b43
-+	github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20261102150636-89fa87972b43
-+	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20261102150636-89fa87972b43
-+	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20261102150636-89fa87972b43
++	github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20261111092458-79f788eaaf74
++	github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20261111092458-79f788eaaf74
++	github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20261111092458-79f788eaaf74
++	github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20261111092458-79f788eaaf74
++	github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20261111092458-79f788eaaf74
++	github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20261111092458-79f788eaaf74
++	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20261111092458-79f788eaaf74
++	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20261111092458-79f788eaaf74
  	github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0
 -	github.com/masterzen/winrm v0.0.0-20200615185753-c42b5136ff88
 -	github.com/mattn/go-isatty v0.0.20
@@ -115,7 +115,7 @@
 +	golang.org/x/sys v0.49.0
 +	golang.org/x/term v0.47.0
 +	golang.org/x/text v0.43.0
-+	golang.org/x/tools v0.52.0
++	golang.org/x/tools v0.52.1-0.20261106145633-d407941a339a
  	golang.org/x/tools/cmd/cover v0.1.0-deprecated
 -	google.golang.org/grpc v1.59.0
 -	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.1.0
@@ -267,7 +267,7 @@
 +	github.com/felixge/httpsnoop v1.0.4 // indirect
  	github.com/fsnotify/fsnotify v1.5.4 // indirect
 -	github.com/go-logr/logr v1.4.1 // indirect
-+	github.com/go-jose/go-jose/v4 v4.1.8 // indirect
++	github.com/go-jose/go-jose/v4 v4.1.9 // indirect
 +	github.com/go-logr/logr v1.4.4 // indirect
  	github.com/go-logr/stdr v1.2.2 // indirect
 -	github.com/go-openapi/errors v0.20.2 // indirect
@@ -301,7 +301,7 @@
 -	github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.45 // indirect
 -	github.com/hashicorp/consul/api v1.13.0 // indirect
 +	github.com/google/s2a-go v0.1.11 // indirect
-+	github.com/googleapis/enterprise-certificate-proxy v0.3.24 // indirect
++	github.com/googleapis/enterprise-certificate-proxy v0.3.25 // indirect
 +	github.com/googleapis/gax-go/v2 v2.23.0 // indirect
 +	github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.76 // indirect
 +	github.com/hashicorp/consul/api v1.13.1 // indirect
@@ -317,7 +317,7 @@
 +	github.com/hashicorp/serf v0.9.8 // indirect
  	github.com/hashicorp/terraform-plugin-log v0.9.0 // indirect
 -	github.com/hashicorp/yamux v0.1.1 // indirect
-+	github.com/hashicorp/terraform/internal/legacy v0.0.0-20261102150636-89fa87972b43 // indirect
++	github.com/hashicorp/terraform/internal/legacy v0.0.0-20261111092458-79f788eaaf74 // indirect
 +	github.com/hashicorp/yamux v0.1.2 // indirect
  	github.com/henvic/httpretty v0.0.6 // indirect
  	github.com/huandu/xstrings v1.3.3 // indirect
@@ -428,14 +428,14 @@
 +	go.opentelemetry.io/otel/sdk v1.44.0 // indirect
 +	go.opentelemetry.io/otel/sdk/metric v1.44.0 // indirect
 +	go.opentelemetry.io/otel/trace v1.44.0 // indirect
-+	golang.org/x/exp v0.0.0-20261014143641-f0251eb4aa3e // indirect
-+	golang.org/x/exp/typeparams v0.0.0-20261014143641-f0251eb4aa3e // indirect
++	golang.org/x/exp v0.0.0-20261109185158-a52e3aef5920 // indirect
++	golang.org/x/exp/typeparams v0.0.0-20261109185158-a52e3aef5920 // indirect
 +	golang.org/x/sync v0.24.0 // indirect
 +	golang.org/x/time v0.15.0 // indirect
 +	google.golang.org/api v0.287.1 // indirect
-+	google.golang.org/genproto v0.0.0-20261026165753-2ffab32bce7e // indirect
-+	google.golang.org/genproto/googleapis/api v0.0.0-20261026165753-2ffab32bce7e // indirect
-+	google.golang.org/genproto/googleapis/rpc v0.0.0-20261026165753-2ffab32bce7e // indirect
++	google.golang.org/genproto v0.0.0-20261110000943-09e21b237f2c // indirect
++	google.golang.org/genproto/googleapis/api v0.0.0-20261110000943-09e21b237f2c // indirect
++	google.golang.org/genproto/googleapis/rpc v0.0.0-20261110000943-09e21b237f2c // indirect
  	gopkg.in/inf.v0 v0.9.1 // indirect
 -	gopkg.in/ini.v1 v1.66.2 // indirect
 +	gopkg.in/ini.v1 v1.66.6 // indirect
@@ -452,7 +452,7 @@
 +	k8s.io/apimachinery v0.25.16 // indirect
 +	k8s.io/client-go v0.25.16 // indirect
 +	k8s.io/klog/v2 v2.80.1 // indirect
-+	k8s.io/kube-openapi v0.0.0-20261014044854-ca3452a79603 // indirect
++	k8s.io/kube-openapi v0.0.0-20261104182252-5bee61fc5225 // indirect
 +	k8s.io/utils v0.0.0-20261023123148-ca04ba58ecab // indirect
 +	sigs.k8s.io/json v0.0.0-20260909141634-11ed52e25bc5 // indirect
  	sigs.k8s.io/structured-merge-diff/v4 v4.2.3 // indirect
