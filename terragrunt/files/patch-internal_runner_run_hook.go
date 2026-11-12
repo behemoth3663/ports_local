@@ -8,7 +8,7 @@
  	"github.com/gruntwork-io/terragrunt/internal/tflint"
  	"github.com/gruntwork-io/terragrunt/internal/util"
  	"github.com/gruntwork-io/terragrunt/internal/venv"
-@@ -92,13 +91,7 @@ func ProcessHooks(ctx context.Context, l log.Logger, v
+@@ -105,13 +104,7 @@ func ProcessHooks(ctx context.Context, l log.Logger, v
  		}
  
  		if shouldRunHook(curHook, p.Opts, allPreviousErrors) {
@@ -23,7 +23,7 @@
  			if err != nil {
  				allPreviousErrors = append(allPreviousErrors, err)
  			}
-@@ -160,40 +153,36 @@ func ProcessErrorHooks(
+@@ -173,40 +166,36 @@ func ProcessErrorHooks(
  
  		if matched &&
  			slices.Contains(curHook.Commands, opts.TerraformCliArgs.CommandName(opts.TerraformCommand)) {

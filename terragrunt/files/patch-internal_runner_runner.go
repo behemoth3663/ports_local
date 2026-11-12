@@ -1,6 +1,6 @@
 --- internal/runner/runner.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/runner/runner.go
-@@ -27,15 +27,12 @@ import (
+@@ -28,15 +28,12 @@ import (
  	"github.com/gruntwork-io/terragrunt/internal/queue"
  	"github.com/gruntwork-io/terragrunt/internal/report"
  	"github.com/gruntwork-io/terragrunt/internal/runner/run/creds"
@@ -16,7 +16,7 @@
  )
  
  // Seen together in a unit's plan stderr, these mean the unit failed because a
-@@ -442,17 +439,8 @@ func (rnr *Runner) Run(
+@@ -444,17 +441,8 @@ func (rnr *Runner) Run(
  		}
  
  		unitPath := u.Path()
@@ -26,8 +26,8 @@
 -			Collect(ctx, unitLogger, "runner_pool_task", map[string]any{
 -				"unit_path":              unitPath,
 -				"unit_name":              unitName,
--				"terraform_command":      unitOpts.TerraformCommand,
--				"terraform_cli_args":     unitOpts.TerraformCliArgs,
+-				"tofu_command":           unitOpts.TofuCommand,
+-				"tofu_cli_args":          unitOpts.TerraformCliArgs.Slice(),
 -				"working_dir":            unitOpts.WorkingDir,
 -				"terragrunt_config_path": unitOpts.TerragruntConfigPath,
 -			}, func(childCtx context.Context, unitLogger log.Logger) error {
@@ -35,7 +35,7 @@
  				l.Debugf(
  					"Runner Pool Task: starting unit=%s command=%s",
  					unitPath,
-@@ -502,25 +490,13 @@ func (rnr *Runner) Run(
+@@ -504,25 +492,13 @@ func (rnr *Runner) Run(
  
  				var cfg *config.TerragruntConfig
  
@@ -49,7 +49,7 @@
 -
 -						var readErr error
 -
--						cfg, readErr = config.ReadTerragruntConfig(
+-						cfg, readErr = s.ReadTerragruntConfig(
 -							readCtx,
 -							unitLogger,
 -							unitV,
@@ -59,24 +59,24 @@
 -						return readErr
 -					})
 +				pctx := configbridge.NewParsingContext(unitOpts)
-+				cfg, err = config.ReadTerragruntConfig(
++				cfg, err = s.ReadTerragruntConfig(
 +					childCtx,
 +					unitLogger,
 +					unitV,
 +					pctx,
 +				)
  				if err != nil {
- 					logTaskOutcome(childCtx, l, unitPath, unitOpts.TerraformCommand, err)
+ 					logTaskOutcome(childCtx, l, unitPath, unitOpts.TofuCommand, err)
  
-@@ -538,25 +514,18 @@ func (rnr *Runner) Run(
+@@ -540,25 +516,18 @@ func (rnr *Runner) Run(
  
  				runCfg := cfg.ToRunConfig(unitLogger, unitV.FS)
  
 -				err = telemetry.TelemeterFromContext(childCtx).
 -					Collect(childCtx, unitLogger, "unit_run", map[string]any{
--						"unit_path":         unitPath,
--						"unit_name":         unitName,
--						"terraform_command": unitOpts.TerraformCommand,
+-						"unit_path":    unitPath,
+-						"unit_name":    unitName,
+-						"tofu_command": unitOpts.TofuCommand,
 -					}, func(runCtx context.Context, unitLogger log.Logger) error {
 -						unlockOutputs := config.LockDependencyOutputs(runCtx, unitOpts.TerragruntConfigPath)
 -						defer unlockOutputs()
@@ -105,8 +105,8 @@
  
  				// This unit's terraform commands are all done, so release its engine now
  				// instead of holding it until the batch Shutdown. Skip units that another
-@@ -584,7 +553,7 @@ func (rnr *Runner) Run(
- 				logTaskOutcome(childCtx, l, unitPath, unitOpts.TerraformCommand, err)
+@@ -586,7 +555,7 @@ func (rnr *Runner) Run(
+ 				logTaskOutcome(childCtx, l, unitPath, unitOpts.TofuCommand, err)
  
  				return err
 -			})
@@ -114,7 +114,7 @@
  	}
  
  	rnr.queue.FailFast = stackOpts.FailFast
-@@ -969,18 +938,12 @@ func collectDependenciesBounded(unit *component.Unit, 
+@@ -968,18 +937,12 @@ func collectDependenciesBounded(unit *component.Unit, 
  	}
  }
  

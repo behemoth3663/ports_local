@@ -1,6 +1,6 @@
---- vendor/cloud.google.com/go/storage/metrics.go.orig	2026-11-04 11:39:43 UTC
+--- vendor/cloud.google.com/go/storage/metrics.go.orig	2026-11-15 13:51:30 UTC
 +++ vendor/cloud.google.com/go/storage/metrics.go
-@@ -1,1214 +1,77 @@
+@@ -1,1761 +1,124 @@
 -// Copyright 2026 Google LLC
 -//
 -// Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,15 +24,15 @@
 -	"fmt"
 -	"io"
 -	"log"
--	"net"
+ 	"net"
  	"net/http"
 -	"net/http/httptrace"
 -	"os"
 -	"strconv"
- 	"strings"
+-	"strings"
 -	"sync"
 -	"sync/atomic"
- 	"time"
+-	"time"
  
  	"cloud.google.com/go/auth"
 -	"cloud.google.com/go/iam/apiv1/iampb"
@@ -58,10 +58,12 @@
 -const (
 -	customMetricPrefix = "custom.googleapis.com/"
 -)
-+type clientMetrics struct{}
++type noopInt64Recorder struct{}
  
 -// clientMetrics contains the OpenTelemetry metric instruments to record client-side metrics.
--type clientMetrics struct {
++func (noopInt64Recorder) Record(context.Context, int64, ...any) {}
++
+ type clientMetrics struct {
 -	provider                  *sdkmetric.MeterProvider
 -	rpcClientCallDuration     metric.Float64Histogram
 -	httpClientRequestDuration metric.Float64Histogram
@@ -82,17 +84,23 @@
 -	networkBytesSent          metric.Int64Counter
 -	networkBytesReceived      metric.Int64Counter
 -	stallDuration             metric.Float64Histogram
--}
--
++	requestBodySize  noopInt64Recorder
++	responseBodySize noopInt64Recorder
+ }
+ 
 -func formatMetricWithPrefix(m metricdata.Metrics, prefix string) string {
 -	return prefix + strings.ReplaceAll(string(m.Name), ".", "/")
--}
--
++type metricsStorageClient struct {
++	storageClient
++	metrics *clientMetrics
++	isHTTP  bool
+ }
+ 
 -// isOtelMetricsEnabled checks if Otel metrics are enabled.
 -// The environment variable GCP_STORAGE_GO_ENABLE_OTEL_METRICS takes precedence
 -// over the config option. Note that if metrics are completely disabled via
 -// disableClientMetrics, this will always return false regardless of the environment variable.
- func isOtelMetricsEnabled(config *storageConfig) bool {
+-func isOtelMetricsEnabled(config *storageConfig) bool {
 -	if config.disableClientMetrics {
 -		return false
 -	}
@@ -103,14 +111,13 @@
 -		}
 -	}
 -	return config.enableOtelMetrics
-+	return config != nil && config.enableOtelMetrics
- }
- 
+-}
+-
 -// isOtelDebugMetricsEnabled checks if debug Otel metrics are enabled.
 -// The environment variable GCP_STORAGE_GO_ENABLE_OTEL_DEBUG_METRICS takes precedence
 -// over the config option. Note that if metrics are completely disabled via
 -// disableClientMetrics, this will always return false regardless of the environment variable.
- func isOtelDebugMetricsEnabled(config *storageConfig) bool {
+-func isOtelDebugMetricsEnabled(config *storageConfig) bool {
 -	if config.disableClientMetrics {
 -		return false
 -	}
@@ -121,9 +128,8 @@
 -		}
 -	}
 -	return config.enableOtelDebugMetrics
-+	return config != nil && config.enableOtelDebugMetrics
- }
- 
+-}
+-
 -// newMetricsGCMExporter creates a Google Cloud Monitoring exporter.
 -func newMetricsGCMExporter(ctx context.Context, projectID string) (sdkmetric.Exporter, error) {
 -	exporter, err := mexporter.New(
@@ -166,13 +172,8 @@
 -		return nil, fmt.Errorf("storage: creating GCM exporter: %w", err)
 -	}
 -	return exporter, nil
-+func initClientMetrics(ctx context.Context, project string, config *storageConfig) (*clientMetrics, func()) {
-+	_ = ctx
-+	_ = project
-+	_ = config
-+	return nil, nil
- }
- 
+-}
+-
 -// initMetrics initializes clientMetrics with a meter provider and registered exporter.
 -func initMetrics(ctx context.Context, projectID string, config *storageConfig) (*clientMetrics, func(), error) {
 -	var provider *sdkmetric.MeterProvider
@@ -765,11 +766,11 @@
 -}
 -
 -// metricsRoundTripper is an http.RoundTripper that wraps an underlying transport.
--type metricsRoundTripper struct {
--	base    http.RoundTripper
--	metrics *clientMetrics
--}
--
+ type metricsRoundTripper struct {
+ 	base    http.RoundTripper
+ 	metrics *clientMetrics
+ }
+ 
 -func (rt *metricsRoundTripper) RoundTrip(req *http.Request) (*http.Response, error) {
 -	state := metricsStateFromContext(req.Context())
 -	var logicalMethod string
@@ -939,19 +940,25 @@
 -		}
 -	}
 -	return resp, nil
--}
--
++func (m *metricsRoundTripper) RoundTrip(req *http.Request) (*http.Response, error) {
++	return m.base.RoundTrip(req)
+ }
+ 
 -type wrappedResponseBody struct {
 -	io.ReadCloser
 -	startTime  time.Time
 -	req        *http.Request
 -	resp       *http.Response
--	metrics    *clientMetrics
++type metricsState struct {
+ 	metrics    *clientMetrics
 -	recorded   atomic.Bool
 -	isDownload bool
 -	firstRead  atomic.Bool
--}
--
++	record     func(error)
++	systemName string
++	target     string
+ }
+ 
 -func (w *wrappedResponseBody) Read(p []byte) (n int, err error) {
 -	if w.isDownload && w.metrics != nil && w.firstRead.CompareAndSwap(false, true) {
 -		duration := time.Since(w.startTime).Seconds()
@@ -1034,7 +1041,7 @@
 -}
 -
 -// metricsInterceptors returns gRPC client interceptors.
- func metricsInterceptors(cm *clientMetrics) (grpc.UnaryClientInterceptor, grpc.StreamClientInterceptor) {
+-func metricsInterceptors(cm *clientMetrics) (grpc.UnaryClientInterceptor, grpc.StreamClientInterceptor) {
 -	unary := func(ctx context.Context, method string, req, reply interface{}, cc *grpc.ClientConn, invoker grpc.UnaryInvoker, opts ...grpc.CallOption) error {
 -		logicalMethod := getLogicalMethod(method)
 -
@@ -1113,10 +1120,8 @@
 -	}
 -
 -	return unary, stream
-+	_ = cm
-+	return nil, nil
- }
- 
+-}
+-
 -type wrappedClientStream struct {
 -	grpc.ClientStream
 -	startTime     time.Time
@@ -1128,12 +1133,8 @@
 -	serverStreams bool
 -	clientStreams bool
 -	recordedTTFB  atomic.Bool
-+func grpcNetworkMetricsDialOptions(host string, metrics *clientMetrics) []option.ClientOption {
-+	_ = host
-+	_ = metrics
-+	return nil
- }
- 
+-}
+-
 -func (w *wrappedClientStream) RecvMsg(m interface{}) error {
 -	err := w.ClientStream.RecvMsg(m)
 -	if err == nil {
@@ -1146,24 +1147,16 @@
 -		w.record(err)
 -	}
 -	return err
-+func wrapAuthCredentials(c *auth.Credentials, m *clientMetrics) *auth.Credentials {
-+	_ = m
-+	return c
- }
- 
+-}
+-
 -func (w *wrappedClientStream) SendMsg(m interface{}) error {
 -	err := w.ClientStream.SendMsg(m)
 -	if err != nil {
 -		w.record(err)
 -	}
 -	return err
-+func (cm *clientMetrics) recordCredentialRefreshDuration(ctx context.Context, duration time.Duration, err error) {
-+	_ = cm
-+	_ = ctx
-+	_ = duration
-+	_ = err
- }
- 
+-}
+-
 -func (w *wrappedClientStream) record(err error) {
 -	if w.recorded.CompareAndSwap(false, true) {
 -		duration := time.Since(w.startTime).Seconds()
@@ -1188,15 +1181,8 @@
 -		trailerMD := w.ClientStream.Trailer()
 -		w.metrics.recordGFEMetrics(w.ctx, headerMD, trailerMD, err, logicalMethod, w.target, rpcAttrs)
 -	}
-+func (cm *clientMetrics) recordStallDuration(ctx context.Context, duration time.Duration, method string, systemName string, target string) {
-+	_ = cm
-+	_ = ctx
-+	_ = duration
-+	_ = method
-+	_ = systemName
-+	_ = target
- }
- 
+-}
+-
 -func (w *wrappedClientStream) recordTTFB(m interface{}) {
 -	if w.recordedTTFB.Load() {
 -		return
@@ -1227,29 +1213,34 @@
 -	return attrs
 -}
 -
- type metricsState struct {
+-type metricsState struct {
 -	target    atomic.Pointer[string]
 -	method    string
 -	startTime time.Time
 -	metrics   *clientMetrics
 -	isHTTP    bool
 -	record    func(error)
-+	metrics *clientMetrics
-+	record  func(error)
-+	isHTTP  bool
-+	target  string
- }
- 
- func (s *metricsState) setTarget(t string) {
- 	if s == nil {
- 		return
- 	}
+-}
+-
+-func (s *metricsState) setTarget(t string) {
+-	if s == nil {
+-		return
+-	}
 -	s.target.Store(&t)
-+	s.target = t
+-}
+-
+ func (s *metricsState) getSystemName() string {
+ 	if s == nil {
+ 		return ""
+ 	}
+-	if s.isHTTP {
+-		return "http"
+-	}
+-	return "grpc"
++	return s.systemName
  }
  
- func (s *metricsState) getSystemName() string {
-@@ -1225,537 +88,47 @@ func (s *metricsState) getTarget() string {
+ func (s *metricsState) getTarget() string {
  	if s == nil {
  		return ""
  	}
@@ -1260,32 +1251,31 @@
 +	return s.target
  }
  
-+type metricsKey struct{}
-+type apiMethodKey struct{}
-+
- func contextWithMetricsState(ctx context.Context, state *metricsState) context.Context {
- 	return context.WithValue(ctx, metricsKey{}, state)
- }
+-func contextWithMetricsState(ctx context.Context, state *metricsState) context.Context {
+-	return context.WithValue(ctx, metricsKey{}, state)
+-}
++type metricsStateContextKey struct{}
  
  func metricsStateFromContext(ctx context.Context) *metricsState {
 -	if ctx == nil {
 -		return nil
--	}
--	if state, ok := ctx.Value(metricsKey{}).(*metricsState); ok {
-+	if state, ok := ctx.Value(metricsKey{}).(*metricsState); ok && state != nil {
- 		return state
++	if s, ok := ctx.Value(metricsStateContextKey{}).(*metricsState); ok {
++		return s
  	}
--	return nil
-+	return &metricsState{}
+-	if state, ok := ctx.Value(metricsKey{}).(*metricsState); ok {
+-		return state
+-	}
+ 	return nil
  }
  
--func contextWithoutMetrics(ctx context.Context) context.Context {
+ func contextWithoutMetrics(ctx context.Context) context.Context {
 -	if ctx == nil {
 -		return nil
 -	}
 -	return context.WithValue(ctx, metricsKey{}, (*metricsState)(nil))
--}
--
++	return ctx
+ }
+ 
 -func (cm *clientMetrics) startOperation(ctx context.Context, method string, isHTTP bool) (context.Context, func(error)) {
 -	if cm == nil {
 -		return ctx, func(error) {}
@@ -1318,23 +1308,26 @@
 -
 -	ctx = contextWithMetricsState(ctx, state)
 -	return ctx, record
--}
--
++func isOtelMetricsEnabled(config *storageConfig) bool {
++	_ = config
++	return false
+ }
+ 
 -// startMetricsOp starts a client operation if OpenTelemetry metrics are enabled in ctx.
 -// It returns the updated context containing metrics state and a recording closure.
- func startMetricsOp(ctx context.Context, method string, isHTTP bool) (context.Context, func(error)) {
+-func startMetricsOp(ctx context.Context, method string, isHTTP bool) (context.Context, func(error)) {
 -	if state := metricsStateFromContext(ctx); state != nil && state.metrics != nil {
 -		return state.metrics.startOperation(ctx, method, isHTTP)
 -	}
-+	_ = method
-+	state := &metricsState{isHTTP: isHTTP}
-+	ctx = contextWithMetricsState(ctx, state)
- 	return ctx, func(error) {}
+-	return ctx, func(error) {}
++func isOtelDebugMetricsEnabled(config *storageConfig) bool {
++	_ = config
++	return false
  }
  
 -// initClientMetrics initializes OpenTelemetry client metrics if enabled in config.
 -// It returns the metrics instance and its cleanup function, or nil if disabled or upon error.
--func initClientMetrics(ctx context.Context, project string, config *storageConfig) (*clientMetrics, func()) {
+ func initClientMetrics(ctx context.Context, project string, config *storageConfig) (*clientMetrics, func()) {
 -	if !isOtelMetricsEnabled(config) && !isOtelDebugMetricsEnabled(config) {
 -		return nil, nil
 -	}
@@ -1344,8 +1337,10 @@
 -		return nil, nil
 -	}
 -	return cm, cleanup
-+func contextWithoutMetrics(ctx context.Context) context.Context {
-+	return contextWithMetricsState(ctx, nil)
++	_ = ctx
++	_ = project
++	_ = config
++	return nil, nil
  }
  
 -// metricsStorageClient wraps a storageClient and records client-level metrics.
@@ -1353,15 +1348,22 @@
 -	storageClient
 -	metrics *clientMetrics
 -	isHTTP  bool
--}
--
++func startMetricsOp(ctx context.Context, method string, isHTTP bool) (context.Context, func(error)) {
++	_ = method
++	_ = isHTTP
++	return ctx, func(error) {}
+ }
+ 
 -func (mc *metricsStorageClient) GetServiceAccount(ctx context.Context, project string, opts ...storageOption) (string, error) {
 -	ctx, record := mc.metrics.startOperation(ctx, "GetServiceAccount", mc.isHTTP)
 -	res, err := mc.storageClient.GetServiceAccount(ctx, project, opts...)
 -	record(err)
 -	return res, err
--}
--
++func metricsInterceptors(cm *clientMetrics) (grpc.UnaryClientInterceptor, grpc.StreamClientInterceptor) {
++	_ = cm
++	return nil, nil
+ }
+ 
 -func (mc *metricsStorageClient) CreateBucket(ctx context.Context, project, bucket string, attrs *BucketAttrs, enableObjectRetention *bool, opts ...storageOption) (*BucketAttrs, error) {
 -	ctx, record := mc.metrics.startOperation(ctx, "CreateBucket", mc.isHTTP)
 -	res, err := mc.storageClient.CreateBucket(ctx, project, bucket, attrs, enableObjectRetention, opts...)
@@ -1462,17 +1464,13 @@
 -	if err != nil {
 -		record(err)
 -		return nil, err
-+func stripPort(host string) string {
-+	if h, _, ok := strings.Cut(host, ":"); ok {
-+		return h
- 	}
+-	}
 -	if state := metricsStateFromContext(ctx); state != nil {
 -		r.metricsState = state
 -	}
 -	return r, nil
-+	return host
- }
- 
+-}
+-
 -func (mc *metricsStorageClient) OpenWriter(params *openWriterParams, opts ...storageOption) (internalWriter, error) {
 -	ctx, _ := mc.metrics.startOperation(params.ctx, "WriteObject", mc.isHTTP)
 -	params.ctx = ctx
@@ -1702,7 +1700,7 @@
 -}
 -
 -// grpcNetworkMetricsDialOptions returns dial options that instrument TCP and TLS handshake metrics.
--func grpcNetworkMetricsDialOptions(host string, metrics *clientMetrics) []option.ClientOption {
+ func grpcNetworkMetricsDialOptions(host string, metrics *clientMetrics) []option.ClientOption {
 -	if metrics == nil || (metrics.tcpConnectDuration == nil && metrics.tlsHandshakeDuration == nil && metrics.networkBytesSent == nil && metrics.networkBytesReceived == nil) {
 -		return nil
 -	}
@@ -1743,15 +1741,16 @@
 -		option.WithGRPCDialOption(grpc.WithContextDialer(dialer)),
 -		option.WithGRPCDialOption(grpc.WithStatsHandler(sh)),
 -	}
--}
--
--type metricsTokenProvider struct {
--	base    auth.TokenProvider
-+type metricsRoundTripper struct {
-+	base    http.RoundTripper
- 	metrics *clientMetrics
++	_ = host
++	_ = metrics
++	return nil
  }
  
+-type metricsTokenProvider struct {
+-	base    auth.TokenProvider
+-	metrics *clientMetrics
+-}
+-
 -func (p *metricsTokenProvider) Token(ctx context.Context) (*auth.Token, error) {
 -	start := time.Now()
 -	tok, err := p.base.Token(ctx)
@@ -1764,7 +1763,7 @@
 -// it embeds unexported fields (e.g. universeDomain and its internal Mutex). Wrapping or copying
 -// it would either trigger go vet lock-copying errors or silently drop those unexported fields,
 -// which breaks Universe Domain resolution for legacy users.
--func wrapAuthCredentials(c *auth.Credentials, m *clientMetrics) *auth.Credentials {
+ func wrapAuthCredentials(c *auth.Credentials, m *clientMetrics) *auth.Credentials {
 -	if c == nil || c.TokenProvider == nil {
 -		return c
 -	}
@@ -1779,8 +1778,10 @@
 -	clone := *c
 -	clone.TokenProvider = &metricsTokenProvider{base: c.TokenProvider, metrics: m}
 -	return &clone
--}
--
++	_ = m
++	return c
+ }
+ 
 -func (cm *clientMetrics) recordCredentialRefreshDuration(ctx context.Context, duration time.Duration, err error) {
 -	if cm == nil || cm.credentialRefreshDuration == nil {
 -		return
@@ -1791,19 +1792,27 @@
 -	}
 -	attrs := []attribute.KeyValue{attribute.String("error.type", errorType)}
 -	cm.credentialRefreshDuration.Record(ctx, duration.Seconds(), metric.WithAttributes(attrs...))
--}
--
++func (m *clientMetrics) recordStallDuration(ctx context.Context, d any, method string, system string, target string) {
++	_ = ctx
++	_ = d
++	_ = method
++	_ = system
++	_ = target
+ }
+ 
 -func (cm *clientMetrics) recordStallDuration(ctx context.Context, duration time.Duration, method string, systemName string, target string) {
 -	if cm == nil || cm.stallDuration == nil {
 -		return
--	}
++func stripPort(host string) string {
++	h, _, err := net.SplitHostPort(host)
++	if err == nil {
++		return h
+ 	}
 -	attrs := []attribute.KeyValue{
 -		attribute.String("rpc.system.name", systemName),
 -		attribute.String("rpc.method", method),
 -		attribute.String("server.address", target),
 -	}
 -	cm.stallDuration.Record(ctx, duration.Seconds(), metric.WithAttributes(attrs...))
-+func (rt *metricsRoundTripper) RoundTrip(req *http.Request) (*http.Response, error) {
-+	_ = rt.metrics
-+	return rt.base.RoundTrip(req)
++	return host
  }

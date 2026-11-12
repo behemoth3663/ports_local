@@ -7,10 +7,10 @@
 -	"go.opentelemetry.io/otel/attribute"
 -	"go.opentelemetry.io/otel/trace"
 -
+ 	rewrite "github.com/gruntwork-io/terragrunt/internal/config/rewrite"
  	"github.com/gruntwork-io/terragrunt/internal/experiment"
  	"github.com/gruntwork-io/terragrunt/internal/filter"
- 	"github.com/gruntwork-io/terragrunt/internal/util"
-@@ -101,13 +98,6 @@ func (p *FilesystemPhase) Run(
+@@ -103,13 +100,6 @@ func (p *FilesystemPhase) Run(
  	roots, reasons := input.Classifier.WalkRoots(discoveryContext.WorkingDir)
  
  	l.Debugf("Discovery: pruned walk from %d root(s): %s", len(roots), strings.Join(reasons, "; "))

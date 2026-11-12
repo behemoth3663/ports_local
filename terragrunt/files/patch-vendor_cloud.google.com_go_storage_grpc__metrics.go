@@ -1,6 +1,6 @@
---- vendor/cloud.google.com/go/storage/grpc_metrics.go.orig	2026-11-04 11:39:43 UTC
+--- vendor/cloud.google.com/go/storage/grpc_metrics.go.orig	2026-11-15 13:51:30 UTC
 +++ vendor/cloud.google.com/go/storage/grpc_metrics.go
-@@ -1,285 +1,32 @@
+@@ -1,285 +1,30 @@
 -// Copyright 2024 Google LLC
 -//
 -// Licensed under the Apache License, Version 2.0 (the "License");
@@ -129,18 +129,18 @@
  }
  
  type metricsConfig struct {
- 	project         string
- 	interval        time.Duration
+-	project         string
+-	interval        time.Duration
 -	customExporter  *metric.Exporter
 -	meterProvider   *metric.MeterProvider
 -	manualReader    *metric.ManualReader // used by tests
 -	disableExporter bool                 // used by tests disables exports
 -	resourceOpts    []resource.Option    // used by tests
-+	customExporter  any
-+	meterProvider   any
-+	manualReader    any
-+	disableExporter bool
-+	resourceOpts    []any
++	project       string
++	interval      time.Duration
++	customExporter any
++	meterProvider  any
++	manualReader   any
  }
  
  func newGRPCMetricContext(ctx context.Context, cfg metricsConfig) (*metricsContext, error) {

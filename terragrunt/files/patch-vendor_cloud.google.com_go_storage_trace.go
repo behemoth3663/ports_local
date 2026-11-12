@@ -1,14 +1,29 @@
---- vendor/cloud.google.com/go/storage/trace.go.orig	2026-11-04 11:39:43 UTC
+--- vendor/cloud.google.com/go/storage/trace.go.orig	2026-11-15 13:51:30 UTC
 +++ vendor/cloud.google.com/go/storage/trace.go
-@@ -16,21 +16,11 @@ import (
+@@ -1,64 +1,16 @@
+-// Copyright 2025 Google LLC
+-//
+-// Licensed under the Apache License, Version 2.0 (the "License");
+-// you may not use this file except in compliance with the License.
+-// You may obtain a copy of the License at
+-//
+-//      http://www.apache.org/licenses/LICENSE-2.0
+-//
+-// Unless required by applicable law or agreed to in writing, software
+-// distributed under the License is distributed on an "AS IS" BASIS,
+-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+-// See the License for the specific language governing permissions and
+-// limitations under the License.
+-
+ package storage
  
  import (
  	"context"
 -	"errors"
- 	"fmt"
+-	"fmt"
 -	"net/http"
  	"os"
- 	"strings"
+-	"strings"
  
  	internalTrace "cloud.google.com/go/internal/trace"
 -	"cloud.google.com/go/storage/internal"
@@ -21,13 +36,16 @@
 -	"google.golang.org/grpc/status"
  )
  
- type traceContextKey string
-@@ -39,18 +29,8 @@ const (
- 	cacheContextKey    traceContextKey = "bucketMetadataCache"
- 	bucketContextKey   traceContextKey = "bucketName"
- 	isBucketContextKey traceContextKey = "isBucketOp"
+-type traceContextKey string
++const storageResourceNamePrefix = "//storage.googleapis.com/"
+ 
+-const (
+-	cacheContextKey    traceContextKey = "bucketMetadataCache"
+-	bucketContextKey   traceContextKey = "bucketName"
+-	isBucketContextKey traceContextKey = "isBucketOp"
 -	traceAttributesKey traceContextKey = "traceAttributes"
- )
+-)
++type apiMethodKey struct{}
  
 -func contextWithTraceAttributes(ctx context.Context, attrs []attribute.KeyValue) context.Context {
 -	return context.WithValue(ctx, traceAttributesKey, attrs)
@@ -38,10 +56,18 @@
 -	return attrs, ok
 -}
 -
- const (
- 	defaultTracerName = "cloud.google.com/go/storage"
- 	gcpClientArtifact = "cloud.google.com/go/storage"
-@@ -67,11 +47,7 @@ func isACOEnabled() bool {
+-const (
+-	defaultTracerName = "cloud.google.com/go/storage"
+-	gcpClientArtifact = "cloud.google.com/go/storage"
+-	gcpClientService  = "storage"
+-)
+-
+-// isOTelTracingDevEnabled checks the development flag until experimental feature is launched.
+-// TODO: Remove development flag upon experimental launch.
+ func isOTelTracingDevEnabled() bool {
+ 	return os.Getenv(storageOtelTracingDevVar) == "true"
+ }
+@@ -67,133 +19,23 @@ func isACOEnabled() bool {
  	return os.Getenv(storageBucketMetadataDisabledVar) != "true"
  }
  
@@ -50,32 +76,59 @@
 -}
 -
 -func startSpanWithBucket(ctx context.Context, client *Client, bucket string, name string, opts ...trace.SpanStartOption) (context.Context, trace.Span) {
-+func startSpanWithBucket(ctx context.Context, client *Client, bucket string, name string, opts ...any) (context.Context, any) {
- 	if !isOTelTracingDevEnabled() {
- 		return startSpan(ctx, name, opts...)
- 	}
-@@ -93,11 +69,8 @@ func startSpanWithBucket(ctx context.Context, client *
- 			cache.fetchBackground(ctx, bucket)
- 			meta = placeholder
- 		}
+-	if !isOTelTracingDevEnabled() {
+-		return startSpan(ctx, name, opts...)
+-	}
+-	if client != nil && client.bucketMetadataCache != nil && bucket != "" {
+-		ctx = context.WithValue(ctx, cacheContextKey, client.bucketMetadataCache)
+-		ctx = context.WithValue(ctx, bucketContextKey, bucket)
+-		isBucket := strings.HasPrefix(name, "Bucket.") || strings.HasPrefix(name, "ACL.") || strings.HasPrefix(name, "storage.IAM.")
+-		ctx = context.WithValue(ctx, isBucketContextKey, isBucket)
+-
+-		cache := client.bucketMetadataCache
+-		meta, hit := cache.get(bucket)
+-		if !hit {
+-			placeholder := bucketMetadata{
+-				resource:    fmt.Sprintf("projects/_/buckets/%s", bucket),
+-				location:    "global",
+-				placeholder: true,
+-			}
+-			cache.put(bucket, placeholder)
+-			cache.fetchBackground(ctx, bucket)
+-			meta = placeholder
+-		}
 -		attrs := []attribute.KeyValue{
 -			attribute.String("gcp.resource.destination.id", destinationResourceName(meta.resource)),
 -			attribute.String("gcp.resource.destination.location", meta.location),
 -		}
 -		ctx = contextWithTraceAttributes(ctx, attrs)
-+		_ = destinationResourceName(meta.resource)
-+		_ = meta.location
- 	}
- 	return startSpan(ctx, name, opts...)
+-	}
+-	return startSpan(ctx, name, opts...)
+-}
+-
+-// storageResourceNamePrefix is prepended to the bucket resource name only when
+-// it is emitted in the gcp.resource.destination.id span attribute. Cloud
+-// Trace's App Hub extractor only accepts full resource names of the form
+-// "//{service}/{path}"; a bare "projects/.../buckets/..." path is rejected as
+-// malformed and the span is silently dropped from App Hub enrichment. The
+-// bucket metadata cache and fetchBucketMetadata keep the bare
+-// "projects/{p}/buckets/{b}" form.
+-const storageResourceNamePrefix = "//storage.googleapis.com/"
+-
+-// destinationResourceName converts a bare bucket resource name
+-// ("projects/{p}/buckets/{b}") into the full resource name
+-// ("//storage.googleapis.com/projects/{p}/buckets/{b}") required by Cloud
+-// Trace's App Hub extractor for the gcp.resource.destination.id attribute.
+ func destinationResourceName(resource string) string {
+ 	return storageResourceNamePrefix + resource
  }
-@@ -122,76 +95,19 @@ func destinationResourceName(resource string) string {
- // startSpan creates a span and a context.Context containing the newly-created span.
- // If the context.Context provided in `ctx` contains a span then the newly-created
- // span will be a child of that span, otherwise it will be a root span.
+ 
+-// startSpan creates a span and a context.Context containing the newly-created span.
+-// If the context.Context provided in `ctx` contains a span then the newly-created
+-// span will be a child of that span, otherwise it will be a root span.
 -func startSpan(ctx context.Context, name string, opts ...trace.SpanStartOption) (context.Context, trace.Span) {
-+func startSpan(ctx context.Context, name string, opts ...any) (context.Context, any) {
- 	ctx = context.WithValue(ctx, apiMethodKey{}, name)
- 	name = appendPackageName(name)
+-	ctx = context.WithValue(ctx, apiMethodKey{}, name)
+-	name = appendPackageName(name)
 -	// TODO: Remove internalTrace upon experimental launch.
 -	if !isOTelTracingDevEnabled() {
 -		ctx = internalTrace.StartSpan(ctx, name)
@@ -87,9 +140,11 @@
 -	}
 -	ctx, span := tracer().Start(ctx, name, opts...)
 -	return ctx, span
++func startSpanWithBucket(ctx context.Context, client *Client, bucket string, name string, opts ...any) (context.Context, any) {
++	_ = client
++	_ = bucket
 +	_ = opts
-+	ctx = internalTrace.StartSpan(ctx, name)
-+	return ctx, nil
++	return startSpan(ctx, name)
  }
  
 -func isNotFoundError(err error) bool {
@@ -102,11 +157,15 @@
 -		return true
 -	}
 -	return false
--}
--
- // endSpan retrieves the current span from ctx and completes the span.
- // If an error occurs, the error is recorded as an exception span event for this span,
- // and the span status is set in the form of a code and a description.
++func startSpan(ctx context.Context, name string, opts ...any) (context.Context, any) {
++	_ = opts
++	ctx = context.WithValue(ctx, apiMethodKey{}, name)
++	return internalTrace.StartSpan(ctx, name), nil
+ }
+ 
+-// endSpan retrieves the current span from ctx and completes the span.
+-// If an error occurs, the error is recorded as an exception span event for this span,
+-// and the span status is set in the form of a code and a description.
  func endSpan(ctx context.Context, err error) {
 -	if err != nil && isNotFoundError(err) {
 -		isBucket, _ := ctx.Value(isBucketContextKey).(bool)
@@ -146,7 +205,9 @@
 -		attribute.String("gcp.client.version", internal.Version),
 -		attribute.String("gcp.client.artifact", gcpClientArtifact),
 -	}
+-}
+-
+-func appendPackageName(spanName string) string {
+-	return fmt.Sprintf("%s.%s", gcpClientArtifact, spanName)
 +	internalTrace.EndSpan(ctx, err)
  }
- 
- func appendPackageName(spanName string) string {

@@ -1,6 +1,6 @@
 --- pkg/config/config_helpers.go.orig	1979-11-29 21:00:00 UTC
 +++ pkg/config/config_helpers.go
-@@ -38,7 +38,6 @@ import (
+@@ -40,7 +40,6 @@ import (
  	"github.com/gruntwork-io/terragrunt/internal/retry"
  	"github.com/gruntwork-io/terragrunt/internal/shell"
  	"github.com/gruntwork-io/terragrunt/internal/strict/controls"
@@ -8,7 +8,7 @@
  	"github.com/gruntwork-io/terragrunt/internal/tf"
  	"github.com/gruntwork-io/terragrunt/internal/util"
  	"github.com/gruntwork-io/terragrunt/internal/vendored/opentofu/patch"
-@@ -1144,18 +1143,8 @@ func getAWSField(
+@@ -1305,18 +1304,8 @@ func getAWSField(
  
  	var result string
  
@@ -28,7 +28,7 @@
  	return result, err
  }
  
-@@ -1504,17 +1493,7 @@ func SopsDecryptFileWithDecrypter(
+@@ -1665,17 +1654,7 @@ func SopsDecryptFileWithDecrypter(
  
  	var rawData []byte
  

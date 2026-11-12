@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/storage/storage.go.orig	2026-11-04 11:39:43 UTC
+--- vendor/cloud.google.com/go/storage/storage.go.orig	2026-11-15 13:51:30 UTC
 +++ vendor/cloud.google.com/go/storage/storage.go
 @@ -43,17 +43,12 @@ import (
  	"cloud.google.com/go/storage/internal"
@@ -18,49 +18,7 @@
  	"google.golang.org/grpc/status"
  	"google.golang.org/protobuf/proto"
  	"google.golang.org/protobuf/reflect/protoreflect"
-@@ -226,22 +221,13 @@ func NewClient(ctx context.Context, opts ...option.Cli
- 		return nil, fmt.Errorf("storage: %w", err)
- 	}
- 
--	var tcWrapped storageClient = tc
--	if httpClient, ok := tc.(*httpStorageClient); ok && httpClient.metrics != nil {
--		tcWrapped = &metricsStorageClient{
--			storageClient: tc,
--			metrics:       httpClient.metrics,
--			isHTTP:        true,
--		}
--	}
--
- 	c := &Client{
- 		hc:      hc,
- 		raw:     rawService,
- 		scheme:  u.Scheme,
- 		xmlHost: u.Host,
- 		creds:   creds,
--		tc:      tcWrapped,
-+		tc:      tc,
- 	}
- 	if isACOEnabled() {
- 		c.bucketMetadataCache = newBucketMetadataCache(defaultBucketMetadataCacheLimit, c.tc)
-@@ -266,16 +252,8 @@ func NewGRPCClient(ctx context.Context, opts ...option
- 	if err != nil {
- 		return nil, err
- 	}
--	var tcWrapped storageClient = tc
--	if tc.metrics != nil {
--		tcWrapped = &metricsStorageClient{
--			storageClient: tc,
--			metrics:       tc.metrics,
--			isHTTP:        false,
--		}
--	}
- 	c := &Client{
--		tc:                    tcWrapped,
-+		tc:                    tc,
- 		grpcAppendableUploads: tc.config.grpcAppendableUploads,
- 	}
- 	if isACOEnabled() {
-@@ -294,24 +272,7 @@ func CheckDirectConnectivitySupported(ctx context.Cont
+@@ -294,24 +289,7 @@ func CheckDirectConnectivitySupported(ctx context.Cont
  //
  // You can pass in [option.ClientOption] you plan on passing to [NewGRPCClient]
  func CheckDirectConnectivitySupported(ctx context.Context, bucket string, opts ...option.ClientOption) error {
@@ -82,11 +40,11 @@
 -	}
 -	combinedOpts := append(opts, WithDisabledClientMetrics(), option.WithGRPCDialOption(opentelemetry.DialOption(opentelemetry.Options{MetricsOptions: mo})))
 -	client, err := NewGRPCClient(ctx, combinedOpts...)
-+	client, err := NewGRPCClient(ctx, append(opts, WithDisabledClientMetrics())...)
++	client, err := NewGRPCClient(ctx, opts...)
  	if err != nil {
  		return fmt.Errorf("storage.NewGRPCClient: %w", err)
  	}
-@@ -319,25 +280,7 @@ func CheckDirectConnectivitySupported(ctx context.Cont
+@@ -319,25 +297,7 @@ func CheckDirectConnectivitySupported(ctx context.Cont
  	if _, err = client.Bucket(bucket).Attrs(ctx); err != nil {
  		return fmt.Errorf("Bucket.Attrs: %w", err)
  	}

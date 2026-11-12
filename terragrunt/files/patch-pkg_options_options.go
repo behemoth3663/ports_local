@@ -8,7 +8,7 @@
  	"github.com/gruntwork-io/terragrunt/internal/tfimpl"
  	"github.com/gruntwork-io/terragrunt/internal/tips"
  	"github.com/gruntwork-io/terragrunt/internal/util"
-@@ -83,8 +82,6 @@ type TerragruntOptions struct {
+@@ -90,8 +89,6 @@ type TerragruntOptions struct {
  	EngineConfig *engine.EngineConfig
  	// EngineOptions groups CLI-supplied engine options.
  	EngineOptions *engine.EngineOptions
@@ -17,7 +17,7 @@
  	// Attributes to override in AWS provider nested within modules as part of the aws-provider-patch command.
  	AwsProviderPatchOverrides map[string]string
  	// Version of terraform (obtained by running 'terraform version')
-@@ -360,7 +357,6 @@ func NewTerragruntOptions(e vexec.Exec) *TerragruntOpt
+@@ -367,7 +364,6 @@ func NewTerragruntOptions(e vexec.Exec) *TerragruntOpt
  		StrictControls:         controls.New(),
  		Experiments:            experiment.NewExperiments(),
  		Tips:                   tips.NewTips(),

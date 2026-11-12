@@ -9,8 +9,8 @@
 -
  	"github.com/gruntwork-io/terragrunt/internal/git"
  	"github.com/gruntwork-io/terragrunt/internal/redact"
- 	"github.com/gruntwork-io/terragrunt/internal/venv"
-@@ -442,13 +439,7 @@ func recordCommitFetchPath(
+ 	"github.com/gruntwork-io/terragrunt/internal/spinner"
+@@ -443,13 +440,7 @@ func recordCommitFetchPath(
  	path commitFetchPath,
  ) {
  	l.Debugf("git store: fetched %s from %s via %s", ref, u, path)

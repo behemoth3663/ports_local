@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/longrunning/longrunning.go.orig	2026-11-04 11:39:43 UTC
+--- vendor/cloud.google.com/go/longrunning/longrunning.go.orig	2026-11-15 13:51:30 UTC
 +++ vendor/cloud.google.com/go/longrunning/longrunning.go
 @@ -31,11 +31,6 @@ import (
  	pb "cloud.google.com/go/longrunning/autogen/longrunningpb"
@@ -20,22 +20,18 @@
  }
  
  type operationsClient interface {
-@@ -80,14 +74,6 @@ func InternalNewOperationWithMetadata(inner *autogen.O
- 	}
- }
- 
--// SetParentSpanContext sets the parent/initiating span context for the operation,
--// which is used to create a Span Link from the LRO Wait span.
--//
--// SetParentSpanContext is an EXPERIMENTAL API and may be changed or removed in the future.
+@@ -84,8 +78,8 @@ func InternalNewOperationWithMetadata(inner *autogen.O
+ // which is used to create a Span Link from the LRO Wait span.
+ //
+ // SetParentSpanContext is an EXPERIMENTAL API and may be changed or removed in the future.
 -func (op *Operation) SetParentSpanContext(sc trace.SpanContext) {
 -	op.initSpanContext = sc
--}
--
++func (op *Operation) SetParentSpanContext(sc any) {
++	_ = sc
+ }
+ 
  // Name returns the name of the long-running operation.
- // The name is assigned by the server and is unique within the service
- // from which the operation is created.
-@@ -172,35 +158,7 @@ func (op *Operation) waitWithInterval(ctx context.Cont
+@@ -172,35 +166,7 @@ func (op *Operation) waitWithInterval(ctx context.Cont
  		bo.Max = bo.Initial
  	}
  
@@ -72,7 +68,7 @@
  }
  
  type sleeper func(context.Context, time.Duration) error
-@@ -217,60 +175,6 @@ func (op *Operation) wait(ctx context.Context, resp pr
+@@ -217,60 +183,6 @@ func (op *Operation) wait(ctx context.Context, resp pr
  		if err := sl(ctx, bo.Pause()); err != nil {
  			return err
  		}

@@ -1,6 +1,6 @@
 --- internal/cli/flags/global/flags.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/cli/flags/global/flags.go
-@@ -335,109 +335,11 @@ func NewFlags(l log.Logger, opts *options.TerragruntOp
+@@ -398,109 +398,11 @@ func NewFlags(l log.Logger, opts *options.TerragruntOp
  		),
  	}
  

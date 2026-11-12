@@ -1,11 +1,11 @@
---- vendor/cloud.google.com/go/internal/trace/trace.go.orig	2026-11-04 11:39:43 UTC
+--- vendor/cloud.google.com/go/internal/trace/trace.go.orig	2026-11-15 13:51:30 UTC
 +++ vendor/cloud.google.com/go/internal/trace/trace.go
-@@ -16,15 +16,6 @@ import (
+@@ -16,15 +16,7 @@ import (
  
  import (
  	"context"
 -	"errors"
--	"fmt"
+ 	"fmt"
 -
 -	"go.opentelemetry.io/otel"
 -	"go.opentelemetry.io/otel/attribute"
@@ -16,7 +16,7 @@
  )
  
  const (
-@@ -36,7 +27,7 @@ func StartSpan(ctx context.Context, name string) conte
+@@ -36,7 +28,7 @@ func StartSpan(ctx context.Context, name string) conte
  // The default experimental tracing support for OpenCensus is now deprecated in
  // the Google Cloud client libraries for Go.
  func StartSpan(ctx context.Context, name string) context.Context {
@@ -25,7 +25,7 @@
  	return ctx
  }
  
-@@ -45,53 +36,14 @@ func EndSpan(ctx context.Context, err error) {
+@@ -45,24 +37,13 @@ func EndSpan(ctx context.Context, err error) {
  // The default experimental tracing support for OpenCensus is now deprecated in
  // the Google Cloud client libraries for Go.
  func EndSpan(ctx context.Context, err error) {
@@ -40,7 +40,7 @@
  }
  
  // toOpenTelemetryStatus converts an error to an equivalent OpenTelemetry status description.
--func toOpenTelemetryStatusDescription(err error) string {
+ func toOpenTelemetryStatusDescription(err error) string {
 -	var err2 *googleapi.Error
 -	if ok := errors.As(err, &err2); ok {
 -		return err2.Message
@@ -49,12 +49,13 @@
 -	} else {
 -		return err.Error()
 -	}
--}
--
--// TracePrintf retrieves the current OpenTelemetry span from context, then calls
--// Span.AddEvent. The expected span must be an OpenTelemetry span. The default
--// experimental tracing support for OpenCensus is now deprecated in the Google
--// Cloud client libraries for Go.
++	return err.Error()
+ }
+ 
+ // TracePrintf retrieves the current OpenTelemetry span from context, then calls
+@@ -70,28 +51,7 @@ func TracePrintf(ctx context.Context, attrMap map[stri
+ // experimental tracing support for OpenCensus is now deprecated in the Google
+ // Cloud client libraries for Go.
  func TracePrintf(ctx context.Context, attrMap map[string]interface{}, format string, args ...interface{}) {
 -	attrs := otAttrs(attrMap)
 -	trace.SpanFromContext(ctx).AddEvent(fmt.Sprintf(format, args...), trace.WithAttributes(attrs...))
@@ -82,6 +83,5 @@
 -	return attrs
 +	_ = ctx
 +	_ = attrMap
-+	_ = format
-+	_ = args
++	_ = fmt.Sprintf(format, args...)
  }

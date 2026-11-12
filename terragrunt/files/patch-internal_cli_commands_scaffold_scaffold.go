@@ -1,6 +1,6 @@
 --- internal/cli/commands/scaffold/scaffold.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/cli/commands/scaffold/scaffold.go
-@@ -15,7 +15,6 @@ import (
+@@ -16,7 +16,6 @@ import (
  	"github.com/gruntwork-io/terragrunt/internal/configbridge"
  	"github.com/gruntwork-io/terragrunt/internal/services/catalog/component"
  	"github.com/gruntwork-io/terragrunt/internal/shell"
@@ -8,7 +8,7 @@
  	"github.com/gruntwork-io/terragrunt/internal/venv"
  	"github.com/gruntwork-io/terragrunt/internal/vfs"
  	"github.com/gruntwork-io/terragrunt/internal/view/tui/form"
-@@ -278,16 +277,8 @@ func Prepare(
+@@ -297,16 +296,8 @@ func Prepare(
  
  	l.Debugf("Scaffolding a new Terragrunt module %s to %s", resolvedURL, outputDir)
  
@@ -27,7 +27,7 @@
  		return nil, err
  	}
  
-@@ -696,20 +687,12 @@ func downloadTemplate(
+@@ -809,27 +800,18 @@ func downloadTemplate(
  	l.Debugf("Downloading template from %s into %s", baseURL.String(), templateDir)
  	// Downloading baseURL to support boilerplate dependencies and partials.
  	// Go-getter discards all but specified folder if one is provided.
@@ -35,7 +35,13 @@
 -		Collect(ctx, l, "scaffold_get_template", map[string]any{
 -			"template_url": baseURL.String(),
 -		}, func(ctx context.Context, l log.Logger) error {
--			if getErr := fetchScaffoldSource(ctx, l, v, templateDir, baseURL.String()); getErr != nil {
+-			if getErr := fetchScaffoldSource(
+-				ctx,
+-				l,
+-				v,
+-				templateDir,
+-				baseURL.String(),
+-			); getErr != nil {
 -				return fmt.Errorf(
 -					"downloading scaffold template from %s: %w",
 -					baseURL.String(),
@@ -45,12 +51,19 @@
 -
 -			return nil
 -		}); err != nil {
-+	if err := fetchScaffoldSource(ctx, l, v, templateDir, baseURL.String()); err != nil {
-+		err = fmt.Errorf(
+-		return "", err
++	if err := fetchScaffoldSource(
++		ctx,
++		l,
++		v,
++		templateDir,
++		baseURL.String(),
++	); err != nil {
++		return "", fmt.Errorf(
 +			"downloading scaffold template from %s: %w",
 +			baseURL.String(),
 +			err,
 +		)
- 		return "", err
  	}
  
+ 	// Add subfolder to templateDir if provided, as scaffold needs path to boilerplate.yml file

@@ -1,4 +1,4 @@
---- vendor/github.com/googleapis/gax-go/v2/call_option.go.orig	2026-11-04 11:39:43 UTC
+--- vendor/github.com/googleapis/gax-go/v2/call_option.go.orig	2026-11-15 13:51:32 UTC
 +++ vendor/github.com/googleapis/gax-go/v2/call_option.go
 @@ -251,20 +251,15 @@ type clientMetricsOpt struct {
  }

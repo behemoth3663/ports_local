@@ -8,7 +8,7 @@
  	"github.com/gruntwork-io/terragrunt/internal/venv"
  	"github.com/gruntwork-io/terragrunt/internal/vexec"
  	"github.com/gruntwork-io/terragrunt/internal/vfs"
-@@ -233,17 +232,14 @@ func Run(
+@@ -235,17 +234,14 @@ func Run(
  
  	var output *util.CmdOutput
  
@@ -29,7 +29,7 @@
  	if runErr != nil {
  		return nil, runErr
  	}
-@@ -311,10 +307,7 @@ func downloadEngine(
+@@ -313,10 +309,7 @@ func downloadEngine(
  		return nil
  	}
  
@@ -41,7 +41,7 @@
  		// If source is empty, we cannot download the engine
  		// This indicates an engine block was configured but source was not provided
  		if e.Source == "" {
-@@ -412,7 +405,7 @@ func downloadEngine(
+@@ -414,7 +407,7 @@ func downloadEngine(
  		l.Infof("Engine available as %s", path)
  
  		return nil
@@ -50,7 +50,7 @@
  }
  
  func lastReleaseVersion(
-@@ -818,11 +811,7 @@ func createEngine(
+@@ -820,11 +813,7 @@ func createEngine(
  		pluginClient *plugin.Client
  	)
  
@@ -63,7 +63,7 @@
  		path, err := engineDir(v, execOptions)
  		if err != nil {
  			return err
-@@ -925,7 +914,7 @@ func createEngine(
+@@ -927,7 +916,7 @@ func createEngine(
  		pluginClient = client
  
  		return nil
@@ -72,7 +72,7 @@
  	if err != nil {
  		return nil, nil, err
  	}
-@@ -943,10 +932,7 @@ func invoke(
+@@ -945,10 +934,7 @@ func invoke(
  ) (*util.CmdOutput, error) {
  	var result *util.CmdOutput
  
@@ -84,7 +84,7 @@
  		l = l.WithField(placeholders.TFPathKeyName, "engine")
  
  		meta, err := ConvertMetaToProtobuf(runOptions.EngineConfig.Meta)
-@@ -1077,7 +1063,7 @@ func invoke(
+@@ -1079,7 +1065,7 @@ func invoke(
  		result = &output
  
  		return nil
@@ -93,7 +93,7 @@
  	if err != nil {
  		return nil, err
  	}
-@@ -1123,9 +1109,7 @@ func initialize(
+@@ -1126,9 +1112,7 @@ func initialize(
  	runOptions *ExecutionOptions,
  	client *proto.EngineClient,
  ) error {
@@ -104,7 +104,7 @@
  		meta, err := ConvertMetaToProtobuf(runOptions.EngineConfig.Meta)
  		if err != nil {
  			return err
-@@ -1189,7 +1173,7 @@ func initialize(
+@@ -1192,7 +1176,7 @@ func initialize(
  
  			return outputLine, nil
  		})
@@ -112,8 +112,8 @@
 +	}(ctx, l)
  }
  
- var ErrEngineShutdownFailed = errors.New("engine shutdown failed")
-@@ -1202,9 +1186,7 @@ func shutdown(
+ // ErrEngineShutdownFailed is wrapped by the error returned when the engine's Shutdown call exits with a non-zero code.
+@@ -1206,9 +1190,7 @@ func shutdown(
  	runOptions *ExecutionOptions,
  	terragruntEngine *proto.EngineClient,
  ) error {
@@ -124,7 +124,7 @@
  		meta, err := ConvertMetaToProtobuf(runOptions.EngineConfig.Meta)
  		if err != nil {
  			return err
-@@ -1271,7 +1253,7 @@ func shutdown(
+@@ -1275,7 +1257,7 @@ func shutdown(
  
  			return outputLine, nil
  		})

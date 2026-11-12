@@ -1,6 +1,6 @@
---- vendor/github.com/googleapis/gax-go/v2/invoke.go.orig	2026-11-04 11:39:43 UTC
+--- vendor/github.com/googleapis/gax-go/v2/invoke.go.orig	2026-11-15 13:51:32 UTC
 +++ vendor/github.com/googleapis/gax-go/v2/invoke.go
-@@ -31,13 +31,10 @@ import (
+@@ -31,27 +31,15 @@ import (
  
  import (
  	"context"
@@ -14,17 +14,21 @@
  )
  
  // APICall is a user defined call stub.
-@@ -48,8 +45,7 @@ func withRetryCount(ctx context.Context, retryCount in
- // attempted. On the initial request, retry count is 0.
- // On a second request (the first retry), retry count is 1.
- func withRetryCount(ctx context.Context, retryCount int) context.Context {
+ type APICall func(context.Context, CallSettings) error
+ 
+-// withRetryCount returns a new context with the retry count appended to
+-// the telemetry context. The retry count is the number of retries that have been
+-// attempted. On the initial request, retry count is 0.
+-// On a second request (the first retry), retry count is 1.
+-func withRetryCount(ctx context.Context, retryCount int) context.Context {
 -	// Add to telemetry context so it's visible to observability wrappers
 -	return callctx.WithTelemetryContext(ctx, "resend_count", strconv.Itoa(retryCount))
-+	return ctx
- }
- 
+-}
+-
  // Invoke calls the given APICall, performing retries as specified by opts, if
-@@ -90,47 +86,9 @@ func invoke(ctx context.Context, call APICall, setting
+ // any.
+ func Invoke(ctx context.Context, call APICall, opts ...CallOption) error {
+@@ -90,48 +78,8 @@ func invoke(ctx context.Context, call APICall, setting
  		ctx = c
  	}
  
@@ -32,7 +36,7 @@
 -	tracingEnabled := IsFeatureEnabled("TRACING")
 -	loggingEnabled := IsFeatureEnabled("LOGGING")
 -
- 	retryCount := 0
+-	retryCount := 0
 -	if metricsEnabled || tracingEnabled || loggingEnabled {
 -		var start time.Time
 -		if metricsEnabled {
@@ -65,10 +69,19 @@
 -	}
 -
  	for {
- 		ctxToUse := ctx
+-		ctxToUse := ctx
 -		if tracingEnabled {
 -			ctxToUse = withRetryCount(ctx, retryCount)
 -		}
- 		err = call(ctxToUse, settings)
+-		err = call(ctxToUse, settings)
++		err = call(ctx, settings)
  		if err == nil {
  			return nil
+ 		}
+@@ -162,6 +110,5 @@ func invoke(ctx context.Context, call APICall, setting
+ 		} else if err = sp(ctx, d); err != nil {
+ 			return err
+ 		}
+-		retryCount++
+ 	}
+ }

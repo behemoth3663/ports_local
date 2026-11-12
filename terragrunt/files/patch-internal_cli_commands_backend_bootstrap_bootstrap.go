@@ -1,14 +1,14 @@
 --- internal/cli/commands/backend/bootstrap/bootstrap.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/cli/commands/backend/bootstrap/bootstrap.go
 @@ -11,7 +11,6 @@ import (
- 	"github.com/gruntwork-io/terragrunt/internal/component"
+ 	"github.com/gruntwork-io/terragrunt/internal/cli/commands/discoverysetup"
+ 	rewrite "github.com/gruntwork-io/terragrunt/internal/config/rewrite"
  	"github.com/gruntwork-io/terragrunt/internal/configbridge"
- 	"github.com/gruntwork-io/terragrunt/internal/discovery"
 -	"github.com/gruntwork-io/terragrunt/internal/telemetry"
  	"github.com/gruntwork-io/terragrunt/internal/venv"
  	"github.com/gruntwork-io/terragrunt/pkg/config"
  	"github.com/gruntwork-io/terragrunt/pkg/log"
-@@ -32,19 +31,14 @@ func runBootstrap(
+@@ -35,19 +34,14 @@ func runBootstrap(
  	v *venv.Venv,
  	opts *options.TerragruntOptions,
  ) error {
@@ -34,9 +34,9 @@
  }
  
  func runAll(
-@@ -62,49 +56,42 @@ func runAll(
- 
- 	units := components.Filter(component.UnitKind).Sort()
+@@ -65,49 +59,42 @@ func runAll(
+ 		return err
+ 	}
  
 -	return telemetry.TelemeterFromContext(ctx).
 -		Collect(ctx, l, "backend_bootstrap_all", map[string]any{

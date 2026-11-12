@@ -1,15 +1,14 @@
 --- internal/cli/commands/list/list.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/cli/commands/list/list.go
-@@ -9,8 +9,6 @@ import (
- 	"sort"
+@@ -10,7 +10,6 @@ import (
  	"strings"
  
+ 	rewrite "github.com/gruntwork-io/terragrunt/internal/config/rewrite"
 -	"github.com/gruntwork-io/terragrunt/internal/telemetry"
--
+ 
  	"errors"
  
- 	"charm.land/lipgloss/v2/tree"
-@@ -22,9 +20,6 @@ import (
+@@ -24,9 +23,6 @@ import (
  	"github.com/gruntwork-io/terragrunt/internal/venv"
  	"github.com/gruntwork-io/terragrunt/internal/view/dag"
  	"github.com/gruntwork-io/terragrunt/pkg/log"
@@ -19,9 +18,15 @@
  )
  
  // Run runs the list command.
-@@ -55,20 +50,8 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
- 		discoverErr error
- 	)
+@@ -52,33 +48,15 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
+ 		return err
+ 	}
+ 
+-	var (
+-		components  component.Components
+-		discoverErr error
+-	)
++	var components component.Components
  
 -	// Wrap discovery with telemetry
 -	err = telemetry.TelemeterFromContext(ctx).Collect(ctx, l, "list_discover", map[string]any{
@@ -29,20 +34,33 @@
 -		"no_hidden":    opts.NoHidden,
 -		"dependencies": opts.Dependencies || opts.Mode == ModeDAG,
 -	}, func(ctx context.Context, l log.Logger) error {
--		components, discoverErr = d.Discover(ctx, l, v, opts.TerragruntOptions)
+-		discoverErr = spinner.ShowAfter(ctx, l, spinner.Messages{
+-			Working: "Discovering units...",
+-			Done:    "Discovered units",
+-		}, func() error {
+-			var err error
+-
+-			components, err = d.Discover(ctx, l, v, s, opts.TerragruntOptions)
+-
+-			return err
+-		})
 -
 -		if span := trace.SpanFromContext(ctx); span.IsRecording() {
 -			span.SetAttributes(attribute.Int("component_count", len(components)))
 -		}
 -
 -		return discoverErr
--	})
-+	components, discoverErr = d.Discover(ctx, l, v, opts.TerragruntOptions)
-+	err = discoverErr
++	err = spinner.ShowAfter(ctx, l, spinner.Messages{
++		Working: "Discovering units...",
++		Done:    "Discovered units",
++	}, func() error {
++		var err error
++		components, err = d.Discover(ctx, l, v, s, opts.TerragruntOptions)
++		return err
+ 	})
  	if err != nil {
  		l.Debugf("Errors encountered while discovering components:\n%s", err)
- 	}
-@@ -77,19 +60,13 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
+@@ -88,22 +66,12 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
  	case ModeNormal:
  		components = components.Sort()
  	case ModeDAG:
@@ -54,21 +72,23 @@
 -			if queueErr != nil {
 -				return queueErr
 -			}
-+		q, queueErr := queue.NewQueue(components)
-+		if queueErr != nil {
-+			return queueErr
-+		}
- 
+-
 -			components = q.Components()
 -
 -			return nil
 -		})
-+		components = q.Components()
-+		err = nil
- 		if err != nil {
- 			return err
+-		if err != nil {
+-			return err
++		q, queueErr := queue.NewQueue(components)
++		if queueErr != nil {
++			return queueErr
  		}
-@@ -101,19 +78,8 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
++
++		components = q.Components()
+ 	default:
+ 		// This should never happen, because of validation in the command.
+ 		// If it happens, we want to throw so we can fix the validation.
+@@ -112,22 +80,7 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
  
  	var listedComponents dag.ListedComponents
  
@@ -85,8 +105,10 @@
 -
 -			return nil
 -		})
+-	if err != nil {
+-		return err
+-	}
 +	listedComponents = discoveredToListed(l, components, opts)
-+	err = nil
- 	if err != nil {
- 		return err
- 	}
+ 
+ 	switch opts.Format {
+ 	case FormatText:

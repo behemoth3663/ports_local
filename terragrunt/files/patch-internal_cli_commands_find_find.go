@@ -1,15 +1,26 @@
 --- internal/cli/commands/find/find.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/cli/commands/find/find.go
-@@ -8,7 +8,6 @@ import (
- 	"path/filepath"
+@@ -9,7 +9,6 @@ import (
  	"strings"
  
+ 	rewrite "github.com/gruntwork-io/terragrunt/internal/config/rewrite"
 -	"github.com/gruntwork-io/terragrunt/internal/telemetry"
  	"github.com/gruntwork-io/terragrunt/pkg/log"
  
  	"errors"
-@@ -55,17 +54,8 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
- 		discoverErr error
+@@ -19,7 +18,6 @@ import (
+ 	"github.com/gruntwork-io/terragrunt/internal/discovery"
+ 	"github.com/gruntwork-io/terragrunt/internal/os/stdout"
+ 	"github.com/gruntwork-io/terragrunt/internal/queue"
+-	"github.com/gruntwork-io/terragrunt/internal/spinner"
+ 	"github.com/gruntwork-io/terragrunt/internal/venv"
+ 	"github.com/gruntwork-io/terragrunt/pkg/config"
+ 
+@@ -54,51 +52,24 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
+ 
+ 	var (
+ 		components  component.Components
+-		discoverErr error
  	)
  
 -	telemetryErr := telemetry.TelemeterFromContext(ctx).
@@ -20,15 +31,26 @@
 -			"mode":         opts.Mode,
 -			"exclude":      opts.Exclude,
 -		}, func(ctx context.Context, l log.Logger) error {
--			components, discoverErr = d.Discover(ctx, l, v, opts.TerragruntOptions)
+-			discoverErr = spinner.ShowAfter(ctx, l, spinner.Messages{
+-				Working: "Discovering units...",
+-				Done:    "Discovered units",
+-			}, func() error {
+-				var err error
+-
+ 				components, err = d.Discover(ctx, l, v, s, opts.TerragruntOptions)
+-
+-				return err
+-			})
+-
 -			return discoverErr
 -		})
-+	components, discoverErr = d.Discover(ctx, l, v, opts.TerragruntOptions)
-+	telemetryErr := discoverErr
- 	if telemetryErr != nil {
- 		l.Debugf("Errors encountered while discovering components:\n%s", telemetryErr)
+-	if telemetryErr != nil {
+-		l.Debugf("Errors encountered while discovering components:\n%s", telemetryErr)
++	if err != nil {
++		l.Debugf("Errors encountered while discovering components:\n%s", err)
  	}
-@@ -74,19 +64,13 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
+ 
+ 	switch opts.Mode {
  	case ModeNormal:
  		components = components.Sort()
  	case ModeDAG:
@@ -54,7 +76,7 @@
  		if err != nil {
  			return err
  		}
-@@ -98,15 +82,8 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
+@@ -110,15 +81,8 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
  
  	var foundComponents FoundComponents
  

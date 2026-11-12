@@ -8,7 +8,7 @@
  	"github.com/gruntwork-io/terragrunt/internal/venv"
  	"github.com/gruntwork-io/terragrunt/internal/vfs"
  	"github.com/gruntwork-io/terragrunt/pkg/config"
-@@ -129,11 +128,7 @@ func (w *Worktrees) Cleanup(ctx context.Context, l log
+@@ -140,11 +139,7 @@ func (w *Worktrees) Cleanup(ctx context.Context, l log
  
  	gitRunner = gitRunner.WithWorkDir(w.OriginalWorkingDir)
  
@@ -21,7 +21,7 @@
  			g, groupCtx := errgroup.WithContext(ctx)
  			// Every worktree was created under the same temporary directory, so
  			// the first one's filesystem sizes removal for all of them.
-@@ -151,14 +146,7 @@ func (w *Worktrees) Cleanup(ctx context.Context, l log
+@@ -162,14 +157,7 @@ func (w *Worktrees) Cleanup(ctx context.Context, l log
  						return nil
  					}
  
@@ -37,7 +37,7 @@
  					if err != nil {
  						// If the error is due to the worktree not existing, log and continue
  						// This can happen during parallel test execution or if cleanup runs twice
-@@ -188,8 +176,7 @@ func (w *Worktrees) Cleanup(ctx context.Context, l log
+@@ -199,8 +187,7 @@ func (w *Worktrees) Cleanup(ctx context.Context, l log
  			}
  
  			return g.Wait()
@@ -47,7 +47,7 @@
  }
  
  // worktreesToRemove returns the worktrees Cleanup has to delete, one entry per
-@@ -655,21 +642,13 @@ func surveyGitExpressions(
+@@ -668,21 +655,13 @@ func surveyGitExpressions(
  		g.Go(func() error {
  			var expressionDiffs *git.Diffs
  
@@ -72,7 +72,7 @@
  
  				return nil
  			}
-@@ -755,9 +734,7 @@ func NewWorktrees(
+@@ -769,9 +748,7 @@ func NewWorktrees(
  	repoCommit := gitRunner.GetHeadCommit(ctx)
  
  	// Wrap entire worktree creation process with telemetry
@@ -82,8 +82,8 @@
 +	traceErr := func(ctx context.Context) error {
  			// The survey decides which references get a worktree and how much
  			// of each one is checked out, so it runs before any of them are.
- 			survey, err := surveyGitExpressions(ctx, v, gitRunner, gitExpressions, gitRefs, repoRemote)
-@@ -806,7 +783,7 @@ func NewWorktrees(
+ 			var survey *gitSurvey
+@@ -833,7 +810,7 @@ func NewWorktrees(
  			}
  
  			return nil
@@ -92,7 +92,7 @@
  
  	if traceErr != nil && outerErr == nil {
  		l.Warnf("telemetry trace error during worktree creation: %v", traceErr)
-@@ -924,14 +901,8 @@ func recordDiffTelemetry(ctx context.Context, diffs *g
+@@ -951,14 +928,8 @@ func recordDiffTelemetry(ctx context.Context, diffs *g
  
  // recordDiffTelemetry records telemetry metrics for git diff results.
  func recordDiffTelemetry(ctx context.Context, diffs *git.Diffs) {
@@ -109,7 +109,7 @@
  }
  
  // createGitWorktrees creates detached worktrees for each unique Git reference needed by filters.
-@@ -1064,11 +1035,7 @@ func createGitWorktree(
+@@ -1077,11 +1048,7 @@ func createGitWorktree(
  		return "", err
  	}
  

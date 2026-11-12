@@ -1,6 +1,6 @@
 --- internal/runner/run/download_source.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/runner/run/download_source.go
-@@ -21,7 +21,6 @@ import (
+@@ -20,7 +20,6 @@ import (
  	"github.com/gruntwork-io/terragrunt/internal/runner/runcfg"
  	"github.com/gruntwork-io/terragrunt/internal/spinner"
  	"github.com/gruntwork-io/terragrunt/internal/strict/controls"
@@ -8,7 +8,7 @@
  	"github.com/gruntwork-io/terragrunt/internal/tf"
  	"github.com/gruntwork-io/terragrunt/internal/util"
  	"github.com/gruntwork-io/terragrunt/internal/venv"
-@@ -133,19 +132,14 @@ func DownloadTerraformSource(
+@@ -146,19 +145,14 @@ func DownloadTerraformSource(
  
  		copyOpts := moduleCopyOptions(opts, cfg)
  

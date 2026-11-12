@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/kms/apiv1/autokey_client.go.orig	2026-11-04 11:39:43 UTC
+--- vendor/cloud.google.com/go/kms/apiv1/autokey_client.go.orig	2026-11-15 13:51:30 UTC
 +++ vendor/cloud.google.com/go/kms/apiv1/autokey_client.go
 @@ -32,8 +32,6 @@ import (
  	lroauto "cloud.google.com/go/longrunning/autogen"

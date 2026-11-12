@@ -1,14 +1,14 @@
 --- internal/runner/builder_helpers.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/runner/builder_helpers.go
-@@ -13,7 +13,6 @@ import (
- 	"github.com/gruntwork-io/terragrunt/internal/configbridge"
+@@ -15,7 +15,6 @@ import (
  	"github.com/gruntwork-io/terragrunt/internal/discovery"
  	"github.com/gruntwork-io/terragrunt/internal/runner/run"
+ 	"github.com/gruntwork-io/terragrunt/internal/spinner"
 -	"github.com/gruntwork-io/terragrunt/internal/telemetry"
  	"github.com/gruntwork-io/terragrunt/internal/venv"
  	"github.com/gruntwork-io/terragrunt/internal/worktrees"
  	"github.com/gruntwork-io/terragrunt/pkg/config"
-@@ -33,7 +32,9 @@ func doWithTelemetry(
+@@ -35,7 +34,9 @@ func doWithTelemetry(
  	fields map[string]any,
  	fn func(context.Context, log.Logger) error,
  ) error {
