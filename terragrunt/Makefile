@@ -1,7 +1,6 @@
 PORTNAME=	terragrunt
-PORTVERSION=	1.2.1
+PORTVERSION=	1.2.2
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX?=	-local
 
@@ -35,9 +34,9 @@ pre-build: .PHONY
 	${RM} ${WRKSRC}/vendor/github.com/googleapis/gax-go/v2/telemetry.go
 	${FIND} ${WRKSRC} -name '*_test.go' -type f -delete
 
-do-build: .PHONY
-	( cd ${GO_WRKSRC} && ${ECHO_MSG} "===>  Building ${PORTNAME} from ." && \
-		${SETENVI} ${WRK_ENV} ${MAKE_ENV} ${GO_ENV} GOMAXPROCS=${MAKE_JOBS_NUMBER} GOPROXY=off \
-			${LOCALBASE}/bin/garble -tiny build ${GO_BUILDFLAGS} -o ${GO_WRKDIR_BIN}/${PORTNAME} . )
+#do-build: .PHONY
+#	( cd ${GO_WRKSRC} && ${ECHO_MSG} "===>  Building ${PORTNAME} from ." && \
+#		${SETENVI} ${WRK_ENV} ${MAKE_ENV} ${GO_ENV} GOMAXPROCS=${MAKE_JOBS_NUMBER} GOPROXY=off \
+#			${LOCALBASE}/bin/garble -tiny build ${GO_BUILDFLAGS} -o ${GO_WRKDIR_BIN}/${PORTNAME} . )
 
 .include <bsd.port.mk>

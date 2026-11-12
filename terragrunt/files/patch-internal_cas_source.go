@@ -13,34 +13,71 @@
  	"github.com/gruntwork-io/terragrunt/internal/util"
  	"github.com/gruntwork-io/terragrunt/internal/venv"
  	"github.com/gruntwork-io/terragrunt/internal/vfs"
-@@ -177,14 +173,8 @@ func (c *CAS) FetchSource(
+@@ -183,28 +179,20 @@ func (c *CAS) FetchSource(
  
  	maps.Copy(attrs, src.Attrs)
  
 -	tlm := telemetry.TelemeterFromContext(ctx)
 -
--	return tlm.Collect(
+-	err = tlm.Collect(
 -		ctx,
 -		l,
 -		"cas_fetch_source",
 -		attrs,
 -		func(childCtx context.Context, l log.Logger) error {
-+	_ = attrs
-+	return func(childCtx context.Context, l log.Logger) error {
- 			suggestedKey, err := c.probeSource(childCtx, l, v, src)
+-			suggestedKey, err := c.probeSource(childCtx, l, v, src)
++			suggestedKey, err := c.probeSource(ctx, l, v, src)
  			if err != nil {
- 				return err
-@@ -222,8 +212,7 @@ func (c *CAS) FetchSource(
+-				return err
++				return "", err
  			}
  
- 			return nil
+-			linkedTreeKey, err = c.fetchAndLink(childCtx, l, v, opts, src, suggestedKey, IngestCached)
++			linkedTreeKey, err = c.fetchAndLink(ctx, l, v, opts, src, suggestedKey, IngestCached)
+ 
+ 			var missing *MissingObjectError
+ 			if !errors.As(err, &missing) {
+-				return err
++				return "", err
+ 			}
+ 
+ 			if c.probeMode == ProbeModeOffline {
+-				return &OfflineRepairError{Missing: missing, Source: src.URL}
++				return "", &OfflineRepairError{Missing: missing, Source: src.URL}
+ 			}
+ 
+ 			l.Warnf(
+@@ -212,7 +200,7 @@ func (c *CAS) FetchSource(
+ 				missing.Hash,
+ 				src.URL,
+ 			)
+-			RecordFallback(childCtx, l, FallbackReasonStoreRepair, map[string]any{
++			RecordFallback(ctx, l, FallbackReasonStoreRepair, map[string]any{
+ 				"url":    src.URL,
+ 				"scheme": src.Scheme,
+ 				"hash":   missing.Hash,
+@@ -221,18 +209,11 @@ func (c *CAS) FetchSource(
+ 			// One attempt. A source that answered the re-ingest without
+ 			// producing the object cannot produce it on a third pass
+ 			// either, so the second failure is the one the caller sees.
+-			linkedTreeKey, err = c.fetchAndLink(childCtx, l, v, opts, src, suggestedKey, IngestRepair)
++			linkedTreeKey, err = c.fetchAndLink(ctx, l, v, opts, src, suggestedKey, IngestRepair)
+ 			if err != nil {
+-				return fmt.Errorf("re-ingest %s: %w", src.URL, err)
++				return "", fmt.Errorf("re-ingest %s: %w", src.URL, err)
+ 			}
+ 
+-			return nil
 -		},
 -	)
-+		}(ctx, l)
+-	if err != nil {
+-		return "", err
+-	}
+-
+ 	return linkedTreeKey, nil
  }
  
- // fetchAndLink ingests src unless the store already holds the tree
-@@ -498,15 +487,10 @@ func (c *CAS) recordSourceProbe(l log.Logger, v *venv.
+@@ -517,15 +498,10 @@ func (c *CAS) recordSourceProbe(l log.Logger, v *venv.
  	}
  }
  
@@ -59,7 +96,7 @@
  }
  
  // probeOrigin names where a probe answer came from. It travels as the
-@@ -558,19 +542,10 @@ func recordProbeOrigin(ctx context.Context, origin pro
+@@ -577,19 +553,10 @@ func recordProbeOrigin(ctx context.Context, origin pro
  	sink.origin = origin
  }
  
