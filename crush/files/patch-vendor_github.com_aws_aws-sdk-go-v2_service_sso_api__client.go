@@ -1,14 +1,14 @@
---- vendor/github.com/aws/aws-sdk-go-v2/service/sso/api_client.go.orig	2026-10-28 11:34:50 UTC
+--- vendor/github.com/aws/aws-sdk-go-v2/service/sso/api_client.go.orig	2026-11-13 20:26:41 UTC
 +++ vendor/github.com/aws/aws-sdk-go-v2/service/sso/api_client.go
-@@ -21,7 +21,6 @@ import (
+@@ -22,7 +22,6 @@ import (
  	"github.com/aws/smithy-go/logging"
  	"github.com/aws/smithy-go/metrics"
  	"github.com/aws/smithy-go/middleware"
 -	"github.com/aws/smithy-go/tracing"
  	smithyhttp "github.com/aws/smithy-go/transport/http"
+ 	"github.com/aws/smithy-go/transport/http/protocol/restjson1"
  	"net"
- 	"net/http"
-@@ -174,10 +173,6 @@ func getOperationMetrics(ctx context.Context) *operati
+@@ -176,10 +175,6 @@ func getOperationMetrics(ctx context.Context) *operati
  	return nil
  }
  
@@ -19,7 +19,7 @@
  // Client provides the API client to make operations call for AWS Single Sign-On.
  type Client struct {
  	options Options
-@@ -204,8 +199,6 @@ func New(options Options, optFns ...func(*Options)) *C
+@@ -206,8 +201,6 @@ func New(options Options, optFns ...func(*Options)) *C
  
  	resolveEndpointResolverV2(&options)
  
@@ -28,7 +28,7 @@
  	resolveMeterProvider(&options)
  
  	resolveAuthSchemeResolver(&options)
-@@ -285,20 +278,8 @@ func (c *Client) invokeOperation(
+@@ -289,20 +282,8 @@ func (c *Client) invokeOperation(
  		return nil, metadata, err
  	}
  
@@ -49,7 +49,7 @@
  
  	handler := smithyhttp.NewClientHandlerWithOptions(options.HTTPClient, func(o *smithyhttp.ClientHandler) {
  		o.Meter = options.MeterProvider.Meter("github.com/aws/aws-sdk-go-v2/service/sso")
-@@ -306,16 +287,6 @@ func (c *Client) invokeOperation(
+@@ -310,16 +291,6 @@ func (c *Client) invokeOperation(
  	decorated := middleware.DecorateHandler(handler, stack)
  	result, metadata, err = decorated.Handle(ctx, params)
  	if err != nil {
@@ -66,7 +66,7 @@
  		err = &smithy.OperationError{
  			ServiceID:     ServiceID,
  			OperationName: opID,
-@@ -323,13 +294,6 @@ func (c *Client) invokeOperation(
+@@ -327,13 +298,6 @@ func (c *Client) invokeOperation(
  		}
  	}
  
@@ -80,20 +80,39 @@
  	return result, metadata, err
  }
  
-@@ -694,9 +658,6 @@ func (m *spanRetryLoop) HandleFinalize(
- ) (
- 	middleware.FinalizeOutput, middleware.Metadata, error,
- ) {
--	tracer := operationTracer(m.options.TracerProvider)
--	ctx, span := tracer.StartSpan(ctx, "RetryLoop")
--	defer span.End()
+@@ -455,13 +419,11 @@ func (m *serializeRequestMiddleware) HandleSerialize(
+ 		return middleware.SerializeOutput{}, middleware.Metadata{}, fmt.Errorf("input %T is not Serializable", in.Request)
+ 	}
  
- 	return next.HandleFinalize(ctx, in)
+-	_, span := tracing.StartSpan(ctx, "OperationSerializer")
+ 	endTimer := startMetricTimer(ctx, "client.call.serialization_duration")
+ 
+ 	err := m.options.Protocol.SerializeRequest(ctx, m.operationSchema, input, req)
+ 
+ 	endTimer()
+-	span.End()
+ 
+ 	if err != nil {
+ 		return middleware.SerializeOutput{}, middleware.Metadata{}, err
+@@ -515,14 +477,12 @@ func (m *deserializeResponseMiddleware) HandleDeserial
+ 		return out, md, err
+ 	}
+ 
+-	_, span := tracing.StartSpan(ctx, "OperationDeserializer")
+ 	endTimer := startMetricTimer(ctx, "client.call.deserialization_duration")
+ 
+ 	err = m.options.Protocol.DeserializeResponse(ctx, m.operationSchema, TypeRegistry, resp, m.output)
+ 	out.Result = m.output
+ 
+ 	endTimer()
+-	span.End()
+ 
+ 	return out, md, err
  }
-@@ -834,12 +795,6 @@ func addCredentialSource(stack *middleware.Stack, opti
- 
- 	mw := setCredentialSourceMiddleware{ua: ua, options: options}
- 	return stack.Build.Insert(&mw, "UserAgent", middleware.Before)
+@@ -890,12 +850,6 @@ func addCredentialSource(stack *middleware.Stack, opti
+ 		ua.AddCredentialsSource(source)
+ 	}
+ 	return nil
 -}
 -
 -func resolveTracerProvider(options *Options) {

@@ -1,4 +1,4 @@
---- vendor/github.com/aws/aws-sdk-go-v2/service/sts/api_client.go.orig	2026-10-28 11:23:21 UTC
+--- vendor/github.com/aws/aws-sdk-go-v2/service/sts/api_client.go.orig	2026-11-13 20:29:00 UTC
 +++ vendor/github.com/aws/aws-sdk-go-v2/service/sts/api_client.go
 @@ -25,7 +25,6 @@ import (
  	"github.com/aws/smithy-go/logging"
@@ -80,17 +80,7 @@
  	return result, metadata, err
  }
  
-@@ -708,9 +675,6 @@ func (m *spanRetryLoop) HandleFinalize(
- ) (
- 	middleware.FinalizeOutput, middleware.Metadata, error,
- ) {
--	tracer := operationTracer(m.options.TracerProvider)
--	ctx, span := tracer.StartSpan(ctx, "RetryLoop")
--	defer span.End()
- 
- 	return next.HandleFinalize(ctx, in)
- }
-@@ -872,12 +836,6 @@ func finalizeSTSRetryableErrors(o *Options) {
+@@ -828,12 +795,6 @@ func finalizeSTSRetryableErrors(o *Options) {
  
  func finalizeSTSRetryableErrors(o *Options) {
  	o.Retryer = retry.AddWithErrorCodes(o.Retryer, "IDPCommunicationError")

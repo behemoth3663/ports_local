@@ -1,5 +1,5 @@
 PORTNAME=	crush
-PORTVERSION=	0.100.0
+PORTVERSION=	0.101.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local misc devel
 PKGNAMESUFFIX=	-local
@@ -39,6 +39,11 @@ MANPAGES_PLIST_FILES=	share/man/man1/${PORTNAME}.1.gz
 pre-build: .PHONY
 	${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io
 	${RM} -r ${WRKSRC}/vendor/github.com/aws/smithy-go/tracing
+	${RM} -r ${WRKSRC}/vendor/github.com/anthropics/anthropic-sdk-go/internal/telemetry
+	${RM} -r ${WRKSRC}/vendor/github.com/anthropics/anthropic-sdk-go/internal/tracing
+	${RM} -r ${WRKSRC}/vendor/github.com/anthropics/anthropic-sdk-go/internal/requestconfig/otel.go
+	${RM} -r ${WRKSRC}/vendor/github.com/anthropics/anthropic-sdk-go/option/opentelemetry.go
+	${RM} -r ${WRKSRC}/vendor/github.com/anthropics/anthropic-sdk-go/option/tracing.go
 	${RM} ${WRKSRC}/vendor/github.com/googleapis/gax-go/v2/telemetry.go
 
 post-build-COMPLETIONS-on:
