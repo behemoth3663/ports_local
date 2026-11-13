@@ -1,7 +1,6 @@
 PORTNAME=	gh
-PORTVERSION=	2.103.3
+PORTVERSION=	2.104.0
 DISTVERSIONPREFIX=	v
-PORTREVISION=	1
 CATEGORIES=	local devel
 PKGNAMESUFFIX=	-local
 
@@ -142,6 +141,7 @@ GH_TUPLE:=	${GH_TUPLE:N*/charmbracelet/x/exp/slice}
 #-go-openapi:swag:v0.24.0:go_openapi_swag_yamlutils/vendor/github.com/go-openapi/swag/yamlutils
 # go-openapi:swag:v0.24.1:go_openapi_swag/vendor/github.com/go-openapi/swag
 GH_TUPLE:=	${GH_TUPLE:N*/go-openapi/swag/*}
+GH_TUPLE+=	go-openapi:swag:v0.29.2:go_openapi_swag/vendor/github.com/go-openapi/swag
 
 .sinclude "${.CURDIR}/generated.deps.mk"
 
