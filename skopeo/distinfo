@@ -1,5 +1,5 @@
-TIMESTAMP = 1791020604
-SHA256 (go/local_skopeo/skopeo-v1.24.1/v1.24.1.mod) = 05a2582a650616dfebeb1c51893a8b438c149bf77a8686689a86500a449c8360
-SIZE (go/local_skopeo/skopeo-v1.24.1/v1.24.1.mod) = 5589
-SHA256 (go/local_skopeo/skopeo-v1.24.1/v1.24.1.zip) = b2026db34248d09c38a3ee0a7664330552ecf8258944ce5cb6b81dd74b6317a1
-SIZE (go/local_skopeo/skopeo-v1.24.1/v1.24.1.zip) = 1002006
+TIMESTAMP = 1794603681
+SHA256 (go/local_skopeo/skopeo-v1.25.1/v1.25.1.mod) = 0daf3085b30efb9bbff34408922cb6cb5928f10a4a4eab2cf0dc32ebcae7bd75
+SIZE (go/local_skopeo/skopeo-v1.25.1/v1.25.1.mod) = 5500
+SHA256 (go/local_skopeo/skopeo-v1.25.1/v1.25.1.zip) = 4c9baf6fea5d313f1cc29021c00507a6db4433dc6c0ed471dfdac157ce734f00
+SIZE (go/local_skopeo/skopeo-v1.25.1/v1.25.1.zip) = 995945
