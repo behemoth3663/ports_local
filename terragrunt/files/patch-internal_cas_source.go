@@ -47,16 +47,16 @@
  			}
  
  			l.Warnf(
-@@ -212,7 +200,7 @@ func (c *CAS) FetchSource(
+@@ -212,27 +200,15 @@ func (c *CAS) FetchSource(
  				missing.Hash,
  				src.URL,
  			)
 -			RecordFallback(childCtx, l, FallbackReasonStoreRepair, map[string]any{
-+			RecordFallback(ctx, l, FallbackReasonStoreRepair, map[string]any{
- 				"url":    src.URL,
- 				"scheme": src.Scheme,
- 				"hash":   missing.Hash,
-@@ -221,18 +209,11 @@ func (c *CAS) FetchSource(
+-				"url":    src.URL,
+-				"scheme": src.Scheme,
+-				"hash":   missing.Hash,
+-			})
+ 
  			// One attempt. A source that answered the re-ingest without
  			// producing the object cannot produce it on a third pass
  			// either, so the second failure is the one the caller sees.
@@ -77,7 +77,18 @@
  	return linkedTreeKey, nil
  }
  
-@@ -517,15 +498,10 @@ func (c *CAS) recordSourceProbe(l log.Logger, v *venv.
+@@ -394,10 +370,6 @@ func (c *CAS) probeSource(
+ 				src.URL,
+ 				err,
+ 			)
+-			RecordFallback(ctx, l, FallbackReasonProbeFailure, map[string]any{
+-				"url":    src.URL,
+-				"scheme": src.Scheme,
+-			})
+ 		}
+ 
+ 		return "", nil
+@@ -517,15 +489,10 @@ func (c *CAS) recordSourceProbe(l log.Logger, v *venv.
  	}
  }
  
@@ -96,7 +107,7 @@
  }
  
  // probeOrigin names where a probe answer came from. It travels as the
-@@ -577,19 +553,10 @@ func recordProbeOrigin(ctx context.Context, origin pro
+@@ -577,19 +544,10 @@ func recordProbeOrigin(ctx context.Context, origin pro
  	sink.origin = origin
  }
  

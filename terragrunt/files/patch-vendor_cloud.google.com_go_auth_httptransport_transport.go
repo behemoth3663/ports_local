@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/auth/httptransport/transport.go.orig	2026-11-15 13:51:30 UTC
+--- vendor/cloud.google.com/go/auth/httptransport/transport.go.orig	2026-11-15 15:04:53 UTC
 +++ vendor/cloud.google.com/go/auth/httptransport/transport.go
 @@ -15,17 +15,11 @@ import (
  package httptransport

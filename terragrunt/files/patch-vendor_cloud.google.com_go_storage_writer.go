@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/storage/writer.go.orig	2026-11-15 13:51:30 UTC
+--- vendor/cloud.google.com/go/storage/writer.go.orig	2026-11-15 15:04:53 UTC
 +++ vendor/cloud.google.com/go/storage/writer.go
 @@ -25,8 +25,6 @@ import (
  	"time"

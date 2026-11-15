@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/storage/option.go.orig	2026-11-15 13:51:30 UTC
+--- vendor/cloud.google.com/go/storage/option.go.orig	2026-11-15 15:04:53 UTC
 +++ vendor/cloud.google.com/go/storage/option.go
 @@ -21,7 +21,6 @@ import (
  

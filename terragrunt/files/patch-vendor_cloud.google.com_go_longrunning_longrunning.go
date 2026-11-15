@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/longrunning/longrunning.go.orig	2026-11-15 13:51:30 UTC
+--- vendor/cloud.google.com/go/longrunning/longrunning.go.orig	2026-11-15 15:04:53 UTC
 +++ vendor/cloud.google.com/go/longrunning/longrunning.go
 @@ -31,11 +31,6 @@ import (
  	pb "cloud.google.com/go/longrunning/autogen/longrunningpb"

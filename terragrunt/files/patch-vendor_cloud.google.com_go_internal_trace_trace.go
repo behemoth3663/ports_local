@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/internal/trace/trace.go.orig	2026-11-15 13:51:30 UTC
+--- vendor/cloud.google.com/go/internal/trace/trace.go.orig	2026-11-15 15:04:53 UTC
 +++ vendor/cloud.google.com/go/internal/trace/trace.go
 @@ -16,15 +16,7 @@ import (
  

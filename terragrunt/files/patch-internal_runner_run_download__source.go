@@ -36,3 +36,42 @@
  		if err != nil {
  			return nil, err
  		}
+@@ -640,12 +634,6 @@ func tryCASDownload(
+ 		}
+ 
+ 		l.Warnf("Failed to initialize CAS: %v. Falling back to standard getter.", err)
+-		cas.RecordFallback(
+-			ctx,
+-			l,
+-			cas.FallbackReasonInitError,
+-			map[string]any{"url": reportedSourceURL},
+-		)
+ 
+ 		return false, nil
+ 	}
+@@ -656,12 +644,6 @@ func tryCASDownload(
+ 		}
+ 
+ 		l.Warnf("Failed to initialize CAS environment: %v. Falling back to standard getter.", err)
+-		cas.RecordFallback(
+-			ctx,
+-			l,
+-			cas.FallbackReasonInitError,
+-			map[string]any{"url": reportedSourceURL},
+-		)
+ 
+ 		return false, nil
+ 	}
+@@ -710,12 +692,6 @@ func tryCASDownload(
+ 		}
+ 
+ 		l.Warnf("CAS download failed: %v. Falling back to standard getter.", err)
+-		cas.RecordFallback(
+-			ctx,
+-			l,
+-			cas.FallbackReasonGetterError,
+-			map[string]any{"url": reportedSourceURL},
+-		)
+ 
+ 		// Clear any partial CAS output before the fallback runs; mixing
+ 		// leftover CAS files with the standard getter's output leaves the

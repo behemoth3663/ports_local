@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/longrunning/autogen/operations_client.go.orig	2026-11-15 13:51:30 UTC
+--- vendor/cloud.google.com/go/longrunning/autogen/operations_client.go.orig	2026-11-15 15:04:53 UTC
 +++ vendor/cloud.google.com/go/longrunning/autogen/operations_client.go
 @@ -28,7 +28,6 @@ import (
  

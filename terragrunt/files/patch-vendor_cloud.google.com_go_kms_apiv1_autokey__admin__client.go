@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/kms/apiv1/autokey_admin_client.go.orig	2026-11-15 13:51:30 UTC
+--- vendor/cloud.google.com/go/kms/apiv1/autokey_admin_client.go.orig	2026-11-15 15:04:53 UTC
 +++ vendor/cloud.google.com/go/kms/apiv1/autokey_admin_client.go
 @@ -30,7 +30,6 @@ import (
  	kmspb "cloud.google.com/go/kms/apiv1/kmspb"

@@ -50,3 +50,15 @@
  		})
  	}
  
+@@ -952,11 +935,6 @@ func fetchComponentSource(
+ 			cmp.name,
+ 			casErr,
+ 		)
+-		cas.RecordFallback(ctx, l, cas.FallbackReasonStackGenerationError, map[string]any{
+-			"kind":   kindStr,
+-			"name":   cmp.name,
+-			"source": source,
+-		})
+ 	}
+ 
+ 	cp := componentCopy{identifier: cmp.name, sourceDir: cmp.sourceDir, src: source, dest: dest}

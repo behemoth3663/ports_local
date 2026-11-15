@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/kms/apiv1/hsm_management_client.go.orig	2026-11-15 13:51:30 UTC
+--- vendor/cloud.google.com/go/kms/apiv1/hsm_management_client.go.orig	2026-11-15 15:04:53 UTC
 +++ vendor/cloud.google.com/go/kms/apiv1/hsm_management_client.go
 @@ -32,8 +32,6 @@ import (
  	lroauto "cloud.google.com/go/longrunning/autogen"

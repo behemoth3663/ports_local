@@ -15,7 +15,40 @@
  )
  
  const (
-@@ -1769,70 +1765,49 @@ func getOutputJSONWithCaching(
+@@ -689,31 +685,13 @@ func decodeAndRetrieveOutputs(
+ 		dependencyNames = append(dependencyNames, dep.Name)
+ 	}
+ 
+-	var result *cty.Value
+-
+-	err = TraceParseDependencies(
+-		ctx,
+-		l,
+-		file.ConfigPath,
+-		pctx.SkipOutputsResolution,
+-		len(decodedDependency.Dependencies),
+-		dependencyNames,
+-		func(ctx context.Context, l log.Logger) error {
+-			var depErr error
+-
+-			result, depErr = DependencyBlocksToCtyValue(
++			return DependencyBlocksToCtyValue(
+ 				ctx,
+ 				l,
+ 				v,
+ 				pctx,
+ 				decodedDependency.Dependencies,
+ 			)
+-
+-			return depErr
+-		},
+-	)
+-
+-	return result, err
+ }
+ 
+ // decodeDependencies decode dependencies and fetch inputs
+@@ -1769,70 +1747,49 @@ func getOutputJSONWithCaching(
  		fetchAttrs["dependency_name"] = name
  	}
  
@@ -118,7 +151,7 @@
  	return newJSONBytes, nil
  }
  
-@@ -2765,7 +2740,6 @@ func RunOptionsFromParsingContext(pctx *ParsingContext
+@@ -2765,7 +2722,6 @@ func RunOptionsFromParsingContext(pctx *ParsingContext
  	runOpts.Debug = pctx.Debug
  	runOpts.AutoInit = pctx.AutoInit
  	runOpts.BackendBootstrap = pctx.BackendBootstrap
@@ -126,7 +159,7 @@
  	runOpts.AuthProviderCmd = pctx.AuthProviderCmd
  	runOpts.NoCAS = pctx.NoCAS
  	runOpts.CASCloneDepth = pctx.CASCloneDepth
-@@ -2780,7 +2754,6 @@ func shellRunOptsFromPctx(v *venv.Venv, pctx *ParsingC
+@@ -2780,7 +2736,6 @@ func shellRunOptsFromPctx(v *venv.Venv, pctx *ParsingC
  func shellRunOptsFromPctx(v *venv.Venv, pctx *ParsingContext) *shell.ShellOptions {
  	s := shell.NewShellOptions(v.Env).
  		WithWorkingDir(pctx.WorkingDir).

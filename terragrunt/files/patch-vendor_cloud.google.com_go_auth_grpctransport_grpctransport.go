@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/auth/grpctransport/grpctransport.go.orig	2026-11-15 13:51:30 UTC
+--- vendor/cloud.google.com/go/auth/grpctransport/grpctransport.go.orig	2026-11-15 15:04:53 UTC
 +++ vendor/cloud.google.com/go/auth/grpctransport/grpctransport.go
 @@ -22,27 +22,18 @@ import (
  	"errors"

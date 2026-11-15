@@ -1,4 +1,4 @@
---- vendor/google.golang.org/api/transport/http/dial.go.orig	2026-11-15 13:51:34 UTC
+--- vendor/google.golang.org/api/transport/http/dial.go.orig	2026-11-15 15:04:54 UTC
 +++ vendor/google.golang.org/api/transport/http/dial.go
 @@ -19,7 +19,6 @@ import (
  	"cloud.google.com/go/auth/credentials"

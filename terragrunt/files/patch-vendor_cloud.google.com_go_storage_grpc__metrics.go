@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/storage/grpc_metrics.go.orig	2026-11-15 13:51:30 UTC
+--- vendor/cloud.google.com/go/storage/grpc_metrics.go.orig	2026-11-15 15:04:53 UTC
 +++ vendor/cloud.google.com/go/storage/grpc_metrics.go
 @@ -1,285 +1,30 @@
 -// Copyright 2024 Google LLC

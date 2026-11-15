@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/storage/metrics.go.orig	2026-11-15 13:51:30 UTC
+--- vendor/cloud.google.com/go/storage/metrics.go.orig	2026-11-15 15:04:53 UTC
 +++ vendor/cloud.google.com/go/storage/metrics.go
 @@ -1,1761 +1,124 @@
 -// Copyright 2026 Google LLC

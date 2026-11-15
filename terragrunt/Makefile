@@ -1,6 +1,7 @@
 PORTNAME=	terragrunt
 PORTVERSION=	1.2.2
 DISTVERSIONPREFIX=	v
+PORTREVISION=	1
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX?=	-local
 
@@ -25,14 +26,20 @@ GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 PLIST_FILES=	bin/${PORTNAME}
 
 pre-build: .PHONY
-	${RM} -r ${WRKSRC}/internal/telemetry
 	${RM} -r ${WRKSRC}/vendor/github.com/GoogleCloudPlatform
 	${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io
-	${RM} -r ${WRKSRC}/vendor/google.golang.org/grpc/experimental/opentelemetry
-	${RM} -r ${WRKSRC}/vendor/google.golang.org/grpc/stats/opentelemetry
-	${RM} ${WRKSRC}/internal/filter/telemetry.go
-	${RM} ${WRKSRC}/vendor/github.com/googleapis/gax-go/v2/telemetry.go
-	${FIND} ${WRKSRC} -name '*_test.go' -type f -delete
+	${FIND} ${WRKSRC} '(' \
+		-name opentelemetry -or \
+		-name telemetry -or \
+		-name tracing \
+	')' -type d -exec ${RM} -rf -- {} +
+	${FIND} ${WRKSRC} '(' \
+		-name '*_test.go' -or \
+		-name opentelemetry.go -or \
+		-name otel.go -or \
+		-name telemetry.go -or \
+		-name tracing.go \
+	')' -type f -delete
 
 do-build: .PHONY
 	( cd ${GO_WRKSRC} && ${ECHO_MSG} "===>  Building ${PORTNAME} from ." && \

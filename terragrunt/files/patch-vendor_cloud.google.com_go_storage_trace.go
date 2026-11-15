@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/storage/trace.go.orig	2026-11-15 13:51:30 UTC
+--- vendor/cloud.google.com/go/storage/trace.go.orig	2026-11-15 15:04:53 UTC
 +++ vendor/cloud.google.com/go/storage/trace.go
 @@ -1,64 +1,16 @@
 -// Copyright 2025 Google LLC
