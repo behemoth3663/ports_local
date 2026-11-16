@@ -65,19 +65,19 @@
 -	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-00010101000000-000000000000
 -	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-00010101000000-000000000000
 -	github.com/hashicorp/terraform/internal/legacy v0.0.0-00010101000000-000000000000
-+	github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20261111092458-79f788eaaf74
-+	github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20261111092458-79f788eaaf74
-+	github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20261111092458-79f788eaaf74
-+	github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20261111092458-79f788eaaf74
-+	github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20261111092458-79f788eaaf74
-+	github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20261111092458-79f788eaaf74
-+	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20261111092458-79f788eaaf74
-+	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20261111092458-79f788eaaf74
++	github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20261113144437-7b8431033099
++	github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20261113144437-7b8431033099
++	github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20261113144437-7b8431033099
++	github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20261113144437-7b8431033099
++	github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20261113144437-7b8431033099
++	github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20261113144437-7b8431033099
++	github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20261113144437-7b8431033099
++	github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20261113144437-7b8431033099
  	github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0
 -	github.com/masterzen/winrm v0.0.0-20200615185753-c42b5136ff88
 -	github.com/mattn/go-isatty v0.0.20
 -	github.com/mattn/go-shellwords v1.0.12
-+	github.com/masterzen/winrm v0.0.0-20261004123143-57b335310d59
++	github.com/masterzen/winrm v0.0.0-20261114181639-d693523ae428
 +	github.com/mattn/go-isatty v0.0.24
 +	github.com/mattn/go-shellwords v1.0.16
  	github.com/mitchellh/colorstring v0.0.0-20190213212951-d06e56a500db
@@ -164,7 +164,7 @@
 +	github.com/Azure/go-autorest/autorest/validation v0.3.2 // indirect
 +	github.com/Azure/go-autorest/logger v0.2.2 // indirect
 +	github.com/Azure/go-autorest/tracing v0.6.1 // indirect
-+	github.com/Azure/go-ntlmssp v0.1.2-0.20260824092057-1c8077778c2c // indirect
++	github.com/Azure/go-ntlmssp v0.1.2-0.20261111092545-5846b35b583b // indirect
 +	github.com/BurntSushi/toml v1.4.1-0.20240526193622-a339e1f7089c // indirect
 +	github.com/ChrisTrenkamp/goxpath v0.0.0-20210404020558-97928f7e12b6 // indirect
 +	github.com/GoogleCloudPlatform/opentelemetry-operations-go/detectors/gcp v1.33.0 // indirect
@@ -317,7 +317,7 @@
 +	github.com/hashicorp/serf v0.9.8 // indirect
  	github.com/hashicorp/terraform-plugin-log v0.9.0 // indirect
 -	github.com/hashicorp/yamux v0.1.1 // indirect
-+	github.com/hashicorp/terraform/internal/legacy v0.0.0-20261111092458-79f788eaaf74 // indirect
++	github.com/hashicorp/terraform/internal/legacy v0.0.0-20261113144437-7b8431033099 // indirect
 +	github.com/hashicorp/yamux v0.1.2 // indirect
  	github.com/henvic/httpretty v0.0.6 // indirect
  	github.com/huandu/xstrings v1.3.3 // indirect
@@ -389,7 +389,7 @@
 +	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common v1.0.1217 // indirect
 +	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sts v1.0.1200 // indirect
 +	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tag v1.0.1200 // indirect
-+	github.com/tencentyun/cos-go-sdk-v5 v0.7.76 // indirect
++	github.com/tencentyun/cos-go-sdk-v5 v0.7.77 // indirect
 +	github.com/thanhpk/randstr v1.0.7 // indirect
 +	github.com/thlib/go-timezone-local v0.0.9 // indirect
  	github.com/tombuildsstuff/giovanni v0.15.1 // indirect
@@ -428,8 +428,8 @@
 +	go.opentelemetry.io/otel/sdk v1.44.0 // indirect
 +	go.opentelemetry.io/otel/sdk/metric v1.44.0 // indirect
 +	go.opentelemetry.io/otel/trace v1.44.0 // indirect
-+	golang.org/x/exp v0.0.0-20261109185158-a52e3aef5920 // indirect
-+	golang.org/x/exp/typeparams v0.0.0-20261109185158-a52e3aef5920 // indirect
++	golang.org/x/exp v0.0.0-20261113113407-e3970619a1a4 // indirect
++	golang.org/x/exp/typeparams v0.0.0-20261113113407-e3970619a1a4 // indirect
 +	golang.org/x/sync v0.24.0 // indirect
 +	golang.org/x/time v0.15.0 // indirect
 +	google.golang.org/api v0.287.1 // indirect

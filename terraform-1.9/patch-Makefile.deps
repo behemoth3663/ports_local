@@ -1,6 +1,6 @@
 --- Makefile.deps.orig	2026-10-16 11:01:01 UTC
 +++ Makefile.deps
-@@ -283,42 +283,54 @@ GH_TUPLE=	\
+@@ -283,42 +283,64 @@ GH_TUPLE=	\
  		#	::v1.44.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.44.0)
  		#	::v2.80.1:group_name/vendor/k8s.io/klog/v2 (from k8s.io/klog/v2@v2.80.1)
  		#	::v4.2.3:group_name/vendor/sigs.k8s.io/structured-merge-diff/v4 (from sigs.k8s.io/structured-merge-diff/v4@v4.2.3)
@@ -45,15 +45,25 @@
 -	@${RLN} ${WRKSRC_fsnotify_fsnotify} ${WRKSRC}/vendor/github.com/golang/protobuf
 +post-extract: .PHONY
 +	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
-+	@${FIND} ${WRKSRC} '(' -name 'telemetry*.go' -or -name '*_test.go' ')' -type f -delete
 +	@${RM} ${WRKSRC}/internal/rpcapi/grpc_testing.go
-+	@${RM} ${WRKSRC}/vendor/github.com/envoyproxy/go-control-plane/envoy/config/trace/v3/trace.pb.go
 +	@${RM} ${WRKSRC}/vendor/github.com/hashicorp/aws-sdk-go-base/v2/logger.go
 +	@${RM} ${WRKSRC}/vendor/github.com/hashicorp/aws-sdk-go-base/v2/logging/attributes.go
 +	@${RM} ${WRKSRC}/vendor/github.com/hashicorp/aws-sdk-go-base/v2/logging/http.go
-+	@${RM} -r ${WRKSRC}/vendor/cloud.google.com/go/internal/trace
 +	@${RM} -r ${WRKSRC}/vendor/github.com/GoogleCloudPlatform
 +	@${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io
++	@${FIND} ${WRKSRC} '(' \
++		-name opentelemetry -or \
++		-name telemetry -or \
++		-name trace -or \
++		-name tracing \
++	')' -type d -exec ${RM} -r -- {} +
++	@${FIND} ${WRKSRC} '(' \
++		-name '*_test.go' -or \
++		-name opentelemetry.go -or \
++		-name otel.go -or \
++		-name telemetry*.go -or \
++		-name tracing.go \
++	')' -type f -delete
 +	@${MKDIR} ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state
 +	@${RLN} ${WRKSRC}/internal/backend/remote-state/azure ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/azure
 +	@${RLN} ${WRKSRC}/internal/backend/remote-state/consul ${WRKSRC}/vendor/github.com/hashicorp/terraform/internal/backend/remote-state/consul

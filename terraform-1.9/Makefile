@@ -1,7 +1,7 @@
 PORTNAME=	terraform
 PORTVERSION=	1.9.8
 DISTVERSIONPREFIX=	v
-PORTREVISION=	20261111
+PORTREVISION=	20261117
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX=	-${PORTVERSION:R}
 
@@ -27,6 +27,7 @@ JQ_GETVER_EXPR=	[.[].name | gsub("^[a-z]+";"") | \
 		"n"))][0]
 
 CGO_ENABLED=	0
+GO_BUILDFLAGS+=	-tags grpcnotrace
 GO_LDFLAGS+=	-w
 GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.rawVersion=${PORTVERSION}
 GO_LDFLAGS+=	-X github.com/${GH_ACCOUNT}/${GH_PROJECT}/version.Version=${PORTVERSION}

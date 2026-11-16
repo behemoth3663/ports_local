@@ -1,7 +1,7 @@
---- vendor/github.com/hashicorp/aws-sdk-go-base/v2/aws_config.go.orig	2023-12-12 19:24:56 UTC
+--- vendor/github.com/hashicorp/aws-sdk-go-base/v2/aws_config.go.orig	2024-08-27 14:10:44 UTC
 +++ vendor/github.com/hashicorp/aws-sdk-go-base/v2/aws_config.go
-@@ -354,31 +354,12 @@ func commonLoadOptions(ctx context.Context, c *Config)
- 		apiOptions = append(apiOptions, awsmiddleware.AddUserAgentKey(v))
+@@ -384,31 +384,12 @@ func commonLoadOptions(ctx context.Context, c *Config)
+ 		apiOptions = append(apiOptions, withUserAgentAppender(v))
  	}
  
 -	if !c.SuppressDebugLog {

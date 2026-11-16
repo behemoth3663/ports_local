@@ -91,7 +91,7 @@ github.com/Azure/go-autorest/logger
 # github.com/Azure/go-autorest/tracing v0.6.1
 ## explicit; go 1.15
 github.com/Azure/go-autorest/tracing
-# github.com/Azure/go-ntlmssp v0.1.2-0.20260824092057-1c8077778c2c
+# github.com/Azure/go-ntlmssp v0.1.2-0.20261111092545-5846b35b583b
 ## explicit; go 1.24
 github.com/Azure/go-ntlmssp
 github.com/Azure/go-ntlmssp/internal/md4
@@ -816,31 +816,31 @@ github.com/hashicorp/terraform-registry-address
 github.com/hashicorp/terraform-svchost
 github.com/hashicorp/terraform-svchost/auth
 github.com/hashicorp/terraform-svchost/disco
-# github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20261111092458-79f788eaaf74 => ./internal/backend/remote-state/azure
+# github.com/hashicorp/terraform/internal/backend/remote-state/azure v0.0.0-20261113144437-7b8431033099 => ./internal/backend/remote-state/azure
 ## explicit; go 1.22.7
 github.com/hashicorp/terraform/internal/backend/remote-state/azure
-# github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20261111092458-79f788eaaf74 => ./internal/backend/remote-state/consul
+# github.com/hashicorp/terraform/internal/backend/remote-state/consul v0.0.0-20261113144437-7b8431033099 => ./internal/backend/remote-state/consul
 ## explicit; go 1.22.7
 github.com/hashicorp/terraform/internal/backend/remote-state/consul
-# github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20261111092458-79f788eaaf74 => ./internal/backend/remote-state/cos
+# github.com/hashicorp/terraform/internal/backend/remote-state/cos v0.0.0-20261113144437-7b8431033099 => ./internal/backend/remote-state/cos
 ## explicit; go 1.22.7
 github.com/hashicorp/terraform/internal/backend/remote-state/cos
-# github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20261111092458-79f788eaaf74 => ./internal/backend/remote-state/gcs
+# github.com/hashicorp/terraform/internal/backend/remote-state/gcs v0.0.0-20261113144437-7b8431033099 => ./internal/backend/remote-state/gcs
 ## explicit; go 1.22.7
 github.com/hashicorp/terraform/internal/backend/remote-state/gcs
-# github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20261111092458-79f788eaaf74 => ./internal/backend/remote-state/kubernetes
+# github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes v0.0.0-20261113144437-7b8431033099 => ./internal/backend/remote-state/kubernetes
 ## explicit; go 1.22.7
 github.com/hashicorp/terraform/internal/backend/remote-state/kubernetes
-# github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20261111092458-79f788eaaf74 => ./internal/backend/remote-state/oss
+# github.com/hashicorp/terraform/internal/backend/remote-state/oss v0.0.0-20261113144437-7b8431033099 => ./internal/backend/remote-state/oss
 ## explicit; go 1.22.7
 github.com/hashicorp/terraform/internal/backend/remote-state/oss
-# github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20261111092458-79f788eaaf74 => ./internal/backend/remote-state/pg
+# github.com/hashicorp/terraform/internal/backend/remote-state/pg v0.0.0-20261113144437-7b8431033099 => ./internal/backend/remote-state/pg
 ## explicit; go 1.22.7
 github.com/hashicorp/terraform/internal/backend/remote-state/pg
-# github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20261111092458-79f788eaaf74 => ./internal/backend/remote-state/s3
+# github.com/hashicorp/terraform/internal/backend/remote-state/s3 v0.0.0-20261113144437-7b8431033099 => ./internal/backend/remote-state/s3
 ## explicit; go 1.22.7
 github.com/hashicorp/terraform/internal/backend/remote-state/s3
-# github.com/hashicorp/terraform/internal/legacy v0.0.0-20261111092458-79f788eaaf74 => ./internal/legacy
+# github.com/hashicorp/terraform/internal/legacy v0.0.0-20261113144437-7b8431033099 => ./internal/legacy
 ## explicit; go 1.22.7
 github.com/hashicorp/terraform/internal/legacy/helper/hashcode
 github.com/hashicorp/terraform/internal/legacy/helper/schema
@@ -987,8 +987,8 @@ github.com/manicminer/hamilton-autorest/environments
 # github.com/masterzen/simplexml v0.0.0-20190410153822-31eea3082786
 ## explicit
 github.com/masterzen/simplexml/dom
-# github.com/masterzen/winrm v0.0.0-20261004123143-57b335310d59
-## explicit; go 1.24
+# github.com/masterzen/winrm v0.0.0-20261114181639-d693523ae428
+## explicit; go 1.24.0
 github.com/masterzen/winrm
 github.com/masterzen/winrm/soap
 # github.com/mattn/go-colorable v0.1.16
@@ -1130,7 +1130,7 @@ github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sts/v20180813
 # github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tag v1.0.1200
 ## explicit; go 1.14
 github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tag/v20180813
-# github.com/tencentyun/cos-go-sdk-v5 v0.7.76
+# github.com/tencentyun/cos-go-sdk-v5 v0.7.77
 ## explicit; go 1.12
 github.com/tencentyun/cos-go-sdk-v5
 # github.com/thanhpk/randstr v1.0.7
@@ -1299,10 +1299,10 @@ golang.org/x/crypto/ssh
 golang.org/x/crypto/ssh/agent
 golang.org/x/crypto/ssh/internal/bcrypt_pbkdf
 golang.org/x/crypto/ssh/knownhosts
-# golang.org/x/exp v0.0.0-20261109185158-a52e3aef5920
+# golang.org/x/exp v0.0.0-20261113113407-e3970619a1a4
 ## explicit; go 1.26.0
 golang.org/x/exp/constraints
-# golang.org/x/exp/typeparams v0.0.0-20261109185158-a52e3aef5920
+# golang.org/x/exp/typeparams v0.0.0-20261113113407-e3970619a1a4
 ## explicit; go 1.26.0
 golang.org/x/exp/typeparams
 # golang.org/x/mod v0.42.0
