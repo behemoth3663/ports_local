@@ -1,5 +1,5 @@
-TIMESTAMP = 1794675216
-SHA256 (go/local_infracost/infracost-v0.10.49/v0.10.49.mod) = 7af651dda192024bc02ea43a3c74928093f761bd749774425f928c71dbce35e7
-SIZE (go/local_infracost/infracost-v0.10.49/v0.10.49.mod) = 15787
-SHA256 (go/local_infracost/infracost-v0.10.49/v0.10.49.zip) = cbc6a865efce97a87945a92087c46a670663e355730722d40a5e762c4ff62cce
-SIZE (go/local_infracost/infracost-v0.10.49/v0.10.49.zip) = 7289937
+TIMESTAMP = 1794948197
+SHA256 (go/local_infracost/infracost-v0.10.50/v0.10.50.mod) = 7af651dda192024bc02ea43a3c74928093f761bd749774425f928c71dbce35e7
+SIZE (go/local_infracost/infracost-v0.10.50/v0.10.50.mod) = 15787
+SHA256 (go/local_infracost/infracost-v0.10.50/v0.10.50.zip) = 53279602ec13052d2d5b99eece5a19b2c2ac3605357f57af0f884c7cf3927589
+SIZE (go/local_infracost/infracost-v0.10.50/v0.10.50.zip) = 7291673
