@@ -1,5 +1,5 @@
 PORTNAME=	gh
-PORTVERSION=	2.104.0
+PORTVERSION=	2.105.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local devel
 PKGNAMESUFFIX=	-local
@@ -81,6 +81,7 @@ post-deps-all: .PHONY
 
 post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor || :
+	# Comment out before make deps
 	@${RM} -r ${WRKSRC}/internal/barista/observability
 	@${RM} -r ${WRKSRC}/internal/telemetry
 	@${RM} -r ${WRKSRC}/pkg/cmd/send-telemetry
