@@ -1,5 +1,5 @@
 PORTNAME=	skopeo
-PORTVERSION=	1.25.1
+PORTVERSION=	1.25.2
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX=	-local
@@ -17,7 +17,6 @@ LIB_DEPENDS=	libgpgme.so:security/gpgme
 #RUN_DEPENDS=	${LOCALBASE}/etc/containers/containers.conf.sample:sysutils/containers-common
 
 USES=		go:modules
-GO_TARGET=	./cmd/${PORTNAME}
 
 GO_MODULE=	github.com/containers/${PORTNAME}
 GO_TARGET=	./cmd/${PORTNAME}
