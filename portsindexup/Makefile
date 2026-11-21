@@ -1,5 +1,5 @@
 PORTNAME=	portsindexup
-PORTVERSION=	0.1.38
+PORTVERSION=	0.1.47
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local ports-mgmt
 
@@ -49,6 +49,6 @@ pre-deps-all: .PHONY
 
 COMMIT_CMD=	git ls-remote \
 	https://github.com/${GH_ACCOUNT}/${GH_PROJECT} \
-	refs/tags/${DISTVERSIONFULL}^{} | cut -c1-7
+	refs/tags/${DISTVERSIONFULL}^{} | ${CUT} -c1-7
 
 .include <bsd.port.post.mk>
