@@ -1,14 +1,14 @@
---- vendor/github.com/aws/aws-sdk-go-v2/service/sts/api_client.go.orig	2026-11-13 20:29:00 UTC
+--- vendor/github.com/aws/aws-sdk-go-v2/service/sts/api_client.go.orig	2026-11-21 22:07:26 UTC
 +++ vendor/github.com/aws/aws-sdk-go-v2/service/sts/api_client.go
-@@ -25,7 +25,6 @@ import (
+@@ -26,7 +26,6 @@ import (
  	"github.com/aws/smithy-go/logging"
  	"github.com/aws/smithy-go/metrics"
  	"github.com/aws/smithy-go/middleware"
 -	"github.com/aws/smithy-go/tracing"
  	smithyhttp "github.com/aws/smithy-go/transport/http"
+ 	"github.com/aws/smithy-go/transport/http/protocol/awsquery"
  	"net"
- 	"net/http"
-@@ -178,10 +177,6 @@ func getOperationMetrics(ctx context.Context) *operati
+@@ -180,10 +179,6 @@ func getOperationMetrics(ctx context.Context) *operati
  	return nil
  }
  
@@ -19,7 +19,7 @@
  // Client provides the API client to make operations call for AWS Security Token
  // Service.
  type Client struct {
-@@ -210,9 +205,6 @@ func New(options Options, optFns ...func(*Options)) *C
+@@ -212,9 +207,6 @@ func New(options Options, optFns ...func(*Options)) *C
  	resolveEndpointResolverV2(&options)
  
  	resolveHTTPSignerV4a(&options)
@@ -29,7 +29,7 @@
  	resolveMeterProvider(&options)
  
  	resolveAuthSchemeResolver(&options)
-@@ -294,20 +286,8 @@ func (c *Client) invokeOperation(
+@@ -298,20 +290,8 @@ func (c *Client) invokeOperation(
  		return nil, metadata, err
  	}
  
@@ -50,7 +50,7 @@
  
  	handler := smithyhttp.NewClientHandlerWithOptions(options.HTTPClient, func(o *smithyhttp.ClientHandler) {
  		o.Meter = options.MeterProvider.Meter("github.com/aws/aws-sdk-go-v2/service/sts")
-@@ -315,14 +295,9 @@ func (c *Client) invokeOperation(
+@@ -319,14 +299,9 @@ func (c *Client) invokeOperation(
  	decorated := middleware.DecorateHandler(handler, stack)
  	result, metadata, err = decorated.Handle(ctx, params)
  	if err != nil {
@@ -65,7 +65,7 @@
  		}
  
  		err = &smithy.OperationError{
-@@ -331,14 +306,6 @@ func (c *Client) invokeOperation(
+@@ -335,14 +310,6 @@ func (c *Client) invokeOperation(
  			Err:           err,
  		}
  	}
@@ -80,7 +80,36 @@
  	return result, metadata, err
  }
  
-@@ -828,12 +795,6 @@ func finalizeSTSRetryableErrors(o *Options) {
+@@ -469,13 +436,11 @@ func (m *serializeRequestMiddleware) HandleSerialize(
+ 		return middleware.SerializeOutput{}, middleware.Metadata{}, fmt.Errorf("input %T is not Serializable", in.Request)
+ 	}
+ 
+-	_, span := tracing.StartSpan(ctx, "OperationSerializer")
+ 	endTimer := startMetricTimer(ctx, "client.call.serialization_duration")
+ 
+ 	err := m.options.Protocol.SerializeRequest(ctx, m.operationSchema, input, req)
+ 
+ 	endTimer()
+-	span.End()
+ 
+ 	if err != nil {
+ 		return middleware.SerializeOutput{}, middleware.Metadata{}, err
+@@ -529,14 +494,12 @@ func (m *deserializeResponseMiddleware) HandleDeserial
+ 		return out, md, err
+ 	}
+ 
+-	_, span := tracing.StartSpan(ctx, "OperationDeserializer")
+ 	endTimer := startMetricTimer(ctx, "client.call.deserialization_duration")
+ 
+ 	err = m.options.Protocol.DeserializeResponse(ctx, m.operationSchema, TypeRegistry, resp, m.output)
+ 	out.Result = m.output
+ 
+ 	endTimer()
+-	span.End()
+ 
+ 	return out, md, err
+ }
+@@ -928,12 +891,6 @@ func finalizeSTSRetryableErrors(o *Options) {
  
  func finalizeSTSRetryableErrors(o *Options) {
  	o.Retryer = retry.AddWithErrorCodes(o.Retryer, "IDPCommunicationError")
