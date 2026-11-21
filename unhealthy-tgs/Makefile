@@ -1,5 +1,5 @@
 PORTNAME=	unhealthy-tgs
-PORTVERSION=	0.1.43
+PORTVERSION=	0.1.47
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -34,6 +34,7 @@ post-extract: .PHONY
 	${RM} ${WRKSRC}/../../go.work
 	${MKDIR} ${WRKSRC}/vendor
 	${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
+	${RM} -r ${WRKSRC}/vendor/github.com/aws/smithy-go/tracing
 
 pre-deps: .PHONY
 	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
