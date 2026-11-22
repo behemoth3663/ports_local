@@ -1,5 +1,5 @@
 PORTNAME=	ssosync
-PORTVERSION=	2.11.1
+PORTVERSION=	2.12.2
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 
@@ -34,14 +34,19 @@ post-extract: .PHONY
 	@${CP} ${PATCHDIR}/modules.txt ${WRKSRC}/vendor
 	@${FIND} ${WRKSRC} -name '*_test.go' -type f -delete
 	@${RM} ${WRKSRC}/vendor/github.com/googleapis/gax-go/v2/telemetry.go
-	@${MKDIR} ${WRKSRC}/vendor/go.yaml.in/yaml
-	@${TEST} ! -e ${WRKSRC}/vendor/gopkg.in/yaml.v3 || ${RLN} ${WRKSRC}/vendor/gopkg.in/yaml.v3 ${WRKSRC}/vendor/go.yaml.in/yaml/v3
-
-pre-deps: .PHONY
-	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
 
 pre-deps-all: .PHONY
 	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}_
+	${RM} ${.CURDIR}/generated.deps.mk
+	( ${MAKE} -C ${.CURDIR} make-from-deps GHT_ACNT=yaml GHT_PROJ=go-yaml GHT_PATH=go.yaml.in/yaml/v3 )
+
+make-from-deps: .PHONY
+	@${SED} -rn \
+		's|^[[:blank:]]*#[[:blank:]]*::([v0-9.a-f]+):.*/(vendor/${GHT_PATH})[[:blank:]].*$$|GH_TUPLE+=${GHT_ACNT}:${GHT_PROJ}:\1:${GHT_ACNT:tl:S/-/_/g}_${GHT_PROJ:tl:S/-/_/g}/\2|p' \
+	${.CURDIR}/Makefile.deps >>${.CURDIR}/generated.deps.mk
+
+pre-deps: .PHONY
+	${TEST} -d ${PATCHDIR}_ && ${RM} -r ${PATCHDIR} || ${MV} ${PATCHDIR} ${PATCHDIR}_
 
 post-deps-all: .PHONY
 	${TEST} ! -d ${PATCHDIR}_ || ${MV} ${PATCHDIR}_ ${PATCHDIR}
@@ -64,6 +69,7 @@ GH_TUPLE:=	${GH_TUPLE:C,:([^:]+:[^:/]+/.*/cloud.google.com/go)/(auth),:\2/\1,1}
 #+google:go-genproto:a7a43d27e69b:google_go_genproto/vendor/google.golang.org/genproto/googleapis
 GH_TUPLE:=	${GH_TUPLE:S|/googleapis/rpc||1}
 
+.sinclude "${.CURDIR}/generated.deps.mk"
 .include <bsd.port.pre.mk>
 
 COMMIT_CMD=	git ls-remote \
