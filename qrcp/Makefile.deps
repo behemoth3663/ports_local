@@ -16,6 +16,7 @@ GH_TUPLE=	\
 		jhoonb:archivex:0488e4ce1681:jhoonb_archivex/vendor/github.com/jhoonb/archivex \
 		manifoldco:promptui:v0.9.0:manifoldco_promptui/vendor/github.com/manifoldco/promptui \
 		mattn:go-colorable:v0.1.14:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
+		mattn:go-isatty:v0.0.20:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
 		mattn:go-runewidth:v0.0.9:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
 		pelletier:go-toml:v2.2.3:pelletier_go_toml_v2/vendor/github.com/pelletier/go-toml/v2 \
 		sagikazarmark:locafero:v0.7.0:sagikazarmark_locafero/vendor/github.com/sagikazarmark/locafero \
