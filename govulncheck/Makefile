@@ -1,5 +1,5 @@
 PORTNAME=	govulncheck
-PORTVERSION=	1.9.0
+PORTVERSION=	1.10.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local security
 PKGNAMESUFFIX=	-local
@@ -23,6 +23,16 @@ GO_LDFLAGS+=	-w
 GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 
 PLIST_FILES=	bin/${PORTNAME}
+
+clean-unused: .PHONY clean patch
+	( cd ${WRKSRC} && ${GO_CMD} mod tidy -v )
+	${RM} -r ${WRKSRC}/vendor
+	( ${MAKE} -C ${.CURDIR} gomod-vendor | \
+		${GREP} --extended-regexp --invert-match '^(/|=+>|\*+[[:blank:]]+Error)' | \
+		${SED} -r -e '/\r$$/d' -e '/^[[:blank:]]+"message":/d' -e '/\\}/d' -e '/^[[:blank:]]*$$/d' \
+		> ${.CURDIR}/Makefile.deps )
+	${CP} ${WRKSRC}/vendor/modules.txt ${PATCHDIR}
+	( ${MAKE} -C ${.CURDIR} makesum )
 
 post-patch: .PHONY
 	@${REINPLACE_CMD} -e 's|%%GO_CMD%%|${GO_CMD}|g' ${WRKSRC}/internal/scan/util.go
