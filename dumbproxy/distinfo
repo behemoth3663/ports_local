@@ -1,5 +1,5 @@
-TIMESTAMP = 1794311933
-SHA256 (go/local_dumbproxy/dumbproxy-v1.52.2/v1.52.2.mod) = a7ff480ab485a4891ffd374f7896fea0ef86f8ea388e835a13e2c6c4096e1075
-SIZE (go/local_dumbproxy/dumbproxy-v1.52.2/v1.52.2.mod) = 1467
-SHA256 (go/local_dumbproxy/dumbproxy-v1.52.2/v1.52.2.zip) = 2c4de92616f9ced12acfb3c1d090551b69b55aca63e350ac2e7df28ffa8f9f84
-SIZE (go/local_dumbproxy/dumbproxy-v1.52.2/v1.52.2.zip) = 139814
+TIMESTAMP = 1795520385
+SHA256 (go/local_dumbproxy/dumbproxy-v1.52.3/v1.52.3.mod) = c9c4e3acec88a2f80a7a73506ccbe0e7ec637ed7ae22c0d56e6f5b6a19f9a7ff
+SIZE (go/local_dumbproxy/dumbproxy-v1.52.3/v1.52.3.mod) = 1468
+SHA256 (go/local_dumbproxy/dumbproxy-v1.52.3/v1.52.3.zip) = d08ae67b3d502f9ec86d9c03cd3f0d3b7d133e7d704dd3fc6cd1fb653d7b4f52
+SIZE (go/local_dumbproxy/dumbproxy-v1.52.3/v1.52.3.zip) = 139816
