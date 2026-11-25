@@ -1,35 +1,24 @@
---- vendor/github.com/aws/aws-sdk-go-v2/service/sts/api_client.go.orig	2026-10-28 15:34:01 UTC
+--- vendor/github.com/aws/aws-sdk-go-v2/service/sts/api_client.go.orig	2026-11-25 07:55:38 UTC
 +++ vendor/github.com/aws/aws-sdk-go-v2/service/sts/api_client.go
-@@ -24,7 +24,6 @@ import (
+@@ -26,7 +26,6 @@ import (
  	"github.com/aws/smithy-go/logging"
  	"github.com/aws/smithy-go/metrics"
  	"github.com/aws/smithy-go/middleware"
 -	"github.com/aws/smithy-go/tracing"
  	smithyhttp "github.com/aws/smithy-go/transport/http"
+ 	"github.com/aws/smithy-go/transport/http/protocol/awsquery"
  	"net"
- 	"net/http"
-@@ -177,10 +176,6 @@ func getOperationMetrics(ctx context.Context) *operati
+@@ -180,9 +179,6 @@ func getOperationMetrics(ctx context.Context) *operati
  	return nil
  }
  
 -func operationTracer(p tracing.TracerProvider) tracing.Tracer {
 -	return p.Tracer("github.com/aws/aws-sdk-go-v2/service/sts")
 -}
--
+ 
  // Client provides the API client to make operations call for AWS Security Token
  // Service.
- type Client struct {
-@@ -209,9 +204,6 @@ func New(options Options, optFns ...func(*Options)) *C
- 	resolveEndpointResolverV2(&options)
- 
- 	resolveHTTPSignerV4a(&options)
--
--	resolveTracerProvider(&options)
--
- 	resolveMeterProvider(&options)
- 
- 	resolveAuthSchemeResolver(&options)
-@@ -293,20 +285,8 @@ func (c *Client) invokeOperation(
+@@ -298,20 +294,9 @@ func (c *Client) invokeOperation(
  		return nil, metadata, err
  	}
  
@@ -44,13 +33,14 @@
 -		o.Properties.Set("rpc.method", opID)
 -		o.Properties.Set("rpc.service", ServiceID)
 -	})
++	
  	endTimer := startMetricTimer(ctx, "client.call.duration")
  	defer endTimer()
 -	defer span.End()
  
  	handler := smithyhttp.NewClientHandlerWithOptions(options.HTTPClient, func(o *smithyhttp.ClientHandler) {
  		o.Meter = options.MeterProvider.Meter("github.com/aws/aws-sdk-go-v2/service/sts")
-@@ -314,14 +294,9 @@ func (c *Client) invokeOperation(
+@@ -319,14 +304,9 @@ func (c *Client) invokeOperation(
  	decorated := middleware.DecorateHandler(handler, stack)
  	result, metadata, err = decorated.Handle(ctx, params)
  	if err != nil {
@@ -65,41 +55,60 @@
  		}
  
  		err = &smithy.OperationError{
-@@ -330,14 +305,6 @@ func (c *Client) invokeOperation(
- 			Err:           err,
+@@ -336,11 +316,8 @@ func (c *Client) invokeOperation(
  		}
  	}
--
+ 
 -	span.SetProperty("error", err != nil)
--	if err == nil {
+ 	if err == nil {
 -		span.SetStatus(tracing.SpanStatusOK)
--	} else {
+ 	} else {
 -		span.SetStatus(tracing.SpanStatusError)
--	}
--
+ 	}
+ 
  	return result, metadata, err
+@@ -469,13 +446,11 @@ func (m *serializeRequestMiddleware) HandleSerialize(
+ 		return middleware.SerializeOutput{}, middleware.Metadata{}, fmt.Errorf("input %T is not Serializable", in.Request)
+ 	}
+ 
+-	_, span := tracing.StartSpan(ctx, "OperationSerializer")
+ 	endTimer := startMetricTimer(ctx, "client.call.serialization_duration")
+ 
+ 	err := m.options.Protocol.SerializeRequest(ctx, m.operationSchema, input, req)
+ 
+ 	endTimer()
+-	span.End()
+ 
+ 	if err != nil {
+ 		return middleware.SerializeOutput{}, middleware.Metadata{}, err
+@@ -529,14 +504,12 @@ func (m *deserializeResponseMiddleware) HandleDeserial
+ 		return out, md, err
+ 	}
+ 
+-	_, span := tracing.StartSpan(ctx, "OperationDeserializer")
+ 	endTimer := startMetricTimer(ctx, "client.call.deserialization_duration")
+ 
+ 	err = m.options.Protocol.DeserializeResponse(ctx, m.operationSchema, TypeRegistry, resp, m.output)
+ 	out.Result = m.output
+ 
+ 	endTimer()
+-	span.End()
+ 
+ 	return out, md, err
+ }
+@@ -931,15 +904,9 @@ func resolveTracerProvider(options *Options) {
  }
  
-@@ -705,9 +672,6 @@ func (m *spanRetryLoop) HandleFinalize(
- ) (
- 	middleware.FinalizeOutput, middleware.Metadata, error,
- ) {
--	tracer := operationTracer(m.options.TracerProvider)
--	ctx, span := tracer.StartSpan(ctx, "RetryLoop")
--	defer span.End()
- 
- 	return next.HandleFinalize(ctx, in)
- }
-@@ -869,12 +833,6 @@ func finalizeSTSRetryableErrors(o *Options) {
- 
- func finalizeSTSRetryableErrors(o *Options) {
- 	o.Retryer = retry.AddWithErrorCodes(o.Retryer, "IDPCommunicationError")
--}
--
--func resolveTracerProvider(options *Options) {
+ func resolveTracerProvider(options *Options) {
 -	if options.TracerProvider == nil {
 -		options.TracerProvider = &tracing.NopTracerProvider{}
 -	}
  }
  
  func resolveMeterProvider(options *Options) {
+-	if options.MeterProvider == nil {
+-		options.MeterProvider = metrics.NopMeterProvider{}
+-	}
+ }
+ 
+ func resolveServiceMetadata(ctx context.Context, options Options, operation string) context.Context {

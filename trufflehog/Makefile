@@ -1,5 +1,5 @@
 PORTNAME=	trufflehog
-PORTVERSION=	3.100.0
+PORTVERSION=	3.100.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX=	-local
@@ -26,6 +26,7 @@ pre-build: .PHONY
 	${RM} -r ${WRKSRC}/vendor/github.com/aws/smithy-go/tracing
 	${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io
 	${RM} -r ${WRKSRC}/vendor/google.golang.org/grpc/stats/opentelemetry
+	${RM} ${WRKSRC}/vendor/github.com/googleapis/gax-go/v2/telemetry.go
 	${RM} ${WRKSRC}/vendor/google.golang.org/grpc/experimental/opentelemetry/trace_options.go
 
 .include <bsd.port.mk>
