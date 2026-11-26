@@ -20,7 +20,7 @@ GH_TUPLE=	\
 		charmbracelet:x:821143405392:charmbracelet_x_strings/vendor/github.com/charmbracelet/x/exp/strings \
 		charmbracelet:x:v0.1.0:charmbracelet_x_ordered/vendor/github.com/charmbracelet/x/exp/ordered \
 		charmbracelet:x:v0.1.1:charmbracelet_x_termios/vendor/github.com/charmbracelet/x/termios \
-		charmbracelet:x:v0.11.9:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x/ansi \
+		charmbracelet:x:v0.11.10:charmbracelet_x_ansi/vendor/github.com/charmbracelet/x/ansi \
 		charmbracelet:x:v0.2.2:charmbracelet_x_term/vendor/github.com/charmbracelet/x/term \
 		charmbracelet:x:v0.2.2:charmbracelet_x_windows/vendor/github.com/charmbracelet/x/windows \
 		cli:browser:v1.3.0:cli_browser/vendor/github.com/cli/browser \
@@ -39,7 +39,7 @@ GH_TUPLE=	\
 		dlclark:regexp2:v2.2.1:dlclark_regexp2_v2/vendor/github.com/dlclark/regexp2/v2 \
 		docker:cli:v29.7.2:docker_cli/vendor/github.com/docker/cli \
 		docker:docker-credential-helpers:v0.9.3:docker_docker_credential_helpers/vendor/github.com/docker/docker-credential-helpers \
-		dustin:go-humanize:v1.0.1:dustin_go_humanize/vendor/github.com/dustin/go-humanize \
+		dustin:go-humanize:v1.1.0:dustin_go_humanize/vendor/github.com/dustin/go-humanize \
 		fatih:color:v1.18.0:fatih_color/vendor/github.com/fatih/color \
 		gabriel-vasile:mimetype:v1.4.16:gabriel_vasile_mimetype/vendor/github.com/gabriel-vasile/mimetype \
 		go-logr:logr:v1.4.4:go_logr_logr/vendor/github.com/go-logr/logr \
@@ -80,7 +80,7 @@ GH_TUPLE=	\
 		google:shlex:e7afc7fbc510:google_shlex/vendor/github.com/google/shlex \
 		google:uuid:v1.6.0:google_uuid/vendor/github.com/google/uuid \
 		gorilla:css:v1.0.1:gorilla_css/vendor/github.com/gorilla/css \
-		gorilla:websocket:v1.5.3:gorilla_websocket/vendor/github.com/gorilla/websocket \
+		gorilla:websocket:d67f41855da4:gorilla_websocket/vendor/github.com/gorilla/websocket \
 		grpc-ecosystem:grpc-gateway:v2.32.0:grpc_ecosystem_grpc_gateway_v2/vendor/github.com/grpc-ecosystem/grpc-gateway/v2 \
 		grpc:grpc-go:v1.85.0:grpc_grpc_go/vendor/google.golang.org/grpc \
 		hashicorp:go-version:v1.9.0:hashicorp_go_version/vendor/github.com/hashicorp/go-version \
@@ -94,11 +94,11 @@ GH_TUPLE=	\
 		jedisct1:go-minisign:d2f9f49435c7:jedisct1_go_minisign/vendor/github.com/jedisct1/go-minisign \
 		joho:godotenv:v1.5.1:joho_godotenv/vendor/github.com/joho/godotenv \
 		kballard:go-shellquote:95032a82bc51:kballard_go_shellquote/vendor/github.com/kballard/go-shellquote \
-		klauspost:compress:v1.20.4:klauspost_compress/vendor/github.com/klauspost/compress \
+		klauspost:compress:v1.20.5:klauspost_compress/vendor/github.com/klauspost/compress \
 		lucasb-eyer:go-colorful:v1.4.1:lucasb_eyer_go_colorful/vendor/github.com/lucasb-eyer/go-colorful \
 		mattn:go-colorable:v0.1.16:mattn_go_colorable/vendor/github.com/mattn/go-colorable \
 		mattn:go-isatty:v0.0.24:mattn_go_isatty/vendor/github.com/mattn/go-isatty \
-		mattn:go-runewidth:v0.0.30:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
+		mattn:go-runewidth:v0.0.31:mattn_go_runewidth/vendor/github.com/mattn/go-runewidth \
 		mgutz:ansi:d51e80ef957d:mgutz_ansi/vendor/github.com/mgutz/ansi \
 		microcosm-cc:bluemonday:v1.0.27:microcosm_cc_bluemonday/vendor/github.com/microcosm-cc/bluemonday \
 		microsoft:dev-tunnels:v0.2.0:microsoft_dev_tunnels/vendor/github.com/microsoft/dev-tunnels \
@@ -114,7 +114,7 @@ GH_TUPLE=	\
 		opencontainers:image-spec:v1.1.1:opencontainers_image_spec/vendor/github.com/opencontainers/image-spec \
 		pkg:errors:v0.9.1:pkg_errors/vendor/github.com/pkg/errors \
 		protocolbuffers:protobuf-go:v1.36.12:protocolbuffers_protobuf_go/vendor/google.golang.org/protobuf \
-		rivo:uniseg:v0.4.7:rivo_uniseg/vendor/github.com/rivo/uniseg \
+		rivo:uniseg:3a370411ca06:rivo_uniseg/vendor/github.com/rivo/uniseg \
 		rodaine:table:v1.3.0:rodaine_table/vendor/github.com/rodaine/table \
 		russross:blackfriday:v2.1.0:russross_blackfriday_v2/vendor/github.com/russross/blackfriday/v2 \
 		secure-systems-lab:go-securesystemslib:v0.11.1:secure_systems_lab_go_securesystemslib/vendor/github.com/secure-systems-lab/go-securesystemslib \
@@ -152,9 +152,9 @@ GH_TUPLE=	\
 		#	::v1.47.0:group_name/vendor/go.opentelemetry.io/otel/metric (from go.opentelemetry.io/otel/metric@v1.47.0)
 		#	::v1.47.0:group_name/vendor/go.opentelemetry.io/otel/trace (from go.opentelemetry.io/otel/trace@v1.47.0)
 		#	::v2.0.3:group_name/vendor/charm.land/huh/v2 (from charm.land/huh/v2@v2.0.3)
-		#	::v2.1.0:group_name/vendor/charm.land/lipgloss/v2 (from charm.land/lipgloss/v2@v2.1.0)
-		#	::v2.1.1:group_name/vendor/charm.land/bubbletea/v2 (from charm.land/bubbletea/v2@v2.1.1)
+		#	::v2.1.1:group_name/vendor/charm.land/lipgloss/v2 (from charm.land/lipgloss/v2@v2.1.1)
+		#	::v2.1.2:group_name/vendor/charm.land/bubbletea/v2 (from charm.land/bubbletea/v2@v2.1.2)
 		#	::v2.140.0:group_name/vendor/k8s.io/klog/v2 (from k8s.io/klog/v2@v2.140.0)
-		#	::v2.2.1:group_name/vendor/charm.land/bubbles/v2 (from charm.land/bubbles/v2@v2.2.1)
+		#	::v2.2.2:group_name/vendor/charm.land/bubbles/v2 (from charm.land/bubbles/v2@v2.2.2)
 		#	::v3.0.5:group_name/vendor/go.yaml.in/yaml/v3 (from go.yaml.in/yaml/v3@v3.0.5)
 		#	::v3.5.2:group_name/vendor/gotest.tools/v3 (from gotest.tools/v3@v3.5.2)
