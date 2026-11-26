@@ -1,4 +1,4 @@
---- vendor/cloud.google.com/go/kms/apiv1/hsm_management_client.go.orig	2026-10-21 09:29:37 UTC
+--- vendor/cloud.google.com/go/kms/apiv1/hsm_management_client.go.orig	2026-11-26 19:18:00 UTC
 +++ vendor/cloud.google.com/go/kms/apiv1/hsm_management_client.go
 @@ -32,8 +32,6 @@ import (
  	lroauto "cloud.google.com/go/longrunning/autogen"
@@ -27,7 +27,7 @@
  	if newHsmManagementClientHook != nil {
  		hookOpts, err := newHsmManagementClientHook(ctx, clientHookParams{})
  		if err != nil {
-@@ -624,35 +613,7 @@ func NewHsmManagementClient(ctx context.Context, opts 
+@@ -624,90 +613,7 @@ func NewHsmManagementClient(ctx context.Context, opts 
  		locationsClient:     locationpb.NewLocationsClient(connPool),
  	}
  	c.setGoogleClientInfo()
@@ -59,11 +59,66 @@
 -		client.CallOptions.TestIamPermissions = append(client.CallOptions.TestIamPermissions, gax.WithClientMetrics(metrics))
 -		client.CallOptions.GetOperation = append(client.CallOptions.GetOperation, gax.WithClientMetrics(metrics))
 -	}
+-	if gax.IsFeatureEnabled("TRACING") {
+-		tracing := gax.NewClientTracing(
+-			gax.WithTracingAttributes(map[string]string{
+-				gax.ClientService:  "cloudkms",
+-				gax.ClientVersion:  getVersionClient(),
+-				gax.ClientArtifact: "cloud.google.com/go/kms/apiv1",
+-				gax.RPCSystem:      "grpc",
+-				gax.URLDomain:      "cloudkms.googleapis.com",
+-			}),
+-		)
+-
+-		client.CallOptions.ListSingleTenantHsmInstances = append(client.CallOptions.ListSingleTenantHsmInstances, gax.WithClientTracing(tracing))
+-		client.CallOptions.GetSingleTenantHsmInstance = append(client.CallOptions.GetSingleTenantHsmInstance, gax.WithClientTracing(tracing))
+-		client.CallOptions.CreateSingleTenantHsmInstance = append(client.CallOptions.CreateSingleTenantHsmInstance, gax.WithClientTracing(tracing))
+-		client.CallOptions.CreateSingleTenantHsmInstanceProposal = append(client.CallOptions.CreateSingleTenantHsmInstanceProposal, gax.WithClientTracing(tracing))
+-		client.CallOptions.ApproveSingleTenantHsmInstanceProposal = append(client.CallOptions.ApproveSingleTenantHsmInstanceProposal, gax.WithClientTracing(tracing))
+-		client.CallOptions.ExecuteSingleTenantHsmInstanceProposal = append(client.CallOptions.ExecuteSingleTenantHsmInstanceProposal, gax.WithClientTracing(tracing))
+-		client.CallOptions.GetSingleTenantHsmInstanceProposal = append(client.CallOptions.GetSingleTenantHsmInstanceProposal, gax.WithClientTracing(tracing))
+-		client.CallOptions.ListSingleTenantHsmInstanceProposals = append(client.CallOptions.ListSingleTenantHsmInstanceProposals, gax.WithClientTracing(tracing))
+-		client.CallOptions.DeleteSingleTenantHsmInstanceProposal = append(client.CallOptions.DeleteSingleTenantHsmInstanceProposal, gax.WithClientTracing(tracing))
+-		client.CallOptions.GetLocation = append(client.CallOptions.GetLocation, gax.WithClientTracing(tracing))
+-		client.CallOptions.ListLocations = append(client.CallOptions.ListLocations, gax.WithClientTracing(tracing))
+-		client.CallOptions.GetIamPolicy = append(client.CallOptions.GetIamPolicy, gax.WithClientTracing(tracing))
+-		client.CallOptions.SetIamPolicy = append(client.CallOptions.SetIamPolicy, gax.WithClientTracing(tracing))
+-		client.CallOptions.TestIamPermissions = append(client.CallOptions.TestIamPermissions, gax.WithClientTracing(tracing))
+-		client.CallOptions.GetOperation = append(client.CallOptions.GetOperation, gax.WithClientTracing(tracing))
+-	}
+-	if gax.IsFeatureEnabled("LOGGING") {
+-		logging := gax.NewClientLogging(
+-			gax.WithLoggerProvider(c.logger),
+-			gax.WithLoggingAttributes(map[string]string{
+-				gax.ClientService:  "cloudkms",
+-				gax.ClientVersion:  getVersionClient(),
+-				gax.ClientArtifact: "cloud.google.com/go/kms/apiv1",
+-				gax.RPCSystem:      "grpc",
+-				gax.URLDomain:      "cloudkms.googleapis.com",
+-			}),
+-		)
+-
+-		client.CallOptions.ListSingleTenantHsmInstances = append(client.CallOptions.ListSingleTenantHsmInstances, gax.WithClientLogging(logging))
+-		client.CallOptions.GetSingleTenantHsmInstance = append(client.CallOptions.GetSingleTenantHsmInstance, gax.WithClientLogging(logging))
+-		client.CallOptions.CreateSingleTenantHsmInstance = append(client.CallOptions.CreateSingleTenantHsmInstance, gax.WithClientLogging(logging))
+-		client.CallOptions.CreateSingleTenantHsmInstanceProposal = append(client.CallOptions.CreateSingleTenantHsmInstanceProposal, gax.WithClientLogging(logging))
+-		client.CallOptions.ApproveSingleTenantHsmInstanceProposal = append(client.CallOptions.ApproveSingleTenantHsmInstanceProposal, gax.WithClientLogging(logging))
+-		client.CallOptions.ExecuteSingleTenantHsmInstanceProposal = append(client.CallOptions.ExecuteSingleTenantHsmInstanceProposal, gax.WithClientLogging(logging))
+-		client.CallOptions.GetSingleTenantHsmInstanceProposal = append(client.CallOptions.GetSingleTenantHsmInstanceProposal, gax.WithClientLogging(logging))
+-		client.CallOptions.ListSingleTenantHsmInstanceProposals = append(client.CallOptions.ListSingleTenantHsmInstanceProposals, gax.WithClientLogging(logging))
+-		client.CallOptions.DeleteSingleTenantHsmInstanceProposal = append(client.CallOptions.DeleteSingleTenantHsmInstanceProposal, gax.WithClientLogging(logging))
+-		client.CallOptions.GetLocation = append(client.CallOptions.GetLocation, gax.WithClientLogging(logging))
+-		client.CallOptions.ListLocations = append(client.CallOptions.ListLocations, gax.WithClientLogging(logging))
+-		client.CallOptions.GetIamPolicy = append(client.CallOptions.GetIamPolicy, gax.WithClientLogging(logging))
+-		client.CallOptions.SetIamPolicy = append(client.CallOptions.SetIamPolicy, gax.WithClientLogging(logging))
+-		client.CallOptions.TestIamPermissions = append(client.CallOptions.TestIamPermissions, gax.WithClientLogging(logging))
+-		client.CallOptions.GetOperation = append(client.CallOptions.GetOperation, gax.WithClientLogging(logging))
+-	}
 -
  	client.internalClient = c
  
  	client.LROClient, err = lroauto.NewOperationsClient(ctx, gtransport.WithConnPool(connPool))
-@@ -729,16 +690,7 @@ func NewHsmManagementRESTClient(ctx context.Context, o
+@@ -784,16 +690,7 @@ func NewHsmManagementRESTClient(ctx context.Context, o
  //	SingleTenantHsmInstanceProposal
  func NewHsmManagementRESTClient(ctx context.Context, opts ...option.ClientOption) (*HsmManagementClient, error) {
  	clientOpts := append(defaultHsmManagementRESTClientOptions(), opts...)
@@ -81,7 +136,7 @@
  	httpClient, endpoint, err := httptransport.NewClient(ctx, clientOpts...)
  	if err != nil {
  		return nil, err
-@@ -753,35 +705,6 @@ func NewHsmManagementRESTClient(ctx context.Context, o
+@@ -808,90 +705,6 @@ func NewHsmManagementRESTClient(ctx context.Context, o
  	}
  	c.setGoogleClientInfo()
  
@@ -113,53 +168,96 @@
 -		callOpts.TestIamPermissions = append(callOpts.TestIamPermissions, gax.WithClientMetrics(metrics))
 -		callOpts.GetOperation = append(callOpts.GetOperation, gax.WithClientMetrics(metrics))
 -	}
+-	if gax.IsFeatureEnabled("TRACING") {
+-		tracing := gax.NewClientTracing(
+-			gax.WithTracingAttributes(map[string]string{
+-				gax.ClientService:  "cloudkms",
+-				gax.ClientVersion:  getVersionClient(),
+-				gax.ClientArtifact: "cloud.google.com/go/kms/apiv1",
+-				gax.RPCSystem:      "http",
+-				gax.URLDomain:      "cloudkms.googleapis.com",
+-			}),
+-		)
+-
+-		callOpts.ListSingleTenantHsmInstances = append(callOpts.ListSingleTenantHsmInstances, gax.WithClientTracing(tracing))
+-		callOpts.GetSingleTenantHsmInstance = append(callOpts.GetSingleTenantHsmInstance, gax.WithClientTracing(tracing))
+-		callOpts.CreateSingleTenantHsmInstance = append(callOpts.CreateSingleTenantHsmInstance, gax.WithClientTracing(tracing))
+-		callOpts.CreateSingleTenantHsmInstanceProposal = append(callOpts.CreateSingleTenantHsmInstanceProposal, gax.WithClientTracing(tracing))
+-		callOpts.ApproveSingleTenantHsmInstanceProposal = append(callOpts.ApproveSingleTenantHsmInstanceProposal, gax.WithClientTracing(tracing))
+-		callOpts.ExecuteSingleTenantHsmInstanceProposal = append(callOpts.ExecuteSingleTenantHsmInstanceProposal, gax.WithClientTracing(tracing))
+-		callOpts.GetSingleTenantHsmInstanceProposal = append(callOpts.GetSingleTenantHsmInstanceProposal, gax.WithClientTracing(tracing))
+-		callOpts.ListSingleTenantHsmInstanceProposals = append(callOpts.ListSingleTenantHsmInstanceProposals, gax.WithClientTracing(tracing))
+-		callOpts.DeleteSingleTenantHsmInstanceProposal = append(callOpts.DeleteSingleTenantHsmInstanceProposal, gax.WithClientTracing(tracing))
+-		callOpts.GetLocation = append(callOpts.GetLocation, gax.WithClientTracing(tracing))
+-		callOpts.ListLocations = append(callOpts.ListLocations, gax.WithClientTracing(tracing))
+-		callOpts.GetIamPolicy = append(callOpts.GetIamPolicy, gax.WithClientTracing(tracing))
+-		callOpts.SetIamPolicy = append(callOpts.SetIamPolicy, gax.WithClientTracing(tracing))
+-		callOpts.TestIamPermissions = append(callOpts.TestIamPermissions, gax.WithClientTracing(tracing))
+-		callOpts.GetOperation = append(callOpts.GetOperation, gax.WithClientTracing(tracing))
+-	}
+-	if gax.IsFeatureEnabled("LOGGING") {
+-		logging := gax.NewClientLogging(
+-			gax.WithLoggerProvider(c.logger),
+-			gax.WithLoggingAttributes(map[string]string{
+-				gax.ClientService:  "cloudkms",
+-				gax.ClientVersion:  getVersionClient(),
+-				gax.ClientArtifact: "cloud.google.com/go/kms/apiv1",
+-				gax.RPCSystem:      "http",
+-				gax.URLDomain:      "cloudkms.googleapis.com",
+-			}),
+-		)
+-
+-		callOpts.ListSingleTenantHsmInstances = append(callOpts.ListSingleTenantHsmInstances, gax.WithClientLogging(logging))
+-		callOpts.GetSingleTenantHsmInstance = append(callOpts.GetSingleTenantHsmInstance, gax.WithClientLogging(logging))
+-		callOpts.CreateSingleTenantHsmInstance = append(callOpts.CreateSingleTenantHsmInstance, gax.WithClientLogging(logging))
+-		callOpts.CreateSingleTenantHsmInstanceProposal = append(callOpts.CreateSingleTenantHsmInstanceProposal, gax.WithClientLogging(logging))
+-		callOpts.ApproveSingleTenantHsmInstanceProposal = append(callOpts.ApproveSingleTenantHsmInstanceProposal, gax.WithClientLogging(logging))
+-		callOpts.ExecuteSingleTenantHsmInstanceProposal = append(callOpts.ExecuteSingleTenantHsmInstanceProposal, gax.WithClientLogging(logging))
+-		callOpts.GetSingleTenantHsmInstanceProposal = append(callOpts.GetSingleTenantHsmInstanceProposal, gax.WithClientLogging(logging))
+-		callOpts.ListSingleTenantHsmInstanceProposals = append(callOpts.ListSingleTenantHsmInstanceProposals, gax.WithClientLogging(logging))
+-		callOpts.DeleteSingleTenantHsmInstanceProposal = append(callOpts.DeleteSingleTenantHsmInstanceProposal, gax.WithClientLogging(logging))
+-		callOpts.GetLocation = append(callOpts.GetLocation, gax.WithClientLogging(logging))
+-		callOpts.ListLocations = append(callOpts.ListLocations, gax.WithClientLogging(logging))
+-		callOpts.GetIamPolicy = append(callOpts.GetIamPolicy, gax.WithClientLogging(logging))
+-		callOpts.SetIamPolicy = append(callOpts.SetIamPolicy, gax.WithClientLogging(logging))
+-		callOpts.TestIamPermissions = append(callOpts.TestIamPermissions, gax.WithClientLogging(logging))
+-		callOpts.GetOperation = append(callOpts.GetOperation, gax.WithClientLogging(logging))
+-	}
 -
  	lroOpts := []option.ClientOption{
  		option.WithHTTPClient(httpClient),
  		option.WithEndpoint(endpoint),
-@@ -837,12 +760,7 @@ func (c *hsmManagementGRPCClient) ListSingleTenantHsmI
+@@ -947,9 +760,6 @@ func (c *hsmManagementGRPCClient) ListSingleTenantHsmI
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
--	if gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
--		ctx = callctx.WithTelemetryContext(ctx, "resource_name", fmt.Sprintf("//cloudkms.googleapis.com/%v", req.GetParent()))
--	}
 -	if gax.IsFeatureEnabled("METRICS") || gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
 -		ctx = callctx.WithTelemetryContext(ctx, "rpc_method", "google.cloud.kms.v1.HsmManagement/ListSingleTenantHsmInstances")
 -	}
-+
  	opts = append((*c.CallOptions).ListSingleTenantHsmInstances[0:len((*c.CallOptions).ListSingleTenantHsmInstances):len((*c.CallOptions).ListSingleTenantHsmInstances)], opts...)
  	it := &SingleTenantHsmInstanceIterator{}
  	req = proto.CloneOf(req)
-@@ -889,12 +807,7 @@ func (c *hsmManagementGRPCClient) GetSingleTenantHsmIn
+@@ -996,9 +806,6 @@ func (c *hsmManagementGRPCClient) GetSingleTenantHsmIn
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
--	if gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
--		ctx = callctx.WithTelemetryContext(ctx, "resource_name", fmt.Sprintf("//cloudkms.googleapis.com/%v", req.GetName()))
--	}
 -	if gax.IsFeatureEnabled("METRICS") || gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
 -		ctx = callctx.WithTelemetryContext(ctx, "rpc_method", "google.cloud.kms.v1.HsmManagement/GetSingleTenantHsmInstance")
 -	}
-+
  	opts = append((*c.CallOptions).GetSingleTenantHsmInstance[0:len((*c.CallOptions).GetSingleTenantHsmInstance):len((*c.CallOptions).GetSingleTenantHsmInstance)], opts...)
  	var resp *kmspb.SingleTenantHsmInstance
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -913,12 +826,7 @@ func (c *hsmManagementGRPCClient) CreateSingleTenantHs
+@@ -1017,9 +824,6 @@ func (c *hsmManagementGRPCClient) CreateSingleTenantHs
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
--	if gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
--		ctx = callctx.WithTelemetryContext(ctx, "resource_name", fmt.Sprintf("//cloudkms.googleapis.com/%v", req.GetParent()))
--	}
 -	if gax.IsFeatureEnabled("METRICS") || gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
 -		ctx = callctx.WithTelemetryContext(ctx, "rpc_method", "google.cloud.kms.v1.HsmManagement/CreateSingleTenantHsmInstance")
 -	}
-+
  	opts = append((*c.CallOptions).CreateSingleTenantHsmInstance[0:len((*c.CallOptions).CreateSingleTenantHsmInstance):len((*c.CallOptions).CreateSingleTenantHsmInstance)], opts...)
  	var resp *longrunningpb.Operation
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -930,9 +838,6 @@ func (c *hsmManagementGRPCClient) CreateSingleTenantHs
+@@ -1031,9 +835,6 @@ func (c *hsmManagementGRPCClient) CreateSingleTenantHs
  		return nil, err
  	}
  	lro := longrunning.InternalNewOperationWithMetadata(*c.LROClient, resp, "*kms.CreateSingleTenantHsmInstanceOperation")
@@ -169,21 +267,17 @@
  	return &CreateSingleTenantHsmInstanceOperation{
  		lro: lro,
  	}, nil
-@@ -943,12 +848,7 @@ func (c *hsmManagementGRPCClient) CreateSingleTenantHs
+@@ -1044,9 +845,6 @@ func (c *hsmManagementGRPCClient) CreateSingleTenantHs
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
--	if gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
--		ctx = callctx.WithTelemetryContext(ctx, "resource_name", fmt.Sprintf("//cloudkms.googleapis.com/%v", req.GetParent()))
--	}
 -	if gax.IsFeatureEnabled("METRICS") || gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
 -		ctx = callctx.WithTelemetryContext(ctx, "rpc_method", "google.cloud.kms.v1.HsmManagement/CreateSingleTenantHsmInstanceProposal")
 -	}
-+
  	opts = append((*c.CallOptions).CreateSingleTenantHsmInstanceProposal[0:len((*c.CallOptions).CreateSingleTenantHsmInstanceProposal):len((*c.CallOptions).CreateSingleTenantHsmInstanceProposal)], opts...)
  	var resp *longrunningpb.Operation
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -960,9 +860,6 @@ func (c *hsmManagementGRPCClient) CreateSingleTenantHs
+@@ -1058,9 +856,6 @@ func (c *hsmManagementGRPCClient) CreateSingleTenantHs
  		return nil, err
  	}
  	lro := longrunning.InternalNewOperationWithMetadata(*c.LROClient, resp, "*kms.CreateSingleTenantHsmInstanceProposalOperation")
@@ -193,35 +287,27 @@
  	return &CreateSingleTenantHsmInstanceProposalOperation{
  		lro: lro,
  	}, nil
-@@ -973,12 +870,7 @@ func (c *hsmManagementGRPCClient) ApproveSingleTenantH
+@@ -1071,9 +866,6 @@ func (c *hsmManagementGRPCClient) ApproveSingleTenantH
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
--	if gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
--		ctx = callctx.WithTelemetryContext(ctx, "resource_name", fmt.Sprintf("//cloudkms.googleapis.com/%v", req.GetName()))
--	}
 -	if gax.IsFeatureEnabled("METRICS") || gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
 -		ctx = callctx.WithTelemetryContext(ctx, "rpc_method", "google.cloud.kms.v1.HsmManagement/ApproveSingleTenantHsmInstanceProposal")
 -	}
-+
  	opts = append((*c.CallOptions).ApproveSingleTenantHsmInstanceProposal[0:len((*c.CallOptions).ApproveSingleTenantHsmInstanceProposal):len((*c.CallOptions).ApproveSingleTenantHsmInstanceProposal)], opts...)
  	var resp *kmspb.ApproveSingleTenantHsmInstanceProposalResponse
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -997,12 +889,7 @@ func (c *hsmManagementGRPCClient) ExecuteSingleTenantH
+@@ -1092,9 +884,6 @@ func (c *hsmManagementGRPCClient) ExecuteSingleTenantH
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
--	if gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
--		ctx = callctx.WithTelemetryContext(ctx, "resource_name", fmt.Sprintf("//cloudkms.googleapis.com/%v", req.GetName()))
--	}
 -	if gax.IsFeatureEnabled("METRICS") || gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
 -		ctx = callctx.WithTelemetryContext(ctx, "rpc_method", "google.cloud.kms.v1.HsmManagement/ExecuteSingleTenantHsmInstanceProposal")
 -	}
-+
  	opts = append((*c.CallOptions).ExecuteSingleTenantHsmInstanceProposal[0:len((*c.CallOptions).ExecuteSingleTenantHsmInstanceProposal):len((*c.CallOptions).ExecuteSingleTenantHsmInstanceProposal)], opts...)
  	var resp *longrunningpb.Operation
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -1014,9 +901,6 @@ func (c *hsmManagementGRPCClient) ExecuteSingleTenantH
+@@ -1106,9 +895,6 @@ func (c *hsmManagementGRPCClient) ExecuteSingleTenantH
  		return nil, err
  	}
  	lro := longrunning.InternalNewOperationWithMetadata(*c.LROClient, resp, "*kms.ExecuteSingleTenantHsmInstanceProposalOperation")
@@ -231,49 +317,37 @@
  	return &ExecuteSingleTenantHsmInstanceProposalOperation{
  		lro: lro,
  	}, nil
-@@ -1027,12 +911,7 @@ func (c *hsmManagementGRPCClient) GetSingleTenantHsmIn
+@@ -1119,9 +905,6 @@ func (c *hsmManagementGRPCClient) GetSingleTenantHsmIn
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
--	if gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
--		ctx = callctx.WithTelemetryContext(ctx, "resource_name", fmt.Sprintf("//cloudkms.googleapis.com/%v", req.GetName()))
--	}
 -	if gax.IsFeatureEnabled("METRICS") || gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
 -		ctx = callctx.WithTelemetryContext(ctx, "rpc_method", "google.cloud.kms.v1.HsmManagement/GetSingleTenantHsmInstanceProposal")
 -	}
-+
  	opts = append((*c.CallOptions).GetSingleTenantHsmInstanceProposal[0:len((*c.CallOptions).GetSingleTenantHsmInstanceProposal):len((*c.CallOptions).GetSingleTenantHsmInstanceProposal)], opts...)
  	var resp *kmspb.SingleTenantHsmInstanceProposal
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -1051,12 +930,7 @@ func (c *hsmManagementGRPCClient) ListSingleTenantHsmI
+@@ -1140,9 +923,6 @@ func (c *hsmManagementGRPCClient) ListSingleTenantHsmI
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
--	if gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
--		ctx = callctx.WithTelemetryContext(ctx, "resource_name", fmt.Sprintf("//cloudkms.googleapis.com/%v", req.GetParent()))
--	}
 -	if gax.IsFeatureEnabled("METRICS") || gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
 -		ctx = callctx.WithTelemetryContext(ctx, "rpc_method", "google.cloud.kms.v1.HsmManagement/ListSingleTenantHsmInstanceProposals")
 -	}
-+
  	opts = append((*c.CallOptions).ListSingleTenantHsmInstanceProposals[0:len((*c.CallOptions).ListSingleTenantHsmInstanceProposals):len((*c.CallOptions).ListSingleTenantHsmInstanceProposals)], opts...)
  	it := &SingleTenantHsmInstanceProposalIterator{}
  	req = proto.CloneOf(req)
-@@ -1103,12 +977,7 @@ func (c *hsmManagementGRPCClient) DeleteSingleTenantHs
+@@ -1189,9 +969,6 @@ func (c *hsmManagementGRPCClient) DeleteSingleTenantHs
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
--	if gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
--		ctx = callctx.WithTelemetryContext(ctx, "resource_name", fmt.Sprintf("//cloudkms.googleapis.com/%v", req.GetName()))
--	}
 -	if gax.IsFeatureEnabled("METRICS") || gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
 -		ctx = callctx.WithTelemetryContext(ctx, "rpc_method", "google.cloud.kms.v1.HsmManagement/DeleteSingleTenantHsmInstanceProposal")
 -	}
-+
  	opts = append((*c.CallOptions).DeleteSingleTenantHsmInstanceProposal[0:len((*c.CallOptions).DeleteSingleTenantHsmInstanceProposal):len((*c.CallOptions).DeleteSingleTenantHsmInstanceProposal)], opts...)
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
  		var err error
-@@ -1123,9 +992,7 @@ func (c *hsmManagementGRPCClient) GetLocation(ctx cont
+@@ -1206,9 +983,7 @@ func (c *hsmManagementGRPCClient) GetLocation(ctx cont
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -284,7 +358,7 @@
  	opts = append((*c.CallOptions).GetLocation[0:len((*c.CallOptions).GetLocation):len((*c.CallOptions).GetLocation)], opts...)
  	var resp *locationpb.Location
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -1144,9 +1011,7 @@ func (c *hsmManagementGRPCClient) ListLocations(ctx co
+@@ -1227,9 +1002,7 @@ func (c *hsmManagementGRPCClient) ListLocations(ctx co
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -295,49 +369,37 @@
  	opts = append((*c.CallOptions).ListLocations[0:len((*c.CallOptions).ListLocations):len((*c.CallOptions).ListLocations)], opts...)
  	it := &LocationIterator{}
  	req = proto.CloneOf(req)
-@@ -1193,12 +1058,7 @@ func (c *hsmManagementGRPCClient) GetIamPolicy(ctx con
+@@ -1276,9 +1049,6 @@ func (c *hsmManagementGRPCClient) GetIamPolicy(ctx con
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
--	if gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
--		ctx = callctx.WithTelemetryContext(ctx, "resource_name", fmt.Sprintf("//iam-meta-api.googleapis.com/%v", req.GetResource()))
--	}
 -	if gax.IsFeatureEnabled("METRICS") || gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
 -		ctx = callctx.WithTelemetryContext(ctx, "rpc_method", "google.iam.v1.IAMPolicy/GetIamPolicy")
 -	}
-+
  	opts = append((*c.CallOptions).GetIamPolicy[0:len((*c.CallOptions).GetIamPolicy):len((*c.CallOptions).GetIamPolicy)], opts...)
  	var resp *iampb.Policy
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -1217,12 +1077,7 @@ func (c *hsmManagementGRPCClient) SetIamPolicy(ctx con
+@@ -1297,9 +1067,6 @@ func (c *hsmManagementGRPCClient) SetIamPolicy(ctx con
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
--	if gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
--		ctx = callctx.WithTelemetryContext(ctx, "resource_name", fmt.Sprintf("//iam-meta-api.googleapis.com/%v", req.GetResource()))
--	}
 -	if gax.IsFeatureEnabled("METRICS") || gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
 -		ctx = callctx.WithTelemetryContext(ctx, "rpc_method", "google.iam.v1.IAMPolicy/SetIamPolicy")
 -	}
-+
  	opts = append((*c.CallOptions).SetIamPolicy[0:len((*c.CallOptions).SetIamPolicy):len((*c.CallOptions).SetIamPolicy)], opts...)
  	var resp *iampb.Policy
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -1241,12 +1096,7 @@ func (c *hsmManagementGRPCClient) TestIamPermissions(c
+@@ -1318,9 +1085,6 @@ func (c *hsmManagementGRPCClient) TestIamPermissions(c
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
--	if gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
--		ctx = callctx.WithTelemetryContext(ctx, "resource_name", fmt.Sprintf("//iam-meta-api.googleapis.com/%v", req.GetResource()))
--	}
 -	if gax.IsFeatureEnabled("METRICS") || gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
 -		ctx = callctx.WithTelemetryContext(ctx, "rpc_method", "google.iam.v1.IAMPolicy/TestIamPermissions")
 -	}
-+
  	opts = append((*c.CallOptions).TestIamPermissions[0:len((*c.CallOptions).TestIamPermissions):len((*c.CallOptions).TestIamPermissions)], opts...)
  	var resp *iampb.TestIamPermissionsResponse
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -1265,9 +1115,7 @@ func (c *hsmManagementGRPCClient) GetOperation(ctx con
+@@ -1339,9 +1103,7 @@ func (c *hsmManagementGRPCClient) GetOperation(ctx con
  
  	hds = append(c.xGoogHeaders, hds...)
  	ctx = gax.InsertMetadataIntoOutgoingContext(ctx, hds...)
@@ -348,37 +410,29 @@
  	opts = append((*c.CallOptions).GetOperation[0:len((*c.CallOptions).GetOperation):len((*c.CallOptions).GetOperation)], opts...)
  	var resp *longrunningpb.Operation
  	err := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -1389,13 +1237,7 @@ func (c *hsmManagementRESTClient) GetSingleTenantHsmIn
+@@ -1463,10 +1225,6 @@ func (c *hsmManagementRESTClient) GetSingleTenantHsmIn
  	hds = append(c.xGoogHeaders, hds...)
  	hds = append(hds, "Content-Type", "application/json")
  	headers := gax.BuildHeaders(ctx, hds...)
--	if gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
--		ctx = callctx.WithTelemetryContext(ctx, "resource_name", fmt.Sprintf("//cloudkms.googleapis.com/%v", req.GetName()))
--	}
 -	if gax.IsFeatureEnabled("METRICS") || gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
 -		ctx = callctx.WithTelemetryContext(ctx, "rpc_method", "google.cloud.kms.v1.HsmManagement/GetSingleTenantHsmInstance")
 -		ctx = callctx.WithTelemetryContext(ctx, "url_template", "/v1/{name=projects/*/locations/*/singleTenantHsmInstances/*}")
 -	}
-+
  	opts = append((*c.CallOptions).GetSingleTenantHsmInstance[0:len((*c.CallOptions).GetSingleTenantHsmInstance):len((*c.CallOptions).GetSingleTenantHsmInstance)], opts...)
  	unm := protojson.UnmarshalOptions{AllowPartial: true, DiscardUnknown: true}
  	resp := &kmspb.SingleTenantHsmInstance{}
-@@ -1460,13 +1302,7 @@ func (c *hsmManagementRESTClient) CreateSingleTenantHs
+@@ -1531,10 +1289,6 @@ func (c *hsmManagementRESTClient) CreateSingleTenantHs
  	hds = append(c.xGoogHeaders, hds...)
  	hds = append(hds, "Content-Type", "application/json")
  	headers := gax.BuildHeaders(ctx, hds...)
--	if gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
--		ctx = callctx.WithTelemetryContext(ctx, "resource_name", fmt.Sprintf("//cloudkms.googleapis.com/%v", req.GetParent()))
--	}
 -	if gax.IsFeatureEnabled("METRICS") || gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
 -		ctx = callctx.WithTelemetryContext(ctx, "rpc_method", "google.cloud.kms.v1.HsmManagement/CreateSingleTenantHsmInstance")
 -		ctx = callctx.WithTelemetryContext(ctx, "url_template", "/v1/{parent=projects/*/locations/*}/singleTenantHsmInstances")
 -	}
-+
  	unm := protojson.UnmarshalOptions{AllowPartial: true, DiscardUnknown: true}
  	resp := &longrunningpb.Operation{}
  	e := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -1496,9 +1332,6 @@ func (c *hsmManagementRESTClient) CreateSingleTenantHs
+@@ -1564,9 +1318,6 @@ func (c *hsmManagementRESTClient) CreateSingleTenantHs
  
  	override := fmt.Sprintf("/v1/%s", resp.GetName())
  	lro := longrunning.InternalNewOperationWithMetadata(*c.LROClient, resp, "*kms.CreateSingleTenantHsmInstanceOperation")
@@ -388,22 +442,18 @@
  	return &CreateSingleTenantHsmInstanceOperation{
  		lro:      lro,
  		pollPath: override,
-@@ -1537,13 +1370,7 @@ func (c *hsmManagementRESTClient) CreateSingleTenantHs
+@@ -1605,10 +1356,6 @@ func (c *hsmManagementRESTClient) CreateSingleTenantHs
  	hds = append(c.xGoogHeaders, hds...)
  	hds = append(hds, "Content-Type", "application/json")
  	headers := gax.BuildHeaders(ctx, hds...)
--	if gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
--		ctx = callctx.WithTelemetryContext(ctx, "resource_name", fmt.Sprintf("//cloudkms.googleapis.com/%v", req.GetParent()))
--	}
 -	if gax.IsFeatureEnabled("METRICS") || gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
 -		ctx = callctx.WithTelemetryContext(ctx, "rpc_method", "google.cloud.kms.v1.HsmManagement/CreateSingleTenantHsmInstanceProposal")
 -		ctx = callctx.WithTelemetryContext(ctx, "url_template", "/v1/{parent=projects/*/locations/*/singleTenantHsmInstances/*}/proposals")
 -	}
-+
  	unm := protojson.UnmarshalOptions{AllowPartial: true, DiscardUnknown: true}
  	resp := &longrunningpb.Operation{}
  	e := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -1573,9 +1400,6 @@ func (c *hsmManagementRESTClient) CreateSingleTenantHs
+@@ -1638,9 +1385,6 @@ func (c *hsmManagementRESTClient) CreateSingleTenantHs
  
  	override := fmt.Sprintf("/v1/%s", resp.GetName())
  	lro := longrunning.InternalNewOperationWithMetadata(*c.LROClient, resp, "*kms.CreateSingleTenantHsmInstanceProposalOperation")
@@ -413,37 +463,29 @@
  	return &CreateSingleTenantHsmInstanceProposalOperation{
  		lro:      lro,
  		pollPath: override,
-@@ -1613,13 +1437,7 @@ func (c *hsmManagementRESTClient) ApproveSingleTenantH
+@@ -1678,10 +1422,6 @@ func (c *hsmManagementRESTClient) ApproveSingleTenantH
  	hds = append(c.xGoogHeaders, hds...)
  	hds = append(hds, "Content-Type", "application/json")
  	headers := gax.BuildHeaders(ctx, hds...)
--	if gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
--		ctx = callctx.WithTelemetryContext(ctx, "resource_name", fmt.Sprintf("//cloudkms.googleapis.com/%v", req.GetName()))
--	}
 -	if gax.IsFeatureEnabled("METRICS") || gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
 -		ctx = callctx.WithTelemetryContext(ctx, "rpc_method", "google.cloud.kms.v1.HsmManagement/ApproveSingleTenantHsmInstanceProposal")
 -		ctx = callctx.WithTelemetryContext(ctx, "url_template", "/v1/{name=projects/*/locations/*/singleTenantHsmInstances/*/proposals/*}:approve")
 -	}
-+
  	opts = append((*c.CallOptions).ApproveSingleTenantHsmInstanceProposal[0:len((*c.CallOptions).ApproveSingleTenantHsmInstanceProposal):len((*c.CallOptions).ApproveSingleTenantHsmInstanceProposal)], opts...)
  	unm := protojson.UnmarshalOptions{AllowPartial: true, DiscardUnknown: true}
  	resp := &kmspb.ApproveSingleTenantHsmInstanceProposalResponse{}
-@@ -1682,13 +1500,7 @@ func (c *hsmManagementRESTClient) ExecuteSingleTenantH
+@@ -1744,10 +1484,6 @@ func (c *hsmManagementRESTClient) ExecuteSingleTenantH
  	hds = append(c.xGoogHeaders, hds...)
  	hds = append(hds, "Content-Type", "application/json")
  	headers := gax.BuildHeaders(ctx, hds...)
--	if gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
--		ctx = callctx.WithTelemetryContext(ctx, "resource_name", fmt.Sprintf("//cloudkms.googleapis.com/%v", req.GetName()))
--	}
 -	if gax.IsFeatureEnabled("METRICS") || gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
 -		ctx = callctx.WithTelemetryContext(ctx, "rpc_method", "google.cloud.kms.v1.HsmManagement/ExecuteSingleTenantHsmInstanceProposal")
 -		ctx = callctx.WithTelemetryContext(ctx, "url_template", "/v1/{name=projects/*/locations/*/singleTenantHsmInstances/*/proposals/*}:execute")
 -	}
-+
  	unm := protojson.UnmarshalOptions{AllowPartial: true, DiscardUnknown: true}
  	resp := &longrunningpb.Operation{}
  	e := gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
-@@ -1718,9 +1530,6 @@ func (c *hsmManagementRESTClient) ExecuteSingleTenantH
+@@ -1777,9 +1513,6 @@ func (c *hsmManagementRESTClient) ExecuteSingleTenantH
  
  	override := fmt.Sprintf("/v1/%s", resp.GetName())
  	lro := longrunning.InternalNewOperationWithMetadata(*c.LROClient, resp, "*kms.ExecuteSingleTenantHsmInstanceProposalOperation")
@@ -453,37 +495,29 @@
  	return &ExecuteSingleTenantHsmInstanceProposalOperation{
  		lro:      lro,
  		pollPath: override,
-@@ -1747,13 +1556,7 @@ func (c *hsmManagementRESTClient) GetSingleTenantHsmIn
+@@ -1806,10 +1539,6 @@ func (c *hsmManagementRESTClient) GetSingleTenantHsmIn
  	hds = append(c.xGoogHeaders, hds...)
  	hds = append(hds, "Content-Type", "application/json")
  	headers := gax.BuildHeaders(ctx, hds...)
--	if gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
--		ctx = callctx.WithTelemetryContext(ctx, "resource_name", fmt.Sprintf("//cloudkms.googleapis.com/%v", req.GetName()))
--	}
 -	if gax.IsFeatureEnabled("METRICS") || gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
 -		ctx = callctx.WithTelemetryContext(ctx, "rpc_method", "google.cloud.kms.v1.HsmManagement/GetSingleTenantHsmInstanceProposal")
 -		ctx = callctx.WithTelemetryContext(ctx, "url_template", "/v1/{name=projects/*/locations/*/singleTenantHsmInstances/*/proposals/*}")
 -	}
-+
  	opts = append((*c.CallOptions).GetSingleTenantHsmInstanceProposal[0:len((*c.CallOptions).GetSingleTenantHsmInstanceProposal):len((*c.CallOptions).GetSingleTenantHsmInstanceProposal)], opts...)
  	unm := protojson.UnmarshalOptions{AllowPartial: true, DiscardUnknown: true}
  	resp := &kmspb.SingleTenantHsmInstanceProposal{}
-@@ -1893,13 +1696,7 @@ func (c *hsmManagementRESTClient) DeleteSingleTenantHs
+@@ -1949,10 +1678,6 @@ func (c *hsmManagementRESTClient) DeleteSingleTenantHs
  	hds = append(c.xGoogHeaders, hds...)
  	hds = append(hds, "Content-Type", "application/json")
  	headers := gax.BuildHeaders(ctx, hds...)
--	if gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
--		ctx = callctx.WithTelemetryContext(ctx, "resource_name", fmt.Sprintf("//cloudkms.googleapis.com/%v", req.GetName()))
--	}
 -	if gax.IsFeatureEnabled("METRICS") || gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
 -		ctx = callctx.WithTelemetryContext(ctx, "rpc_method", "google.cloud.kms.v1.HsmManagement/DeleteSingleTenantHsmInstanceProposal")
 -		ctx = callctx.WithTelemetryContext(ctx, "url_template", "/v1/{name=projects/*/locations/*/singleTenantHsmInstances/*/proposals/*}")
 -	}
-+
  	return gax.Invoke(ctx, func(ctx context.Context, settings gax.CallSettings) error {
  		if settings.Path != "" {
  			baseUrl.Path = settings.Path
-@@ -1935,10 +1732,7 @@ func (c *hsmManagementRESTClient) GetLocation(ctx cont
+@@ -1988,10 +1713,7 @@ func (c *hsmManagementRESTClient) GetLocation(ctx cont
  	hds = append(c.xGoogHeaders, hds...)
  	hds = append(hds, "Content-Type", "application/json")
  	headers := gax.BuildHeaders(ctx, hds...)
@@ -495,52 +529,40 @@
  	opts = append((*c.CallOptions).GetLocation[0:len((*c.CallOptions).GetLocation):len((*c.CallOptions).GetLocation)], opts...)
  	unm := protojson.UnmarshalOptions{AllowPartial: true, DiscardUnknown: true}
  	resp := &locationpb.Location{}
-@@ -2089,13 +1883,7 @@ func (c *hsmManagementRESTClient) GetIamPolicy(ctx con
+@@ -2142,10 +1864,6 @@ func (c *hsmManagementRESTClient) GetIamPolicy(ctx con
  	hds = append(c.xGoogHeaders, hds...)
  	hds = append(hds, "Content-Type", "application/json")
  	headers := gax.BuildHeaders(ctx, hds...)
--	if gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
--		ctx = callctx.WithTelemetryContext(ctx, "resource_name", fmt.Sprintf("//iam-meta-api.googleapis.com/%v", req.GetResource()))
--	}
 -	if gax.IsFeatureEnabled("METRICS") || gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
 -		ctx = callctx.WithTelemetryContext(ctx, "rpc_method", "google.iam.v1.IAMPolicy/GetIamPolicy")
 -		ctx = callctx.WithTelemetryContext(ctx, "url_template", "/v1/{resource=projects/*/locations/*/keyRings/*}:getIamPolicy")
 -	}
-+
  	opts = append((*c.CallOptions).GetIamPolicy[0:len((*c.CallOptions).GetIamPolicy):len((*c.CallOptions).GetIamPolicy)], opts...)
  	unm := protojson.UnmarshalOptions{AllowPartial: true, DiscardUnknown: true}
  	resp := &iampb.Policy{}
-@@ -2156,13 +1944,7 @@ func (c *hsmManagementRESTClient) SetIamPolicy(ctx con
+@@ -2206,10 +1924,6 @@ func (c *hsmManagementRESTClient) SetIamPolicy(ctx con
  	hds = append(c.xGoogHeaders, hds...)
  	hds = append(hds, "Content-Type", "application/json")
  	headers := gax.BuildHeaders(ctx, hds...)
--	if gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
--		ctx = callctx.WithTelemetryContext(ctx, "resource_name", fmt.Sprintf("//iam-meta-api.googleapis.com/%v", req.GetResource()))
--	}
 -	if gax.IsFeatureEnabled("METRICS") || gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
 -		ctx = callctx.WithTelemetryContext(ctx, "rpc_method", "google.iam.v1.IAMPolicy/SetIamPolicy")
 -		ctx = callctx.WithTelemetryContext(ctx, "url_template", "/v1/{resource=projects/*/locations/*/keyRings/*}:setIamPolicy")
 -	}
-+
  	opts = append((*c.CallOptions).SetIamPolicy[0:len((*c.CallOptions).SetIamPolicy):len((*c.CallOptions).SetIamPolicy)], opts...)
  	unm := protojson.UnmarshalOptions{AllowPartial: true, DiscardUnknown: true}
  	resp := &iampb.Policy{}
-@@ -2225,13 +2007,7 @@ func (c *hsmManagementRESTClient) TestIamPermissions(c
+@@ -2272,10 +1986,6 @@ func (c *hsmManagementRESTClient) TestIamPermissions(c
  	hds = append(c.xGoogHeaders, hds...)
  	hds = append(hds, "Content-Type", "application/json")
  	headers := gax.BuildHeaders(ctx, hds...)
--	if gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
--		ctx = callctx.WithTelemetryContext(ctx, "resource_name", fmt.Sprintf("//iam-meta-api.googleapis.com/%v", req.GetResource()))
--	}
 -	if gax.IsFeatureEnabled("METRICS") || gax.IsFeatureEnabled("TRACING") || gax.IsFeatureEnabled("LOGGING") {
 -		ctx = callctx.WithTelemetryContext(ctx, "rpc_method", "google.iam.v1.IAMPolicy/TestIamPermissions")
 -		ctx = callctx.WithTelemetryContext(ctx, "url_template", "/v1/{resource=projects/*/locations/*/keyRings/*}:testIamPermissions")
 -	}
-+
  	opts = append((*c.CallOptions).TestIamPermissions[0:len((*c.CallOptions).TestIamPermissions):len((*c.CallOptions).TestIamPermissions)], opts...)
  	unm := protojson.UnmarshalOptions{AllowPartial: true, DiscardUnknown: true}
  	resp := &iampb.TestIamPermissionsResponse{}
-@@ -2282,10 +2058,7 @@ func (c *hsmManagementRESTClient) GetOperation(ctx con
+@@ -2326,10 +2036,7 @@ func (c *hsmManagementRESTClient) GetOperation(ctx con
  	hds = append(c.xGoogHeaders, hds...)
  	hds = append(hds, "Content-Type", "application/json")
  	headers := gax.BuildHeaders(ctx, hds...)
