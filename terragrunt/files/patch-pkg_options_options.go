@@ -5,10 +5,10 @@
  	"github.com/gruntwork-io/terragrunt/internal/strict"
  	"github.com/gruntwork-io/terragrunt/internal/strict/controls"
 -	"github.com/gruntwork-io/terragrunt/internal/telemetry"
- 	"github.com/gruntwork-io/terragrunt/internal/tfimpl"
  	"github.com/gruntwork-io/terragrunt/internal/tips"
  	"github.com/gruntwork-io/terragrunt/internal/util"
-@@ -90,8 +89,6 @@ type TerragruntOptions struct {
+ 	"github.com/gruntwork-io/terragrunt/internal/vfs"
+@@ -81,8 +80,6 @@ type TerragruntOptions struct {
  	EngineConfig *engine.EngineConfig
  	// EngineOptions groups CLI-supplied engine options.
  	EngineOptions *engine.EngineOptions
@@ -16,8 +16,8 @@
 -	Telemetry *telemetry.Options
  	// Attributes to override in AWS provider nested within modules as part of the aws-provider-patch command.
  	AwsProviderPatchOverrides map[string]string
- 	// Version of terraform (obtained by running 'terraform version')
-@@ -367,7 +364,6 @@ func NewTerragruntOptions(e vexec.Exec) *TerragruntOpt
+ 	// Errors is a configuration for error handling.
+@@ -356,7 +353,6 @@ func NewTerragruntOptions() *TerragruntOptions {
  		StrictControls:         controls.New(),
  		Experiments:            experiment.NewExperiments(),
  		Tips:                   tips.NewTips(),

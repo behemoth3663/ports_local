@@ -18,7 +18,7 @@
  github.com/gruntwork-io/boilerplate v0.17.0 h1:ld33t+X6j5wd1ddYKEM3sX0HCiuSPY92a3uAu9EVcQs=
  github.com/gruntwork-io/boilerplate v0.17.0/go.mod h1:U/+aiGF/c8GDA/s/y50hBevlo8Bc/0zUCSWfhuWI5w0=
  github.com/gruntwork-io/terragrunt-engine-go v0.2.0 h1:LEZelI6sZ4B3L9lEL2Nu1wzw7ZscXSu6KtfJKPlPAZU=
-@@ -661,8 +657,6 @@ go.opentelemetry.io/auto/sdk v1.2.1/go.mod h1:KRTj+aOa
+@@ -657,8 +653,6 @@ go.opentelemetry.io/auto/sdk v1.2.1/go.mod h1:KRTj+aOa
  go.mongodb.org/mongo-driver v1.17.9/go.mod h1:LlOhpH5NUEfhxcAwG0UEkMqwYcc4JU18gtCdGudk/tQ=
  go.opentelemetry.io/auto/sdk v1.2.1 h1:jXsnJ4Lmnqd11kwkBV2LgLoFMZKizbCi5fNZ/ipaZ64=
  go.opentelemetry.io/auto/sdk v1.2.1/go.mod h1:KRTj+aOaElaLi+wW1kO/DZRXwkF4C5xPbEe3ZiIhN7Y=
@@ -27,7 +27,7 @@
  go.opentelemetry.io/contrib/detectors/gcp v1.45.0 h1:9jR0ZPRok9ryaOQ2Wx8rg5F7Aon59mxrqbVI60/vlBk=
  go.opentelemetry.io/contrib/detectors/gcp v1.45.0/go.mod h1:VSme3o2fvSg5bVg0dRzyHaj4Z5EVhG+g2Fde6LKzmQA=
  go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.72.0 h1:Tq+E65HaNbZTeqcLw6QUhsV+/EIWdkfUH2CQzcrlE5M=
-@@ -671,48 +665,20 @@ go.opentelemetry.io/otel v1.47.0/go.mod h1:8wS9O2qfXrY
+@@ -667,48 +661,20 @@ go.opentelemetry.io/otel v1.47.0/go.mod h1:8wS9O2qfXrY
  go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.72.0/go.mod h1:tOsftB4SslBwwErVEPaenU2RpThXWPIU8DoJHEC4dyw=
  go.opentelemetry.io/otel v1.47.0 h1:j7ALJ/zgkS7Z6aeJW09p8VC9804bC+PpeTfCD4XPnOM=
  go.opentelemetry.io/otel v1.47.0/go.mod h1:8wS9O2qfXrYrzp6hIF/HOYJJf/wIhFPhR2xLuP+iXQU=

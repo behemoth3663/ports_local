@@ -5,14 +5,16 @@
  	pcoptions "github.com/gruntwork-io/terragrunt/internal/providercache/options"
  	"github.com/gruntwork-io/terragrunt/internal/strict"
 -	"github.com/gruntwork-io/terragrunt/internal/telemetry"
- 	"github.com/gruntwork-io/terragrunt/internal/tfimpl"
  	"github.com/gruntwork-io/terragrunt/internal/util"
  	"github.com/gruntwork-io/terragrunt/internal/venv"
-@@ -42,7 +41,6 @@ type ParsingContext struct {
- 	FeatureFlags map[string]string
+ 	"github.com/gruntwork-io/terragrunt/pkg/config/hclparse"
+@@ -142,9 +141,6 @@ type RunSettings struct {
  
- 	FilesRead *FilesRead
+ 	// FeatureFlags contains explicit feature flag overrides supplied by the user.
+ 	FeatureFlags map[string]string
+-
+-	// Telemetry configures the run's traces and metrics.
 -	Telemetry *telemetry.Options
  
- 	DecodedDependencies *cty.Value
- 	Values              *cty.Value
+ 	// SourceMap replaces the prefix of a terraform source URL, from the --source-map flag.
+ 	SourceMap map[string]string

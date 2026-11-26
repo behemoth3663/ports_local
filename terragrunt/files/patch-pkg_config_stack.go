@@ -1,6 +1,6 @@
 --- pkg/config/stack.go.orig	1979-11-29 21:00:00 UTC
 +++ pkg/config/stack.go
-@@ -19,7 +19,6 @@ import (
+@@ -22,7 +22,6 @@ import (
  	"github.com/gruntwork-io/terragrunt/internal/spinner"
  	"github.com/gruntwork-io/terragrunt/internal/strict"
  	"github.com/gruntwork-io/terragrunt/internal/strict/controls"
@@ -8,7 +8,7 @@
  	"github.com/gruntwork-io/terragrunt/internal/tf"
  	"github.com/gruntwork-io/terragrunt/internal/venv"
  	"github.com/gruntwork-io/terragrunt/internal/vfs"
-@@ -589,17 +588,9 @@ func generateUnits(
+@@ -613,17 +612,9 @@ func generateUnits(
  				util.RelPathForLog(opts.rootWorkingDir, opts.sourceFile, opts.logShowAbsPaths),
  			)
  
@@ -29,7 +29,7 @@
  		})
  	}
  
-@@ -644,17 +635,9 @@ func generateStacks(
+@@ -669,17 +660,9 @@ func generateStacks(
  				util.RelPathForLog(opts.rootWorkingDir, opts.sourceFile, opts.logShowAbsPaths),
  			)
  
@@ -50,15 +50,15 @@
  		})
  	}
  
-@@ -952,11 +935,6 @@ func fetchComponentSource(
- 			cmp.name,
- 			casErr,
- 		)
--		cas.RecordFallback(ctx, l, cas.FallbackReasonStackGenerationError, map[string]any{
--			"kind":   kindStr,
--			"name":   cmp.name,
--			"source": source,
--		})
- 	}
+@@ -1129,11 +1112,6 @@ func fetchComponentSource(
+ 		cmp.name,
+ 		casErr,
+ 	)
+-	cas.RecordFallback(ctx, l, cas.FallbackReasonStackGenerationError, map[string]any{
+-		"kind":   kindStr,
+-		"name":   cmp.name,
+-		"source": source,
+-	})
  
- 	cp := componentCopy{identifier: cmp.name, sourceDir: cmp.sourceDir, src: source, dest: dest}
+ 	return nil
+ }

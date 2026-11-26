@@ -1,22 +1,23 @@
 --- internal/runner/runner.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/runner/runner.go
-@@ -28,15 +28,12 @@ import (
+@@ -27,16 +27,12 @@ import (
  	"github.com/gruntwork-io/terragrunt/internal/queue"
  	"github.com/gruntwork-io/terragrunt/internal/report"
  	"github.com/gruntwork-io/terragrunt/internal/runner/run/creds"
 -	"github.com/gruntwork-io/terragrunt/internal/telemetry"
+ 	"github.com/gruntwork-io/terragrunt/internal/tips"
  	"github.com/gruntwork-io/terragrunt/internal/view/dag"
  	"github.com/gruntwork-io/terragrunt/pkg/config"
  	"github.com/gruntwork-io/terragrunt/pkg/log"
  	"github.com/gruntwork-io/terragrunt/pkg/log/format/placeholders"
  	"github.com/gruntwork-io/terragrunt/pkg/options"
- 
+-
 -	"go.opentelemetry.io/otel/attribute"
 -	"go.opentelemetry.io/otel/trace"
  )
  
  // Seen together in a unit's plan stderr, these mean the unit failed because a
-@@ -444,17 +441,8 @@ func (rnr *Runner) Run(
+@@ -444,17 +440,8 @@ func (rnr *Runner) Run(
  		}
  
  		unitPath := u.Path()
@@ -35,7 +36,7 @@
  				l.Debugf(
  					"Runner Pool Task: starting unit=%s command=%s",
  					unitPath,
-@@ -504,25 +492,13 @@ func (rnr *Runner) Run(
+@@ -504,28 +491,17 @@ func (rnr *Runner) Run(
  
  				var cfg *config.TerragruntConfig
  
@@ -45,30 +46,30 @@
 -						"unit_name":              unitName,
 -						"terragrunt_config_path": unitOpts.TerragruntConfigPath,
 -					}, func(readCtx context.Context, unitLogger log.Logger) error {
--						pctx := configbridge.NewParsingContext(unitOpts)
+ 						pctx := configbridge.NewParsingContext(unitOpts)
 -
 -						var readErr error
 -
 -						cfg, readErr = s.ReadTerragruntConfig(
 -							readCtx,
--							unitLogger,
--							unitV,
--							pctx,
--						)
--
--						return readErr
++						cfg, err = s.ReadTerragruntConfig(
++							childCtx,
+ 							unitLogger,
+ 							unitV,
+ 							pctx,
+ 						)
+-						if readErr != nil {
+-							return readErr
++						if err == nil {
++							err = tips.GiveOutputsBlockTips(childCtx, unitLogger, unitV, s, pctx, cfg, unitOpts.Tips)
+ 						}
+ 
+-						return tips.GiveOutputsBlockTips(readCtx, unitLogger, unitV, s, pctx, cfg, unitOpts.Tips)
 -					})
-+				pctx := configbridge.NewParsingContext(unitOpts)
-+				cfg, err = s.ReadTerragruntConfig(
-+					childCtx,
-+					unitLogger,
-+					unitV,
-+					pctx,
-+				)
  				if err != nil {
  					logTaskOutcome(childCtx, l, unitPath, unitOpts.TofuCommand, err)
  
-@@ -540,25 +516,18 @@ func (rnr *Runner) Run(
+@@ -557,17 +533,10 @@ func (rnr *Runner) Run(
  
  				runCfg := cfg.ToRunConfig(unitLogger, unitV.FS)
  
@@ -80,32 +81,27 @@
 -					}, func(runCtx context.Context, unitLogger log.Logger) error {
 -						unlockOutputs := config.LockDependencyOutputs(runCtx, unitOpts.TerragruntConfigPath)
 -						defer unlockOutputs()
-+				unlockOutputs := config.LockDependencyOutputs(childCtx, unitOpts.TerragruntConfigPath)
-+				defer unlockOutputs()
++						unlockOutputs := config.LockDependencyOutputs(childCtx, unitOpts.TerragruntConfigPath)
  
 -						return unitRunner.Run(
 -							runCtx,
--							unitLogger,
--							unitV,
--							unitOpts,
--							r,
--							runCfg,
--							credsGetter,
--						)
++						err = unitRunner.Run(
++							childCtx,
+ 							unitLogger,
+ 							unitV,
+ 							unitOpts,
+@@ -576,8 +545,9 @@ func (rnr *Runner) Run(
+ 							runCfg,
+ 							credsGetter,
+ 						)
 -					})
-+				err = unitRunner.Run(
-+					childCtx,
-+					unitLogger,
-+					unitV,
-+					unitOpts,
-+					r,
-+					runCfg,
-+					credsGetter,
-+				)
  
++						unlockOutputs()
++
  				// This unit's terraform commands are all done, so release its engine now
  				// instead of holding it until the batch Shutdown. Skip units that another
-@@ -586,7 +555,7 @@ func (rnr *Runner) Run(
+ 				// in-run unit depends on: that dependent re-reads this unit's outputs through
+@@ -604,7 +574,7 @@ func (rnr *Runner) Run(
  				logTaskOutcome(childCtx, l, unitPath, unitOpts.TofuCommand, err)
  
  				return err
@@ -114,8 +110,8 @@
  	}
  
  	rnr.queue.FailFast = stackOpts.FailFast
-@@ -968,18 +937,12 @@ func collectDependenciesBounded(unit *component.Unit, 
- 	}
+@@ -976,18 +946,12 @@ func reachableDependencies(unit *component.Unit) []str
+ 	return paths
  }
  
 -// logTaskOutcome stamps the task outcome on the active span and emits a debug log,

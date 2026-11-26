@@ -8,7 +8,7 @@
  	"github.com/gruntwork-io/terragrunt/internal/venv"
  	"github.com/gruntwork-io/terragrunt/internal/vfs"
  	"github.com/gruntwork-io/terragrunt/pkg/config"
-@@ -140,11 +139,7 @@ func (w *Worktrees) Cleanup(ctx context.Context, l log
+@@ -140,12 +139,8 @@ func (w *Worktrees) Cleanup(ctx context.Context, l log
  
  	gitRunner = gitRunner.WithWorkDir(w.OriginalWorkingDir)
  
@@ -17,11 +17,13 @@
 -		len(w.WorktreePairs),
 -		gitRunner.GetRemoteURL(ctx),
 -		func(ctx context.Context) error {
+-			g, groupCtx := errgroup.WithContext(ctx)
 +	return func(ctx context.Context) error {
- 			g, groupCtx := errgroup.WithContext(ctx)
++			g, ctx := errgroup.WithContext(ctx)
  			// Every worktree was created under the same temporary directory, so
  			// the first one's filesystem sizes removal for all of them.
-@@ -162,14 +157,7 @@ func (w *Worktrees) Cleanup(ctx context.Context, l log
+ 			g.SetLimit(min(vfs.FSWorkersFor(v.FS, toRemove[0].Path), len(toRemove)))
+@@ -164,11 +159,6 @@ func (w *Worktrees) Cleanup(ctx context.Context, l log
  						return nil
  					}
  
@@ -30,14 +32,24 @@
 -						worktree.Ref,
 -						worktree.Path,
 -						func(ctx context.Context) error {
+ 							if err := v.FS.RemoveAll(worktree.Path); err != nil {
+ 								l.Debugf(
+ 									"Failed to delete worktree directory %s, leaving it to git: %v",
+@@ -181,11 +171,8 @@ func (w *Worktrees) Cleanup(ctx context.Context, l log
+ 							// under `.git/worktrees/`. On Windows it fails with "Permission
+ 							// denied" on an entry a concurrent removal is deleting.
+ 							unregisterMu.Lock()
+-							defer unregisterMu.Unlock()
+-
 -							return gitRunner.RemoveWorktree(ctx, worktree.Path)
 -						},
 -					)
-+					err := gitRunner.RemoveWorktree(groupCtx, worktree.Path)
++							err := gitRunner.RemoveWorktree(ctx, worktree.Path)
++							unregisterMu.Unlock()
  					if err != nil {
  						// If the error is due to the worktree not existing, log and continue
  						// This can happen during parallel test execution or if cleanup runs twice
-@@ -199,8 +187,7 @@ func (w *Worktrees) Cleanup(ctx context.Context, l log
+@@ -215,8 +202,7 @@ func (w *Worktrees) Cleanup(ctx context.Context, l log
  			}
  
  			return g.Wait()
@@ -47,7 +59,7 @@
  }
  
  // worktreesToRemove returns the worktrees Cleanup has to delete, one entry per
-@@ -668,21 +655,13 @@ func surveyGitExpressions(
+@@ -684,21 +670,13 @@ func surveyGitExpressions(
  		g.Go(func() error {
  			var expressionDiffs *git.Diffs
  
@@ -72,7 +84,7 @@
  
  				return nil
  			}
-@@ -769,9 +748,7 @@ func NewWorktrees(
+@@ -785,9 +763,7 @@ func NewWorktrees(
  	repoCommit := gitRunner.GetHeadCommit(ctx)
  
  	// Wrap entire worktree creation process with telemetry
@@ -83,19 +95,28 @@
  			// The survey decides which references get a worktree and how much
  			// of each one is checked out, so it runs before any of them are.
  			var survey *gitSurvey
-@@ -833,7 +810,7 @@ func NewWorktrees(
+@@ -842,14 +818,8 @@ func NewWorktrees(
+ 				return err
  			}
  
+-			for _, gitExpression := range gitExpressions {
+-				if diffs := survey.expansions[gitExpression.String()].diffs; diffs != nil {
+-					recordDiffTelemetry(ctx, diffs)
+-				}
+-			}
+-
  			return nil
 -		})
 +		}(ctx)
  
  	if traceErr != nil && outerErr == nil {
  		l.Warnf("telemetry trace error during worktree creation: %v", traceErr)
-@@ -951,14 +928,8 @@ func recordDiffTelemetry(ctx context.Context, diffs *g
+@@ -968,18 +938,6 @@ func hasUnitConfigBeside(toTree git.TreePaths, diffPat
+ 		toTree.Has(path.Join(dir, config.DefaultTerragruntJSONConfigPath))
+ }
  
- // recordDiffTelemetry records telemetry metrics for git diff results.
- func recordDiffTelemetry(ctx context.Context, diffs *git.Diffs) {
+-// recordDiffTelemetry records telemetry metrics for git diff results.
+-func recordDiffTelemetry(ctx context.Context, diffs *git.Diffs) {
 -	telemeter := telemetry.TelemeterFromContext(ctx)
 -	if telemeter == nil || telemeter.Meter == nil {
 -		return
@@ -104,12 +125,12 @@
 -	telemeter.Count(ctx, "git_diff_files_added", int64(len(diffs.Added)))
 -	telemeter.Count(ctx, "git_diff_files_removed", int64(len(diffs.Removed)))
 -	telemeter.Count(ctx, "git_diff_files_changed", int64(len(diffs.Changed)))
-+	_ = ctx
-+	_ = diffs
- }
- 
+-}
+-
  // createGitWorktrees creates detached worktrees for each unique Git reference needed by filters.
-@@ -1077,11 +1048,7 @@ func createGitWorktree(
+ // The worktrees are created in temporary directories and tracked in refsToPaths.
+ //
+@@ -1096,11 +1054,7 @@ func createGitWorktree(
  		return "", err
  	}
  

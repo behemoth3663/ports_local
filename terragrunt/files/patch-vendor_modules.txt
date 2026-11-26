@@ -1,6 +1,6 @@
---- vendor/modules.txt.orig	2026-11-15 15:07:05 UTC
+--- vendor/modules.txt.orig	2026-11-26 21:05:50 UTC
 +++ vendor/modules.txt
-@@ -521,9 +521,6 @@ github.com/cenkalti/backoff/v4
+@@ -527,9 +527,6 @@ github.com/cenkalti/backoff/v4
  # github.com/cenkalti/backoff/v4 v4.3.0
  ## explicit; go 1.18
  github.com/cenkalti/backoff/v4
@@ -10,7 +10,7 @@
  # github.com/cespare/xxhash/v2 v2.3.0
  ## explicit; go 1.11
  github.com/cespare/xxhash/v2
-@@ -887,11 +884,6 @@ github.com/goware/prefixer
+@@ -897,11 +894,6 @@ github.com/goware/prefixer
  # github.com/goware/prefixer v0.0.0-20160118172347-395022866408
  ## explicit
  github.com/goware/prefixer
@@ -22,7 +22,7 @@
  # github.com/gruntwork-io/boilerplate v0.17.0
  ## explicit; go 1.26.0
  github.com/gruntwork-io/boilerplate/config
-@@ -1422,9 +1414,6 @@ go.opentelemetry.io/auto/sdk/internal/telemetry
+@@ -1429,9 +1421,6 @@ go.opentelemetry.io/auto/sdk/internal/telemetry
  ## explicit; go 1.24.0
  go.opentelemetry.io/auto/sdk
  go.opentelemetry.io/auto/sdk/internal/telemetry
@@ -32,7 +32,7 @@
  # go.opentelemetry.io/contrib/detectors/gcp v1.45.0
  ## explicit; go 1.25.0
  go.opentelemetry.io/contrib/detectors/gcp
-@@ -1457,95 +1446,12 @@ go.opentelemetry.io/otel/semconv/v1.43.0/rpcconv
+@@ -1464,95 +1453,12 @@ go.opentelemetry.io/otel/semconv/v1.43.0/rpcconv
  go.opentelemetry.io/otel/semconv/v1.43.0/httpconv
  go.opentelemetry.io/otel/semconv/v1.43.0/otelconv
  go.opentelemetry.io/otel/semconv/v1.43.0/rpcconv
@@ -128,7 +128,7 @@
  # go.opentelemetry.io/otel/metric v1.47.0
  ## explicit; go 1.26.0
  go.opentelemetry.io/otel/metric
-@@ -1558,17 +1464,6 @@ go.opentelemetry.io/otel/sdk/resource
+@@ -1565,17 +1471,6 @@ go.opentelemetry.io/otel/sdk/resource
  go.opentelemetry.io/otel/sdk/internal/attrnorm
  go.opentelemetry.io/otel/sdk/internal/x
  go.opentelemetry.io/otel/sdk/resource
@@ -146,7 +146,7 @@
  # go.opentelemetry.io/otel/sdk/metric v1.47.0
  ## explicit; go 1.26.0
  go.opentelemetry.io/otel/sdk/metric
-@@ -1586,16 +1481,6 @@ go.opentelemetry.io/otel/trace/noop
+@@ -1593,16 +1488,6 @@ go.opentelemetry.io/otel/trace/noop
  go.opentelemetry.io/otel/trace/embedded
  go.opentelemetry.io/otel/trace/internal/telemetry
  go.opentelemetry.io/otel/trace/noop
@@ -163,7 +163,7 @@
  # go.uber.org/mock v0.6.0
  ## explicit; go 1.23.0
  go.uber.org/mock/gomock
-@@ -1760,7 +1645,6 @@ google.golang.org/genproto/googleapis/api/expr/v1alpha
+@@ -1767,7 +1652,6 @@ google.golang.org/genproto/googleapis/api/expr/v1alpha
  google.golang.org/genproto/googleapis/api/annotations
  google.golang.org/genproto/googleapis/api/distribution
  google.golang.org/genproto/googleapis/api/expr/v1alpha1

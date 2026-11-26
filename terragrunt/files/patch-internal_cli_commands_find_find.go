@@ -1,14 +1,14 @@
 --- internal/cli/commands/find/find.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/cli/commands/find/find.go
-@@ -9,7 +9,6 @@ import (
+@@ -8,7 +8,6 @@ import (
+ 	"path/filepath"
  	"strings"
  
- 	rewrite "github.com/gruntwork-io/terragrunt/internal/config/rewrite"
 -	"github.com/gruntwork-io/terragrunt/internal/telemetry"
  	"github.com/gruntwork-io/terragrunt/pkg/log"
  
  	"errors"
-@@ -19,7 +18,6 @@ import (
+@@ -18,7 +17,6 @@ import (
  	"github.com/gruntwork-io/terragrunt/internal/discovery"
  	"github.com/gruntwork-io/terragrunt/internal/os/stdout"
  	"github.com/gruntwork-io/terragrunt/internal/queue"
@@ -16,13 +16,13 @@
  	"github.com/gruntwork-io/terragrunt/internal/venv"
  	"github.com/gruntwork-io/terragrunt/pkg/config"
  
-@@ -54,51 +52,24 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
+@@ -53,60 +51,22 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
  
  	var (
  		components  component.Components
 -		discoverErr error
  	)
- 
+-
 -	telemetryErr := telemetry.TelemeterFromContext(ctx).
 -		Collect(ctx, l, "find_discover", map[string]any{
 -			"working_dir":  opts.WorkingDir,
@@ -45,6 +45,12 @@
 -			return discoverErr
 -		})
 -	if telemetryErr != nil {
+-		// Discover returns no components with this error, so logging it
+-		// and carrying on would print an empty result.
+-		if coexistenceErr, ok := errors.AsType[discovery.CoexistenceError](telemetryErr); ok {
+-			return coexistenceErr
+-		}
+-
 -		l.Debugf("Errors encountered while discovering components:\n%s", telemetryErr)
 +	if err != nil {
 +		l.Debugf("Errors encountered while discovering components:\n%s", err)
@@ -61,22 +67,22 @@
 -			q, queueErr := queue.NewQueue(components)
 -			if queueErr != nil {
 -				return queueErr
--			}
-+		q, queueErr := queue.NewQueue(components)
-+		if queueErr != nil {
-+			return queueErr
-+		}
++			q, err := queue.NewQueue(components)
++			if err != nil {
++				return err
+ 			}
  
--			components = q.Components()
+ 			components = q.Components()
 -
 -			return nil
 -		})
-+		components = q.Components()
-+		err = nil
- 		if err != nil {
- 			return err
- 		}
-@@ -110,15 +81,8 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
+-		if err != nil {
+-			return err
+-		}
+ 	default:
+ 		// This should never happen, because of validation in the command.
+ 		// If it happens, we want to throw so we can fix the validation.
+@@ -115,15 +75,8 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
  
  	var foundComponents FoundComponents
  

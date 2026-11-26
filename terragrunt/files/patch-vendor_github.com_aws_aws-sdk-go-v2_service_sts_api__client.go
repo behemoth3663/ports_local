@@ -1,14 +1,14 @@
---- vendor/github.com/aws/aws-sdk-go-v2/service/sts/api_client.go.orig	2026-11-15 15:04:53 UTC
+--- vendor/github.com/aws/aws-sdk-go-v2/service/sts/api_client.go.orig	2026-11-26 21:11:26 UTC
 +++ vendor/github.com/aws/aws-sdk-go-v2/service/sts/api_client.go
-@@ -25,7 +25,6 @@ import (
+@@ -26,7 +26,6 @@ import (
  	"github.com/aws/smithy-go/logging"
  	"github.com/aws/smithy-go/metrics"
  	"github.com/aws/smithy-go/middleware"
 -	"github.com/aws/smithy-go/tracing"
  	smithyhttp "github.com/aws/smithy-go/transport/http"
+ 	"github.com/aws/smithy-go/transport/http/protocol/awsquery"
  	"net"
- 	"net/http"
-@@ -178,10 +177,6 @@ func getOperationMetrics(ctx context.Context) *operati
+@@ -180,10 +179,6 @@ func getOperationMetrics(ctx context.Context) *operati
  	return nil
  }
  
@@ -19,7 +19,7 @@
  // Client provides the API client to make operations call for AWS Security Token
  // Service.
  type Client struct {
-@@ -294,36 +289,18 @@ func (c *Client) invokeOperation(
+@@ -298,36 +293,18 @@ func (c *Client) invokeOperation(
  		return nil, metadata, err
  	}
  
@@ -57,7 +57,7 @@
  
  		err = &smithy.OperationError{
  			ServiceID:     ServiceID,
-@@ -331,14 +308,10 @@ func (c *Client) invokeOperation(
+@@ -335,14 +312,10 @@ func (c *Client) invokeOperation(
  			Err:           err,
  		}
  	}
@@ -75,7 +75,36 @@
  	return result, metadata, err
  }
  
-@@ -832,7 +805,7 @@ func resolveTracerProvider(options *Options) {
+@@ -469,13 +442,11 @@ func (m *serializeRequestMiddleware) HandleSerialize(
+ 		return middleware.SerializeOutput{}, middleware.Metadata{}, fmt.Errorf("input %T is not Serializable", in.Request)
+ 	}
+ 
+-	_, span := tracing.StartSpan(ctx, "OperationSerializer")
+ 	endTimer := startMetricTimer(ctx, "client.call.serialization_duration")
+ 
+ 	err := m.options.Protocol.SerializeRequest(ctx, m.operationSchema, input, req)
+ 
+ 	endTimer()
+-	span.End()
+ 
+ 	if err != nil {
+ 		return middleware.SerializeOutput{}, middleware.Metadata{}, err
+@@ -529,14 +500,12 @@ func (m *deserializeResponseMiddleware) HandleDeserial
+ 		return out, md, err
+ 	}
+ 
+-	_, span := tracing.StartSpan(ctx, "OperationDeserializer")
+ 	endTimer := startMetricTimer(ctx, "client.call.deserialization_duration")
+ 
+ 	err = m.options.Protocol.DeserializeResponse(ctx, m.operationSchema, TypeRegistry, resp, m.output)
+ 	out.Result = m.output
+ 
+ 	endTimer()
+-	span.End()
+ 
+ 	return out, md, err
+ }
+@@ -932,7 +901,7 @@ func resolveTracerProvider(options *Options) {
  
  func resolveTracerProvider(options *Options) {
  	if options.TracerProvider == nil {

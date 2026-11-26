@@ -1,4 +1,4 @@
---- vendor/github.com/envoyproxy/go-control-plane/envoy/config/route/v3/route_components.pb.go.orig	2026-11-15 15:04:54 UTC
+--- vendor/github.com/envoyproxy/go-control-plane/envoy/config/route/v3/route_components.pb.go.orig	2026-11-26 20:51:49 UTC
 +++ vendor/github.com/envoyproxy/go-control-plane/envoy/config/route/v3/route_components.pb.go
 @@ -14,7 +14,6 @@ import (
  	v31 "github.com/envoyproxy/go-control-plane/envoy/config/core/v3"
@@ -8,7 +8,7 @@
  	v33 "github.com/envoyproxy/go-control-plane/envoy/type/v3"
  	_ "github.com/envoyproxy/protoc-gen-validate/validate"
  	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
-@@ -3349,7 +3348,7 @@ type Tracing struct {
+@@ -3471,7 +3470,7 @@ type Tracing struct {
  	// configured in the HTTP connection manager. If two tags with the same name are configured
  	// each in the HTTP connection manager and the route level, the one configured here takes
  	// priority.
@@ -17,7 +17,7 @@
  	// The operation name of the span which will be used for tracing.
  	//
  	// The same :ref:`format specifier <config_access_log_format>` as used for
-@@ -3431,7 +3430,7 @@ func (x *Tracing) GetOverallSampling() *v33.Fractional
+@@ -3553,7 +3552,7 @@ func (x *Tracing) GetOverallSampling() *v33.Fractional
  	return nil
  }
  
@@ -26,12 +26,12 @@
  	if x != nil {
  		return x.CustomTags
  	}
-@@ -7888,7 +7887,7 @@ var file_envoy_config_route_v3_route_components_proto_
- 	(*v33.FractionalPercent)(nil),                       // 83: envoy.type.v3.FractionalPercent
- 	(*v31.DataSource)(nil),                              // 84: envoy.config.core.v3.DataSource
- 	(*v31.SubstitutionFormatString)(nil),                // 85: envoy.config.core.v3.SubstitutionFormatString
--	(*v34.CustomTag)(nil),                               // 86: envoy.type.tracing.v3.CustomTag
+@@ -8251,7 +8250,7 @@ var file_envoy_config_route_v3_route_components_proto_
+ 	(*v33.FractionalPercent)(nil),                       // 86: envoy.type.v3.FractionalPercent
+ 	(*v31.DataSource)(nil),                              // 87: envoy.config.core.v3.DataSource
+ 	(*v31.SubstitutionFormatString)(nil),                // 88: envoy.config.core.v3.SubstitutionFormatString
+-	(*v34.CustomTag)(nil),                               // 89: envoy.type.tracing.v3.CustomTag
 +	(*anypb.Any)(nil),                                   // 86: envoy.type.tracing.v3.CustomTag
- 	(*v33.Int64Range)(nil),                              // 87: envoy.type.v3.Int64Range
- 	(*v35.HeaderMutation)(nil),                          // 88: envoy.config.common.mutation_rules.v3.HeaderMutation
- 	(*v31.ProxyProtocolConfig)(nil),                     // 89: envoy.config.core.v3.ProxyProtocolConfig
+ 	(*v33.Int64Range)(nil),                              // 90: envoy.type.v3.Int64Range
+ 	(*v35.HeaderMutation)(nil),                          // 91: envoy.config.common.mutation_rules.v3.HeaderMutation
+ 	(*v31.ProxyProtocolConfig)(nil),                     // 92: envoy.config.core.v3.ProxyProtocolConfig

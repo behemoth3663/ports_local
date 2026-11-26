@@ -5,12 +5,12 @@
  	"github.com/gruntwork-io/terragrunt/internal/cli/commands/browse/tui"
  	"github.com/gruntwork-io/terragrunt/internal/cli/commands/discoverysetup"
 -	"github.com/gruntwork-io/terragrunt/internal/component"
- 	rewrite "github.com/gruntwork-io/terragrunt/internal/config/rewrite"
  	"github.com/gruntwork-io/terragrunt/internal/discovery"
  	"github.com/gruntwork-io/terragrunt/internal/os/stdout"
 -	"github.com/gruntwork-io/terragrunt/internal/telemetry"
  	"github.com/gruntwork-io/terragrunt/internal/venv"
  	viewtui "github.com/gruntwork-io/terragrunt/internal/view/tui"
+ 	"github.com/gruntwork-io/terragrunt/pkg/config"
  	"github.com/gruntwork-io/terragrunt/pkg/log"
 -
 -	"go.opentelemetry.io/otel/attribute"

@@ -5,10 +5,10 @@
  	"github.com/gruntwork-io/terragrunt/internal/runner/run/creds/providers/externalcmd"
  	"github.com/gruntwork-io/terragrunt/internal/runner/runcfg"
 -	"github.com/gruntwork-io/terragrunt/internal/telemetry"
+ 	"github.com/gruntwork-io/terragrunt/internal/tfimpl"
  	"github.com/gruntwork-io/terragrunt/internal/util"
  	"github.com/gruntwork-io/terragrunt/internal/venv"
- 	"github.com/gruntwork-io/terragrunt/pkg/config"
-@@ -177,22 +176,16 @@ func PrepareSource(
+@@ -184,22 +183,16 @@ func PrepareSource(
  
  	var updatedRunOpts *run.Options
  
@@ -39,5 +39,5 @@
 +		r,
 +	)
  	if err != nil {
- 		return nil, err
+ 		return nil, impl, err
  	}

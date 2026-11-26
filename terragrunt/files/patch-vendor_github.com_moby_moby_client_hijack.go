@@ -1,4 +1,4 @@
---- vendor/github.com/moby/moby/client/hijack.go.orig	2026-11-15 15:04:54 UTC
+--- vendor/github.com/moby/moby/client/hijack.go.orig	2026-11-26 20:53:59 UTC
 +++ vendor/github.com/moby/moby/client/hijack.go
 @@ -8,8 +8,6 @@ import (
  	"net/http"
@@ -9,12 +9,22 @@
  )
  
  // postHijacked sends a POST request and hijacks the connection.
-@@ -70,7 +68,7 @@ func setupHijackConn(dialer func(context.Context) (net
- 	hc := &hijackedConn{conn, bufio.NewReader(conn)}
+@@ -86,17 +84,8 @@ func (cli *Client) setupHijackConn(req *http.Request, 
  
- 	// Server hijacks the connection, error 'connection closed' expected
--	resp, err := otelhttp.NewTransport(hc).RoundTrip(req)
+ 	cfg := &cli.clientConfig
+ 
+-	var rt http.RoundTripper = otelhttp.NewTransport(hc, cli.traceOpts...)
+-	if len(cfg.requestHooks) > 0 || len(cfg.responseHooks) > 0 {
+-		rt = &hookTransport{
+-			base:      rt,
+-			reqHooks:  cfg.requestHooks,
+-			respHooks: cfg.responseHooks,
+-		}
+-	}
 +	resp, err := hc.RoundTrip(req)
+ 
+-	// Server hijacks the connection, error 'connection closed' expected
+-	resp, err := rt.RoundTrip(req)
  	if err != nil {
  		return nil, "", err
  	}

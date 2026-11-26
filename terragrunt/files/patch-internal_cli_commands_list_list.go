@@ -1,16 +1,17 @@
 --- internal/cli/commands/list/list.go.orig	1979-11-29 21:00:00 UTC
 +++ internal/cli/commands/list/list.go
-@@ -10,7 +10,6 @@ import (
+@@ -9,8 +9,6 @@ import (
+ 	"sort"
  	"strings"
  
- 	rewrite "github.com/gruntwork-io/terragrunt/internal/config/rewrite"
 -	"github.com/gruntwork-io/terragrunt/internal/telemetry"
- 
+-
  	"errors"
  
-@@ -24,9 +23,6 @@ import (
- 	"github.com/gruntwork-io/terragrunt/internal/venv"
+ 	"charm.land/lipgloss/v2/tree"
+@@ -24,9 +22,6 @@ import (
  	"github.com/gruntwork-io/terragrunt/internal/view/dag"
+ 	"github.com/gruntwork-io/terragrunt/pkg/config"
  	"github.com/gruntwork-io/terragrunt/pkg/log"
 -
 -	"go.opentelemetry.io/otel/attribute"
@@ -18,7 +19,7 @@
  )
  
  // Run runs the list command.
-@@ -52,33 +48,15 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
+@@ -52,33 +47,15 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
  		return err
  	}
  
@@ -59,8 +60,8 @@
 +		return err
  	})
  	if err != nil {
- 		l.Debugf("Errors encountered while discovering components:\n%s", err)
-@@ -88,22 +66,12 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
+ 		// Discover returns no components with this error, so logging it
+@@ -94,22 +71,12 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
  	case ModeNormal:
  		components = components.Sort()
  	case ModeDAG:
@@ -88,7 +89,7 @@
  	default:
  		// This should never happen, because of validation in the command.
  		// If it happens, we want to throw so we can fix the validation.
-@@ -112,22 +80,7 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
+@@ -118,22 +85,7 @@ func Run(ctx context.Context, l log.Logger, v *venv.Ve
  
  	var listedComponents dag.ListedComponents
  

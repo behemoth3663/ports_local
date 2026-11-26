@@ -1,6 +1,6 @@
---- vendor/github.com/Azure/azure-sdk-for-go/sdk/azcore/runtime/policy_http_trace.go.orig	2026-11-15 15:04:53 UTC
+--- vendor/github.com/Azure/azure-sdk-for-go/sdk/azcore/runtime/policy_http_trace.go.orig	2026-11-26 21:11:26 UTC
 +++ vendor/github.com/Azure/azure-sdk-for-go/sdk/azcore/runtime/policy_http_trace.go
-@@ -5,138 +5,31 @@ import (
+@@ -5,15 +5,11 @@ import (
  
  import (
  	"context"
@@ -9,44 +9,22 @@
 -	"strings"
  
  	"github.com/Azure/azure-sdk-for-go/sdk/azcore/internal/exported"
+ 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/internal/sanitizer"
 -	"github.com/Azure/azure-sdk-for-go/sdk/azcore/internal/shared"
  	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 -	"github.com/Azure/azure-sdk-for-go/sdk/azcore/tracing"
  )
  
--const (
--	attrHTTPMethod     = "http.method"
--	attrHTTPURL        = "http.url"
--	attrHTTPUserAgent  = "http.user_agent"
--	attrHTTPStatusCode = "http.status_code"
--
--	attrAZClientReqID  = "az.client_request_id"
--	attrAZServiceReqID = "az.service_request_id"
--
--	attrNetPeerName = "net.peer.name"
--)
--
--// newHTTPTracePolicy creates a new instance of the httpTracePolicy.
--//   - allowedQueryParams contains the user-specified query parameters that don't need to be redacted from the trace
- func newHTTPTracePolicy(allowedQueryParams []string) exported.Policy {
--	return &httpTracePolicy{allowedQP: getAllowedQueryParams(allowedQueryParams)}
-+	_ = allowedQueryParams
-+	return &httpTracePolicy{}
- }
+ const (
+@@ -40,57 +36,12 @@ func (h *httpTracePolicy) Do(req *policy.Request) (res
  
--// httpTracePolicy is a policy that creates a trace for the HTTP request and its response
--type httpTracePolicy struct {
--	allowedQP map[string]struct{}
--}
-+type httpTracePolicy struct{}
- 
--// Do implements the pipeline.Policy interfaces for the httpTracePolicy type.
+ // Do implements the pipeline.Policy interfaces for the httpTracePolicy type.
  func (h *httpTracePolicy) Do(req *policy.Request) (resp *http.Response, err error) {
 -	rawTracer := req.Raw().Context().Value(shared.CtxWithTracingTracer{})
 -	if tracer, ok := rawTracer.(tracing.Tracer); ok && tracer.Enabled() {
 -		attributes := []tracing.Attribute{
 -			{Key: attrHTTPMethod, Value: req.Raw().Method},
--			{Key: attrHTTPURL, Value: getSanitizedURL(*req.Raw().URL, h.allowedQP)},
+-			{Key: attrHTTPURL, Value: h.sanitizer.GetSanitizedURL(*req.Raw().URL)},
 -			{Key: attrNetPeerName, Value: req.Raw().URL.Host},
 -		}
 -
@@ -73,38 +51,37 @@
 -					span.SetAttributes(tracing.Attribute{Key: attrAZServiceReqID, Value: reqID})
 -				}
 -			} else if err != nil {
--				span.SetStatus(tracing.SpanStatusError, getSanitizedURLString(err.Error(), req.Raw().URL, h.allowedQP))
+-				span.SetStatus(tracing.SpanStatusError, h.sanitizer.GetSanitizedURLString(err.Error(), req.Raw().URL))
 -			}
 -			span.End()
 -		}()
 -
 -		req = req.WithContext(ctx)
 -	}
--	resp, err = req.Next()
--	return
-+	_ = h
-+	return req.Next()
+-	// Record even when this request's tracing is disabled: a credential request
+-	// can still share URL state with a traced parent operation that reports its error.
+-	sanitizer.RecordURL(req.Raw().Context(), *req.Raw().URL, h.sanitizer)
+ 	resp, err = req.Next()
+ 	return
  }
  
--// StartSpanOptions contains the optional values for StartSpan.
--type StartSpanOptions struct {
+ // StartSpanOptions contains the optional values for StartSpan.
+ type StartSpanOptions struct {
 -	// Kind indicates the kind of Span.
 -	Kind tracing.SpanKind
 -	// Attributes contains key-value pairs of attributes for the span.
 -	Attributes []tracing.Attribute
--}
-+type StartSpanOptions struct{}
+ }
  
--// StartSpan starts a new tracing span.
--// You must call the returned func to terminate the span. Pass the applicable error
--// if the span will exit with an error condition.
--//   - ctx is the parent context of the newly created context
--//   - name is the name of the span. this is typically the fully qualified name of an API ("Client.Method")
--//   - tracer is the client's Tracer for creating spans
--//   - options contains optional values. pass nil to accept any default values
+ // StartSpan starts a new tracing span.
+@@ -100,45 +51,8 @@ type StartSpanOptions struct {
+ //   - name is the name of the span. this is typically the fully qualified name of an API ("Client.Method")
+ //   - tracer is the client's Tracer for creating spans
+ //   - options contains optional values. pass nil to accept any default values
 -func StartSpan(ctx context.Context, name string, tracer tracing.Tracer, options *StartSpanOptions) (context.Context, func(error)) {
 -	if !tracer.Enabled() {
--		return ctx, func(err error) {}
++func StartSpan(ctx context.Context, name string, tracer any, options *StartSpanOptions) (context.Context, func(error)) {
+ 		return ctx, func(err error) {}
 -	}
 -
 -	// we MUST propagate the active tracer before returning so that the trace policy can access it
@@ -141,12 +118,6 @@
 -		}
 -		span.End()
 -	}
-+func StartSpan(ctx context.Context, name string, tracer any, options *StartSpanOptions) (context.Context, func(error)) {
-+	_ = name
-+	_ = tracer
-+	_ = options
-+	return ctx, func(error) {}
  }
  
--// ctxActiveSpan is used as a context key for indicating a SDK client span is in progress.
- type ctxActiveSpan struct{}
+ // ctxActiveSpan is used as a context key for indicating a SDK client span is in progress.
