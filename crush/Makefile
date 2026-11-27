@@ -1,5 +1,5 @@
 PORTNAME=	crush
-PORTVERSION=	0.102.0
+PORTVERSION=	0.103.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local misc devel
 PKGNAMESUFFIX=	-local
@@ -13,7 +13,7 @@ LICENSE_NAME=	Functional Source License, Version 1.1, MIT Future License
 LICENSE_FILE=	${WRKSRC}/LICENSE.md
 LICENSE_PERMS=	dist-mirror pkg-mirror auto-accept
 
-USES=		go:1.27+,modules
+USES=		go:modules
 
 GO_MODULE=	github.com/charmbracelet/${PORTNAME}
 
