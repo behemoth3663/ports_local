@@ -1,5 +1,5 @@
 PORTNAME=	packer
-PORTVERSION=	1.16.2
+PORTVERSION=	1.16.3
 DISTVERSIONPREFIX=	v
 CATEGORIES=	local sysutils
 PKGNAMESUFFIX?=	-local
@@ -15,7 +15,7 @@ LICENSE_FILE=   ${WRKSRC}/LICENSE
 LICENSE_PERMS=  dist-mirror pkg-mirror pkg-sell auto-accept
 
 CPE_VENDOR=	hashicorp
-GO_MODULE=	github.com/hashicorp/packer
+GO_MODULE=	github.com/hashicorp/${PORTNAME}
 
 #CGO_ENABLED=	0
 GO_LDFLAGS+=	-w
@@ -27,6 +27,8 @@ GO_ENV+=	GOEXPERIMENT=norandomizedheapbase64
 PLIST_FILES=	bin/${PORTNAME}
 
 pre-build: .PHONY
+	${RM} -r ${WRKSRC}/vendor/github.com/containerd/log/otel
+	${RM} -r ${WRKSRC}/vendor/github.com/containerd/containerd/v2/pkg/tracing
 	${RM} -r ${WRKSRC}/vendor/github.com/GoogleCloudPlatform
 	${RM} -r ${WRKSRC}/vendor/go.opencensus.io
 	${RM} -r ${WRKSRC}/vendor/go.opentelemetry.io
